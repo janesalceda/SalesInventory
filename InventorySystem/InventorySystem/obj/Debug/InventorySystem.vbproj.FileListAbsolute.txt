@@ -1,0 +1,261 @@
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe.config
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\InventorySystem.pdb
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\InventorySystem.xml
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Resources.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.GenerateResource.cache
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CoreCompileInputs.cache
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.LoginForm.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.MainForm.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddItem.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStocks.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddUser.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SaleReports.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\Barcode.dll
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\Barcode.xml
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CopyComplete
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\IronBarCode.dll
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\System.Drawing.Common.dll
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\zxing.dll
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.dll
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\IronBarCode.xml
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\zxing.pdb
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\zxing.xml
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.pdb
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AppForm.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItems.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStocks.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmUser.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.frmInventory.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddPurchaseOrder.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPurchaseOrder.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockTaking.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmAccountDetails.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SupplierList.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.ListItem.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchPO.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchInvoice.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddInvoice.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SelectionItem.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PurchaseOrderList.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmCategory.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmQtyUnit.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofDelivery.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofPayment.resources
+C:\Users\smd255\Desktop\JaneSystem\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSupplier.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe.config
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\InventorySystem.pdb
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\InventorySystem.xml
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\IronBarCode.dll
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\System.Drawing.Common.dll
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\zxing.dll
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.dll
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\Barcode.xml
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\IronBarCode.xml
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\zxing.pdb
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\zxing.xml
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.pdb
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddInvoice.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddItem.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddPurchaseOrder.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStocks.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddUser.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AppForm.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmAccountDetails.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmCategory.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSupplier.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofDelivery.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.LoginForm.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItems.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.frmInventory.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPurchaseOrder.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmQtyUnit.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchInvoice.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchPO.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockTaking.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofPayment.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.ListItem.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.MainForm.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Resources.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PurchaseOrderList.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SaleReports.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStocks.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmUser.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SelectionItem.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SupplierList.resources
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.GenerateResource.cache
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CoreCompileInputs.cache
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CopyComplete
+C:\Users\memon\Desktop\export database\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddSupplier.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe.config
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\InventorySystem.pdb
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\InventorySystem.xml
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\Barcode.dll
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\IronBarCode.dll
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\System.Drawing.Common.dll
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\zxing.dll
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.dll
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\Barcode.xml
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\IronBarCode.xml
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\zxing.pdb
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\zxing.xml
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.pdb
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddInvoice.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddItem.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddPurchaseOrder.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStocks.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddSupplier.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddUser.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AppForm.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmAccountDetails.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmCategory.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofDelivery.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.LoginForm.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItems.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.frmInventory.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPurchaseOrder.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmQtyUnit.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchInvoice.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchPO.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockTaking.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofPayment.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.ListItem.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.MainForm.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Resources.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PurchaseOrderList.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SaleReports.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStocks.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmUser.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SelectionItem.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SupplierList.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.GenerateResource.cache
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CoreCompileInputs.cache
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CopyComplete
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmMessageBox.resources
+C:\Users\smd255\Desktop\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Suppliers.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe.config
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.pdb
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.xml
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\Barcode.dll
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\IronBarCode.dll
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\System.Drawing.Common.dll
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.dll
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.dll
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\Barcode.xml
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\IronBarCode.xml
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.pdb
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.xml
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.pdb
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddInvoice.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddItem.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddPurchaseOrder.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStocks.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddSupplier.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddUser.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AppForm.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmAccountDetails.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmCategory.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Suppliers.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofDelivery.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.LoginForm.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItems.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.frmInventory.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPurchaseOrder.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmQtyUnit.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchInvoice.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchPO.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockTaking.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofPayment.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.MainForm.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmMessageBox.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Resources.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PurchaseOrderList.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SaleReports.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStocks.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmUser.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SelectionItem.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStockTaking.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SupplierList.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.GenerateResource.cache
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CoreCompileInputs.cache
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CopyComplete
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStockOut.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockout.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe.config
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.pdb
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\InventorySystem.xml
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\IronBarCode.dll
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\System.Drawing.Common.dll
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.dll
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.dll
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\Barcode.xml
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\IronBarCode.xml
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.pdb
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.xml
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.pdb
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddInvoice.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddItem.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddPurchaseOrder.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStocks.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddSupplier.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddUser.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AppForm.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmAccountDetails.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmCategory.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockout.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Suppliers.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofDelivery.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.LoginForm.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItems.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.frmInventory.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPurchaseOrder.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmQtyUnit.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchInvoice.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchPO.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockTaking.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofPayment.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.MainForm.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmMessageBox.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Resources.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PurchaseOrderList.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SaleReports.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStocks.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmUser.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SelectionItem.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStockOut.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStockTaking.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SupplierList.resources
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.GenerateResource.cache
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CoreCompileInputs.cache
+C:\Users\memon\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbproj.CopyComplete
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmDeliveryPlaces.resources
+C:\Users\smd255\Desktop\LatestCode\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmLocation.resources

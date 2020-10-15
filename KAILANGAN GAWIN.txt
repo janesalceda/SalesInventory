@@ -1,0 +1,28 @@
+Delivery Places
+form saving wala pa
+gawing identity yung sa delivery placeid
+LOCATION 
+wala pang form sa input
+ITEMS
+ayusin yung FORM ang panget
+SUPPLIER ITEM LIST
+mag add sa laptop ng supplier itemlist table
+
+create TABLE SupplierItemPrices
+(
+SupplierItemPriceID int identity,
+ItemId varchar(20),
+UnitPrice decimal(10,2),
+CreatedDate datetime default(getdate()),
+DeletedDate datetime null,
+Updateddate datetime default(getdate()),
+UpdatedBy int,
+primary key(SupplierItemPriceID)
+)
+
+when editing item clear also qty unit  price and total price
+gawing 20 yung sa pono
+
+yung sa delivery yung delivery date
+
+UPDATE NG P.O. AT INVOICE

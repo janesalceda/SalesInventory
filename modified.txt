@@ -1,0 +1,45 @@
+CREATE TABLE dbo.StockTakingHeaders
+	(
+	STID VARCHAR(20) NOT NULL,
+	CountedDate DATETIME NOT NULL,
+	EncodedStaff INT NOT NULL,
+	Remarks VARCHAR(200) NULL,
+	ApprovedBy INT NULL,
+	CreatedDate DATETIME DEFAULT (getdate()) NULL,
+	DeletedDate DATETIME NULL,
+	UpdatedDate DATETIME DEFAULT (getdate()) NULL,
+	UpdatedBy INT NULL,
+	CONSTRAINT PK__StockTak__A60B1C980B5CAFEA PRIMARY KEY (STID)
+	)
+GO
+CREATE TABLE dbo.StockOutHeaders
+	(
+	StockOutCode VARCHAR(20) NOT NULL,
+	StockOutDate DATETIME NULL,
+	EncodedStaff INT NULL,
+	IssuedByStaff VARCHAR(100),
+	ApprovedBy INT NULL,
+	Remarks VARCHAR(200) NULL,
+	CreatedDate DATETIME DEFAULT (getdate()) NULL,
+	DeletedDate DATETIME NULL,
+	UpdatedDate DATETIME DEFAULT (getdate()) NULL,
+	UpdatedBy INT NULL,
+	CONSTRAINT PK__StockOut__C9B8C85601D345B0 PRIMARY KEY (StockOutCode)
+	)
+GO
+
+
+            CREATE TABLE dbo.StockOutDetails
+	(
+	StockOutCode VARCHAR(20) NOT NULL,
+	ItemSeq NUMERIC(3,0) NOT NULL,
+	ItemID VARCHAR(20) NOT NULL,
+	Qty DECIMAL(18,8) NULL,
+	Remarks VARCHAR(200) NULL,
+	CreatedDate DATETIME DEFAULT (getdate()) NULL,
+	DeletedDate DATETIME NULL,
+	UpdatedDate DATETIME DEFAULT (getdate()) NULL,
+	UpdatedBy VARCHAR(8) NULL,
+	CONSTRAINT PK__StockOut__B19D7D6A078C1F06 PRIMARY KEY (StockOutCode,ItemSeq,ItemID)
+	)
+GO

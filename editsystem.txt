@@ -1,0 +1,5 @@
+add supplier items price table
+ano ilalagay ko sa deliverydate
+add invoice total amount field
+maari bang stocktaking at stockout? marami ding item ?
+para gagayahin ko lang yung way ng pagsasave sa invoice at po

@@ -85,4 +85,9 @@
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
+    Public Function GetCurrency()
+        SQL.ExecQuery("select * from CurrencyUnits")
+        If SQL.HasException Then Return False
+        Return SQL.DBDT
+    End Function
 End Module

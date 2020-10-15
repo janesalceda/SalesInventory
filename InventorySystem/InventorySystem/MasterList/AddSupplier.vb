@@ -1,35 +1,32 @@
 ﻿Public Class AddSupplier
-    Private Sub getDelivery()
-        SQL.ExecQuery("select * from TermsOfDelivery")
-        For index As Integer = 0 To SQL.RecordCount - 1
-            'cmbTDelivery.Items.Add(SQL.DBDT.Rows(index).Item(0))
-            cmbTOD.DataSource = SQL.DBDT
-            cmbTOD.DisplayMember = "TermOfDelivery"
-            cmbTOD.ValueMember = "TermOfDeliveryId"
-        Next
+    Private Sub LoadDelivery()
+        cmbTOD.DataSource = getDelivery()
+        cmbTOD.DisplayMember = "TermOfDelivery"
+        cmbTOD.ValueMember = "TermOfDeliveryId"
     End Sub
 
-    Private Sub getPayment()
-        SQL.ExecQuery("select * from TermsOfPayment")
-        For index As Integer = 0 To SQL.RecordCount - 1
-            cmbTOP.DataSource = SQL.DBDT
-            cmbTOP.DisplayMember = "TermOfPayment"
-            cmbTOP.ValueMember = "TermOfPaymentId"
-        Next
+    Private Sub LoadPayment()
+        cmbTOP.DataSource = getPayment()
+        cmbTOP.DisplayMember = "TermOfPayment"
+        cmbTOP.ValueMember = "TermOfPaymentId"
     End Sub
-    Private Sub getCurrency()
-        SQL.ExecQuery("select * from CurrencyUnits")
-        For index As Integer = 0 To SQL.RecordCount - 1
-            cmbCurrency.DataSource = SQL.DBDT
-            cmbCurrency.DisplayMember = "CurrencyUnit"
-            cmbCurrency.ValueMember = "CurrencyUnitId"
-        Next
+    Private Sub LoadCurrency()
+        cmbCurrency.DataSource = GetCurrency()
+        cmbCurrency.DisplayMember = "CurrencyUnit"
+        cmbCurrency.ValueMember = "CurrencyUnitId"
+    End Sub
+    Private Sub LoadData()
+        SQL.AddParams("@supplierid", txtSupplierId.Text)
+        SQL.ExecQuery("SELECT * FROM SUPPLIERS where Supplierid=@supplierid")
+        If SQL.HasException Then Exit Sub
     End Sub
     Private Sub AddSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
-        getDelivery()
-        getPayment()
-        getCurrency()
+        LoadCurrency()
+        LoadPayment()
+        LoadDelivery()
+        If btnSave.Text = "UPDATE" Then
+            LoadData()
+        End If
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click

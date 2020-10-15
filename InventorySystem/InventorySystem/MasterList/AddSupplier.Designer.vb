@@ -322,8 +322,12 @@ Partial Class AddSupplier
         Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "AddSupplier"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AddSupplier"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

@@ -95,40 +95,40 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddInvoice.Designer.vb">
+    <Compile Include="Invoice\AddInvoice.Designer.vb">
       <DependentUpon>AddInvoice.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddInvoice.vb">
+    <Compile Include="Invoice\AddInvoice.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddItem.Designer.vb">
+    <Compile Include="MasterList\AddItem.Designer.vb">
       <DependentUpon>AddItem.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddItem.vb">
+    <Compile Include="MasterList\AddItem.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPurchaseOrder.Designer.vb">
+    <Compile Include="Purchase Order\AddPurchaseOrder.Designer.vb">
       <DependentUpon>AddPurchaseOrder.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddPurchaseOrder.vb">
+    <Compile Include="Purchase Order\AddPurchaseOrder.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStocks.Designer.vb">
+    <Compile Include="Stocks\AddStocks.Designer.vb">
       <DependentUpon>AddStocks.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddStocks.vb">
+    <Compile Include="Stocks\AddStocks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddSupplier.Designer.vb">
+    <Compile Include="MasterList\AddSupplier.Designer.vb">
       <DependentUpon>AddSupplier.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddSupplier.vb">
+    <Compile Include="MasterList\AddSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddUser.Designer.vb">
+    <Compile Include="MasterList\AddUser.Designer.vb">
       <DependentUpon>AddUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddUser.vb">
+    <Compile Include="MasterList\AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AppForm.Designer.vb">
@@ -143,28 +143,28 @@
     <Compile Include="FrmAccountDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCategory.Designer.vb">
+    <Compile Include="MasterList\FrmCategory.Designer.vb">
       <DependentUpon>FrmCategory.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmCategory.vb">
+    <Compile Include="MasterList\FrmCategory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDeliveryPlaces.Designer.vb">
+    <Compile Include="MasterList\FrmDeliveryPlaces.Designer.vb">
       <DependentUpon>FrmDeliveryPlaces.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmDeliveryPlaces.vb">
+    <Compile Include="MasterList\FrmDeliveryPlaces.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTermsofDelivery.Designer.vb">
+    <Compile Include="MasterList\FrmTermsofDelivery.Designer.vb">
       <DependentUpon>FrmTermsofDelivery.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmTermsofDelivery.vb">
+    <Compile Include="MasterList\FrmTermsofDelivery.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLocation.Designer.vb">
+    <Compile Include="MasterList\FrmLocation.Designer.vb">
       <DependentUpon>FrmLocation.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmLocation.vb">
+    <Compile Include="MasterList\FrmLocation.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.vb">
@@ -174,76 +174,76 @@
       <DependentUpon>FrmLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmItems.Designer.vb">
+    <Compile Include="MasterList\FrmItems.Designer.vb">
       <DependentUpon>FrmItems.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmItems.vb">
+    <Compile Include="MasterList\FrmItems.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPurchaseOrder.Designer.vb">
+    <Compile Include="Purchase Order\FrmPurchaseOrder.Designer.vb">
       <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmPurchaseOrder.vb">
+    <Compile Include="Purchase Order\FrmPurchaseOrder.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQtyUnit.Designer.vb">
+    <Compile Include="MasterList\FrmQtyUnit.Designer.vb">
       <DependentUpon>FrmQtyUnit.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmQtyUnit.vb">
+    <Compile Include="MasterList\FrmQtyUnit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmRejectReturn.Designer.vb">
+    <Compile Include="RejectAndReturn\FrmRejectReturn.Designer.vb">
       <DependentUpon>FrmRejectReturn.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmRejectReturn.vb">
+    <Compile Include="RejectAndReturn\FrmRejectReturn.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSearchInvoice.Designer.vb">
+    <Compile Include="Invoice\FrmSearchInvoice.Designer.vb">
       <DependentUpon>FrmSearchInvoice.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSearchInvoice.vb">
+    <Compile Include="Invoice\FrmSearchInvoice.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSearchPO.Designer.vb">
+    <Compile Include="Purchase Order\FrmSearchPO.Designer.vb">
       <DependentUpon>FrmSearchPO.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSearchPO.vb">
+    <Compile Include="Purchase Order\FrmSearchPO.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStockin.Designer.vb">
+    <Compile Include="Stocks\FrmStockin.Designer.vb">
       <DependentUpon>FrmStockin.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmStockin.vb">
+    <Compile Include="Stocks\FrmStockin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStockout.Designer.vb">
+    <Compile Include="Stocks\FrmStockout.Designer.vb">
       <DependentUpon>FrmStockout.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmStockout.vb">
+    <Compile Include="Stocks\FrmStockout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSupplier.Designer.vb">
+    <Compile Include="MasterList\FrmSupplier.Designer.vb">
       <DependentUpon>FrmSupplier.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSupplier.vb">
+    <Compile Include="MasterList\FrmSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSupplierItemPrices.Designer.vb">
+    <Compile Include="MasterList\FrmSupplierItemPrices.Designer.vb">
       <DependentUpon>FrmSupplierItemPrices.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmSupplierItemPrices.vb">
+    <Compile Include="MasterList\FrmSupplierItemPrices.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInventory.Designer.vb">
+    <Compile Include="Inventory\frmInventory.Designer.vb">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmInventory.vb">
+    <Compile Include="Inventory\frmInventory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTermsofPayment.Designer.vb">
+    <Compile Include="MasterList\FrmTermsofPayment.Designer.vb">
       <DependentUpon>FrmTermsofPayment.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmTermsofPayment.vb">
+    <Compile Include="MasterList\FrmTermsofPayment.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.vb">
@@ -275,10 +275,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="PurchaseOrderList.Designer.vb">
+    <Compile Include="SelectionList\PurchaseOrderList.Designer.vb">
       <DependentUpon>PurchaseOrderList.vb</DependentUpon>
     </Compile>
-    <Compile Include="PurchaseOrderList.vb">
+    <Compile Include="SelectionList\PurchaseOrderList.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SaleReports.Designer.vb">
@@ -287,67 +287,67 @@
     <Compile Include="SaleReports.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SelectionItem.Designer.vb">
+    <Compile Include="SelectionList\SelectionItem.Designer.vb">
       <DependentUpon>SelectionItem.vb</DependentUpon>
     </Compile>
-    <Compile Include="SelectionItem.vb">
+    <Compile Include="SelectionList\SelectionItem.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLControl.vb" />
-    <Compile Include="FrmStocks.Designer.vb">
+    <Compile Include="Stocks\FrmStocks.Designer.vb">
       <DependentUpon>FrmStocks.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmStocks.vb">
+    <Compile Include="Stocks\FrmStocks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmUser.Designer.vb">
+    <Compile Include="MasterList\FrmUser.Designer.vb">
       <DependentUpon>FrmUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmUser.vb">
+    <Compile Include="MasterList\FrmUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmStockTaking.Designer.vb">
+    <Compile Include="Stocks\FrmStockTaking.Designer.vb">
       <DependentUpon>FrmStockTaking.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmStockTaking.vb">
+    <Compile Include="Stocks\FrmStockTaking.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStockOut.Designer.vb">
+    <Compile Include="Stocks\AddStockOut.Designer.vb">
       <DependentUpon>AddStockOut.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddStockOut.vb">
+    <Compile Include="Stocks\AddStockOut.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStockTaking.Designer.vb">
+    <Compile Include="Stocks\AddStockTaking.Designer.vb">
       <DependentUpon>AddStockTaking.vb</DependentUpon>
     </Compile>
-    <Compile Include="AddStockTaking.vb">
+    <Compile Include="Stocks\AddStockTaking.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SupplierList.Designer.vb">
+    <Compile Include="SelectionList\SupplierList.Designer.vb">
       <DependentUpon>SupplierList.vb</DependentUpon>
     </Compile>
-    <Compile Include="SupplierList.vb">
+    <Compile Include="SelectionList\SupplierList.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AddInvoice.resx">
+    <EmbeddedResource Include="Invoice\AddInvoice.resx">
       <DependentUpon>AddInvoice.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddItem.resx">
+    <EmbeddedResource Include="MasterList\AddItem.resx">
       <DependentUpon>AddItem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddPurchaseOrder.resx">
+    <EmbeddedResource Include="Purchase Order\AddPurchaseOrder.resx">
       <DependentUpon>AddPurchaseOrder.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddStocks.resx">
+    <EmbeddedResource Include="Stocks\AddStocks.resx">
       <DependentUpon>AddStocks.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddSupplier.resx">
+    <EmbeddedResource Include="MasterList\AddSupplier.resx">
       <DependentUpon>AddSupplier.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddUser.resx">
+    <EmbeddedResource Include="MasterList\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm.resx">
@@ -356,49 +356,49 @@
     <EmbeddedResource Include="FrmAccountDetails.resx">
       <DependentUpon>FrmAccountDetails.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCategory.resx">
+    <EmbeddedResource Include="MasterList\FrmCategory.resx">
       <DependentUpon>FrmCategory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDeliveryPlaces.resx">
+    <EmbeddedResource Include="MasterList\FrmDeliveryPlaces.resx">
       <DependentUpon>FrmDeliveryPlaces.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmLocation.resx">
+    <EmbeddedResource Include="MasterList\FrmLocation.resx">
       <DependentUpon>FrmLocation.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStockout.resx">
+    <EmbeddedResource Include="Stocks\FrmStockout.resx">
       <DependentUpon>FrmStockout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSupplier.resx">
+    <EmbeddedResource Include="MasterList\FrmSupplier.resx">
       <DependentUpon>FrmSupplier.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTermsofDelivery.resx">
+    <EmbeddedResource Include="MasterList\FrmTermsofDelivery.resx">
       <DependentUpon>FrmTermsofDelivery.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmItems.resx">
+    <EmbeddedResource Include="MasterList\FrmItems.resx">
       <DependentUpon>FrmItems.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInventory.resx">
+    <EmbeddedResource Include="Inventory\frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPurchaseOrder.resx">
+    <EmbeddedResource Include="Purchase Order\FrmPurchaseOrder.resx">
       <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQtyUnit.resx">
+    <EmbeddedResource Include="MasterList\FrmQtyUnit.resx">
       <DependentUpon>FrmQtyUnit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchInvoice.resx">
+    <EmbeddedResource Include="Invoice\FrmSearchInvoice.resx">
       <DependentUpon>FrmSearchInvoice.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSearchPO.resx">
+    <EmbeddedResource Include="Purchase Order\FrmSearchPO.resx">
       <DependentUpon>FrmSearchPO.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStockTaking.resx">
+    <EmbeddedResource Include="Stocks\FrmStockTaking.resx">
       <DependentUpon>FrmStockTaking.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTermsofPayment.resx">
+    <EmbeddedResource Include="MasterList\FrmTermsofPayment.resx">
       <DependentUpon>FrmTermsofPayment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -413,28 +413,28 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PurchaseOrderList.resx">
+    <EmbeddedResource Include="SelectionList\PurchaseOrderList.resx">
       <DependentUpon>PurchaseOrderList.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SaleReports.resx">
       <DependentUpon>SaleReports.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmStocks.resx">
+    <EmbeddedResource Include="Stocks\FrmStocks.resx">
       <DependentUpon>FrmStocks.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmUser.resx">
+    <EmbeddedResource Include="MasterList\FrmUser.resx">
       <DependentUpon>FrmUser.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SelectionItem.resx">
+    <EmbeddedResource Include="SelectionList\SelectionItem.resx">
       <DependentUpon>SelectionItem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddStockOut.resx">
+    <EmbeddedResource Include="Stocks\AddStockOut.resx">
       <DependentUpon>AddStockOut.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddStockTaking.resx">
+    <EmbeddedResource Include="Stocks\AddStockTaking.resx">
       <DependentUpon>AddStockTaking.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SupplierList.resx">
+    <EmbeddedResource Include="SelectionList\SupplierList.resx">
       <DependentUpon>SupplierList.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -457,6 +457,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Custom-Icon-Design-Flatastic-4-Inventory-maintenance.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -48,6 +48,7 @@ Partial Class FrmSearchPO
         Me.SupplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IssuedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Cancelled = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -310,11 +311,22 @@ Partial Class FrmSearchPO
         Me.Cancelled.ReadOnly = True
         Me.Cancelled.Width = 77
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.ForeColor = System.Drawing.Color.Red
+        Me.Label3.Location = New System.Drawing.Point(8, 276)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(278, 19)
+        Me.Label3.TabIndex = 77
+        Me.Label3.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
+        '
         'FrmSearchPO
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(734, 658)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.dtPoDetails)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnClear)
@@ -330,6 +342,7 @@ Partial Class FrmSearchPO
         Me.GroupBox2.PerformLayout()
         CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents txtSupplier As TextBox
@@ -358,4 +371,5 @@ Partial Class FrmSearchPO
     Friend WithEvents SupplierName As DataGridViewTextBoxColumn
     Friend WithEvents IssuedDate As DataGridViewTextBoxColumn
     Friend WithEvents Cancelled As DataGridViewCheckBoxColumn
+    Friend WithEvents Label3 As Label
 End Class

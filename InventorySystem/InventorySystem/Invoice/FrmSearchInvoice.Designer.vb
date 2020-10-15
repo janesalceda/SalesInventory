@@ -47,6 +47,7 @@ Partial Class FrmSearchInvoice
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtSupplier = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -282,11 +283,22 @@ Partial Class FrmSearchInvoice
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Invoice Headers Information"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(12, 278)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(278, 19)
+        Me.Label2.TabIndex = 76
+        Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
+        '
         'FrmSearchInvoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(772, 658)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtPoDetails)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnClear)
@@ -302,6 +314,7 @@ Partial Class FrmSearchInvoice
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents dtPoDetails As DataGridView
@@ -329,4 +342,5 @@ Partial Class FrmSearchInvoice
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents txtPO As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
 End Class

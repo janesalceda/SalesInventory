@@ -380,9 +380,9 @@ Partial Class AddPurchaseOrder
         Me.Label18.ForeColor = System.Drawing.Color.Red
         Me.Label18.Location = New System.Drawing.Point(308, 464)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(237, 19)
+        Me.Label18.Size = New System.Drawing.Size(216, 19)
         Me.Label18.TabIndex = 92
-        Me.Label18.Text = "*NOTE: DOUBLE CLICK TO UPDATE"
+        Me.Label18.Text = "*NOTE: CLICK ROW TO UPDATE"
         '
         'dtETA
         '

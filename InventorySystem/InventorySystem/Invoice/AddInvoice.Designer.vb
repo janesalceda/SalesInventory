@@ -51,6 +51,7 @@ Partial Class AddInvoice
         Me.txtEncoded = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Delivery = New System.Windows.Forms.TabPage()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtqtyok = New System.Windows.Forms.TextBox()
         Me.txtposeqdel = New System.Windows.Forms.TextBox()
@@ -60,8 +61,6 @@ Partial Class AddInvoice
         Me.txtRec = New System.Windows.Forms.TextBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.txtExp = New System.Windows.Forms.TextBox()
-        Me.dtDeliveryDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label21 = New System.Windows.Forms.Label()
         Me.dtableDelivery = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -124,7 +123,8 @@ Partial Class AddInvoice
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.txtSupQty = New System.Windows.Forms.TextBox()
-        Me.Label27 = New System.Windows.Forms.Label()
+        Me.dtDeliveryDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.Delivery.SuspendLayout()
         CType(Me.dtableDelivery, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,9 +166,9 @@ Partial Class AddInvoice
         Me.Label10.AutoSize = True
         Me.Label10.Location = New System.Drawing.Point(739, 84)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(84, 19)
+        Me.Label10.Size = New System.Drawing.Size(88, 19)
         Me.Label10.TabIndex = 113
-        Me.Label10.Text = "Staff Name:"
+        Me.Label10.Text = "Encoded By:"
         '
         'DtInvoiceDate
         '
@@ -251,9 +251,9 @@ Partial Class AddInvoice
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(19, 15)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(81, 19)
+        Me.Label7.Size = New System.Drawing.Size(89, 19)
         Me.Label7.TabIndex = 92
-        Me.Label7.Text = "Invoice No:"
+        Me.Label7.Text = "*Invoice No:"
         '
         'txtRemarks
         '
@@ -293,9 +293,9 @@ Partial Class AddInvoice
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(19, 49)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 19)
+        Me.Label1.Size = New System.Drawing.Size(73, 19)
         Me.Label1.TabIndex = 97
-        Me.Label1.Text = "Supplier:"
+        Me.Label1.Text = "*Supplier:"
         '
         'dtReceived
         '
@@ -318,9 +318,9 @@ Partial Class AddInvoice
         Me.Label4.AutoSize = True
         Me.Label4.Location = New System.Drawing.Point(19, 114)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(119, 19)
+        Me.Label4.Size = New System.Drawing.Size(127, 19)
         Me.Label4.TabIndex = 121
-        Me.Label4.Text = "Actual ETD Date:"
+        Me.Label4.Text = "*Actual ETD Date:"
         '
         'Label5
         '
@@ -378,6 +378,8 @@ Partial Class AddInvoice
         '
         'Delivery
         '
+        Me.Delivery.Controls.Add(Me.dtDeliveryDate)
+        Me.Delivery.Controls.Add(Me.Label21)
         Me.Delivery.Controls.Add(Me.Label27)
         Me.Delivery.Controls.Add(Me.Label26)
         Me.Delivery.Controls.Add(Me.txtqtyok)
@@ -388,8 +390,6 @@ Partial Class AddInvoice
         Me.Delivery.Controls.Add(Me.txtRec)
         Me.Delivery.Controls.Add(Me.Label22)
         Me.Delivery.Controls.Add(Me.txtExp)
-        Me.Delivery.Controls.Add(Me.dtDeliveryDate)
-        Me.Delivery.Controls.Add(Me.Label21)
         Me.Delivery.Controls.Add(Me.dtableDelivery)
         Me.Delivery.Controls.Add(Me.label17)
         Me.Delivery.Controls.Add(Me.txtDeliveryID)
@@ -409,10 +409,20 @@ Partial Class AddInvoice
         Me.Delivery.Text = "Delivery Details"
         Me.Delivery.UseVisualStyleBackColor = True
         '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.ForeColor = System.Drawing.Color.Red
+        Me.Label27.Location = New System.Drawing.Point(303, 396)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(178, 19)
+        Me.Label27.TabIndex = 129
+        Me.Label27.Text = "*NOTE: CLICK TO UPDATE"
+        '
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(10, 217)
+        Me.Label26.Location = New System.Drawing.Point(4, 240)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(59, 19)
         Me.Label26.TabIndex = 198
@@ -421,7 +431,7 @@ Partial Class AddInvoice
         'txtqtyok
         '
         Me.txtqtyok.Enabled = False
-        Me.txtqtyok.Location = New System.Drawing.Point(110, 214)
+        Me.txtqtyok.Location = New System.Drawing.Point(110, 237)
         Me.txtqtyok.Name = "txtqtyok"
         Me.txtqtyok.Size = New System.Drawing.Size(191, 27)
         Me.txtqtyok.TabIndex = 199
@@ -429,7 +439,7 @@ Partial Class AddInvoice
         'txtposeqdel
         '
         Me.txtposeqdel.Enabled = False
-        Me.txtposeqdel.Location = New System.Drawing.Point(239, 116)
+        Me.txtposeqdel.Location = New System.Drawing.Point(239, 139)
         Me.txtposeqdel.Name = "txtposeqdel"
         Me.txtposeqdel.Size = New System.Drawing.Size(62, 27)
         Me.txtposeqdel.TabIndex = 197
@@ -437,7 +447,7 @@ Partial Class AddInvoice
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(10, 253)
+        Me.Label25.Location = New System.Drawing.Point(4, 276)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(92, 19)
         Me.Label25.TabIndex = 195
@@ -446,7 +456,7 @@ Partial Class AddInvoice
         'txtBal
         '
         Me.txtBal.Enabled = False
-        Me.txtBal.Location = New System.Drawing.Point(110, 250)
+        Me.txtBal.Location = New System.Drawing.Point(110, 273)
         Me.txtBal.Name = "txtBal"
         Me.txtBal.Size = New System.Drawing.Size(191, 27)
         Me.txtBal.TabIndex = 196
@@ -454,15 +464,15 @@ Partial Class AddInvoice
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(10, 183)
+        Me.Label23.Location = New System.Drawing.Point(4, 207)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(99, 19)
+        Me.Label23.Size = New System.Drawing.Size(107, 19)
         Me.Label23.TabIndex = 193
-        Me.Label23.Text = "Qty Received:"
+        Me.Label23.Text = "*Qty Received:"
         '
         'txtRec
         '
-        Me.txtRec.Location = New System.Drawing.Point(110, 180)
+        Me.txtRec.Location = New System.Drawing.Point(110, 203)
         Me.txtRec.Name = "txtRec"
         Me.txtRec.Size = New System.Drawing.Size(191, 27)
         Me.txtRec.TabIndex = 194
@@ -470,7 +480,7 @@ Partial Class AddInvoice
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(10, 151)
+        Me.Label22.Location = New System.Drawing.Point(4, 174)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(99, 19)
         Me.Label22.TabIndex = 191
@@ -479,26 +489,10 @@ Partial Class AddInvoice
         'txtExp
         '
         Me.txtExp.Enabled = False
-        Me.txtExp.Location = New System.Drawing.Point(110, 148)
+        Me.txtExp.Location = New System.Drawing.Point(110, 171)
         Me.txtExp.Name = "txtExp"
         Me.txtExp.Size = New System.Drawing.Size(191, 27)
         Me.txtExp.TabIndex = 192
-        '
-        'dtDeliveryDate
-        '
-        Me.dtDeliveryDate.Location = New System.Drawing.Point(111, 283)
-        Me.dtDeliveryDate.Name = "dtDeliveryDate"
-        Me.dtDeliveryDate.Size = New System.Drawing.Size(190, 27)
-        Me.dtDeliveryDate.TabIndex = 190
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(10, 289)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(101, 19)
-        Me.Label21.TabIndex = 189
-        Me.Label21.Text = "Delivery Date:"
         '
         'dtableDelivery
         '
@@ -509,11 +503,11 @@ Partial Class AddInvoice
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
-        Me.dtableDelivery.Location = New System.Drawing.Point(308, 6)
+        Me.dtableDelivery.Location = New System.Drawing.Point(308, 38)
         Me.dtableDelivery.Name = "dtableDelivery"
         Me.dtableDelivery.ReadOnly = True
         Me.dtableDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableDelivery.Size = New System.Drawing.Size(750, 383)
+        Me.dtableDelivery.Size = New System.Drawing.Size(750, 351)
         Me.dtableDelivery.TabIndex = 188
         '
         'DataGridViewTextBoxColumn1
@@ -575,7 +569,7 @@ Partial Class AddInvoice
         'label17
         '
         Me.label17.AutoSize = True
-        Me.label17.Location = New System.Drawing.Point(10, 20)
+        Me.label17.Location = New System.Drawing.Point(308, 9)
         Me.label17.Name = "label17"
         Me.label17.Size = New System.Drawing.Size(78, 19)
         Me.label17.TabIndex = 186
@@ -583,7 +577,8 @@ Partial Class AddInvoice
         '
         'txtDeliveryID
         '
-        Me.txtDeliveryID.Location = New System.Drawing.Point(110, 17)
+        Me.txtDeliveryID.Enabled = False
+        Me.txtDeliveryID.Location = New System.Drawing.Point(414, 6)
         Me.txtDeliveryID.Name = "txtDeliveryID"
         Me.txtDeliveryID.Size = New System.Drawing.Size(191, 27)
         Me.txtDeliveryID.TabIndex = 187
@@ -591,7 +586,7 @@ Partial Class AddInvoice
         'btnInsertDel
         '
         Me.btnInsertDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsertDel.Location = New System.Drawing.Point(198, 325)
+        Me.btnInsertDel.Location = New System.Drawing.Point(194, 322)
         Me.btnInsertDel.Name = "btnInsertDel"
         Me.btnInsertDel.Size = New System.Drawing.Size(103, 32)
         Me.btnInsertDel.TabIndex = 184
@@ -602,7 +597,7 @@ Partial Class AddInvoice
         'btnPOInv
         '
         Me.btnPOInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPOInv.Location = New System.Drawing.Point(203, 116)
+        Me.btnPOInv.Location = New System.Drawing.Point(203, 139)
         Me.btnPOInv.Name = "btnPOInv"
         Me.btnPOInv.Size = New System.Drawing.Size(32, 27)
         Me.btnPOInv.TabIndex = 183
@@ -612,15 +607,15 @@ Partial Class AddInvoice
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(10, 119)
+        Me.Label20.Location = New System.Drawing.Point(4, 142)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(54, 19)
+        Me.Label20.Size = New System.Drawing.Size(62, 19)
         Me.Label20.TabIndex = 181
-        Me.Label20.Text = "PO No:"
+        Me.Label20.Text = "*PO No:"
         '
         'txtPoDel
         '
-        Me.txtPoDel.Location = New System.Drawing.Point(110, 116)
+        Me.txtPoDel.Location = New System.Drawing.Point(110, 139)
         Me.txtPoDel.Name = "txtPoDel"
         Me.txtPoDel.Size = New System.Drawing.Size(125, 27)
         Me.txtPoDel.TabIndex = 182
@@ -628,9 +623,9 @@ Partial Class AddInvoice
         'btnItemInv
         '
         Me.btnItemInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItemInv.Location = New System.Drawing.Point(269, 50)
+        Me.btnItemInv.Location = New System.Drawing.Point(270, 72)
         Me.btnItemInv.Name = "btnItemInv"
-        Me.btnItemInv.Size = New System.Drawing.Size(32, 27)
+        Me.btnItemInv.Size = New System.Drawing.Size(32, 28)
         Me.btnItemInv.TabIndex = 180
         Me.btnItemInv.Text = "..."
         Me.btnItemInv.UseVisualStyleBackColor = True
@@ -638,7 +633,7 @@ Partial Class AddInvoice
         'txtIteamNameDel
         '
         Me.txtIteamNameDel.Enabled = False
-        Me.txtIteamNameDel.Location = New System.Drawing.Point(10, 83)
+        Me.txtIteamNameDel.Location = New System.Drawing.Point(10, 106)
         Me.txtIteamNameDel.Name = "txtIteamNameDel"
         Me.txtIteamNameDel.Size = New System.Drawing.Size(291, 27)
         Me.txtIteamNameDel.TabIndex = 179
@@ -646,15 +641,15 @@ Partial Class AddInvoice
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(10, 53)
+        Me.Label24.Location = New System.Drawing.Point(4, 76)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(38, 19)
+        Me.Label24.Size = New System.Drawing.Size(46, 19)
         Me.Label24.TabIndex = 177
-        Me.Label24.Text = "Item"
+        Me.Label24.Text = "*Item"
         '
         'txtItemDel
         '
-        Me.txtItemDel.Location = New System.Drawing.Point(110, 50)
+        Me.txtItemDel.Location = New System.Drawing.Point(110, 73)
         Me.txtItemDel.Name = "txtItemDel"
         Me.txtItemDel.Size = New System.Drawing.Size(191, 27)
         Me.txtItemDel.TabIndex = 178
@@ -690,7 +685,7 @@ Partial Class AddInvoice
         Me.Invoice.Location = New System.Drawing.Point(4, 28)
         Me.Invoice.Name = "Invoice"
         Me.Invoice.Padding = New System.Windows.Forms.Padding(3)
-        Me.Invoice.Size = New System.Drawing.Size(1067, 382)
+        Me.Invoice.Size = New System.Drawing.Size(1067, 424)
         Me.Invoice.TabIndex = 1
         Me.Invoice.Text = "Invoice"
         Me.Invoice.UseVisualStyleBackColor = True
@@ -845,9 +840,9 @@ Partial Class AddInvoice
         Me.Label19.AutoSize = True
         Me.Label19.Location = New System.Drawing.Point(12, 85)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(54, 19)
+        Me.Label19.Size = New System.Drawing.Size(62, 19)
         Me.Label19.TabIndex = 167
-        Me.Label19.Text = "PO No:"
+        Me.Label19.Text = "*PO No:"
         '
         'txtPo
         '
@@ -921,18 +916,18 @@ Partial Class AddInvoice
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(12, 216)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(44, 19)
+        Me.Label16.Size = New System.Drawing.Size(52, 19)
         Me.Label16.TabIndex = 160
-        Me.Label16.Text = "Date:"
+        Me.Label16.Text = "*Date:"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(12, 186)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(73, 19)
+        Me.Label14.Size = New System.Drawing.Size(81, 19)
         Me.Label14.TabIndex = 158
-        Me.Label14.Text = "TotalPrice"
+        Me.Label14.Text = "*TotalPrice"
         '
         'txtTotalPrice
         '
@@ -947,9 +942,9 @@ Partial Class AddInvoice
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(12, 153)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(76, 19)
+        Me.Label12.Size = New System.Drawing.Size(84, 19)
         Me.Label12.TabIndex = 156
-        Me.Label12.Text = "Unit Price:"
+        Me.Label12.Text = "*Unit Price:"
         '
         'txtUnit
         '
@@ -996,18 +991,18 @@ Partial Class AddInvoice
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(12, 19)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(38, 19)
+        Me.Label13.Size = New System.Drawing.Size(46, 19)
         Me.Label13.TabIndex = 148
-        Me.Label13.Text = "Item"
+        Me.Label13.Text = "*Item"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Location = New System.Drawing.Point(12, 120)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(36, 19)
+        Me.Label11.Size = New System.Drawing.Size(44, 19)
         Me.Label11.TabIndex = 152
-        Me.Label11.Text = "Qty:"
+        Me.Label11.Text = "*Qty:"
         '
         'txtItemCode
         '
@@ -1023,15 +1018,21 @@ Partial Class AddInvoice
         Me.txtSupQty.Size = New System.Drawing.Size(46, 27)
         Me.txtSupQty.TabIndex = 151
         '
-        'Label27
+        'dtDeliveryDate
         '
-        Me.Label27.AutoSize = True
-        Me.Label27.ForeColor = System.Drawing.Color.Red
-        Me.Label27.Location = New System.Drawing.Point(303, 396)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(237, 19)
-        Me.Label27.TabIndex = 129
-        Me.Label27.Text = "*NOTE: DOUBLE CLICK TO UPDATE"
+        Me.dtDeliveryDate.Location = New System.Drawing.Point(722, 6)
+        Me.dtDeliveryDate.Name = "dtDeliveryDate"
+        Me.dtDeliveryDate.Size = New System.Drawing.Size(189, 27)
+        Me.dtDeliveryDate.TabIndex = 201
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(614, 12)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(109, 19)
+        Me.Label21.TabIndex = 200
+        Me.Label21.Text = "*Delivery Date:"
         '
         'AddInvoice
         '
@@ -1149,8 +1150,6 @@ Partial Class AddInvoice
     Friend WithEvents txtItemCode As TextBox
     Friend WithEvents txtSupQty As TextBox
     Friend WithEvents txtPoSeq As TextBox
-    Friend WithEvents dtDeliveryDate As DateTimePicker
-    Friend WithEvents Label21 As Label
     Friend WithEvents Label25 As Label
     Friend WithEvents txtBal As TextBox
     Friend WithEvents Label23 As Label
@@ -1185,4 +1184,6 @@ Partial Class AddInvoice
     Friend WithEvents ETD As DataGridViewTextBoxColumn
     Friend WithEvents ETA As DataGridViewTextBoxColumn
     Friend WithEvents Label27 As Label
+    Friend WithEvents dtDeliveryDate As DateTimePicker
+    Friend WithEvents Label21 As Label
 End Class

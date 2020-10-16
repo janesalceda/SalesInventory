@@ -43,19 +43,34 @@
 	        (ItemId,Description,ConvertingCoefficient,ClientQtyUnit,SupplierQtyUnit,SupplierID,
 	        Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
         VALUES 
-	        (@itemid,@description,@convertingcoefficient,@clientqtyunit,@supplierqtyunit,@supplierid,
+	        (SELECT CASE WHEN max(ITEMID) IS NULL 
+                    THEN 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
+                    CASE WHEN Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1<10
+                    THEN 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1 AS VARCHAR	)
+                    ELSE 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1 AS VARCHAR	)
+                    END END AS 'pomax' from ITEMS
+,@description,@convertingcoefficient,@clientqtyunit,@supplierqtyunit,@supplierid,
 	        @location,@maxorderqty,@orderingpointqty,@minimumorderqty,@remarks,@updatedby)")
+
             If SQL.HasException Then Exit Sub
 
             SQL.AddParams("@itemid", txtItemId.Text)
             SQL.AddParams("@UnitPrice", txtUnitPrice.Text)
             SQL.AddParams("@updatedby", moduleId)
             SQL.ExecQuery("INSERT INTO SupplierItemPrices(ItemId,UnitPrice,UpdatedBy)
-                VALUES(@itemid,@UnitPrice,@updatedby)")
+                VALUES(SELECT CASE WHEN max(ITEMID) IS NULL 
+                    THEN 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
+                    CASE WHEN Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1<10
+                    THEN 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1 AS VARCHAR	)
+                    ELSE 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1 AS VARCHAR	)
+                    END END AS 'pomax' from ITEMS
+,@UnitPrice,@updatedby)")
             If SQL.HasException Then Exit Sub
 
             FrmItems.LoadDataGrid()
+            MsgBox("Successfully saved!", MsgBoxStyle.Information)
             Me.Close()
+
         End If
     End Sub
 

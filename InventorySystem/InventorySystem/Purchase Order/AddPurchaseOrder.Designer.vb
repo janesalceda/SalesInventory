@@ -85,6 +85,7 @@ Partial Class AddPurchaseOrder
         Me.Cancel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Rec = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.chkcancelPO = New System.Windows.Forms.CheckBox()
+        Me.Label19 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtablePoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -94,9 +95,9 @@ Partial Class AddPurchaseOrder
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(365, 18)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(90, 19)
+        Me.Label8.Size = New System.Drawing.Size(98, 19)
         Me.Label8.TabIndex = 35
-        Me.Label8.Text = "Issued Date:"
+        Me.Label8.Text = "*Issued Date:"
         '
         'txtPONo
         '
@@ -168,8 +169,10 @@ Partial Class AddPurchaseOrder
         '
         'dtIssued
         '
+        Me.dtIssued.Checked = False
         Me.dtIssued.Location = New System.Drawing.Point(498, 12)
         Me.dtIssued.Name = "dtIssued"
+        Me.dtIssued.ShowCheckBox = True
         Me.dtIssued.Size = New System.Drawing.Size(221, 27)
         Me.dtIssued.TabIndex = 46
         '
@@ -241,7 +244,7 @@ Partial Class AddPurchaseOrder
         Me.txtTotalAmount.Enabled = False
         Me.txtTotalAmount.Location = New System.Drawing.Point(842, 111)
         Me.txtTotalAmount.Name = "txtTotalAmount"
-        Me.txtTotalAmount.Size = New System.Drawing.Size(233, 27)
+        Me.txtTotalAmount.Size = New System.Drawing.Size(156, 27)
         Me.txtTotalAmount.TabIndex = 54
         '
         'txtRemarks
@@ -333,9 +336,9 @@ Partial Class AddPurchaseOrder
         Me.Label13.AutoSize = True
         Me.Label13.Location = New System.Drawing.Point(6, 59)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(38, 19)
+        Me.Label13.Size = New System.Drawing.Size(46, 19)
         Me.Label13.TabIndex = 62
-        Me.Label13.Text = "Item"
+        Me.Label13.Text = "*Item"
         '
         'GroupBox1
         '
@@ -377,25 +380,30 @@ Partial Class AddPurchaseOrder
         'Label18
         '
         Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.Red
         Me.Label18.Location = New System.Drawing.Point(308, 464)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(216, 19)
+        Me.Label18.Size = New System.Drawing.Size(219, 19)
         Me.Label18.TabIndex = 92
         Me.Label18.Text = "*NOTE: CLICK ROW TO UPDATE"
         '
         'dtETA
         '
+        Me.dtETA.Checked = False
         Me.dtETA.Location = New System.Drawing.Point(98, 254)
         Me.dtETA.Name = "dtETA"
+        Me.dtETA.ShowCheckBox = True
         Me.dtETA.Size = New System.Drawing.Size(201, 27)
         Me.dtETA.TabIndex = 89
         Me.dtETA.Value = New Date(2020, 10, 14, 21, 28, 4, 0)
         '
         'dtETD
         '
+        Me.dtETD.Checked = False
         Me.dtETD.Location = New System.Drawing.Point(98, 221)
         Me.dtETD.Name = "dtETD"
+        Me.dtETD.ShowCheckBox = True
         Me.dtETD.Size = New System.Drawing.Size(201, 27)
         Me.dtETD.TabIndex = 88
         Me.dtETD.Value = New Date(2020, 10, 14, 21, 28, 4, 0)
@@ -418,13 +426,15 @@ Partial Class AddPurchaseOrder
         Me.btnAddItem.Name = "btnAddItem"
         Me.btnAddItem.Size = New System.Drawing.Size(103, 32)
         Me.btnAddItem.TabIndex = 86
-        Me.btnAddItem.Text = "INSERT"
+        Me.btnAddItem.Text = "INSERT ITEM"
         Me.btnAddItem.UseVisualStyleBackColor = True
         '
         'DTFtry
         '
+        Me.DTFtry.Checked = False
         Me.DTFtry.Location = New System.Drawing.Point(98, 287)
         Me.DTFtry.Name = "DTFtry"
+        Me.DTFtry.ShowCheckBox = True
         Me.DTFtry.Size = New System.Drawing.Size(201, 27)
         Me.DTFtry.TabIndex = 85
         Me.DTFtry.Value = New Date(2020, 10, 14, 21, 28, 4, 0)
@@ -434,9 +444,9 @@ Partial Class AddPurchaseOrder
         Me.Label15.AutoSize = True
         Me.Label15.Location = New System.Drawing.Point(6, 293)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(44, 19)
+        Me.Label15.Size = New System.Drawing.Size(52, 19)
         Me.Label15.TabIndex = 84
-        Me.Label15.Text = "FTRY:"
+        Me.Label15.Text = "*FTRY:"
         '
         'chkReceived
         '
@@ -465,18 +475,18 @@ Partial Class AddPurchaseOrder
         Me.Label17.AutoSize = True
         Me.Label17.Location = New System.Drawing.Point(6, 260)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(33, 19)
+        Me.Label17.Size = New System.Drawing.Size(41, 19)
         Me.Label17.TabIndex = 80
-        Me.Label17.Text = "ETA"
+        Me.Label17.Text = "*ETA"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
         Me.Label16.Location = New System.Drawing.Point(6, 227)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(35, 19)
+        Me.Label16.Size = New System.Drawing.Size(43, 19)
         Me.Label16.TabIndex = 78
-        Me.Label16.Text = "ETD"
+        Me.Label16.Text = "*ETD"
         '
         'Label14
         '
@@ -636,18 +646,31 @@ Partial Class AddPurchaseOrder
         '
         Me.chkcancelPO.AutoSize = True
         Me.chkcancelPO.Enabled = False
-        Me.chkcancelPO.Location = New System.Drawing.Point(14, 651)
+        Me.chkcancelPO.Location = New System.Drawing.Point(1002, 114)
         Me.chkcancelPO.Name = "chkcancelPO"
         Me.chkcancelPO.Size = New System.Drawing.Size(72, 23)
         Me.chkcancelPO.TabIndex = 91
         Me.chkcancelPO.Text = "Cancel"
         Me.chkcancelPO.UseVisualStyleBackColor = True
         '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.Red
+        Me.Label19.Location = New System.Drawing.Point(6, 658)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(217, 19)
+        Me.Label19.TabIndex = 127
+        Me.Label19.Text = "*NOTE: ALL * ARE IMPORTANT"
+        '
         'AddPurchaseOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1084, 681)
+        Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.chkcancelPO)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSave)
@@ -748,4 +771,5 @@ Partial Class AddPurchaseOrder
     Friend WithEvents FTRY As DataGridViewTextBoxColumn
     Friend WithEvents Cancel As DataGridViewCheckBoxColumn
     Friend WithEvents Rec As DataGridViewCheckBoxColumn
+    Friend WithEvents Label19 As Label
 End Class

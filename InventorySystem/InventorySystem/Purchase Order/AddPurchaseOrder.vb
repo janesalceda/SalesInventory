@@ -121,6 +121,12 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If String.IsNullOrEmpty(txtSupplier.Text) Or
+            cmbDeliveryPlace.SelectedIndex = -1 Or
+            dtablePoDetails.Rows.Count = 0 Then
+            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
         SQL.AddParams("@supplierid", txtSupplier.Text)
         SQL.AddParams("@currencyunitid", txtCurrency.Text)
         SQL.AddParams("@issueddate", dtIssued.Value)
@@ -293,10 +299,19 @@
         End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
         formname = "AddPurchaseOrder"
-        SelectionItem.Show()
+        SelectionItem.ShowDialog()
     End Sub
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
+        If String.IsNullOrEmpty(txtItemCode.Text) Or
+                String.IsNullOrEmpty(txtCliQty.Text) Or
+                String.IsNullOrEmpty(txtSupQty.Text) Or
+                dtETA.Checked = False Or
+                dtETD.Checked = False Or
+                DTFtry.Checked = False Then
+            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
         Dim row As ArrayList = New ArrayList
         If btnAddItem.Text = "INSERT" Then
             DTCount += 1
@@ -360,6 +375,8 @@
     End Sub
 
     Private Sub txtItemCode_TextChanged(sender As Object, e As EventArgs) Handles txtItemCode.TextChanged
+        txtCliQty.Clear()
+        txtSupQty.Clear()
         Dim row As ArrayList = New ArrayList
         row = GetItemDetails(txtItemCode.Text)
         If row.Count = 0 Then
@@ -403,5 +420,13 @@
     Private Sub txtSupQty_LostFocus(sender As Object, e As EventArgs) Handles txtSupQty.LostFocus
         txtCliQty.Text = Val(txtSupQty.Text) / coefficient
         txtTotalPrice.Text = Format(Val(txtSupQty.Text) * Val(txtUnit.Text), "0.00")
+    End Sub
+
+    Private Sub txtCliQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCliQty.KeyPress
+        If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
+    End Sub
+
+    Private Sub txtSupQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSupQty.KeyPress
+        If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
 End Class

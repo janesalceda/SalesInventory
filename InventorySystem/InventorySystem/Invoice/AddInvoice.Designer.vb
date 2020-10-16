@@ -32,7 +32,6 @@ Partial Class AddInvoice
         Me.txtSupplierName = New System.Windows.Forms.TextBox()
         Me.btnSupplier = New System.Windows.Forms.Button()
         Me.txtSupplier = New System.Windows.Forms.TextBox()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtInvoiceNo = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -51,6 +50,8 @@ Partial Class AddInvoice
         Me.txtEncoded = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Delivery = New System.Windows.Forms.TabPage()
+        Me.dtDeliveryDate = New System.Windows.Forms.DateTimePicker()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.txtqtyok = New System.Windows.Forms.TextBox()
@@ -82,6 +83,7 @@ Partial Class AddInvoice
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtItemDel = New System.Windows.Forms.TextBox()
         Me.Invoice = New System.Windows.Forms.TabPage()
+        Me.Label29 = New System.Windows.Forms.Label()
         Me.txtPoSeq = New System.Windows.Forms.TextBox()
         Me.dtableInvoice = New System.Windows.Forms.DataGridView()
         Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -104,7 +106,6 @@ Partial Class AddInvoice
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.txtPo = New System.Windows.Forms.TextBox()
-        Me.btnUpdateItems = New System.Windows.Forms.Button()
         Me.dtDate = New System.Windows.Forms.DateTimePicker()
         Me.btnItems = New System.Windows.Forms.Button()
         Me.btnAddItem = New System.Windows.Forms.Button()
@@ -123,8 +124,7 @@ Partial Class AddInvoice
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.txtSupQty = New System.Windows.Forms.TextBox()
-        Me.dtDeliveryDate = New System.Windows.Forms.DateTimePicker()
-        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label28 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.Delivery.SuspendLayout()
         CType(Me.dtableDelivery, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,7 +136,7 @@ Partial Class AddInvoice
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(870, 606)
+        Me.btnSave.Location = New System.Drawing.Point(982, 612)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(103, 32)
         Me.btnSave.TabIndex = 116
@@ -154,7 +154,7 @@ Partial Class AddInvoice
         'chkcancelPO
         '
         Me.chkcancelPO.AutoSize = True
-        Me.chkcancelPO.Location = New System.Drawing.Point(16, 612)
+        Me.chkcancelPO.Location = New System.Drawing.Point(1010, 114)
         Me.chkcancelPO.Name = "chkcancelPO"
         Me.chkcancelPO.Size = New System.Drawing.Size(72, 23)
         Me.chkcancelPO.TabIndex = 118
@@ -164,7 +164,7 @@ Partial Class AddInvoice
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(739, 84)
+        Me.Label10.Location = New System.Drawing.Point(736, 84)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(88, 19)
         Me.Label10.TabIndex = 113
@@ -172,8 +172,10 @@ Partial Class AddInvoice
         '
         'DtInvoiceDate
         '
+        Me.DtInvoiceDate.Checked = False
         Me.DtInvoiceDate.Location = New System.Drawing.Point(512, 12)
         Me.DtInvoiceDate.Name = "DtInvoiceDate"
+        Me.DtInvoiceDate.ShowCheckBox = True
         Me.DtInvoiceDate.Size = New System.Drawing.Size(221, 27)
         Me.DtInvoiceDate.TabIndex = 103
         '
@@ -219,25 +221,14 @@ Partial Class AddInvoice
         Me.txtSupplier.Size = New System.Drawing.Size(179, 27)
         Me.txtSupplier.TabIndex = 98
         '
-        'btnCancel
-        '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(979, 606)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(103, 32)
-        Me.btnCancel.TabIndex = 96
-        Me.btnCancel.Text = "CANCEL"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(418, 15)
+        Me.Label8.Location = New System.Drawing.Point(410, 15)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(94, 19)
+        Me.Label8.Size = New System.Drawing.Size(102, 19)
         Me.Label8.TabIndex = 94
-        Me.Label8.Text = "Invoice Date:"
+        Me.Label8.Text = "*Invoice Date:"
         '
         'txtInvoiceNo
         '
@@ -273,7 +264,7 @@ Partial Class AddInvoice
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(418, 81)
+        Me.Label6.Location = New System.Drawing.Point(412, 81)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(99, 19)
         Me.Label6.TabIndex = 109
@@ -282,7 +273,7 @@ Partial Class AddInvoice
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(739, 48)
+        Me.Label9.Location = New System.Drawing.Point(736, 48)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(69, 19)
         Me.Label9.TabIndex = 111
@@ -299,19 +290,21 @@ Partial Class AddInvoice
         '
         'dtReceived
         '
+        Me.dtReceived.Checked = False
         Me.dtReceived.Location = New System.Drawing.Point(852, 12)
         Me.dtReceived.Name = "dtReceived"
+        Me.dtReceived.ShowCheckBox = True
         Me.dtReceived.Size = New System.Drawing.Size(230, 27)
         Me.dtReceived.TabIndex = 120
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(739, 15)
+        Me.Label2.Location = New System.Drawing.Point(736, 15)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(107, 19)
+        Me.Label2.Size = New System.Drawing.Size(115, 19)
         Me.Label2.TabIndex = 119
-        Me.Label2.Text = "Received Date:"
+        Me.Label2.Text = "*Received Date:"
         '
         'Label4
         '
@@ -325,7 +318,7 @@ Partial Class AddInvoice
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(418, 114)
+        Me.Label5.Location = New System.Drawing.Point(412, 114)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(103, 19)
         Me.Label5.TabIndex = 123
@@ -336,13 +329,13 @@ Partial Class AddInvoice
         Me.txtUpdated.Enabled = False
         Me.txtUpdated.Location = New System.Drawing.Point(853, 111)
         Me.txtUpdated.Name = "txtUpdated"
-        Me.txtUpdated.Size = New System.Drawing.Size(230, 27)
+        Me.txtUpdated.Size = New System.Drawing.Size(151, 27)
         Me.txtUpdated.TabIndex = 126
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(739, 117)
+        Me.Label18.Location = New System.Drawing.Point(736, 116)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(103, 19)
         Me.Label18.TabIndex = 125
@@ -350,8 +343,10 @@ Partial Class AddInvoice
         '
         'dtActualETD
         '
+        Me.dtActualETD.Checked = False
         Me.dtActualETD.Location = New System.Drawing.Point(143, 111)
         Me.dtActualETD.Name = "dtActualETD"
+        Me.dtActualETD.ShowCheckBox = True
         Me.dtActualETD.Size = New System.Drawing.Size(262, 27)
         Me.dtActualETD.TabIndex = 127
         '
@@ -409,13 +404,32 @@ Partial Class AddInvoice
         Me.Delivery.Text = "Delivery Details"
         Me.Delivery.UseVisualStyleBackColor = True
         '
+        'dtDeliveryDate
+        '
+        Me.dtDeliveryDate.Checked = False
+        Me.dtDeliveryDate.Location = New System.Drawing.Point(722, 6)
+        Me.dtDeliveryDate.Name = "dtDeliveryDate"
+        Me.dtDeliveryDate.ShowCheckBox = True
+        Me.dtDeliveryDate.Size = New System.Drawing.Size(189, 27)
+        Me.dtDeliveryDate.TabIndex = 201
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(614, 12)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(109, 19)
+        Me.Label21.TabIndex = 200
+        Me.Label21.Text = "*Delivery Date:"
+        '
         'Label27
         '
         Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.Red
-        Me.Label27.Location = New System.Drawing.Point(303, 396)
+        Me.Label27.Location = New System.Drawing.Point(303, 398)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(178, 19)
+        Me.Label27.Size = New System.Drawing.Size(180, 19)
         Me.Label27.TabIndex = 129
         Me.Label27.Text = "*NOTE: CLICK TO UPDATE"
         '
@@ -430,7 +444,6 @@ Partial Class AddInvoice
         '
         'txtqtyok
         '
-        Me.txtqtyok.Enabled = False
         Me.txtqtyok.Location = New System.Drawing.Point(110, 237)
         Me.txtqtyok.Name = "txtqtyok"
         Me.txtqtyok.Size = New System.Drawing.Size(191, 27)
@@ -466,9 +479,9 @@ Partial Class AddInvoice
         Me.Label23.AutoSize = True
         Me.Label23.Location = New System.Drawing.Point(4, 207)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(107, 19)
+        Me.Label23.Size = New System.Drawing.Size(99, 19)
         Me.Label23.TabIndex = 193
-        Me.Label23.Text = "*Qty Received:"
+        Me.Label23.Text = "Qty Received:"
         '
         'txtRec
         '
@@ -656,6 +669,7 @@ Partial Class AddInvoice
         '
         'Invoice
         '
+        Me.Invoice.Controls.Add(Me.Label29)
         Me.Invoice.Controls.Add(Me.txtPoSeq)
         Me.Invoice.Controls.Add(Me.dtableInvoice)
         Me.Invoice.Controls.Add(Me.btnPo)
@@ -663,7 +677,6 @@ Partial Class AddInvoice
         Me.Invoice.Controls.Add(Me.Label15)
         Me.Invoice.Controls.Add(Me.Label19)
         Me.Invoice.Controls.Add(Me.txtPo)
-        Me.Invoice.Controls.Add(Me.btnUpdateItems)
         Me.Invoice.Controls.Add(Me.dtDate)
         Me.Invoice.Controls.Add(Me.btnItems)
         Me.Invoice.Controls.Add(Me.btnAddItem)
@@ -689,6 +702,17 @@ Partial Class AddInvoice
         Me.Invoice.TabIndex = 1
         Me.Invoice.Text = "Invoice"
         Me.Invoice.UseVisualStyleBackColor = True
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label29.ForeColor = System.Drawing.Color.Red
+        Me.Label29.Location = New System.Drawing.Point(312, 398)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(180, 19)
+        Me.Label29.TabIndex = 174
+        Me.Label29.Text = "*NOTE: CLICK TO UPDATE"
         '
         'txtPoSeq
         '
@@ -852,21 +876,12 @@ Partial Class AddInvoice
         Me.txtPo.Size = New System.Drawing.Size(149, 27)
         Me.txtPo.TabIndex = 168
         '
-        'btnUpdateItems
-        '
-        Me.btnUpdateItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdateItems.Location = New System.Drawing.Point(93, 321)
-        Me.btnUpdateItems.Name = "btnUpdateItems"
-        Me.btnUpdateItems.Size = New System.Drawing.Size(103, 32)
-        Me.btnUpdateItems.TabIndex = 166
-        Me.btnUpdateItems.Text = "UPDATE"
-        Me.btnUpdateItems.UseVisualStyleBackColor = True
-        Me.btnUpdateItems.Visible = False
-        '
         'dtDate
         '
+        Me.dtDate.Checked = False
         Me.dtDate.Location = New System.Drawing.Point(92, 216)
         Me.dtDate.Name = "dtDate"
+        Me.dtDate.ShowCheckBox = True
         Me.dtDate.Size = New System.Drawing.Size(213, 27)
         Me.dtDate.TabIndex = 165
         '
@@ -925,9 +940,9 @@ Partial Class AddInvoice
         Me.Label14.AutoSize = True
         Me.Label14.Location = New System.Drawing.Point(12, 186)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(81, 19)
+        Me.Label14.Size = New System.Drawing.Size(73, 19)
         Me.Label14.TabIndex = 158
-        Me.Label14.Text = "*TotalPrice"
+        Me.Label14.Text = "TotalPrice"
         '
         'txtTotalPrice
         '
@@ -942,9 +957,9 @@ Partial Class AddInvoice
         Me.Label12.AutoSize = True
         Me.Label12.Location = New System.Drawing.Point(12, 153)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(84, 19)
+        Me.Label12.Size = New System.Drawing.Size(76, 19)
         Me.Label12.TabIndex = 156
-        Me.Label12.Text = "*Unit Price:"
+        Me.Label12.Text = "Unit Price:"
         '
         'txtUnit
         '
@@ -1018,27 +1033,24 @@ Partial Class AddInvoice
         Me.txtSupQty.Size = New System.Drawing.Size(46, 27)
         Me.txtSupQty.TabIndex = 151
         '
-        'dtDeliveryDate
+        'Label28
         '
-        Me.dtDeliveryDate.Location = New System.Drawing.Point(722, 6)
-        Me.dtDeliveryDate.Name = "dtDeliveryDate"
-        Me.dtDeliveryDate.Size = New System.Drawing.Size(189, 27)
-        Me.dtDeliveryDate.TabIndex = 201
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(614, 12)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(109, 19)
-        Me.Label21.TabIndex = 200
-        Me.Label21.Text = "*Delivery Date:"
+        Me.Label28.AutoSize = True
+        Me.Label28.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label28.ForeColor = System.Drawing.Color.Red
+        Me.Label28.Location = New System.Drawing.Point(0, 628)
+        Me.Label28.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(217, 19)
+        Me.Label28.TabIndex = 129
+        Me.Label28.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
         'AddInvoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1092, 650)
+        Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.txtEncoded)
         Me.Controls.Add(Me.dtActualETD)
@@ -1059,7 +1071,6 @@ Partial Class AddInvoice
         Me.Controls.Add(Me.btnSupplier)
         Me.Controls.Add(Me.txtSupplier)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtInvoiceNo)
         Me.Controls.Add(Me.Label7)
@@ -1093,7 +1104,6 @@ Partial Class AddInvoice
     Friend WithEvents txtSupplierName As TextBox
     Friend WithEvents btnSupplier As Button
     Friend WithEvents txtSupplier As TextBox
-    Friend WithEvents btnCancel As Button
     Friend WithEvents Label8 As Label
     Friend WithEvents txtInvoiceNo As TextBox
     Friend WithEvents Label7 As Label
@@ -1130,7 +1140,6 @@ Partial Class AddInvoice
     Friend WithEvents Label15 As Label
     Friend WithEvents Label19 As Label
     Friend WithEvents txtPo As TextBox
-    Friend WithEvents btnUpdateItems As Button
     Friend WithEvents dtDate As DateTimePicker
     Friend WithEvents btnItems As Button
     Friend WithEvents btnAddItem As Button
@@ -1186,4 +1195,6 @@ Partial Class AddInvoice
     Friend WithEvents Label27 As Label
     Friend WithEvents dtDeliveryDate As DateTimePicker
     Friend WithEvents Label21 As Label
+    Friend WithEvents Label28 As Label
+    Friend WithEvents Label29 As Label
 End Class

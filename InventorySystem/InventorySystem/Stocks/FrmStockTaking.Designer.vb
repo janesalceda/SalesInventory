@@ -52,7 +52,7 @@ Partial Class FrmStockTaking
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(142, 32)
         Me.btnAdd.TabIndex = 37
-        Me.btnAdd.Text = "Add Stock Out"
+        Me.btnAdd.Text = "Add Stock Taking"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'txtSTID
@@ -87,13 +87,14 @@ Partial Class FrmStockTaking
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
         Me.dtableStockTaking.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtableStockTaking.Size = New System.Drawing.Size(891, 416)
         Me.dtableStockTaking.TabIndex = 32
         '
         'dtCountedFrom
         '
         Me.dtCountedFrom.Checked = False
-        Me.dtCountedFrom.Location = New System.Drawing.Point(114, 42)
+        Me.dtCountedFrom.Location = New System.Drawing.Point(126, 44)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
         Me.dtCountedFrom.Size = New System.Drawing.Size(150, 27)
@@ -102,7 +103,7 @@ Partial Class FrmStockTaking
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
-        Me.dtCountedTo.Location = New System.Drawing.Point(266, 42)
+        Me.dtCountedTo.Location = New System.Drawing.Point(278, 44)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
         Me.dtCountedTo.Size = New System.Drawing.Size(150, 27)
@@ -111,7 +112,7 @@ Partial Class FrmStockTaking
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 44)
+        Me.Label1.Location = New System.Drawing.Point(8, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(102, 19)
         Me.Label1.TabIndex = 120

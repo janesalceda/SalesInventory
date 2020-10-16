@@ -9,7 +9,7 @@ Public Class LoginForm
         Else
             SQL.AddParams("@username", txtUsername.Text)
             SQL.AddParams("@pass", txtPass.Text)
-            SQL.ExecQuery("SELECT UserID,EmployeeName FROM users u inner join employees e on 
+            SQL.ExecQuery("SELECT UserID,EmployeeName,UserLevelId FROM users u inner join employees e on 
                 u.userid=e.empid where username=@username and Password=@pass")
 
             If SQL.HasException(True) Then Exit Sub
@@ -22,6 +22,7 @@ Public Class LoginForm
                 'FrmMessageBox.Show()
                 moduleId = SQL.DBDT.Rows(0).Item(0)
                 moduleName = SQL.DBDT.Rows(0).Item(1)
+                rights = SQL.DBDT.Rows(0).Item(2)
                 txtPass.Clear()
                 txtUsername.Clear()
                 AppForm.Show()

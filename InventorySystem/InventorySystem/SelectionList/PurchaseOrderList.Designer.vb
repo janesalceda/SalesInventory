@@ -32,12 +32,12 @@ Partial Class PurchaseOrderList
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtpo = New System.Windows.Forms.TextBox()
         Me.dtitems = New System.Windows.Forms.DataGridView()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.ItemCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.dtitems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -146,16 +146,6 @@ Partial Class PurchaseOrderList
         Me.dtitems.Size = New System.Drawing.Size(337, 222)
         Me.dtitems.TabIndex = 74
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(13, 53)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(54, 19)
-        Me.Label2.TabIndex = 84
-        Me.Label2.Text = "ItemId:"
-        '
         'ItemCode
         '
         Me.ItemCode.HeaderText = "PO No"
@@ -188,6 +178,16 @@ Partial Class PurchaseOrderList
         Me.Column3.ReadOnly = True
         Me.Column3.Visible = False
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(13, 53)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(54, 19)
+        Me.Label2.TabIndex = 84
+        Me.Label2.Text = "ItemId:"
+        '
         'PurchaseOrderList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
@@ -207,10 +207,13 @@ Partial Class PurchaseOrderList
         Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(365, 462)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(365, 462)
         Me.Name = "PurchaseOrderList"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PurchaseOrderList"
+        Me.TopMost = True
         CType(Me.dtitems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

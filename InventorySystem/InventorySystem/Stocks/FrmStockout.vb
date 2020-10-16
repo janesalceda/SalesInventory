@@ -1,20 +1,20 @@
 ﻿Public Class FrmStockout
-    Private Sub getAllData(where As String)
+    Public Sub getAllData(where As String)
         SQL.ExecQuery("SELECT StockOutCode,StockOutDate,st.IssuedByStaff,
         CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',
         Remarks,st.UpdatedDate,
         CASE WHEN st.UpdatedBy=e.EmpId THEN e.EmployeeName ELSE '' END AS 'UpdatedBy',
-        CASE WHEN st.ApprovedBy=e.EmpId THEN e.EmployeeName ELSE '' END as 'ApprovedBy' 
-        from StockOutHeaders st , Employees e" & where)
+        CASE WHEN st.ApprovedBy=e.EmpId THEN e.EmployeeName ELSE 'NOT YET APPROVED' END as 'ApprovedBy' 
+        from StockOutHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where)
+
         If SQL.HasException Then Exit Sub
-        dtableStockTaking.DataSource = SQL.DBDT
+
+        dtableStockOut.DataSource = SQL.DBDT
     End Sub
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         AddStockOut.Show()
     End Sub
-
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-
+    Public Sub search()
         Dim where As String = ""
         If Not String.IsNullOrEmpty(txtSTID.Text) Then
             where += AddingWhere(where)
@@ -32,5 +32,18 @@
             where += "APPROVEDBY IS NULL"
         End If
         getAllData(where)
+    End Sub
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        search()
+    End Sub
+
+    Private Sub FrmStockout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent = AppForm
+    End Sub
+
+    Private Sub dtableStockTaking_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockOut.CellDoubleClick
+        AddStockOut.btnSave.Text = "UPDATE"
+        AddStockOut.txtStockOutID.Text = dtableStockOut.SelectedRows(0).Cells(0).Value
+        AddStockOut.Show()
     End Sub
 End Class

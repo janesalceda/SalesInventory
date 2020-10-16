@@ -1,6 +1,7 @@
 ﻿Module Globals
     Public moduleId As Integer
     Public moduleName As String
+    Public rights As Integer = 0
     Public formname As String
     Public price As Integer
     Public coefficient As Decimal

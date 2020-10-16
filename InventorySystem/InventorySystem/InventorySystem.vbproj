@@ -95,6 +95,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditSupplierName.Designer.vb">
+      <DependentUpon>EditSupplierName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EditSupplierName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForApproval.Designer.vb">
+      <DependentUpon>ForApproval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ForApproval.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Invoice\AddInvoice.Designer.vb">
       <DependentUpon>AddInvoice.vb</DependentUpon>
     </Compile>
@@ -222,10 +234,10 @@
     <Compile Include="Stocks\FrmStockout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmSupplier.Designer.vb">
-      <DependentUpon>FrmSupplier.vb</DependentUpon>
+    <Compile Include="MasterList\ViewSupplier.Designer.vb">
+      <DependentUpon>ViewSupplier.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmSupplier.vb">
+    <Compile Include="MasterList\ViewSupplier.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterList\FrmSupplierItemPrices.Designer.vb">
@@ -330,8 +342,20 @@
     <Compile Include="SelectionList\SupplierList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Stocks\ViewStockTaking.Designer.vb">
+      <DependentUpon>ViewStockTaking.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Stocks\ViewStockTaking.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="EditSupplierName.resx">
+      <DependentUpon>EditSupplierName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForApproval.resx">
+      <DependentUpon>ForApproval.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Invoice\AddInvoice.resx">
       <DependentUpon>AddInvoice.vb</DependentUpon>
     </EmbeddedResource>
@@ -368,8 +392,8 @@
     <EmbeddedResource Include="Stocks\FrmStockout.resx">
       <DependentUpon>FrmStockout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmSupplier.resx">
-      <DependentUpon>FrmSupplier.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\ViewSupplier.resx">
+      <DependentUpon>ViewSupplier.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\FrmTermsofDelivery.resx">
       <DependentUpon>FrmTermsofDelivery.vb</DependentUpon>
@@ -436,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SelectionList\SupplierList.resx">
       <DependentUpon>SupplierList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stocks\ViewStockTaking.resx">
+      <DependentUpon>ViewStockTaking.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

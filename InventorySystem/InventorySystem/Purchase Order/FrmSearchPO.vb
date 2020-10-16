@@ -31,7 +31,7 @@
 
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
         formname = "SearchPo"
-        SelectionItem.Show()
+        SelectionItem.ShowDialog()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -74,7 +74,7 @@
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "FrmSearchPO"
-        SupplierList.Show()
+        SupplierList.ShowDialog()
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged

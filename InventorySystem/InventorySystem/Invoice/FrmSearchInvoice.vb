@@ -32,7 +32,7 @@ id.InvoiceNo=i.InvoiceNo	" & where)
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "SearchInvoice"
-        SupplierList.Show()
+        SupplierList.ShowDialog()
     End Sub
 
     Private Sub txtItemCode_TextChanged(sender As Object, e As EventArgs) Handles txtItemCode.TextChanged
@@ -52,7 +52,7 @@ id.InvoiceNo=i.InvoiceNo	" & where)
         'End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
         formname = "SearchInvoice"
-        SelectionItem.Show()
+        SelectionItem.ShowDialog()
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged

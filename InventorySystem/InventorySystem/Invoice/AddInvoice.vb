@@ -13,8 +13,7 @@
                 CASE WHEN QtyOk>0 THEN 1 ELSE 0  end AS 'ok',
                 DeliveryCompletedDate,id.Remarks,
                 idd.DeliveryId,idd.DeliveryDate,idd.QtyExpected,QtyReceived,QtyOk,
-                (QtyExpected-QtyOk) AS 'QtyBalance',
-                case when ih.deleteddate is null then 0 else 1 end as 'cancel'
+                (QtyExpected-QtyOk) AS 'QtyBalance', ih.deleteddate
                 FROM InvoiceHeaders	 ih 
                 INNER	JOIN InvoiceDetails	id
                 ON ih.InvoiceNo	=id.InvoiceNo	
@@ -35,50 +34,52 @@
         Dim row As New DataTable
         row = SQL.DBDT
         If SQL.HasException Then Exit Sub
-        txtSupplier.Text = row.Rows(0).Item(1)
-        txtCurrency.Text = row.Rows(0).Item(2)
-        dtActualETD.Value = row.Rows(0).Item(3)
-        DtInvoiceDate.Value = row.Rows(0).Item(4)
-        txtTotalAmount.Text = row.Rows(0).Item(5)
-        txtEncoded.Text = row.Rows(0).Item(6)
-        dtReceived.Value = row.Rows(0).Item(7)
-        txtRemarks.Text = row.Rows(0).Item(8)
-        txtStaffName.Text = row.Rows(0).Item(9)
-        txtUpdated.Text = row.Rows(0).Item(10)
+        txtSupplier.Text = row.Rows(0).Item(1).ToString
+        txtCurrency.Text = row.Rows(0).Item(2).ToString
+        dtActualETD.Value = row.Rows(0).Item(3).ToString
+        DtInvoiceDate.Value = row.Rows(0).Item(4).ToString
+        txtTotalAmount.Text = row.Rows(0).Item(5).ToString
+        txtEncoded.Text = row.Rows(0).Item(6).ToString
+        dtReceived.Value = row.Rows(0).Item(7).ToString
+        txtRemarks.Text = row.Rows(0).Item(8).ToString
+        txtStaffName.Text = row.Rows(0).Item(9).ToString
+        txtUpdated.Text = row.Rows(0).Item(10).ToString
         For i As Integer = 0 To row.Rows.Count - 1
             dtableInvoice.Rows.Add(
-            row.Rows(i).Item(11),
-            row.Rows(i).Item(12),
-            row.Rows(i).Item(13),
-            row.Rows(i).Item(14),
-            row.Rows(i).Item(15),
-            row.Rows(i).Item(16),
-            row.Rows(i).Item(17),
-            row.Rows(i).Item(18),
-            row.Rows(i).Item(19),
-            row.Rows(i).Item(20),
-            row.Rows(i).Item(21),
+            row.Rows(i).Item(11).ToString,
+            row.Rows(i).Item(12).ToString,
+            row.Rows(i).Item(13).ToString,
+            row.Rows(i).Item(14).ToString,
+            row.Rows(i).Item(15).ToString,
+            row.Rows(i).Item(16).ToString,
+            row.Rows(i).Item(17).ToString,
+            row.Rows(i).Item(18).ToString,
+            row.Rows(i).Item(19).ToString,
+            row.Rows(i).Item(20).ToString,
+            row.Rows(i).Item(21).ToString,
             row.Rows(i).Item(22),
-            row.Rows(0).Item(23),
-row.Rows(0).Item(24),
-row.Rows(0).Item(25),
-row.Rows(0).Item(26))
+            row.Rows(i).Item(23),
+            row.Rows(i).Item(24).ToString,
+            row.Rows(i).Item(25).ToString)
         Next
-        txtDeliveryID.Text = row.Rows(0).Item(27)
-        dtDeliveryDate.Value = row.Rows(0).Item(28)
+        txtDeliveryID.Text = row.Rows(0).Item(26).ToString
+        dtDeliveryDate.Value = row.Rows(0).Item(27).ToString
         For i As Integer = 0 To row.Rows.Count - 1
             dtableDelivery.Rows.Add(
-            row.Rows(i).Item(11),
-            row.Rows(i).Item(12),
-             row.Rows(i).Item(29),
-            row.Rows(i).Item(13),
-            row.Rows(i).Item(14),
-            row.Rows(i).Item(30),
-            row.Rows(i).Item(31),
-            row.Rows(i).Item(32))
+            row.Rows(i).Item(11).ToString,
+            row.Rows(i).Item(12).ToString,
+             row.Rows(i).Item(28).ToString,
+            row.Rows(i).Item(13).ToString,
+            row.Rows(i).Item(14).ToString,
+            row.Rows(i).Item(29).ToString,
+            row.Rows(i).Item(30).ToString,
+            row.Rows(i).Item(31).ToString)
         Next
-
-        chkcancelPO.Checked = row.Rows(0).Item(33)
+        If String.IsNullOrEmpty(row.Rows(0).Item(32).ToString) Then
+            chkcancelPO.Checked = False
+        Else
+            chkcancelPO.Checked = True
+        End If
     End Sub
     Private Sub getDelivery()
         'del091020-01
@@ -99,13 +100,12 @@ row.Rows(0).Item(26))
 
     Private Sub AddInvoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
+        TabControl1.SelectedIndex = 1
+        getDelivery()
+        txtStaffName.Text = moduleName
         If Not String.IsNullOrEmpty(txtInvoiceNo.Text) Then
             getInvoiceNo()
         Else
-
-            TabControl1.SelectedIndex = 1
-            getDelivery()
-            txtStaffName.Text = moduleName
             txtEncoded.Text = Today
             txtUpdated.Text = Today
         End If
@@ -113,7 +113,7 @@ row.Rows(0).Item(26))
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "AddInvoice"
-        SupplierList.Show()
+        SupplierList.ShowDialog()
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
@@ -177,6 +177,15 @@ row.Rows(0).Item(26))
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        If String.IsNullOrEmpty(txtSupplier.Text) Or
+            dtActualETD.Checked = False Or
+                DtInvoiceDate.Checked = False Or
+                dtReceived.Checked = False Or
+                dtableDelivery.Rows.Count = 0 Or
+                dtableInvoice.Rows.Count = 0 Then
+            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
         InvoiceStoreData(btnSave.Text)
     End Sub
     Private Sub InvoiceStoreData(Query As String)
@@ -370,6 +379,11 @@ row.Rows(0).Item(26))
     End Sub
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
+        If String.IsNullOrEmpty(txtItemCode.Text) Or String.IsNullOrEmpty(txtPo.Text) Or
+        String.IsNullOrEmpty(txtCliQty.Text) Or String.IsNullOrEmpty(txtSupQty.Text) Or dtDate.Checked = False Then
+            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
         Dim row As ArrayList = New ArrayList
         DTCount += 1
         txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
@@ -415,7 +429,7 @@ row.Rows(0).Item(26))
         End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
         formname = "AddDelivery"
-        SelectionItem.Show()
+        SelectionItem.ShowDialog()
     End Sub
 
     Private Sub txtItemDel_TextChanged(sender As Object, e As EventArgs) Handles txtItemDel.TextChanged
@@ -441,7 +455,7 @@ row.Rows(0).Item(26))
         formname = "AddDelivery"
         PurchaseOrderList.txtItems.Text = txtItemDel.Text
         PurchaseOrderList.txtSupplier.Text = txtSupplier.Text
-        PurchaseOrderList.Show()
+        PurchaseOrderList.ShowDialog()
     End Sub
 
     Private Sub txtRec_TextChanged(sender As Object, e As EventArgs) Handles txtRec.TextChanged
@@ -449,6 +463,10 @@ row.Rows(0).Item(26))
     End Sub
 
     Private Sub btnInsertDel_Click(sender As Object, e As EventArgs) Handles btnInsertDel.Click
+        If String.IsNullOrEmpty(txtItemDel.Text) Or String.IsNullOrEmpty(txtPoDel.Text) Then
+            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            Exit Sub
+        End If
         Dim row As ArrayList = New ArrayList
         DTCount1 += 1
         'txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
@@ -476,8 +494,17 @@ row.Rows(0).Item(26))
         'dtDeliveryDate.Value = Today
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub txtRec_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRec.KeyPress
+        If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
+    End Sub
+
+
+    Private Sub txtqtyok_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtqtyok.KeyPress
+        If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
 
 

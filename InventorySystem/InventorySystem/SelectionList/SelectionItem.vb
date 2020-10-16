@@ -140,6 +140,5 @@
     End Sub
 
     Private Sub SelectionItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
     End Sub
 End Class

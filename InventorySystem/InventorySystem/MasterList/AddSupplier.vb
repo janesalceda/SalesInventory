@@ -1,4 +1,34 @@
 ﻿Public Class AddSupplier
+    Private Sub ViewSupplier()
+        txtSupplierName.Enabled = False
+        txtAttention.Enabled = False
+        txtAddress.Enabled = False
+        txtPhone.Enabled = False
+        txtFax.Text = Enabled = False
+        txtRemarks.Enabled = False
+        txtAccountsName.Enabled = False
+        cmbTOD.Enabled = False
+        cmbTOP.Enabled = False
+        cmbCurrency.Enabled = False
+        chkImport.Enabled = False
+        txtEmailAd.Enabled = False
+        chkDisuse.Checked = False
+    End Sub
+    Private Sub AddSupplier()
+        txtSupplierName.Enabled = True
+        txtAttention.Enabled = True
+        txtAddress.Enabled = True
+        txtPhone.Enabled = True
+        txtFax.Text = Enabled = True
+        txtRemarks.Enabled = True
+        txtAccountsName.Enabled = True
+        cmbTOD.Enabled = True
+        cmbTOP.Enabled = True
+        cmbCurrency.Enabled = True
+        chkImport.Enabled = True
+        txtEmailAd.Enabled = True
+        chkDisuse.Checked = True
+    End Sub
     Private Sub LoadDelivery()
         cmbTOD.DataSource = getDelivery()
         cmbTOD.DisplayMember = "TermOfDelivery"
@@ -19,6 +49,24 @@
         SQL.AddParams("@supplierid", txtSupplierId.Text)
         SQL.ExecQuery("SELECT * FROM SUPPLIERS where Supplierid=@supplierid")
         If SQL.HasException Then Exit Sub
+
+        txtSupplierName.Text = SQL.DBDT.Rows(0).Item(1)
+        txtAttention.Text = SQL.DBDT.Rows(0).Item(2)
+        txtAddress.Text = SQL.DBDT.Rows(0).Item(3)
+        txtPhone.Text = SQL.DBDT.Rows(0).Item(4)
+        txtFax.Text = SQL.DBDT.Rows(0).Item(5)
+        txtRemarks.Text = SQL.DBDT.Rows(0).Item(6)
+        txtAccountsName.Text = SQL.DBDT.Rows(0).Item(7)
+        cmbTOD.SelectedValue = SQL.DBDT.Rows(0).Item(8)
+        cmbTOP.SelectedValue = SQL.DBDT.Rows(0).Item(9)
+        cmbCurrency.SelectedValue = SQL.DBDT.Rows(0).Item(10)
+        chkImport.Checked = SQL.DBDT.Rows(0).Item(11)
+        txtEmailAd.Text = SQL.DBDT.Rows(0).Item(12)
+        If Not String.IsNullOrEmpty(SQL.DBDT.Rows(0).Item(14).ToString) Then
+            chkDisuse.Checked = True
+        Else
+            chkDisuse.Checked = False
+        End If
     End Sub
     Private Sub AddSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadCurrency()
@@ -26,6 +74,9 @@
         LoadDelivery()
         If btnSave.Text = "UPDATE" Then
             LoadData()
+            ViewSupplier()
+        Else
+            AddSupplier()
         End If
     End Sub
 
@@ -51,7 +102,7 @@
             @CurrencyUnitId,@ImportSupplier,@EmailAddress,@UpdatedBy)")
         If SQL.HasException Then Exit Sub
         MsgBox("Successfully saved", MsgBoxStyle.Information)
-        Suppliers.loadgrid()
+        Suppliers.LoadGrid()
         Me.Close()
     End Sub
 End Class

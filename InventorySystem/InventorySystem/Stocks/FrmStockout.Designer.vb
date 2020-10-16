@@ -30,14 +30,14 @@ Partial Class FrmStockout
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.txtSTID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.dtableStockTaking = New System.Windows.Forms.DataGridView()
-        CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dtableStockOut = New System.Windows.Forms.DataGridView()
+        CType(Me.dtableStockOut, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'chkApproved
         '
         Me.chkApproved.AutoSize = True
-        Me.chkApproved.Location = New System.Drawing.Point(302, 12)
+        Me.chkApproved.Location = New System.Drawing.Point(290, 12)
         Me.chkApproved.Name = "chkApproved"
         Me.chkApproved.Size = New System.Drawing.Size(89, 23)
         Me.chkApproved.TabIndex = 131
@@ -49,14 +49,14 @@ Partial Class FrmStockout
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(4, 42)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 19)
+        Me.Label1.Size = New System.Drawing.Size(90, 19)
         Me.Label1.TabIndex = 130
-        Me.Label1.Text = "Counted Date:"
+        Me.Label1.Text = "Issued Date:"
         '
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
-        Me.dtCountedTo.Location = New System.Drawing.Point(262, 40)
+        Me.dtCountedTo.Location = New System.Drawing.Point(250, 40)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
         Me.dtCountedTo.Size = New System.Drawing.Size(150, 27)
@@ -65,7 +65,7 @@ Partial Class FrmStockout
         'dtCountedFrom
         '
         Me.dtCountedFrom.Checked = False
-        Me.dtCountedFrom.Location = New System.Drawing.Point(110, 40)
+        Me.dtCountedFrom.Location = New System.Drawing.Point(98, 40)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
         Me.dtCountedFrom.Size = New System.Drawing.Size(150, 27)
@@ -74,7 +74,7 @@ Partial Class FrmStockout
         'btnSearch
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(398, 8)
+        Me.btnSearch.Location = New System.Drawing.Point(386, 8)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(99, 30)
         Me.btnSearch.TabIndex = 127
@@ -89,14 +89,14 @@ Partial Class FrmStockout
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(142, 32)
         Me.btnAdd.TabIndex = 126
-        Me.btnAdd.Text = "Add Stock Taking"
+        Me.btnAdd.Text = "Add Stock Out"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'txtSTID
         '
-        Me.txtSTID.Location = New System.Drawing.Point(121, 10)
+        Me.txtSTID.Location = New System.Drawing.Point(98, 10)
         Me.txtSTID.Name = "txtSTID"
-        Me.txtSTID.Size = New System.Drawing.Size(176, 27)
+        Me.txtSTID.Size = New System.Drawing.Size(187, 27)
         Me.txtSTID.TabIndex = 125
         '
         'Label7
@@ -104,28 +104,29 @@ Partial Class FrmStockout
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(6, 13)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(111, 19)
+        Me.Label7.Size = New System.Drawing.Size(85, 19)
         Me.Label7.TabIndex = 124
-        Me.Label7.Text = "Stock Taking ID:"
+        Me.Label7.Text = "StockOutID:"
         '
-        'dtableStockTaking
+        'dtableStockOut
         '
-        Me.dtableStockTaking.AllowUserToAddRows = False
-        Me.dtableStockTaking.AllowUserToDeleteRows = False
-        Me.dtableStockTaking.AllowUserToResizeColumns = False
-        Me.dtableStockTaking.AllowUserToResizeRows = False
-        Me.dtableStockTaking.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dtableStockOut.AllowUserToAddRows = False
+        Me.dtableStockOut.AllowUserToDeleteRows = False
+        Me.dtableStockOut.AllowUserToResizeColumns = False
+        Me.dtableStockOut.AllowUserToResizeRows = False
+        Me.dtableStockOut.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtableStockTaking.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.dtableStockTaking.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dtableStockTaking.Location = New System.Drawing.Point(8, 82)
-        Me.dtableStockTaking.Name = "dtableStockTaking"
-        Me.dtableStockTaking.ReadOnly = True
-        Me.dtableStockTaking.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.dtableStockTaking.Size = New System.Drawing.Size(891, 416)
-        Me.dtableStockTaking.TabIndex = 123
+        Me.dtableStockOut.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtableStockOut.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dtableStockOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.dtableStockOut.Location = New System.Drawing.Point(8, 82)
+        Me.dtableStockOut.Name = "dtableStockOut"
+        Me.dtableStockOut.ReadOnly = True
+        Me.dtableStockOut.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
+        Me.dtableStockOut.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtableStockOut.Size = New System.Drawing.Size(891, 416)
+        Me.dtableStockOut.TabIndex = 123
         '
         'FrmStockout
         '
@@ -140,12 +141,13 @@ Partial Class FrmStockout
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.txtSTID)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.dtableStockTaking)
+        Me.Controls.Add(Me.dtableStockOut)
         Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmStockout"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmStockout"
-        CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtableStockOut, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -159,5 +161,5 @@ Partial Class FrmStockout
     Friend WithEvents btnAdd As Button
     Friend WithEvents txtSTID As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents dtableStockTaking As DataGridView
+    Friend WithEvents dtableStockOut As DataGridView
 End Class

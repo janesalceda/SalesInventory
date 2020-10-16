@@ -7,7 +7,9 @@
             SQL.ExecQuery("SELECT * FROM items")
         End If
         If SQL.HasException(True) Then Exit Sub
-        dtItems.DataSource = SQL.DBDT
+        For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
+            dtItems.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), "X")
+        Next
     End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         'FrmMessageBox.Show("HI")
@@ -18,20 +20,23 @@
         AddItem.Show()
     End Sub
 
-    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        AddItem.Show()
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs)
     End Sub
 
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs)
         Dim rslt As New System.Windows.Forms.DialogResult
-        rslt = MsgBox("Do you really want to delete this item ?", "Delete Data", MessageBoxButtons.YesNo)
-        If rslt = Windows.Forms.DialogResult.Yes Then
+        If MsgBox("Do you really want to delete this item ?", MessageBoxButtons.YesNo, "Delete Data") Then
             'FrmMessageBox.Show("Delete")
+
         End If
     End Sub
 
     Private Sub FormItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         LoadDataGrid()
+    End Sub
+    Private Sub dtItems_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellDoubleClick
+
+        AddItem.Show()
     End Sub
 End Class

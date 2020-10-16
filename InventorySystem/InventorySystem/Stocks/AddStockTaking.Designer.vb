@@ -35,7 +35,7 @@ Partial Class AddStockTaking
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtSTRemarks = New System.Windows.Forms.TextBox()
         Me.txtQty = New System.Windows.Forms.TextBox()
-        Me.dtPoDetails = New System.Windows.Forms.DataGridView()
+        Me.dtableStockTaking = New System.Windows.Forms.DataGridView()
         Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -46,10 +46,11 @@ Partial Class AddStockTaking
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.dtCountedDate = New System.Windows.Forms.DateTimePicker()
+        Me.chkApprove = New System.Windows.Forms.CheckBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtStockTakingID
@@ -77,16 +78,16 @@ Partial Class AddStockTaking
         Me.Label1.Location = New System.Drawing.Point(9, 51)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 19)
+        Me.Label1.Size = New System.Drawing.Size(110, 19)
         Me.Label1.TabIndex = 96
-        Me.Label1.Text = "Counted Date:"
+        Me.Label1.Text = "*Counted Date:"
         '
         'txtRemarks
         '
         Me.txtRemarks.Location = New System.Drawing.Point(414, 12)
         Me.txtRemarks.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(388, 27)
+        Me.txtRemarks.Size = New System.Drawing.Size(382, 27)
         Me.txtRemarks.TabIndex = 99
         '
         'Label2
@@ -105,7 +106,7 @@ Partial Class AddStockTaking
         Me.txtEncodedStaff.Location = New System.Drawing.Point(454, 48)
         Me.txtEncodedStaff.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEncodedStaff.Name = "txtEncodedStaff"
-        Me.txtEncodedStaff.Size = New System.Drawing.Size(348, 27)
+        Me.txtEncodedStaff.Size = New System.Drawing.Size(248, 27)
         Me.txtEncodedStaff.TabIndex = 101
         '
         'Label3
@@ -128,7 +129,7 @@ Partial Class AddStockTaking
         Me.GroupBox1.Controls.Add(Me.Label12)
         Me.GroupBox1.Controls.Add(Me.txtSTRemarks)
         Me.GroupBox1.Controls.Add(Me.txtQty)
-        Me.GroupBox1.Controls.Add(Me.dtPoDetails)
+        Me.GroupBox1.Controls.Add(Me.dtableStockTaking)
         Me.GroupBox1.Controls.Add(Me.txtItemName)
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label11)
@@ -183,21 +184,21 @@ Partial Class AddStockTaking
         Me.txtQty.Size = New System.Drawing.Size(110, 27)
         Me.txtQty.TabIndex = 70
         '
-        'dtPoDetails
+        'dtableStockTaking
         '
-        Me.dtPoDetails.AllowUserToAddRows = False
-        Me.dtPoDetails.AllowUserToDeleteRows = False
-        Me.dtPoDetails.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.dtableStockTaking.AllowUserToAddRows = False
+        Me.dtableStockTaking.AllowUserToDeleteRows = False
+        Me.dtableStockTaking.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtPoDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtPoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
-        Me.dtPoDetails.Location = New System.Drawing.Point(310, 30)
-        Me.dtPoDetails.Name = "dtPoDetails"
-        Me.dtPoDetails.ReadOnly = True
-        Me.dtPoDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtPoDetails.Size = New System.Drawing.Size(484, 288)
-        Me.dtPoDetails.TabIndex = 69
+        Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
+        Me.dtableStockTaking.Location = New System.Drawing.Point(310, 30)
+        Me.dtableStockTaking.Name = "dtableStockTaking"
+        Me.dtableStockTaking.ReadOnly = True
+        Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dtableStockTaking.Size = New System.Drawing.Size(484, 288)
+        Me.dtableStockTaking.TabIndex = 69
         '
         'Seq
         '
@@ -267,40 +268,55 @@ Partial Class AddStockTaking
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(587, 422)
+        Me.btnSave.Location = New System.Drawing.Point(696, 426)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(103, 32)
         Me.btnSave.TabIndex = 104
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = True
         '
-        'btnCancel
-        '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(696, 422)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(103, 32)
-        Me.btnCancel.TabIndex = 102
-        Me.btnCancel.Text = "CANCEL"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
         'dtCountedDate
         '
+        Me.dtCountedDate.Checked = False
         Me.dtCountedDate.Location = New System.Drawing.Point(122, 48)
         Me.dtCountedDate.Name = "dtCountedDate"
+        Me.dtCountedDate.ShowCheckBox = True
         Me.dtCountedDate.Size = New System.Drawing.Size(201, 27)
         Me.dtCountedDate.TabIndex = 106
+        '
+        'chkApprove
+        '
+        Me.chkApprove.AutoSize = True
+        Me.chkApprove.Enabled = False
+        Me.chkApprove.Location = New System.Drawing.Point(712, 50)
+        Me.chkApprove.Name = "chkApprove"
+        Me.chkApprove.Size = New System.Drawing.Size(81, 23)
+        Me.chkApprove.TabIndex = 107
+        Me.chkApprove.Text = "Approve"
+        Me.chkApprove.UseVisualStyleBackColor = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.Red
+        Me.Label5.Location = New System.Drawing.Point(0, 440)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(217, 19)
+        Me.Label5.TabIndex = 126
+        Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
         'AddStockTaking
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(806, 462)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.chkApprove)
         Me.Controls.Add(Me.dtCountedDate)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.txtEncodedStaff)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtRemarks)
@@ -314,7 +330,7 @@ Partial Class AddStockTaking
         Me.Text = "Add StockTaking"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -333,17 +349,18 @@ Partial Class AddStockTaking
     Friend WithEvents Label12 As Label
     Friend WithEvents txtSTRemarks As TextBox
     Friend WithEvents txtQty As TextBox
-    Friend WithEvents dtPoDetails As DataGridView
+    Friend WithEvents dtableStockTaking As DataGridView
     Friend WithEvents txtItemName As TextBox
     Friend WithEvents Label13 As Label
     Friend WithEvents Label11 As Label
     Friend WithEvents txtItemCode As TextBox
     Friend WithEvents btnSave As Button
-    Friend WithEvents btnCancel As Button
     Friend WithEvents dtCountedDate As DateTimePicker
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents PO As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
+    Friend WithEvents chkApprove As CheckBox
+    Friend WithEvents Label5 As Label
 End Class

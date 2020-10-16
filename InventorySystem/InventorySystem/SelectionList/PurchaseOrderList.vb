@@ -43,7 +43,6 @@
     End Sub
 
     Private Sub PurchaseOrderList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click

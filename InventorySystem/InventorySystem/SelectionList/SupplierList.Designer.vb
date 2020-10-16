@@ -39,18 +39,18 @@ Partial Class SupplierList
         Me.dtSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtSupplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtSupplier.Location = New System.Drawing.Point(0, 112)
+        Me.dtSupplier.Location = New System.Drawing.Point(4, 112)
         Me.dtSupplier.Name = "dtSupplier"
         Me.dtSupplier.ReadOnly = True
         Me.dtSupplier.RowHeadersVisible = False
         Me.dtSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtSupplier.Size = New System.Drawing.Size(329, 242)
+        Me.dtSupplier.Size = New System.Drawing.Size(320, 242)
         Me.dtSupplier.TabIndex = 0
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 17)
+        Me.Label4.Location = New System.Drawing.Point(10, 17)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(65, 19)
@@ -59,24 +59,24 @@ Partial Class SupplierList
         '
         'txtSupplier
         '
-        Me.txtSupplier.Location = New System.Drawing.Point(78, 12)
+        Me.txtSupplier.Location = New System.Drawing.Point(80, 12)
         Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(248, 27)
+        Me.txtSupplier.Size = New System.Drawing.Size(244, 27)
         Me.txtSupplier.TabIndex = 68
         '
         'txtSupplierName
         '
-        Me.txtSupplierName.Location = New System.Drawing.Point(2, 42)
+        Me.txtSupplierName.Location = New System.Drawing.Point(8, 42)
         Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(326, 27)
+        Me.txtSupplierName.Size = New System.Drawing.Size(316, 27)
         Me.txtSupplierName.TabIndex = 70
         '
         'btnClear
         '
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(254, 74)
+        Me.btnClear.Location = New System.Drawing.Point(248, 72)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(4)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(75, 31)
@@ -87,7 +87,7 @@ Partial Class SupplierList
         'btnSearch
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(168, 74)
+        Me.btnSearch.Location = New System.Drawing.Point(162, 72)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(78, 31)
@@ -98,7 +98,7 @@ Partial Class SupplierList
         'btnOk
         '
         Me.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOk.Location = New System.Drawing.Point(250, 356)
+        Me.btnOk.Location = New System.Drawing.Point(246, 356)
         Me.btnOk.Margin = New System.Windows.Forms.Padding(4)
         Me.btnOk.Name = "btnOk"
         Me.btnOk.Size = New System.Drawing.Size(78, 31)
@@ -127,7 +127,8 @@ Partial Class SupplierList
         Me.MinimumSize = New System.Drawing.Size(347, 428)
         Me.Name = "SupplierList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SupplierList"
+        Me.Text = "List of Suppliers"
+        Me.TopMost = True
         CType(Me.dtSupplier, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

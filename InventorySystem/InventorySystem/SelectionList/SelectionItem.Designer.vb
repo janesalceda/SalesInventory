@@ -203,9 +203,11 @@ Partial Class SelectionItem
         Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(360, 459)
         Me.MinimizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(360, 459)
         Me.Name = "SelectionItem"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SelectionItem"
         CType(Me.dtitems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

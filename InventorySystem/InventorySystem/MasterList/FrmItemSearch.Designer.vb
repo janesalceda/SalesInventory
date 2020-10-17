@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmItems
+Partial Class FrmItemSearch
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,14 +23,14 @@ Partial Class FrmItems
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.dtItems = New System.Windows.Forms.DataGridView()
+        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtDes = New System.Windows.Forms.TextBox()
-        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,8 +47,27 @@ Partial Class FrmItems
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(1043, 453)
+        Me.dtItems.Size = New System.Drawing.Size(1043, 441)
         Me.dtItems.TabIndex = 0
+        '
+        'ItemId
+        '
+        Me.ItemId.HeaderText = "Item Id"
+        Me.ItemId.Name = "ItemId"
+        Me.ItemId.ReadOnly = True
+        '
+        'ItemName
+        '
+        Me.ItemName.HeaderText = "Item Description"
+        Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
+        '
+        'Delete
+        '
+        Me.Delete.HeaderText = "Delete"
+        Me.Delete.Name = "Delete"
+        Me.Delete.ReadOnly = True
+        Me.Delete.Text = ""
         '
         'TextBox6
         '
@@ -94,26 +113,7 @@ Partial Class FrmItems
         Me.txtDes.Size = New System.Drawing.Size(314, 27)
         Me.txtDes.TabIndex = 22
         '
-        'ItemId
-        '
-        Me.ItemId.HeaderText = "ItemId"
-        Me.ItemId.Name = "ItemId"
-        Me.ItemId.ReadOnly = True
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "ItemName"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        '
-        'Delete
-        '
-        Me.Delete.HeaderText = "Delete"
-        Me.Delete.Name = "Delete"
-        Me.Delete.ReadOnly = True
-        Me.Delete.Text = ""
-        '
-        'FrmItems
+        'FrmItemSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -128,8 +128,8 @@ Partial Class FrmItems
         Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "FrmItems"
-        Me.Text = "FormItems"
+        Me.Name = "FrmItemSearch"
+        Me.Text = "Item Search"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

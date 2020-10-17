@@ -5,6 +5,7 @@
     Public formname As String
     Public price As Integer
     Public coefficient As Decimal
+    Public SupplierId As String
     Public SQL As New SQLControl
     Public Function AddingWhere(where As String) As String
         If where <> "" Then
@@ -86,9 +87,20 @@
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
+    Public Function getCategories()
+        SQL.ExecQuery("select * from Categories")
+        If SQL.HasException Then Return False
+        Return SQL.DBDT
+    End Function
     Public Function GetCurrency()
         SQL.ExecQuery("select * from CurrencyUnits")
         If SQL.HasException Then Return False
         Return SQL.DBDT
+    End Function
+
+    Public Function GetItemcode()
+        SQL.ExecQuery("SELECT dbo.GenerateItemCode ()")
+        If SQL.HasException Then Return False
+        Return SQL.DBDT.Rows(0).Item(0)
     End Function
 End Module

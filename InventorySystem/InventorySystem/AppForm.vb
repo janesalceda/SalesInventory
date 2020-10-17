@@ -1,11 +1,11 @@
 ﻿Public Class AppForm
 
     Private Sub miItems_Click(sender As Object, e As EventArgs) Handles miItems.Click
-        FrmItems.Show()
+        FrmItemSearch.Show()
     End Sub
 
     Private Sub checkInventory_Click(sender As Object, e As EventArgs) Handles checkInventory.Click
-        frmInventory.Show()
+
     End Sub
     Private Sub DeliveryPlacesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeliveryPlacesToolStripMenuItem.Click
         FrmDeliveryPlaces.Show()
@@ -60,8 +60,8 @@
         FrmTermsofPayment.Show()
     End Sub
 
-    Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewToolStripMenuItem.Click
-        Suppliers.Show()
+    Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub miMaster_Click(sender As Object, e As EventArgs) Handles miMaster.Click
@@ -96,5 +96,13 @@
         FrmStockTaking.chkApproved.Checked = False
         FrmStockTaking.Search()
         FrmStockTaking.Show()
+    End Sub
+
+    Private Sub ReceivedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReceivedToolStripMenuItem.Click
+        frmInventory.Show()
+    End Sub
+
+    Private Sub UsersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsersToolStripMenuItem.Click
+        Suppliers.Show()
     End Sub
 End Class

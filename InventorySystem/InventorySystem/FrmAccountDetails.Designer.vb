@@ -158,12 +158,14 @@ Partial Class FrmAccountDetails
         '
         'btnUpdate
         '
+        Me.btnUpdate.BackColor = System.Drawing.SystemColors.Control
+        Me.btnUpdate.ForeColor = System.Drawing.SystemColors.InfoText
         Me.btnUpdate.Location = New System.Drawing.Point(195, 247)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(75, 30)
         Me.btnUpdate.TabIndex = 12
         Me.btnUpdate.Text = "Update"
-        Me.btnUpdate.UseVisualStyleBackColor = True
+        Me.btnUpdate.UseVisualStyleBackColor = False
         '
         'btnCancel
         '

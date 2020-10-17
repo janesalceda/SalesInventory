@@ -64,6 +64,8 @@ Partial Class AddInvoice
         Me.txtExp = New System.Windows.Forms.TextBox()
         Me.dtableDelivery = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeliveryId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DeliveryDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -407,7 +409,7 @@ Partial Class AddInvoice
         'dtDeliveryDate
         '
         Me.dtDeliveryDate.Checked = False
-        Me.dtDeliveryDate.Location = New System.Drawing.Point(722, 6)
+        Me.dtDeliveryDate.Location = New System.Drawing.Point(114, 54)
         Me.dtDeliveryDate.Name = "dtDeliveryDate"
         Me.dtDeliveryDate.ShowCheckBox = True
         Me.dtDeliveryDate.Size = New System.Drawing.Size(189, 27)
@@ -416,7 +418,7 @@ Partial Class AddInvoice
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(614, 12)
+        Me.Label21.Location = New System.Drawing.Point(6, 60)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(109, 19)
         Me.Label21.TabIndex = 200
@@ -436,7 +438,7 @@ Partial Class AddInvoice
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(4, 240)
+        Me.Label26.Location = New System.Drawing.Point(4, 254)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(59, 19)
         Me.Label26.TabIndex = 198
@@ -444,7 +446,7 @@ Partial Class AddInvoice
         '
         'txtqtyok
         '
-        Me.txtqtyok.Location = New System.Drawing.Point(110, 237)
+        Me.txtqtyok.Location = New System.Drawing.Point(110, 251)
         Me.txtqtyok.Name = "txtqtyok"
         Me.txtqtyok.Size = New System.Drawing.Size(191, 27)
         Me.txtqtyok.TabIndex = 199
@@ -452,7 +454,7 @@ Partial Class AddInvoice
         'txtposeqdel
         '
         Me.txtposeqdel.Enabled = False
-        Me.txtposeqdel.Location = New System.Drawing.Point(239, 139)
+        Me.txtposeqdel.Location = New System.Drawing.Point(239, 154)
         Me.txtposeqdel.Name = "txtposeqdel"
         Me.txtposeqdel.Size = New System.Drawing.Size(62, 27)
         Me.txtposeqdel.TabIndex = 197
@@ -460,7 +462,7 @@ Partial Class AddInvoice
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(4, 276)
+        Me.Label25.Location = New System.Drawing.Point(4, 290)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(92, 19)
         Me.Label25.TabIndex = 195
@@ -469,7 +471,7 @@ Partial Class AddInvoice
         'txtBal
         '
         Me.txtBal.Enabled = False
-        Me.txtBal.Location = New System.Drawing.Point(110, 273)
+        Me.txtBal.Location = New System.Drawing.Point(110, 287)
         Me.txtBal.Name = "txtBal"
         Me.txtBal.Size = New System.Drawing.Size(191, 27)
         Me.txtBal.TabIndex = 196
@@ -477,7 +479,7 @@ Partial Class AddInvoice
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(4, 207)
+        Me.Label23.Location = New System.Drawing.Point(4, 221)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(99, 19)
         Me.Label23.TabIndex = 193
@@ -485,7 +487,7 @@ Partial Class AddInvoice
         '
         'txtRec
         '
-        Me.txtRec.Location = New System.Drawing.Point(110, 203)
+        Me.txtRec.Location = New System.Drawing.Point(110, 217)
         Me.txtRec.Name = "txtRec"
         Me.txtRec.Size = New System.Drawing.Size(191, 27)
         Me.txtRec.TabIndex = 194
@@ -493,7 +495,7 @@ Partial Class AddInvoice
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(4, 174)
+        Me.Label22.Location = New System.Drawing.Point(4, 188)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(99, 19)
         Me.Label22.TabIndex = 191
@@ -502,7 +504,7 @@ Partial Class AddInvoice
         'txtExp
         '
         Me.txtExp.Enabled = False
-        Me.txtExp.Location = New System.Drawing.Point(110, 171)
+        Me.txtExp.Location = New System.Drawing.Point(110, 185)
         Me.txtExp.Name = "txtExp"
         Me.txtExp.Size = New System.Drawing.Size(191, 27)
         Me.txtExp.TabIndex = 192
@@ -515,12 +517,12 @@ Partial Class AddInvoice
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
-        Me.dtableDelivery.Location = New System.Drawing.Point(308, 38)
+        Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DeliveryId, Me.DeliveryDate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.dtableDelivery.Location = New System.Drawing.Point(308, 8)
         Me.dtableDelivery.Name = "dtableDelivery"
         Me.dtableDelivery.ReadOnly = True
         Me.dtableDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableDelivery.Size = New System.Drawing.Size(750, 351)
+        Me.dtableDelivery.Size = New System.Drawing.Size(750, 381)
         Me.dtableDelivery.TabIndex = 188
         '
         'DataGridViewTextBoxColumn1
@@ -529,6 +531,18 @@ Partial Class AddInvoice
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Width = 40
+        '
+        'DeliveryId
+        '
+        Me.DeliveryId.HeaderText = "DeliveryId"
+        Me.DeliveryId.Name = "DeliveryId"
+        Me.DeliveryId.ReadOnly = True
+        '
+        'DeliveryDate
+        '
+        Me.DeliveryDate.HeaderText = "DeliveryDate"
+        Me.DeliveryDate.Name = "DeliveryDate"
+        Me.DeliveryDate.ReadOnly = True
         '
         'DataGridViewTextBoxColumn2
         '
@@ -582,7 +596,7 @@ Partial Class AddInvoice
         'label17
         '
         Me.label17.AutoSize = True
-        Me.label17.Location = New System.Drawing.Point(308, 9)
+        Me.label17.Location = New System.Drawing.Point(10, 25)
         Me.label17.Name = "label17"
         Me.label17.Size = New System.Drawing.Size(78, 19)
         Me.label17.TabIndex = 186
@@ -591,7 +605,7 @@ Partial Class AddInvoice
         'txtDeliveryID
         '
         Me.txtDeliveryID.Enabled = False
-        Me.txtDeliveryID.Location = New System.Drawing.Point(414, 6)
+        Me.txtDeliveryID.Location = New System.Drawing.Point(116, 22)
         Me.txtDeliveryID.Name = "txtDeliveryID"
         Me.txtDeliveryID.Size = New System.Drawing.Size(191, 27)
         Me.txtDeliveryID.TabIndex = 187
@@ -599,18 +613,17 @@ Partial Class AddInvoice
         'btnInsertDel
         '
         Me.btnInsertDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsertDel.Location = New System.Drawing.Point(194, 322)
+        Me.btnInsertDel.Location = New System.Drawing.Point(194, 336)
         Me.btnInsertDel.Name = "btnInsertDel"
         Me.btnInsertDel.Size = New System.Drawing.Size(103, 32)
         Me.btnInsertDel.TabIndex = 184
         Me.btnInsertDel.Text = "INSERT"
         Me.btnInsertDel.UseVisualStyleBackColor = True
-        Me.btnInsertDel.Visible = False
         '
         'btnPOInv
         '
         Me.btnPOInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPOInv.Location = New System.Drawing.Point(203, 139)
+        Me.btnPOInv.Location = New System.Drawing.Point(203, 153)
         Me.btnPOInv.Name = "btnPOInv"
         Me.btnPOInv.Size = New System.Drawing.Size(32, 27)
         Me.btnPOInv.TabIndex = 183
@@ -620,7 +633,7 @@ Partial Class AddInvoice
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(4, 142)
+        Me.Label20.Location = New System.Drawing.Point(4, 156)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(62, 19)
         Me.Label20.TabIndex = 181
@@ -628,7 +641,7 @@ Partial Class AddInvoice
         '
         'txtPoDel
         '
-        Me.txtPoDel.Location = New System.Drawing.Point(110, 139)
+        Me.txtPoDel.Location = New System.Drawing.Point(110, 153)
         Me.txtPoDel.Name = "txtPoDel"
         Me.txtPoDel.Size = New System.Drawing.Size(125, 27)
         Me.txtPoDel.TabIndex = 182
@@ -636,7 +649,7 @@ Partial Class AddInvoice
         'btnItemInv
         '
         Me.btnItemInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItemInv.Location = New System.Drawing.Point(270, 72)
+        Me.btnItemInv.Location = New System.Drawing.Point(270, 86)
         Me.btnItemInv.Name = "btnItemInv"
         Me.btnItemInv.Size = New System.Drawing.Size(32, 28)
         Me.btnItemInv.TabIndex = 180
@@ -646,7 +659,7 @@ Partial Class AddInvoice
         'txtIteamNameDel
         '
         Me.txtIteamNameDel.Enabled = False
-        Me.txtIteamNameDel.Location = New System.Drawing.Point(10, 106)
+        Me.txtIteamNameDel.Location = New System.Drawing.Point(10, 120)
         Me.txtIteamNameDel.Name = "txtIteamNameDel"
         Me.txtIteamNameDel.Size = New System.Drawing.Size(291, 27)
         Me.txtIteamNameDel.TabIndex = 179
@@ -654,7 +667,7 @@ Partial Class AddInvoice
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(4, 76)
+        Me.Label24.Location = New System.Drawing.Point(4, 90)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(46, 19)
         Me.Label24.TabIndex = 177
@@ -662,7 +675,7 @@ Partial Class AddInvoice
         '
         'txtItemDel
         '
-        Me.txtItemDel.Location = New System.Drawing.Point(110, 73)
+        Me.txtItemDel.Location = New System.Drawing.Point(110, 87)
         Me.txtItemDel.Name = "txtItemDel"
         Me.txtItemDel.Size = New System.Drawing.Size(191, 27)
         Me.txtItemDel.TabIndex = 178
@@ -904,7 +917,6 @@ Partial Class AddInvoice
         Me.btnAddItem.TabIndex = 163
         Me.btnAddItem.Text = "INSERT"
         Me.btnAddItem.UseVisualStyleBackColor = True
-        Me.btnAddItem.Visible = False
         '
         'chkReceived
         '
@@ -1166,15 +1178,6 @@ Partial Class AddInvoice
     Friend WithEvents Label22 As Label
     Friend WithEvents txtExp As TextBox
     Friend WithEvents txtposeqdel As TextBox
-    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-    Friend WithEvents POSeq As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
     Friend WithEvents Label26 As Label
     Friend WithEvents txtqtyok As TextBox
     Friend WithEvents Seq As DataGridViewTextBoxColumn
@@ -1197,4 +1200,15 @@ Partial Class AddInvoice
     Friend WithEvents Label21 As Label
     Friend WithEvents Label28 As Label
     Friend WithEvents Label29 As Label
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DeliveryId As DataGridViewTextBoxColumn
+    Friend WithEvents DeliveryDate As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewCheckBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents POSeq As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
 End Class

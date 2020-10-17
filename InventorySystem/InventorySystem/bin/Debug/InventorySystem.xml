@@ -22,6 +22,21 @@ InventorySystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:InventorySystem.My.Resources.Resources.Barcode">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.Print">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.QRCode">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventorySystem.My.Resources.Resources.visibility___Copy">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

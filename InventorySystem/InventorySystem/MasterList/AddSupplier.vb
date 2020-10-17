@@ -19,7 +19,7 @@
         txtAttention.Enabled = True
         txtAddress.Enabled = True
         txtPhone.Enabled = True
-        txtFax.Text = Enabled = True
+        txtFax.Enabled = True
         txtRemarks.Enabled = True
         txtAccountsName.Enabled = True
         cmbTOD.Enabled = True
@@ -27,7 +27,7 @@
         cmbCurrency.Enabled = True
         chkImport.Enabled = True
         txtEmailAd.Enabled = True
-        chkDisuse.Checked = True
+        chkDisuse.Checked = False
     End Sub
     Private Sub LoadDelivery()
         cmbTOD.DataSource = getDelivery()

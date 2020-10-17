@@ -344,7 +344,6 @@ Partial Class AddSupplier
         Me.Name = "AddSupplier"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Supplier"
-        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

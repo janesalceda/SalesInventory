@@ -1,4 +1,4 @@
-﻿Public Class FrmItems
+﻿Public Class FrmItemSearch
 
     Public Sub LoadDataGrid(Optional Query As String = "")
         If Query <> "" Then
@@ -16,8 +16,8 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        AddItem.btnSave.Visible = True
-        AddItem.Show()
+        FrmItemAdd.btnSave.Visible = True
+        FrmItemAdd.Show()
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs)
@@ -37,6 +37,14 @@
     End Sub
     Private Sub dtItems_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellDoubleClick
 
-        AddItem.Show()
+        FrmItemAdd.txtItemId.Text = dtItems.SelectedRows(0).Cells(0).Value.ToString
+
+        FrmItemAdd.Text = "Item Details"
+        FrmItemAdd.Show()
+        'Add viewing of data
+    End Sub
+
+    Private Sub dtItems_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellContentClick
+
     End Sub
 End Class

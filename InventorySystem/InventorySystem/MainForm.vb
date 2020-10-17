@@ -6,10 +6,10 @@
     End Sub
 
     Private Sub picItems_Click(sender As Object, e As EventArgs) Handles picItems.Click
-        With FrmItems
+        With FrmItemSearch
             .TopLevel = False
             Panel1.Controls.Clear()
-            Panel1.Controls.Add(FrmItems)
+            Panel1.Controls.Add(FrmItemSearch)
             .BringToFront()
             .Show()
         End With

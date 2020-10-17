@@ -60,6 +60,7 @@
       <HintPath>..\packages\BarCode.2020.6.0\lib\net40\IronBarCode.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.DirectoryServices" />
@@ -113,10 +114,16 @@
     <Compile Include="Invoice\AddInvoice.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\AddItem.Designer.vb">
-      <DependentUpon>AddItem.vb</DependentUpon>
+    <Compile Include="MasterList\FrmItemAdd.Designer.vb">
+      <DependentUpon>FrmItemAdd.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\AddItem.vb">
+    <Compile Include="MasterList\FrmItemAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\FrmItemPriceAdd.Designer.vb">
+      <DependentUpon>FrmItemPriceAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\FrmItemPriceAdd.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Purchase Order\AddPurchaseOrder.Designer.vb">
@@ -186,10 +193,10 @@
       <DependentUpon>FrmLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmItems.Designer.vb">
-      <DependentUpon>FrmItems.vb</DependentUpon>
+    <Compile Include="MasterList\FrmItemSearch.Designer.vb">
+      <DependentUpon>FrmItemSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmItems.vb">
+    <Compile Include="MasterList\FrmItemSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Purchase Order\FrmPurchaseOrder.Designer.vb">
@@ -359,8 +366,11 @@
     <EmbeddedResource Include="Invoice\AddInvoice.resx">
       <DependentUpon>AddInvoice.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\AddItem.resx">
-      <DependentUpon>AddItem.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\FrmItemAdd.resx">
+      <DependentUpon>FrmItemAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\FrmItemPriceAdd.resx">
+      <DependentUpon>FrmItemPriceAdd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Purchase Order\AddPurchaseOrder.resx">
       <DependentUpon>AddPurchaseOrder.vb</DependentUpon>
@@ -401,8 +411,8 @@
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmItems.resx">
-      <DependentUpon>FrmItems.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\FrmItemSearch.resx">
+      <DependentUpon>FrmItemSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
@@ -483,7 +493,13 @@
     <None Include="Resources\visibility - Copy.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="My Project\Assets\Barcode.png" />
+    <Content Include="My Project\Assets\Print.png" />
+    <Content Include="My Project\Assets\QRCode.png" />
     <Content Include="Custom-Icon-Design-Flatastic-4-Inventory-maintenance.ico" />
+    <None Include="Resources\Barcode.png" />
+    <None Include="Resources\Print.png" />
+    <None Include="Resources\QRCode.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utilities\" />

@@ -62,15 +62,17 @@
             row.Rows(i).Item(24).ToString,
             row.Rows(i).Item(25).ToString)
         Next
-        txtDeliveryID.Text = row.Rows(0).Item(26).ToString
-        dtDeliveryDate.Value = row.Rows(0).Item(27).ToString
+
         For i As Integer = 0 To row.Rows.Count - 1
-            dtableDelivery.Rows.Add(
-            row.Rows(i).Item(11).ToString,
+            dtableDelivery.Rows.Add("",
+            row.Rows(0).Item(26).ToString,
+            row.Rows(0).Item(27).ToString,
             row.Rows(i).Item(12).ToString,
-             row.Rows(i).Item(28).ToString,
             row.Rows(i).Item(13).ToString,
+            row.Rows(i).Item(28).ToString,
             row.Rows(i).Item(14).ToString,
+            row.Rows(i).Item(15).ToString,
+            row.Rows(i).Item(16).ToString,
             row.Rows(i).Item(29).ToString,
             row.Rows(i).Item(30).ToString,
             row.Rows(i).Item(31).ToString)
@@ -152,23 +154,6 @@
             Exit Sub
         End If
         txtItemName.Text = row.Item(0)
-    End Sub
-
-    Private Sub dtPoDetails_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellClick
-        If e.ColumnIndex = 3 Then
-            If txtSupplier.Text = "" Then
-                MsgBox("Choose Supplier First")
-                Exit Sub
-            End If
-            SelectionItem.txtSupplier.Text = txtSupplier.Text
-            formname = "AddInvoice"
-            SelectionItem.Show()
-        End If
-    End Sub
-
-    Private Sub dtPoDetails_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtableInvoice.CellFormatting
-        dtableDelivery.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
-        ' dtPoDetails.Rows(e.RowIndex).Cells(3).Value = "..."
     End Sub
 
 
@@ -296,7 +281,7 @@
 	                TotalAmount = @totalamount,
 	                InvoiceDate = @invoicedate,
 	                ActualETDDate = @actualetddate,
-	                DeletedDate = (select case when @deleteddate=1 then getdate() else NULL),
+	                DeletedDate = (select case when @deleteddate=1 then getdate() else NULL end),
 	                UpdatedDate = getdate(),
 	                UpdatedBy = @updatedby
 	                WHERE InvoiceNo = @invoiceno")
@@ -310,11 +295,12 @@
                 SQL.AddParams("@PONo", dtableInvoice.Rows(i).Cells(3).Value.ToString)
                 SQL.AddParams("@PODetailSeq", dtableInvoice.Rows(i).Cells(4).Value.ToString)
                 SQL.AddParams("@Remarks", dtableInvoice.Rows(i).Cells(14).Value.ToString)
-                SQL.AddParams("@DeliveryCompletedDate", Convert.ToDateTime(dtableInvoice.Rows(i).Cells(14).Value.ToString()))
+                SQL.AddParams("@DeliveryCompletedDate", Convert.ToDateTime(dtableInvoice.Rows(i).Cells(13).Value.ToString()))
                 SQL.AddParams("@Qty", dtableInvoice.Rows(i).Cells(5).Value.ToString)
                 SQL.AddParams("@EquivalentQty", dtableInvoice.Rows(i).Cells(7).Value.ToString)
                 SQL.AddParams("@UnitPrice", dtableInvoice.Rows(i).Cells(9).Value.ToString)
                 SQL.AddParams("@UpdatedBy", moduleId)
+                SQL.AddParams("@deleteddate", chkcancelPO.Checked)
                 SQL.ExecQuery("UPDATE dbo.InvoiceDetails
                 SET 
 	                SupplierId = @supplierid,
@@ -326,7 +312,7 @@
 	                Qty = @qty,
 	                EquivalentQty = @equivalentqty,
 	                UnitPrice = @unitprice,
-	                DeletedDate =(select case when @deleteddate=1 then getdate() else NULL),
+	                DeletedDate =(select case when @deleteddate=1 then getdate() else NULL end),
 	                UpdatedDate = getdate(),
 	                UpdatedBy = @updatedby
 	                WHERE InvoiceNo = @invoiceno AND InvoiceDetailSeq = @invoicedetailseq")
@@ -352,7 +338,7 @@
 	                QtyReceived = @qtyreceived,
 	                QtyOk = @qtyok,
 	                UpdatedDate = getdate(),
-	                DeletedDate = (select case when @deleteddate=1 then getdate() else NULL),
+	                DeletedDate = (select case when @deleteddate=1 then getdate() else NULL end),
 	                UpdatedBy = @updatedby
 	                WHERE InvoiceNo = @invoiceno AND InvoiceDetailSeq = @invoicedetailseq 
 	                AND DeliveryId = @deliveryid")
@@ -384,26 +370,46 @@
             MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
         End If
-        Dim row As ArrayList = New ArrayList
-        DTCount += 1
-        txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
-        'row.Add(DTCount)
-        row.Add(txtItemCode.Text)
-        row.Add(txtItemName.Text)
-        row.Add(txtPo.Text)
-        row.Add(txtPoSeq.Text)
-        row.Add(txtCliQty.Text)
-        row.Add(txtCliUnit.Text)
-        row.Add(txtSupQty.Text)
-        row.Add(txtSupUnit.Text)
-        row.Add(txtUnit.Text)
-        row.Add(txtTotalPrice.Text)
-        row.Add(chkCancel.Checked)
-        row.Add(chkReceived.Checked)
-        row.Add(dtDate.Value)
-        row.Add(txtInvoiceRemarks.Text)
-        dtableInvoice.Rows.Add(row.ToArray())
-        InvoicesClear()
+        If btnAddItem.Text = "INSERT" Then
+            Dim row As ArrayList = New ArrayList
+            DTCount += 1
+            txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
+            'row.Add(DTCount)
+            row.Add(txtItemCode.Text)
+            row.Add(txtItemName.Text)
+            row.Add(txtPo.Text)
+            row.Add(txtPoSeq.Text)
+            row.Add(txtCliQty.Text)
+            row.Add(txtCliUnit.Text)
+            row.Add(txtSupQty.Text)
+            row.Add(txtSupUnit.Text)
+            row.Add(txtUnit.Text)
+            row.Add(txtTotalPrice.Text)
+            row.Add(chkCancel.Checked)
+            row.Add(chkReceived.Checked)
+            row.Add(dtDate.Value)
+            row.Add(txtInvoiceRemarks.Text)
+            dtableInvoice.Rows.Add(row.ToArray())
+            InvoicesClear()
+
+        Else
+            dtableInvoice.SelectedRows(0).Cells(1).Value = txtItemCode.Text
+            dtableInvoice.SelectedRows(0).Cells(2).Value = txtItemName.Text
+            dtableInvoice.SelectedRows(0).Cells(3).Value = txtPo.Text
+            dtableInvoice.SelectedRows(0).Cells(4).Value = txtPoSeq.Text
+            dtableInvoice.SelectedRows(0).Cells(5).Value = txtCliQty.Text
+            dtableInvoice.SelectedRows(0).Cells(6).Value = txtCliUnit.Text
+            dtableInvoice.SelectedRows(0).Cells(7).Value = txtSupQty.Text
+            dtableInvoice.SelectedRows(0).Cells(8).Value = txtSupUnit.Text
+            dtableInvoice.SelectedRows(0).Cells(9).Value = txtUnit.Text
+            dtableInvoice.SelectedRows(0).Cells(10).Value = txtTotalPrice.Text
+            dtableInvoice.SelectedRows(0).Cells(11).Value = chkCancel.Checked
+            dtableInvoice.SelectedRows(0).Cells(12).Value = chkReceived.Checked
+            dtableInvoice.SelectedRows(0).Cells(13).Value = dtDate.Value
+            dtableInvoice.SelectedRows(0).Cells(14).Value = txtInvoiceRemarks.Text
+            btnAddItem.Text = "INSERT"
+            InvoicesClear()
+        End If
     End Sub
     Private Sub InvoicesClear()
         txtItemCode.Clear()
@@ -458,30 +464,43 @@
         PurchaseOrderList.ShowDialog()
     End Sub
 
-    Private Sub txtRec_TextChanged(sender As Object, e As EventArgs) Handles txtRec.TextChanged
-        txtBal.Text = Val(txtExp.Text) - Val(txtRec.Text)
-    End Sub
 
     Private Sub btnInsertDel_Click(sender As Object, e As EventArgs) Handles btnInsertDel.Click
         If String.IsNullOrEmpty(txtItemDel.Text) Or String.IsNullOrEmpty(txtPoDel.Text) Then
             MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
         End If
-        Dim row As ArrayList = New ArrayList
-        DTCount1 += 1
-        'txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
-        row.Add(DTCount1)
-        row.Add(txtItemDel.Text)
-        row.Add(txtIteamNameDel.Text)
-        row.Add(txtExp.Text)
-        row.Add(txtPoDel.Text)
-        row.Add(txtposeqdel.Text)
-        row.Add(txtRec.Text)
-        row.Add(txtqtyok.Text)
-        row.Add(txtBal.Text)
-        'row.Add(dtDeliveryDate.Value)
-        dtableDelivery.Rows.Add(row.ToArray())
-        InvoicesClear()
+        If btnInsertDel.Text = "INSERT" Then
+            Dim row As ArrayList = New ArrayList
+            DTCount1 += 1
+            'txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
+            row.Add(txtDeliveryID.Text)
+            row.Add(dtDeliveryDate.Value)
+            row.Add(txtItemDel.Text)
+            row.Add(txtIteamNameDel.Text)
+            row.Add(txtExp.Text)
+            row.Add(txtPoDel.Text)
+            row.Add(txtposeqdel.Text)
+            row.Add(txtRec.Text)
+            row.Add(txtqtyok.Text)
+            row.Add(txtBal.Text)
+            'row.Add(dtDeliveryDate.Value)
+            dtableDelivery.Rows.Add(row.ToArray())
+            DeliveryClear()
+        Else
+            dtableDelivery.SelectedRows(0).Cells(1).Value = txtDeliveryID.Text
+            dtableDelivery.SelectedRows(0).Cells(2).Value = dtDeliveryDate.Value
+            dtableDelivery.SelectedRows(0).Cells(3).Value = txtItemDel.Text
+            dtableDelivery.SelectedRows(0).Cells(4).Value = txtIteamNameDel.Text
+            dtableDelivery.SelectedRows(0).Cells(5).Value = txtExp.Text
+            dtableDelivery.SelectedRows(0).Cells(6).Value = txtPoDel.Text
+            dtableDelivery.SelectedRows(0).Cells(7).Value = txtposeqdel.Text
+            dtableDelivery.SelectedRows(0).Cells(8).Value = txtRec.Text
+            dtableDelivery.SelectedRows(0).Cells(9).Value = txtqtyok.Text
+            dtableDelivery.SelectedRows(0).Cells(10).Value = txtBal.Text
+            btnInsertDel.Text = "INSERT"
+            DeliveryClear()
+        End If
     End Sub
     Private Sub DeliveryClear()
         txtItemDel.Clear()
@@ -491,6 +510,7 @@
         txtposeqdel.Clear()
         txtRec.Clear()
         txtBal.Clear()
+        txtqtyok.Clear()
         'dtDeliveryDate.Value = Today
     End Sub
 
@@ -506,6 +526,50 @@
     Private Sub txtqtyok_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtqtyok.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
+
+    Private Sub dtableDelivery_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableDelivery.CellClick
+        txtDeliveryID.Text = dtableInvoice.SelectedRows(0).Cells(1).Value.ToString()
+        dtDeliveryDate.Value = Convert.ToDateTime(dtableDelivery.SelectedRows(0).Cells(2).Value.ToString())
+        txtItemDel.Text = dtableDelivery.SelectedRows(0).Cells(3).Value.ToString()
+        txtIteamNameDel.Text = dtableDelivery.SelectedRows(0).Cells(4).Value.ToString()
+        txtExp.Text = dtableDelivery.SelectedRows(0).Cells(5).Value.ToString()
+        txtPoDel.Text = dtableDelivery.SelectedRows(0).Cells(6).Value.ToString()
+        txtposeqdel.Text = dtableDelivery.SelectedRows(0).Cells(7).Value.ToString()
+        txtRec.Text = dtableDelivery.SelectedRows(0).Cells(8).Value.ToString()
+        txtqtyok.Text = dtableDelivery.SelectedRows(0).Cells(9).Value.ToString()
+        txtBal.Text = dtableDelivery.SelectedRows(0).Cells(10).Value.ToString()
+        btnInsertDel.Text = "UPDATE"
+    End Sub
+
+    Private Sub dtableInvoice_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellClick
+        txtItemCode.Text = dtableInvoice.SelectedRows(0).Cells(1).Value.ToString()
+        txtItemName.Text = dtableInvoice.SelectedRows(0).Cells(2).Value.ToString()
+        txtPo.Text = dtableInvoice.SelectedRows(0).Cells(3).Value.ToString()
+        txtPoSeq.Text = dtableInvoice.SelectedRows(0).Cells(4).Value.ToString()
+        txtCliQty.Text = dtableInvoice.SelectedRows(0).Cells(5).Value.ToString()
+        txtCliUnit.Text = dtableInvoice.SelectedRows(0).Cells(6).Value.ToString()
+        txtSupQty.Text = dtableInvoice.SelectedRows(0).Cells(7).Value.ToString()
+        txtSupUnit.Text = dtableInvoice.SelectedRows(0).Cells(8).Value.ToString()
+        txtUnit.Text = dtableInvoice.SelectedRows(0).Cells(9).Value.ToString()
+        txtTotalPrice.Text = dtableInvoice.SelectedRows(0).Cells(10).Value.ToString()
+        dtDate.Value = Convert.ToDateTime(dtableInvoice.SelectedRows(0).Cells(13).Value.ToString())
+        txtInvoiceRemarks.Text = dtableInvoice.SelectedRows(0).Cells(14).Value.ToString()
+        chkReceived.Checked = dtableInvoice.SelectedRows(0).Cells(11).Value.ToString()
+        chkCancel.Checked = dtableInvoice.SelectedRows(0).Cells(12).Value.ToString()
+        btnAddItem.Text = "UPDATE"
+    End Sub
+
+    Private Sub txtqtyok_TextChanged(sender As Object, e As EventArgs) Handles txtqtyok.TextChanged
+        txtBal.Text = Val(txtExp.Text) - Val(txtqtyok.Text)
+    End Sub
+
+    Private Sub dtableDelivery_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtableDelivery.CellFormatting
+        dtableDelivery.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
+    End Sub
+
+
+
+
 
 
     'Private Sub dtPoDetails_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dtPoDetails.CellValueChanged

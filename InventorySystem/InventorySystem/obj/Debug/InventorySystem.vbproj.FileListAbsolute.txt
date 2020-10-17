@@ -276,7 +276,6 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddInvoice.resources
-C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddItem.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddPurchaseOrder.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddStocks.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddSupplier.resources
@@ -290,7 +289,6 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Suppliers.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmTermsofDelivery.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.LoginForm.resources
-C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItems.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.frmInventory.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPurchaseOrder.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmQtyUnit.resources
@@ -376,3 +374,6 @@ C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\o
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.exe
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItemAdd.resources
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItemSearch.resources
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmItemPriceAdd.resources

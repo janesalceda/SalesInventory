@@ -37,9 +37,9 @@ Partial Class FrmLocation
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(390, 22)
+        Me.chkDisuse.Location = New System.Drawing.Point(439, 21)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(72, 23)
+        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 65
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
@@ -47,9 +47,9 @@ Partial Class FrmLocation
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(359, 82)
+        Me.Button1.Location = New System.Drawing.Point(404, 78)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 32)
+        Me.Button1.Size = New System.Drawing.Size(116, 30)
         Me.Button1.TabIndex = 67
         Me.Button1.Text = "CLEAR"
         Me.Button1.UseVisualStyleBackColor = True
@@ -58,18 +58,19 @@ Partial Class FrmLocation
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 52)
+        Me.Label2.Location = New System.Drawing.Point(24, 49)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 19)
+        Me.Label2.Size = New System.Drawing.Size(88, 18)
         Me.Label2.TabIndex = 70
         Me.Label2.Text = "Description"
         '
         'txtDes
         '
-        Me.txtDes.Location = New System.Drawing.Point(129, 50)
+        Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtDes.Location = New System.Drawing.Point(145, 47)
         Me.txtDes.MaxLength = 50
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(334, 27)
+        Me.txtDes.Size = New System.Drawing.Size(375, 26)
         Me.txtDes.TabIndex = 64
         '
         'dtqtyunit
@@ -84,52 +85,54 @@ Partial Class FrmLocation
         Me.dtqtyunit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 12.0!)
         DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.dtqtyunit.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dtqtyunit.Location = New System.Drawing.Point(9, 134)
+        Me.dtqtyunit.Location = New System.Drawing.Point(10, 127)
         Me.dtqtyunit.Name = "dtqtyunit"
         Me.dtqtyunit.ReadOnly = True
         Me.dtqtyunit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dtqtyunit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtqtyunit.Size = New System.Drawing.Size(459, 389)
+        Me.dtqtyunit.Size = New System.Drawing.Size(516, 369)
         Me.dtqtyunit.TabIndex = 68
         '
         'btnInsert
         '
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(253, 82)
+        Me.btnInsert.Location = New System.Drawing.Point(285, 78)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(103, 32)
+        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
         Me.btnInsert.TabIndex = 66
         Me.btnInsert.Text = "INSERT"
         Me.btnInsert.UseVisualStyleBackColor = True
         '
         'txtQtyunit
         '
-        Me.txtQtyunit.Location = New System.Drawing.Point(127, 16)
+        Me.txtQtyunit.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtQtyunit.Location = New System.Drawing.Point(143, 15)
         Me.txtQtyunit.MaxLength = 50
         Me.txtQtyunit.Name = "txtQtyunit"
-        Me.txtQtyunit.Size = New System.Drawing.Size(218, 27)
+        Me.txtQtyunit.Size = New System.Drawing.Size(245, 26)
         Me.txtQtyunit.TabIndex = 63
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(23, 20)
+        Me.Label1.Location = New System.Drawing.Point(26, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(64, 19)
+        Me.Label1.Size = New System.Drawing.Size(68, 18)
         Me.Label1.TabIndex = 69
         Me.Label1.Text = "Location"
         '
         'FrmLocation
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(480, 535)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(540, 507)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
@@ -138,7 +141,7 @@ Partial Class FrmLocation
         Me.Controls.Add(Me.btnInsert)
         Me.Controls.Add(Me.txtQtyunit)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmLocation"
         Me.Text = "FrmLocation"

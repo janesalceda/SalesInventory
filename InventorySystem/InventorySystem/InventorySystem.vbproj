@@ -132,6 +132,12 @@
     <Compile Include="Purchase Order\AddPurchaseOrder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SelectionList\FrmInvoiceSelection.Designer.vb">
+      <DependentUpon>FrmInvoiceSelection.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SelectionList\FrmInvoiceSelection.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Stocks\AddStocks.Designer.vb">
       <DependentUpon>AddStocks.vb</DependentUpon>
     </Compile>
@@ -199,12 +205,6 @@
     <Compile Include="MasterList\FrmItemSearch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purchase Order\FrmPurchaseOrder.Designer.vb">
-      <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Purchase Order\FrmPurchaseOrder.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MasterList\FrmQtyUnit.Designer.vb">
       <DependentUpon>FrmQtyUnit.vb</DependentUpon>
     </Compile>
@@ -241,16 +241,10 @@
     <Compile Include="Stocks\FrmStockout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\ViewSupplier.Designer.vb">
-      <DependentUpon>ViewSupplier.vb</DependentUpon>
+    <Compile Include="MasterList\FrmSupplierView.Designer.vb">
+      <DependentUpon>FrmSupplierView.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\ViewSupplier.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MasterList\FrmSupplierItemPrices.Designer.vb">
-      <DependentUpon>FrmSupplierItemPrices.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MasterList\FrmSupplierItemPrices.vb">
+    <Compile Include="MasterList\FrmSupplierView.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory\frmInventory.Designer.vb">
@@ -263,12 +257,6 @@
       <DependentUpon>FrmTermsofPayment.vb</DependentUpon>
     </Compile>
     <Compile Include="MasterList\FrmTermsofPayment.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.vb">
-      <DependentUpon>MainForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MainForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Globals.vb" />
@@ -375,6 +363,9 @@
     <EmbeddedResource Include="Purchase Order\AddPurchaseOrder.resx">
       <DependentUpon>AddPurchaseOrder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SelectionList\FrmInvoiceSelection.resx">
+      <DependentUpon>FrmInvoiceSelection.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Stocks\AddStocks.resx">
       <DependentUpon>AddStocks.vb</DependentUpon>
     </EmbeddedResource>
@@ -402,8 +393,8 @@
     <EmbeddedResource Include="Stocks\FrmStockout.resx">
       <DependentUpon>FrmStockout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\ViewSupplier.resx">
-      <DependentUpon>ViewSupplier.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\FrmSupplierView.resx">
+      <DependentUpon>FrmSupplierView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\FrmTermsofDelivery.resx">
       <DependentUpon>FrmTermsofDelivery.vb</DependentUpon>
@@ -416,9 +407,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Purchase Order\FrmPurchaseOrder.resx">
-      <DependentUpon>FrmPurchaseOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\FrmQtyUnit.resx">
       <DependentUpon>FrmQtyUnit.vb</DependentUpon>
@@ -434,9 +422,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\FrmTermsofPayment.resx">
       <DependentUpon>FrmTermsofPayment.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageBox.resx">
       <DependentUpon>MessageBox.vb</DependentUpon>

@@ -9,7 +9,9 @@
             st.STID=sd.STID INNER JOIN Employees e ON e.EmpId=st.EncodedStaff 
             INNER JOIN Items i ON i.ItemId=sd.ItemID	 
             WHERE st.STID=@stid")
-        If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Me.Close()
+
+        If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
+
         dtCountedDate.Text = SQL.DBDT.Rows(0).Item(1).ToString
         txtRemarks.Text = SQL.DBDT.Rows(0).Item(2).ToString
         txtEncodedStaff.Text = SQL.DBDT.Rows(0).Item(3).ToString
@@ -78,6 +80,10 @@
     End Sub
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
+        If String.IsNullOrEmpty(txtItemCode.Text) Or
+            String.IsNullOrEmpty(txtQty.Text) Then
+            MsgBox("Please complete all important details!", MsgBoxStyle.Critical)
+        End If
         Dim row As ArrayList = New ArrayList
         DTCount += 1
         row.Add(DTCount)
@@ -96,30 +102,32 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If dtableStockTaking.Rows.Count = 0 Then
-            MsgBox("Add items first before saving", MsgBoxStyle.Critical)
+        If dtableStockTaking.Rows.Count = 0 Or
+            String.IsNullOrWhiteSpace(dtCountedDate.Checked) Then
+            MsgBox("Please complete all * important detils", MsgBoxStyle.Critical)
             Exit Sub
         End If
-        If btnSave.Text = "UPDATE" Then
-            If chkApprove.Checked = True Then
-                SQL.AddParams("@approve", moduleId)
-            Else
-                SQL.AddParams("@approve", "")
-            End If
-            SQL.AddParams("@remarks", txtRemarks.Text)
-            SQL.AddParams("@stid", txtStockTakingID.Text)
-            SQL.ExecQuery("UPDATE StockTakingHeaders
+        If MsgBox("Are you finish?", vbYesNo) = vbYes Then
+            If btnSave.Text = "UPDATE" Then
+                If chkApprove.Checked = True Then
+                    SQL.AddParams("@approve", moduleId)
+                Else
+                    SQL.AddParams("@approve", "")
+                End If
+                SQL.AddParams("@remarks", txtRemarks.Text)
+                SQL.AddParams("@stid", txtStockTakingID.Text)
+                SQL.ExecQuery("UPDATE StockTakingHeaders
 	            SET ApprovedBy=(select CASE WHEN @approve='' THEN NULL ELSE @approve end),
                 Remarks=@remarks where stid=@stid")
-            If SQL.HasException Then
-                MsgBox("Error in Updating", MsgBoxStyle.Critical)
-                Exit Sub
-            End If
-        Else
-            SQL.AddParams("@counteddate", dtCountedDate.Value)
-            SQL.AddParams("@encodedstaff", moduleId)
-            SQL.AddParams("@remarks", txtRemarks.Text)
-            SQL.ExecQuery("INSERT INTO dbo.StockTakingHeaders
+                If SQL.HasException Then
+                    MsgBox("Error in Updating", MsgBoxStyle.Critical)
+                    Exit Sub
+                End If
+            Else
+                SQL.AddParams("@counteddate", dtCountedDate.Value)
+                SQL.AddParams("@encodedstaff", moduleId)
+                SQL.AddParams("@remarks", txtRemarks.Text)
+                SQL.ExecQuery("INSERT INTO dbo.StockTakingHeaders
 	            (STID,CountedDate,EncodedStaff,Remarks,ApprovedBy,UpdatedBy)
             VALUES((SELECT CASE WHEN max(STID) IS NULL 
                     THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
@@ -127,39 +135,35 @@
                     THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
                     ELSE 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
                     END END AS 'pomax' from StockTakingHeaders),@counteddate,@encodedstaff,@remarks,NULL,@encodedstaff)")
-            If SQL.HasException Then
-                MsgBox("Error in saving", MsgBoxStyle.Critical)
-                Exit Sub
-            End If
+                If SQL.HasException Then
+                    MsgBox("Error in saving", MsgBoxStyle.Critical)
+                    Exit Sub
+                End If
 
-            For i As Integer = 0 To dtableStockTaking.Rows.Count - 1
-                SQL.AddParams("@stid", txtStockTakingID.Text)
-                SQL.AddParams("@itemid", dtableStockTaking.Rows(i).Cells(1).Value.ToString())
-                SQL.AddParams("@qty", dtableStockTaking.Rows(i).Cells(3).Value.ToString())
-                SQL.AddParams("@remarks", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
-                SQL.AddParams("@updatedby", moduleId)
-                SQL.ExecQuery("INSERT INTO dbo.StockTakingDetails
+                For i As Integer = 0 To dtableStockTaking.Rows.Count - 1
+                    SQL.AddParams("@stid", txtStockTakingID.Text)
+                    SQL.AddParams("@itemid", dtableStockTaking.Rows(i).Cells(1).Value.ToString())
+                    SQL.AddParams("@qty", dtableStockTaking.Rows(i).Cells(3).Value.ToString())
+                    SQL.AddParams("@remarks", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@updatedby", moduleId)
+                    SQL.ExecQuery("INSERT INTO dbo.StockTakingDetails
 	                (STID,ItemID,Qty,Remarks,UpdatedBy)
-                VALUES((SELECT CASE WHEN max(STID) IS NULL 
-                    THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN Cast(right(max(STID),len(max(STID))-12) AS INT) +1<10
-                    THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
-                    ELSE 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
-                    END END AS 'pomax' from StockTakingHeaders),
+                VALUES((select max(stid) from StockTakingHeaders),
                     @itemid,
                     @qty,
                     @remarks,
                     @updatedby)")
-                If SQL.HasException Then
-                    SQL.AddParams("@stid", txtStockTakingID.Text)
-                    SQL.ExecQuery("delete from StockTakingDetails where where STID=(SELECT max(STID) from StockTakingHeaders);delete from StockTakingHeaders where STID=(SELECT max(STID) from StockTakingHeaders);")
-                    Exit Sub
-                End If
-            Next
+                    If SQL.HasException Then
+                        SQL.AddParams("@stid", txtStockTakingID.Text)
+                        SQL.ExecQuery("delete from StockTakingDetails where where STID=(SELECT max(STID) from StockTakingHeaders);delete from StockTakingHeaders where STID=(SELECT max(STID) from StockTakingHeaders);")
+                        Exit Sub
+                    End If
+                Next
 
+            End If
+            MsgBox("Successfully Saved", MsgBoxStyle.Information)
+            Me.Close()
         End If
-        MsgBox("Successfully Saved", MsgBoxStyle.Information)
-        Me.Close()
     End Sub
 
     Private Sub chkApprove_CheckedChanged(sender As Object, e As EventArgs) Handles chkApprove.CheckedChanged
@@ -173,4 +177,5 @@
     Private Sub txtQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtQty.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack) Then e.Handled = True
     End Sub
+
 End Class

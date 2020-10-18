@@ -39,78 +39,85 @@ Partial Class SupplierList
         Me.dtSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtSupplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtSupplier.Location = New System.Drawing.Point(4, 112)
+        Me.dtSupplier.Location = New System.Drawing.Point(6, 116)
         Me.dtSupplier.Name = "dtSupplier"
         Me.dtSupplier.ReadOnly = True
         Me.dtSupplier.RowHeadersVisible = False
         Me.dtSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtSupplier.Size = New System.Drawing.Size(320, 242)
+        Me.dtSupplier.Size = New System.Drawing.Size(360, 229)
         Me.dtSupplier.TabIndex = 0
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 17)
+        Me.Label4.Location = New System.Drawing.Point(11, 16)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(65, 19)
+        Me.Label4.Size = New System.Drawing.Size(70, 18)
         Me.Label4.TabIndex = 67
         Me.Label4.Text = "Supplier:"
         '
         'txtSupplier
         '
-        Me.txtSupplier.Location = New System.Drawing.Point(80, 12)
+        Me.txtSupplier.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSupplier.Location = New System.Drawing.Point(90, 11)
         Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(244, 27)
+        Me.txtSupplier.Size = New System.Drawing.Size(274, 26)
         Me.txtSupplier.TabIndex = 68
         '
         'txtSupplierName
         '
-        Me.txtSupplierName.Location = New System.Drawing.Point(8, 42)
+        Me.txtSupplierName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSupplierName.Location = New System.Drawing.Point(9, 45)
         Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSupplierName.MaxLength = 100
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(316, 27)
+        Me.txtSupplierName.Size = New System.Drawing.Size(355, 26)
         Me.txtSupplierName.TabIndex = 70
         '
         'btnClear
         '
+        Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(248, 72)
+        Me.btnClear.Location = New System.Drawing.Point(280, 78)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(4)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 31)
+        Me.btnClear.Size = New System.Drawing.Size(84, 29)
         Me.btnClear.TabIndex = 73
         Me.btnClear.Text = "CLEAR"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'btnSearch
         '
+        Me.btnSearch.BackColor = System.Drawing.Color.White
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(162, 72)
+        Me.btnSearch.Location = New System.Drawing.Point(183, 78)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(78, 31)
+        Me.btnSearch.Size = New System.Drawing.Size(88, 29)
         Me.btnSearch.TabIndex = 72
         Me.btnSearch.Text = "SEARCH"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'btnOk
         '
+        Me.btnOk.BackColor = System.Drawing.Color.White
         Me.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOk.Location = New System.Drawing.Point(246, 356)
+        Me.btnOk.Location = New System.Drawing.Point(277, 351)
         Me.btnOk.Margin = New System.Windows.Forms.Padding(4)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(78, 31)
+        Me.btnOk.Size = New System.Drawing.Size(88, 29)
         Me.btnOk.TabIndex = 74
         Me.btnOk.Text = "OK"
-        Me.btnOk.UseVisualStyleBackColor = True
+        Me.btnOk.UseVisualStyleBackColor = False
         '
         'SupplierList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(331, 389)
+        Me.ClientSize = New System.Drawing.Size(372, 380)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSearch)
@@ -118,13 +125,12 @@ Partial Class SupplierList
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtSupplier)
         Me.Controls.Add(Me.dtSupplier)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(347, 428)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(347, 428)
+        Me.MinimumSize = New System.Drawing.Size(388, 408)
         Me.Name = "SupplierList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "List of Suppliers"

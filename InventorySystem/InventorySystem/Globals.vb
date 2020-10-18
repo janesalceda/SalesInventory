@@ -34,9 +34,11 @@
         Dim Globalrow As ArrayList = New ArrayList
         SQL.AddParams("@ItemId", ItemId)
         SQL.ExecQuery("SELECT DISTINCT i.Description,
-                ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit and i.ItemId=@ItemId) 'Client',
-                ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',ConvertingCoefficient,
-                UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q where i.ItemId=@ItemId")
+            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit and i.ItemId=@ItemId) 'Client',
+            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',
+            ConvertingCoefficient,
+            UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q 
+            where i.ItemId=@ItemId")
         If SQL.HasException Then Return Globalrow
         If SQL.RecordCount = 0 Then Return Globalrow
         Globalrow.Add(SQL.DBDT.Rows(0).Item(0))
@@ -99,7 +101,7 @@
     End Function
 
     Public Function GetItemcode()
-        SQL.ExecQuery("SELECT dbo.GenerateItemCode ()")
+        SQL.ExecQuery("SELECT dbo.GenerateItemCode()")
         If SQL.HasException Then Return False
         Return SQL.DBDT.Rows(0).Item(0)
     End Function

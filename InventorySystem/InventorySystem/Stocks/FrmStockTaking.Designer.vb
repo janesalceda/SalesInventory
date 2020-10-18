@@ -36,38 +36,40 @@ Partial Class FrmStockTaking
         '
         'btnSearch
         '
+        Me.btnSearch.BackColor = System.Drawing.Color.White
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(402, 10)
+        Me.btnSearch.Location = New System.Drawing.Point(452, 9)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(99, 30)
+        Me.btnSearch.Size = New System.Drawing.Size(111, 28)
         Me.btnSearch.TabIndex = 38
         Me.btnSearch.Text = "Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'btnAdd
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(760, 505)
+        Me.btnAdd.Location = New System.Drawing.Point(855, 478)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(142, 32)
+        Me.btnAdd.Size = New System.Drawing.Size(160, 30)
         Me.btnAdd.TabIndex = 37
         Me.btnAdd.Text = "Add Stock Taking"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'txtSTID
         '
-        Me.txtSTID.Location = New System.Drawing.Point(125, 12)
+        Me.txtSTID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSTID.Location = New System.Drawing.Point(141, 11)
         Me.txtSTID.Name = "txtSTID"
-        Me.txtSTID.Size = New System.Drawing.Size(176, 27)
+        Me.txtSTID.Size = New System.Drawing.Size(198, 26)
         Me.txtSTID.TabIndex = 34
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 15)
+        Me.Label7.Location = New System.Drawing.Point(11, 14)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(111, 19)
+        Me.Label7.Size = New System.Drawing.Size(120, 18)
         Me.Label7.TabIndex = 33
         Me.Label7.Text = "Stock Taking ID:"
         '
@@ -83,56 +85,56 @@ Partial Class FrmStockTaking
         Me.dtableStockTaking.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockTaking.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dtableStockTaking.Location = New System.Drawing.Point(12, 84)
+        Me.dtableStockTaking.Location = New System.Drawing.Point(14, 80)
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
         Me.dtableStockTaking.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableStockTaking.Size = New System.Drawing.Size(891, 416)
+        Me.dtableStockTaking.Size = New System.Drawing.Size(1002, 394)
         Me.dtableStockTaking.TabIndex = 32
         '
         'dtCountedFrom
         '
         Me.dtCountedFrom.Checked = False
-        Me.dtCountedFrom.Location = New System.Drawing.Point(126, 44)
+        Me.dtCountedFrom.Location = New System.Drawing.Point(141, 42)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
-        Me.dtCountedFrom.Size = New System.Drawing.Size(150, 27)
+        Me.dtCountedFrom.Size = New System.Drawing.Size(168, 26)
         Me.dtCountedFrom.TabIndex = 118
         '
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
-        Me.dtCountedTo.Location = New System.Drawing.Point(278, 44)
+        Me.dtCountedTo.Location = New System.Drawing.Point(313, 42)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
-        Me.dtCountedTo.Size = New System.Drawing.Size(150, 27)
+        Me.dtCountedTo.Size = New System.Drawing.Size(168, 26)
         Me.dtCountedTo.TabIndex = 119
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 48)
+        Me.Label1.Location = New System.Drawing.Point(9, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 19)
+        Me.Label1.Size = New System.Drawing.Size(109, 18)
         Me.Label1.TabIndex = 120
         Me.Label1.Text = "Counted Date:"
         '
         'chkApproved
         '
         Me.chkApproved.AutoSize = True
-        Me.chkApproved.Location = New System.Drawing.Point(306, 14)
+        Me.chkApproved.Location = New System.Drawing.Point(344, 13)
         Me.chkApproved.Name = "chkApproved"
-        Me.chkApproved.Size = New System.Drawing.Size(89, 23)
+        Me.chkApproved.Size = New System.Drawing.Size(95, 22)
         Me.chkApproved.TabIndex = 122
         Me.chkApproved.Text = "Approved"
         Me.chkApproved.UseVisualStyleBackColor = True
         '
         'FrmStockTaking
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(911, 543)
+        Me.ClientSize = New System.Drawing.Size(1025, 514)
         Me.Controls.Add(Me.chkApproved)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtCountedTo)
@@ -142,7 +144,7 @@ Partial Class FrmStockTaking
         Me.Controls.Add(Me.txtSTID)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dtableStockTaking)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmStockTaking"
         Me.Text = "StockTaking"

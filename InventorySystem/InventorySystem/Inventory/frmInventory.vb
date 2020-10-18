@@ -19,14 +19,14 @@
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Dim row As New DataTable
-        Dim lastbalance As Decimal
-        Dim currentbalance As Decimal
-        Dim strTransactionDate As Date
         If String.IsNullOrEmpty(txtitem.Text) Then
             MsgBox("Please input itemId!", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
+        Dim row As New DataTable
+        Dim lastbalance As Decimal
+        Dim currentbalance As Decimal
+        Dim strTransactionDate As Date
         SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
         SQL.AddParams("@to", dtTo.Value.ToShortDateString)
         SQL.AddParams("@itemid", txtitem.Text)

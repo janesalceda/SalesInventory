@@ -19,6 +19,7 @@
 
     Private Sub EntryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntryToolStripMenuItem.Click
         With AddPurchaseOrder
+            .Text = "Add Purchase Order"
             .btnSave.Visible = True
             .Show()
         End With
@@ -58,14 +59,6 @@
 
     Private Sub TermsofPaymentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TermsofPaymentToolStripMenuItem.Click
         FrmTermsofPayment.Show()
-    End Sub
-
-    Private Sub ViewToolStripMenuItem_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
-    Private Sub miMaster_Click(sender As Object, e As EventArgs) Handles miMaster.Click
-
     End Sub
 
     Private Sub StockTakingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockTakingToolStripMenuItem.Click

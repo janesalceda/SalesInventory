@@ -22,7 +22,6 @@ Partial Class SelectionItem
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnOk = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -41,93 +40,90 @@ Partial Class SelectionItem
         CType(Me.dtitems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'btnCancel
-        '
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(262, 383)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(4)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 31)
-        Me.btnCancel.TabIndex = 73
-        Me.btnCancel.Text = "CANCEL"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
         'btnOk
         '
+        Me.btnOk.BackColor = System.Drawing.Color.White
         Me.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOk.Location = New System.Drawing.Point(176, 383)
-        Me.btnOk.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnOk.Location = New System.Drawing.Point(292, 363)
+        Me.btnOk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(78, 31)
+        Me.btnOk.Size = New System.Drawing.Size(88, 29)
         Me.btnOk.TabIndex = 72
         Me.btnOk.Text = "OK"
-        Me.btnOk.UseVisualStyleBackColor = True
+        Me.btnOk.UseVisualStyleBackColor = False
         '
         'btnClear
         '
+        Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(250, 114)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnClear.Location = New System.Drawing.Point(281, 108)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(75, 31)
+        Me.btnClear.Size = New System.Drawing.Size(85, 29)
         Me.btnClear.TabIndex = 71
         Me.btnClear.Text = "CLEAR"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'btnSearch
         '
+        Me.btnSearch.BackColor = System.Drawing.Color.White
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(164, 114)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSearch.Location = New System.Drawing.Point(184, 108)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(78, 31)
+        Me.btnSearch.Size = New System.Drawing.Size(88, 29)
         Me.btnSearch.TabIndex = 70
         Me.btnSearch.Text = "SEARCH"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 84)
+        Me.Label1.Location = New System.Drawing.Point(10, 80)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(61, 19)
+        Me.Label1.Size = New System.Drawing.Size(66, 18)
         Me.Label1.TabIndex = 68
         Me.Label1.Text = "Supplier"
         '
         'txtSupplier
         '
         Me.txtSupplier.Enabled = False
-        Me.txtSupplier.Location = New System.Drawing.Point(105, 83)
-        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSupplier.Location = New System.Drawing.Point(118, 79)
+        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(220, 27)
+        Me.txtSupplier.Size = New System.Drawing.Size(247, 26)
         Me.txtSupplier.TabIndex = 69
         '
         'txtItemsName
         '
-        Me.txtItemsName.Location = New System.Drawing.Point(13, 48)
-        Me.txtItemsName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtItemsName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtItemsName.Location = New System.Drawing.Point(14, 45)
+        Me.txtItemsName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtItemsName.MaxLength = 255
         Me.txtItemsName.Name = "txtItemsName"
-        Me.txtItemsName.Size = New System.Drawing.Size(312, 27)
+        Me.txtItemsName.Size = New System.Drawing.Size(350, 26)
         Me.txtItemsName.TabIndex = 67
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 14)
+        Me.Label4.Location = New System.Drawing.Point(10, 13)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 19)
+        Me.Label4.Size = New System.Drawing.Size(49, 18)
         Me.Label4.TabIndex = 65
         Me.Label4.Text = "Items:"
         '
         'txtItems
         '
-        Me.txtItems.Location = New System.Drawing.Point(105, 13)
-        Me.txtItems.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtItems.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtItems.Location = New System.Drawing.Point(118, 12)
+        Me.txtItems.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtItems.MaxLength = 20
         Me.txtItems.Name = "txtItems"
-        Me.txtItems.Size = New System.Drawing.Size(220, 27)
+        Me.txtItems.Size = New System.Drawing.Size(247, 26)
         Me.txtItems.TabIndex = 66
         '
         'dtitems
@@ -136,13 +132,13 @@ Partial Class SelectionItem
         Me.dtitems.AllowUserToDeleteRows = False
         Me.dtitems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtitems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemCode, Me.ItemName, Me.Column1, Me.Column2, Me.Column3, Me.Column4})
-        Me.dtitems.Location = New System.Drawing.Point(8, 153)
-        Me.dtitems.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtitems.Location = New System.Drawing.Point(9, 145)
+        Me.dtitems.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtitems.Name = "dtitems"
         Me.dtitems.ReadOnly = True
         Me.dtitems.RowHeadersVisible = False
         Me.dtitems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtitems.Size = New System.Drawing.Size(329, 222)
+        Me.dtitems.Size = New System.Drawing.Size(370, 210)
         Me.dtitems.TabIndex = 64
         '
         'ItemCode
@@ -187,10 +183,9 @@ Partial Class SelectionItem
         '
         'SelectionItem
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(344, 420)
-        Me.Controls.Add(Me.btnCancel)
+        Me.ClientSize = New System.Drawing.Size(387, 398)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSearch)
@@ -200,12 +195,12 @@ Partial Class SelectionItem
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtItems)
         Me.Controls.Add(Me.dtitems)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(360, 459)
+        Me.MaximumSize = New System.Drawing.Size(403, 437)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(360, 459)
+        Me.MinimumSize = New System.Drawing.Size(403, 437)
         Me.Name = "SelectionItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "SelectionItem"
@@ -214,8 +209,6 @@ Partial Class SelectionItem
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btnCancel As Button
     Friend WithEvents btnOk As Button
     Friend WithEvents btnClear As Button
     Friend WithEvents btnSearch As Button

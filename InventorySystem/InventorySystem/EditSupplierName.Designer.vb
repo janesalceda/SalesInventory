@@ -29,23 +29,26 @@ Partial Class EditSupplierName
         '
         'txtSupplierName
         '
+        Me.txtSupplierName.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.txtSupplierName.Location = New System.Drawing.Point(124, 14)
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(298, 27)
+        Me.txtSupplierName.Size = New System.Drawing.Size(298, 26)
         Me.txtSupplierName.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Label1.Location = New System.Drawing.Point(10, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 19)
+        Me.Label1.Size = New System.Drawing.Size(116, 18)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Supplier Name:"
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(172, 52)
+        Me.btnSave.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.btnSave.Location = New System.Drawing.Point(163, 55)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(200, 30)
         Me.btnSave.TabIndex = 2

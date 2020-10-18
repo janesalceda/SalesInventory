@@ -22,7 +22,7 @@ Partial Class FrmCategory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dtableCategory = New System.Windows.Forms.DataGridView()
         Me.txtCategoryname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -43,37 +43,38 @@ Partial Class FrmCategory
         Me.dtableCategory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableCategory.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableCategory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dtableCategory.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dtableCategory.Location = New System.Drawing.Point(4, 108)
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dtableCategory.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dtableCategory.Location = New System.Drawing.Point(4, 102)
         Me.dtableCategory.Name = "dtableCategory"
         Me.dtableCategory.ReadOnly = True
         Me.dtableCategory.RowHeadersVisible = False
         Me.dtableCategory.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dtableCategory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableCategory.Size = New System.Drawing.Size(480, 478)
+        Me.dtableCategory.Size = New System.Drawing.Size(540, 453)
         Me.dtableCategory.TabIndex = 32
         '
         'txtCategoryname
         '
-        Me.txtCategoryname.Location = New System.Drawing.Point(126, 26)
+        Me.txtCategoryname.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtCategoryname.Location = New System.Drawing.Point(142, 25)
         Me.txtCategoryname.MaxLength = 50
         Me.txtCategoryname.Name = "txtCategoryname"
-        Me.txtCategoryname.Size = New System.Drawing.Size(270, 27)
+        Me.txtCategoryname.Size = New System.Drawing.Size(303, 26)
         Me.txtCategoryname.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 28)
+        Me.Label1.Location = New System.Drawing.Point(8, 27)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(113, 19)
+        Me.Label1.Size = New System.Drawing.Size(122, 18)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Category Name:"
         '
@@ -81,9 +82,9 @@ Partial Class FrmCategory
         '
         Me.btnInsert.Enabled = False
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(260, 68)
+        Me.btnInsert.Location = New System.Drawing.Point(292, 64)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(103, 32)
+        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
         Me.btnInsert.TabIndex = 2
         Me.btnInsert.Text = "INSERT"
         Me.btnInsert.UseVisualStyleBackColor = True
@@ -92,9 +93,9 @@ Partial Class FrmCategory
         '
         Me.btnUpdate.Enabled = False
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.Location = New System.Drawing.Point(260, 68)
+        Me.btnUpdate.Location = New System.Drawing.Point(292, 64)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(103, 32)
+        Me.btnUpdate.Size = New System.Drawing.Size(116, 30)
         Me.btnUpdate.TabIndex = 3
         Me.btnUpdate.Text = "UPDATE"
         Me.btnUpdate.UseVisualStyleBackColor = True
@@ -104,9 +105,9 @@ Partial Class FrmCategory
         '
         Me.btnclear.Enabled = False
         Me.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnclear.Location = New System.Drawing.Point(368, 68)
+        Me.btnclear.Location = New System.Drawing.Point(414, 64)
         Me.btnclear.Name = "btnclear"
-        Me.btnclear.Size = New System.Drawing.Size(103, 32)
+        Me.btnclear.Size = New System.Drawing.Size(116, 30)
         Me.btnclear.TabIndex = 4
         Me.btnclear.Text = "CLEAR"
         Me.btnclear.UseVisualStyleBackColor = True
@@ -114,18 +115,19 @@ Partial Class FrmCategory
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(404, 28)
+        Me.chkDisuse.Location = New System.Drawing.Point(454, 27)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(72, 23)
+        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 1
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
         'FrmCategory
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(485, 584)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(546, 553)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.btnclear)
         Me.Controls.Add(Me.btnUpdate)
@@ -133,7 +135,7 @@ Partial Class FrmCategory
         Me.Controls.Add(Me.txtCategoryname)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtableCategory)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmCategory"
         Me.Text = "Categories"

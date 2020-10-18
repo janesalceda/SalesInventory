@@ -46,4 +46,5 @@
         AddStockTaking.txtStockTakingID.Text = dtableStockTaking.SelectedRows(0).Cells(0).Value
         AddStockTaking.Show()
     End Sub
+
 End Class

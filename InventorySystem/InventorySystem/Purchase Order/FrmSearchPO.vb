@@ -67,7 +67,8 @@
         'HINDI PA TAPOS HINDI KO PA ALAM IPAPASA SA FORM "ADDPURCHASEORDER"
         With AddPurchaseOrder
             .txtPONo.Text = dtPoDetails.SelectedRows(0).Cells(0).Value.ToString()
-            .btnSave.Text = "UPDATE"
+            .Text = "Update Purchase Order"
+            .btnSave.Text = "UPDATE P.O."
             .Show()
         End With
     End Sub
@@ -100,4 +101,5 @@
         End If
         txtItemsName.Text = row.Item(0)
     End Sub
+
 End Class

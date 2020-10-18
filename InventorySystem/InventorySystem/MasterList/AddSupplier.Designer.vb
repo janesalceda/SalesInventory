@@ -56,17 +56,19 @@ Partial Class AddSupplier
         Me.txtPhone.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPhone.Location = New System.Drawing.Point(130, 243)
+        Me.txtPhone.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtPhone.Location = New System.Drawing.Point(146, 230)
+        Me.txtPhone.MaxLength = 50
         Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(330, 27)
+        Me.txtPhone.Size = New System.Drawing.Size(371, 26)
         Me.txtPhone.TabIndex = 7
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(12, 246)
+        Me.Label8.Location = New System.Drawing.Point(14, 233)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(53, 19)
+        Me.Label8.Size = New System.Drawing.Size(57, 18)
         Me.Label8.TabIndex = 74
         Me.Label8.Text = "Phone:"
         '
@@ -75,17 +77,19 @@ Partial Class AddSupplier
         Me.txtFax.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtFax.Location = New System.Drawing.Point(130, 276)
+        Me.txtFax.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtFax.Location = New System.Drawing.Point(146, 261)
+        Me.txtFax.MaxLength = 50
         Me.txtFax.Name = "txtFax"
-        Me.txtFax.Size = New System.Drawing.Size(330, 27)
+        Me.txtFax.Size = New System.Drawing.Size(371, 26)
         Me.txtFax.TabIndex = 8
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 279)
+        Me.Label9.Location = New System.Drawing.Point(14, 264)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(35, 19)
+        Me.Label9.Size = New System.Drawing.Size(38, 18)
         Me.Label9.TabIndex = 72
         Me.Label9.Text = "Fax:"
         '
@@ -94,17 +98,19 @@ Partial Class AddSupplier
         Me.txtAddress.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAddress.Location = New System.Drawing.Point(130, 177)
+        Me.txtAddress.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtAddress.Location = New System.Drawing.Point(146, 168)
+        Me.txtAddress.MaxLength = 200
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(330, 27)
+        Me.txtAddress.Size = New System.Drawing.Size(371, 26)
         Me.txtAddress.TabIndex = 5
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(11, 180)
+        Me.Label5.Location = New System.Drawing.Point(12, 171)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(65, 19)
+        Me.Label5.Size = New System.Drawing.Size(71, 18)
         Me.Label5.TabIndex = 70
         Me.Label5.Text = "Address:"
         '
@@ -113,17 +119,19 @@ Partial Class AddSupplier
         Me.txtEmailAd.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEmailAd.Location = New System.Drawing.Point(130, 210)
+        Me.txtEmailAd.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtEmailAd.Location = New System.Drawing.Point(146, 199)
+        Me.txtEmailAd.MaxLength = 100
         Me.txtEmailAd.Name = "txtEmailAd"
-        Me.txtEmailAd.Size = New System.Drawing.Size(330, 27)
+        Me.txtEmailAd.Size = New System.Drawing.Size(371, 26)
         Me.txtEmailAd.TabIndex = 6
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(11, 213)
+        Me.Label6.Location = New System.Drawing.Point(12, 202)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(101, 19)
+        Me.Label6.Size = New System.Drawing.Size(110, 18)
         Me.Label6.TabIndex = 68
         Me.Label6.Text = "Email Address"
         '
@@ -132,17 +140,19 @@ Partial Class AddSupplier
         Me.txtAttention.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAttention.Location = New System.Drawing.Point(130, 144)
+        Me.txtAttention.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtAttention.Location = New System.Drawing.Point(146, 136)
+        Me.txtAttention.MaxLength = 50
         Me.txtAttention.Name = "txtAttention"
-        Me.txtAttention.Size = New System.Drawing.Size(330, 27)
+        Me.txtAttention.Size = New System.Drawing.Size(371, 26)
         Me.txtAttention.TabIndex = 4
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(11, 147)
+        Me.Label4.Location = New System.Drawing.Point(12, 139)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(73, 19)
+        Me.Label4.Size = New System.Drawing.Size(73, 18)
         Me.Label4.TabIndex = 66
         Me.Label4.Text = "Attention:"
         '
@@ -151,33 +161,37 @@ Partial Class AddSupplier
         Me.txtAccountsName.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAccountsName.Location = New System.Drawing.Point(130, 78)
+        Me.txtAccountsName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtAccountsName.Location = New System.Drawing.Point(146, 74)
+        Me.txtAccountsName.MaxLength = 100
         Me.txtAccountsName.Name = "txtAccountsName"
-        Me.txtAccountsName.Size = New System.Drawing.Size(330, 27)
+        Me.txtAccountsName.Size = New System.Drawing.Size(371, 26)
         Me.txtAccountsName.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(11, 81)
+        Me.Label3.Location = New System.Drawing.Point(12, 77)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(114, 19)
+        Me.Label3.Size = New System.Drawing.Size(122, 18)
         Me.Label3.TabIndex = 64
         Me.Label3.Text = "Accounts Name:"
         '
         'txtSupplierId
         '
-        Me.txtSupplierId.Location = New System.Drawing.Point(130, 12)
+        Me.txtSupplierId.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSupplierId.Location = New System.Drawing.Point(146, 11)
+        Me.txtSupplierId.MaxLength = 25
         Me.txtSupplierId.Name = "txtSupplierId"
-        Me.txtSupplierId.Size = New System.Drawing.Size(250, 27)
+        Me.txtSupplierId.Size = New System.Drawing.Size(281, 26)
         Me.txtSupplierId.TabIndex = 0
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 15)
+        Me.Label2.Location = New System.Drawing.Point(14, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 19)
+        Me.Label2.Size = New System.Drawing.Size(82, 18)
         Me.Label2.TabIndex = 62
         Me.Label2.Text = "Supplier Id"
         '
@@ -186,26 +200,28 @@ Partial Class AddSupplier
         Me.txtSupplierName.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSupplierName.Location = New System.Drawing.Point(130, 45)
+        Me.txtSupplierName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSupplierName.Location = New System.Drawing.Point(146, 43)
+        Me.txtSupplierName.MaxLength = 100
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(330, 27)
+        Me.txtSupplierName.Size = New System.Drawing.Size(371, 26)
         Me.txtSupplierName.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 48)
+        Me.Label1.Location = New System.Drawing.Point(14, 45)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 19)
+        Me.Label1.Size = New System.Drawing.Size(116, 18)
         Me.Label1.TabIndex = 60
         Me.Label1.Text = "Supplier Name:"
         '
         'btnSave
         '
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(340, 406)
+        Me.btnSave.Location = New System.Drawing.Point(385, 387)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(118, 32)
+        Me.btnSave.Size = New System.Drawing.Size(133, 30)
         Me.btnSave.TabIndex = 15
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = True
@@ -213,27 +229,27 @@ Partial Class AddSupplier
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(11, 114)
+        Me.Label7.Location = New System.Drawing.Point(12, 108)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(101, 19)
+        Me.Label7.Size = New System.Drawing.Size(105, 18)
         Me.Label7.TabIndex = 57
         Me.Label7.Text = "Currency Unit:"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(12, 345)
+        Me.Label10.Location = New System.Drawing.Point(14, 327)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(118, 19)
+        Me.Label10.Size = New System.Drawing.Size(124, 18)
         Me.Label10.TabIndex = 80
         Me.Label10.Text = "Term of Payment"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(11, 378)
+        Me.Label11.Location = New System.Drawing.Point(12, 358)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(115, 19)
+        Me.Label11.Size = New System.Drawing.Size(119, 18)
         Me.Label11.TabIndex = 78
         Me.Label11.Text = "Term of Delivery"
         '
@@ -242,17 +258,19 @@ Partial Class AddSupplier
         Me.txtRemarks.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtRemarks.Location = New System.Drawing.Point(130, 309)
+        Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtRemarks.Location = New System.Drawing.Point(146, 293)
+        Me.txtRemarks.MaxLength = 200
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(330, 27)
+        Me.txtRemarks.Size = New System.Drawing.Size(371, 26)
         Me.txtRemarks.TabIndex = 9
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(12, 309)
+        Me.Label12.Location = New System.Drawing.Point(14, 293)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(69, 19)
+        Me.Label12.Size = New System.Drawing.Size(75, 18)
         Me.Label12.TabIndex = 76
         Me.Label12.Text = "Remarks:"
         '
@@ -261,55 +279,62 @@ Partial Class AddSupplier
         Me.cmbTOP.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbTOP.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmbTOP.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbTOP.FormattingEnabled = True
-        Me.cmbTOP.Location = New System.Drawing.Point(130, 342)
+        Me.cmbTOP.Location = New System.Drawing.Point(146, 324)
         Me.cmbTOP.Name = "cmbTOP"
-        Me.cmbTOP.Size = New System.Drawing.Size(330, 27)
+        Me.cmbTOP.Size = New System.Drawing.Size(371, 26)
         Me.cmbTOP.TabIndex = 10
         '
         'cmbTOD
         '
+        Me.cmbTOD.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmbTOD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbTOD.FormattingEnabled = True
-        Me.cmbTOD.Location = New System.Drawing.Point(130, 375)
+        Me.cmbTOD.Location = New System.Drawing.Point(146, 355)
         Me.cmbTOD.Name = "cmbTOD"
-        Me.cmbTOD.Size = New System.Drawing.Size(330, 27)
+        Me.cmbTOD.Size = New System.Drawing.Size(371, 26)
         Me.cmbTOD.TabIndex = 11
         '
         'chkDisuse
         '
         Me.chkDisuse.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(387, 14)
+        Me.chkDisuse.Location = New System.Drawing.Point(440, 13)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(72, 23)
+        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 14
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
         'cmbCurrency
         '
+        Me.cmbCurrency.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.cmbCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbCurrency.FormattingEnabled = True
-        Me.cmbCurrency.Location = New System.Drawing.Point(130, 110)
+        Me.cmbCurrency.Location = New System.Drawing.Point(146, 104)
         Me.cmbCurrency.Name = "cmbCurrency"
-        Me.cmbCurrency.Size = New System.Drawing.Size(330, 27)
+        Me.cmbCurrency.Size = New System.Drawing.Size(371, 26)
         Me.cmbCurrency.TabIndex = 3
         '
         'chkImport
         '
         Me.chkImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkImport.AutoSize = True
-        Me.chkImport.Location = New System.Drawing.Point(12, 410)
+        Me.chkImport.Location = New System.Drawing.Point(23, 388)
         Me.chkImport.Name = "chkImport"
-        Me.chkImport.Size = New System.Drawing.Size(70, 23)
+        Me.chkImport.Size = New System.Drawing.Size(70, 22)
         Me.chkImport.TabIndex = 81
         Me.chkImport.Text = "Import"
         Me.chkImport.UseVisualStyleBackColor = True
         '
         'AddSupplier
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(471, 443)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(530, 420)
         Me.Controls.Add(Me.chkImport)
         Me.Controls.Add(Me.cmbCurrency)
         Me.Controls.Add(Me.chkDisuse)
@@ -337,7 +362,7 @@ Partial Class AddSupplier
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label7)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False

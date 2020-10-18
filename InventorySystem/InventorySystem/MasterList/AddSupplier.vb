@@ -4,7 +4,7 @@
         txtAttention.Enabled = False
         txtAddress.Enabled = False
         txtPhone.Enabled = False
-        txtFax.Text = Enabled = False
+        txtFax.Enabled = False
         txtRemarks.Enabled = False
         txtAccountsName.Enabled = False
         cmbTOD.Enabled = False

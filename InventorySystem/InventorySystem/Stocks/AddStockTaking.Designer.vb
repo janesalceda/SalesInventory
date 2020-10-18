@@ -56,66 +56,68 @@ Partial Class AddStockTaking
         'txtStockTakingID
         '
         Me.txtStockTakingID.Enabled = False
-        Me.txtStockTakingID.Location = New System.Drawing.Point(122, 12)
+        Me.txtStockTakingID.Location = New System.Drawing.Point(137, 11)
         Me.txtStockTakingID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtStockTakingID.Name = "txtStockTakingID"
-        Me.txtStockTakingID.Size = New System.Drawing.Size(202, 27)
+        Me.txtStockTakingID.Size = New System.Drawing.Size(227, 26)
         Me.txtStockTakingID.TabIndex = 95
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(9, 15)
+        Me.Label7.Location = New System.Drawing.Point(10, 14)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(107, 19)
+        Me.Label7.Size = New System.Drawing.Size(116, 18)
         Me.Label7.TabIndex = 94
         Me.Label7.Text = "StockTaking ID:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(9, 51)
+        Me.Label1.Location = New System.Drawing.Point(10, 48)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(110, 19)
+        Me.Label1.Size = New System.Drawing.Size(115, 18)
         Me.Label1.TabIndex = 96
         Me.Label1.Text = "*Counted Date:"
         '
         'txtRemarks
         '
-        Me.txtRemarks.Location = New System.Drawing.Point(414, 12)
+        Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtRemarks.Location = New System.Drawing.Point(511, 11)
         Me.txtRemarks.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtRemarks.MaxLength = 200
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(382, 27)
-        Me.txtRemarks.TabIndex = 99
+        Me.txtRemarks.Size = New System.Drawing.Size(384, 26)
+        Me.txtRemarks.TabIndex = 919
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(342, 14)
+        Me.Label2.Location = New System.Drawing.Point(385, 13)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(64, 19)
+        Me.Label2.Size = New System.Drawing.Size(70, 18)
         Me.Label2.TabIndex = 98
         Me.Label2.Text = "Remaks:"
         '
         'txtEncodedStaff
         '
         Me.txtEncodedStaff.Enabled = False
-        Me.txtEncodedStaff.Location = New System.Drawing.Point(454, 48)
+        Me.txtEncodedStaff.Location = New System.Drawing.Point(511, 45)
         Me.txtEncodedStaff.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEncodedStaff.Name = "txtEncodedStaff"
-        Me.txtEncodedStaff.Size = New System.Drawing.Size(248, 27)
+        Me.txtEncodedStaff.Size = New System.Drawing.Size(278, 26)
         Me.txtEncodedStaff.TabIndex = 101
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(341, 51)
+        Me.Label3.Location = New System.Drawing.Point(384, 48)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(101, 19)
+        Me.Label3.Size = New System.Drawing.Size(111, 18)
         Me.Label3.TabIndex = 100
         Me.Label3.Text = "Encoded Staff:"
         '
@@ -134,55 +136,61 @@ Partial Class AddStockTaking
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.txtItemCode)
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 98)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 93)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(799, 322)
+        Me.GroupBox1.Size = New System.Drawing.Size(899, 305)
         Me.GroupBox1.TabIndex = 105
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Stock Taking"
+        Me.GroupBox1.Text = "Stock Taking Details"
         '
         'btnItems
         '
+        Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItems.Location = New System.Drawing.Point(268, 66)
+        Me.btnItems.Location = New System.Drawing.Point(302, 63)
         Me.btnItems.Name = "btnItems"
-        Me.btnItems.Size = New System.Drawing.Size(32, 27)
-        Me.btnItems.TabIndex = 87
+        Me.btnItems.Size = New System.Drawing.Size(36, 26)
+        Me.btnItems.TabIndex = 3
         Me.btnItems.Text = "..."
-        Me.btnItems.UseVisualStyleBackColor = True
+        Me.btnItems.UseVisualStyleBackColor = False
         '
         'btnAddItem
         '
+        Me.btnAddItem.BackColor = System.Drawing.Color.White
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItem.Location = New System.Drawing.Point(198, 216)
+        Me.btnAddItem.Location = New System.Drawing.Point(222, 241)
         Me.btnAddItem.Name = "btnAddItem"
-        Me.btnAddItem.Size = New System.Drawing.Size(103, 32)
-        Me.btnAddItem.TabIndex = 86
+        Me.btnAddItem.Size = New System.Drawing.Size(116, 30)
+        Me.btnAddItem.TabIndex = 6
         Me.btnAddItem.Text = "INSERT"
-        Me.btnAddItem.UseVisualStyleBackColor = True
+        Me.btnAddItem.UseVisualStyleBackColor = False
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(18, 187)
+        Me.Label12.Location = New System.Drawing.Point(10, 175)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(69, 19)
+        Me.Label12.Size = New System.Drawing.Size(75, 18)
         Me.Label12.TabIndex = 72
         Me.Label12.Text = "Remarks:"
         '
         'txtSTRemarks
         '
-        Me.txtSTRemarks.Location = New System.Drawing.Point(90, 182)
+        Me.txtSTRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSTRemarks.Location = New System.Drawing.Point(101, 172)
+        Me.txtSTRemarks.MaxLength = 200
+        Me.txtSTRemarks.Multiline = True
         Me.txtSTRemarks.Name = "txtSTRemarks"
-        Me.txtSTRemarks.Size = New System.Drawing.Size(206, 27)
-        Me.txtSTRemarks.TabIndex = 73
+        Me.txtSTRemarks.Size = New System.Drawing.Size(236, 63)
+        Me.txtSTRemarks.TabIndex = 5
         '
         'txtQty
         '
-        Me.txtQty.Location = New System.Drawing.Point(56, 138)
+        Me.txtQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtQty.Location = New System.Drawing.Point(101, 131)
         Me.txtQty.Name = "txtQty"
-        Me.txtQty.Size = New System.Drawing.Size(110, 27)
-        Me.txtQty.TabIndex = 70
+        Me.txtQty.Size = New System.Drawing.Size(123, 26)
+        Me.txtQty.TabIndex = 4
         '
         'dtableStockTaking
         '
@@ -193,11 +201,11 @@ Partial Class AddStockTaking
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
-        Me.dtableStockTaking.Location = New System.Drawing.Point(310, 30)
+        Me.dtableStockTaking.Location = New System.Drawing.Point(349, 28)
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
         Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableStockTaking.Size = New System.Drawing.Size(484, 288)
+        Me.dtableStockTaking.Size = New System.Drawing.Size(544, 273)
         Me.dtableStockTaking.TabIndex = 69
         '
         'Seq
@@ -234,63 +242,65 @@ Partial Class AddStockTaking
         'txtItemName
         '
         Me.txtItemName.Enabled = False
-        Me.txtItemName.Location = New System.Drawing.Point(18, 101)
+        Me.txtItemName.Location = New System.Drawing.Point(14, 96)
         Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(278, 27)
+        Me.txtItemName.Size = New System.Drawing.Size(324, 26)
         Me.txtItemName.TabIndex = 65
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(18, 71)
+        Me.Label13.Location = New System.Drawing.Point(10, 66)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(42, 19)
+        Me.Label13.Size = New System.Drawing.Size(47, 18)
         Me.Label13.TabIndex = 62
-        Me.Label13.Text = "Item:"
+        Me.Label13.Text = "*Item:"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(18, 141)
+        Me.Label11.Location = New System.Drawing.Point(10, 134)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(36, 19)
+        Me.Label11.Size = New System.Drawing.Size(41, 18)
         Me.Label11.TabIndex = 67
-        Me.Label11.Text = "Qty:"
+        Me.Label11.Text = "*Qty:"
         '
         'txtItemCode
         '
-        Me.txtItemCode.Location = New System.Drawing.Point(64, 66)
+        Me.txtItemCode.BackColor = System.Drawing.Color.LightBlue
+        Me.txtItemCode.Location = New System.Drawing.Point(101, 63)
+        Me.txtItemCode.MaxLength = 20
         Me.txtItemCode.Name = "txtItemCode"
-        Me.txtItemCode.Size = New System.Drawing.Size(232, 27)
-        Me.txtItemCode.TabIndex = 63
+        Me.txtItemCode.Size = New System.Drawing.Size(231, 26)
+        Me.txtItemCode.TabIndex = 2
         '
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(696, 426)
+        Me.btnSave.Location = New System.Drawing.Point(783, 404)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(103, 32)
-        Me.btnSave.TabIndex = 104
+        Me.btnSave.Size = New System.Drawing.Size(116, 30)
+        Me.btnSave.TabIndex = 7
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'dtCountedDate
         '
         Me.dtCountedDate.Checked = False
-        Me.dtCountedDate.Location = New System.Drawing.Point(122, 48)
+        Me.dtCountedDate.Location = New System.Drawing.Point(137, 45)
         Me.dtCountedDate.Name = "dtCountedDate"
         Me.dtCountedDate.ShowCheckBox = True
-        Me.dtCountedDate.Size = New System.Drawing.Size(201, 27)
-        Me.dtCountedDate.TabIndex = 106
+        Me.dtCountedDate.Size = New System.Drawing.Size(226, 26)
+        Me.dtCountedDate.TabIndex = 0
         '
         'chkApprove
         '
         Me.chkApprove.AutoSize = True
         Me.chkApprove.Enabled = False
-        Me.chkApprove.Location = New System.Drawing.Point(712, 50)
+        Me.chkApprove.Location = New System.Drawing.Point(801, 47)
         Me.chkApprove.Name = "chkApprove"
-        Me.chkApprove.Size = New System.Drawing.Size(81, 23)
+        Me.chkApprove.Size = New System.Drawing.Size(86, 22)
         Me.chkApprove.TabIndex = 107
         Me.chkApprove.Text = "Approve"
         Me.chkApprove.UseVisualStyleBackColor = True
@@ -300,7 +310,7 @@ Partial Class AddStockTaking
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(0, 440)
+        Me.Label5.Location = New System.Drawing.Point(0, 417)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(217, 19)
@@ -309,9 +319,9 @@ Partial Class AddStockTaking
         '
         'AddStockTaking
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(806, 462)
+        Me.ClientSize = New System.Drawing.Size(907, 438)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.chkApprove)
         Me.Controls.Add(Me.dtCountedDate)
@@ -324,7 +334,7 @@ Partial Class AddStockTaking
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtStockTakingID)
         Me.Controls.Add(Me.Label7)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "AddStockTaking"
         Me.Text = "Add StockTaking"

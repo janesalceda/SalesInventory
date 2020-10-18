@@ -42,11 +42,11 @@ Public Class FrmAccountDetails
     Private Sub FrmAccountDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         LoadDataGrid()
-        If radM.Checked = True Then
-            picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\maleuser.png")
-        Else
-            picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\femaleuser.png")
-        End If
+        'If radM.Checked = True Then
+        '    picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\maleuser.png")
+        'Else
+        '    picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\femaleuser.png")
+        'End If
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click

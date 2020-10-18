@@ -15,10 +15,16 @@
         End If
         SQL.ExecQuery("SELECT SupplierId,SupplierName FROM Suppliers s" & where)
         If SQL.HasException Then Exit Sub
+        If SQL.DBDT.Rows.Count = 0 Then
+            MsgBox("No Record Found!", MsgBoxStyle.Information)
+            Exit Sub
+        End If
+        dtSupplier.DataSource = Nothing
         dtSupplier.DataSource = SQL.DBDT
     End Sub
 
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+        If dtSupplier.Rows.Count = 0 Then Exit Sub
         With dtSupplier
             If formname = "AddPurchaseOrder" Then
                 AddPurchaseOrder.txtSupplier.Text = .SelectedRows(0).Cells(0).Value.ToString

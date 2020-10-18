@@ -6,25 +6,17 @@
             MsgBox("Please Complete Important Fields!", MsgBoxStyle.Critical)
             Exit Sub
         End If
-
-        FrmItemAdd.dtItemPrices.Rows.Add(txtSupplierID.Text,
-         dtAppliedDate.Value, txtUnitPrice.Text, "", "", "Edit")
-
-        'SQL.AddParams("@ItemId", ItemId)
-        'SQL.AddParams("@SupplierID", txtSupplierID.Text)
-        'SQL.AddParams("@ItemPrice", txtUnitPrice.Text)
-        'SQL.AddParams("@AppliedDate", dtAppliedDate.Value)
-        'SQL.AddParams("@UpdatedBy", moduleId)
-        'SQL.ExecQuery("INSERT INTO SupplierItemPrices 
-        '    (ItemId,SupplierId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-        '    VALUES(@ItemId,@SupplierID,@AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
-        'If SQL.HasException Then
-        '    MsgBox("Error in Saving Please check fields!", MsgBoxStyle.Critical)
-        'End If
-        'MsgBox("Successfully Saved!", MsgBoxStyle.Information)
-        'FrmItemAdd.refreshData()
-        FrmItemAdd.btnSave.Text = "UPDATE"
-        FrmItemAdd.btnSave.Visible = True
+        If btnSave.Text = "INSERT PRICE" Then
+            FrmItemAdd.AddRow(txtSupplierID.Text, txtUnitPrice.Text, dtAppliedDate.Value)
+            If Not String.IsNullOrWhiteSpace(FrmItemAdd.txtItemId.Text) Then
+                FrmItemAdd.btnSave.Text = "UPDATE"
+                FrmItemAdd.btnSave.Visible = True
+            End If
+        Else
+            FrmItemAdd.dtItemPrices.SelectedRows(0).Cells(0).Value = txtSupplierID.Text
+            FrmItemAdd.dtItemPrices.SelectedRows(0).Cells(1).Value = dtAppliedDate.Value.ToShortDateString
+            FrmItemAdd.dtItemPrices.SelectedRows(0).Cells(2).Value = txtUnitPrice.Text
+        End If
         Me.Close()
     End Sub
 
@@ -41,5 +33,9 @@
             Exit Sub
         End If
         txtSupDes.Text = row.Item(0)
+    End Sub
+
+    Private Sub txtUnitPrice_TextChanged(sender As Object, e As EventArgs) Handles txtUnitPrice.TextChanged
+
     End Sub
 End Class

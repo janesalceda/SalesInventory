@@ -62,12 +62,12 @@ Partial Class FrmSearchInvoice
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtPoDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtPoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
-        Me.dtPoDetails.Location = New System.Drawing.Point(12, 298)
+        Me.dtPoDetails.Location = New System.Drawing.Point(14, 282)
         Me.dtPoDetails.Name = "dtPoDetails"
         Me.dtPoDetails.ReadOnly = True
         Me.dtPoDetails.RowHeadersVisible = False
         Me.dtPoDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtPoDetails.Size = New System.Drawing.Size(751, 348)
+        Me.dtPoDetails.Size = New System.Drawing.Size(845, 330)
         Me.dtPoDetails.TabIndex = 75
         '
         'Seq
@@ -104,169 +104,179 @@ Partial Class FrmSearchInvoice
         'btnSearch
         '
         Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSearch.BackColor = System.Drawing.Color.White
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(548, 259)
+        Me.btnSearch.Location = New System.Drawing.Point(616, 245)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(103, 34)
+        Me.btnSearch.Size = New System.Drawing.Size(116, 32)
         Me.btnSearch.TabIndex = 74
         Me.btnSearch.Text = "SEARCH"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(657, 259)
+        Me.btnClear.Location = New System.Drawing.Point(739, 245)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(103, 34)
+        Me.btnClear.Size = New System.Drawing.Size(116, 32)
         Me.btnClear.TabIndex = 73
         Me.btnClear.Text = "CLEAR"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'btnitems
         '
+        Me.btnitems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnitems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnitems.Location = New System.Drawing.Point(323, 26)
+        Me.btnitems.Location = New System.Drawing.Point(363, 25)
         Me.btnitems.Name = "btnitems"
-        Me.btnitems.Size = New System.Drawing.Size(32, 27)
+        Me.btnitems.Size = New System.Drawing.Size(36, 26)
         Me.btnitems.TabIndex = 51
         Me.btnitems.Text = "..."
-        Me.btnitems.UseVisualStyleBackColor = True
+        Me.btnitems.UseVisualStyleBackColor = False
         '
         'txtItemName
         '
         Me.txtItemName.Enabled = False
-        Me.txtItemName.Location = New System.Drawing.Point(364, 26)
+        Me.txtItemName.Location = New System.Drawing.Point(406, 25)
         Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(345, 27)
+        Me.txtItemName.Size = New System.Drawing.Size(392, 26)
         Me.txtItemName.TabIndex = 49
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 27)
+        Me.Label4.Location = New System.Drawing.Point(7, 26)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 19)
+        Me.Label4.Size = New System.Drawing.Size(49, 18)
         Me.Label4.TabIndex = 42
         Me.Label4.Text = "Items:"
         '
         'txtItemCode
         '
-        Me.txtItemCode.Location = New System.Drawing.Point(78, 26)
+        Me.txtItemCode.BackColor = System.Drawing.Color.LightBlue
+        Me.txtItemCode.Location = New System.Drawing.Point(105, 25)
         Me.txtItemCode.Name = "txtItemCode"
-        Me.txtItemCode.Size = New System.Drawing.Size(277, 27)
+        Me.txtItemCode.Size = New System.Drawing.Size(294, 26)
         Me.txtItemCode.TabIndex = 45
         '
         'GroupBox2
         '
+        Me.GroupBox2.BackColor = System.Drawing.Color.White
         Me.GroupBox2.Controls.Add(Me.txtPO)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.btnitems)
         Me.GroupBox2.Controls.Add(Me.txtItemName)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.txtItemCode)
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 158)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 150)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(754, 94)
+        Me.GroupBox2.Size = New System.Drawing.Size(848, 89)
         Me.GroupBox2.TabIndex = 72
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Invoice Details Information"
         '
         'txtPO
         '
-        Me.txtPO.Location = New System.Drawing.Point(78, 59)
+        Me.txtPO.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtPO.Location = New System.Drawing.Point(105, 56)
         Me.txtPO.Name = "txtPO"
-        Me.txtPO.Size = New System.Drawing.Size(277, 27)
+        Me.txtPO.Size = New System.Drawing.Size(294, 26)
         Me.txtPO.TabIndex = 53
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 62)
+        Me.Label3.Location = New System.Drawing.Point(7, 59)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(54, 19)
+        Me.Label3.Size = New System.Drawing.Size(59, 18)
         Me.Label3.TabIndex = 52
         Me.Label3.Text = "PO No:"
         '
         'btnSupplier
         '
+        Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSupplier.Location = New System.Drawing.Point(323, 61)
+        Me.btnSupplier.Location = New System.Drawing.Point(363, 58)
         Me.btnSupplier.Name = "btnSupplier"
-        Me.btnSupplier.Size = New System.Drawing.Size(32, 27)
+        Me.btnSupplier.Size = New System.Drawing.Size(36, 26)
         Me.btnSupplier.TabIndex = 51
         Me.btnSupplier.Text = "..."
-        Me.btnSupplier.UseVisualStyleBackColor = True
+        Me.btnSupplier.UseVisualStyleBackColor = False
         '
         'dtInvoiceTo
         '
         Me.dtInvoiceTo.Checked = False
-        Me.dtInvoiceTo.Location = New System.Drawing.Point(333, 93)
+        Me.dtInvoiceTo.Location = New System.Drawing.Point(406, 90)
         Me.dtInvoiceTo.Name = "dtInvoiceTo"
         Me.dtInvoiceTo.ShowCheckBox = True
-        Me.dtInvoiceTo.Size = New System.Drawing.Size(221, 27)
+        Me.dtInvoiceTo.Size = New System.Drawing.Size(294, 26)
         Me.dtInvoiceTo.TabIndex = 50
         '
         'txtinvoice
         '
-        Me.txtinvoice.Location = New System.Drawing.Point(93, 26)
+        Me.txtinvoice.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtinvoice.Location = New System.Drawing.Point(105, 25)
         Me.txtinvoice.Name = "txtinvoice"
-        Me.txtinvoice.Size = New System.Drawing.Size(277, 27)
+        Me.txtinvoice.Size = New System.Drawing.Size(294, 26)
         Me.txtinvoice.TabIndex = 43
         '
         'txtSupplierName
         '
         Me.txtSupplierName.Enabled = False
-        Me.txtSupplierName.Location = New System.Drawing.Point(361, 61)
+        Me.txtSupplierName.Location = New System.Drawing.Point(406, 58)
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(345, 27)
+        Me.txtSupplierName.Size = New System.Drawing.Size(388, 26)
         Me.txtSupplierName.TabIndex = 49
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(6, 29)
+        Me.Label7.Location = New System.Drawing.Point(7, 27)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(81, 19)
+        Me.Label7.Size = New System.Drawing.Size(84, 18)
         Me.Label7.TabIndex = 42
         Me.Label7.Text = "Invoice No:"
         '
         'dtInvoiceFrom
         '
         Me.dtInvoiceFrom.Checked = False
-        Me.dtInvoiceFrom.Location = New System.Drawing.Point(106, 93)
+        Me.dtInvoiceFrom.Location = New System.Drawing.Point(105, 90)
         Me.dtInvoiceFrom.Name = "dtInvoiceFrom"
         Me.dtInvoiceFrom.ShowCheckBox = True
-        Me.dtInvoiceFrom.Size = New System.Drawing.Size(221, 27)
+        Me.dtInvoiceFrom.Size = New System.Drawing.Size(294, 26)
         Me.dtInvoiceFrom.TabIndex = 48
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 64)
+        Me.Label1.Location = New System.Drawing.Point(7, 61)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(65, 19)
+        Me.Label1.Size = New System.Drawing.Size(70, 18)
         Me.Label1.TabIndex = 44
         Me.Label1.Text = "Supplier:"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 101)
+        Me.Label8.Location = New System.Drawing.Point(6, 96)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(94, 19)
+        Me.Label8.Size = New System.Drawing.Size(98, 18)
         Me.Label8.TabIndex = 47
         Me.Label8.Text = "Invoice Date:"
         '
         'txtSupplier
         '
-        Me.txtSupplier.Location = New System.Drawing.Point(93, 61)
+        Me.txtSupplier.BackColor = System.Drawing.Color.LightBlue
+        Me.txtSupplier.Location = New System.Drawing.Point(105, 58)
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(262, 27)
+        Me.txtSupplier.Size = New System.Drawing.Size(294, 26)
         Me.txtSupplier.TabIndex = 45
         '
         'GroupBox1
         '
+        Me.GroupBox1.BackColor = System.Drawing.Color.White
         Me.GroupBox1.Controls.Add(Me.btnSupplier)
         Me.GroupBox1.Controls.Add(Me.dtInvoiceTo)
         Me.GroupBox1.Controls.Add(Me.txtinvoice)
@@ -276,9 +286,9 @@ Partial Class FrmSearchInvoice
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 11)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(754, 140)
+        Me.GroupBox1.Size = New System.Drawing.Size(848, 133)
         Me.GroupBox1.TabIndex = 71
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Invoice Headers Information"
@@ -287,24 +297,25 @@ Partial Class FrmSearchInvoice
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(12, 278)
+        Me.Label2.Location = New System.Drawing.Point(14, 263)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(278, 19)
+        Me.Label2.Size = New System.Drawing.Size(319, 18)
         Me.Label2.TabIndex = 76
         Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
         '
         'FrmSearchInvoice
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(772, 658)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(868, 623)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtPoDetails)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmSearchInvoice"
         Me.Text = "FrmSearchInvoice"

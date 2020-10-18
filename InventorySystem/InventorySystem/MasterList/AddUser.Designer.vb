@@ -87,6 +87,7 @@ Partial Class AddUser
         '
         'cmbUserType
         '
+        Me.cmbUserType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbUserType.FormattingEnabled = True
         Me.cmbUserType.Items.AddRange(New Object() {"1", "2", "3"})
         Me.cmbUserType.Location = New System.Drawing.Point(131, 140)
@@ -96,6 +97,7 @@ Partial Class AddUser
         '
         'txtPassword
         '
+        Me.txtPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPassword.Location = New System.Drawing.Point(131, 206)
         Me.txtPassword.MaxLength = 15
         Me.txtPassword.Name = "txtPassword"
@@ -105,6 +107,7 @@ Partial Class AddUser
         '
         'txtUserName
         '
+        Me.txtUserName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUserName.Location = New System.Drawing.Point(131, 173)
         Me.txtUserName.MaxLength = 50
         Me.txtUserName.Name = "txtUserName"
@@ -140,6 +143,7 @@ Partial Class AddUser
         '
         'txtName
         '
+        Me.txtName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtName.Location = New System.Drawing.Point(131, 12)
         Me.txtName.MaxLength = 100
         Me.txtName.Name = "txtName"
@@ -188,6 +192,7 @@ Partial Class AddUser
         '
         'txtAge
         '
+        Me.txtAge.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtAge.Location = New System.Drawing.Point(131, 74)
         Me.txtAge.MaxLength = 3
         Me.txtAge.Name = "txtAge"
@@ -205,6 +210,7 @@ Partial Class AddUser
         '
         'cmbPosition
         '
+        Me.cmbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbPosition.FormattingEnabled = True
         Me.cmbPosition.Items.AddRange(New Object() {"1", "2", "3"})
         Me.cmbPosition.Location = New System.Drawing.Point(131, 107)
@@ -223,6 +229,7 @@ Partial Class AddUser
         '
         'txtVPassword
         '
+        Me.txtVPassword.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtVPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtVPassword.Location = New System.Drawing.Point(132, 239)
         Me.txtVPassword.Name = "txtVPassword"
@@ -242,6 +249,7 @@ Partial Class AddUser
         'lblnmatch
         '
         Me.lblnmatch.AutoSize = True
+        Me.lblnmatch.BackColor = System.Drawing.Color.Transparent
         Me.lblnmatch.ForeColor = System.Drawing.Color.Red
         Me.lblnmatch.Location = New System.Drawing.Point(277, 243)
         Me.lblnmatch.Name = "lblnmatch"

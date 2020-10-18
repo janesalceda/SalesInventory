@@ -22,7 +22,7 @@ Partial Class FrmQtyUnit
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.dtqtyunit = New System.Windows.Forms.DataGridView()
         Me.btnInsert = New System.Windows.Forms.Button()
         Me.txtQtyunit = New System.Windows.Forms.TextBox()
@@ -44,72 +44,74 @@ Partial Class FrmQtyUnit
         Me.dtqtyunit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtqtyunit.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtqtyunit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dtqtyunit.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dtqtyunit.Location = New System.Drawing.Point(2, 128)
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dtqtyunit.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dtqtyunit.Location = New System.Drawing.Point(2, 121)
         Me.dtqtyunit.Name = "dtqtyunit"
         Me.dtqtyunit.ReadOnly = True
         Me.dtqtyunit.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dtqtyunit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtqtyunit.Size = New System.Drawing.Size(480, 454)
+        Me.dtqtyunit.Size = New System.Drawing.Size(540, 430)
         Me.dtqtyunit.TabIndex = 53
         '
         'btnInsert
         '
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(250, 72)
+        Me.btnInsert.Location = New System.Drawing.Point(282, 70)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(103, 32)
+        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
         Me.btnInsert.TabIndex = 3
         Me.btnInsert.Text = "INSERT"
         Me.btnInsert.UseVisualStyleBackColor = True
         '
         'txtQtyunit
         '
-        Me.txtQtyunit.Location = New System.Drawing.Point(124, 6)
+        Me.txtQtyunit.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtQtyunit.Location = New System.Drawing.Point(140, 6)
         Me.txtQtyunit.MaxLength = 50
         Me.txtQtyunit.Name = "txtQtyunit"
-        Me.txtQtyunit.Size = New System.Drawing.Size(218, 27)
+        Me.txtQtyunit.Size = New System.Drawing.Size(245, 26)
         Me.txtQtyunit.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(20, 10)
+        Me.Label1.Location = New System.Drawing.Point(22, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 19)
+        Me.Label1.Size = New System.Drawing.Size(66, 18)
         Me.Label1.TabIndex = 55
         Me.Label1.Text = "QtyUnits"
         '
         'txtDes
         '
-        Me.txtDes.Location = New System.Drawing.Point(126, 40)
+        Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtDes.Location = New System.Drawing.Point(142, 38)
         Me.txtDes.MaxLength = 50
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(334, 27)
+        Me.txtDes.Size = New System.Drawing.Size(375, 26)
         Me.txtDes.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(18, 42)
+        Me.Label2.Location = New System.Drawing.Point(20, 40)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 19)
+        Me.Label2.Size = New System.Drawing.Size(88, 18)
         Me.Label2.TabIndex = 62
         Me.Label2.Text = "Description"
         '
         'Button1
         '
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(356, 72)
+        Me.Button1.Location = New System.Drawing.Point(401, 70)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 32)
+        Me.Button1.Size = New System.Drawing.Size(116, 30)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "CLEAR"
         Me.Button1.UseVisualStyleBackColor = True
@@ -118,18 +120,19 @@ Partial Class FrmQtyUnit
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(387, 12)
+        Me.chkDisuse.Location = New System.Drawing.Point(435, 11)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(72, 23)
+        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 2
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
         'FrmQtyUnit
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(485, 584)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(546, 553)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
@@ -138,7 +141,7 @@ Partial Class FrmQtyUnit
         Me.Controls.Add(Me.btnInsert)
         Me.Controls.Add(Me.txtQtyunit)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmQtyUnit"
         Me.Text = "FrmQtyUnit"

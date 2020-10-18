@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmAccountDetails
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmAccountDetails
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
@@ -36,7 +36,6 @@ Partial Class FrmAccountDetails
         Me.radF = New System.Windows.Forms.RadioButton()
         Me.btnUpdate = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.picVisible, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picProf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -44,61 +43,65 @@ Partial Class FrmAccountDetails
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(11, 32)
+        Me.Label1.Location = New System.Drawing.Point(12, 30)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(51, 19)
+        Me.Label1.Size = New System.Drawing.Size(54, 18)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Name:"
         '
         'txtName
         '
         Me.txtName.Enabled = False
-        Me.txtName.Location = New System.Drawing.Point(68, 28)
+        Me.txtName.Location = New System.Drawing.Point(76, 27)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(177, 27)
+        Me.txtName.Size = New System.Drawing.Size(199, 26)
         Me.txtName.TabIndex = 1
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(15, 132)
+        Me.txtUsername.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtUsername.Location = New System.Drawing.Point(17, 125)
+        Me.txtUsername.MaxLength = 50
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(230, 27)
+        Me.txtUsername.Size = New System.Drawing.Size(258, 26)
         Me.txtUsername.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(11, 66)
+        Me.Label2.Location = New System.Drawing.Point(12, 63)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 19)
+        Me.Label2.Size = New System.Drawing.Size(64, 18)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Gender:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(15, 110)
+        Me.Label3.Location = New System.Drawing.Point(17, 104)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 19)
+        Me.Label3.Size = New System.Drawing.Size(84, 18)
         Me.Label3.TabIndex = 4
         Me.Label3.Text = "Username:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(15, 162)
+        Me.Label4.Location = New System.Drawing.Point(17, 153)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(75, 19)
+        Me.Label4.Size = New System.Drawing.Size(82, 18)
         Me.Label4.TabIndex = 6
         Me.Label4.Text = "Password:"
         '
         'txtPass
         '
+        Me.txtPass.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPass.Enabled = False
-        Me.txtPass.Location = New System.Drawing.Point(15, 184)
+        Me.txtPass.Location = New System.Drawing.Point(17, 174)
+        Me.txtPass.MaxLength = 50
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtPass.Size = New System.Drawing.Size(230, 27)
+        Me.txtPass.Size = New System.Drawing.Size(258, 26)
         Me.txtPass.TabIndex = 5
         '
         'Label5
@@ -106,7 +109,7 @@ Partial Class FrmAccountDetails
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Blue
-        Me.Label5.Location = New System.Drawing.Point(65, 214)
+        Me.Label5.Location = New System.Drawing.Point(73, 203)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(116, 18)
         Me.Label5.TabIndex = 7
@@ -114,9 +117,9 @@ Partial Class FrmAccountDetails
         '
         'picVisible
         '
-        Me.picVisible.Location = New System.Drawing.Point(251, 188)
+        Me.picVisible.Location = New System.Drawing.Point(282, 178)
         Me.picVisible.Name = "picVisible"
-        Me.picVisible.Size = New System.Drawing.Size(22, 17)
+        Me.picVisible.Size = New System.Drawing.Size(25, 16)
         Me.picVisible.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picVisible.TabIndex = 8
         Me.picVisible.TabStop = False
@@ -125,9 +128,9 @@ Partial Class FrmAccountDetails
         'picProf
         '
         Me.picProf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picProf.Location = New System.Drawing.Point(253, 12)
+        Me.picProf.Location = New System.Drawing.Point(285, 11)
         Me.picProf.Name = "picProf"
-        Me.picProf.Size = New System.Drawing.Size(95, 91)
+        Me.picProf.Size = New System.Drawing.Size(107, 86)
         Me.picProf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.picProf.TabIndex = 9
         Me.picProf.TabStop = False
@@ -136,9 +139,9 @@ Partial Class FrmAccountDetails
         '
         Me.radM.AutoSize = True
         Me.radM.Enabled = False
-        Me.radM.Location = New System.Drawing.Point(95, 66)
+        Me.radM.Location = New System.Drawing.Point(107, 63)
         Me.radM.Name = "radM"
-        Me.radM.Size = New System.Drawing.Size(60, 23)
+        Me.radM.Size = New System.Drawing.Size(60, 22)
         Me.radM.TabIndex = 10
         Me.radM.TabStop = True
         Me.radM.Text = "Male"
@@ -148,9 +151,9 @@ Partial Class FrmAccountDetails
         '
         Me.radF.AutoSize = True
         Me.radF.Enabled = False
-        Me.radF.Location = New System.Drawing.Point(161, 66)
+        Me.radF.Location = New System.Drawing.Point(181, 63)
         Me.radF.Name = "radF"
-        Me.radF.Size = New System.Drawing.Size(74, 23)
+        Me.radF.Size = New System.Drawing.Size(79, 22)
         Me.radF.TabIndex = 11
         Me.radF.TabStop = True
         Me.radF.Text = "Female"
@@ -158,39 +161,33 @@ Partial Class FrmAccountDetails
         '
         'btnUpdate
         '
-        Me.btnUpdate.BackColor = System.Drawing.SystemColors.Control
+        Me.btnUpdate.BackColor = System.Drawing.Color.White
+        Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnUpdate.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.btnUpdate.Location = New System.Drawing.Point(195, 247)
+        Me.btnUpdate.Location = New System.Drawing.Point(219, 234)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(75, 30)
+        Me.btnUpdate.Size = New System.Drawing.Size(84, 28)
         Me.btnUpdate.TabIndex = 12
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = False
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(276, 247)
+        Me.btnCancel.BackColor = System.Drawing.Color.White
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Location = New System.Drawing.Point(310, 234)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 30)
+        Me.btnCancel.Size = New System.Drawing.Size(84, 28)
         Me.btnCancel.TabIndex = 13
         Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Enabled = False
-        Me.TextBox1.Location = New System.Drawing.Point(15, 247)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.TextBox1.Size = New System.Drawing.Size(156, 27)
-        Me.TextBox1.TabIndex = 14
+        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'FrmAccountDetails
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(358, 287)
-        Me.Controls.Add(Me.TextBox1)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(403, 272)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.radF)
@@ -205,7 +202,7 @@ Partial Class FrmAccountDetails
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtName)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
@@ -233,5 +230,4 @@ Partial Class FrmAccountDetails
     Friend WithEvents radF As RadioButton
     Friend WithEvents btnUpdate As Button
     Friend WithEvents btnCancel As Button
-    Friend WithEvents TextBox1 As TextBox
 End Class

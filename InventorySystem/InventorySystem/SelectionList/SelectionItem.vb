@@ -1,24 +1,32 @@
 ﻿Public Class SelectionItem
+    Public IssuedDate As Date
     'Public formname As String
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim query As String = ""
+        If formname = "AddPurchaseOrder" Then
+            SQL.AddParams("@issuedDate", IssuedDate)
+            query += AddingWhere(query)
+            query += " ip.AppliedDate>=@issuedDate"
+        End If
         If txtItems.Text <> "" Then
             SQL.AddParams("@ItemId", txtItems.Text)
             query += AddingWhere(query)
-            query += "i.ItemId=@ItemId"
+            query += " i.ItemId=@ItemId"
         End If
         If txtItemsName.Text <> "" Then
             SQL.AddParams("@Description", "%" & txtItemsName.Text & "%")
             query += AddingWhere(query)
-            query += "i.Description=@Description"
+            query += " i.Description=@Description"
         End If
         If txtSupplier.Text <> "" Then
             SQL.AddParams("@SupplierID", txtSupplier.Text)
             query += AddingWhere(query)
-            query += "i.SupplierID=@SupplierID"
+            query += " ip.SupplierID=@SupplierID"
         End If
-        SQL.ExecQuery("SELECT i.itemid,description FROM Items i " & query)
-
+        SQL.ExecQuery("SELECT i.itemid,description FROM Items i 
+            inner join supplieritemprices ip
+            on i.ItemId=ip.ItemId " & query)
+        If SQL.HasException Then Exit Sub
         'SQL.ExecQuery("SELECT DISTINCT i.itemid,i.Description,
         '        ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit) 'Client',
         '        ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit) 'Supplier',ConvertingCoefficient,
@@ -27,6 +35,8 @@
             MsgBox("No Record Found")
             Exit Sub
         End If
+        dtitems.Rows.Clear()
+
         For index As Integer = 0 To SQL.DBDT.Rows.Count - 1
             Dim row As ArrayList = New ArrayList
             row.Add(SQL.DBDT.Rows(index).Item(0))
@@ -130,7 +140,7 @@
 
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 

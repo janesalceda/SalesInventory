@@ -6,4 +6,5 @@
         'SQL.AddParams("@supplierid", txtSupplierName)
         SQL.ExecQuery("UPDATE Suppliers SET SupplierName=@suppliername where SupplierId=@supplierid")
     End Sub
+
 End Class

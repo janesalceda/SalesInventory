@@ -25,35 +25,39 @@ Partial Class frmInventory
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtitem = New System.Windows.Forms.TextBox()
         Me.dgvData = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.dtFrom = New System.Windows.Forms.DateTimePicker()
-        Me.dtTo = New System.Windows.Forms.DateTimePicker()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.TransactionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TRANSID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OUTQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ACQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BALANCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.dtFrom = New System.Windows.Forms.DateTimePicker()
+        Me.dtTo = New System.Windows.Forms.DateTimePicker()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(542, 42)
+        Me.btnSearch.Location = New System.Drawing.Point(365, 22)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(117, 32)
+        Me.btnSearch.Size = New System.Drawing.Size(132, 30)
         Me.btnSearch.TabIndex = 0
         Me.btnSearch.Text = "VIEW"
         Me.btnSearch.UseVisualStyleBackColor = True
         '
         'txtitem
         '
+        Me.txtitem.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtitem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtitem.Location = New System.Drawing.Point(70, 12)
+        Me.txtitem.Location = New System.Drawing.Point(60, 25)
+        Me.txtitem.MaxLength = 20
         Me.txtitem.Name = "txtitem"
-        Me.txtitem.Size = New System.Drawing.Size(210, 27)
+        Me.txtitem.Size = New System.Drawing.Size(274, 26)
         Me.txtitem.TabIndex = 1
         '
         'dgvData
@@ -65,53 +69,11 @@ Partial Class frmInventory
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE})
-        Me.dgvData.Location = New System.Drawing.Point(12, 82)
+        Me.dgvData.Location = New System.Drawing.Point(14, 117)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(643, 495)
+        Me.dgvData.Size = New System.Drawing.Size(643, 430)
         Me.dgvData.TabIndex = 2
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 19)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Items:"
-        '
-        'dtFrom
-        '
-        Me.dtFrom.Location = New System.Drawing.Point(336, 12)
-        Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(150, 27)
-        Me.dtFrom.TabIndex = 5
-        '
-        'dtTo
-        '
-        Me.dtTo.Location = New System.Drawing.Point(510, 12)
-        Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(150, 27)
-        Me.dtTo.TabIndex = 6
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(488, 14)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(19, 23)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "~"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(292, 16)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(44, 19)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Date:"
         '
         'TransactionDate
         '
@@ -149,25 +111,80 @@ Partial Class frmInventory
         Me.BALANCE.Name = "BALANCE"
         Me.BALANCE.ReadOnly = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(22, 40)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(49, 18)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Items:"
+        '
+        'dtFrom
+        '
+        Me.dtFrom.Location = New System.Drawing.Point(60, 58)
+        Me.dtFrom.Name = "dtFrom"
+        Me.dtFrom.Size = New System.Drawing.Size(274, 26)
+        Me.dtFrom.TabIndex = 5
+        '
+        'dtTo
+        '
+        Me.dtTo.Location = New System.Drawing.Point(365, 58)
+        Me.dtTo.Name = "dtTo"
+        Me.dtTo.Size = New System.Drawing.Size(268, 26)
+        Me.dtTo.TabIndex = 6
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(340, 59)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(19, 23)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "~"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(8, 62)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 18)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Date:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtitem)
+        Me.GroupBox1.Controls.Add(Me.btnSearch)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.dtTo)
+        Me.GroupBox1.Controls.Add(Me.dtFrom)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 11)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(649, 100)
+        Me.GroupBox1.TabIndex = 9
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Item Details"
+        '
         'frmInventory
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(667, 589)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.dtTo)
-        Me.Controls.Add(Me.dtFrom)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(670, 558)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvData)
-        Me.Controls.Add(Me.txtitem)
-        Me.Controls.Add(Me.btnSearch)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "frmInventory"
         Me.Text = "Inventory"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -187,4 +204,5 @@ Partial Class frmInventory
     Friend WithEvents OUTQTY As DataGridViewTextBoxColumn
     Friend WithEvents ACQTY As DataGridViewTextBoxColumn
     Friend WithEvents BALANCE As DataGridViewTextBoxColumn
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

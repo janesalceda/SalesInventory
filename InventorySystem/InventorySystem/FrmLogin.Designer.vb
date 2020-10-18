@@ -39,10 +39,11 @@ Partial Class LoginForm
         '
         Me.btnLogin.BackColor = System.Drawing.Color.Teal
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogin.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.Color.White
-        Me.btnLogin.Location = New System.Drawing.Point(125, 126)
+        Me.btnLogin.Location = New System.Drawing.Point(101, 126)
         Me.btnLogin.Name = "btnLogin"
-        Me.btnLogin.Size = New System.Drawing.Size(77, 32)
+        Me.btnLogin.Size = New System.Drawing.Size(84, 32)
         Me.btnLogin.TabIndex = 2
         Me.btnLogin.Text = "LOGIN"
         Me.btnLogin.UseVisualStyleBackColor = False
@@ -63,38 +64,44 @@ Partial Class LoginForm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 57)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(11, 57)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(79, 19)
+        Me.Label1.Size = New System.Drawing.Size(84, 18)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Username:"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 93)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(11, 93)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 19)
+        Me.Label2.Size = New System.Drawing.Size(82, 18)
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Password:"
         '
         'txtUsername
         '
+        Me.txtUsername.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUsername.Location = New System.Drawing.Point(107, 55)
+        Me.txtUsername.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUsername.Location = New System.Drawing.Point(101, 55)
         Me.txtUsername.MaxLength = 50
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(185, 27)
+        Me.txtUsername.Size = New System.Drawing.Size(191, 26)
         Me.txtUsername.TabIndex = 0
         '
         'txtPass
         '
+        Me.txtPass.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtPass.Location = New System.Drawing.Point(107, 91)
+        Me.txtPass.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtPass.Location = New System.Drawing.Point(101, 91)
         Me.txtPass.MaxLength = 50
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
-        Me.txtPass.Size = New System.Drawing.Size(185, 27)
+        Me.txtPass.Size = New System.Drawing.Size(191, 26)
         Me.txtPass.TabIndex = 1
         '
         'Label3
@@ -111,10 +118,11 @@ Partial Class LoginForm
         '
         Me.btnCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.White
-        Me.btnCancel.Location = New System.Drawing.Point(208, 126)
+        Me.btnCancel.Location = New System.Drawing.Point(201, 126)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(77, 32)
+        Me.btnCancel.Size = New System.Drawing.Size(84, 32)
         Me.btnCancel.TabIndex = 3
         Me.btnCancel.Text = "CANCEL"
         Me.btnCancel.UseVisualStyleBackColor = False

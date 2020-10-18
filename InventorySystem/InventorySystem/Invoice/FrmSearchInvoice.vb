@@ -4,7 +4,7 @@ Public Class FrmSearchInvoice
         ' HINDI PA TAPOS DI KO PA ALAM KUKUNIN
         dtPoDetails.Rows.Clear()
         'SQL.AddParams("@where", where)
-        SQL.ExecQuery("SELECT i.InvoiceNo,i.SupplierId,SupplierName,InvoiceDate,TotalAmount
+        SQL.ExecQuery("SELECT distinct i.InvoiceNo,i.SupplierId,SupplierName,InvoiceDate,TotalAmount
              FROM InvoiceHeaders i INNER	JOIN suppliers s
             ON i.SupplierId=s.SupplierId INNER join  InvoiceDetails  id  ON
 id.InvoiceNo=i.InvoiceNo	" & where)
@@ -102,4 +102,5 @@ id.InvoiceNo=i.InvoiceNo	" & where)
             .Show()
         End With
     End Sub
+
 End Class

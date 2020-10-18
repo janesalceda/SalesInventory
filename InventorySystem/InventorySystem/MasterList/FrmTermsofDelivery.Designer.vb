@@ -35,18 +35,19 @@ Partial Class FrmTermsofDelivery
         '
         'txtTD
         '
-        Me.txtTD.Location = New System.Drawing.Point(142, 19)
+        Me.txtTD.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtTD.Location = New System.Drawing.Point(160, 18)
         Me.txtTD.MaxLength = 100
         Me.txtTD.Name = "txtTD"
-        Me.txtTD.Size = New System.Drawing.Size(253, 27)
+        Me.txtTD.Size = New System.Drawing.Size(284, 26)
         Me.txtTD.TabIndex = 0
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 22)
+        Me.Label7.Location = New System.Drawing.Point(14, 21)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(126, 19)
+        Me.Label7.Size = New System.Drawing.Size(131, 18)
         Me.Label7.TabIndex = 40
         Me.Label7.Text = "Terms of Delivery:"
         '
@@ -60,48 +61,49 @@ Partial Class FrmTermsofDelivery
         Me.DTDeliveryPlaces.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DTDeliveryPlaces.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DTDeliveryPlaces.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DTDeliveryPlaces.Location = New System.Drawing.Point(2, 130)
+        Me.DTDeliveryPlaces.Location = New System.Drawing.Point(2, 123)
         Me.DTDeliveryPlaces.Name = "DTDeliveryPlaces"
         Me.DTDeliveryPlaces.ReadOnly = True
         Me.DTDeliveryPlaces.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.DTDeliveryPlaces.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DTDeliveryPlaces.Size = New System.Drawing.Size(480, 454)
+        Me.DTDeliveryPlaces.Size = New System.Drawing.Size(540, 430)
         Me.DTDeliveryPlaces.TabIndex = 39
         '
         'btnSave
         '
         Me.btnSave.Enabled = False
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(252, 90)
+        Me.btnSave.Location = New System.Drawing.Point(284, 85)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(103, 32)
+        Me.btnSave.Size = New System.Drawing.Size(116, 30)
         Me.btnSave.TabIndex = 3
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'txtDes
         '
-        Me.txtDes.Location = New System.Drawing.Point(142, 57)
+        Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtDes.Location = New System.Drawing.Point(160, 54)
         Me.txtDes.MaxLength = 150
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(332, 27)
+        Me.txtDes.Size = New System.Drawing.Size(373, 26)
         Me.txtDes.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 60)
+        Me.Label1.Location = New System.Drawing.Point(14, 57)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(87, 19)
+        Me.Label1.Size = New System.Drawing.Size(92, 18)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Description:"
         '
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(401, 18)
+        Me.chkDisuse.Location = New System.Drawing.Point(451, 17)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(72, 23)
+        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 2
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
@@ -110,18 +112,19 @@ Partial Class FrmTermsofDelivery
         '
         Me.btnClear.Enabled = False
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(370, 90)
+        Me.btnClear.Location = New System.Drawing.Point(416, 85)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(103, 32)
+        Me.btnClear.Size = New System.Drawing.Size(116, 30)
         Me.btnClear.TabIndex = 4
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = True
         '
         'FrmTermsofDelivery
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(485, 584)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(546, 553)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.btnSave)
@@ -130,7 +133,7 @@ Partial Class FrmTermsofDelivery
         Me.Controls.Add(Me.txtTD)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.DTDeliveryPlaces)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmTermsofDelivery"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

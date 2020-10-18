@@ -1,14 +1,16 @@
 ﻿Public Class AddPurchaseOrder
 
-    Private DTCount As Integer = 0
     Public boolUpdate As Boolean = False
 
     Private Sub getPODetails()
         SQL.AddParams("@PONo", txtPONo.Text)
         SQL.ExecQuery("SELECT poh.PONo,poh.SupplierID,CurrencyUnit,IssuedDate,TermOfDelivery,TermOfPayment,DeliveryPlace,poh.Remarks,
-                e.EmployeeName,poh.TotalAmount,pod.ItemId,i.Description,Qty,
-                CASE WHEN q.QtyUnitid=pod.QtyUnit THEN q.QtyUnit end AS 'Cli',EquivalentQty,
-                CASE WHEN q.QtyUnitid=pod.EquivalentQtyUnit THEN q.QtyUnit end AS 'Sup',UnitPrice,EtdDate,
+                e.EmployeeName,
+				poh.TotalAmount,pod.ItemId,i.Description,Qty,
+               (select dbo.getUnit(pod.QtyUnit)) AS 'Cli',
+				EquivalentQty,
+                (select dbo.getUnit(pod.EquivalentQtyUnit)) 'Sup',
+				UnitPrice,EtdDate,
                 EtaDate,FtryDate,Canceled,ReceivedAllInvoices,
                 CASE WHEN poh.DeletedDate IS NULL THEN 0 ELSE 1 END POCancelled,PoDetailSeq
                 FROM POHeaders poh 
@@ -20,11 +22,11 @@
                 INNER JOIN DeliveryPlaces dp ON dp.DeliveryPlaceId=poh.DeliveryPlaceId
                 INNER JOIN Employees e ON poh.EncodedStaff=e.EmpId
                 INNER JOIN Items i ON i.ItemId=pod.ItemId	
-                INNER JOIN QtyUnits q ON q.QtyUnitid=pod.QtyUnit AND q.QtyUnitid=pod.EquivalentQtyUnit	
+                INNER JOIN QtyUnits q ON q.QtyUnitid=pod.QtyUnit	
                 where poh.PONo=@PONo")
         Dim row As New DataTable
         row = SQL.DBDT
-        If SQL.HasException Then Exit Sub
+        If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
         txtSupplier.Text = row.Rows(0).Item(1)
         txtCurrency.Text = row.Rows(0).Item(2)
         dtIssued.Value = row.Rows(0).Item(3)
@@ -49,7 +51,7 @@
                 row.Rows(i).Item(18),
                 row.Rows(i).Item(19),
                 row.Rows(i).Item(20),
-                row.Rows(0).Item(21))
+                row.Rows(0).Item(21), "No")
         Next
         chkcancelPO.Checked = row.Rows(0).Item(22)
     End Sub
@@ -62,9 +64,9 @@
         txtCliUnit.Clear()
         txtUnit.Clear()
         txtTotalPrice.Clear()
-        dtETD.Value = Today
-        dtETA.Value = Today
-        DTFtry.Value = Today
+        dtETD.Checked = False
+        dtETA.Checked = False
+        DTFtry.Checked = False
         chkCancel.Checked = False
         chkReceived.Checked = False
         btnAddItem.Enabled = False
@@ -81,7 +83,6 @@
         txtSupplierName.Clear()
         txtTotalAmount.Clear()
         dtablePoDetails.Rows.Clear()
-        DTCount = 0
         btnAddItem.Visible = True
     End Sub
     Private Sub LoadDelivery()
@@ -121,26 +122,28 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+
         If String.IsNullOrEmpty(txtSupplier.Text) Or
             cmbDeliveryPlace.SelectedIndex = -1 Or
             dtablePoDetails.Rows.Count = 0 Then
             MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
         End If
-        SQL.AddParams("@supplierid", txtSupplier.Text)
-        SQL.AddParams("@currencyunitid", txtCurrency.Text)
-        SQL.AddParams("@issueddate", dtIssued.Value)
-        SQL.AddParams("@termofdeliveryid", cmbTDelivery.SelectedValue)
-        SQL.AddParams("@termofpaymentid", cmbTPayment.SelectedValue)
-        SQL.AddParams("@deliveryplaceid", cmbDeliveryPlace.SelectedValue)
-        SQL.AddParams("@totalamount", Val(txtTotalAmount.Text))
-        SQL.AddParams("@remarks", txtRemarks.Text)
-        SQL.AddParams("@encodedstaff", moduleId)
+        If MsgBox("Are you finish?", vbYesNo) = vbYes Then
+            SQL.AddParams("@supplierid", txtSupplier.Text)
+            SQL.AddParams("@currencyunitid", txtCurrency.Text)
+            SQL.AddParams("@issueddate", dtIssued.Value)
+            SQL.AddParams("@termofdeliveryid", cmbTDelivery.SelectedValue)
+            SQL.AddParams("@termofpaymentid", cmbTPayment.SelectedValue)
+            SQL.AddParams("@deliveryplaceid", cmbDeliveryPlace.SelectedValue)
+            SQL.AddParams("@totalamount", Val(txtTotalAmount.Text))
+            SQL.AddParams("@remarks", txtRemarks.Text)
+            SQL.AddParams("@encodedstaff", moduleId)
 
-        If btnSave.Text = "UPDATE" Then
-            SQL.AddParams("@pono", txtPONo.Text)
-            SQL.AddParams("@UpdatedBy", moduleId)
-            SQL.ExecQuery("UPDATE dbo.POHeaders
+            If btnSave.Text = "UPDATE P.O." Then
+                SQL.AddParams("@pono", txtPONo.Text)
+                SQL.AddParams("@UpdatedBy", moduleId)
+                SQL.ExecQuery("UPDATE dbo.POHeaders
                 SET SupplierID = @supplierid,
 	                CurrencyUnitId =(select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid),
 	                IssuedDate = @issueddate,
@@ -152,25 +155,26 @@
 	                UpdatedDate = getdate(),
 	                UpdatedBy = @updatedby
                 WHERE PoNo=@pono")
-            If SQL.HasException Then Exit Sub
+                If SQL.HasException Then Exit Sub
 
-            For i As Integer = 0 To dtablePoDetails.Rows.Count - 1
-                SQL.AddParams("@pono", txtPONo.Text)
-                SQL.AddParams("@itemid", dtablePoDetails.Rows(i).Cells(1).Value.ToString())
-                SQL.AddParams("@etddate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(9).Value.ToString()))
-                SQL.AddParams("@etadate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(10).Value.ToString()))
-                SQL.AddParams("@ftrydate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(11).Value.ToString()))
-                SQL.AddParams("@receivedallinvoices", dtablePoDetails.Rows(i).Cells(13).Value.ToString())
-                SQL.AddParams("@canceled", dtablePoDetails.Rows(i).Cells(12).Value.ToString())
-                SQL.AddParams("@podetailseq", dtablePoDetails.Rows(i).Cells(0).Value)
-                SQL.AddParams("@qty", dtablePoDetails.Rows(i).Cells(3).Value.ToString())
-                SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
-                SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
-                SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
-                SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
-                SQL.AddParams("@updatedby", moduleId)
+                For i As Integer = 0 To dtablePoDetails.Rows.Count - 1
+                    If Not String.IsNullOrWhiteSpace(dtablePoDetails.Rows(i).Cells(14).Value.ToString()) Then
+                        SQL.AddParams("@pono", txtPONo.Text)
+                        SQL.AddParams("@itemid", dtablePoDetails.Rows(i).Cells(1).Value.ToString())
+                        SQL.AddParams("@etddate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(9).Value.ToString()))
+                        SQL.AddParams("@etadate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(10).Value.ToString()))
+                        SQL.AddParams("@ftrydate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(11).Value.ToString()))
+                        SQL.AddParams("@receivedallinvoices", dtablePoDetails.Rows(i).Cells(13).Value.ToString())
+                        SQL.AddParams("@canceled", dtablePoDetails.Rows(i).Cells(12).Value.ToString())
+                        SQL.AddParams("@podetailseq", dtablePoDetails.Rows(i).Cells(0).Value)
+                        SQL.AddParams("@qty", dtablePoDetails.Rows(i).Cells(3).Value.ToString())
+                        SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
+                        SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
+                        SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
+                        SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                        SQL.AddParams("@updatedby", moduleId)
 
-                SQL.ExecQuery("UPDATE dbo.PoDetails
+                        SQL.ExecQuery("UPDATE dbo.PoDetails
                     SET ItemId = @itemid,
 	                    EtdDate = @etddate,
 	                    EtaDate = @etadate,
@@ -185,59 +189,25 @@
 	                    UpdatedDate = getdate(),
 	                    UpdatedBy = @updatedby
                     WHERE PoNo=@pono and PoDetailSeq = @podetailseq")
-                If SQL.HasException Then Exit Sub
-            Next
-        Else
-            SQL.ExecQuery("INSERT INTO dbo.POHeaders
-	                (
-	                PONo,
-	                SupplierID,
-	                CurrencyUnitId,
-	                IssuedDate,
-	                TermOfDeliveryId,
-	                TermOfPaymentId,
-	                DeliveryPlaceId,
-	                TotalAmount,
-	                Remarks,
-	                EncodedStaff,
-	                UpdatedBy
-	                )
-                VALUES 
-	                ((SELECT CASE WHEN max(PONo) IS NULL 
-                    THEN replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1<10 
-                    THEN replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1 AS VARCHAR	)
-                    ELSE replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' +cast(Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1 AS VARCHAR	)
-                    END END AS 'pomax' from POHeaders),
-	                @supplierid,
-                    (select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid),
-	                @issueddate,
-	                @termofdeliveryid,
-	                @termofpaymentid,
-	                @deliveryplaceid,
-	                @totalamount,
-	                @remarks,
-                    @encodedstaff,
-	                @encodedstaff)"
-                    )
-
-            If SQL.HasException Then Exit Sub
-
-            For i As Integer = 0 To dtablePoDetails.Rows.Count - 1
-                SQL.AddParams("@itemid", dtablePoDetails.Rows(i).Cells(1).Value.ToString())
-                SQL.AddParams("@etddate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(9).Value.ToString()))
-                SQL.AddParams("@etadate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(10).Value.ToString()))
-                SQL.AddParams("@ftrydate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(11).Value.ToString()))
-                SQL.AddParams("@receivedallinvoices", dtablePoDetails.Rows(i).Cells(13).Value.ToString())
-                SQL.AddParams("@canceled", dtablePoDetails.Rows(i).Cells(12).Value.ToString())
-                SQL.AddParams("@podetailseq", dtablePoDetails.Rows(i).Cells(0).Value)
-                SQL.AddParams("@qty", dtablePoDetails.Rows(i).Cells(3).Value.ToString())
-                SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
-                SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
-                SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
-                SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
-                SQL.AddParams("@updatedby", moduleId)
-                SQL.ExecQuery("
+                        If SQL.HasException Then
+                            MsgBox("Error in Editing!", MsgBoxStyle.Critical, "ERROR")
+                            Exit Sub
+                        End If
+                    Else
+                        SQL.AddParams("@itemid", dtablePoDetails.Rows(i).Cells(1).Value.ToString())
+                        SQL.AddParams("@etddate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(9).Value.ToString()))
+                        SQL.AddParams("@etadate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(10).Value.ToString()))
+                        SQL.AddParams("@ftrydate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(11).Value.ToString()))
+                        SQL.AddParams("@receivedallinvoices", dtablePoDetails.Rows(i).Cells(13).Value.ToString())
+                        SQL.AddParams("@canceled", dtablePoDetails.Rows(i).Cells(12).Value.ToString())
+                        SQL.AddParams("@podetailseq", dtablePoDetails.Rows(i).Cells(0).Value)
+                        SQL.AddParams("@qty", dtablePoDetails.Rows(i).Cells(3).Value.ToString())
+                        SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
+                        SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
+                        SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
+                        SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                        SQL.AddParams("@updatedby", moduleId)
+                        SQL.ExecQuery("
                     INSERT INTO dbo.PoDetails
 	                    (
 	                    PoNo,
@@ -272,17 +242,110 @@
 	                    @unitprice,
 	                    @updatedby
 	                    )")
-                If SQL.HasException Then
-                    'SQL.AddParams("@pono", txtPONo.Text)
-                    'SQL.ExecQuery("delete from POHeaders where PONo=@pono;delete from PoDetails where PONo=@pono;")
-                    Exit Sub
-                End If
-            Next
+                        If SQL.HasException Then
+                            'SQL.AddParams("@pono", txtPONo.Text)
+                            'SQL.ExecQuery("delete from POHeaders where PONo=@pono;delete from PoDetails where PONo=@pono;")
+                            Exit Sub
+                        End If
+                    End If
+                Next
+            Else
+                SQL.ExecQuery("INSERT INTO dbo.POHeaders
+	                (
+	                PONo,
+	                SupplierID,
+	                CurrencyUnitId,
+	                IssuedDate,
+	                TermOfDeliveryId,
+	                TermOfPaymentId,
+	                DeliveryPlaceId,
+	                TotalAmount,
+	                Remarks,
+	                EncodedStaff,
+	                UpdatedBy
+	                )
+                VALUES 
+	                ((SELECT CASE WHEN max(PONo) IS NULL 
+                    THEN replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
+                    CASE WHEN Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1<10 
+                    THEN replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1 AS VARCHAR	)
+                    ELSE replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' +cast(Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1 AS VARCHAR	)
+                    END END AS 'pomax' from POHeaders),
+	                @supplierid,
+                    (select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid),
+	                @issueddate,
+	                @termofdeliveryid,
+	                @termofpaymentid,
+	                @deliveryplaceid,
+	                @totalamount,
+	                @remarks,
+                    @encodedstaff,
+	                @encodedstaff)"
+                        )
+
+                If SQL.HasException Then Exit Sub
+
+                For i As Integer = 0 To dtablePoDetails.Rows.Count - 1
+                    SQL.AddParams("@itemid", dtablePoDetails.Rows(i).Cells(1).Value.ToString())
+                    SQL.AddParams("@etddate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(9).Value.ToString()))
+                    SQL.AddParams("@etadate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(10).Value.ToString()))
+                    SQL.AddParams("@ftrydate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(11).Value.ToString()))
+                    SQL.AddParams("@receivedallinvoices", dtablePoDetails.Rows(i).Cells(13).Value.ToString())
+                    SQL.AddParams("@canceled", dtablePoDetails.Rows(i).Cells(12).Value.ToString())
+                    SQL.AddParams("@podetailseq", dtablePoDetails.Rows(i).Cells(0).Value)
+                    SQL.AddParams("@qty", dtablePoDetails.Rows(i).Cells(3).Value.ToString())
+                    SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
+                    SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
+                    SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                    SQL.AddParams("@updatedby", moduleId)
+                    SQL.ExecQuery("
+                    INSERT INTO dbo.PoDetails
+	                    (
+	                    PoNo,
+	                    ItemId,
+	                    EtdDate,
+	                    EtaDate,
+	                    FtryDate,
+	                    ReceivedAllInvoices,
+	                    Canceled,
+	                    PoDetailSeq,
+	                    Qty,
+	                    QtyUnit,
+	                    EquivalentQty,
+	                    EquivalentQtyUnit,
+	                    UnitPrice,
+	                    UpdatedBy
+	                    )
+                    VALUES 
+	                    (
+	                    (select max(pono) from poheaders),
+	                    @itemid,
+	                    @etddate,
+	                    @etadate,
+	                    @ftrydate,
+	                    @receivedallinvoices,
+	                    @canceled,
+	                    @podetailseq,
+	                    @qty,
+	                    (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
+	                    @equivalentqty,
+	                    (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
+	                    @unitprice,
+	                    @updatedby
+	                    )")
+                    If SQL.HasException Then
+                        'SQL.AddParams("@pono", txtPONo.Text)
+                        'SQL.ExecQuery("delete from POHeaders where PONo=@pono;delete from PoDetails where PONo=@pono;")
+                        Exit Sub
+                    End If
+                Next
+            End If
+            HeaderClear()
+            'Me.Close()
+            MsgBox("Successfully Save", MsgBoxStyle.Information)
+            Me.Close()
         End If
-        HeaderClear()
-        'Me.Close()
-        MsgBox("Successfully Save", MsgBoxStyle.Information)
-        Me.Close()
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
@@ -294,10 +357,15 @@
     End Sub
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
         If txtSupplier.Text = "" Then
-            MsgBox("Choose Supplier First")
+            MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation)
+            Exit Sub
+        End If
+        If dtIssued.Checked = False Then
+            MsgBox("Choose IssuedDate", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
+        SelectionItem.IssuedDate = dtIssued.Value
         formname = "AddPurchaseOrder"
         SelectionItem.ShowDialog()
     End Sub
@@ -309,28 +377,26 @@
                 dtETA.Checked = False Or
                 dtETD.Checked = False Or
                 DTFtry.Checked = False Then
-            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            MsgBox("PLEASE COMPLETE ALL * IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
             Exit Sub
         End If
         Dim row As ArrayList = New ArrayList
-        If btnAddItem.Text = "INSERT" Then
-            DTCount += 1
+        If btnAddItem.Text = "INSERT ITEM" Then
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
-            row.Add(DTCount)
-            row.Add(txtItemCode.Text)
-            row.Add(txtItemName.Text)
-            row.Add(txtCliQty.Text)
-            row.Add(txtCliUnit.Text)
-            row.Add(txtSupQty.Text)
-            row.Add(txtSupUnit.Text)
-            row.Add(txtUnit.Text)
-            row.Add(txtTotalPrice.Text)
-            row.Add(dtETD.Value)
-            row.Add(dtETA.Value)
-            row.Add(DTFtry.Value)
-            row.Add(chkCancel.Checked)
-            row.Add(chkReceived.Checked)
-            dtablePoDetails.Rows.Add(row.ToArray())
+            dtablePoDetails.Rows.Add(dtablePoDetails.Rows.Count + 1,
+            txtItemCode.Text,
+            txtItemName.Text,
+            txtCliQty.Text,
+            txtCliUnit.Text,
+            txtSupQty.Text,
+            txtSupUnit.Text,
+            txtUnit.Text,
+            txtTotalPrice.Text,
+            dtETD.Value,
+            dtETA.Value,
+            DTFtry.Value,
+            chkCancel.Checked,
+            chkReceived.Checked, "")
             PurchDetailsClear()
         Else
             dtablePoDetails.SelectedRows(0).Cells(1).Value = txtItemCode.Text
@@ -346,7 +412,7 @@
             dtablePoDetails.SelectedRows(0).Cells(11).Value = DTFtry.Value
             dtablePoDetails.SelectedRows(0).Cells(12).Value = chkCancel.Checked
             dtablePoDetails.SelectedRows(0).Cells(13).Value = chkReceived.Checked
-            btnAddItem.Text = "INSERT"
+            btnAddItem.Text = "INSERT ITEM"
             PurchDetailsClear()
         End If
 
@@ -378,7 +444,7 @@
         txtCliQty.Clear()
         txtSupQty.Clear()
         Dim row As ArrayList = New ArrayList
-        row = GetItemDetails(txtItemCode.Text)
+        row = GetItemDetailsforPO(txtItemCode.Text, dtIssued.Value.ToShortDateString)
         If row.Count = 0 Then
             txtItemName.Text = ""
             txtCliUnit.Text = ""
@@ -409,7 +475,7 @@
         DTFtry.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(11).Value.ToString())
         chkCancel.Checked = dtablePoDetails.SelectedRows(0).Cells(12).Value.ToString()
         chkReceived.Checked = dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()
-        btnAddItem.Text = "UPDATE"
+        btnAddItem.Text = "UPDATE ITEM"
     End Sub
 
     Private Sub txtCliQty_LostFocus(sender As Object, e As EventArgs) Handles txtCliQty.LostFocus
@@ -429,4 +495,24 @@
     Private Sub txtSupQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSupQty.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
+    Private Function GetItemDetailsforPO(ItemId As String, IssuedDate As Date) As ArrayList
+        Dim Globalrow As ArrayList = New ArrayList
+        SQL.AddParams("@ItemId", ItemId)
+        SQL.AddParams("@IssuedDate", IssuedDate)
+        SQL.ExecQuery("SELECT DISTINCT i.Description,
+            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit and i.ItemId=@ItemId) 'Client',
+            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',
+            ConvertingCoefficient,
+            UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q 
+            where s.AppliedDate>=@IssuedDate and i.ItemId=@ItemId")
+        If SQL.HasException Then Return Globalrow
+        If SQL.RecordCount = 0 Then Return Globalrow
+        Globalrow.Add(SQL.DBDT.Rows(0).Item(0))
+        Globalrow.Add(SQL.DBDT.Rows(0).Item(1))
+        Globalrow.Add(SQL.DBDT.Rows(0).Item(2))
+        Globalrow.Add(SQL.DBDT.Rows(0).Item(3))
+        Globalrow.Add(SQL.DBDT.Rows(0).Item(4))
+        Return Globalrow
+    End Function
+
 End Class

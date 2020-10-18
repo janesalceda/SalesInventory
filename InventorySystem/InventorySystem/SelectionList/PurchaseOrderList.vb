@@ -29,6 +29,8 @@
             MsgBox("No Record Found")
             Exit Sub
         End If
+        dtitems.Rows.Clear()
+
         For index As Integer = 0 To SQL.DBDT.Rows.Count - 1
             Dim row As ArrayList = New ArrayList
             row.Add(SQL.DBDT.Rows(index).Item(1))
@@ -45,11 +47,13 @@
     Private Sub PurchaseOrderList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) 
         Me.Close()
     End Sub
 
+
     Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+        If dtitems.Rows.Count = 0 Then Exit Sub
         If dtitems.SelectedRows.Count > 0 Then
             If formname = "SearchPo" Then
                 FrmSearchPO.txtItems.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()

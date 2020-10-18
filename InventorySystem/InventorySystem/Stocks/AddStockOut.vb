@@ -38,7 +38,7 @@
             INNER JOIN Items i ON i.ItemId=sd.ItemID	 
             WHERE st.StockOutCode=@stid")
 
-        If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Me.Close()
+        If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
 
         dtSOutDate.Text = SQL.DBDT.Rows(0).Item(1).ToString
         txtRemarks.Text = SQL.DBDT.Rows(0).Item(2).ToString
@@ -58,6 +58,11 @@
 
     End Sub
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
+        If String.IsNullOrWhiteSpace(txtQty.Text) Or
+                String.IsNullOrWhiteSpace(txtItemCode.Text) Then
+            MsgBox("Please complete all * import details!", MsgBoxStyle.Critical)
+            Exit Sub
+        End If
         Dim row As ArrayList = New ArrayList
         DTCount += 1
         row.Add(DTCount)
@@ -91,31 +96,34 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If dtableStockout.Rows.Count = 0 Then
-            MsgBox("Add items first before saving", MsgBoxStyle.Critical)
+        If dtableStockout.Rows.Count = 0 Or
+            String.IsNullOrWhiteSpace(txtIssuedBy.Text) Or
+            dtSOutDate.Checked = False Then
+            MsgBox("Please complete all * import details!", MsgBoxStyle.Critical)
             Exit Sub
         End If
-        If btnSave.Text = "UPDATE" Then
-            If chkApprove.Checked = True Then
-                SQL.AddParams("@approve", moduleId)
-            Else
-                SQL.AddParams("@approve", "")
-            End If
-            SQL.AddParams("@remarks", txtRemarks.Text)
-            SQL.AddParams("@StockOutCode", txtStockOutID.Text)
-            SQL.ExecQuery("UPDATE StockOutHeaders
+        If MsgBox("Are you finish?", vbYesNo) = vbYes Then
+            If btnSave.Text = "UPDATE" Then
+                If chkApprove.Checked = True Then
+                    SQL.AddParams("@approve", moduleId)
+                Else
+                    SQL.AddParams("@approve", "")
+                End If
+                SQL.AddParams("@remarks", txtRemarks.Text)
+                SQL.AddParams("@StockOutCode", txtStockOutID.Text)
+                SQL.ExecQuery("UPDATE StockOutHeaders
 	            SET ApprovedBy=(select CASE WHEN @approve='' THEN NULL ELSE @approve end),
                 Remarks=@remarks where StockOutCode=@stockoutcode")
-            If SQL.HasException Then
-                MsgBox("Error in Updating", MsgBoxStyle.Critical)
-                Exit Sub
-            End If
-        Else
-            SQL.AddParams("@stockoutdate", dtSOutDate.Value)
-            SQL.AddParams("@encodedstaff", moduleId)
-            SQL.AddParams("@issuedbystaff", txtIssuedBy.Text)
-            SQL.AddParams("@remarks", txtRemarks.Text)
-            SQL.ExecQuery("INSERT INTO dbo.StockOutHeaders
+                If SQL.HasException Then
+                    MsgBox("Error in Updating", MsgBoxStyle.Critical)
+                    Exit Sub
+                End If
+            Else
+                SQL.AddParams("@stockoutdate", dtSOutDate.Value)
+                SQL.AddParams("@encodedstaff", moduleId)
+                SQL.AddParams("@issuedbystaff", txtIssuedBy.Text)
+                SQL.AddParams("@remarks", txtRemarks.Text)
+                SQL.ExecQuery("INSERT INTO dbo.StockOutHeaders
 	        (StockOutCode,StockOutDate,EncodedStaff,IssuedByStaff,ApprovedBy,Remarks,UpdatedBy)
         VALUES((SELECT CASE WHEN max(StockOutCode) IS NULL 
                     THEN 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
@@ -123,32 +131,28 @@
                     THEN 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1 AS VARCHAR	)
                     ELSE 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1 AS VARCHAR	)
                     END END AS 'pomax' from StockOutHeaders),@stockoutdate,@encodedstaff,@issuedbystaff,NULL,@remarks,@encodedstaff)")
-            If SQL.HasException Then Exit Sub
-            For i As Integer = 0 To dtableStockout.Rows.Count - 1
-                SQL.AddParams("@stockoutcode", txtStockOutID.Text)
-                SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value.ToString())
-                SQL.AddParams("@itemid", dtableStockout.Rows(i).Cells(1).Value.ToString())
-                SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value.ToString())
-                SQL.AddParams("@remarks", dtableStockout.Rows(i).Cells(4).Value.ToString())
-                SQL.AddParams("@updatedby", moduleId)
-                SQL.ExecQuery("INSERT INTO dbo.StockOutDetails
-	            (StockOutCode,ItemSeq,ItemID,Qty,Remarks,UpdatedBy)
-            VALUES((SELECT CASE WHEN max(StockOutCode) IS NULL 
-                    THEN 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1<10
-                    THEN 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1 AS VARCHAR	)
-                    ELSE 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1 AS VARCHAR	)
-                    END END AS 'pomax' from StockOutHeaders),@itemseq,@itemid,@qty,@remarks,@updatedby)")
-                If SQL.HasException Then
+                If SQL.HasException Then Exit Sub
+                For i As Integer = 0 To dtableStockout.Rows.Count - 1
                     SQL.AddParams("@stockoutcode", txtStockOutID.Text)
-                    SQL.ExecQuery("delete from StockOutDetails where StockOutCode=(SELECT max(STID) from StockTakingHeaders);delete from StockOutHeaders where StockOutCode=(SELECT max(STID) from StockTakingHeaders);")
-                    Exit Sub
-                End If
-            Next
+                    SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value.ToString())
+                    SQL.AddParams("@itemid", dtableStockout.Rows(i).Cells(1).Value.ToString())
+                    SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value.ToString())
+                    SQL.AddParams("@remarks", dtableStockout.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@updatedby", moduleId)
+                    SQL.ExecQuery("INSERT INTO dbo.StockOutDetails
+	            (StockOutCode,ItemSeq,ItemID,Qty,Remarks,UpdatedBy)
+            VALUES((SELECT max(StockOutCode) from StockOutHeaders),@itemseq,@itemid,@qty,@remarks,@updatedby)")
+                    If SQL.HasException Then
+                        SQL.AddParams("@stockoutcode", txtStockOutID.Text)
+                        SQL.ExecQuery("delete from StockOutDetails where StockOutCode=(SELECT max(STID) from StockTakingHeaders);delete from StockOutHeaders where StockOutCode=(SELECT max(STID) from StockTakingHeaders);")
+                        Exit Sub
+                    End If
+                Next
+            End If
+            MsgBox("Successfully Saved", MsgBoxStyle.Information)
+            FrmStockout.btnSearch.PerformClick()
+            Me.Close()
         End If
-        MsgBox("Successfully Saved", MsgBoxStyle.Information)
-        FrmStockout.btnSearch.PerformClick()
-        Me.Close()
     End Sub
 
     Private Sub AddStockOut_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -170,4 +174,5 @@
     Private Sub txtQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtQty.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack) Then e.Handled = True
     End Sub
+
 End Class

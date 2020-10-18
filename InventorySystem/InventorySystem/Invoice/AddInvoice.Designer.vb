@@ -74,10 +74,10 @@ Partial Class AddInvoice
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RecAdd = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.label17 = New System.Windows.Forms.Label()
         Me.txtDeliveryID = New System.Windows.Forms.TextBox()
         Me.btnInsertDel = New System.Windows.Forms.Button()
-        Me.btnPOInv = New System.Windows.Forms.Button()
         Me.Label20 = New System.Windows.Forms.Label()
         Me.txtPoDel = New System.Windows.Forms.TextBox()
         Me.btnItemInv = New System.Windows.Forms.Button()
@@ -103,6 +103,7 @@ Partial Class AddInvoice
         Me.Cancel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.ETD = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ETA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnPo = New System.Windows.Forms.Button()
         Me.txtInvoiceRemarks = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -138,11 +139,11 @@ Partial Class AddInvoice
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(982, 612)
+        Me.btnSave.Location = New System.Drawing.Point(946, 612)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(103, 32)
+        Me.btnSave.Size = New System.Drawing.Size(139, 32)
         Me.btnSave.TabIndex = 116
-        Me.btnSave.Text = "SAVE"
+        Me.btnSave.Text = "SAVE INVOICE"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'txtStaffName
@@ -208,17 +209,20 @@ Partial Class AddInvoice
         '
         'btnSupplier
         '
+        Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSupplier.Location = New System.Drawing.Point(290, 45)
         Me.btnSupplier.Name = "btnSupplier"
         Me.btnSupplier.Size = New System.Drawing.Size(32, 27)
         Me.btnSupplier.TabIndex = 99
         Me.btnSupplier.Text = "..."
-        Me.btnSupplier.UseVisualStyleBackColor = True
+        Me.btnSupplier.UseVisualStyleBackColor = False
         '
         'txtSupplier
         '
+        Me.txtSupplier.BackColor = System.Drawing.Color.LightBlue
         Me.txtSupplier.Location = New System.Drawing.Point(143, 45)
+        Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
         Me.txtSupplier.Size = New System.Drawing.Size(179, 27)
         Me.txtSupplier.TabIndex = 98
@@ -234,7 +238,9 @@ Partial Class AddInvoice
         '
         'txtInvoiceNo
         '
+        Me.txtInvoiceNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtInvoiceNo.Location = New System.Drawing.Point(143, 12)
+        Me.txtInvoiceNo.MaxLength = 50
         Me.txtInvoiceNo.Name = "txtInvoiceNo"
         Me.txtInvoiceNo.Size = New System.Drawing.Size(262, 27)
         Me.txtInvoiceNo.TabIndex = 93
@@ -250,6 +256,7 @@ Partial Class AddInvoice
         '
         'txtRemarks
         '
+        Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemarks.Location = New System.Drawing.Point(852, 45)
         Me.txtRemarks.Name = "txtRemarks"
         Me.txtRemarks.Size = New System.Drawing.Size(230, 27)
@@ -391,7 +398,6 @@ Partial Class AddInvoice
         Me.Delivery.Controls.Add(Me.label17)
         Me.Delivery.Controls.Add(Me.txtDeliveryID)
         Me.Delivery.Controls.Add(Me.btnInsertDel)
-        Me.Delivery.Controls.Add(Me.btnPOInv)
         Me.Delivery.Controls.Add(Me.Label20)
         Me.Delivery.Controls.Add(Me.txtPoDel)
         Me.Delivery.Controls.Add(Me.btnItemInv)
@@ -446,7 +452,9 @@ Partial Class AddInvoice
         '
         'txtqtyok
         '
+        Me.txtqtyok.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtqtyok.Location = New System.Drawing.Point(110, 251)
+        Me.txtqtyok.MaxLength = 18
         Me.txtqtyok.Name = "txtqtyok"
         Me.txtqtyok.Size = New System.Drawing.Size(191, 27)
         Me.txtqtyok.TabIndex = 199
@@ -487,7 +495,9 @@ Partial Class AddInvoice
         '
         'txtRec
         '
+        Me.txtRec.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRec.Location = New System.Drawing.Point(110, 217)
+        Me.txtRec.MaxLength = 18
         Me.txtRec.Name = "txtRec"
         Me.txtRec.Size = New System.Drawing.Size(191, 27)
         Me.txtRec.TabIndex = 194
@@ -517,7 +527,7 @@ Partial Class AddInvoice
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DeliveryId, Me.DeliveryDate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DeliveryId, Me.DeliveryDate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.RecAdd})
         Me.dtableDelivery.Location = New System.Drawing.Point(308, 8)
         Me.dtableDelivery.Name = "dtableDelivery"
         Me.dtableDelivery.ReadOnly = True
@@ -527,7 +537,7 @@ Partial Class AddInvoice
         '
         'DataGridViewTextBoxColumn1
         '
-        Me.DataGridViewTextBoxColumn1.HeaderText = "Seq"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "InvoiceSeq"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
         Me.DataGridViewTextBoxColumn1.Width = 40
@@ -593,6 +603,12 @@ Partial Class AddInvoice
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
         '
+        'RecAdd
+        '
+        Me.RecAdd.HeaderText = "RecAdd"
+        Me.RecAdd.Name = "RecAdd"
+        Me.RecAdd.ReadOnly = True
+        '
         'label17
         '
         Me.label17.AutoSize = True
@@ -604,31 +620,22 @@ Partial Class AddInvoice
         '
         'txtDeliveryID
         '
-        Me.txtDeliveryID.Enabled = False
+        Me.txtDeliveryID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDeliveryID.Location = New System.Drawing.Point(116, 22)
+        Me.txtDeliveryID.MaxLength = 50
         Me.txtDeliveryID.Name = "txtDeliveryID"
-        Me.txtDeliveryID.Size = New System.Drawing.Size(191, 27)
+        Me.txtDeliveryID.Size = New System.Drawing.Size(187, 27)
         Me.txtDeliveryID.TabIndex = 187
         '
         'btnInsertDel
         '
         Me.btnInsertDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsertDel.Location = New System.Drawing.Point(194, 336)
+        Me.btnInsertDel.Location = New System.Drawing.Point(155, 336)
         Me.btnInsertDel.Name = "btnInsertDel"
-        Me.btnInsertDel.Size = New System.Drawing.Size(103, 32)
+        Me.btnInsertDel.Size = New System.Drawing.Size(142, 32)
         Me.btnInsertDel.TabIndex = 184
-        Me.btnInsertDel.Text = "INSERT"
+        Me.btnInsertDel.Text = "INSERT DELIVERY"
         Me.btnInsertDel.UseVisualStyleBackColor = True
-        '
-        'btnPOInv
-        '
-        Me.btnPOInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPOInv.Location = New System.Drawing.Point(203, 153)
-        Me.btnPOInv.Name = "btnPOInv"
-        Me.btnPOInv.Size = New System.Drawing.Size(32, 27)
-        Me.btnPOInv.TabIndex = 183
-        Me.btnPOInv.Text = "..."
-        Me.btnPOInv.UseVisualStyleBackColor = True
         '
         'Label20
         '
@@ -641,20 +648,24 @@ Partial Class AddInvoice
         '
         'txtPoDel
         '
-        Me.txtPoDel.Location = New System.Drawing.Point(110, 153)
+        Me.txtPoDel.BackColor = System.Drawing.Color.White
+        Me.txtPoDel.Enabled = False
+        Me.txtPoDel.Location = New System.Drawing.Point(110, 154)
+        Me.txtPoDel.MaxLength = 20
         Me.txtPoDel.Name = "txtPoDel"
         Me.txtPoDel.Size = New System.Drawing.Size(125, 27)
         Me.txtPoDel.TabIndex = 182
         '
         'btnItemInv
         '
+        Me.btnItemInv.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItemInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnItemInv.Location = New System.Drawing.Point(270, 86)
         Me.btnItemInv.Name = "btnItemInv"
         Me.btnItemInv.Size = New System.Drawing.Size(32, 28)
         Me.btnItemInv.TabIndex = 180
         Me.btnItemInv.Text = "..."
-        Me.btnItemInv.UseVisualStyleBackColor = True
+        Me.btnItemInv.UseVisualStyleBackColor = False
         '
         'txtIteamNameDel
         '
@@ -675,9 +686,11 @@ Partial Class AddInvoice
         '
         'txtItemDel
         '
-        Me.txtItemDel.Location = New System.Drawing.Point(110, 87)
+        Me.txtItemDel.BackColor = System.Drawing.Color.LightBlue
+        Me.txtItemDel.Location = New System.Drawing.Point(114, 87)
+        Me.txtItemDel.MaxLength = 20
         Me.txtItemDel.Name = "txtItemDel"
-        Me.txtItemDel.Size = New System.Drawing.Size(191, 27)
+        Me.txtItemDel.Size = New System.Drawing.Size(187, 27)
         Me.txtItemDel.TabIndex = 178
         '
         'Invoice
@@ -743,7 +756,7 @@ Partial Class AddInvoice
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableInvoice.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PONo, Me.PONo1, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.UnitPrice, Me.TotalPrice, Me.Rec, Me.Cancel, Me.ETD, Me.ETA})
+        Me.dtableInvoice.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PONo, Me.PONo1, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.UnitPrice, Me.TotalPrice, Me.Rec, Me.Cancel, Me.ETD, Me.ETA, Me.AddRec})
         Me.dtableInvoice.Location = New System.Drawing.Point(312, 6)
         Me.dtableInvoice.Name = "dtableInvoice"
         Me.dtableInvoice.ReadOnly = True
@@ -846,18 +859,27 @@ Partial Class AddInvoice
         Me.ETA.Name = "ETA"
         Me.ETA.ReadOnly = True
         '
+        'AddRec
+        '
+        Me.AddRec.HeaderText = "AddRec"
+        Me.AddRec.Name = "AddRec"
+        Me.AddRec.ReadOnly = True
+        Me.AddRec.Visible = False
+        '
         'btnPo
         '
+        Me.btnPo.BackColor = System.Drawing.Color.Gainsboro
         Me.btnPo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnPo.Location = New System.Drawing.Point(207, 82)
         Me.btnPo.Name = "btnPo"
         Me.btnPo.Size = New System.Drawing.Size(32, 27)
         Me.btnPo.TabIndex = 171
         Me.btnPo.Text = "..."
-        Me.btnPo.UseVisualStyleBackColor = True
+        Me.btnPo.UseVisualStyleBackColor = False
         '
         'txtInvoiceRemarks
         '
+        Me.txtInvoiceRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtInvoiceRemarks.Location = New System.Drawing.Point(92, 249)
         Me.txtInvoiceRemarks.Name = "txtInvoiceRemarks"
         Me.txtInvoiceRemarks.Size = New System.Drawing.Size(213, 27)
@@ -883,7 +905,7 @@ Partial Class AddInvoice
         '
         'txtPo
         '
-        Me.txtPo.Enabled = False
+        Me.txtPo.BackColor = System.Drawing.Color.LightBlue
         Me.txtPo.Location = New System.Drawing.Point(90, 82)
         Me.txtPo.Name = "txtPo"
         Me.txtPo.Size = New System.Drawing.Size(149, 27)
@@ -900,22 +922,23 @@ Partial Class AddInvoice
         '
         'btnItems
         '
+        Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnItems.Location = New System.Drawing.Point(273, 16)
         Me.btnItems.Name = "btnItems"
         Me.btnItems.Size = New System.Drawing.Size(32, 27)
         Me.btnItems.TabIndex = 164
         Me.btnItems.Text = "..."
-        Me.btnItems.UseVisualStyleBackColor = True
+        Me.btnItems.UseVisualStyleBackColor = False
         '
         'btnAddItem
         '
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItem.Location = New System.Drawing.Point(202, 321)
+        Me.btnAddItem.Location = New System.Drawing.Point(162, 321)
         Me.btnAddItem.Name = "btnAddItem"
-        Me.btnAddItem.Size = New System.Drawing.Size(103, 32)
+        Me.btnAddItem.Size = New System.Drawing.Size(143, 32)
         Me.btnAddItem.TabIndex = 163
-        Me.btnAddItem.Text = "INSERT"
+        Me.btnAddItem.Text = "INSERT INVOICE"
         Me.btnAddItem.UseVisualStyleBackColor = True
         '
         'chkReceived
@@ -984,15 +1007,15 @@ Partial Class AddInvoice
         'txtCliUnit
         '
         Me.txtCliUnit.Enabled = False
-        Me.txtCliUnit.Location = New System.Drawing.Point(150, 116)
+        Me.txtCliUnit.Location = New System.Drawing.Point(147, 116)
         Me.txtCliUnit.Name = "txtCliUnit"
         Me.txtCliUnit.Size = New System.Drawing.Size(46, 27)
         Me.txtCliUnit.TabIndex = 155
         '
         'txtCliQty
         '
-        Me.txtCliQty.Enabled = False
-        Me.txtCliQty.Location = New System.Drawing.Point(99, 116)
+        Me.txtCliQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtCliQty.Location = New System.Drawing.Point(93, 116)
         Me.txtCliQty.Name = "txtCliQty"
         Me.txtCliQty.Size = New System.Drawing.Size(46, 27)
         Me.txtCliQty.TabIndex = 154
@@ -1033,6 +1056,7 @@ Partial Class AddInvoice
         '
         'txtItemCode
         '
+        Me.txtItemCode.BackColor = System.Drawing.Color.LightBlue
         Me.txtItemCode.Location = New System.Drawing.Point(64, 16)
         Me.txtItemCode.Name = "txtItemCode"
         Me.txtItemCode.Size = New System.Drawing.Size(241, 27)
@@ -1040,7 +1064,8 @@ Partial Class AddInvoice
         '
         'txtSupQty
         '
-        Me.txtSupQty.Location = New System.Drawing.Point(202, 116)
+        Me.txtSupQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSupQty.Location = New System.Drawing.Point(201, 116)
         Me.txtSupQty.Name = "txtSupQty"
         Me.txtSupQty.Size = New System.Drawing.Size(46, 27)
         Me.txtSupQty.TabIndex = 151
@@ -1139,7 +1164,6 @@ Partial Class AddInvoice
     Friend WithEvents label17 As Label
     Friend WithEvents txtDeliveryID As TextBox
     Friend WithEvents btnInsertDel As Button
-    Friend WithEvents btnPOInv As Button
     Friend WithEvents Label20 As Label
     Friend WithEvents txtPoDel As TextBox
     Friend WithEvents btnItemInv As Button
@@ -1180,21 +1204,6 @@ Partial Class AddInvoice
     Friend WithEvents txtposeqdel As TextBox
     Friend WithEvents Label26 As Label
     Friend WithEvents txtqtyok As TextBox
-    Friend WithEvents Seq As DataGridViewTextBoxColumn
-    Friend WithEvents ItemId As DataGridViewTextBoxColumn
-    Friend WithEvents ItemName As DataGridViewTextBoxColumn
-    Friend WithEvents PONo As DataGridViewTextBoxColumn
-    Friend WithEvents PONo1 As DataGridViewTextBoxColumn
-    Friend WithEvents ClientQUnit As DataGridViewTextBoxColumn
-    Friend WithEvents ClientQty As DataGridViewTextBoxColumn
-    Friend WithEvents PO As DataGridViewTextBoxColumn
-    Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
-    Friend WithEvents TotalPrice As DataGridViewTextBoxColumn
-    Friend WithEvents Rec As DataGridViewCheckBoxColumn
-    Friend WithEvents Cancel As DataGridViewCheckBoxColumn
-    Friend WithEvents ETD As DataGridViewTextBoxColumn
-    Friend WithEvents ETA As DataGridViewTextBoxColumn
     Friend WithEvents Label27 As Label
     Friend WithEvents dtDeliveryDate As DateTimePicker
     Friend WithEvents Label21 As Label
@@ -1211,4 +1220,21 @@ Partial Class AddInvoice
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
+    Friend WithEvents RecAdd As DataGridViewTextBoxColumn
+    Friend WithEvents Seq As DataGridViewTextBoxColumn
+    Friend WithEvents ItemId As DataGridViewTextBoxColumn
+    Friend WithEvents ItemName As DataGridViewTextBoxColumn
+    Friend WithEvents PONo As DataGridViewTextBoxColumn
+    Friend WithEvents PONo1 As DataGridViewTextBoxColumn
+    Friend WithEvents ClientQUnit As DataGridViewTextBoxColumn
+    Friend WithEvents ClientQty As DataGridViewTextBoxColumn
+    Friend WithEvents PO As DataGridViewTextBoxColumn
+    Friend WithEvents Unit As DataGridViewTextBoxColumn
+    Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents TotalPrice As DataGridViewTextBoxColumn
+    Friend WithEvents Rec As DataGridViewCheckBoxColumn
+    Friend WithEvents Cancel As DataGridViewCheckBoxColumn
+    Friend WithEvents ETD As DataGridViewTextBoxColumn
+    Friend WithEvents ETA As DataGridViewTextBoxColumn
+    Friend WithEvents AddRec As DataGridViewTextBoxColumn
 End Class

@@ -1,2 +1,19 @@
 SUPPLIER AND SUPPLIERITEMPRICES
 supplierid gawing 25
+
+
+USE [SalesAndInventory]
+GO
+/****** Object:  UserDefinedFunction [dbo].[getUnit]    Script Date: 18/10/2020 11:15:06 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+				ALTER function [dbo].[getUnit](@QtyUnit Int)
+				returns varchar(10) 
+				as
+				begin
+				DECLARE @UNIT varchar(10)
+					 SET @UNIT=(select qtyunit from qtyunits where QtyUnitId=@QtyUnit)
+					 return @UNIT
+				end

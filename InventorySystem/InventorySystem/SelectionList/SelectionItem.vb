@@ -6,7 +6,7 @@
         If formname = "AddPurchaseOrder" Then
             SQL.AddParams("@issuedDate", IssuedDate)
             query += AddingWhere(query)
-            query += " ip.AppliedDate>=@issuedDate"
+            query += " ip.AppliedDate<=@issuedDate"
         End If
         If txtItems.Text <> "" Then
             SQL.AddParams("@ItemId", txtItems.Text)

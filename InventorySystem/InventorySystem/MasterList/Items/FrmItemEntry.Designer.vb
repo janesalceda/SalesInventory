@@ -22,7 +22,8 @@ Partial Class FrmItemEntry
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim txtItemId As System.Windows.Forms.TextBox
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmItemEntry))
+        Me.txtItemId = New System.Windows.Forms.TextBox()
         Me.txtDes = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -42,7 +43,7 @@ Partial Class FrmItemEntry
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
+        Me.picprint = New System.Windows.Forms.PictureBox()
         Me.picBar = New System.Windows.Forms.PictureBox()
         Me.picQR = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -66,10 +67,12 @@ Partial Class FrmItemEntry
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        txtItemId = New System.Windows.Forms.TextBox()
+        Me.PicBarcode = New System.Windows.Forms.PictureBox()
+        Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.grpItemDetails.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picprint, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtItemPrices, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,7 +81,17 @@ Partial Class FrmItemEntry
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PicBarcode, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'txtItemId
+        '
+        Me.txtItemId.BackColor = System.Drawing.Color.White
+        Me.txtItemId.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.txtItemId.Location = New System.Drawing.Point(116, 27)
+        Me.txtItemId.Name = "txtItemId"
+        Me.txtItemId.Size = New System.Drawing.Size(218, 29)
+        Me.txtItemId.TabIndex = 0
         '
         'txtDes
         '
@@ -249,25 +262,15 @@ Partial Class FrmItemEntry
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Item ID:"
         '
-        'txtItemId
-        '
-        txtItemId.BackColor = System.Drawing.Color.White
-        txtItemId.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        txtItemId.Location = New System.Drawing.Point(116, 27)
-        txtItemId.Name = "txtItemId"
-        txtItemId.Size = New System.Drawing.Size(218, 29)
-        txtItemId.TabIndex = 0
-        AddHandler txtItemId.TextChanged, AddressOf Me.txtItemId_TextChanged
-        '
         'grpItemDetails
         '
         Me.grpItemDetails.Controls.Add(Me.cmbCategory)
         Me.grpItemDetails.Controls.Add(Me.PictureBox4)
         Me.grpItemDetails.Controls.Add(Me.Label6)
-        Me.grpItemDetails.Controls.Add(Me.PictureBox3)
+        Me.grpItemDetails.Controls.Add(Me.picprint)
         Me.grpItemDetails.Controls.Add(Me.picBar)
         Me.grpItemDetails.Controls.Add(Me.picQR)
-        Me.grpItemDetails.Controls.Add(txtItemId)
+        Me.grpItemDetails.Controls.Add(Me.txtItemId)
         Me.grpItemDetails.Controls.Add(Me.Label1)
         Me.grpItemDetails.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!)
         Me.grpItemDetails.Location = New System.Drawing.Point(8, 10)
@@ -312,17 +315,17 @@ Partial Class FrmItemEntry
         Me.Label6.Text = "*Category:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'PictureBox3
+        'picprint
         '
-        Me.PictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PictureBox3.Image = Global.InventorySystem.My.Resources.Resources.Print
-        Me.PictureBox3.Location = New System.Drawing.Point(638, 262)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(26, 24)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 2
-        Me.PictureBox3.TabStop = False
-        Me.PictureBox3.Visible = False
+        Me.picprint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picprint.Image = Global.InventorySystem.My.Resources.Resources.Print
+        Me.picprint.Location = New System.Drawing.Point(638, 262)
+        Me.picprint.Name = "picprint"
+        Me.picprint.Size = New System.Drawing.Size(26, 24)
+        Me.picprint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picprint.TabIndex = 2
+        Me.picprint.TabStop = False
+        Me.picprint.Visible = False
         '
         'picBar
         '
@@ -564,12 +567,35 @@ Partial Class FrmItemEntry
         Me.Label10.TabIndex = 65
         Me.Label10.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
+        'PicBarcode
+        '
+        Me.PicBarcode.Location = New System.Drawing.Point(436, 10)
+        Me.PicBarcode.Name = "PicBarcode"
+        Me.PicBarcode.Size = New System.Drawing.Size(100, 50)
+        Me.PicBarcode.TabIndex = 65
+        Me.PicBarcode.TabStop = False
+        '
+        'PrintDocument1
+        '
+        '
+        'PrintPreviewDialog1
+        '
+        Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+        Me.PrintPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+        Me.PrintPreviewDialog1.Document = Me.PrintDocument1
+        Me.PrintPreviewDialog1.Enabled = True
+        Me.PrintPreviewDialog1.Icon = CType(resources.GetObject("PrintPreviewDialog1.Icon"), System.Drawing.Icon)
+        Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
+        Me.PrintPreviewDialog1.Visible = False
+        '
         'FrmItemEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(720, 605)
+        Me.Controls.Add(Me.PicBarcode)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnAddItemPrice)
         Me.Controls.Add(Me.Label15)
@@ -603,7 +629,7 @@ Partial Class FrmItemEntry
         Me.grpItemDetails.ResumeLayout(False)
         Me.grpItemDetails.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picprint, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtItemPrices, System.ComponentModel.ISupportInitialize).EndInit()
@@ -613,6 +639,7 @@ Partial Class FrmItemEntry
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PicBarcode, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -641,7 +668,7 @@ Partial Class FrmItemEntry
     Friend WithEvents btnAddItemPrice As Button
     Friend WithEvents picQR As PictureBox
     Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents picprint As PictureBox
     Friend WithEvents picBar As PictureBox
     Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents Label6 As Label
@@ -660,4 +687,8 @@ Partial Class FrmItemEntry
     Friend WithEvents PictureBox7 As PictureBox
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents txtItemId As TextBox
+    Friend WithEvents PicBarcode As PictureBox
+    Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
 End Class

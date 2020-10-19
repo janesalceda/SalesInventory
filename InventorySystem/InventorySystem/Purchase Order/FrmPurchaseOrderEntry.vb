@@ -139,6 +139,7 @@
             SQL.AddParams("@totalamount", Val(txtTotalAmount.Text))
             SQL.AddParams("@remarks", txtRemarks.Text)
             SQL.AddParams("@encodedstaff", moduleId)
+            SQL.AddParams("@deletedDate", chkcancelPO.Checked)
 
             If btnSave.Text = "UPDATE P.O." Then
                 SQL.AddParams("@pono", txtPONo.Text)
@@ -152,6 +153,7 @@
 	                DeliveryPlaceId = @deliveryplaceid,
 	                TotalAmount = @totalamount,
 	                Remarks = @remarks,
+                    DeletedDate=(select case when @deletedDate=0 then null else getdate() end ),
 	                UpdatedDate = getdate(),
 	                UpdatedBy = @updatedby
                 WHERE PoNo=@pono")
@@ -360,10 +362,6 @@
             MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation)
             Exit Sub
         End If
-        If dtIssued.Checked = False Then
-            MsgBox("Choose IssuedDate", MsgBoxStyle.Exclamation)
-            Exit Sub
-        End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
         SelectionItem.IssuedDate = dtIssued.Value
         formname = "AddPurchaseOrder"
@@ -496,12 +494,12 @@
         Dim Globalrow As ArrayList = New ArrayList
         SQL.AddParams("@ItemId", ItemId)
         SQL.AddParams("@IssuedDate", IssuedDate)
-        SQL.ExecQuery("SELECT DISTINCT i.Description,
+        SQL.ExecQuery("SELECT top 1 i.Description,
             ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit and i.ItemId=@ItemId) 'Client',
             ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',
             ConvertingCoefficient,
             UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q 
-            where s.AppliedDate>=@IssuedDate and i.ItemId=@ItemId")
+            where s.AppliedDate<=@IssuedDate and i.ItemId=@ItemId order by AppliedDate")
         If SQL.HasException Then Return Globalrow
         If SQL.RecordCount = 0 Then Return Globalrow
         Globalrow.Add(SQL.DBDT.Rows(0).Item(0))

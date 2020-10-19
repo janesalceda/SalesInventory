@@ -1,4 +1,8 @@
-﻿Public Class FrmItemEntry
+﻿Imports System.Drawing.Printing
+
+Public Class FrmItemEntry
+
+    Dim ppd As New PrintPreviewDialog
     Public Sub AddRow(supplierid As String, unitprice As Decimal, applieddate As Date)
         dtItemPrices.Rows.Add(supplierid, applieddate, unitprice, "", "", "Edit")
     End Sub
@@ -134,7 +138,7 @@
         End If
     End Sub
 
-    Private Sub txtItemId_TextChanged(sender As Object, e As EventArgs) 
+    Private Sub txtItemId_TextChanged(sender As Object, e As EventArgs) Handles txtItemId.TextChanged
         ViewSupplierPriceData()
     End Sub
     Public Sub ViewSupplierPriceData()
@@ -173,7 +177,7 @@
         picBar.Visible = True
         picQR.Visible = True
         PictureBox4.Visible = True
-        PictureBox3.Visible = True
+        picprint.Visible = True
     End Sub
     Public Sub refreshData()
         SQL.AddParams("@ItemId", txtItemId.Text)
@@ -200,5 +204,19 @@
             FrmItemPriceAdd.Text = "View Item Price"
             FrmItemPriceAdd.Show()
         End If
+    End Sub
+
+    Private Sub picQR_Click(sender As Object, e As EventArgs) Handles picQR.Click
+        FrmPrintingItemBarcode.formname = "QR"
+        FrmPrintingItemBarcode.Show()
+    End Sub
+
+    Private Sub picBar_Click(sender As Object, e As EventArgs) Handles picBar.Click
+        FrmPrintingItemBarcode.formname = "Bar"
+        FrmPrintingItemBarcode.Show()
+    End Sub
+
+    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
+
     End Sub
 End Class

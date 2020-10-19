@@ -59,6 +59,11 @@
     <Reference Include="IronBarCode, Version=2020.6.0.0, Culture=neutral, PublicKeyToken=b971bb3971bdf306, processorArchitecture=MSIL">
       <HintPath>..\packages\BarCode.2020.6.0\lib\net40\IronBarCode.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.3.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.3.9\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -75,6 +80,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
     <Reference Include="zxing, Version=0.16.5.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.Net.0.16.5\lib\net47\zxing.dll</HintPath>
     </Reference>
@@ -124,6 +130,12 @@
       <DependentUpon>FrmDeliveryPlacesSearch.vb</DependentUpon>
     </Compile>
     <Compile Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\Items\FrmPrintingItemBarcode.Designer.vb">
+      <DependentUpon>FrmPrintingItemBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\Items\FrmPrintingItemBarcode.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterList\TermofDelivery\FrmTermsOfDaliverySearch.Designer.vb">
@@ -371,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.resx">
       <DependentUpon>FrmDeliveryPlacesSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\Items\FrmPrintingItemBarcode.resx">
+      <DependentUpon>FrmPrintingItemBarcode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\TermofDelivery\FrmTermsOfDaliverySearch.resx">
       <DependentUpon>FrmTermsOfDaliverySearch.vb</DependentUpon>

@@ -690,6 +690,8 @@
 
 
 
+
+
     'Private Sub dtPoDetails_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dtPoDetails.CellValueChanged
     '    If e.ColumnIndex = 1 Then
     '        If dtPoDetails.SelectedRows.Count = 0 Then Exit Sub

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmStockTaking
+Partial Class FrmStockTakingSearch
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -99,16 +99,16 @@ Partial Class FrmStockTaking
         Me.dtCountedFrom.Location = New System.Drawing.Point(141, 42)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
-        Me.dtCountedFrom.Size = New System.Drawing.Size(168, 26)
+        Me.dtCountedFrom.Size = New System.Drawing.Size(218, 26)
         Me.dtCountedFrom.TabIndex = 118
         '
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
-        Me.dtCountedTo.Location = New System.Drawing.Point(313, 42)
+        Me.dtCountedTo.Location = New System.Drawing.Point(365, 43)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
-        Me.dtCountedTo.Size = New System.Drawing.Size(168, 26)
+        Me.dtCountedTo.Size = New System.Drawing.Size(198, 26)
         Me.dtCountedTo.TabIndex = 119
         '
         'Label1
@@ -130,7 +130,7 @@ Partial Class FrmStockTaking
         Me.chkApproved.Text = "Approved"
         Me.chkApproved.UseVisualStyleBackColor = True
         '
-        'FrmStockTaking
+        'FrmStockTakingSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -146,7 +146,7 @@ Partial Class FrmStockTaking
         Me.Controls.Add(Me.dtableStockTaking)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "FrmStockTaking"
+        Me.Name = "FrmStockTakingSearch"
         Me.Text = "StockTaking"
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

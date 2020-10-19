@@ -134,7 +134,7 @@
         End If
     End Sub
 
-    Private Sub txtItemId_TextChanged(sender As Object, e As EventArgs) Handles txtItemId.TextChanged
+    Private Sub txtItemId_TextChanged(sender As Object, e As EventArgs) 
         ViewSupplierPriceData()
     End Sub
     Public Sub ViewSupplierPriceData()

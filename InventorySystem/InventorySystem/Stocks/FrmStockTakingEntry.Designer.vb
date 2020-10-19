@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class AddStockTaking
+Partial Class FrmStockTakingEntry
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -307,6 +307,7 @@ Partial Class AddStockTaking
         '
         'Label5
         '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
@@ -317,7 +318,7 @@ Partial Class AddStockTaking
         Me.Label5.TabIndex = 126
         Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
-        'AddStockTaking
+        'FrmStockTakingEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -336,7 +337,7 @@ Partial Class AddStockTaking
         Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "AddStockTaking"
+        Me.Name = "FrmStockTakingEntry"
         Me.Text = "Add StockTaking"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

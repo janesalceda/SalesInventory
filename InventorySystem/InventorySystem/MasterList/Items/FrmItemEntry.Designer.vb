@@ -22,6 +22,7 @@ Partial Class FrmItemEntry
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim txtItemId As System.Windows.Forms.TextBox
         Me.txtDes = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -37,7 +38,6 @@ Partial Class FrmItemEntry
         Me.cmbSupQtyUnit = New System.Windows.Forms.ComboBox()
         Me.cmbLocation = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtItemId = New System.Windows.Forms.TextBox()
         Me.grpItemDetails = New System.Windows.Forms.GroupBox()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -66,6 +66,7 @@ Partial Class FrmItemEntry
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        txtItemId = New System.Windows.Forms.TextBox()
         Me.grpItemDetails.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -250,13 +251,13 @@ Partial Class FrmItemEntry
         '
         'txtItemId
         '
-        Me.txtItemId.BackColor = System.Drawing.Color.White
-        Me.txtItemId.Enabled = False
-        Me.txtItemId.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtItemId.Location = New System.Drawing.Point(116, 27)
-        Me.txtItemId.Name = "txtItemId"
-        Me.txtItemId.Size = New System.Drawing.Size(218, 29)
-        Me.txtItemId.TabIndex = 0
+        txtItemId.BackColor = System.Drawing.Color.White
+        txtItemId.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        txtItemId.Location = New System.Drawing.Point(116, 27)
+        txtItemId.Name = "txtItemId"
+        txtItemId.Size = New System.Drawing.Size(218, 29)
+        txtItemId.TabIndex = 0
+        AddHandler txtItemId.TextChanged, AddressOf Me.txtItemId_TextChanged
         '
         'grpItemDetails
         '
@@ -266,7 +267,7 @@ Partial Class FrmItemEntry
         Me.grpItemDetails.Controls.Add(Me.PictureBox3)
         Me.grpItemDetails.Controls.Add(Me.picBar)
         Me.grpItemDetails.Controls.Add(Me.picQR)
-        Me.grpItemDetails.Controls.Add(Me.txtItemId)
+        Me.grpItemDetails.Controls.Add(txtItemId)
         Me.grpItemDetails.Controls.Add(Me.Label1)
         Me.grpItemDetails.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!)
         Me.grpItemDetails.Location = New System.Drawing.Point(8, 10)
@@ -563,7 +564,7 @@ Partial Class FrmItemEntry
         Me.Label10.TabIndex = 65
         Me.Label10.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
-        'FrmItemAdd
+        'FrmItemEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -595,7 +596,7 @@ Partial Class FrmItemEntry
         Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "FrmItemAdd"
+        Me.Name = "FrmItemEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Items Entry"
         Me.TopMost = True
@@ -631,7 +632,6 @@ Partial Class FrmItemEntry
     Friend WithEvents cmbSupQtyUnit As ComboBox
     Friend WithEvents cmbLocation As ComboBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtItemId As TextBox
     Friend WithEvents grpItemDetails As GroupBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label

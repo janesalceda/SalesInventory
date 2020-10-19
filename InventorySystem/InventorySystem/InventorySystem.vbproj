@@ -174,12 +174,6 @@
     <Compile Include="SelectionList\FrmInvoiceSelection.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stocks\AddStocks.Designer.vb">
-      <DependentUpon>AddStocks.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Stocks\AddStocks.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MasterList\Supplier\FrmSupplierEntry.Designer.vb">
       <DependentUpon>FrmSupplierEntry.vb</DependentUpon>
     </Compile>
@@ -265,16 +259,10 @@
     <Compile Include="Purchase Order\FrmSearchPO.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stocks\FrmStockin.Designer.vb">
-      <DependentUpon>FrmStockin.vb</DependentUpon>
+    <Compile Include="Stocks\FrmStockoutSearch.Designer.vb">
+      <DependentUpon>FrmStockoutSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stocks\FrmStockin.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Stocks\FrmStockout.Designer.vb">
-      <DependentUpon>FrmStockout.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Stocks\FrmStockout.vb">
+    <Compile Include="Stocks\FrmStockoutSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterList\Supplier\FrmSupplierSearch.Designer.vb">
@@ -337,46 +325,34 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLControl.vb" />
-    <Compile Include="Stocks\FrmStocks.Designer.vb">
-      <DependentUpon>FrmStocks.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Stocks\FrmStocks.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MasterList\FrmUser.Designer.vb">
       <DependentUpon>FrmUser.vb</DependentUpon>
     </Compile>
     <Compile Include="MasterList\FrmUser.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stocks\FrmStockTaking.Designer.vb">
-      <DependentUpon>FrmStockTaking.vb</DependentUpon>
+    <Compile Include="Stocks\FrmStockTakingSearch.Designer.vb">
+      <DependentUpon>FrmStockTakingSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stocks\FrmStockTaking.vb">
+    <Compile Include="Stocks\FrmStockTakingSearch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stocks\AddStockOut.Designer.vb">
-      <DependentUpon>AddStockOut.vb</DependentUpon>
+    <Compile Include="Stocks\FrmStockOutEntry.Designer.vb">
+      <DependentUpon>FrmStockOutEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stocks\AddStockOut.vb">
+    <Compile Include="Stocks\FrmStockOutEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stocks\AddStockTaking.Designer.vb">
-      <DependentUpon>AddStockTaking.vb</DependentUpon>
+    <Compile Include="Stocks\FrmStockTakingEntry.Designer.vb">
+      <DependentUpon>FrmStockTakingEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="Stocks\AddStockTaking.vb">
+    <Compile Include="Stocks\FrmStockTakingEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SelectionList\SupplierList.Designer.vb">
       <DependentUpon>SupplierList.vb</DependentUpon>
     </Compile>
     <Compile Include="SelectionList\SupplierList.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Stocks\ViewStockTaking.Designer.vb">
-      <DependentUpon>ViewStockTaking.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Stocks\ViewStockTaking.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -420,9 +396,6 @@
     <EmbeddedResource Include="SelectionList\FrmInvoiceSelection.resx">
       <DependentUpon>FrmInvoiceSelection.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\AddStocks.resx">
-      <DependentUpon>AddStocks.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MasterList\Supplier\FrmSupplierEntry.resx">
       <DependentUpon>FrmSupplierEntry.vb</DependentUpon>
     </EmbeddedResource>
@@ -444,8 +417,8 @@
     <EmbeddedResource Include="MasterList\Locations\FrmLocationEntry.resx">
       <DependentUpon>FrmLocationEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\FrmStockout.resx">
-      <DependentUpon>FrmStockout.vb</DependentUpon>
+    <EmbeddedResource Include="Stocks\FrmStockoutSearch.resx">
+      <DependentUpon>FrmStockoutSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\Supplier\FrmSupplierSearch.resx">
       <DependentUpon>FrmSupplierSearch.vb</DependentUpon>
@@ -471,8 +444,8 @@
     <EmbeddedResource Include="Purchase Order\FrmSearchPO.resx">
       <DependentUpon>FrmSearchPO.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\FrmStockTaking.resx">
-      <DependentUpon>FrmStockTaking.vb</DependentUpon>
+    <EmbeddedResource Include="Stocks\FrmStockTakingSearch.resx">
+      <DependentUpon>FrmStockTakingSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\TermofPayment\FrmTermsofPaymentEntry.resx">
       <DependentUpon>FrmTermsofPaymentEntry.vb</DependentUpon>
@@ -492,26 +465,20 @@
     <EmbeddedResource Include="SaleReports.resx">
       <DependentUpon>SaleReports.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\FrmStocks.resx">
-      <DependentUpon>FrmStocks.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MasterList\FrmUser.resx">
       <DependentUpon>FrmUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectionList\SelectionItem.resx">
       <DependentUpon>SelectionItem.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\AddStockOut.resx">
-      <DependentUpon>AddStockOut.vb</DependentUpon>
+    <EmbeddedResource Include="Stocks\FrmStockOutEntry.resx">
+      <DependentUpon>FrmStockOutEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\AddStockTaking.resx">
-      <DependentUpon>AddStockTaking.vb</DependentUpon>
+    <EmbeddedResource Include="Stocks\FrmStockTakingEntry.resx">
+      <DependentUpon>FrmStockTakingEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectionList\SupplierList.resx">
       <DependentUpon>SupplierList.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Stocks\ViewStockTaking.resx">
-      <DependentUpon>ViewStockTaking.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

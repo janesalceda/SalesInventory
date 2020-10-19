@@ -1,4 +1,4 @@
-﻿Public Class FrmStockout
+﻿Public Class FrmStockoutSearch
     Public Sub getAllData(where As String)
         SQL.ExecQuery("SELECT StockOutCode,StockOutDate,st.IssuedByStaff,
         CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',
@@ -12,7 +12,8 @@
         dtableStockOut.DataSource = SQL.DBDT
     End Sub
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        AddStockOut.Show()
+        FrmStockOutEntry.Text = "Stock Out Entry"
+        FrmStockOutEntry.Show()
     End Sub
     Public Sub search()
         Dim where As String = ""
@@ -42,8 +43,9 @@
     End Sub
 
     Private Sub dtableStockTaking_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockOut.CellDoubleClick
-        AddStockOut.btnSave.Text = "UPDATE"
-        AddStockOut.txtStockOutID.Text = dtableStockOut.SelectedRows(0).Cells(0).Value
-        AddStockOut.Show()
+        FrmStockOutEntry.btnSave.Text = "UPDATE"
+        FrmStockOutEntry.Text = "Stock Out Details"
+        FrmStockOutEntry.txtStockOutID.Text = dtableStockOut.SelectedRows(0).Cells(0).Value
+        FrmStockOutEntry.Show()
     End Sub
 End Class

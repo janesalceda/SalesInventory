@@ -1,4 +1,4 @@
-﻿Public Class AddStockTaking
+﻿Public Class FrmStockTakingEntry
     Private DTCount As Integer
     Private Sub getSTID()
         SQL.AddParams("@stid", txtStockTakingID.Text)
@@ -107,7 +107,7 @@
             MsgBox("Please complete all * important detils", MsgBoxStyle.Critical)
             Exit Sub
         End If
-        If MsgBox("Are you finish?", vbYesNo) = vbYes Then
+        If MsgBox("Are you sure you want to save?", vbYesNo) = vbYes Then
             If btnSave.Text = "UPDATE" Then
                 If chkApprove.Checked = True Then
                     SQL.AddParams("@approve", moduleId)

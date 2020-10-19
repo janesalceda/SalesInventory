@@ -2,6 +2,7 @@
     Public Sub LoadDataGrid(Optional Query As String = "")
         SQL.ExecQuery("SELECT CategoryID,CategoryName,CreatedDate,DeletedDate FROM categories c " & Query)
         If SQL.HasException(True) Then Exit Sub
+
         dtItems.Rows.Clear()
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
             dtItems.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(3), "X")

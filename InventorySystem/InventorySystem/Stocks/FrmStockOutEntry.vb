@@ -1,4 +1,4 @@
-﻿Public Class AddStockOut
+﻿Public Class FrmStockOutEntry
     Private DTCount As Integer
     Private Sub UpdatingData()
         txtItemCode.Enabled = False
@@ -102,7 +102,7 @@
             MsgBox("Please complete all * import details!", MsgBoxStyle.Critical)
             Exit Sub
         End If
-        If MsgBox("Are you finish?", vbYesNo) = vbYes Then
+        If MsgBox("Are you sure you want to save?", vbYesNo) = vbYes Then
             If btnSave.Text = "UPDATE" Then
                 If chkApprove.Checked = True Then
                     SQL.AddParams("@approve", moduleId)
@@ -150,7 +150,7 @@
                 Next
             End If
             MsgBox("Successfully Saved", MsgBoxStyle.Information)
-            FrmStockout.btnSearch.PerformClick()
+            FrmStockoutSearch.btnSearch.PerformClick()
             Me.Close()
         End If
     End Sub

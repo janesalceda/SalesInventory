@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FrmStockout
+Partial Class FrmStockoutSearch
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -56,10 +56,10 @@ Partial Class FrmStockout
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
-        Me.dtCountedTo.Location = New System.Drawing.Point(284, 40)
+        Me.dtCountedTo.Location = New System.Drawing.Point(340, 42)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
-        Me.dtCountedTo.Size = New System.Drawing.Size(168, 26)
+        Me.dtCountedTo.Size = New System.Drawing.Size(205, 26)
         Me.dtCountedTo.TabIndex = 129
         '
         'dtCountedFrom
@@ -68,7 +68,7 @@ Partial Class FrmStockout
         Me.dtCountedFrom.Location = New System.Drawing.Point(110, 41)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
-        Me.dtCountedFrom.Size = New System.Drawing.Size(168, 26)
+        Me.dtCountedFrom.Size = New System.Drawing.Size(210, 26)
         Me.dtCountedFrom.TabIndex = 128
         '
         'btnSearch
@@ -129,7 +129,7 @@ Partial Class FrmStockout
         Me.dtableStockOut.Size = New System.Drawing.Size(1002, 394)
         Me.dtableStockOut.TabIndex = 123
         '
-        'FrmStockout
+        'FrmStockoutSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -145,7 +145,7 @@ Partial Class FrmStockout
         Me.Controls.Add(Me.dtableStockOut)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "FrmStockout"
+        Me.Name = "FrmStockoutSearch"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmStockout"
         CType(Me.dtableStockOut, System.ComponentModel.ISupportInitialize).EndInit()

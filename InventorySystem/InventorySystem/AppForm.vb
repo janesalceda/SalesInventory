@@ -62,11 +62,11 @@
     End Sub
 
     Private Sub StockTakingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockTakingToolStripMenuItem.Click
-        FrmStockTaking.Show()
+        FrmStockTakingSearch.Show()
     End Sub
 
     Private Sub StockOutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockOutToolStripMenuItem.Click
-        FrmStockout.Show()
+        FrmStockoutSearch.Show()
     End Sub
 
     Private Sub LocationsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocationsToolStripMenuItem.Click
@@ -78,17 +78,17 @@
     End Sub
 
     Private Sub StockOutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles StockOutToolStripMenuItem1.Click
-        FrmStockout.btnAdd.Visible = False
-        FrmStockout.chkApproved.Checked = False
-        FrmStockout.search()
-        FrmStockout.Show()
+        FrmStockoutSearch.btnAdd.Visible = False
+        FrmStockoutSearch.chkApproved.Checked = False
+        FrmStockoutSearch.search()
+        FrmStockoutSearch.Show()
     End Sub
 
     Private Sub StockTakingToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles StockTakingToolStripMenuItem1.Click
-        FrmStockTaking.btnAdd.Visible = False
-        FrmStockTaking.chkApproved.Checked = False
-        FrmStockTaking.Search()
-        FrmStockTaking.Show()
+        FrmStockTakingSearch.btnAdd.Visible = False
+        FrmStockTakingSearch.chkApproved.Checked = False
+        FrmStockTakingSearch.Search()
+        FrmStockTakingSearch.Show()
     End Sub
 
     Private Sub ReceivedToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReceivedToolStripMenuItem.Click

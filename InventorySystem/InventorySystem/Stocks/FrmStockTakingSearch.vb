@@ -1,4 +1,4 @@
-﻿Public Class FrmStockTaking
+﻿Public Class FrmStockTakingSearch
     Private Sub getAllData(where As String)
         SQL.ExecQuery("SELECT STID,CountedDate,
             CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',
@@ -6,6 +6,8 @@
             CASE WHEN st.UpdatedBy=e.EmpId THEN e.EmployeeName ELSE '' END AS 'UpdatedBy',
             CASE WHEN st.ApprovedBy=e.EmpId THEN e.EmployeeName ELSE 'NOT YET APPROVED' END as 'ApprovedBy' 
             from StockTakingHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where)
+
+        dtableStockTaking.DataSource = Nothing
         If SQL.HasException Then Exit Sub
         dtableStockTaking.DataSource = SQL.DBDT
     End Sub
@@ -15,7 +17,9 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        AddStockTaking.Show()
+        FrmStockTakingEntry.Text = "Stock Taking Entry"
+        FrmStockTakingEntry.Show()
+
     End Sub
     Public Sub Search()
         Dim where As String = ""
@@ -42,9 +46,10 @@
     End Sub
 
     Private Sub dtableStockTaking_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockTaking.CellDoubleClick
-        AddStockTaking.btnSave.Text = "UPDATE"
-        AddStockTaking.txtStockTakingID.Text = dtableStockTaking.SelectedRows(0).Cells(0).Value
-        AddStockTaking.Show()
+        FrmStockTakingEntry.btnSave.Text = "UPDATE"
+        FrmStockTakingEntry.Text = "Stock Taking Details"
+        FrmStockTakingEntry.txtStockTakingID.Text = dtableStockTaking.SelectedRows(0).Cells(0).Value
+        FrmStockTakingEntry.Show()
     End Sub
 
 End Class

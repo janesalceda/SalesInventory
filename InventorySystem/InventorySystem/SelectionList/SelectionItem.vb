@@ -111,7 +111,7 @@
                     Me.Close()
                 End With
             ElseIf formname = "AddStockTaking" Then
-                With AddStockTaking
+                With FrmStockTakingEntry
                     ' .dtPoDetails.SelectedRows(0).Cells(1).Value = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtItemCode.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     '.txtItemName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
@@ -123,7 +123,7 @@
                     Me.Close()
                 End With
             ElseIf formname = "AddStockOut" Then
-                With AddStockOut
+                With FrmStockOutEntry
                     ' .dtPoDetails.SelectedRows(0).Cells(1).Value = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtItemCode.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     '.txtItemName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()

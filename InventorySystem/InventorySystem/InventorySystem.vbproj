@@ -108,16 +108,46 @@
     <Compile Include="ForApproval.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Invoice\AddInvoice.Designer.vb">
-      <DependentUpon>AddInvoice.vb</DependentUpon>
+    <Compile Include="Invoice\FrmInvoiceEntry.Designer.vb">
+      <DependentUpon>FrmInvoiceEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="Invoice\AddInvoice.vb">
+    <Compile Include="Invoice\FrmInvoiceEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmItemAdd.Designer.vb">
-      <DependentUpon>FrmItemAdd.vb</DependentUpon>
+    <Compile Include="MasterList\Categories\FrmCategorySearch.Designer.vb">
+      <DependentUpon>FrmCategorySearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmItemAdd.vb">
+    <Compile Include="MasterList\Categories\FrmCategorySearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.Designer.vb">
+      <DependentUpon>FrmDeliveryPlacesSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\TermofDelivery\FrmTermsOfDaliverySearch.Designer.vb">
+      <DependentUpon>FrmTermsOfDaliverySearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\TermofDelivery\FrmTermsOfDaliverySearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\Locations\FrmLocationSearch.Designer.vb">
+      <DependentUpon>FrmLocationSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\Locations\FrmLocationSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\QtyUnits\FrmQtyUnitSearch.Designer.vb">
+      <DependentUpon>FrmQtyUnitSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\QtyUnits\FrmQtyUnitSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\Items\FrmItemEntry.Designer.vb">
+      <DependentUpon>FrmItemEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\Items\FrmItemEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterList\FrmItemPriceAdd.Designer.vb">
@@ -126,10 +156,16 @@
     <Compile Include="MasterList\FrmItemPriceAdd.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Purchase Order\AddPurchaseOrder.Designer.vb">
-      <DependentUpon>AddPurchaseOrder.vb</DependentUpon>
+    <Compile Include="MasterList\TermofPayment\FrmTermofPaymentSearch.Designer.vb">
+      <DependentUpon>FrmTermofPaymentSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="Purchase Order\AddPurchaseOrder.vb">
+    <Compile Include="MasterList\TermofPayment\FrmTermofPaymentSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purchase Order\FrmPurchaseOrderEntry.Designer.vb">
+      <DependentUpon>FrmPurchaseOrderEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Purchase Order\FrmPurchaseOrderEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SelectionList\FrmInvoiceSelection.Designer.vb">
@@ -144,10 +180,10 @@
     <Compile Include="Stocks\AddStocks.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\AddSupplier.Designer.vb">
-      <DependentUpon>AddSupplier.vb</DependentUpon>
+    <Compile Include="MasterList\Supplier\FrmSupplierEntry.Designer.vb">
+      <DependentUpon>FrmSupplierEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\AddSupplier.vb">
+    <Compile Include="MasterList\Supplier\FrmSupplierEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterList\AddUser.Designer.vb">
@@ -168,28 +204,28 @@
     <Compile Include="FrmAccountDetails.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmCategory.Designer.vb">
-      <DependentUpon>FrmCategory.vb</DependentUpon>
+    <Compile Include="MasterList\Categories\FrmCategoryEntry.Designer.vb">
+      <DependentUpon>FrmCategoryEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmCategory.vb">
+    <Compile Include="MasterList\Categories\FrmCategoryEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmDeliveryPlaces.Designer.vb">
-      <DependentUpon>FrmDeliveryPlaces.vb</DependentUpon>
+    <Compile Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesEntry.Designer.vb">
+      <DependentUpon>FrmDeliveryPlacesEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmDeliveryPlaces.vb">
+    <Compile Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmTermsofDelivery.Designer.vb">
-      <DependentUpon>FrmTermsofDelivery.vb</DependentUpon>
+    <Compile Include="MasterList\TermofDelivery\FrmTermsofDeliveryEntry.Designer.vb">
+      <DependentUpon>FrmTermsofDeliveryEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmTermsofDelivery.vb">
+    <Compile Include="MasterList\TermofDelivery\FrmTermsofDeliveryEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmLocation.Designer.vb">
-      <DependentUpon>FrmLocation.vb</DependentUpon>
+    <Compile Include="MasterList\Locations\FrmLocationEntry.Designer.vb">
+      <DependentUpon>FrmLocationEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmLocation.vb">
+    <Compile Include="MasterList\Locations\FrmLocationEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmLogin.vb">
@@ -199,16 +235,16 @@
       <DependentUpon>FrmLogin.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmItemSearch.Designer.vb">
+    <Compile Include="MasterList\Items\FrmItemSearch.Designer.vb">
       <DependentUpon>FrmItemSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmItemSearch.vb">
+    <Compile Include="MasterList\Items\FrmItemSearch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmQtyUnit.Designer.vb">
-      <DependentUpon>FrmQtyUnit.vb</DependentUpon>
+    <Compile Include="MasterList\QtyUnits\FrmQtyUnitEntry.Designer.vb">
+      <DependentUpon>FrmQtyUnitEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmQtyUnit.vb">
+    <Compile Include="MasterList\QtyUnits\FrmQtyUnitEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RejectAndReturn\FrmRejectReturn.Designer.vb">
@@ -241,10 +277,10 @@
     <Compile Include="Stocks\FrmStockout.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmSupplierView.Designer.vb">
-      <DependentUpon>FrmSupplierView.vb</DependentUpon>
+    <Compile Include="MasterList\Supplier\FrmSupplierSearch.Designer.vb">
+      <DependentUpon>FrmSupplierSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmSupplierView.vb">
+    <Compile Include="MasterList\Supplier\FrmSupplierSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory\frmInventory.Designer.vb">
@@ -253,10 +289,10 @@
     <Compile Include="Inventory\frmInventory.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmTermsofPayment.Designer.vb">
-      <DependentUpon>FrmTermsofPayment.vb</DependentUpon>
+    <Compile Include="MasterList\TermofPayment\FrmTermsofPaymentEntry.Designer.vb">
+      <DependentUpon>FrmTermsofPaymentEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmTermsofPayment.vb">
+    <Compile Include="MasterList\TermofPayment\FrmTermsofPaymentEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Globals.vb" />
@@ -351,17 +387,35 @@
     <EmbeddedResource Include="ForApproval.resx">
       <DependentUpon>ForApproval.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Invoice\AddInvoice.resx">
-      <DependentUpon>AddInvoice.vb</DependentUpon>
+    <EmbeddedResource Include="Invoice\FrmInvoiceEntry.resx">
+      <DependentUpon>FrmInvoiceEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmItemAdd.resx">
-      <DependentUpon>FrmItemAdd.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\Categories\FrmCategorySearch.resx">
+      <DependentUpon>FrmCategorySearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.resx">
+      <DependentUpon>FrmDeliveryPlacesSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\TermofDelivery\FrmTermsOfDaliverySearch.resx">
+      <DependentUpon>FrmTermsOfDaliverySearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\Locations\FrmLocationSearch.resx">
+      <DependentUpon>FrmLocationSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\QtyUnits\FrmQtyUnitSearch.resx">
+      <DependentUpon>FrmQtyUnitSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\Items\FrmItemEntry.resx">
+      <DependentUpon>FrmItemEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\FrmItemPriceAdd.resx">
       <DependentUpon>FrmItemPriceAdd.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Purchase Order\AddPurchaseOrder.resx">
-      <DependentUpon>AddPurchaseOrder.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\TermofPayment\FrmTermofPaymentSearch.resx">
+      <DependentUpon>FrmTermofPaymentSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purchase Order\FrmPurchaseOrderEntry.resx">
+      <DependentUpon>FrmPurchaseOrderEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectionList\FrmInvoiceSelection.resx">
       <DependentUpon>FrmInvoiceSelection.vb</DependentUpon>
@@ -369,8 +423,8 @@
     <EmbeddedResource Include="Stocks\AddStocks.resx">
       <DependentUpon>AddStocks.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\AddSupplier.resx">
-      <DependentUpon>AddSupplier.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\Supplier\FrmSupplierEntry.resx">
+      <DependentUpon>FrmSupplierEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
@@ -381,35 +435,35 @@
     <EmbeddedResource Include="FrmAccountDetails.resx">
       <DependentUpon>FrmAccountDetails.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmCategory.resx">
-      <DependentUpon>FrmCategory.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\Categories\FrmCategoryEntry.resx">
+      <DependentUpon>FrmCategoryEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmDeliveryPlaces.resx">
-      <DependentUpon>FrmDeliveryPlaces.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesEntry.resx">
+      <DependentUpon>FrmDeliveryPlacesEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmLocation.resx">
-      <DependentUpon>FrmLocation.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\Locations\FrmLocationEntry.resx">
+      <DependentUpon>FrmLocationEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\FrmStockout.resx">
       <DependentUpon>FrmStockout.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmSupplierView.resx">
-      <DependentUpon>FrmSupplierView.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\Supplier\FrmSupplierSearch.resx">
+      <DependentUpon>FrmSupplierSearch.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmTermsofDelivery.resx">
-      <DependentUpon>FrmTermsofDelivery.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\TermofDelivery\FrmTermsofDeliveryEntry.resx">
+      <DependentUpon>FrmTermsofDeliveryEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmItemSearch.resx">
+    <EmbeddedResource Include="MasterList\Items\FrmItemSearch.resx">
       <DependentUpon>FrmItemSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\frmInventory.resx">
       <DependentUpon>frmInventory.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmQtyUnit.resx">
-      <DependentUpon>FrmQtyUnit.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\QtyUnits\FrmQtyUnitEntry.resx">
+      <DependentUpon>FrmQtyUnitEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice\FrmSearchInvoice.resx">
       <DependentUpon>FrmSearchInvoice.vb</DependentUpon>
@@ -420,8 +474,8 @@
     <EmbeddedResource Include="Stocks\FrmStockTaking.resx">
       <DependentUpon>FrmStockTaking.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmTermsofPayment.resx">
-      <DependentUpon>FrmTermsofPayment.vb</DependentUpon>
+    <EmbeddedResource Include="MasterList\TermofPayment\FrmTermsofPaymentEntry.resx">
+      <DependentUpon>FrmTermsofPaymentEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageBox.resx">
       <DependentUpon>MessageBox.vb</DependentUpon>

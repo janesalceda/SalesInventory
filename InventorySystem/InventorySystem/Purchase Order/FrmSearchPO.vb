@@ -65,9 +65,9 @@
 
     Private Sub dtPoDetails_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtPoDetails.CellDoubleClick
         'HINDI PA TAPOS HINDI KO PA ALAM IPAPASA SA FORM "ADDPURCHASEORDER"
-        With AddPurchaseOrder
+        With FrmPurchaseOrderEntry
             .txtPONo.Text = dtPoDetails.SelectedRows(0).Cells(0).Value.ToString()
-            .Text = "Update Purchase Order"
+            .Text = "Purchase Order Details"
             .btnSave.Text = "UPDATE P.O."
             .Show()
         End With

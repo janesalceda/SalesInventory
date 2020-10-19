@@ -8,7 +8,7 @@
 
     End Sub
     Private Sub DeliveryPlacesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeliveryPlacesToolStripMenuItem.Click
-        FrmDeliveryPlaces.Show()
+        FrmDeliveryPlacesSearch.Show()
     End Sub
 
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
@@ -18,7 +18,7 @@
     End Sub
 
     Private Sub EntryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntryToolStripMenuItem.Click
-        With AddPurchaseOrder
+        With FrmPurchaseOrderEntry
             .Text = "Add Purchase Order"
             .btnSave.Visible = True
             .Show()
@@ -42,23 +42,23 @@
     End Sub
 
     Private Sub EntryToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EntryToolStripMenuItem1.Click
-        AddInvoice.Show()
+        FrmInvoiceEntry.Show()
     End Sub
 
     Private Sub miCategory_Click(sender As Object, e As EventArgs) Handles miCategory.Click
-        FrmCategory.Show()
+        FrmCategorySearch.Show()
     End Sub
 
     Private Sub SuppliersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SuppliersToolStripMenuItem.Click
-        FrmQtyUnit.Show()
+        FrmQtyUnitSearch.Show()
     End Sub
 
     Private Sub TermsofDelivery_Click(sender As Object, e As EventArgs) Handles TermsofDelivery.Click
-        FrmTermsofDelivery.Show()
+        FrmTermsOfDaliverySearch.Show()
     End Sub
 
     Private Sub TermsofPaymentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TermsofPaymentToolStripMenuItem.Click
-        FrmTermsofPayment.Show()
+        FrmTermofPaymentSearch.Show()
     End Sub
 
     Private Sub StockTakingToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockTakingToolStripMenuItem.Click
@@ -70,7 +70,7 @@
     End Sub
 
     Private Sub LocationsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LocationsToolStripMenuItem.Click
-        FrmLocation.Show()
+        FrmLocationSearch.Show()
     End Sub
 
     Private Sub ChangSupplierNameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangSupplierNameToolStripMenuItem.Click
@@ -96,6 +96,6 @@
     End Sub
 
     Private Sub UsersToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UsersToolStripMenuItem.Click
-        Suppliers.Show()
+        FrmSupplierSearch.Show()
     End Sub
 End Class

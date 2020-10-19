@@ -45,14 +45,13 @@
     End Sub
 
     Private Sub PurchaseOrderList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtitems.Rows.Clear()
     End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) 
         Me.Close()
     End Sub
-
-
-    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+    Private Sub save()
         If dtitems.Rows.Count = 0 Then Exit Sub
         If dtitems.SelectedRows.Count > 0 Then
             If formname = "SearchPo" Then
@@ -60,7 +59,7 @@
                 FrmSearchPO.txtItemsName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
 
             ElseIf formname = "AddPurchaseOrder" Then
-                With AddPurchaseOrder
+                With FrmPurchaseOrderEntry
                     .txtItemCode.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtItemName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
                     .txtCliUnit.Text = dtitems.SelectedRows(0).Cells(2).Value.ToString()
@@ -71,14 +70,14 @@
                     Me.Close()
                 End With
             ElseIf formname = "AddInvoice" Then
-                With AddInvoice
+                With FrmInvoiceEntry
                     .txtPo.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtPoSeq.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
                     '.btnAddItem.Visible = True
                     Me.Close()
                 End With
             ElseIf formname = "AddDelivery" Then
-                With AddInvoice
+                With FrmInvoiceEntry
                     .txtPoDel.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtposeqdel.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
                     .txtExp.Text = dtitems.SelectedRows(0).Cells(2).Value.ToString()
@@ -90,5 +89,15 @@
             End If
             Me.Close()
         End If
+
+    End Sub
+
+    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+        save()
+    End Sub
+
+
+    Private Sub dtitems_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtitems.CellDoubleClick
+        save()
     End Sub
 End Class

@@ -45,7 +45,7 @@ Partial Class SelectionItem
         Me.btnOk.BackColor = System.Drawing.Color.White
         Me.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnOk.Location = New System.Drawing.Point(292, 363)
-        Me.btnOk.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnOk.Margin = New System.Windows.Forms.Padding(4)
         Me.btnOk.Name = "btnOk"
         Me.btnOk.Size = New System.Drawing.Size(88, 29)
         Me.btnOk.TabIndex = 72
@@ -57,7 +57,7 @@ Partial Class SelectionItem
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Location = New System.Drawing.Point(281, 108)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(85, 29)
         Me.btnClear.TabIndex = 71
@@ -69,7 +69,7 @@ Partial Class SelectionItem
         Me.btnSearch.BackColor = System.Drawing.Color.White
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Location = New System.Drawing.Point(184, 108)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(88, 29)
         Me.btnSearch.TabIndex = 70
@@ -90,7 +90,7 @@ Partial Class SelectionItem
         '
         Me.txtSupplier.Enabled = False
         Me.txtSupplier.Location = New System.Drawing.Point(118, 79)
-        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4)
         Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
         Me.txtSupplier.Size = New System.Drawing.Size(247, 26)
@@ -100,7 +100,7 @@ Partial Class SelectionItem
         '
         Me.txtItemsName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtItemsName.Location = New System.Drawing.Point(14, 45)
-        Me.txtItemsName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtItemsName.Margin = New System.Windows.Forms.Padding(4)
         Me.txtItemsName.MaxLength = 255
         Me.txtItemsName.Name = "txtItemsName"
         Me.txtItemsName.Size = New System.Drawing.Size(350, 26)
@@ -120,7 +120,7 @@ Partial Class SelectionItem
         '
         Me.txtItems.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtItems.Location = New System.Drawing.Point(118, 12)
-        Me.txtItems.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtItems.Margin = New System.Windows.Forms.Padding(4)
         Me.txtItems.MaxLength = 20
         Me.txtItems.Name = "txtItems"
         Me.txtItems.Size = New System.Drawing.Size(247, 26)
@@ -133,7 +133,7 @@ Partial Class SelectionItem
         Me.dtitems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtitems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemCode, Me.ItemName, Me.Column1, Me.Column2, Me.Column3, Me.Column4})
         Me.dtitems.Location = New System.Drawing.Point(9, 145)
-        Me.dtitems.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.dtitems.Margin = New System.Windows.Forms.Padding(4)
         Me.dtitems.Name = "dtitems"
         Me.dtitems.ReadOnly = True
         Me.dtitems.RowHeadersVisible = False
@@ -196,7 +196,7 @@ Partial Class SelectionItem
         Me.Controls.Add(Me.txtItems)
         Me.Controls.Add(Me.dtitems)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(403, 437)
         Me.MinimizeBox = False

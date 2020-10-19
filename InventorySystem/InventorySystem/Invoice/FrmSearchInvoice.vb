@@ -96,8 +96,9 @@ id.InvoiceNo=i.InvoiceNo	" & where)
 
 
     Private Sub dtPoDetails_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtPoDetails.CellDoubleClick
-        With AddInvoice
+        With FrmInvoiceEntry
             .txtInvoiceNo.Text = dtPoDetails.SelectedRows(0).Cells(0).Value.ToString
+            .Text = "Invoice Details"
             .btnSave.Text = "UPDATE"
             .Show()
         End With

@@ -1,6 +1,7 @@
 ﻿Public Class SupplierList
     Private Sub SupplierList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' MdiParent = AppForm
+        dtSupplier.Rows.Clear()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -22,14 +23,13 @@
         dtSupplier.DataSource = Nothing
         dtSupplier.DataSource = SQL.DBDT
     End Sub
-
-    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+    Private Sub save()
         If dtSupplier.Rows.Count = 0 Then Exit Sub
         With dtSupplier
             If formname = "AddPurchaseOrder" Then
-                AddPurchaseOrder.txtSupplier.Text = .SelectedRows(0).Cells(0).Value.ToString
+                FrmPurchaseOrderEntry.txtSupplier.Text = .SelectedRows(0).Cells(0).Value.ToString
             ElseIf formname = "AddInvoice" Then
-                AddInvoice.txtSupplier.Text = .SelectedRows(0).Cells(0).Value.ToString
+                FrmInvoiceEntry.txtSupplier.Text = .SelectedRows(0).Cells(0).Value.ToString
             ElseIf formname = "SearchInvoice" Then
                 FrmSearchInvoice.txtSupplier.Text = .SelectedRows(0).Cells(0).Value.ToString
             ElseIf formname = "FrmSearchPO" Then
@@ -39,5 +39,12 @@
             End If
         End With
         Me.Close()
+    End Sub
+    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+        save()
+    End Sub
+
+    Private Sub dtSupplier_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtSupplier.CellDoubleClick
+        save()
     End Sub
 End Class

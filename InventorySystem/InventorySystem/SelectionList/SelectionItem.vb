@@ -23,11 +23,12 @@
             query += AddingWhere(query)
             query += " ip.SupplierID=@SupplierID"
         End If
-        SQL.ExecQuery("SELECT i.itemid,description FROM Items i 
-            inner join supplieritemprices ip
-            on i.ItemId=ip.ItemId " & query)
+        Dim exequery As String
+        exequery = "SELECT distinct i.itemid,description FROM Items i Left Join supplieritemprices ip  On i.ItemId=ip.ItemId"
+        exequery += query
+        SQL.ExecQuery(exequery)
         If SQL.HasException Then Exit Sub
-        'SQL.ExecQuery("SELECT DISTINCT i.itemid,i.Description,
+        'SQL.ExecQuery("Select DISTINCT i.itemid, i.Description,
         '        ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit) 'Client',
         '        ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit) 'Supplier',ConvertingCoefficient,
         '        UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q where " & query)
@@ -55,15 +56,14 @@
         End If
         Return ""
     End Function
-
-    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+    Private Sub save()
         If dtitems.SelectedRows.Count > 0 Then
             If formname = "SearchPo" Then
                 FrmSearchPO.txtItems.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                 FrmSearchPO.txtItemsName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
 
             ElseIf formname = "AddPurchaseOrder" Then
-                With AddPurchaseOrder
+                With FrmPurchaseOrderEntry
                     .txtItemCode.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     '.txtItemName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
                     '.txtCliUnit.Text = dtitems.SelectedRows(0).Cells(2).Value.ToString()
@@ -74,7 +74,7 @@
                     Me.Close()
                 End With
             ElseIf formname = "AddInvoice" Then
-                With AddInvoice
+                With FrmInvoiceEntry
                     ' .dtPoDetails.SelectedRows(0).Cells(1).Value = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtItemCode.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     '.txtItemName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
@@ -86,7 +86,7 @@
                     Me.Close()
                 End With
             ElseIf formname = "AddDelivery" Then
-                With AddInvoice
+                With FrmInvoiceEntry
                     ' .dtPoDetails.SelectedRows(0).Cells(1).Value = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtItemDel.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     '.txtItemName.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
@@ -139,6 +139,9 @@
         End If
 
     End Sub
+    Private Sub btnOk_Click(sender As Object, e As EventArgs) Handles btnOk.Click
+        save()
+    End Sub
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs)
         Me.Close()
@@ -149,6 +152,11 @@
         txtItemsName.Clear()
     End Sub
 
+    Private Sub dtitems_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtitems.CellDoubleClick
+        save()
+    End Sub
+
     Private Sub SelectionItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dtitems.Rows.Clear()
     End Sub
 End Class

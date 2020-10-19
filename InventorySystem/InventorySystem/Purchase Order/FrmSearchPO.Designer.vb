@@ -291,35 +291,35 @@ Partial Class FrmSearchPO
         Me.PONO.HeaderText = "PONO"
         Me.PONO.Name = "PONO"
         Me.PONO.ReadOnly = True
-        Me.PONO.Width = 79
+        Me.PONO.Width = 77
         '
         'SupplierId
         '
         Me.SupplierId.HeaderText = "SupplierId"
         Me.SupplierId.Name = "SupplierId"
         Me.SupplierId.ReadOnly = True
-        Me.SupplierId.Width = 103
+        Me.SupplierId.Width = 101
         '
         'SupplierName
         '
         Me.SupplierName.HeaderText = "SupplierName"
         Me.SupplierName.Name = "SupplierName"
         Me.SupplierName.ReadOnly = True
-        Me.SupplierName.Width = 133
+        Me.SupplierName.Width = 131
         '
         'IssuedDate
         '
         Me.IssuedDate.HeaderText = "Issued Date"
         Me.IssuedDate.Name = "IssuedDate"
         Me.IssuedDate.ReadOnly = True
-        Me.IssuedDate.Width = 116
+        Me.IssuedDate.Width = 114
         '
         'Cancelled
         '
         Me.Cancelled.HeaderText = "Cancelled"
         Me.Cancelled.Name = "Cancelled"
         Me.Cancelled.ReadOnly = True
-        Me.Cancelled.Width = 84
+        Me.Cancelled.Width = 82
         '
         'Label3
         '

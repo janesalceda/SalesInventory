@@ -36,19 +36,20 @@
             AND ItemID=@itemid
             ORDER BY TransactedDate asc, TransactionTypeID DESC")
         If SQL.HasException Then Exit Sub
+
         row = SQL.DBDT
+
         SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
         SQL.AddParams("@itemid", txtitem.Text)
         SQL.ExecQuery("SELECT Qty FROM GetStockBalance(DATEADD(DAY,-1,@from)) WHERE ItemID=@itemid")
         If SQL.HasException Then Exit Sub
-        lastbalance = SQL.DBDT.Rows(0).ItemArray(0)
+        MsgBox(SQL.DBDT.Rows(0).Item(0))
+        lastbalance = SQL.DBDT.Rows(0).Item(0)
         currentbalance = lastbalance
 
         With row
             For i As Integer = 0 To row.Rows.Count - 1
                 SQL.params.Clear()
-                SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
-                SQL.AddParams("@itemid", txtitem.Text)
                 dgvData.Rows.Add()
 
                 Select Case .Rows(i).Item(4)

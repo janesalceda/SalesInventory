@@ -60,7 +60,7 @@
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
         If String.IsNullOrWhiteSpace(txtQty.Text) Or
                 String.IsNullOrWhiteSpace(txtItemCode.Text) Then
-            MsgBox("Please complete all * import details!", MsgBoxStyle.Critical)
+            MsgBox("Please complete all * import details!", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
         Dim row As ArrayList = New ArrayList
@@ -99,10 +99,10 @@
         If dtableStockout.Rows.Count = 0 Or
             String.IsNullOrWhiteSpace(txtIssuedBy.Text) Or
             dtSOutDate.Checked = False Then
-            MsgBox("Please complete all * import details!", MsgBoxStyle.Critical)
+            MsgBox("Please complete all * import details!", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
-        If MsgBox("Are you sure you want to save?", vbYesNo) = vbYes Then
+        If MsgBox("Are you sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then
             If btnSave.Text = "UPDATE" Then
                 If chkApprove.Checked = True Then
                     SQL.AddParams("@approve", moduleId)
@@ -115,7 +115,7 @@
 	            SET ApprovedBy=(select CASE WHEN @approve='' THEN NULL ELSE @approve end),
                 Remarks=@remarks where StockOutCode=@stockoutcode")
                 If SQL.HasException Then
-                    MsgBox("Error in Updating", MsgBoxStyle.Critical)
+                    MsgBox("Error in Updating", MsgBoxStyle.Critical, "Error")
                     Exit Sub
                 End If
             Else
@@ -149,7 +149,7 @@
                     End If
                 Next
             End If
-            MsgBox("Successfully Saved", MsgBoxStyle.Information)
+            MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
             FrmStockoutSearch.btnSearch.PerformClick()
             Me.Close()
         End If

@@ -9,7 +9,7 @@ Public Class FrmSearchInvoice
             ON i.SupplierId=s.SupplierId INNER join  InvoiceDetails  id  ON
 id.InvoiceNo=i.InvoiceNo	" & where)
         If SQL.RecordCount = 0 Then
-            MsgBox("No Record Found", MsgBoxStyle.Information)
+            MsgBox("No Record Found", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
 
@@ -32,7 +32,7 @@ id.InvoiceNo=i.InvoiceNo	" & where)
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "SearchInvoice"
-        SupplierList.ShowDialog()
+        SupplierList.Show()
     End Sub
 
     Private Sub txtItemCode_TextChanged(sender As Object, e As EventArgs) Handles txtItemCode.TextChanged
@@ -52,7 +52,7 @@ id.InvoiceNo=i.InvoiceNo	" & where)
         'End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
         formname = "SearchInvoice"
-        SelectionItem.ShowDialog()
+        SelectionItem.Show()
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
@@ -70,14 +70,16 @@ id.InvoiceNo=i.InvoiceNo	" & where)
         txtItemCode.Clear()
         txtPO.Clear()
         txtinvoice.Clear()
-
+        dtInvoiceFrom.Checked = False
+        dtInvoiceTo.Checked = False
+        dtPoDetails.Rows.Clear()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim where As String = ""
         If Not String.IsNullOrEmpty(txtPO.Text) Then
             where += AddingWhere(where)
-            where += "i.PoNo='" & txtPO.Text & "'"
+            where += "id.PoNo='" & txtPO.Text & "'"
         End If
         If Not String.IsNullOrEmpty(txtSupplier.Text) Then
             where += AddingWhere(where)
@@ -87,6 +89,7 @@ id.InvoiceNo=i.InvoiceNo	" & where)
             where += AddingWhere(where)
             where += "id.ItemId='" & txtItemCode.Text & "'"
         End If
+
         If dtInvoiceFrom.Checked = True And dtInvoiceTo.Checked = True Then
             where += AddingWhere(where)
             where += "i.InvoiceDate BETWEEN'" & dtInvoiceFrom.Value.ToShortDateString() & "' AND '" & dtInvoiceTo.Value.ToShortDateString() & "'"

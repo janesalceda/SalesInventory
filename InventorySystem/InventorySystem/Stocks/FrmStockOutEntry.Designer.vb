@@ -325,6 +325,7 @@ Partial Class FrmStockOutEntry
         '
         'Label5
         '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
@@ -335,7 +336,7 @@ Partial Class FrmStockOutEntry
         Me.Label5.TabIndex = 125
         Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
-        'AddStockOut
+        'FrmStockOutEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -356,9 +357,9 @@ Partial Class FrmStockOutEntry
         Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "AddStockOut"
+        Me.Name = "FrmStockOutEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "StockOut"
+        Me.Text = "StockOut Entry"
         Me.TopMost = True
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)

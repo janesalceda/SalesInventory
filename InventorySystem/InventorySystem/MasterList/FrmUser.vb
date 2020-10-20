@@ -67,23 +67,4 @@
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         FindItem()
     End Sub
-
-    Private Sub dtUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtUsers.CellContentClick
-        Dim i As Integer
-        i = dtUsers.CurrentRow.Index
-        If e.ColumnIndex = 6 Then
-            MsgBox("hi")
-
-        End If
-
-    End Sub
-
-    Private Sub dtUsers_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtUsers.CellClick
-        Dim i As Integer
-        i = dtUsers.CurrentRow.Index
-        If e.ColumnIndex = 6 Then
-            MsgBox("hi")
-
-        End If
-    End Sub
 End Class

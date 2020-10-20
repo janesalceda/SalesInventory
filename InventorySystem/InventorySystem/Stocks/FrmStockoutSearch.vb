@@ -48,4 +48,12 @@
         FrmStockOutEntry.txtStockOutID.Text = dtableStockOut.SelectedRows(0).Cells(0).Value
         FrmStockOutEntry.Show()
     End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtSTID.Clear()
+        dtCountedFrom.Checked = False
+        dtCountedTo.Checked = False
+        chkApproved.Checked = False
+        dtableStockOut.Rows.Clear()
+    End Sub
 End Class

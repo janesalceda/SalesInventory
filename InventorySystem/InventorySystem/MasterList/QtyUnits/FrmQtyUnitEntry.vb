@@ -1,7 +1,4 @@
 ﻿Public Class FrmQtyUnitEntry
-    Private Sub FrmQtyUnit_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
-    End Sub
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@QtyUnit", txtQtyunit.Text)
         SQL.AddParams("@Description", txtDes.Text)

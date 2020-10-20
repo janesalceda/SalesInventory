@@ -69,7 +69,7 @@
         DTFtry.Checked = False
         chkCancel.Checked = False
         chkReceived.Checked = False
-        btnAddItem.Enabled = False
+        btnAddItem.Enabled = True
     End Sub
     Private Sub HeaderClear()
         'txtPONo.Clear()
@@ -126,10 +126,10 @@
         If String.IsNullOrEmpty(txtSupplier.Text) Or
             cmbDeliveryPlace.SelectedIndex = -1 Or
             dtablePoDetails.Rows.Count = 0 Then
-            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "Warning")
+            MsgBox("Please complete all * important fields!", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
-        If MsgBox("Are you sure you want to save?", vbYesNo) = vbYes Then
+        If MsgBox("Are you sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then
             SQL.AddParams("@supplierid", txtSupplier.Text)
             SQL.AddParams("@currencyunitid", txtCurrency.Text)
             SQL.AddParams("@issueddate", dtIssued.Value)
@@ -192,7 +192,7 @@
 	                    UpdatedBy = @updatedby
                     WHERE PoNo=@pono and PoDetailSeq = @podetailseq")
                         If SQL.HasException Then
-                            MsgBox("Error in Editing!", MsgBoxStyle.Critical, "ERROR")
+                            MsgBox("Error in Editing!", MsgBoxStyle.Critical, "Error")
                             Exit Sub
                         End If
                     Else
@@ -352,27 +352,27 @@
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "AddPurchaseOrder"
-        SupplierList.ShowDialog()
+        SupplierList.Show()
     End Sub
     Private Sub dtPoDetails_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs)
         dtablePoDetails.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
     End Sub
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
         If txtSupplier.Text = "" Then
-            MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation)
+            MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
         SelectionItem.IssuedDate = dtIssued.Value
         formname = "AddPurchaseOrder"
-        SelectionItem.ShowDialog()
+        SelectionItem.Show()
     End Sub
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
         If String.IsNullOrEmpty(txtItemCode.Text) Or
                 String.IsNullOrEmpty(txtCliQty.Text) Or
                 String.IsNullOrEmpty(txtSupQty.Text) Then
-            MsgBox("PLEASE COMPLETE ALL * IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            MsgBox("Please complete all * important fields!", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
         Dim row As ArrayList = New ArrayList
@@ -471,6 +471,7 @@
         chkCancel.Checked = dtablePoDetails.SelectedRows(0).Cells(12).Value.ToString()
         chkReceived.Checked = dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()
         btnAddItem.Text = "UPDATE ITEM"
+        btnClear.Enabled = True
     End Sub
 
     Private Sub txtCliQty_LostFocus(sender As Object, e As EventArgs) Handles txtCliQty.LostFocus
@@ -512,5 +513,10 @@
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         PurchDetailsClear()
+        btnAddItem.Enabled = True
+    End Sub
+
+    Private Sub dtablePoDetails_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellContentClick
+
     End Sub
 End Class

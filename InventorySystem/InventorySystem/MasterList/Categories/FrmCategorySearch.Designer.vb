@@ -34,7 +34,6 @@ Partial Class FrmCategorySearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,9 +91,9 @@ Partial Class FrmCategorySearch
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(20, 16)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(130, 18)
+        Me.Label7.Size = New System.Drawing.Size(76, 18)
         Me.Label7.TabIndex = 69
-        Me.Label7.Text = "Search Category:"
+        Me.Label7.Text = "Category:"
         '
         'dtItems
         '
@@ -106,13 +105,13 @@ Partial Class FrmCategorySearch
         Me.dtItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate, Me.Delete})
-        Me.dtItems.Location = New System.Drawing.Point(16, 102)
+        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
+        Me.dtItems.Location = New System.Drawing.Point(16, 88)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(734, 394)
+        Me.dtItems.Size = New System.Drawing.Size(734, 408)
         Me.dtItems.TabIndex = 68
         '
         'ItemId
@@ -152,14 +151,6 @@ Partial Class FrmCategorySearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
-        'Delete
-        '
-        Me.Delete.HeaderText = "Delete"
-        Me.Delete.Name = "Delete"
-        Me.Delete.ReadOnly = True
-        Me.Delete.Text = ""
-        Me.Delete.Width = 58
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -171,10 +162,11 @@ Partial Class FrmCategorySearch
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(16, 82)
+        Me.Label2.Location = New System.Drawing.Point(14, 498)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(261, 19)
         Me.Label2.TabIndex = 78
@@ -184,6 +176,7 @@ Partial Class FrmCategorySearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(761, 550)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -197,7 +190,7 @@ Partial Class FrmCategorySearch
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmCategorySearch"
-        Me.Text = "FrmCategorySearch"
+        Me.Text = "Search Category"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -212,11 +205,10 @@ Partial Class FrmCategorySearch
     Friend WithEvents Label7 As Label
     Friend WithEvents dtItems As DataGridView
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
-    Friend WithEvents Delete As DataGridViewButtonColumn
-    Friend WithEvents Label2 As Label
 End Class

@@ -25,7 +25,6 @@ Partial Class FrmCategoryEntry
         Me.txtCategoryname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnInsert = New System.Windows.Forms.Button()
-        Me.btnclear = New System.Windows.Forms.Button()
         Me.chkDisuse = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
@@ -51,23 +50,12 @@ Partial Class FrmCategoryEntry
         '
         Me.btnInsert.Enabled = False
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(292, 55)
+        Me.btnInsert.Location = New System.Drawing.Point(414, 54)
         Me.btnInsert.Name = "btnInsert"
         Me.btnInsert.Size = New System.Drawing.Size(116, 30)
         Me.btnInsert.TabIndex = 2
         Me.btnInsert.Text = "INSERT"
         Me.btnInsert.UseVisualStyleBackColor = True
-        '
-        'btnclear
-        '
-        Me.btnclear.Enabled = False
-        Me.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnclear.Location = New System.Drawing.Point(414, 55)
-        Me.btnclear.Name = "btnclear"
-        Me.btnclear.Size = New System.Drawing.Size(116, 30)
-        Me.btnclear.TabIndex = 4
-        Me.btnclear.Text = "CLEAR"
-        Me.btnclear.UseVisualStyleBackColor = True
         '
         'chkDisuse
         '
@@ -79,20 +67,19 @@ Partial Class FrmCategoryEntry
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
-        'FrmCategory
+        'FrmCategoryEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(546, 101)
         Me.Controls.Add(Me.chkDisuse)
-        Me.Controls.Add(Me.btnclear)
         Me.Controls.Add(Me.btnInsert)
         Me.Controls.Add(Me.txtCategoryname)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "FrmCategory"
+        Me.Name = "FrmCategoryEntry"
         Me.Text = "Categories"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -101,6 +88,5 @@ Partial Class FrmCategoryEntry
     Friend WithEvents txtCategoryname As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents btnInsert As Button
-    Friend WithEvents btnclear As Button
     Friend WithEvents chkDisuse As CheckBox
 End Class

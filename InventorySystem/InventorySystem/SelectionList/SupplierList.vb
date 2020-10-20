@@ -6,6 +6,8 @@
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim where As String = ""
+        where += AddingWhere(where)
+        where += "s.DeletedDate is null"
         If Not String.IsNullOrEmpty(txtSupplier.Text) Then
             where += AddingWhere(where)
             where += "s.SupplierId='" & txtSupplier.Text & "'"
@@ -17,7 +19,7 @@
         SQL.ExecQuery("SELECT SupplierId,SupplierName FROM Suppliers s" & where)
         If SQL.HasException Then Exit Sub
         If SQL.DBDT.Rows.Count = 0 Then
-            MsgBox("No Record Found!", MsgBoxStyle.Information)
+            MsgBox("No Record Found!", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
         dtSupplier.DataSource = Nothing

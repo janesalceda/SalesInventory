@@ -1,6 +1,6 @@
-﻿Public Class FrmTermsOfDaliverySearch
+﻿Public Class FrmCurrencyUnitSearch
     Public Sub LoadDataGrid(Optional Query As String = "")
-        SQL.ExecQuery("SELECT TermOfDeliveryId,TermOfDelivery,Description,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM TermsOfDelivery " & Query)
+        SQL.ExecQuery("SELECT CurrencyUnitId,CurrencyUnit,AmountRoundType,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM CurrencyUnits  " & Query)
         If SQL.HasException(True) Then Exit Sub
         dtItems.Rows.Clear()
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
@@ -9,13 +9,9 @@
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim where As String = ""
-        If Not String.IsNullOrWhiteSpace(txtCatID.Text) Then
+        If Not String.IsNullOrWhiteSpace(txtItemID.Text) Then
             where += AddingWhere(where)
-            where += "TermOfDeliveryId = '" & txtCatID.Text & "'"
-        End If
-        If Not String.IsNullOrWhiteSpace(txtDes.Text) Then
-            where += AddingWhere(where)
-            where += "TermOfDelivery LIKE '%" & txtDelPlace.Text & "%'"
+            where += "CurrencyUnitId = '" & txtItemID.Text & "'"
         End If
         If Not String.IsNullOrWhiteSpace(txtDes.Text) Then
             where += AddingWhere(where)
@@ -33,8 +29,11 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        FrmTermsofDeliveryEntry.Text = "Terms of Delivery  Entry"
-        FrmTermsofDeliveryEntry.Show()
+        FrmCurrencyEntry.Text = "Currency Entry"
+        FrmCurrencyEntry.Show()
+    End Sub
+    Private Sub FrmDeliveryPlacesSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent = AppForm
     End Sub
     Private Sub dtItems_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellClick
         If e.ColumnIndex = 4 Then
@@ -45,26 +44,26 @@
             Else
                 dtItems.SelectedRows(0).Cells(4).Value = 0
             End If
-            'dtItems.SelectedRows(0).Cells(4).Value = False
+            'dtItems.SelectedRows(0).Cells(3).Value = False
             SQL.AddParams("@disuse", dtItems.SelectedRows(0).Cells(4).Value)
-            SQL.AddParams("@TermOfDeliveryID", dtItems.SelectedRows(0).Cells(0).Value)
-            SQL.ExecQuery("UPDATE TermsOfDelivery set 
-                DeletedDate=(select case when @disuse=0 then null else getdate() end) where TermOfDeliveryID=@TermOfDeliveryID")
+            SQL.AddParams("@CurrencyUnitId", dtItems.SelectedRows(0).Cells(0).Value)
+            SQL.ExecQuery("UPDATE CurrencyUnits set 
+                DeletedDate=(select case when @disuse=0 then null else getdate() end) where CurrencyUnitId=@CurrencyUnitId")
             If SQL.HasException Then
                 Exit Sub
             End If
         Else
-            With FrmTermsofDeliveryEntry
-                .Text = "Terms of Delivery Details"
-                .btnSave.Text = "UPDATE"
-                .txtTD.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
-                .txtDes.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
+            With FrmCurrencyEntry
+                .Text = "Currency Details"
+                .btnInsert.Text = "UPDATE"
+                .txtQtyunit.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
+                .txtDes.Text = dtItems.SelectedRows(0).Cells(2).Value.ToString
                 .Show()
             End With
-
         End If
     End Sub
-    Private Sub FrmTermsOfDaliverySearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
+
+    Private Sub FrmCurrencyUnitSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

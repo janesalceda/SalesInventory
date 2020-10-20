@@ -15,7 +15,7 @@ Public Class FrmAccountDetails
         If SQL.HasException(True) Then Exit Sub
 
         If SQL.RecordCount = 0 Then
-            MsgBox("Successfully Updated")
+            MsgBox("Successfully Updated", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
         txtName.Text = SQL.DBDT.Rows(0).Item(0)
@@ -40,13 +40,13 @@ Public Class FrmAccountDetails
     End Sub
 
     Private Sub FrmAccountDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
+        'MdiParent = AppForm
         LoadDataGrid()
-        'If radM.Checked = True Then
-        '    picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\maleuser.png")
-        'Else
-        '    picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\femaleuser.png")
-        'End If
+        If radM.Checked = True Then
+            picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\maleuser.png")
+        Else
+            picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\femaleuser.png")
+        End If
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click

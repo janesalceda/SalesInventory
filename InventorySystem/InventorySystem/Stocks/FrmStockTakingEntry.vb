@@ -82,7 +82,7 @@
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
         If String.IsNullOrEmpty(txtItemCode.Text) Or
             String.IsNullOrEmpty(txtQty.Text) Then
-            MsgBox("Please complete all important details!", MsgBoxStyle.Critical)
+            MsgBox("Please complete all * important details!", MsgBoxStyle.Exclamation, "Warning")
         End If
         Dim row As ArrayList = New ArrayList
         DTCount += 1
@@ -104,10 +104,10 @@
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If dtableStockTaking.Rows.Count = 0 Or
             String.IsNullOrWhiteSpace(dtCountedDate.Checked) Then
-            MsgBox("Please complete all * important detils", MsgBoxStyle.Critical)
+            MsgBox("Please complete all * important detils", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
-        If MsgBox("Are you sure you want to save?", vbYesNo) = vbYes Then
+        If MsgBox("Are you sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then
             If btnSave.Text = "UPDATE" Then
                 If chkApprove.Checked = True Then
                     SQL.AddParams("@approve", moduleId)
@@ -120,7 +120,7 @@
 	            SET ApprovedBy=(select CASE WHEN @approve='' THEN NULL ELSE @approve end),
                 Remarks=@remarks where stid=@stid")
                 If SQL.HasException Then
-                    MsgBox("Error in Updating", MsgBoxStyle.Critical)
+                    MsgBox("Error in Updating", MsgBoxStyle.Critical, "Error")
                     Exit Sub
                 End If
             Else
@@ -136,7 +136,7 @@
                     ELSE 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
                     END END AS 'pomax' from StockTakingHeaders),@counteddate,@encodedstaff,@remarks,NULL,@encodedstaff)")
                 If SQL.HasException Then
-                    MsgBox("Error in saving", MsgBoxStyle.Critical)
+                    MsgBox("Error in saving", MsgBoxStyle.Critical, "Error")
                     Exit Sub
                 End If
 
@@ -161,7 +161,7 @@
                 Next
 
             End If
-            MsgBox("Successfully Saved", MsgBoxStyle.Information)
+            MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
             Me.Close()
         End If
     End Sub

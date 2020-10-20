@@ -35,7 +35,6 @@ Partial Class FrmDeliveryPlacesSearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDelPlace = New System.Windows.Forms.TextBox()
@@ -109,7 +108,7 @@ Partial Class FrmDeliveryPlacesSearch
         Me.dtItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate, Me.Delete})
+        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
         Me.dtItems.Location = New System.Drawing.Point(8, 96)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
@@ -162,20 +161,13 @@ Partial Class FrmDeliveryPlacesSearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
-        'Delete
-        '
-        Me.Delete.HeaderText = "Delete"
-        Me.Delete.Name = "Delete"
-        Me.Delete.ReadOnly = True
-        Me.Delete.Text = ""
-        Me.Delete.Width = 58
-        '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(8, 76)
+        Me.Label2.Location = New System.Drawing.Point(8, 510)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(261, 19)
         Me.Label2.TabIndex = 87
@@ -227,7 +219,7 @@ Partial Class FrmDeliveryPlacesSearch
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmDeliveryPlacesSearch"
-        Me.Text = "FrmDeliveryPlacesSearch"
+        Me.Text = "Search DeliveryPlaces"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -243,13 +235,12 @@ Partial Class FrmDeliveryPlacesSearch
     Friend WithEvents dtItems As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents txtDelPlace As TextBox
+    Friend WithEvents Label3 As Label
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents DeliveryPlace As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
-    Friend WithEvents Delete As DataGridViewButtonColumn
-    Friend WithEvents txtDelPlace As TextBox
-    Friend WithEvents Label3 As Label
 End Class

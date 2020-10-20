@@ -7,7 +7,7 @@
             INNER JOIN Suppliers s ON p.SupplierID=s.SupplierId INNER JOIN PoDetails pd
             ON pd.PoNo=p.PONo " & where)
         If SQL.RecordCount = 0 Then
-            MsgBox("No Record Found", MsgBoxStyle.Information)
+            MsgBox("No Record Found", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
 
@@ -31,7 +31,7 @@
 
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
         formname = "SearchPo"
-        SelectionItem.ShowDialog()
+        SelectionItem.Show()
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
@@ -75,7 +75,7 @@
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "FrmSearchPO"
-        SupplierList.ShowDialog()
+        SupplierList.Show()
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
@@ -102,4 +102,18 @@
         txtItemsName.Text = row.Item(0)
     End Sub
 
+    Private Sub dtPoDetails_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtPoDetails.CellContentClick
+
+    End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        dtPoDetails.Rows.Clear()
+        txtItems.Clear()
+        txtItemsName.Clear()
+        txtPONo.Clear()
+        txtSupplier.Clear()
+        txtSupplierName.Clear()
+        dtIssuedFrom.Checked = False
+        dtIssuedTo.Checked = False
+    End Sub
 End Class

@@ -43,7 +43,7 @@
             'Username=@username,Password=@pass,
         End If
         If SQL.HasException(True) Then Exit Sub
-        MsgBox("Done")
+        MsgBox("Successfully saved", MsgBoxStyle.Information, "Information")
         FrmUser.LoadDataGrid()
         Me.Close()
     End Sub

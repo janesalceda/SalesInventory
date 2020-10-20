@@ -7,6 +7,7 @@
     Public coefficient As Decimal
     Public SupplierId As String
     Public SQL As New SQLControl
+    Public frm2 As FrmSearchPO
     Public Function AddingWhere(where As String) As String
         If where <> "" Then
             Return " AND "
@@ -65,43 +66,48 @@
         Return Globalrow
     End Function
     Public Function getDelivery()
-        SQL.ExecQuery("select * from TermsOfDelivery")
+        SQL.ExecQuery("select * from TermsOfDelivery where deletedDate is null")
         'cmbTDelivery.Items.Add(SQL.DBDT.Rows(index).Item(0))
         Return SQL.DBDT
     End Function
     Public Function GetQtyUnit()
-        SQL.ExecQuery("select * from QtyUnits")
+        SQL.ExecQuery("select * from QtyUnits where deletedDate is null")
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
     Public Function getPayment()
-        SQL.ExecQuery("select * from TermsOfPayment")
+        SQL.ExecQuery("select * from TermsOfPayment where deletedDate is null")
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
     Public Function getDeliveryPlaces()
-        SQL.ExecQuery("select * from DeliveryPlaces")
+        SQL.ExecQuery("select * from DeliveryPlaces where deletedDate is null")
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
     Public Function getLocation()
-        SQL.ExecQuery("select * from Locations")
+        SQL.ExecQuery("select * from Locations where deletedDate is null")
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
     Public Function getCategories()
-        SQL.ExecQuery("select * from Categories")
+        SQL.ExecQuery("select * from Categories where deletedDate is null")
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
     Public Function GetCurrency()
-        SQL.ExecQuery("select * from CurrencyUnits")
+        SQL.ExecQuery("select * from CurrencyUnits where deletedDate is null")
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
 
     Public Function GetItemcode()
         SQL.ExecQuery("SELECT dbo.GenerateItemCode()")
+        If SQL.HasException Then Return False
+        Return SQL.DBDT.Rows(0).Item(0)
+    End Function
+    Public Function GetUserLevel()
+        SQL.ExecQuery("SELECT * from UserLevel where deletedDate is null ")
         If SQL.HasException Then Return False
         Return SQL.DBDT.Rows(0).Item(0)
     End Function

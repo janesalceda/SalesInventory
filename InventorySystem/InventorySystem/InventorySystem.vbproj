@@ -132,6 +132,18 @@
     <Compile Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MasterList\FrmCurrencyEntry.Designer.vb">
+      <DependentUpon>FrmCurrencyEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\FrmCurrencyEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\FrmCurrencyUnitSearch.Designer.vb">
+      <DependentUpon>FrmCurrencyUnitSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\FrmCurrencyUnitSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MasterList\Items\FrmPrintingItemBarcode.Designer.vb">
       <DependentUpon>FrmPrintingItemBarcode.vb</DependentUpon>
     </Compile>
@@ -383,6 +395,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.resx">
       <DependentUpon>FrmDeliveryPlacesSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\FrmCurrencyEntry.resx">
+      <DependentUpon>FrmCurrencyEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\FrmCurrencyUnitSearch.resx">
+      <DependentUpon>FrmCurrencyUnitSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\Items\FrmPrintingItemBarcode.resx">
       <DependentUpon>FrmPrintingItemBarcode.vb</DependentUpon>

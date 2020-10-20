@@ -3,6 +3,8 @@
     'Public formname As String
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim query As String = ""
+        query += AddingWhere(query)
+        query += " i.deletedDate is null"
         If formname = "AddPurchaseOrder" Then
             SQL.AddParams("@issuedDate", IssuedDate)
             query += AddingWhere(query)
@@ -33,7 +35,7 @@
         '        ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit) 'Supplier',ConvertingCoefficient,
         '        UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q where " & query)
         If SQL.RecordCount = 0 Then
-            MsgBox("No Record Found")
+            MsgBox("No Record Found", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
         dtitems.Rows.Clear()

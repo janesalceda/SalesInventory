@@ -3,7 +3,7 @@
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If String.IsNullOrEmpty(txtSupplierID.Text) Or
             String.IsNullOrEmpty(txtUnitPrice.Text) Then
-            MsgBox("Please Complete Important Fields!", MsgBoxStyle.Critical)
+            MsgBox("Please complete all * important fields!", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
         If btnSave.Text = "INSERT PRICE" Then
@@ -22,7 +22,7 @@
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "AddItem"
-        SupplierList.ShowDialog()
+        SupplierList.Show()
     End Sub
 
     Private Sub txtSupplierID_TextChanged(sender As Object, e As EventArgs) Handles txtSupplierID.TextChanged
@@ -35,7 +35,4 @@
         txtSupDes.Text = row.Item(0)
     End Sub
 
-    Private Sub txtUnitPrice_TextChanged(sender As Object, e As EventArgs) Handles txtUnitPrice.TextChanged
-
-    End Sub
 End Class

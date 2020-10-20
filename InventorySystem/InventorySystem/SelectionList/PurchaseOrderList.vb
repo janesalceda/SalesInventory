@@ -23,10 +23,10 @@
             WHERE      po.SupplierId =@SupplierId AND        pod.ItemId = @ItemId
             And pod.ReceivedAllInvoices = 0 
             And pod.Canceled = 0  Group by po.SupplierID,  
-            pod.PoNo, pod.ItemID, pod.PoDetailSeq, A.InvoiceQty, pod.Qty"
+            pod.PoNo, pod.ItemID, pod.PoDetailSeq, A.InvoiceQty, pod.Qty "
 )
         If SQL.RecordCount = 0 Then
-            MsgBox("No Record Found")
+            MsgBox("No Record Found", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
         dtitems.Rows.Clear()

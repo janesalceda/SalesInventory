@@ -21,12 +21,8 @@
             'Username=@username,Password=@pass,
         End If
         If SQL.HasException(True) Then Exit Sub
-        MsgBox("Successfuly Saved", MsgBoxStyle.Information)
+        MsgBox("Successfuly Saved", MsgBoxStyle.Information, "Information")
     End Sub
-    Private Sub FrmDeliveryPlaces_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
-    End Sub
-
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         ExecuteQueries(btnSave.Text)

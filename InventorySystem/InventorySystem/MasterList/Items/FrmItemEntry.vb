@@ -49,7 +49,7 @@ Public Class FrmItemEntry
                 String.IsNullOrWhiteSpace(txtMinQty.Text) Or
                 String.IsNullOrWhiteSpace(txtOrderPoint.Text) Or
                 dtItemPrices.Rows.Count = 0 Then
-            MsgBox("PLEASE COMPLETE ALL IMPORTANT DETAILS!", MsgBoxStyle.Critical)
+            MsgBox("Please comple all * important fields!", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
         If btnSave.Text = "SAVE" Then
@@ -110,13 +110,13 @@ Public Class FrmItemEntry
         Next
         FrmItemSearch.LoadDataGrid()
 
-        MsgBox("Successfully saved!", MsgBoxStyle.Information)
+        MsgBox("Successfully saved!", MsgBoxStyle.Information, "Information")
         Me.Close()
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs)
         formname = "AddItem"
-        SupplierList.ShowDialog()
+        SupplierList.Show()
     End Sub
 
     'Private Sub txtSupplierID_TextChanged(sender As Object, e As EventArgs)
@@ -149,7 +149,7 @@ Public Class FrmItemEntry
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
             dtItemPrices.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1),
                                   SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3),
-                                    SQL.DBDT.Rows(i).Item(0), "Edit")
+                                    SQL.DBDT.Rows(i).Item(0))
         Next
     End Sub
     Public Sub ViewItemData()
@@ -172,12 +172,12 @@ Public Class FrmItemEntry
         txtOrderPoint.Text = SQL.DBDT.Rows(0).Item(8)
         txtRemarks.Text = SQL.DBDT.Rows(0).Item(10)
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
-            dtItemPrices.Rows.Add(SQL.DBDT.Rows(i).Item(17), SQL.DBDT.Rows(i).Item(18), SQL.DBDT.Rows(i).Item(19), SQL.DBDT.Rows(i).Item(15), SQL.DBDT.Rows(i).Item(21), "Edit")
+            dtItemPrices.Rows.Add(SQL.DBDT.Rows(i).Item(17), SQL.DBDT.Rows(i).Item(18), SQL.DBDT.Rows(i).Item(19), SQL.DBDT.Rows(i).Item(15), SQL.DBDT.Rows(i).Item(21))
         Next
+        picprint.Visible = True
         picBar.Visible = True
         picQR.Visible = True
         PictureBox4.Visible = True
-        picprint.Visible = True
     End Sub
     Public Sub refreshData()
         SQL.AddParams("@ItemId", txtItemId.Text)

@@ -1,7 +1,4 @@
 ﻿Public Class FrmCategoryEntry
-    Private Sub FrmCategory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
-    End Sub
     Private Sub btnInsert_Click(sender As Object, e As EventArgs) Handles btnInsert.Click
         ExecQuery(btnInsert.Text)
         Me.Close()
@@ -21,16 +18,15 @@
         End If
 
         If SQL.HasException Then
-            MsgBox("Error in saving category", MsgBoxStyle.Critical)
+            MsgBox("Error in saving category", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
 
-        MsgBox("Successfully save", MsgBoxStyle.Information)
+        MsgBox("Successfully saved", MsgBoxStyle.Information, "Information")
     End Sub
 
     Private Sub txtCategoryname_TextChanged(sender As Object, e As EventArgs) Handles txtCategoryname.TextChanged
         If Not String.IsNullOrEmpty(Trim(txtCategoryname.Text)) Then
-            btnclear.Enabled = True
             btnInsert.Enabled = True
         End If
     End Sub

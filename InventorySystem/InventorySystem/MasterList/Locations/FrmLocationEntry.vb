@@ -1,7 +1,5 @@
 ﻿Public Class FrmLocationEntry
-    Private Sub FrmLocation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
-    End Sub
+
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@Location", txtQtyunit.Text)
         SQL.AddParams("@Description", txtDes.Text)
@@ -22,10 +20,10 @@
                 Description=@Description where LocationId=@LocationId")
         End If
         If SQL.HasException(True) Then
-            MsgBox("Error in Saving", MsgBoxStyle.Critical)
+            MsgBox("Error in Saving", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
-        MsgBox("Successfully Saved", MsgBoxStyle.Information)
+        MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
     End Sub
 
     Private Sub btnInsert_Click(sender As Object, e As EventArgs) Handles btnInsert.Click

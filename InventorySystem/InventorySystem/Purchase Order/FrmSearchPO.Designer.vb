@@ -119,6 +119,8 @@ Partial Class FrmSearchPO
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.radNo)
         Me.GroupBox1.Controls.Add(Me.radYes)
@@ -193,6 +195,8 @@ Partial Class FrmSearchPO
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.btnItems)
         Me.GroupBox2.Controls.Add(Me.txtItemsName)
         Me.GroupBox2.Controls.Add(Me.Label4)
@@ -324,10 +328,11 @@ Partial Class FrmSearchPO
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.Red
         Me.Label3.Location = New System.Drawing.Point(9, 261)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(319, 18)
+        Me.Label3.Size = New System.Drawing.Size(334, 19)
         Me.Label3.TabIndex = 77
         Me.Label3.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
         '

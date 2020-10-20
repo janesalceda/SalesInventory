@@ -23,9 +23,6 @@
         End If
         MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
     End Sub
-    Private Sub FrmDeliveryPlaces_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
-    End Sub
 
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click

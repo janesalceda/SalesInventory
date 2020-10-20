@@ -22,7 +22,7 @@ Partial Class FrmUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cmbUserLevel = New System.Windows.Forms.ComboBox()
@@ -60,7 +60,7 @@ Partial Class FrmUser
         '
         Me.cmbUserLevel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbUserLevel.FormattingEnabled = True
-        Me.cmbUserLevel.Location = New System.Drawing.Point(1006, 22)
+        Me.cmbUserLevel.Location = New System.Drawing.Point(118, 48)
         Me.cmbUserLevel.Name = "cmbUserLevel"
         Me.cmbUserLevel.Size = New System.Drawing.Size(181, 26)
         Me.cmbUserLevel.TabIndex = 29
@@ -69,11 +69,11 @@ Partial Class FrmUser
         '
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(924, 25)
+        Me.Label8.Location = New System.Drawing.Point(14, 51)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(72, 18)
+        Me.Label8.Size = New System.Drawing.Size(78, 18)
         Me.Label8.TabIndex = 28
-        Me.Label8.Text = "Category"
+        Me.Label8.Text = "UserLevel"
         '
         'txtSearch
         '
@@ -124,15 +124,15 @@ Partial Class FrmUser
         Me.dtUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 12.0!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dtUsers.DefaultCellStyle = DataGridViewCellStyle1
-        Me.dtUsers.Location = New System.Drawing.Point(14, 53)
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dtUsers.DefaultCellStyle = DataGridViewCellStyle2
+        Me.dtUsers.Location = New System.Drawing.Point(14, 80)
         Me.dtUsers.Name = "dtUsers"
         Me.dtUsers.ReadOnly = True
         Me.dtUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing

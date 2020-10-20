@@ -5,11 +5,11 @@
         cmbCategory.ValueMember = "CategoryID"
     End Sub
     Public Sub LoadDataGrid(Optional Query As String = "")
-        SQL.ExecQuery("SELECT ItemId,Description,CreatedDate ,DeletedDate FROM items i " & Query)
+        SQL.ExecQuery("SELECT ItemId,Description,CreatedDate ,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM items i " & Query)
         If SQL.HasException(True) Then Exit Sub
         dtItems.Rows.Clear()
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
-            dtItems.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(3), "X")
+            dtItems.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4))
         Next
     End Sub
 
@@ -55,10 +55,22 @@
         End If
         LoadDataGrid(where)
     End Sub
-
     Private Sub dtItems_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellClick
-        If e.ColumnIndex = 5 Then
-            If MsgBox("Do you really want to delete this item ?", MsgBoxStyle.YesNo, "Delete Data") Then
+        If e.ColumnIndex = 3 Then
+            If dtItems.SelectedRows(0).Cells(3).Value = -2 Then
+                dtItems.SelectedRows(0).Cells(3).Value = 0
+            ElseIf dtItems.SelectedRows(0).Cells(3).Value = 0 Then
+                dtItems.SelectedRows(0).Cells(3).Value = 1
+            Else
+                dtItems.SelectedRows(0).Cells(3).Value = 0
+            End If
+            'dtItems.SelectedRows(0).Cells(3).Value = False
+            SQL.AddParams("@disuse", dtItems.SelectedRows(0).Cells(3).Value)
+            SQL.AddParams("@ItemId", dtItems.SelectedRows(0).Cells(0).Value)
+            SQL.ExecQuery("UPDATE items set 
+                DeletedDate=(select case when @disuse=0 then null else getdate() end) where ItemId=@ItemId")
+            If SQL.HasException Then
+                Exit Sub
             End If
         End If
     End Sub

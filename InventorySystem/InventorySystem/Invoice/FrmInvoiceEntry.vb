@@ -145,7 +145,7 @@
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "AddInvoice"
-        SupplierList.ShowDialog()
+        SupplierList.Show()
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
@@ -161,7 +161,7 @@
 
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
         If txtSupplier.Text = "" Then
-            MsgBox("Choose Supplier First")
+            MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
         SelectionItem.txtSupplier.Text = txtSupplier.Text
@@ -193,10 +193,10 @@
         If String.IsNullOrEmpty(txtSupplier.Text) Or
                 dtableDelivery.Rows.Count = 0 Or
                 dtableInvoice.Rows.Count = 0 Then
-            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "Error")
+            MsgBox("Please complete all * important fields!", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
-        If MsgBox("Are sure you want to save?", vbYesNo, "Information") = vbYes Then InvoiceStoreData(btnSave.Text)
+        If MsgBox("Are sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then InvoiceStoreData(btnSave.Text)
     End Sub
     Private Sub InvoiceStoreData(Query As String)
         SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
@@ -298,7 +298,7 @@
 
             Next
 
-            MsgBox("SUCCESSFULLY SAVED!", MsgBoxStyle.Information)
+            MsgBox("Successfully saved!", MsgBoxStyle.Information, "Information")
 
             Me.Close()
 
@@ -349,7 +349,7 @@
 	                UpdatedBy = @updatedby
 	                WHERE InvoiceNo = @invoiceno AND InvoiceDetailSeq = @invoicedetailseq")
                     If SQL.HasException Then
-                        MsgBox("Error in Updating Data!", MsgBoxStyle.Critical)
+                        MsgBox("Error in Updating Data!", MsgBoxStyle.Critical, "Error")
                         Exit Sub
                     End If
                 Else
@@ -451,7 +451,7 @@
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
         If String.IsNullOrEmpty(txtItemCode.Text) Or String.IsNullOrEmpty(txtPo.Text) Or
         String.IsNullOrEmpty(txtCliQty.Text) Or String.IsNullOrEmpty(txtSupQty.Text) Then
-            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            MsgBox("Please complete * important fields!", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
         If btnAddItem.Text = "INSERT INVOICE" Then
@@ -520,8 +520,8 @@
         'End If
         'SelectionItem.txtSupplier.Text = txtSupplier.Text
         'formname = "AddDelivery"
-        'SelectionItem.ShowDialog()
-        FrmInvoiceSelection.ShowDialog()
+        'SelectionItem.show()
+        FrmInvoiceSelection.Show()
     End Sub
 
     Private Sub txtItemDel_TextChanged(sender As Object, e As EventArgs) Handles txtItemDel.TextChanged
@@ -540,13 +540,13 @@
         formname = "AddDelivery"
         PurchaseOrderList.txtItems.Text = txtItemDel.Text
         PurchaseOrderList.txtSupplier.Text = txtSupplier.Text
-        PurchaseOrderList.ShowDialog()
+        PurchaseOrderList.Show()
     End Sub
 
 
     Private Sub btnInsertDel_Click(sender As Object, e As EventArgs) Handles btnInsertDel.Click
         If String.IsNullOrEmpty(txtItemDel.Text) Or String.IsNullOrEmpty(txtPoDel.Text) Then
-            MsgBox("PLEASE COMPLETE ALL *IMPORTANT FIELDS!", MsgBoxStyle.Critical, "ERROR")
+            MsgBox("Please complete all * important fields!", MsgBoxStyle.Critical, "Error")
             Exit Sub
         End If
         If btnInsertDel.Text = "INSERT DELIVERY" Then

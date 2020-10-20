@@ -52,4 +52,11 @@
         FrmStockTakingEntry.Show()
     End Sub
 
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtSTID.Clear()
+        dtCountedFrom.Checked = False
+        dtCountedTo.Checked = False
+        chkApproved.Checked = False
+        dtableStockTaking.Rows.Clear()
+    End Sub
 End Class

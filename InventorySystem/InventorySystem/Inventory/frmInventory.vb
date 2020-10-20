@@ -19,8 +19,10 @@
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        dgvData.Rows.Clear()
+
         If String.IsNullOrEmpty(txtitem.Text) Then
-            MsgBox("Please input itemId!", MsgBoxStyle.Exclamation)
+            MsgBox("Please input itemId!", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If
         Dim row As New DataTable
@@ -39,12 +41,15 @@
 
         row = SQL.DBDT
 
-        SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
+        SQL.AddParams("@from", (DateAdd("D", -1, dtFrom.Value.ToShortDateString)).ToShortDateString)
         SQL.AddParams("@itemid", txtitem.Text)
-        SQL.ExecQuery("SELECT Qty FROM GetStockBalance(DATEADD(DAY,-1,@from)) WHERE ItemID=@itemid")
+        SQL.ExecQuery("SELECT Qty FROM GetStockBalance(@from) WHERE ItemID=@itemid")
         If SQL.HasException Then Exit Sub
-        MsgBox(SQL.DBDT.Rows(0).Item(0))
-        lastbalance = SQL.DBDT.Rows(0).Item(0)
+        If SQL.DBDT.Rows.Count = 0 Then
+            lastbalance = 0
+        Else
+            lastbalance = SQL.DBDT.Rows(0).Item(0)
+        End If
         currentbalance = lastbalance
 
         With row
@@ -58,11 +63,14 @@
                         If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToShortDateString Then
                             'get the stockbalance based on transaction date row  -1 and add the qty row
                             SQL.params.Clear()
-                            SQL.AddParams("@from", .Rows(i).Item(0))
+                            SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToShortDateString)
                             SQL.AddParams("@itemid", txtitem.Text)
-                            SQL.ExecQuery("SELECT top 1 Qty FROM GetStockBalance(DATEADD(DAY,-1,@from)) WHERE ItemID=@itemid")
-                            If SQL.DBDT.Rows.Count = 0 Then currentbalance = 0 + .Rows(i).Item(3)
-                            currentbalance = SQL.DBDT.Rows(0).Item(0) + .Rows(i).Item(3)
+                            SQL.ExecQuery("SELECT top 1 Qty FROM GetStockBalance(@from) WHERE ItemID=@itemid")
+                            If SQL.DBDT.Rows.Count = 0 Then
+                                currentbalance = 0 + .Rows(i).Item(3)
+                            Else
+                                currentbalance = SQL.DBDT.Rows(0).Item(0) + .Rows(i).Item(3)
+                            End If
                         Else
                             'add the qty row to the currentbalance
                             currentbalance += .Rows(i).Item(3)
@@ -72,12 +80,16 @@
                     Case 2
                         If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToShortDateString Then
                             SQL.params.Clear()
-                            SQL.AddParams("@from", .Rows(i).Item(0))
+                            SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToShortDateString)
                             SQL.AddParams("@itemid", txtitem.Text)
                             'get the stockbalance based on transaction date row  -1 And minus the qty row
-                            SQL.ExecQuery("SELECT top 1 Qty FROM GetStockBalance(DATEADD(DAY,-1,@from)) WHERE ItemID=@itemid")
-                            If SQL.DBDT.Rows.Count = 0 Then currentbalance = 0 - .Rows(i).Item(3)
-                            currentbalance = SQL.DBDT.Rows(0).Item(0) - .Rows(i).Item(3)
+                            SQL.ExecQuery("SELECT top 1 Qty FROM GetStockBalance(@from) WHERE ItemID=@itemid")
+                            If SQL.DBDT.Rows.Count = 0 Then
+                                currentbalance = 0 - .Rows(i).Item(3)
+                            Else
+
+                                currentbalance = SQL.DBDT.Rows(0).Item(0) - .Rows(i).Item(3)
+                            End If
                         Else
                             'minus the qty row to the currentbalance
                             currentbalance -= .Rows(i).Item(3)
@@ -89,14 +101,14 @@
                             'Get the current balance based on row
                             currentbalance = .Rows(i).Item(3)
                         Else
-                            SQL.AddParams("@transdate", .Rows(0).Item(0))
+                            SQL.AddParams("@transdate", .Rows(i).Item(0))
                             SQL.AddParams("@item", txtitem.Text)
                             'Get the current balance based on row and (- the total sum of in and out based on row
                             'transaction date)
                             SQL.ExecQuery("EXECUTE dbo.TotalOut @TransactionDate = @transdate, @ItemId =@item ")
                             Dim totalin As Integer = SQL.DBDT.Rows(0).Item(0)
                             If SQL.HasException Then Exit Sub
-                            SQL.AddParams("@transdate", .Rows(0).Item(0))
+                            SQL.AddParams("@transdate", .Rows(i).Item(0))
                             SQL.AddParams("@item", txtitem.Text)
                             SQL.ExecQuery("EXECUTE dbo.TotalIn @TransactionDate = @transdate, @ItemId =@item ")
                             Dim totalout As Integer = SQL.DBDT.Rows(0).Item(0)

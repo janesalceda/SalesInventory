@@ -36,7 +36,6 @@ Partial Class FrmSupplierSearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -51,10 +50,11 @@ Partial Class FrmSupplierSearch
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(10, 80)
+        Me.Label2.Location = New System.Drawing.Point(8, 512)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(261, 19)
         Me.Label2.TabIndex = 131
@@ -126,13 +126,13 @@ Partial Class FrmSupplierSearch
         Me.dtItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.RegisteredDate, Me.Disused, Me.DeletedDate, Me.Delete})
-        Me.dtItems.Location = New System.Drawing.Point(10, 100)
+        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
+        Me.dtItems.Location = New System.Drawing.Point(10, 88)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(850, 406)
+        Me.dtItems.Size = New System.Drawing.Size(850, 418)
         Me.dtItems.TabIndex = 123
         '
         'ItemId
@@ -172,14 +172,6 @@ Partial Class FrmSupplierSearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
-        'Delete
-        '
-        Me.Delete.HeaderText = "Delete"
-        Me.Delete.Name = "Delete"
-        Me.Delete.ReadOnly = True
-        Me.Delete.Text = ""
-        Me.Delete.Width = 58
-        '
         'FrmSupplierSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -198,7 +190,7 @@ Partial Class FrmSupplierSearch
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmSupplierSearch"
-        Me.Text = "ViewSupplier"
+        Me.Text = "Search Supplier"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -219,5 +211,4 @@ Partial Class FrmSupplierSearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
-    Friend WithEvents Delete As DataGridViewButtonColumn
 End Class

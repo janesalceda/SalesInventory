@@ -79,14 +79,17 @@ Partial Class FrmPrintingItemBarcode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(287, 108)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmPrintingItemBarcode"
-        Me.Text = "FrmPrintingItemBarcode"
+        Me.Text = "Enter Qty"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

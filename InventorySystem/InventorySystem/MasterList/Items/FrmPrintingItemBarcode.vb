@@ -5,6 +5,7 @@ Public Class FrmPrintingItemBarcode
     Dim pic As New PictureBox
     Dim w As Integer = 223
     Dim h As Integer = 74
+    Private num1 As Integer
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If formname = "Bar" Then
             Dim writer As New BarcodeWriter
@@ -21,9 +22,10 @@ Public Class FrmPrintingItemBarcode
 
         'PrintDocument1.DefaultPageSettings.PaperSize = New PaperSize("Legal", 850, 110)
         'ppd.WindowState = FormWindowState.Maximized
-        'ppd.ShowDialog()
+        'ppd.show()
         ' PrintDocument1.Print()
-        PrintPreviewDialog1.ShowDialog()
+        num1 = 0
+        PrintPreviewDialog1.Show()
     End Sub
 
     Private Sub PrintDocument1_PrintPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage
@@ -36,8 +38,9 @@ Public Class FrmPrintingItemBarcode
         remaining = Val(TextBox1.Text)
         num = Math.Ceiling(remaining / 3)
 
-        e.Graphics.DrawLine(New Pen(Color.Black), x + 380, 1, x + 380, 2000)
-        For i As Integer = 1 To num
+        If formname = "QR" Then e.Graphics.DrawLine(New Pen(Color.Black), x + 380, 1, x + 380, 2000)
+        While num1 < num
+            ' For i As Integer = 1 To num
             x = 0
             Dim roration As Integer
             Dim cut As Integer = 0
@@ -50,7 +53,7 @@ Public Class FrmPrintingItemBarcode
                 roration = cut
             Else
                 roration = remaining
-                End If
+            End If
             For j As Integer = 1 To roration
                 remaining -= 1
                 If formname = "QR" Then
@@ -60,6 +63,7 @@ Public Class FrmPrintingItemBarcode
                     e.Graphics.DrawString(FrmItemEntry.txtItemId.Text, New Font("Arial black", 16), Brushes.Black, x + w + 25, y + 30)
                     e.Graphics.DrawImage(pic.Image, x + w + 150, y + h - 40, w, h)
                     e.Graphics.DrawLine(New Pen(Color.Black), 1, y + lx, 900, y + lx)
+                    'e.HasMorePages = True
                 Else
                     e.Graphics.DrawImage(pic.Image, x, y, w, h)
                 End If
@@ -69,12 +73,19 @@ Public Class FrmPrintingItemBarcode
                     x = x + w + 40
                 End If
             Next
+
+            num1 += 1
+
+            e.HasMorePages = num1 <= num
             If formname = "QR" Then
                 y = y + h + 100
                 lx = lx + 20
             Else
                 y = y + h + 40
+
             End If
-        Next
+        End While
+        'Next
     End Sub
+
 End Class

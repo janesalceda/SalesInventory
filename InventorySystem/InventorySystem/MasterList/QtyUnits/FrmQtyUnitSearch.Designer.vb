@@ -39,7 +39,6 @@ Partial Class FrmQtyUnitSearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,10 +53,11 @@ Partial Class FrmQtyUnitSearch
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(12, 84)
+        Me.Label2.Location = New System.Drawing.Point(10, 516)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(261, 19)
         Me.Label2.TabIndex = 98
@@ -116,7 +116,7 @@ Partial Class FrmQtyUnitSearch
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(170, 30)
         Me.btnAdd.TabIndex = 93
-        Me.btnAdd.Text = "Add Delivery Places"
+        Me.btnAdd.Text = "Add QtyUnits"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'txtCatID
@@ -146,13 +146,13 @@ Partial Class FrmQtyUnitSearch
         Me.dtItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate, Me.Delete})
-        Me.dtItems.Location = New System.Drawing.Point(12, 104)
+        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
+        Me.dtItems.Location = New System.Drawing.Point(12, 94)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(774, 408)
+        Me.dtItems.Size = New System.Drawing.Size(774, 418)
         Me.dtItems.TabIndex = 90
         '
         'ItemId
@@ -199,14 +199,6 @@ Partial Class FrmQtyUnitSearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
-        'Delete
-        '
-        Me.Delete.HeaderText = "Delete"
-        Me.Delete.Name = "Delete"
-        Me.Delete.ReadOnly = True
-        Me.Delete.Text = ""
-        Me.Delete.Width = 58
-        '
         'FrmQtyUnitSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -227,7 +219,7 @@ Partial Class FrmQtyUnitSearch
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmQtyUnitSearch"
-        Me.Text = "FrmQtyUnitSearch"
+        Me.Text = "Search QtyUnit"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -251,5 +243,4 @@ Partial Class FrmQtyUnitSearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
-    Friend WithEvents Delete As DataGridViewButtonColumn
 End Class

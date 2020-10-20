@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmInventory
+Partial Class FrmItemStockSearch
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,34 +22,22 @@ Partial Class frmInventory
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtitem = New System.Windows.Forms.TextBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.dgvData = New System.Windows.Forms.DataGridView()
         Me.TransactionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TRANSID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.INQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OUTQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ACQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BALANCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.dtFrom = New System.Windows.Forms.DateTimePicker()
-        Me.dtTo = New System.Windows.Forms.DateTimePicker()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.dtTo = New System.Windows.Forms.DateTimePicker()
+        Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'btnSearch
-        '
-        Me.btnSearch.Location = New System.Drawing.Point(365, 22)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(132, 30)
-        Me.btnSearch.TabIndex = 0
-        Me.btnSearch.Text = "VIEW"
-        Me.btnSearch.UseVisualStyleBackColor = True
         '
         'txtitem
         '
@@ -61,6 +49,15 @@ Partial Class frmInventory
         Me.txtitem.Size = New System.Drawing.Size(274, 26)
         Me.txtitem.TabIndex = 1
         '
+        'btnSearch
+        '
+        Me.btnSearch.Location = New System.Drawing.Point(365, 22)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(132, 30)
+        Me.btnSearch.TabIndex = 0
+        Me.btnSearch.Text = "VIEW"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
         'dgvData
         '
         Me.dgvData.AllowUserToAddRows = False
@@ -69,71 +66,48 @@ Partial Class frmInventory
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE})
-        Me.dgvData.Location = New System.Drawing.Point(14, 117)
+        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY})
+        Me.dgvData.Location = New System.Drawing.Point(10, 112)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
         Me.dgvData.Size = New System.Drawing.Size(643, 430)
-        Me.dgvData.TabIndex = 2
+        Me.dgvData.TabIndex = 10
         '
         'TransactionDate
         '
-        Me.TransactionDate.HeaderText = "Transaction Date"
+        Me.TransactionDate.HeaderText = "Item Id"
         Me.TransactionDate.Name = "TransactionDate"
         Me.TransactionDate.ReadOnly = True
         '
         'TRANSID
         '
-        Me.TRANSID.HeaderText = "TRANSID"
+        Me.TRANSID.HeaderText = "Description"
         Me.TRANSID.Name = "TRANSID"
         Me.TRANSID.ReadOnly = True
         '
         'INQTY
         '
-        Me.INQTY.HeaderText = "IN QTY"
+        Me.INQTY.HeaderText = "QTY"
         Me.INQTY.Name = "INQTY"
         Me.INQTY.ReadOnly = True
-        '
-        'OUTQTY
-        '
-        Me.OUTQTY.HeaderText = "OUT QTY"
-        Me.OUTQTY.Name = "OUTQTY"
-        Me.OUTQTY.ReadOnly = True
-        '
-        'ACQTY
-        '
-        Me.ACQTY.HeaderText = "AC QTY"
-        Me.ACQTY.Name = "ACQTY"
-        Me.ACQTY.ReadOnly = True
-        '
-        'BALANCE
-        '
-        Me.BALANCE.HeaderText = "BALANCE"
-        Me.BALANCE.Name = "BALANCE"
-        Me.BALANCE.ReadOnly = True
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(22, 40)
+        Me.Label1.Location = New System.Drawing.Point(18, 35)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 18)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Items:"
+        Me.Label1.Size = New System.Drawing.Size(53, 18)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "ItemId:"
         '
-        'dtFrom
+        'Label3
         '
-        Me.dtFrom.Location = New System.Drawing.Point(60, 58)
-        Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(274, 26)
-        Me.dtFrom.TabIndex = 5
-        '
-        'dtTo
-        '
-        Me.dtTo.Location = New System.Drawing.Point(365, 58)
-        Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(268, 26)
-        Me.dtTo.TabIndex = 6
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(8, 62)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 18)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Date:"
         '
         'Label2
         '
@@ -145,14 +119,19 @@ Partial Class frmInventory
         Me.Label2.TabIndex = 7
         Me.Label2.Text = "~"
         '
-        'Label3
+        'dtTo
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 62)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 18)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Date:"
+        Me.dtTo.Location = New System.Drawing.Point(365, 58)
+        Me.dtTo.Name = "dtTo"
+        Me.dtTo.Size = New System.Drawing.Size(268, 26)
+        Me.dtTo.TabIndex = 6
+        '
+        'dtFrom
+        '
+        Me.dtFrom.Location = New System.Drawing.Point(60, 58)
+        Me.dtFrom.Name = "dtFrom"
+        Me.dtFrom.Size = New System.Drawing.Size(274, 26)
+        Me.dtFrom.TabIndex = 5
         '
         'GroupBox1
         '
@@ -165,10 +144,10 @@ Partial Class frmInventory
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.dtTo)
         Me.GroupBox1.Controls.Add(Me.dtFrom)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 11)
+        Me.GroupBox1.Location = New System.Drawing.Point(10, 6)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(649, 100)
-        Me.GroupBox1.TabIndex = 9
+        Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Details"
         '
@@ -177,24 +156,22 @@ Partial Class frmInventory
         Me.btnClear.Location = New System.Drawing.Point(500, 22)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(132, 30)
-        Me.btnClear.TabIndex = 9
+        Me.btnClear.TabIndex = 13
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = True
         '
-        'frmInventory
+        'FrmItemStockSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSize = True
-        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(670, 558)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvData)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "frmInventory"
-        Me.Text = "Search Inventory Records"
+        Me.Name = "FrmItemStockSearch"
+        Me.Text = "Search ItemStock"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -203,20 +180,17 @@ Partial Class frmInventory
 
     End Sub
 
-    Friend WithEvents btnSearch As Button
     Friend WithEvents txtitem As TextBox
+    Friend WithEvents btnSearch As Button
     Friend WithEvents dgvData As DataGridView
     Friend WithEvents Label1 As Label
-    Friend WithEvents dtFrom As DateTimePicker
-    Friend WithEvents dtTo As DateTimePicker
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents dtTo As DateTimePicker
+    Friend WithEvents dtFrom As DateTimePicker
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents TransactionDate As DataGridViewTextBoxColumn
     Friend WithEvents TRANSID As DataGridViewTextBoxColumn
     Friend WithEvents INQTY As DataGridViewTextBoxColumn
-    Friend WithEvents OUTQTY As DataGridViewTextBoxColumn
-    Friend WithEvents ACQTY As DataGridViewTextBoxColumn
-    Friend WithEvents BALANCE As DataGridViewTextBoxColumn
     Friend WithEvents btnClear As Button
 End Class

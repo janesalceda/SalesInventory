@@ -44,8 +44,8 @@ Partial Class FrmItemEntry
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.picprint = New System.Windows.Forms.PictureBox()
-        Me.picBar = New System.Windows.Forms.PictureBox()
         Me.picQR = New System.Windows.Forms.PictureBox()
+        Me.picBar = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -58,7 +58,6 @@ Partial Class FrmItemEntry
         Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemPriceID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Edit = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -67,21 +66,19 @@ Partial Class FrmItemEntry
         Me.PictureBox7 = New System.Windows.Forms.PictureBox()
         Me.PictureBox8 = New System.Windows.Forms.PictureBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.PicBarcode = New System.Windows.Forms.PictureBox()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.grpItemDetails.SuspendLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picprint, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.picBar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.picBar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtItemPrices, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PicBarcode, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'txtItemId
@@ -117,12 +114,13 @@ Partial Class FrmItemEntry
         '
         'btnSave
         '
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.BackColor = System.Drawing.Color.LimeGreen
         Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.Black
-        Me.btnSave.Location = New System.Drawing.Point(564, 544)
+        Me.btnSave.Location = New System.Drawing.Point(564, 562)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(141, 36)
         Me.btnSave.TabIndex = 11
@@ -264,14 +262,16 @@ Partial Class FrmItemEntry
         '
         'grpItemDetails
         '
+        Me.grpItemDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpItemDetails.Controls.Add(Me.picprint)
         Me.grpItemDetails.Controls.Add(Me.cmbCategory)
         Me.grpItemDetails.Controls.Add(Me.PictureBox4)
         Me.grpItemDetails.Controls.Add(Me.Label6)
-        Me.grpItemDetails.Controls.Add(Me.picprint)
-        Me.grpItemDetails.Controls.Add(Me.picBar)
         Me.grpItemDetails.Controls.Add(Me.picQR)
         Me.grpItemDetails.Controls.Add(Me.txtItemId)
         Me.grpItemDetails.Controls.Add(Me.Label1)
+        Me.grpItemDetails.Controls.Add(Me.picBar)
         Me.grpItemDetails.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!)
         Me.grpItemDetails.Location = New System.Drawing.Point(8, 10)
         Me.grpItemDetails.Name = "grpItemDetails"
@@ -319,25 +319,13 @@ Partial Class FrmItemEntry
         '
         Me.picprint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picprint.Image = Global.InventorySystem.My.Resources.Resources.Print
-        Me.picprint.Location = New System.Drawing.Point(638, 262)
+        Me.picprint.Location = New System.Drawing.Point(640, 262)
         Me.picprint.Name = "picprint"
         Me.picprint.Size = New System.Drawing.Size(26, 24)
         Me.picprint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picprint.TabIndex = 2
         Me.picprint.TabStop = False
         Me.picprint.Visible = False
-        '
-        'picBar
-        '
-        Me.picBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picBar.Image = Global.InventorySystem.My.Resources.Resources.Barcode
-        Me.picBar.Location = New System.Drawing.Point(616, 238)
-        Me.picBar.Name = "picBar"
-        Me.picBar.Size = New System.Drawing.Size(48, 48)
-        Me.picBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picBar.TabIndex = 1
-        Me.picBar.TabStop = False
-        Me.picBar.Visible = False
         '
         'picQR
         '
@@ -350,6 +338,17 @@ Partial Class FrmItemEntry
         Me.picQR.TabIndex = 0
         Me.picQR.TabStop = False
         Me.picQR.Visible = False
+        '
+        'picBar
+        '
+        Me.picBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picBar.Image = Global.InventorySystem.My.Resources.Resources.Barcode
+        Me.picBar.Location = New System.Drawing.Point(618, 238)
+        Me.picBar.Name = "picBar"
+        Me.picBar.Size = New System.Drawing.Size(48, 48)
+        Me.picBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picBar.TabIndex = 1
+        Me.picBar.TabStop = False
         '
         'Label4
         '
@@ -408,6 +407,7 @@ Partial Class FrmItemEntry
         '
         'btnAddItemPrice
         '
+        Me.btnAddItemPrice.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.btnAddItemPrice.BackColor = System.Drawing.Color.Gainsboro
         Me.btnAddItemPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddItemPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat
@@ -424,8 +424,11 @@ Partial Class FrmItemEntry
         '
         Me.dtItemPrices.AllowUserToAddRows = False
         Me.dtItemPrices.AllowUserToDeleteRows = False
+        Me.dtItemPrices.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtItemPrices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItemPrices.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SupplierID, Me.AppliedDate, Me.UnitPrice, Me.ItemPriceID, Me.RegisteredDate, Me.Edit})
+        Me.dtItemPrices.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SupplierID, Me.AppliedDate, Me.UnitPrice, Me.ItemPriceID, Me.RegisteredDate})
         Me.dtItemPrices.Location = New System.Drawing.Point(8, 28)
         Me.dtItemPrices.Name = "dtItemPrices"
         Me.dtItemPrices.ReadOnly = True
@@ -464,15 +467,11 @@ Partial Class FrmItemEntry
         Me.RegisteredDate.ReadOnly = True
         Me.RegisteredDate.Width = 150
         '
-        'Edit
-        '
-        Me.Edit.HeaderText = "Edit"
-        Me.Edit.Name = "Edit"
-        Me.Edit.ReadOnly = True
-        Me.Edit.Width = 50
-        '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.dtItemPrices)
         Me.GroupBox1.Controls.Add(Me.ComboBox1)
         Me.GroupBox1.Controls.Add(Me.PictureBox5)
@@ -557,6 +556,7 @@ Partial Class FrmItemEntry
         '
         'Label10
         '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.White
         Me.Label10.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -566,14 +566,6 @@ Partial Class FrmItemEntry
         Me.Label10.Size = New System.Drawing.Size(245, 19)
         Me.Label10.TabIndex = 65
         Me.Label10.Text = "*NOTE: ALL * ARE IMPORTANT"
-        '
-        'PicBarcode
-        '
-        Me.PicBarcode.Location = New System.Drawing.Point(436, 10)
-        Me.PicBarcode.Name = "PicBarcode"
-        Me.PicBarcode.Size = New System.Drawing.Size(100, 50)
-        Me.PicBarcode.TabIndex = 65
-        Me.PicBarcode.TabStop = False
         '
         'PrintDocument1
         '
@@ -595,7 +587,6 @@ Partial Class FrmItemEntry
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(720, 605)
-        Me.Controls.Add(Me.PicBarcode)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.btnAddItemPrice)
         Me.Controls.Add(Me.Label15)
@@ -630,8 +621,8 @@ Partial Class FrmItemEntry
         Me.grpItemDetails.PerformLayout()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picprint, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.picBar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.picBar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtItemPrices, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -639,7 +630,6 @@ Partial Class FrmItemEntry
         CType(Me.PictureBox6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PicBarcode, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -673,12 +663,6 @@ Partial Class FrmItemEntry
     Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents dtItemPrices As DataGridView
-    Friend WithEvents SupplierID As DataGridViewTextBoxColumn
-    Friend WithEvents AppliedDate As DataGridViewTextBoxColumn
-    Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
-    Friend WithEvents ItemPriceID As DataGridViewTextBoxColumn
-    Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
-    Friend WithEvents Edit As DataGridViewButtonColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents PictureBox5 As PictureBox
@@ -688,7 +672,11 @@ Partial Class FrmItemEntry
     Friend WithEvents PictureBox8 As PictureBox
     Friend WithEvents Label10 As Label
     Friend WithEvents txtItemId As TextBox
-    Friend WithEvents PicBarcode As PictureBox
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
+    Friend WithEvents SupplierID As DataGridViewTextBoxColumn
+    Friend WithEvents AppliedDate As DataGridViewTextBoxColumn
+    Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents ItemPriceID As DataGridViewTextBoxColumn
+    Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
 End Class

@@ -163,6 +163,8 @@ Partial Class FrmSearchInvoice
         '
         'GroupBox2
         '
+        Me.GroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.BackColor = System.Drawing.Color.White
         Me.GroupBox2.Controls.Add(Me.txtPO)
         Me.GroupBox2.Controls.Add(Me.Label3)
@@ -276,6 +278,8 @@ Partial Class FrmSearchInvoice
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.Color.White
         Me.GroupBox1.Controls.Add(Me.btnSupplier)
         Me.GroupBox1.Controls.Add(Me.dtInvoiceTo)
@@ -296,10 +300,11 @@ Partial Class FrmSearchInvoice
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
         Me.Label2.Location = New System.Drawing.Point(14, 263)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(319, 18)
+        Me.Label2.Size = New System.Drawing.Size(334, 19)
         Me.Label2.TabIndex = 76
         Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
         '

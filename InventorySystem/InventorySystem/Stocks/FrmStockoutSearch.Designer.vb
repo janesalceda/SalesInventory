@@ -31,6 +31,8 @@ Partial Class FrmStockoutSearch
         Me.txtSTID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dtableStockOut = New System.Windows.Forms.DataGridView()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.dtableStockOut, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -95,6 +97,7 @@ Partial Class FrmStockoutSearch
         '
         'txtSTID
         '
+        Me.txtSTID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtSTID.Location = New System.Drawing.Point(110, 9)
         Me.txtSTID.Name = "txtSTID"
         Me.txtSTID.Size = New System.Drawing.Size(210, 26)
@@ -129,11 +132,36 @@ Partial Class FrmStockoutSearch
         Me.dtableStockOut.Size = New System.Drawing.Size(1002, 394)
         Me.dtableStockOut.TabIndex = 123
         '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(550, 8)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(111, 28)
+        Me.btnClear.TabIndex = 132
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(10, 486)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(334, 19)
+        Me.Label2.TabIndex = 133
+        Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
+        '
         'FrmStockoutSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1010, 512)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.chkApproved)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtCountedTo)
@@ -147,7 +175,7 @@ Partial Class FrmStockoutSearch
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmStockoutSearch"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "FrmStockout"
+        Me.Text = "Search Stock Out"
         CType(Me.dtableStockOut, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -163,4 +191,6 @@ Partial Class FrmStockoutSearch
     Friend WithEvents txtSTID As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents dtableStockOut As DataGridView
+    Friend WithEvents btnClear As Button
+    Friend WithEvents Label2 As Label
 End Class

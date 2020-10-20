@@ -31,6 +31,8 @@ Partial Class FrmStockTakingSearch
         Me.dtCountedTo = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.chkApproved = New System.Windows.Forms.CheckBox()
+        Me.btnClear = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -130,11 +132,36 @@ Partial Class FrmStockTakingSearch
         Me.chkApproved.Text = "Approved"
         Me.chkApproved.UseVisualStyleBackColor = True
         '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(570, 10)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(111, 28)
+        Me.btnClear.TabIndex = 128
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.Red
+        Me.Label2.Location = New System.Drawing.Point(12, 490)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(334, 19)
+        Me.Label2.TabIndex = 129
+        Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
+        '
         'FrmStockTakingSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1025, 514)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.chkApproved)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtCountedTo)
@@ -147,7 +174,7 @@ Partial Class FrmStockTakingSearch
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmStockTakingSearch"
-        Me.Text = "StockTaking"
+        Me.Text = "Search StockTaking "
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -163,4 +190,6 @@ Partial Class FrmStockTakingSearch
     Friend WithEvents dtCountedTo As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents chkApproved As CheckBox
+    Friend WithEvents btnClear As Button
+    Friend WithEvents Label2 As Label
 End Class

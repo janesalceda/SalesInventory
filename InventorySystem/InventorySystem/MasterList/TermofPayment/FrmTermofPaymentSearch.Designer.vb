@@ -39,7 +39,6 @@ Partial Class FrmTermofPaymentSearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -54,10 +53,11 @@ Partial Class FrmTermofPaymentSearch
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(24, 84)
+        Me.Label2.Location = New System.Drawing.Point(22, 514)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(261, 19)
         Me.Label2.TabIndex = 120
@@ -83,7 +83,7 @@ Partial Class FrmTermofPaymentSearch
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(476, 46)
+        Me.chkDisuse.Location = New System.Drawing.Point(578, 50)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 118
@@ -93,15 +93,15 @@ Partial Class FrmTermofPaymentSearch
         'txtDes
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDes.Location = New System.Drawing.Point(118, 44)
+        Me.txtDes.Location = New System.Drawing.Point(166, 44)
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(353, 26)
+        Me.txtDes.Size = New System.Drawing.Size(386, 26)
         Me.txtDes.TabIndex = 117
         '
         'btnSearch
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(562, 42)
+        Me.btnSearch.Location = New System.Drawing.Point(664, 46)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(116, 30)
         Me.btnSearch.TabIndex = 116
@@ -146,7 +146,7 @@ Partial Class FrmTermofPaymentSearch
         Me.dtItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate, Me.Delete})
+        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
         Me.dtItems.Location = New System.Drawing.Point(24, 104)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
@@ -199,14 +199,6 @@ Partial Class FrmTermofPaymentSearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
-        'Delete
-        '
-        Me.Delete.HeaderText = "Delete"
-        Me.Delete.Name = "Delete"
-        Me.Delete.ReadOnly = True
-        Me.Delete.Text = ""
-        Me.Delete.Width = 58
-        '
         'FrmTermofPaymentSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -224,9 +216,9 @@ Partial Class FrmTermofPaymentSearch
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dtItems)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmTermofPaymentSearch"
-        Me.Text = "FrmTermofPaymentSearch"
+        Me.Text = "Search TermofPayment"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -249,5 +241,4 @@ Partial Class FrmTermofPaymentSearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
-    Friend WithEvents Delete As DataGridViewButtonColumn
 End Class

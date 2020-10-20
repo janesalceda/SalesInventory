@@ -28,7 +28,6 @@ Partial Class FrmItemSearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Delete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.txtItemID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
@@ -51,13 +50,13 @@ Partial Class FrmItemSearch
         Me.dtItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate, Me.Delete})
-        Me.dtItems.Location = New System.Drawing.Point(18, 114)
+        Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
+        Me.dtItems.Location = New System.Drawing.Point(18, 94)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(730, 386)
+        Me.dtItems.Size = New System.Drawing.Size(730, 406)
         Me.dtItems.TabIndex = 0
         '
         'ItemId
@@ -97,14 +96,6 @@ Partial Class FrmItemSearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
-        'Delete
-        '
-        Me.Delete.HeaderText = "Delete"
-        Me.Delete.Name = "Delete"
-        Me.Delete.ReadOnly = True
-        Me.Delete.Text = ""
-        Me.Delete.Width = 58
-        '
         'txtItemID
         '
         Me.txtItemID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -118,9 +109,9 @@ Partial Class FrmItemSearch
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(12, 20)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(95, 18)
+        Me.Label7.Size = New System.Drawing.Size(41, 18)
         Me.Label7.TabIndex = 16
-        Me.Label7.Text = "Search Item:"
+        Me.Label7.Text = "Item:"
         '
         'btnAdd
         '
@@ -186,10 +177,11 @@ Partial Class FrmItemSearch
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(20, 92)
+        Me.Label2.Location = New System.Drawing.Point(18, 502)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(261, 19)
         Me.Label2.TabIndex = 77
@@ -215,7 +207,7 @@ Partial Class FrmItemSearch
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmItemSearch"
-        Me.Text = "Item Search"
+        Me.Text = "Search Item"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -231,11 +223,10 @@ Partial Class FrmItemSearch
     Friend WithEvents cmbCategory As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents chkDisuse As CheckBox
+    Friend WithEvents Label2 As Label
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
-    Friend WithEvents Delete As DataGridViewButtonColumn
-    Friend WithEvents Label2 As Label
 End Class

@@ -14,12 +14,12 @@ Public Class LoginForm
 
             If SQL.HasException(True) Then Exit Sub
             If SQL.RecordCount = 0 Then
-                MsgBox("Invalid Username or password", MsgBoxStyle.Critical, "Error")
+                MsgBox("Invalid Username or password", MsgBoxStyle.Exclamation, "Warning")
                 txtUsername.Focus()
                 txtPass.Clear()
                 Exit Sub
             Else
-                'FrmMessageBox.Show()
+                'FrmMessageBox.showDialog
                 moduleId = SQL.DBDT.Rows(0).Item(0)
                 moduleName = SQL.DBDT.Rows(0).Item(1)
                 rights = SQL.DBDT.Rows(0).Item(2)

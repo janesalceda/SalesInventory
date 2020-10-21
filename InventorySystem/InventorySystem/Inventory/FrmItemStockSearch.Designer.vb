@@ -30,8 +30,6 @@ Partial Class FrmItemStockSearch
         Me.INQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.dtTo = New System.Windows.Forms.DateTimePicker()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnClear = New System.Windows.Forms.Button()
@@ -43,7 +41,7 @@ Partial Class FrmItemStockSearch
         '
         Me.txtitem.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtitem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtitem.Location = New System.Drawing.Point(60, 25)
+        Me.txtitem.Location = New System.Drawing.Point(62, 25)
         Me.txtitem.MaxLength = 20
         Me.txtitem.Name = "txtitem"
         Me.txtitem.Size = New System.Drawing.Size(274, 26)
@@ -51,7 +49,7 @@ Partial Class FrmItemStockSearch
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(365, 22)
+        Me.btnSearch.Location = New System.Drawing.Point(342, 26)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(132, 30)
         Me.btnSearch.TabIndex = 0
@@ -70,7 +68,7 @@ Partial Class FrmItemStockSearch
         Me.dgvData.Location = New System.Drawing.Point(10, 112)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(643, 430)
+        Me.dgvData.Size = New System.Drawing.Size(648, 442)
         Me.dgvData.TabIndex = 10
         '
         'TransactionDate
@@ -109,26 +107,9 @@ Partial Class FrmItemStockSearch
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Date:"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(340, 59)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(19, 23)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "~"
-        '
-        'dtTo
-        '
-        Me.dtTo.Location = New System.Drawing.Point(365, 58)
-        Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(268, 26)
-        Me.dtTo.TabIndex = 6
-        '
         'dtFrom
         '
-        Me.dtFrom.Location = New System.Drawing.Point(60, 58)
+        Me.dtFrom.Location = New System.Drawing.Point(62, 58)
         Me.dtFrom.Name = "dtFrom"
         Me.dtFrom.Size = New System.Drawing.Size(274, 26)
         Me.dtFrom.TabIndex = 5
@@ -141,8 +122,6 @@ Partial Class FrmItemStockSearch
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtitem)
         Me.GroupBox1.Controls.Add(Me.btnSearch)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.dtTo)
         Me.GroupBox1.Controls.Add(Me.dtFrom)
         Me.GroupBox1.Location = New System.Drawing.Point(10, 6)
         Me.GroupBox1.Name = "GroupBox1"
@@ -153,7 +132,7 @@ Partial Class FrmItemStockSearch
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(500, 22)
+        Me.btnClear.Location = New System.Drawing.Point(343, 58)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(132, 30)
         Me.btnClear.TabIndex = 13
@@ -185,8 +164,6 @@ Partial Class FrmItemStockSearch
     Friend WithEvents dgvData As DataGridView
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents dtTo As DateTimePicker
     Friend WithEvents dtFrom As DateTimePicker
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents TransactionDate As DataGridViewTextBoxColumn

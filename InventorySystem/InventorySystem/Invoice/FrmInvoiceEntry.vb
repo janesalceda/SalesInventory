@@ -491,7 +491,6 @@
             dtableInvoice.SelectedRows(0).Cells(12).Value = chkReceived.Checked
             dtableInvoice.SelectedRows(0).Cells(13).Value = dtDate.Value
             dtableInvoice.SelectedRows(0).Cells(14).Value = txtInvoiceRemarks.Text
-            btnAddItem.Text = "INSERT INVOICE"
             InvoicesClear()
         End If
     End Sub
@@ -511,6 +510,7 @@
         chkCancel.Checked = False
         chkReceived.Checked = False
         dtDate.Checked = False
+        btnAddItem.Text = "INSERT INVOICE"
     End Sub
 
     Private Sub btnItemInv_Click(sender As Object, e As EventArgs) Handles btnItemInv.Click

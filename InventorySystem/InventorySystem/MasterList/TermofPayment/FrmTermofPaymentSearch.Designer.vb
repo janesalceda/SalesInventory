@@ -39,13 +39,14 @@ Partial Class FrmTermofPaymentSearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(370, 16)
+        Me.Label3.Location = New System.Drawing.Point(26, 76)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(116, 18)
         Me.Label3.TabIndex = 122
@@ -66,7 +67,7 @@ Partial Class FrmTermofPaymentSearch
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(28, 50)
+        Me.Label1.Location = New System.Drawing.Point(28, 48)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(84, 18)
         Me.Label1.TabIndex = 119
@@ -75,15 +76,15 @@ Partial Class FrmTermofPaymentSearch
         'txtDelPlace
         '
         Me.txtDelPlace.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDelPlace.Location = New System.Drawing.Point(496, 10)
+        Me.txtDelPlace.Location = New System.Drawing.Point(166, 72)
         Me.txtDelPlace.Name = "txtDelPlace"
-        Me.txtDelPlace.Size = New System.Drawing.Size(284, 26)
+        Me.txtDelPlace.Size = New System.Drawing.Size(386, 26)
         Me.txtDelPlace.TabIndex = 121
         '
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(578, 50)
+        Me.chkDisuse.Location = New System.Drawing.Point(474, 12)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 118
@@ -93,7 +94,7 @@ Partial Class FrmTermofPaymentSearch
         'txtDes
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDes.Location = New System.Drawing.Point(166, 44)
+        Me.txtDes.Location = New System.Drawing.Point(166, 42)
         Me.txtDes.Name = "txtDes"
         Me.txtDes.Size = New System.Drawing.Size(386, 26)
         Me.txtDes.TabIndex = 117
@@ -101,7 +102,7 @@ Partial Class FrmTermofPaymentSearch
         'btnSearch
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(664, 46)
+        Me.btnSearch.Location = New System.Drawing.Point(560, 16)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(116, 30)
         Me.btnSearch.TabIndex = 116
@@ -122,7 +123,7 @@ Partial Class FrmTermofPaymentSearch
         'txtCatID
         '
         Me.txtCatID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtCatID.Location = New System.Drawing.Point(164, 12)
+        Me.txtCatID.Location = New System.Drawing.Point(166, 12)
         Me.txtCatID.Name = "txtCatID"
         Me.txtCatID.Size = New System.Drawing.Size(198, 26)
         Me.txtCatID.TabIndex = 114
@@ -199,11 +200,22 @@ Partial Class FrmTermofPaymentSearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
+        'btnClear
+        '
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(560, 50)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(116, 30)
+        Me.btnClear.TabIndex = 123
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
         'FrmTermofPaymentSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(850, 550)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -241,4 +253,5 @@ Partial Class FrmTermofPaymentSearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
+    Friend WithEvents btnClear As Button
 End Class

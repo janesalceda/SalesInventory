@@ -67,4 +67,11 @@
         End If
     End Sub
 
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtDes.Clear()
+        txtDelPlace.Clear()
+        txtCatID.Clear()
+        dtItems.Rows.Clear()
+        chkDisuse.Checked = False
+    End Sub
 End Class

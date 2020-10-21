@@ -36,6 +36,7 @@ Partial Class FrmCategorySearch
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -60,7 +61,7 @@ Partial Class FrmCategorySearch
         'btnSearch
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(454, 8)
+        Me.btnSearch.Location = New System.Drawing.Point(510, 8)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(116, 30)
         Me.btnSearch.TabIndex = 72
@@ -172,12 +173,23 @@ Partial Class FrmCategorySearch
         Me.Label2.TabIndex = 78
         Me.Label2.Text = "*NOTE: CLICK TO VIEW/UPDATE"
         '
+        'btnClear
+        '
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(510, 42)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(116, 30)
+        Me.btnClear.TabIndex = 79
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
         'FrmCategorySearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(761, 550)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.chkDisuse)
@@ -211,4 +223,5 @@ Partial Class FrmCategorySearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
+    Friend WithEvents btnClear As Button
 End Class

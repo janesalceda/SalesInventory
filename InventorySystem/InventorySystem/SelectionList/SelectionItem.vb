@@ -152,6 +152,7 @@
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtItems.Clear()
         txtItemsName.Clear()
+        dtitems.Rows.Clear()
     End Sub
 
     Private Sub dtitems_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtitems.CellDoubleClick

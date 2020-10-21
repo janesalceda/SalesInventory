@@ -1,4 +1,6 @@
-﻿Public Class FrmPurchaseOrderEntry
+﻿Imports Microsoft.Reporting.WinForms
+
+Public Class FrmPurchaseOrderEntry
 
     Public boolUpdate As Boolean = False
 
@@ -64,9 +66,9 @@
         txtCliUnit.Clear()
         txtUnit.Clear()
         txtTotalPrice.Clear()
-        dtETD.Checked = False
-        dtETA.Checked = False
-        DTFtry.Checked = False
+        dtETD.Value = Today
+        dtETA.Value = Today
+        DTFtry.Value = Today
         chkCancel.Checked = False
         chkReceived.Checked = False
         btnAddItem.Enabled = True
@@ -84,6 +86,7 @@
         txtTotalAmount.Clear()
         dtablePoDetails.Rows.Clear()
         btnAddItem.Visible = True
+        Button1.Visible = False
     End Sub
     Private Sub LoadDelivery()
         cmbTDelivery.DataSource = getDelivery()
@@ -500,7 +503,7 @@
             ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',
             ConvertingCoefficient,
             UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q 
-            where s.AppliedDate<=@IssuedDate and i.ItemId=@ItemId order by AppliedDate")
+            where s.AppliedDate<=@IssuedDate and i.ItemId=@ItemId order by AppliedDate desc")
         If SQL.HasException Then Return Globalrow
         If SQL.RecordCount = 0 Then Return Globalrow
         Globalrow.Add(SQL.DBDT.Rows(0).Item(0))
@@ -513,10 +516,63 @@
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         PurchDetailsClear()
-        btnAddItem.Enabled = True
+        btnAddItem.Text = "INSERT ITEM"
     End Sub
 
     Private Sub dtablePoDetails_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellContentClick
+
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        loadReport
+    End Sub
+    Private Sub loadReport()
+        Dim rptDs As ReportDataSource
+        SaleReports.ReportViewer1.RefreshReport()
+        Try
+            With SaleReports.ReportViewer1.LocalReport
+                .ReportPath = "C:\temp\SalesandInventory\Report1.rdlc"
+                .DataSources.Clear()
+                '.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("PODataset", dt))
+                Dim dt As New DataTable
+                Dim ds As New DataSet1
+                SQL.AddParams("@PONo", txtPONo.Text)
+                SQL.ExecQuery("SELECT pod.ItemId,i.Description,pod.UnitPrice,pod.Qty,(pod.EquivalentQty*pod.UnitPrice) AS 'Total',
+                poh.PONo,convert(varchar(10),poh.IssuedDate,111),pod.UnitPrice,poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,s.Remarks,
+                dp.Description AS DeliveryPlaces,td.Description AS TermsOfDelivery,tp.Description AS TermsOfPayment	
+                FROM POHeaders poh 
+                INNER	JOIN PoDetails pod 
+                ON poh.PONo=pod.PoNo
+                INNER JOIN TermsOfDelivery td ON poh.TermOfDeliveryId=td.TermOfDeliveryId
+                INNER JOIN TermsOfPayment tp ON tp.TermOfPaymentId=poh.TermOfPaymentId
+                INNER JOIN DeliveryPlaces dp ON dp.DeliveryPlaceId=poh.DeliveryPlaceId
+                INNER JOIN Employees e ON poh.EncodedStaff=e.EmpId
+                INNER JOIN Items i ON i.ItemId=pod.ItemId 
+                INNER JOIN Suppliers s ON s.SupplierId=poh.SupplierID		
+                where poh.PONo=@PONo")
+                rptDs = New ReportDataSource("PODataSet", SQL.DBDT)
+                SaleReports.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+                SaleReports.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+                SaleReports.ReportViewer1.ZoomMode = ZoomMode.Percent
+                SaleReports.ReportViewer1.ZoomPercent = 100
+                SaleReports.Show()
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
+            'End With
+        End Try
+
+        'dt = ds.Tables("PODetails")
+        'For i = 0 To dtablePoDetails.Rows.Count - 1
+        '    dt.Rows.Add(dtablePoDetails.Rows(i).Cells(1).Value, dtablePoDetails.Rows(i).Cells(2).Value, dtablePoDetails.Rows(i).Cells(5).Value, dtablePoDetails.Rows(i).Cells(7).Value, dtablePoDetails.Rows(i).Cells(8).Value)
+        'Next
+        'With SaleReports.ReportViewer1.LocalReport
+        '    .ReportPath = "C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\Report1.rdlc"
+        '    .DataSources.Clear()
+        '    .DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("PODataset", dt))
+        'End With
+        '
+        'SaleReports.ReportViewer1.RefreshReport()
 
     End Sub
 End Class

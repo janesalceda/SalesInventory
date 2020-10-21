@@ -39,13 +39,14 @@ Partial Class FrmLocationSearch
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(318, 20)
+        Me.Label3.Location = New System.Drawing.Point(20, 82)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 18)
         Me.Label3.TabIndex = 111
@@ -75,15 +76,15 @@ Partial Class FrmLocationSearch
         'txtDelPlace
         '
         Me.txtDelPlace.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDelPlace.Location = New System.Drawing.Point(384, 14)
+        Me.txtDelPlace.Location = New System.Drawing.Point(110, 78)
         Me.txtDelPlace.Name = "txtDelPlace"
-        Me.txtDelPlace.Size = New System.Drawing.Size(284, 26)
+        Me.txtDelPlace.Size = New System.Drawing.Size(352, 26)
         Me.txtDelPlace.TabIndex = 110
         '
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(468, 50)
+        Me.chkDisuse.Location = New System.Drawing.Point(326, 18)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 107
@@ -101,7 +102,7 @@ Partial Class FrmLocationSearch
         'btnSearch
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(554, 46)
+        Me.btnSearch.Location = New System.Drawing.Point(464, 16)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(116, 30)
         Me.btnSearch.TabIndex = 105
@@ -199,11 +200,22 @@ Partial Class FrmLocationSearch
         Me.DeletedDate.ReadOnly = True
         Me.DeletedDate.Width = 120
         '
+        'btnClear
+        '
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(464, 50)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(116, 30)
+        Me.btnClear.TabIndex = 112
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
         'FrmLocationSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(789, 550)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -241,4 +253,5 @@ Partial Class FrmLocationSearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
+    Friend WithEvents btnClear As Button
 End Class

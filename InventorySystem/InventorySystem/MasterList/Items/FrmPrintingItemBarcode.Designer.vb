@@ -22,12 +22,14 @@ Partial Class FrmPrintingItemBarcode
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPrintingItemBarcode))
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'TextBox1
@@ -39,7 +41,7 @@ Partial Class FrmPrintingItemBarcode
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(202, 31)
-        Me.TextBox1.TabIndex = 21
+        Me.TextBox1.TabIndex = 0
         '
         'Label1
         '
@@ -75,6 +77,9 @@ Partial Class FrmPrintingItemBarcode
         'PrintDocument1
         '
         '
+        'Timer1
+        '
+        '
         'FrmPrintingItemBarcode
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -87,6 +92,8 @@ Partial Class FrmPrintingItemBarcode
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmPrintingItemBarcode"
         Me.Text = "Enter Qty"
         Me.TopMost = True
@@ -100,4 +107,5 @@ Partial Class FrmPrintingItemBarcode
     Friend WithEvents Button1 As Button
     Friend WithEvents PrintPreviewDialog1 As PrintPreviewDialog
     Friend WithEvents PrintDocument1 As Printing.PrintDocument
+    Friend WithEvents Timer1 As Timer
 End Class

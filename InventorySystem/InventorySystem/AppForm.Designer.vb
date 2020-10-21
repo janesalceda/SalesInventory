@@ -44,6 +44,7 @@ Partial Class AppForm
         Me.ReceivedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.miMaster = New System.Windows.Forms.ToolStripMenuItem()
         Me.miCategory = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CurrencyUnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeliveryPlacesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.miItems = New System.Windows.Forms.ToolStripMenuItem()
         Me.LocationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,7 +66,6 @@ Partial Class AppForm
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManulaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CurrencyUnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -214,6 +214,12 @@ Partial Class AppForm
         Me.miCategory.Size = New System.Drawing.Size(187, 22)
         Me.miCategory.Text = "Categories"
         '
+        'CurrencyUnitsToolStripMenuItem
+        '
+        Me.CurrencyUnitsToolStripMenuItem.Name = "CurrencyUnitsToolStripMenuItem"
+        Me.CurrencyUnitsToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.CurrencyUnitsToolStripMenuItem.Text = "Currency Units"
+        '
         'DeliveryPlacesToolStripMenuItem
         '
         Me.DeliveryPlacesToolStripMenuItem.Name = "DeliveryPlacesToolStripMenuItem"
@@ -344,12 +350,6 @@ Partial Class AppForm
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(64, 21)
         Me.LogoutToolStripMenuItem.Text = "Logout"
-        '
-        'CurrencyUnitsToolStripMenuItem
-        '
-        Me.CurrencyUnitsToolStripMenuItem.Name = "CurrencyUnitsToolStripMenuItem"
-        Me.CurrencyUnitsToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
-        Me.CurrencyUnitsToolStripMenuItem.Text = "Currency Units"
         '
         'AppForm
         '

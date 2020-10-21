@@ -54,6 +54,6 @@
         dtCountedFrom.Checked = False
         dtCountedTo.Checked = False
         chkApproved.Checked = False
-        dtableStockOut.Rows.Clear()
+        dtableStockOut.DataSource = Nothing
     End Sub
 End Class

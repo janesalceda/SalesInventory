@@ -88,6 +88,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.RecAdd = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.chkcancelPO = New System.Windows.Forms.CheckBox()
         Me.Label19 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtablePoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -421,7 +422,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtETA.Name = "dtETA"
         Me.dtETA.Size = New System.Drawing.Size(226, 26)
         Me.dtETA.TabIndex = 89
-        Me.dtETA.Value = New Date(2020, 10, 14, 21, 28, 4, 0)
+        Me.dtETA.Value = New Date(2020, 10, 21, 12, 15, 39, 0)
         '
         'dtETD
         '
@@ -431,7 +432,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtETD.Name = "dtETD"
         Me.dtETD.Size = New System.Drawing.Size(226, 26)
         Me.dtETD.TabIndex = 88
-        Me.dtETD.Value = New Date(2020, 10, 14, 21, 28, 4, 0)
+        Me.dtETD.Value = New Date(2020, 10, 21, 12, 15, 39, 0)
         '
         'btnItems
         '
@@ -463,7 +464,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.DTFtry.Name = "DTFtry"
         Me.DTFtry.Size = New System.Drawing.Size(226, 26)
         Me.DTFtry.TabIndex = 85
-        Me.DTFtry.Value = New Date(2020, 10, 14, 21, 28, 4, 0)
+        Me.DTFtry.Value = New Date(2020, 10, 21, 12, 15, 39, 0)
         '
         'Label15
         '
@@ -572,6 +573,8 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtablePoDetails.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtablePoDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtablePoDetails.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtablePoDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtablePoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.UnitPrice, Me.TotalPrice, Me.ETD, Me.ETA, Me.FTRY, Me.Cancel, Me.Rec, Me.RecAdd})
         Me.dtablePoDetails.Location = New System.Drawing.Point(349, 14)
@@ -586,49 +589,56 @@ Partial Class FrmPurchaseOrderEntry
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 40
+        Me.Seq.Width = 60
         '
         'ItemId
         '
         Me.ItemId.HeaderText = "Item"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
+        Me.ItemId.Width = 60
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 111
         '
         'ClientQUnit
         '
         Me.ClientQUnit.HeaderText = "ClientQty"
         Me.ClientQUnit.Name = "ClientQUnit"
         Me.ClientQUnit.ReadOnly = True
+        Me.ClientQUnit.Width = 94
         '
         'ClientQty
         '
         Me.ClientQty.HeaderText = "Unit"
         Me.ClientQty.Name = "ClientQty"
         Me.ClientQty.ReadOnly = True
+        Me.ClientQty.Width = 58
         '
         'PO
         '
         Me.PO.HeaderText = "SupplierQty"
         Me.PO.Name = "PO"
         Me.PO.ReadOnly = True
+        Me.PO.Width = 112
         '
         'Unit
         '
         Me.Unit.HeaderText = "Unit"
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
+        Me.Unit.Width = 58
         '
         'UnitPrice
         '
         Me.UnitPrice.HeaderText = "Unit Price"
         Me.UnitPrice.Name = "UnitPrice"
         Me.UnitPrice.ReadOnly = True
+        Me.UnitPrice.Width = 99
         '
         'TotalPrice
         '
@@ -641,18 +651,21 @@ Partial Class FrmPurchaseOrderEntry
         Me.ETD.HeaderText = "ETD"
         Me.ETD.Name = "ETD"
         Me.ETD.ReadOnly = True
+        Me.ETD.Width = 63
         '
         'ETA
         '
         Me.ETA.HeaderText = "ETA"
         Me.ETA.Name = "ETA"
         Me.ETA.ReadOnly = True
+        Me.ETA.Width = 61
         '
         'FTRY
         '
         Me.FTRY.HeaderText = "FTRY"
         Me.FTRY.Name = "FTRY"
         Me.FTRY.ReadOnly = True
+        Me.FTRY.Width = 70
         '
         'Cancel
         '
@@ -661,6 +674,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Cancel.ReadOnly = True
         Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Cancel.Width = 80
         '
         'Rec
         '
@@ -669,6 +683,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Rec.ReadOnly = True
         Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Rec.Width = 59
         '
         'RecAdd
         '
@@ -701,11 +716,24 @@ Partial Class FrmPurchaseOrderEntry
         Me.Label19.TabIndex = 127
         Me.Label19.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(976, 610)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(116, 31)
+        Me.Button1.TabIndex = 128
+        Me.Button1.Text = "PRINT"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
         'FrmPurchaseOrderEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1220, 645)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.chkcancelPO)
         Me.Controls.Add(Me.GroupBox1)
@@ -810,4 +838,5 @@ Partial Class FrmPurchaseOrderEntry
     Friend WithEvents Rec As DataGridViewCheckBoxColumn
     Friend WithEvents RecAdd As DataGridViewTextBoxColumn
     Friend WithEvents btnClear As Button
+    Friend WithEvents Button1 As Button
 End Class

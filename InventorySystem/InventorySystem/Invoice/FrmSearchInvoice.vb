@@ -3,27 +3,38 @@ Public Class FrmSearchInvoice
     Private Sub LoadGrid(where As String)
         ' HINDI PA TAPOS DI KO PA ALAM KUKUNIN
         dtPoDetails.Rows.Clear()
-        'SQL.AddParams("@where", where)
-        SQL.ExecQuery("SELECT distinct i.InvoiceNo,i.SupplierId,SupplierName,InvoiceDate,TotalAmount
+        SQL.ExecQuery("SELECT count(*) as a from (SELECT distinct i.InvoiceNo,i.SupplierId,SupplierName,InvoiceDate,TotalAmount
              FROM InvoiceHeaders i INNER	JOIN suppliers s
             ON i.SupplierId=s.SupplierId INNER join  InvoiceDetails  id  ON
-id.InvoiceNo=i.InvoiceNo	" & where)
-        If SQL.RecordCount = 0 Then
-            MsgBox("No Record Found", MsgBoxStyle.Information, "Information")
-            Exit Sub
+id.InvoiceNo=i.InvoiceNo	" & where & ") a")
+        If SQL.DBDT.Rows.Count = 0 Then
+            If SQL.RecordCount = 0 Then
+                MsgBox("No Record Found", MsgBoxStyle.Information, "Information")
+                Exit Sub
+            End If
+        ElseIf SQL.DBDT.Rows(0).Item(0) > 1000 Then
+            If SQL.RecordCount = 0 Then
+                MsgBox("Your Data exceeded to 1000 please set condition", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+            End If
+        Else
+            SQL.ExecQuery("SELECT distinct i.InvoiceNo,i.SupplierId,SupplierName,InvoiceDate,TotalAmount
+             FROM InvoiceHeaders i INNER	JOIN suppliers s
+            ON i.SupplierId=s.SupplierId INNER join  InvoiceDetails  id  ON
+            id.InvoiceNo=i.InvoiceNo	" & where)
+
+            dtPoDetails.Rows.Clear()
+
+            For index As Integer = 0 To SQL.DBDT.Rows.Count - 1
+                Dim row As ArrayList = New ArrayList
+                row.Add(SQL.DBDT.Rows(index).Item(0))
+                row.Add(SQL.DBDT.Rows(index).Item(1))
+                row.Add(SQL.DBDT.Rows(index).Item(2))
+                row.Add(SQL.DBDT.Rows(index).Item(3))
+                row.Add(SQL.DBDT.Rows(index).Item(4))
+                dtPoDetails.Rows.Add(row.ToArray())
+            Next
         End If
-
-        dtPoDetails.Rows.Clear()
-
-        For index As Integer = 0 To SQL.DBDT.Rows.Count - 1
-            Dim row As ArrayList = New ArrayList
-            row.Add(SQL.DBDT.Rows(index).Item(0))
-            row.Add(SQL.DBDT.Rows(index).Item(1))
-            row.Add(SQL.DBDT.Rows(index).Item(2))
-            row.Add(SQL.DBDT.Rows(index).Item(3))
-            row.Add(SQL.DBDT.Rows(index).Item(4))
-            dtPoDetails.Rows.Add(row.ToArray())
-        Next
 
     End Sub
     Private Sub FrmSearchInvoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -71,7 +82,9 @@ id.InvoiceNo=i.InvoiceNo	" & where)
         txtPO.Clear()
         txtinvoice.Clear()
         dtInvoiceFrom.Checked = False
+        dtInvoiceFrom.Value = Today
         dtInvoiceTo.Checked = False
+        dtInvoiceTo.Value = Today
         dtPoDetails.Rows.Clear()
     End Sub
 

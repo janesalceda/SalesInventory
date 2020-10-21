@@ -131,6 +131,13 @@
         End With
     End Sub
 
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtitem.Clear()
+        dtFrom.Value = Today
+        dtTo.Value = Today
+        dgvData.Rows.Clear()
+    End Sub
+
     'Private Sub dgvData_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvData.CellFormatting
     '    dgvData.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
     'End Sub

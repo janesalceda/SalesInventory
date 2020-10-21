@@ -42,8 +42,7 @@
     End Sub
 
     Private Sub EntryToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles EntryToolStripMenuItem1.Click
-        New FrmInvoiceEntry
-        newform.Show()
+        FrmInvoiceEntry.Show()
     End Sub
 
     Private Sub miCategory_Click(sender As Object, e As EventArgs) Handles miCategory.Click
@@ -55,8 +54,7 @@
     End Sub
 
     Private Sub TermsofDelivery_Click(sender As Object, e As EventArgs) Handles TermsofDelivery.Click
-        New FrmTermsOfDaliverySearch
-        newform.Show()
+        FrmTermsOfDaliverySearch.Show()
     End Sub
 
     Private Sub TermsofPaymentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TermsofPaymentToolStripMenuItem.Click
@@ -83,6 +81,8 @@
         With FrmStockoutSearch
             .btnAdd.Visible = False
             .chkApproved.Checked = False
+            .chkApproved.Visible = False
+            .Text = "Search Request for approval in Stock Out"
             .search()
             .Show()
         End With
@@ -92,6 +92,8 @@
         With FrmStockTakingSearch
             .btnAdd.Visible = False
             .chkApproved.Checked = False
+            .chkApproved.Visible = False
+            .Text = "Search Request for approval in Stock Taking"
             .Search()
             .Show()
         End With
@@ -107,5 +109,9 @@
 
     Private Sub CurrencyUnitsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CurrencyUnitsToolStripMenuItem.Click
         FrmCurrencyUnitSearch.Show()
+    End Sub
+
+    Private Sub checkInventory_Click(sender As Object, e As EventArgs) Handles checkInventory.Click
+        FrmItemStockSearch.Show()
     End Sub
 End Class

@@ -39,13 +39,14 @@ Partial Class FrmDeliveryPlacesSearch
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDelPlace = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(502, 40)
+        Me.chkDisuse.Location = New System.Drawing.Point(414, 4)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 85
@@ -63,7 +64,7 @@ Partial Class FrmDeliveryPlacesSearch
         'btnSearch
         '
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(628, 36)
+        Me.btnSearch.Location = New System.Drawing.Point(506, 8)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(116, 30)
         Me.btnSearch.TabIndex = 83
@@ -109,12 +110,12 @@ Partial Class FrmDeliveryPlacesSearch
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
-        Me.dtItems.Location = New System.Drawing.Point(8, 96)
+        Me.dtItems.Location = New System.Drawing.Point(8, 104)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(749, 410)
+        Me.dtItems.Size = New System.Drawing.Size(749, 402)
         Me.dtItems.TabIndex = 79
         '
         'ItemId
@@ -185,19 +186,29 @@ Partial Class FrmDeliveryPlacesSearch
         'txtDelPlace
         '
         Me.txtDelPlace.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDelPlace.Location = New System.Drawing.Point(460, 6)
+        Me.txtDelPlace.Location = New System.Drawing.Point(144, 68)
         Me.txtDelPlace.Name = "txtDelPlace"
-        Me.txtDelPlace.Size = New System.Drawing.Size(284, 26)
+        Me.txtDelPlace.Size = New System.Drawing.Size(354, 26)
         Me.txtDelPlace.TabIndex = 88
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(352, 10)
+        Me.Label3.Location = New System.Drawing.Point(8, 70)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(108, 18)
         Me.Label3.TabIndex = 89
         Me.Label3.Text = "DeliveryPlace:"
+        '
+        'btnClear
+        '
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(506, 40)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(116, 30)
+        Me.btnClear.TabIndex = 90
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'FrmDeliveryPlacesSearch
         '
@@ -205,6 +216,7 @@ Partial Class FrmDeliveryPlacesSearch
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(761, 550)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtDelPlace)
         Me.Controls.Add(Me.chkDisuse)
@@ -243,4 +255,5 @@ Partial Class FrmDeliveryPlacesSearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
+    Friend WithEvents btnClear As Button
 End Class

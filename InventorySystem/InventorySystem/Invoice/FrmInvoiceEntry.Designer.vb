@@ -537,6 +537,8 @@ Partial Class FrmInvoiceEntry
         Me.dtableDelivery.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtableDelivery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtableDelivery.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DeliveryId, Me.DeliveryDate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.RecAdd})
         Me.dtableDelivery.Location = New System.Drawing.Point(346, 8)
@@ -551,31 +553,35 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewTextBoxColumn1.HeaderText = "InvoiceSeq"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 40
+        Me.DataGridViewTextBoxColumn1.Width = 108
         '
         'DeliveryId
         '
         Me.DeliveryId.HeaderText = "DeliveryId"
         Me.DeliveryId.Name = "DeliveryId"
         Me.DeliveryId.ReadOnly = True
+        Me.DeliveryId.Width = 99
         '
         'DeliveryDate
         '
         Me.DeliveryDate.HeaderText = "DeliveryDate"
         Me.DeliveryDate.Name = "DeliveryDate"
         Me.DeliveryDate.ReadOnly = True
+        Me.DeliveryDate.Width = 121
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "Item"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Width = 60
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Description"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 111
         '
         'DataGridViewCheckBoxColumn1
         '
@@ -583,42 +589,49 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.ReadOnly = True
         Me.DataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewCheckBoxColumn1.Width = 124
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "PONo"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 74
         '
         'POSeq
         '
         Me.POSeq.HeaderText = "POSeq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
+        Me.POSeq.Width = 83
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.HeaderText = "Qty Received"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
+        Me.DataGridViewTextBoxColumn5.Width = 124
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Qty Ok"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 78
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.HeaderText = "Qty Balance"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 115
         '
         'RecAdd
         '
         Me.RecAdd.HeaderText = "RecAdd"
         Me.RecAdd.Name = "RecAdd"
         Me.RecAdd.ReadOnly = True
+        Me.RecAdd.Width = 88
         '
         'label17
         '
@@ -969,6 +982,7 @@ Partial Class FrmInvoiceEntry
         'chkReceived
         '
         Me.chkReceived.AutoSize = True
+        Me.chkReceived.Enabled = False
         Me.chkReceived.Location = New System.Drawing.Point(234, 267)
         Me.chkReceived.Name = "chkReceived"
         Me.chkReceived.Size = New System.Drawing.Size(93, 22)
@@ -979,11 +993,12 @@ Partial Class FrmInvoiceEntry
         'chkCancel
         '
         Me.chkCancel.AutoSize = True
-        Me.chkCancel.Location = New System.Drawing.Point(117, 267)
+        Me.chkCancel.Enabled = False
+        Me.chkCancel.Location = New System.Drawing.Point(104, 268)
         Me.chkCancel.Name = "chkCancel"
-        Me.chkCancel.Size = New System.Drawing.Size(76, 22)
+        Me.chkCancel.Size = New System.Drawing.Size(47, 22)
         Me.chkCancel.TabIndex = 161
-        Me.chkCancel.Text = "Cancel"
+        Me.chkCancel.Text = "Ok"
         Me.chkCancel.UseVisualStyleBackColor = True
         '
         'Label16

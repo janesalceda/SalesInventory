@@ -49,4 +49,10 @@
     Private Sub dtSupplier_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtSupplier.CellDoubleClick
         save()
     End Sub
+
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        txtSupplier.Clear()
+        txtSupplierName.Clear()
+        dtSupplier.DataSource = Nothing
+    End Sub
 End Class

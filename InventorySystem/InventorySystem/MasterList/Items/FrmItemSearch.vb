@@ -3,6 +3,7 @@
         cmbCategory.DataSource = getCategories()
         cmbCategory.DisplayMember = "CategoryName"
         cmbCategory.ValueMember = "CategoryID"
+        cmbCategory.SelectedIndex = -1
     End Sub
     Public Sub LoadDataGrid(Optional Query As String = "")
         SQL.ExecQuery("SELECT ItemId,Description,CreatedDate ,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM items i " & Query)
@@ -73,5 +74,11 @@
                 Exit Sub
             End If
         End If
+    End Sub
+
+    Private Sub btnclear_Click(sender As Object, e As EventArgs) Handles btnclear.Click
+        txtDes.Clear()
+        txtItemID.Clear()
+        dtItems.Rows.Clear()
     End Sub
 End Class

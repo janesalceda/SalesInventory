@@ -4,6 +4,7 @@
     Public rights As Integer = 0
     Public formname As String
     Public price As Integer
+    Public QtyPrint As Integer = 0
     Public coefficient As Decimal
     Public SupplierId As String
     Public SQL As New SQLControl

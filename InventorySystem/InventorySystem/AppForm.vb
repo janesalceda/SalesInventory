@@ -114,4 +114,20 @@
     Private Sub checkInventory_Click(sender As Object, e As EventArgs) Handles checkInventory.Click
         FrmItemStockSearch.Show()
     End Sub
+
+    Private Sub SalesToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles SalesToolStripMenuItem2.Click
+        DailyTransaction.Show()
+    End Sub
+
+    Private Sub StockMonitoringToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles StockMonitoringToolStripMenuItem.Click
+        ItemStockReport.Show()
+    End Sub
+
+    Private Sub StockOutToolStripMenuItem2_Click(sender As Object, e As EventArgs) Handles StockOutToolStripMenuItem2.Click
+        FrmStockOutReport.Show()
+    End Sub
+
+    Private Sub StocksToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles StocksToolStripMenuItem1.Click
+        FrmInventoryStockReport.Show()
+    End Sub
 End Class

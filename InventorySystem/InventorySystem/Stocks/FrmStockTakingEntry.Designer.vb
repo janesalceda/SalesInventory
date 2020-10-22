@@ -30,6 +30,7 @@ Partial Class FrmStockTakingEntry
         Me.txtEncodedStaff = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.btnItems = New System.Windows.Forms.Button()
         Me.btnAddItem = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -126,6 +127,7 @@ Partial Class FrmStockTakingEntry
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.btnItems)
         Me.GroupBox1.Controls.Add(Me.btnAddItem)
         Me.GroupBox1.Controls.Add(Me.Label12)
@@ -143,6 +145,17 @@ Partial Class FrmStockTakingEntry
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stock Taking Details"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(104, 266)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(116, 30)
+        Me.Button1.TabIndex = 74
+        Me.Button1.Text = "SCAN"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'btnItems
         '
         Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
@@ -158,7 +171,7 @@ Partial Class FrmStockTakingEntry
         '
         Me.btnAddItem.BackColor = System.Drawing.Color.White
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItem.Location = New System.Drawing.Point(222, 241)
+        Me.btnAddItem.Location = New System.Drawing.Point(224, 266)
         Me.btnAddItem.Name = "btnAddItem"
         Me.btnAddItem.Size = New System.Drawing.Size(116, 30)
         Me.btnAddItem.TabIndex = 6
@@ -374,4 +387,5 @@ Partial Class FrmStockTakingEntry
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents chkApprove As CheckBox
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button1 As Button
 End Class

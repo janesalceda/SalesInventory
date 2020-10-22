@@ -8,6 +8,8 @@ Public Class FrmPrintingItemBarcode
     Private num1 As Integer
     Private count As Integer = 0
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If String.IsNullOrWhiteSpace(TextBox1.Text) Then Exit Sub
+        QtyPrint = Val(TextBox1.Text)
         If formname = "Bar" Then
             Dim writer As New BarcodeWriter
             writer.Format = BarcodeFormat.CODE_128
@@ -22,7 +24,8 @@ Public Class FrmPrintingItemBarcode
         End If
         num1 = 0
         PrintPreviewDialog1.Show()
-        Timer1.Start()
+        Me.Close()
+        'Timer1.Start()
     End Sub
     Public Function AppendBorder(ByVal original As Image, ByVal borderWidth As Integer) As Image
         Dim borderColor As Color = Color.Black
@@ -46,7 +49,7 @@ Public Class FrmPrintingItemBarcode
         Dim ly As Integer = 0
         Dim num As Integer = 0
         Dim remaining As Integer
-        remaining = Val(TextBox1.Text)
+        remaining = QtyPrint
         If formname = "QR" Then
             x = 10
             lx = 0
@@ -86,6 +89,7 @@ Public Class FrmPrintingItemBarcode
                     e.Graphics.DrawImage(AppendBorder(pic.Image, 2), x + 20, y, w, h)
                     e.Graphics.DrawString(FrmItemEntry.txtItemId.Text, New Font("Arial black", 16), Brushes.Black, x + 150, y + 20)
                     e.Graphics.DrawImage(AppendBorder(pic.Image, 2), x + w + 190, y + h - 50, w, h)
+                    e.Graphics.DrawString(FrmItemEntry.txtDes.Text, New Font("Arial black", 8), Brushes.Black, x + 20, y + h)
                 Else
                     e.Graphics.DrawImage(AppendBorder(pic.Image, 2), x, y, w, h)
                 End If
@@ -111,6 +115,7 @@ Public Class FrmPrintingItemBarcode
         'Next
     End Sub
 
+
     Private Sub FrmPrintingItemBarcode_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
     End Sub
@@ -120,5 +125,9 @@ Public Class FrmPrintingItemBarcode
         If count = 10 Then
             Me.Close()
         End If
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
     End Sub
 End Class

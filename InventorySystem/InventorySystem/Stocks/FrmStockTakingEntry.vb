@@ -178,4 +178,8 @@
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack) Then e.Handled = True
     End Sub
 
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        formname = "StockTaking"
+        ScanItem.Show()
+    End Sub
 End Class

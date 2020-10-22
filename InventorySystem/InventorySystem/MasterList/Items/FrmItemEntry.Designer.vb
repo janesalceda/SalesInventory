@@ -40,10 +40,10 @@ Partial Class FrmItemEntry
         Me.cmbLocation = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grpItemDetails = New System.Windows.Forms.GroupBox()
+        Me.picprint = New System.Windows.Forms.PictureBox()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.picprint = New System.Windows.Forms.PictureBox()
         Me.picQR = New System.Windows.Forms.PictureBox()
         Me.picBar = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -69,8 +69,8 @@ Partial Class FrmItemEntry
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
         Me.grpItemDetails.SuspendLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picprint, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picBar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dtItemPrices, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -280,6 +280,18 @@ Partial Class FrmItemEntry
         Me.grpItemDetails.TabStop = False
         Me.grpItemDetails.Text = "Item Details"
         '
+        'picprint
+        '
+        Me.picprint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.picprint.Image = Global.InventorySystem.My.Resources.Resources.Print
+        Me.picprint.Location = New System.Drawing.Point(640, 262)
+        Me.picprint.Name = "picprint"
+        Me.picprint.Size = New System.Drawing.Size(26, 24)
+        Me.picprint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.picprint.TabIndex = 2
+        Me.picprint.TabStop = False
+        Me.picprint.Visible = False
+        '
         'cmbCategory
         '
         Me.cmbCategory.BackColor = System.Drawing.Color.LightBlue
@@ -315,18 +327,6 @@ Partial Class FrmItemEntry
         Me.Label6.Text = "*Category:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'picprint
-        '
-        Me.picprint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picprint.Image = Global.InventorySystem.My.Resources.Resources.Print
-        Me.picprint.Location = New System.Drawing.Point(640, 262)
-        Me.picprint.Name = "picprint"
-        Me.picprint.Size = New System.Drawing.Size(26, 24)
-        Me.picprint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.picprint.TabIndex = 2
-        Me.picprint.TabStop = False
-        Me.picprint.Visible = False
-        '
         'picQR
         '
         Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -349,6 +349,7 @@ Partial Class FrmItemEntry
         Me.picBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picBar.TabIndex = 1
         Me.picBar.TabStop = False
+        Me.picBar.Visible = False
         '
         'Label4
         '
@@ -619,8 +620,8 @@ Partial Class FrmItemEntry
         Me.TopMost = True
         Me.grpItemDetails.ResumeLayout(False)
         Me.grpItemDetails.PerformLayout()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picprint, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picQR, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.picBar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dtItemPrices, System.ComponentModel.ISupportInitialize).EndInit()

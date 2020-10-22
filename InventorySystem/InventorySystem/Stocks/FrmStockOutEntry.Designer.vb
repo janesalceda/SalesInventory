@@ -51,6 +51,7 @@ Partial Class FrmStockOutEntry
         Me.txtEncodedStaff = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -121,7 +122,7 @@ Partial Class FrmStockOutEntry
         '
         Me.btnAddItem.BackColor = System.Drawing.Color.White
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItem.Location = New System.Drawing.Point(223, 205)
+        Me.btnAddItem.Location = New System.Drawing.Point(228, 288)
         Me.btnAddItem.Name = "btnAddItem"
         Me.btnAddItem.Size = New System.Drawing.Size(116, 30)
         Me.btnAddItem.TabIndex = 7
@@ -238,6 +239,7 @@ Partial Class FrmStockOutEntry
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.btnItems)
         Me.GroupBox1.Controls.Add(Me.btnAddItem)
         Me.GroupBox1.Controls.Add(Me.Label12)
@@ -336,6 +338,17 @@ Partial Class FrmStockOutEntry
         Me.Label5.TabIndex = 125
         Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(8, 288)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(116, 30)
+        Me.Button1.TabIndex = 126
+        Me.Button1.Text = "SCAN"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'FrmStockOutEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -398,4 +411,5 @@ Partial Class FrmStockOutEntry
     Friend WithEvents txtEncodedStaff As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents Button1 As Button
 End Class

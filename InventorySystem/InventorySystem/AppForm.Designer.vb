@@ -55,6 +55,8 @@ Partial Class AppForm
         Me.SalesToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.StocksToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockMonitoringToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StockOutToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.UserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.miUtilities = New System.Windows.Forms.ToolStripMenuItem()
         Me.ItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -264,7 +266,7 @@ Partial Class AppForm
         '
         'SalesToolStripMenuItem1
         '
-        Me.SalesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesToolStripMenuItem2, Me.StocksToolStripMenuItem1})
+        Me.SalesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesToolStripMenuItem2, Me.StocksToolStripMenuItem1, Me.StockMonitoringToolStripMenuItem, Me.StockOutToolStripMenuItem2})
         Me.SalesToolStripMenuItem1.Name = "SalesToolStripMenuItem1"
         Me.SalesToolStripMenuItem1.Size = New System.Drawing.Size(187, 22)
         Me.SalesToolStripMenuItem1.Text = "Reports"
@@ -272,14 +274,26 @@ Partial Class AppForm
         'SalesToolStripMenuItem2
         '
         Me.SalesToolStripMenuItem2.Name = "SalesToolStripMenuItem2"
-        Me.SalesToolStripMenuItem2.Size = New System.Drawing.Size(121, 22)
-        Me.SalesToolStripMenuItem2.Text = "sales"
+        Me.SalesToolStripMenuItem2.Size = New System.Drawing.Size(211, 22)
+        Me.SalesToolStripMenuItem2.Text = "Daily Transaction"
         '
         'StocksToolStripMenuItem1
         '
         Me.StocksToolStripMenuItem1.Name = "StocksToolStripMenuItem1"
-        Me.StocksToolStripMenuItem1.Size = New System.Drawing.Size(121, 22)
-        Me.StocksToolStripMenuItem1.Text = "Stocks"
+        Me.StocksToolStripMenuItem1.Size = New System.Drawing.Size(211, 22)
+        Me.StocksToolStripMenuItem1.Text = "Inventory Record"
+        '
+        'StockMonitoringToolStripMenuItem
+        '
+        Me.StockMonitoringToolStripMenuItem.Name = "StockMonitoringToolStripMenuItem"
+        Me.StockMonitoringToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
+        Me.StockMonitoringToolStripMenuItem.Text = "Stock Monitoring"
+        '
+        'StockOutToolStripMenuItem2
+        '
+        Me.StockOutToolStripMenuItem2.Name = "StockOutToolStripMenuItem2"
+        Me.StockOutToolStripMenuItem2.Size = New System.Drawing.Size(211, 22)
+        Me.StockOutToolStripMenuItem2.Text = "Stock Out Monitoring"
         '
         'UserToolStripMenuItem
         '
@@ -415,4 +429,6 @@ Partial Class AppForm
     Friend WithEvents StockOutToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents StockTakingToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents CurrencyUnitsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StockMonitoringToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StockOutToolStripMenuItem2 As ToolStripMenuItem
 End Class

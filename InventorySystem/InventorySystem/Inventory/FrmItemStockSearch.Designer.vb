@@ -33,6 +33,7 @@ Partial Class FrmItemStockSearch
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnClear = New System.Windows.Forms.Button()
+        Me.btnPrint = New System.Windows.Forms.Button()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -63,6 +64,8 @@ Partial Class FrmItemStockSearch
         Me.dgvData.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dgvData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY})
         Me.dgvData.Location = New System.Drawing.Point(10, 112)
@@ -76,18 +79,21 @@ Partial Class FrmItemStockSearch
         Me.TransactionDate.HeaderText = "Item Id"
         Me.TransactionDate.Name = "TransactionDate"
         Me.TransactionDate.ReadOnly = True
+        Me.TransactionDate.Width = 76
         '
         'TRANSID
         '
         Me.TRANSID.HeaderText = "Description"
         Me.TRANSID.Name = "TRANSID"
         Me.TRANSID.ReadOnly = True
+        Me.TRANSID.Width = 111
         '
         'INQTY
         '
         Me.INQTY.HeaderText = "QTY"
         Me.INQTY.Name = "INQTY"
         Me.INQTY.ReadOnly = True
+        Me.INQTY.Width = 61
         '
         'Label1
         '
@@ -118,6 +124,7 @@ Partial Class FrmItemStockSearch
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnPrint)
         Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtitem)
@@ -138,6 +145,15 @@ Partial Class FrmItemStockSearch
         Me.btnClear.TabIndex = 13
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = True
+        '
+        'btnPrint
+        '
+        Me.btnPrint.Location = New System.Drawing.Point(476, 26)
+        Me.btnPrint.Name = "btnPrint"
+        Me.btnPrint.Size = New System.Drawing.Size(132, 30)
+        Me.btnPrint.TabIndex = 14
+        Me.btnPrint.Text = "PRINT"
+        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'FrmItemStockSearch
         '
@@ -170,4 +186,5 @@ Partial Class FrmItemStockSearch
     Friend WithEvents TRANSID As DataGridViewTextBoxColumn
     Friend WithEvents INQTY As DataGridViewTextBoxColumn
     Friend WithEvents btnClear As Button
+    Friend WithEvents btnPrint As Button
 End Class

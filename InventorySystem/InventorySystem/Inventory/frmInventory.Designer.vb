@@ -31,6 +31,7 @@ Partial Class frmInventory
         Me.OUTQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ACQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BALANCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.dtTo = New System.Windows.Forms.DateTimePicker()
@@ -69,11 +70,11 @@ Partial Class frmInventory
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE})
+        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE, Me.Remarks})
         Me.dgvData.Location = New System.Drawing.Point(14, 117)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(643, 430)
+        Me.dgvData.Size = New System.Drawing.Size(745, 430)
         Me.dgvData.TabIndex = 2
         '
         'TransactionDate
@@ -111,6 +112,12 @@ Partial Class frmInventory
         Me.BALANCE.HeaderText = "BALANCE"
         Me.BALANCE.Name = "BALANCE"
         Me.BALANCE.ReadOnly = True
+        '
+        'Remarks
+        '
+        Me.Remarks.HeaderText = "Remarks"
+        Me.Remarks.Name = "Remarks"
+        Me.Remarks.ReadOnly = True
         '
         'Label1
         '
@@ -167,7 +174,7 @@ Partial Class frmInventory
         Me.GroupBox1.Controls.Add(Me.dtFrom)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 11)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(649, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(751, 100)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Details"
@@ -187,7 +194,7 @@ Partial Class frmInventory
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(670, 558)
+        Me.ClientSize = New System.Drawing.Size(772, 558)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvData)
         Me.Controls.Add(Me.GroupBox1)
@@ -212,11 +219,12 @@ Partial Class frmInventory
     Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents btnClear As Button
     Friend WithEvents TransactionDate As DataGridViewTextBoxColumn
     Friend WithEvents TRANSID As DataGridViewTextBoxColumn
     Friend WithEvents INQTY As DataGridViewTextBoxColumn
     Friend WithEvents OUTQTY As DataGridViewTextBoxColumn
     Friend WithEvents ACQTY As DataGridViewTextBoxColumn
     Friend WithEvents BALANCE As DataGridViewTextBoxColumn
-    Friend WithEvents btnClear As Button
+    Friend WithEvents Remarks As DataGridViewTextBoxColumn
 End Class

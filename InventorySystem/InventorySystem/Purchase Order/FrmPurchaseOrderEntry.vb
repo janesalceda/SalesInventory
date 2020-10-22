@@ -528,9 +528,9 @@ Public Class FrmPurchaseOrderEntry
     End Sub
     Private Sub loadReport()
         Dim rptDs As ReportDataSource
-        SaleReports.ReportViewer1.RefreshReport()
+        PrintPreview.ReportViewer1.RefreshReport()
         Try
-            With SaleReports.ReportViewer1.LocalReport
+            With PrintPreview.ReportViewer1.LocalReport
                 .ReportPath = "C:\temp\SalesandInventory\Report1.rdlc"
                 .DataSources.Clear()
                 '.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("PODataset", dt))
@@ -551,11 +551,11 @@ Public Class FrmPurchaseOrderEntry
                 INNER JOIN Suppliers s ON s.SupplierId=poh.SupplierID		
                 where poh.PONo=@PONo")
                 rptDs = New ReportDataSource("PODataSet", SQL.DBDT)
-                SaleReports.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                SaleReports.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-                SaleReports.ReportViewer1.ZoomMode = ZoomMode.Percent
-                SaleReports.ReportViewer1.ZoomPercent = 100
-                SaleReports.Show()
+                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+                PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+                PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
+                PrintPreview.ReportViewer1.ZoomPercent = 100
+                PrintPreview.Show()
             End With
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")

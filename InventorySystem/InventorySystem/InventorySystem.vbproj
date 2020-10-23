@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>Inventory System</ProductName>
     <PublisherName>Marry Jane Salceda</PublisherName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -195,6 +195,18 @@
       <DependentUpon>ForApproval.vb</DependentUpon>
     </Compile>
     <Compile Include="ForApproval.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCompanyInfo.Designer.vb">
+      <DependentUpon>FrmCompanyInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCompanyInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConfigurationSettings.Designer.vb">
+      <DependentUpon>FrmConfigurationSettings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfigurationSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RejectAndReturn\FrmRejectReturnEntry.Designer.vb">
@@ -523,6 +535,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ForApproval.resx">
       <DependentUpon>ForApproval.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCompanyInfo.resx">
+      <DependentUpon>FrmCompanyInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfigurationSettings.resx">
+      <DependentUpon>FrmConfigurationSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RejectAndReturn\FrmRejectReturnEntry.resx">
       <DependentUpon>FrmRejectReturnEntry.vb</DependentUpon>

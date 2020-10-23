@@ -43,6 +43,7 @@ Partial Class FrmStockOutEntry
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.txtStockOutID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.chkApprove = New System.Windows.Forms.CheckBox()
@@ -51,7 +52,6 @@ Partial Class FrmStockOutEntry
         Me.txtEncodedStaff = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -61,7 +61,6 @@ Partial Class FrmStockOutEntry
         Me.dtSOutDate.Checked = False
         Me.dtSOutDate.Location = New System.Drawing.Point(133, 49)
         Me.dtSOutDate.Name = "dtSOutDate"
-        Me.dtSOutDate.ShowCheckBox = True
         Me.dtSOutDate.Size = New System.Drawing.Size(173, 26)
         Me.dtSOutDate.TabIndex = 0
         '
@@ -257,6 +256,17 @@ Partial Class FrmStockOutEntry
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stock Out Details"
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.White
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(8, 288)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(116, 30)
+        Me.Button1.TabIndex = 126
+        Me.Button1.Text = "SCAN"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'txtStockOutID
         '
         Me.txtStockOutID.Enabled = False
@@ -337,17 +347,6 @@ Partial Class FrmStockOutEntry
         Me.Label5.Size = New System.Drawing.Size(217, 19)
         Me.Label5.TabIndex = 125
         Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(8, 288)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(116, 30)
-        Me.Button1.TabIndex = 126
-        Me.Button1.Text = "SCAN"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'FrmStockOutEntry
         '

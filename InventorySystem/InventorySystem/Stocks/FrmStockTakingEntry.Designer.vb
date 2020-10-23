@@ -303,7 +303,6 @@ Partial Class FrmStockTakingEntry
         Me.dtCountedDate.Checked = False
         Me.dtCountedDate.Location = New System.Drawing.Point(137, 45)
         Me.dtCountedDate.Name = "dtCountedDate"
-        Me.dtCountedDate.ShowCheckBox = True
         Me.dtCountedDate.Size = New System.Drawing.Size(226, 26)
         Me.dtCountedDate.TabIndex = 0
         '

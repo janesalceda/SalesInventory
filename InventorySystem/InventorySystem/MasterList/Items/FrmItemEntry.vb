@@ -207,16 +207,25 @@ Public Class FrmItemEntry
     End Sub
 
     Private Sub picQR_Click(sender As Object, e As EventArgs) Handles picQR.Click
-        FrmPrintingItemBarcode.formname = "QR"
-        FrmPrintingItemBarcode.Show()
+        printQR()
     End Sub
 
     Private Sub picBar_Click(sender As Object, e As EventArgs) Handles picBar.Click
+        printbar()
+    End Sub
+    Private Sub printQR()
+        FrmPrintingItemBarcode.formname = "QR"
+        FrmPrintingItemBarcode.Show()
+    End Sub
+    Private Sub printbar()
         FrmPrintingItemBarcode.formname = "Bar"
         FrmPrintingItemBarcode.Show()
     End Sub
+    Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
+        printQR()
+    End Sub
 
-    Private Sub PrintDocument1_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PrintDocument1.PrintPage
-
+    Private Sub picprint_Click(sender As Object, e As EventArgs) Handles picprint.Click
+        printbar()
     End Sub
 End Class

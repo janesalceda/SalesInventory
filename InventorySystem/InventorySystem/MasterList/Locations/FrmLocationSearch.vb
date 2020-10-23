@@ -33,8 +33,8 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        FrmQtyUnitEntry.Text = "Qty Unit Entry"
-        FrmQtyUnitEntry.Show()
+        FrmLocationEntry.Text = "Location Entry"
+        FrmLocationEntry.Show()
     End Sub
 
     Private Sub dtItems_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellClick
@@ -55,7 +55,7 @@
                 Exit Sub
             End If
         Else
-            With FrmQtyUnitEntry
+            With FrmLocationEntry
                 .Text = "Location  Details"
                 .btnInsert.Text = "UPDATE"
                 .txtQtyunit.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString

@@ -52,7 +52,7 @@ Partial Class FrmRejectReturnSearch
         '
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(569, 6)
+        Me.btnClear.Location = New System.Drawing.Point(528, 6)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(111, 28)
         Me.btnClear.TabIndex = 139
@@ -62,7 +62,7 @@ Partial Class FrmRejectReturnSearch
         'chkApproved
         '
         Me.chkApproved.AutoSize = True
-        Me.chkApproved.Location = New System.Drawing.Point(343, 9)
+        Me.chkApproved.Location = New System.Drawing.Point(310, 9)
         Me.chkApproved.Name = "chkApproved"
         Me.chkApproved.Size = New System.Drawing.Size(95, 22)
         Me.chkApproved.TabIndex = 138
@@ -74,14 +74,14 @@ Partial Class FrmRejectReturnSearch
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(8, 41)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(109, 18)
+        Me.Label1.Size = New System.Drawing.Size(95, 18)
         Me.Label1.TabIndex = 137
-        Me.Label1.Text = "Counted Date:"
+        Me.Label1.Text = "Return Date:"
         '
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
-        Me.dtCountedTo.Location = New System.Drawing.Point(364, 39)
+        Me.dtCountedTo.Location = New System.Drawing.Point(331, 39)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
         Me.dtCountedTo.Size = New System.Drawing.Size(198, 26)
@@ -90,7 +90,7 @@ Partial Class FrmRejectReturnSearch
         'dtCountedFrom
         '
         Me.dtCountedFrom.Checked = False
-        Me.dtCountedFrom.Location = New System.Drawing.Point(140, 38)
+        Me.dtCountedFrom.Location = New System.Drawing.Point(107, 38)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
         Me.dtCountedFrom.Size = New System.Drawing.Size(218, 26)
@@ -100,7 +100,7 @@ Partial Class FrmRejectReturnSearch
         '
         Me.btnSearch.BackColor = System.Drawing.Color.White
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(451, 5)
+        Me.btnSearch.Location = New System.Drawing.Point(410, 5)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(111, 28)
         Me.btnSearch.TabIndex = 134
@@ -111,17 +111,17 @@ Partial Class FrmRejectReturnSearch
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(828, 474)
+        Me.btnAdd.Location = New System.Drawing.Point(850, 476)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(160, 30)
         Me.btnAdd.TabIndex = 133
-        Me.btnAdd.Text = "Add Stock Taking"
+        Me.btnAdd.Text = "Add Return"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'txtSTID
         '
         Me.txtSTID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtSTID.Location = New System.Drawing.Point(140, 7)
+        Me.txtSTID.Location = New System.Drawing.Point(107, 7)
         Me.txtSTID.Name = "txtSTID"
         Me.txtSTID.Size = New System.Drawing.Size(198, 26)
         Me.txtSTID.TabIndex = 132
@@ -131,9 +131,9 @@ Partial Class FrmRejectReturnSearch
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(10, 10)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(120, 18)
+        Me.Label7.Size = New System.Drawing.Size(76, 18)
         Me.Label7.TabIndex = 131
-        Me.Label7.Text = "Stock Taking ID:"
+        Me.Label7.Text = "Return ID:"
         '
         'dtableStockTaking
         '
@@ -172,9 +172,9 @@ Partial Class FrmRejectReturnSearch
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dtableStockTaking)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmRejectReturnSearch"
-        Me.Text = "FrmRejectReturn"
+        Me.Text = "Return Search"
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

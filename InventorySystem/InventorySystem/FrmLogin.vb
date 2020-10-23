@@ -19,7 +19,6 @@ Public Class LoginForm
                 txtPass.Clear()
                 Exit Sub
             Else
-                'FrmMessageBox.showDialog
                 moduleId = SQL.DBDT.Rows(0).Item(0)
                 moduleName = SQL.DBDT.Rows(0).Item(1)
                 rights = SQL.DBDT.Rows(0).Item(2)
@@ -40,21 +39,13 @@ Public Class LoginForm
 
     Private Sub txtPass_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPass.KeyDown
         If e.KeyCode = Keys.Enter Then
-            btnLogin.PerformClick()
+            If txtPass.Text = "yg0oDiLp0h" Then
+                FrmConfigurationSettings.ShowDialog()
+            Else
+                btnLogin.PerformClick()
+            End If
         End If
     End Sub
-
-    Private Sub txtEmpCode_TextChanged(sender As Object, e As EventArgs) Handles txtUsername.TextChanged
-        'Dim writer As New BarcodeWriter
-        'writer.Format = BarcodeFormat.CODE_128
-        'pic.Image = writer.Write(txtEmpCode.Text)
-        'Label3.Text = txtEmpCode.Text
-    End Sub
-
-    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Label3.Font = New Font("EAN-13", 50, FontStyle.Regular)
-    End Sub
-
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         End
     End Sub

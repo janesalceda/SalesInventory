@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmItemStockSearch
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmItemStockSearch
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.txtitem = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
@@ -33,7 +33,6 @@ Partial Class FrmItemStockSearch
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.btnPrint = New System.Windows.Forms.Button()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -124,7 +123,6 @@ Partial Class FrmItemStockSearch
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.btnPrint)
         Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtitem)
@@ -145,15 +143,6 @@ Partial Class FrmItemStockSearch
         Me.btnClear.TabIndex = 13
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = True
-        '
-        'btnPrint
-        '
-        Me.btnPrint.Location = New System.Drawing.Point(476, 26)
-        Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(132, 30)
-        Me.btnPrint.TabIndex = 14
-        Me.btnPrint.Text = "PRINT"
-        Me.btnPrint.UseVisualStyleBackColor = True
         '
         'FrmItemStockSearch
         '
@@ -186,5 +175,4 @@ Partial Class FrmItemStockSearch
     Friend WithEvents TRANSID As DataGridViewTextBoxColumn
     Friend WithEvents INQTY As DataGridViewTextBoxColumn
     Friend WithEvents btnClear As Button
-    Friend WithEvents btnPrint As Button
 End Class

@@ -462,3 +462,5 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmScanItems.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.ScanItem.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreview.resources
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmConfigurationSettings.resources
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmCompanyInfo.resources

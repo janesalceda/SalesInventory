@@ -1,8 +1,9 @@
 ﻿Imports System.Data.SqlClient
 Public Class SQLControl
-    'Private DBcon As New SqlConnection("Server=LEMONADE\SQLEXPRESS;Database=SalesAndInventory;Trusted_Connection=True")
+    Private connStr As String
+    Private DBcon As New SqlConnection("Server=LEMONADE\SQLEXPRESS;Database=SalesAndInventory;Trusted_Connection=True")
     'Private DBcon As New SqlConnection("Server=SD_SQL_TRAINING;Database=janeExplore;User Id=sa;Password=81at84;")
-    Private DBcon As New SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("My_ConnectionString").ConnectionString)
+    'private DBcon As New SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings("My_ConnectionString").ConnectionString)
     Private DBcmd As SqlCommand
 
     'DB DATA
@@ -17,12 +18,25 @@ Public Class SQLControl
     Public Exception As String
 
     Public Sub New()
+        Dim bid As New SqlConnectionStringBuilder
+        If String.IsNullOrWhiteSpace(My.Settings.mUser) Then
+            bid.DataSource = My.Settings.mServer
+            bid.InitialCatalog = My.Settings.mDB
+            bid.IntegratedSecurity = True
+        Else
+            bid.DataSource = My.Settings.mServer
+            bid.InitialCatalog = My.Settings.mDB
+            bid.UserID = My.Settings.mUser
+            bid.Password = My.Settings.mPass
+        End If
+        connStr = bid.ConnectionString
+        DBcon = New SqlConnection(connStr)
     End Sub
 
     'ALLOW CONNECTION STRING OVERRIDE
-    Public Sub New(ConnectionString As String)
-        DBcon = New SqlConnection(ConnectionString)
-    End Sub
+    'Public Sub New(ConnectionString As String)
+    '    DBcon = New SqlConnection(ConnectionString)
+    'End Sub
     'EXECUTE QUERY SUB
     Public Sub ExecQuery(Query As String)
         RecordCount = 0

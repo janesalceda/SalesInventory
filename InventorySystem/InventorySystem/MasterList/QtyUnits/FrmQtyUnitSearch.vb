@@ -33,8 +33,8 @@
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        FrmLocationEntry.Text = "Location Entry"
-        FrmLocationEntry.Show()
+        FrmQtyUnitEntry.Text = "QtyUnit Entry"
+        FrmQtyUnitEntry.Show()
     End Sub
     Private Sub FrmQtyUnitSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
@@ -58,8 +58,8 @@
                 Exit Sub
             End If
         Else
-            With FrmLocationEntry
-                .Text = "Location Details"
+            With FrmQtyUnitEntry
+                .Text = "QtyUnit Details"
                 .btnInsert.Text = "UPDATE"
                 .txtQtyunit.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .txtDes.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString

@@ -568,9 +568,6 @@ Partial Class FrmItemEntry
         Me.Label10.TabIndex = 65
         Me.Label10.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
-        'PrintDocument1
-        '
-        '
         'PrintPreviewDialog1
         '
         Me.PrintPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)

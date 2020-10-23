@@ -61,7 +61,8 @@
     End Sub
     Private Sub FindItem()
         SQL.AddParams("@user", "'%" & txtSearch.Text & "%'")
-        LoadDataGrid("SELECT EmployeeNo, EmployeeName, Username, Password, UserLevelId FROM u INNER JOIN Employees e ON u.EmployeeNo=e.EmployeeCode where employeeName like @user;")
+        LoadDataGrid("SELECT EmployeeNo, EmployeeName, Username, UserLevelId FROM users u INNER JOIN Employees e ON u.EmployeeNo=e.EmployeeCode
+            inner join userlevel ul on u.UserLevelId=ul.UserLevelId where employeeName like @user;")
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click

@@ -94,14 +94,25 @@
         End If
         txtItemName.Text = row.Item(0)
     End Sub
-
+    Private Function checkingSaving() As String
+        Dim msg As String
+        msg = "Please complete required fields: " & vbNewLine
+        If dtableStockout.Rows.Count = 0 Then
+            msg += "*Items" & vbNewLine
+        End If
+        If String.IsNullOrWhiteSpace(txtIssuedBy.Text) Then
+            msg += "*IssuedBy"
+        End If
+        Return msg
+    End Function
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         If dtableStockout.Rows.Count = 0 Or
-            String.IsNullOrWhiteSpace(txtIssuedBy.Text) Or
-            dtSOutDate.Checked = False Then
-            MsgBox("Please complete all * import details!", MsgBoxStyle.Exclamation, "Warning")
+            String.IsNullOrWhiteSpace(txtIssuedBy.Text) Then
+            MsgBox(checkingSaving, MsgBoxStyle.Exclamation, "Error")
             Exit Sub
         End If
+
+
         If MsgBox("Are you sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then
             If btnSave.Text = "UPDATE" Then
                 If chkApprove.Checked = True Then

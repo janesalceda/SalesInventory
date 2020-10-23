@@ -130,4 +130,24 @@
     Private Sub StocksToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles StocksToolStripMenuItem1.Click
         FrmInventoryStockReport.Show()
     End Sub
+
+    Private Sub RequestRefundToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RequestRefundToolStripMenuItem.Click
+        FrmRejectReturnSearch.Show()
+    End Sub
+
+    Private Sub CompanyInformationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CompanyInformationToolStripMenuItem.Click
+        FrmCompanyInfo.ShowDialog()
+    End Sub
+
+    Private Sub ReturnsToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ReturnsToolStripMenuItem1.Click
+        FrmRejectReturnSearch.Show()
+    End Sub
+
+    Private Sub AppForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If rights > 2 Then
+            miSettings.Visible = False
+            miUtilities.Visible = False
+            RequestApprovalToolStripMenuItem.Visible = False
+        End If
+    End Sub
 End Class

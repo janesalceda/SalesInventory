@@ -42,7 +42,7 @@ Partial Class AppForm
         Me.MiInventory = New System.Windows.Forms.ToolStripMenuItem()
         Me.checkInventory = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReceivedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.miMaster = New System.Windows.Forms.ToolStripMenuItem()
+        Me.miSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.miCategory = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrencyUnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeliveryPlacesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -68,13 +68,16 @@ Partial Class AppForm
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManulaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CompanyInformationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReturnsToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.msMain.SuspendLayout()
         Me.SuspendLayout()
         '
         'msMain
         '
+        Me.msMain.AutoSize = False
         Me.msMain.Font = New System.Drawing.Font("Arial", 11.25!)
-        Me.msMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Account, Me.PurchasesToolStripMenuItem, Me.InvoicesToolStripMenuItem, Me.ReturnRefundToolStripMenuItem, Me.miStocks, Me.MiInventory, Me.miMaster, Me.miUtilities, Me.ReturnsToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.msMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Account, Me.PurchasesToolStripMenuItem, Me.InvoicesToolStripMenuItem, Me.ReturnRefundToolStripMenuItem, Me.miStocks, Me.MiInventory, Me.miSettings, Me.miUtilities, Me.ReturnsToolStripMenuItem, Me.LogoutToolStripMenuItem})
         Me.msMain.Location = New System.Drawing.Point(0, 0)
         Me.msMain.Name = "msMain"
         Me.msMain.Padding = New System.Windows.Forms.Padding(9, 3, 0, 3)
@@ -105,13 +108,13 @@ Partial Class AppForm
         'EntryToolStripMenuItem
         '
         Me.EntryToolStripMenuItem.Name = "EntryToolStripMenuItem"
-        Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.EntryToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.EntryToolStripMenuItem.Text = "Entry"
         '
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(123, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.SearchToolStripMenuItem.Text = "Search"
         '
         'InvoicesToolStripMenuItem
@@ -124,21 +127,21 @@ Partial Class AppForm
         'EntryToolStripMenuItem1
         '
         Me.EntryToolStripMenuItem1.Name = "EntryToolStripMenuItem1"
-        Me.EntryToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
+        Me.EntryToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.EntryToolStripMenuItem1.Text = "Entry"
         '
         'SearchToolStripMenuItem1
         '
         Me.SearchToolStripMenuItem1.Name = "SearchToolStripMenuItem1"
-        Me.SearchToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
+        Me.SearchToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.SearchToolStripMenuItem1.Text = "Search"
         '
         'ReturnRefundToolStripMenuItem
         '
         Me.ReturnRefundToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequestRefundToolStripMenuItem, Me.RequestApprovalToolStripMenuItem})
         Me.ReturnRefundToolStripMenuItem.Name = "ReturnRefundToolStripMenuItem"
-        Me.ReturnRefundToolStripMenuItem.Size = New System.Drawing.Size(72, 21)
-        Me.ReturnRefundToolStripMenuItem.Text = "Returns"
+        Me.ReturnRefundToolStripMenuItem.Size = New System.Drawing.Size(75, 21)
+        Me.ReturnRefundToolStripMenuItem.Text = "Request"
         '
         'RequestRefundToolStripMenuItem
         '
@@ -148,7 +151,7 @@ Partial Class AppForm
         '
         'RequestApprovalToolStripMenuItem
         '
-        Me.RequestApprovalToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockOutToolStripMenuItem1, Me.StockTakingToolStripMenuItem1})
+        Me.RequestApprovalToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StockOutToolStripMenuItem1, Me.StockTakingToolStripMenuItem1, Me.ReturnsToolStripMenuItem1})
         Me.RequestApprovalToolStripMenuItem.Name = "RequestApprovalToolStripMenuItem"
         Me.RequestApprovalToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.RequestApprovalToolStripMenuItem.Text = "Request for Approval"
@@ -156,13 +159,13 @@ Partial Class AppForm
         'StockOutToolStripMenuItem1
         '
         Me.StockOutToolStripMenuItem1.Name = "StockOutToolStripMenuItem1"
-        Me.StockOutToolStripMenuItem1.Size = New System.Drawing.Size(158, 22)
+        Me.StockOutToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.StockOutToolStripMenuItem1.Text = "Stock Out"
         '
         'StockTakingToolStripMenuItem1
         '
         Me.StockTakingToolStripMenuItem1.Name = "StockTakingToolStripMenuItem1"
-        Me.StockTakingToolStripMenuItem1.Size = New System.Drawing.Size(158, 22)
+        Me.StockTakingToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.StockTakingToolStripMenuItem1.Text = "Stock Taking"
         '
         'miStocks
@@ -175,13 +178,13 @@ Partial Class AppForm
         'StockOutToolStripMenuItem
         '
         Me.StockOutToolStripMenuItem.Name = "StockOutToolStripMenuItem"
-        Me.StockOutToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.StockOutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.StockOutToolStripMenuItem.Text = "Stock Out"
         '
         'StockTakingToolStripMenuItem
         '
         Me.StockTakingToolStripMenuItem.Name = "StockTakingToolStripMenuItem"
-        Me.StockTakingToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
+        Me.StockTakingToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.StockTakingToolStripMenuItem.Text = "Stock Taking"
         '
         'MiInventory
@@ -203,72 +206,72 @@ Partial Class AppForm
         Me.ReceivedToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
         Me.ReceivedToolStripMenuItem.Text = "InventoryRecord"
         '
-        'miMaster
+        'miSettings
         '
-        Me.miMaster.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCategory, Me.CurrencyUnitsToolStripMenuItem, Me.DeliveryPlacesToolStripMenuItem, Me.miItems, Me.LocationsToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.UsersToolStripMenuItem, Me.TermsofDelivery, Me.TermsofPaymentToolStripMenuItem, Me.SalesToolStripMenuItem1, Me.UserToolStripMenuItem})
-        Me.miMaster.Name = "miMaster"
-        Me.miMaster.Size = New System.Drawing.Size(73, 21)
-        Me.miMaster.Text = "Settings"
+        Me.miSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCategory, Me.CurrencyUnitsToolStripMenuItem, Me.DeliveryPlacesToolStripMenuItem, Me.miItems, Me.LocationsToolStripMenuItem, Me.SuppliersToolStripMenuItem, Me.UsersToolStripMenuItem, Me.TermsofDelivery, Me.TermsofPaymentToolStripMenuItem, Me.SalesToolStripMenuItem1, Me.UserToolStripMenuItem, Me.CompanyInformationToolStripMenuItem})
+        Me.miSettings.Name = "miSettings"
+        Me.miSettings.Size = New System.Drawing.Size(73, 21)
+        Me.miSettings.Text = "Settings"
         '
         'miCategory
         '
         Me.miCategory.Name = "miCategory"
-        Me.miCategory.Size = New System.Drawing.Size(187, 22)
+        Me.miCategory.Size = New System.Drawing.Size(215, 22)
         Me.miCategory.Text = "Categories"
         '
         'CurrencyUnitsToolStripMenuItem
         '
         Me.CurrencyUnitsToolStripMenuItem.Name = "CurrencyUnitsToolStripMenuItem"
-        Me.CurrencyUnitsToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.CurrencyUnitsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.CurrencyUnitsToolStripMenuItem.Text = "Currency Units"
         '
         'DeliveryPlacesToolStripMenuItem
         '
         Me.DeliveryPlacesToolStripMenuItem.Name = "DeliveryPlacesToolStripMenuItem"
-        Me.DeliveryPlacesToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.DeliveryPlacesToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.DeliveryPlacesToolStripMenuItem.Text = "Delivery Places"
         '
         'miItems
         '
         Me.miItems.Name = "miItems"
-        Me.miItems.Size = New System.Drawing.Size(187, 22)
+        Me.miItems.Size = New System.Drawing.Size(215, 22)
         Me.miItems.Text = "Items"
         '
         'LocationsToolStripMenuItem
         '
         Me.LocationsToolStripMenuItem.Name = "LocationsToolStripMenuItem"
-        Me.LocationsToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.LocationsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.LocationsToolStripMenuItem.Text = "Locations"
         '
         'SuppliersToolStripMenuItem
         '
         Me.SuppliersToolStripMenuItem.Name = "SuppliersToolStripMenuItem"
-        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.SuppliersToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.SuppliersToolStripMenuItem.Text = "Qty/Unit"
         '
         'UsersToolStripMenuItem
         '
         Me.UsersToolStripMenuItem.Name = "UsersToolStripMenuItem"
-        Me.UsersToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.UsersToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.UsersToolStripMenuItem.Text = "Suppliers"
         '
         'TermsofDelivery
         '
         Me.TermsofDelivery.Name = "TermsofDelivery"
-        Me.TermsofDelivery.Size = New System.Drawing.Size(187, 22)
+        Me.TermsofDelivery.Size = New System.Drawing.Size(215, 22)
         Me.TermsofDelivery.Text = "TermsofDelivery"
         '
         'TermsofPaymentToolStripMenuItem
         '
         Me.TermsofPaymentToolStripMenuItem.Name = "TermsofPaymentToolStripMenuItem"
-        Me.TermsofPaymentToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.TermsofPaymentToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.TermsofPaymentToolStripMenuItem.Text = "TermsofPayment"
         '
         'SalesToolStripMenuItem1
         '
         Me.SalesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesToolStripMenuItem2, Me.StocksToolStripMenuItem1, Me.StockMonitoringToolStripMenuItem, Me.StockOutToolStripMenuItem2})
         Me.SalesToolStripMenuItem1.Name = "SalesToolStripMenuItem1"
-        Me.SalesToolStripMenuItem1.Size = New System.Drawing.Size(187, 22)
+        Me.SalesToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
         Me.SalesToolStripMenuItem1.Text = "Reports"
         '
         'SalesToolStripMenuItem2
@@ -298,7 +301,7 @@ Partial Class AppForm
         'UserToolStripMenuItem
         '
         Me.UserToolStripMenuItem.Name = "UserToolStripMenuItem"
-        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(187, 22)
+        Me.UserToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
         Me.UserToolStripMenuItem.Text = "User"
         '
         'miUtilities
@@ -312,7 +315,7 @@ Partial Class AppForm
         '
         Me.ItemsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeDescriptionToolStripMenuItem, Me.ChangePriceToolStripMenuItem, Me.ChangeToolStripMenuItem})
         Me.ItemsToolStripMenuItem.Name = "ItemsToolStripMenuItem"
-        Me.ItemsToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.ItemsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ItemsToolStripMenuItem.Text = "Items"
         '
         'ChangeDescriptionToolStripMenuItem
@@ -337,7 +340,7 @@ Partial Class AppForm
         '
         Me.SuppliersToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangSupplierNameToolStripMenuItem})
         Me.SuppliersToolStripMenuItem1.Name = "SuppliersToolStripMenuItem1"
-        Me.SuppliersToolStripMenuItem1.Size = New System.Drawing.Size(137, 22)
+        Me.SuppliersToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.SuppliersToolStripMenuItem1.Text = "Suppliers"
         '
         'ChangSupplierNameToolStripMenuItem
@@ -365,6 +368,18 @@ Partial Class AppForm
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(64, 21)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
+        'CompanyInformationToolStripMenuItem
+        '
+        Me.CompanyInformationToolStripMenuItem.Name = "CompanyInformationToolStripMenuItem"
+        Me.CompanyInformationToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.CompanyInformationToolStripMenuItem.Text = "Company Information"
+        '
+        'ReturnsToolStripMenuItem1
+        '
+        Me.ReturnsToolStripMenuItem1.Name = "ReturnsToolStripMenuItem1"
+        Me.ReturnsToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ReturnsToolStripMenuItem1.Text = "Returns"
+        '
         'AppForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -381,12 +396,11 @@ Partial Class AppForm
         Me.msMain.ResumeLayout(False)
         Me.msMain.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents msMain As MenuStrip
-    Friend WithEvents miMaster As ToolStripMenuItem
+    Friend WithEvents miSettings As ToolStripMenuItem
     Friend WithEvents miCategory As ToolStripMenuItem
     Friend WithEvents miItems As ToolStripMenuItem
     Friend WithEvents LocationsToolStripMenuItem As ToolStripMenuItem
@@ -431,4 +445,6 @@ Partial Class AppForm
     Friend WithEvents CurrencyUnitsToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StockMonitoringToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents StockOutToolStripMenuItem2 As ToolStripMenuItem
+    Friend WithEvents CompanyInformationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ReturnsToolStripMenuItem1 As ToolStripMenuItem
 End Class

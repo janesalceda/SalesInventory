@@ -101,12 +101,6 @@
         If SQL.HasException Then Return False
         Return SQL.DBDT
     End Function
-
-    Public Function GetItemcode()
-        SQL.ExecQuery("SELECT dbo.GenerateItemCode()")
-        If SQL.HasException Then Return False
-        Return SQL.DBDT.Rows(0).Item(0)
-    End Function
     Public Function GetUserLevel()
         SQL.ExecQuery("SELECT * from UserLevel where deletedDate is null ")
         If SQL.HasException Then Return False

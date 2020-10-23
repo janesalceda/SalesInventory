@@ -31,29 +31,17 @@
         End With
     End Sub
 
-    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        Dim i As Integer
-        With dtUsers
-            i = .CurrentRow.Index
-            With AddUser
-                '.txtTitle.Text = "EDIT USER"
-                .btnUpdate.Visible = True
-                .cmbUserType.Enabled = True
-                '.txtEmpCode.Text = dtUsers.Rows(i).Cells(1).Value.ToString
-                .txtPassword.Text = dtUsers.Rows(i).Cells(4).Value.ToString
-                .txtUserName.Text = dtUsers.Rows(i).Cells(3).Value.ToString
-                .cmbUserType.Text = dtUsers.Rows(i).Cells(5).Value.ToString
-                .Show()
-            End With
-        End With
-    End Sub
-
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Dim rslt As New System.Windows.Forms.DialogResult
-        rslt = MessageBox.Show("Do you really want to delete this user?", "Delete Data", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If rslt = Windows.Forms.DialogResult.Yes Then
-            'FrmMessageBox.Show("Delete")
+        If MsgBox("Do you really want to delete this user?", MessageBoxButtons.YesNo + MessageBoxIcon.Question, "Delete Data") = vbYes Then
+            SQL.ExecQuery("Update Users set deleted where userid=@useid")
+            MsgBox("Deleted User")
         End If
+    End Sub
+    Private Sub LoadDeliveryPlaces()
+        cmbUserLevel.DataSource = getDeliveryPlaces()
+        cmbUserLevel.DisplayMember = "UserLevel"
+        cmbUserLevel.ValueMember = "UserLevelId"
+        cmbUserLevel.SelectedIndex = -1
     End Sub
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
@@ -67,5 +55,21 @@
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         FindItem()
+    End Sub
+
+    Private Sub dtUsers_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtUsers.CellDoubleClick
+        Dim i As Integer
+        With dtUsers
+            i = .CurrentRow.Index
+            With AddUser
+                .Text = "User Details"
+                .btnUpdate.Visible = True
+                .cmbUserType.Enabled = True
+                .txtPassword.Text = dtUsers.Rows(i).Cells(4).Value.ToString
+                .txtUserName.Text = dtUsers.Rows(i).Cells(3).Value.ToString
+                .cmbUserType.Text = dtUsers.Rows(i).Cells(5).Value.ToString
+                .Show()
+            End With
+        End With
     End Sub
 End Class

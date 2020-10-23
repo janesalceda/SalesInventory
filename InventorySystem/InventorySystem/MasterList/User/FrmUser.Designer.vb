@@ -22,7 +22,7 @@ Partial Class FrmUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cmbUserLevel = New System.Windows.Forms.ComboBox()
@@ -30,7 +30,6 @@ Partial Class FrmUser
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.btnDelete = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
         Me.dtUsers = New System.Windows.Forms.DataGridView()
         CType(Me.dtUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -49,7 +48,7 @@ Partial Class FrmUser
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(826, 506)
+        Me.btnAdd.Location = New System.Drawing.Point(949, 506)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(116, 30)
         Me.btnAdd.TabIndex = 30
@@ -80,7 +79,7 @@ Partial Class FrmUser
         Me.txtSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtSearch.Location = New System.Drawing.Point(119, 17)
         Me.txtSearch.Name = "txtSearch"
-        Me.txtSearch.Size = New System.Drawing.Size(198, 26)
+        Me.txtSearch.Size = New System.Drawing.Size(203, 26)
         Me.txtSearch.TabIndex = 27
         '
         'Label7
@@ -88,9 +87,9 @@ Partial Class FrmUser
         Me.Label7.AutoSize = True
         Me.Label7.Location = New System.Drawing.Point(12, 20)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(84, 18)
+        Me.Label7.Size = New System.Drawing.Size(54, 18)
         Me.Label7.TabIndex = 26
-        Me.Label7.Text = "Username:"
+        Me.Label7.Text = "Name:"
         '
         'btnDelete
         '
@@ -103,17 +102,6 @@ Partial Class FrmUser
         Me.btnDelete.Text = "Delete User"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
-        'btnEdit
-        '
-        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEdit.Location = New System.Drawing.Point(948, 506)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(116, 30)
-        Me.btnEdit.TabIndex = 23
-        Me.btnEdit.Text = "Edit User"
-        Me.btnEdit.UseVisualStyleBackColor = True
-        '
         'dtUsers
         '
         Me.dtUsers.AllowUserToAddRows = False
@@ -124,14 +112,14 @@ Partial Class FrmUser
         Me.dtUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Arial", 12.0!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dtUsers.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 12.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dtUsers.DefaultCellStyle = DataGridViewCellStyle1
         Me.dtUsers.Location = New System.Drawing.Point(14, 80)
         Me.dtUsers.Name = "dtUsers"
         Me.dtUsers.ReadOnly = True
@@ -153,7 +141,6 @@ Partial Class FrmUser
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.btnDelete)
-        Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.dtUsers)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -173,6 +160,5 @@ Partial Class FrmUser
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents btnDelete As Button
-    Friend WithEvents btnEdit As Button
     Friend WithEvents dtUsers As DataGridView
 End Class

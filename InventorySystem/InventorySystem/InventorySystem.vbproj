@@ -257,16 +257,16 @@
     <Compile Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmCurrencyEntry.Designer.vb">
+    <Compile Include="MasterList\Currency\FrmCurrencyEntry.Designer.vb">
       <DependentUpon>FrmCurrencyEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmCurrencyEntry.vb">
+    <Compile Include="MasterList\Currency\FrmCurrencyEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmCurrencyUnitSearch.Designer.vb">
+    <Compile Include="MasterList\Currency\FrmCurrencyUnitSearch.Designer.vb">
       <DependentUpon>FrmCurrencyUnitSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmCurrencyUnitSearch.vb">
+    <Compile Include="MasterList\Currency\FrmCurrencyUnitSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterList\Items\FrmPrintingItemBarcode.Designer.vb">
@@ -341,10 +341,10 @@
     <Compile Include="MasterList\Supplier\FrmSupplierEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\AddUser.Designer.vb">
+    <Compile Include="MasterList\User\AddUser.Designer.vb">
       <DependentUpon>AddUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\AddUser.vb">
+    <Compile Include="MasterList\User\AddUser.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AppForm.Designer.vb">
@@ -492,10 +492,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLControl.vb" />
-    <Compile Include="MasterList\FrmUser.Designer.vb">
+    <Compile Include="MasterList\User\FrmUser.Designer.vb">
       <DependentUpon>FrmUser.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmUser.vb">
+    <Compile Include="MasterList\User\FrmUser.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Stocks\FrmStockTakingSearch.Designer.vb">
@@ -572,10 +572,10 @@
     <EmbeddedResource Include="MasterList\DeliveryPlaces\FrmDeliveryPlacesSearch.resx">
       <DependentUpon>FrmDeliveryPlacesSearch.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmCurrencyEntry.resx">
+    <EmbeddedResource Include="MasterList\Currency\FrmCurrencyEntry.resx">
       <DependentUpon>FrmCurrencyEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmCurrencyUnitSearch.resx">
+    <EmbeddedResource Include="MasterList\Currency\FrmCurrencyUnitSearch.resx">
       <DependentUpon>FrmCurrencyUnitSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\Items\FrmPrintingItemBarcode.resx">
@@ -616,7 +616,7 @@
     <EmbeddedResource Include="MasterList\Supplier\FrmSupplierEntry.resx">
       <DependentUpon>FrmSupplierEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\AddUser.resx">
+    <EmbeddedResource Include="MasterList\User\AddUser.resx">
       <DependentUpon>AddUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AppForm.resx">
@@ -685,7 +685,7 @@
     <EmbeddedResource Include="PrintPreview.resx">
       <DependentUpon>PrintPreview.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmUser.resx">
+    <EmbeddedResource Include="MasterList\User\FrmUser.resx">
       <DependentUpon>FrmUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectionList\SelectionItem.resx">

@@ -53,8 +53,6 @@ Public Class FrmItemEntry
             Exit Sub
         End If
         If btnSave.Text = "SAVE" Then
-            'txtItemId.Text = GetItemcode()
-            'SQL.AddParams("@itemid", txtItemId.Text)
             SQL.AddParams("@description", txtDes.Text)
             SQL.AddParams("@convertingcoefficient", txtConCoe.Text)
             SQL.AddParams("@clientqtyunit", cmbCliQtyUnit.SelectedValue)

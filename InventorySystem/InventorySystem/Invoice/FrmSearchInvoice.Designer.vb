@@ -323,7 +323,7 @@ Partial Class FrmSearchInvoice
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmSearchInvoice"
-        Me.Text = "FrmSearchInvoice"
+        Me.Text = "Search Invoice"
         CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()

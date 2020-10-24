@@ -57,6 +57,7 @@
             With FrmTermsofPaymentEntry
                 .Text = "Terms of Payment Details"
                 .btnSave.Text = "UPDATE"
+                .id = dtItems.SelectedRows(0).Cells(0).Value
                 .txtTD.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .txtDes.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .Show()

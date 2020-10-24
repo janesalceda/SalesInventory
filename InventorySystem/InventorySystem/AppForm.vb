@@ -9,9 +9,9 @@
     End Sub
 
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
-        Me.Close()
-        LoginForm.txtUsername.Focus()
         LoginForm.Show()
+        LoginForm.txtUsername.Focus()
+        Close()
     End Sub
 
     Private Sub EntryToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EntryToolStripMenuItem.Click

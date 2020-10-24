@@ -48,6 +48,8 @@ Partial Class FrmInvoiceSelection
         '
         Me.dtitems.AllowUserToAddRows = False
         Me.dtitems.AllowUserToDeleteRows = False
+        Me.dtitems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtitems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtitems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtitems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemID, Me.ItemName, Me.PONo, Me.POSeq, Me.qtyexpected})
         Me.dtitems.Location = New System.Drawing.Point(9, 13)
@@ -64,36 +66,42 @@ Partial Class FrmInvoiceSelection
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
+        Me.Seq.Width = 60
         '
         'ItemID
         '
         Me.ItemID.HeaderText = "ItemID"
         Me.ItemID.Name = "ItemID"
         Me.ItemID.ReadOnly = True
+        Me.ItemID.Width = 75
         '
         'ItemName
         '
-        Me.ItemName.HeaderText = "ItemName"
+        Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 111
         '
         'PONo
         '
         Me.PONo.HeaderText = "PONo"
         Me.PONo.Name = "PONo"
         Me.PONo.ReadOnly = True
+        Me.PONo.Width = 74
         '
         'POSeq
         '
-        Me.POSeq.HeaderText = "POSeq"
+        Me.POSeq.HeaderText = "Seq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
+        Me.POSeq.Width = 60
         '
         'qtyexpected
         '
-        Me.qtyexpected.HeaderText = "qtyexpected"
+        Me.qtyexpected.HeaderText = "QtyExpected"
         Me.qtyexpected.Name = "qtyexpected"
         Me.qtyexpected.ReadOnly = True
+        Me.qtyexpected.Width = 120
         '
         'FrmInvoiceSelection
         '
@@ -107,7 +115,7 @@ Partial Class FrmInvoiceSelection
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmInvoiceSelection"
-        Me.Text = "FrmInvoiceSelection"
+        Me.Text = "List of Invoice"
         CType(Me.dtitems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

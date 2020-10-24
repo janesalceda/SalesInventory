@@ -130,6 +130,8 @@ Partial Class PurchaseOrderList
         '
         Me.dtitems.AllowUserToAddRows = False
         Me.dtitems.AllowUserToDeleteRows = False
+        Me.dtitems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtitems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtitems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtitems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemCode, Me.ItemName, Me.Column2, Me.Column1, Me.Column3})
         Me.dtitems.Location = New System.Drawing.Point(4, 150)
@@ -146,12 +148,14 @@ Partial Class PurchaseOrderList
         Me.ItemCode.HeaderText = "PO No"
         Me.ItemCode.Name = "ItemCode"
         Me.ItemCode.ReadOnly = True
+        Me.ItemCode.Width = 54
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Seq"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 60
         '
         'Column2
         '
@@ -165,6 +169,7 @@ Partial Class PurchaseOrderList
         Me.Column1.HeaderText = "Balance Qty"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
+        Me.Column1.Width = 105
         '
         'Column3
         '
@@ -206,7 +211,7 @@ Partial Class PurchaseOrderList
         Me.MinimumSize = New System.Drawing.Size(409, 440)
         Me.Name = "PurchaseOrderList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "PurchaseOrderList"
+        Me.Text = "List of Purchase Order "
         Me.TopMost = True
         CType(Me.dtitems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

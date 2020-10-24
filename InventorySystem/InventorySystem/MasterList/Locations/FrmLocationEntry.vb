@@ -1,19 +1,19 @@
 ﻿Public Class FrmLocationEntry
-
+    Public id As Integer
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@Location", txtQtyunit.Text)
         SQL.AddParams("@Description", txtDes.Text)
         SQL.AddParams("@UpdatedBy", moduleId)
         SQL.AddParams("@disuse", chkDisuse.Checked)
 
-        If Query = "INSERT" Then
+        If Query = "SAVE" Then
             SQL.ExecQuery("
                 INSERT INTO Locations 
                 (Location,Description,DeletedDate,UpdatedBy)
                 VALUES
                 (@Location,@description,(select case when @disuse=1 then getdate() else null end),@UpdatedBy)")
         Else
-            SQL.AddParams("@LocationId", FrmLocationSearch.dtItems.SelectedRows(0).Cells(0).Value.ToString())
+            SQL.AddParams("@LocationId", id)
             SQL.ExecQuery("update Locations set Location=@Location,updatedDate=getdate(), 
                 UpdatedBy=@UpdatedBy,
                 deletedDate=(select case when @disuse=1 then getdate() else null end),

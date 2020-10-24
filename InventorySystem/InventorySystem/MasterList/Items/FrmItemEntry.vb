@@ -39,7 +39,8 @@ Public Class FrmItemEntry
         cmbCategory.ValueMember = "CategoryID"
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If String.IsNullOrWhiteSpace(txtDes.Text) Or
+        If btnSave.Text = "SAVE" Then
+            If String.IsNullOrWhiteSpace(txtDes.Text) Or
                 cmbCliQtyUnit.SelectedIndex = -1 Or
                 cmbSupQtyUnit.SelectedIndex = -1 Or
                 String.IsNullOrWhiteSpace(txtConCoe.Text) Or
@@ -49,10 +50,9 @@ Public Class FrmItemEntry
                 String.IsNullOrWhiteSpace(txtMinQty.Text) Or
                 String.IsNullOrWhiteSpace(txtOrderPoint.Text) Or
                 dtItemPrices.Rows.Count = 0 Then
-            MsgBox("Please comple all * important fields!", MsgBoxStyle.Exclamation, "Warning")
-            Exit Sub
-        End If
-        If btnSave.Text = "SAVE" Then
+                MsgBox("Please comple all * important fields!", MsgBoxStyle.Exclamation, "Warning")
+                Exit Sub
+            End If
             SQL.AddParams("@description", txtDes.Text)
             SQL.AddParams("@convertingcoefficient", txtConCoe.Text)
             SQL.AddParams("@clientqtyunit", cmbCliQtyUnit.SelectedValue)
@@ -96,15 +96,21 @@ Public Class FrmItemEntry
         'MsgBox(dtItemPrices.Rows(0).Cells(3).Value.ToString)
         For i As Integer = 0 To dtItemPrices.Rows.Count - 1
             If String.IsNullOrEmpty(dtItemPrices.Rows(i).Cells(3).Value.ToString) Then
+                If String.IsNullOrWhiteSpace(txtItemId.Text) Then
+                    SQL.ExecQuery("select max(itemid) from items")
+                    txtItemId.Text = SQL.DBDT.Rows(0).Item(0)
+                End If
                 SQL.AddParams("@ItemId", txtItemId.Text)
-                SQL.AddParams("@SupplierID", dtItemPrices.Rows(i).Cells(0).Value.ToString)
-                SQL.AddParams("@ItemPrice", dtItemPrices.Rows(i).Cells(2).Value.ToString)
-                SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtItemPrices.Rows(i).Cells(1).Value.ToString))
-                SQL.AddParams("@UpdatedBy", moduleId)
-                SQL.ExecQuery("INSERT INTO SupplierItemPrices 
-                    (ItemId,SupplierId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES((select max(itemid) from items),@SupplierID,@AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
-            End If
+                    SQL.AddParams("@SupplierID", dtItemPrices.Rows(i).Cells(0).Value.ToString)
+                    SQL.AddParams("@ItemPrice", dtItemPrices.Rows(i).Cells(2).Value.ToString)
+                    SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtItemPrices.Rows(i).Cells(1).Value.ToString))
+                    SQL.AddParams("@SupplierItemCode", dtItemPrices.Rows(i).Cells(2).Value.ToString)
+                    SQL.AddParams("@UpdatedBy", moduleId)
+                    SQL.ExecQuery("INSERT INTO SupplierItemPrices 
+                    (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
+                    VALUES(@ItemId,
+                    @SupplierID,@SupplierItemCode,@AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
+                End If
         Next
         FrmItemSearch.LoadDataGrid()
 
@@ -154,7 +160,7 @@ Public Class FrmItemEntry
         If String.IsNullOrEmpty(txtItemId.Text) Then Exit Sub
 
         SQL.AddParams("@ItemId", txtItemId.Text)
-        SQL.ExecQuery(" select * from ITEMS i INNER JOIN SupplierItemPrices s
+        SQL.ExecQuery(" select * from ITEMS i left JOIN SupplierItemPrices s
             ON  i.itemid=s.ItemId	
             where i.ItemID=@ItemId ORDER BY applieddate ASC")
         If SQL.DBDT.Rows.Count = 0 Then Exit Sub

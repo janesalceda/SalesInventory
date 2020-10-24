@@ -1,6 +1,6 @@
 ﻿Public Class FrmTermsofDeliveryEntry
 
-    Private TermsOfDeliveryID As String
+    Public id As Integer
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@description", txtDes.Text)
         SQL.AddParams("@termdelivery", txtTD.Text)
@@ -14,7 +14,7 @@
                 VALUES
                 (@termdelivery,@description,(select case when @disuse=1 then getdate() else null end),@updatedby)")
         Else
-            SQL.AddParams("@id", FrmTermsOfDaliverySearch.dtItems.SelectedRows(0).Cells(0))
+            SQL.AddParams("@id", id)
             SQL.ExecQuery("UPDATE TermsOfDelivery SET TermOfDelivery=@termdelivery,Description=@description,DeletedDate=(select case when @disuse=1 then getdate() else null end),updateddate=getdate(),updatedby=@updatedby WHERE TermOfDeliveryId=@id")
         End If
         If SQL.HasException(True) Then

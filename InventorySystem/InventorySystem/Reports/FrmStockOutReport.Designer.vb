@@ -105,9 +105,9 @@ Partial Class FrmStockOutReport
         Me.Controls.Add(Me.dtFrom)
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmStockOutReport"
-        Me.Text = "FrmStockOutReport"
+        Me.Text = "Stock Out Report"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

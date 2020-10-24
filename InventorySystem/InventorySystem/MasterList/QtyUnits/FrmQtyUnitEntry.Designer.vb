@@ -32,13 +32,15 @@ Partial Class FrmQtyUnitEntry
         '
         'btnInsert
         '
+        Me.btnInsert.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(400, 76)
+        Me.btnInsert.ForeColor = System.Drawing.Color.White
+        Me.btnInsert.Location = New System.Drawing.Point(208, 76)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
+        Me.btnInsert.Size = New System.Drawing.Size(174, 30)
         Me.btnInsert.TabIndex = 3
-        Me.btnInsert.Text = "INSERT"
-        Me.btnInsert.UseVisualStyleBackColor = True
+        Me.btnInsert.Text = "SAVE"
+        Me.btnInsert.UseVisualStyleBackColor = False
         '
         'txtQtyunit
         '
@@ -79,7 +81,7 @@ Partial Class FrmQtyUnitEntry
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(435, 11)
+        Me.chkDisuse.Location = New System.Drawing.Point(435, 8)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 2

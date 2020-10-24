@@ -53,11 +53,6 @@ Partial Class FrmItemEntry
         Me.Label15 = New System.Windows.Forms.Label()
         Me.btnAddItemPrice = New System.Windows.Forms.Button()
         Me.dtItemPrices = New System.Windows.Forms.DataGridView()
-        Me.SupplierID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AppliedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemPriceID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
@@ -68,6 +63,12 @@ Partial Class FrmItemEntry
         Me.Label10 = New System.Windows.Forms.Label()
         Me.PrintDocument1 = New System.Drawing.Printing.PrintDocument()
         Me.PrintPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+        Me.SupplierID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AppliedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemPriceID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SupplierItemCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.grpItemDetails.SuspendLayout()
         CType(Me.picprint, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,7 +116,7 @@ Partial Class FrmItemEntry
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.BackColor = System.Drawing.Color.LimeGreen
+        Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
@@ -429,44 +430,12 @@ Partial Class FrmItemEntry
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtItemPrices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtItemPrices.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SupplierID, Me.AppliedDate, Me.UnitPrice, Me.ItemPriceID, Me.RegisteredDate})
+        Me.dtItemPrices.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SupplierID, Me.AppliedDate, Me.UnitPrice, Me.ItemPriceID, Me.RegisteredDate, Me.SupplierItemCode})
         Me.dtItemPrices.Location = New System.Drawing.Point(8, 28)
         Me.dtItemPrices.Name = "dtItemPrices"
         Me.dtItemPrices.ReadOnly = True
         Me.dtItemPrices.Size = New System.Drawing.Size(682, 184)
         Me.dtItemPrices.TabIndex = 63
-        '
-        'SupplierID
-        '
-        Me.SupplierID.HeaderText = "SupplierID"
-        Me.SupplierID.Name = "SupplierID"
-        Me.SupplierID.ReadOnly = True
-        '
-        'AppliedDate
-        '
-        Me.AppliedDate.HeaderText = "Applied Date"
-        Me.AppliedDate.Name = "AppliedDate"
-        Me.AppliedDate.ReadOnly = True
-        '
-        'UnitPrice
-        '
-        Me.UnitPrice.HeaderText = "Unit Price"
-        Me.UnitPrice.Name = "UnitPrice"
-        Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 120
-        '
-        'ItemPriceID
-        '
-        Me.ItemPriceID.HeaderText = "Item Price ID"
-        Me.ItemPriceID.Name = "ItemPriceID"
-        Me.ItemPriceID.ReadOnly = True
-        '
-        'RegisteredDate
-        '
-        Me.RegisteredDate.HeaderText = "Registered Date"
-        Me.RegisteredDate.Name = "RegisteredDate"
-        Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 150
         '
         'GroupBox1
         '
@@ -579,6 +548,45 @@ Partial Class FrmItemEntry
         Me.PrintPreviewDialog1.Name = "PrintPreviewDialog1"
         Me.PrintPreviewDialog1.Visible = False
         '
+        'SupplierID
+        '
+        Me.SupplierID.HeaderText = "SupplierID"
+        Me.SupplierID.Name = "SupplierID"
+        Me.SupplierID.ReadOnly = True
+        '
+        'AppliedDate
+        '
+        Me.AppliedDate.HeaderText = "Applied Date"
+        Me.AppliedDate.Name = "AppliedDate"
+        Me.AppliedDate.ReadOnly = True
+        '
+        'UnitPrice
+        '
+        Me.UnitPrice.HeaderText = "Unit Price"
+        Me.UnitPrice.Name = "UnitPrice"
+        Me.UnitPrice.ReadOnly = True
+        Me.UnitPrice.Width = 120
+        '
+        'ItemPriceID
+        '
+        Me.ItemPriceID.HeaderText = "Item Price ID"
+        Me.ItemPriceID.Name = "ItemPriceID"
+        Me.ItemPriceID.ReadOnly = True
+        '
+        'RegisteredDate
+        '
+        Me.RegisteredDate.HeaderText = "Registered Date"
+        Me.RegisteredDate.Name = "RegisteredDate"
+        Me.RegisteredDate.ReadOnly = True
+        Me.RegisteredDate.Width = 150
+        '
+        'SupplierItemCode
+        '
+        Me.SupplierItemCode.HeaderText = "SupplierItemCode"
+        Me.SupplierItemCode.Name = "SupplierItemCode"
+        Me.SupplierItemCode.ReadOnly = True
+        Me.SupplierItemCode.Visible = False
+        '
         'FrmItemEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
@@ -677,4 +685,5 @@ Partial Class FrmItemEntry
     Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
     Friend WithEvents ItemPriceID As DataGridViewTextBoxColumn
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
+    Friend WithEvents SupplierItemCode As DataGridViewTextBoxColumn
 End Class

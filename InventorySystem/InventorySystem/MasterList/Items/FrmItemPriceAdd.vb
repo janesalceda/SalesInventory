@@ -7,7 +7,7 @@
             Exit Sub
         End If
         If btnSave.Text = "INSERT PRICE" Then
-            FrmItemEntry.AddRow(txtSupplierID.Text, txtUnitPrice.Text, dtAppliedDate.Value)
+            FrmItemEntry.dtItemPrices.Rows.Add(txtSupplierID.Text, txtUnitPrice.Text, dtAppliedDate.Value, "", "", txtSupItemCode.Text)
             If Not String.IsNullOrWhiteSpace(FrmItemEntry.txtItemId.Text) Then
                 FrmItemEntry.btnSave.Text = "UPDATE"
                 FrmItemEntry.btnSave.Visible = True
@@ -16,6 +16,7 @@
             FrmItemEntry.dtItemPrices.SelectedRows(0).Cells(0).Value = txtSupplierID.Text
             FrmItemEntry.dtItemPrices.SelectedRows(0).Cells(1).Value = dtAppliedDate.Value.ToShortDateString
             FrmItemEntry.dtItemPrices.SelectedRows(0).Cells(2).Value = txtUnitPrice.Text
+            FrmItemEntry.dtItemPrices.SelectedRows(0).Cells(5).Value = txtSupItemCode.Text
         End If
         Me.Close()
     End Sub

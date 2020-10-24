@@ -56,14 +56,11 @@
             With FrmCurrencyEntry
                 .Text = "Currency Details"
                 .btnInsert.Text = "UPDATE"
+                .id = dtItems.SelectedRows(0).Cells(0).Value
                 .txtQtyunit.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .txtDes.Text = dtItems.SelectedRows(0).Cells(2).Value.ToString
                 .Show()
             End With
         End If
-    End Sub
-
-    Private Sub FrmCurrencyUnitSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

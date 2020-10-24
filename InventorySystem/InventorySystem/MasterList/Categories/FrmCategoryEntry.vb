@@ -1,4 +1,5 @@
 ﻿Public Class FrmCategoryEntry
+    Public id As Integer
     Private Sub btnInsert_Click(sender As Object, e As EventArgs) Handles btnInsert.Click
         ExecQuery(btnInsert.Text)
         Me.Close()
@@ -13,7 +14,7 @@
 	        (CategoryName,DeletedDate,UpdatedBy)
             VALUES (@categoryname,(select case when @disuse=1 then getdate() else null end),@UpdatedBy)")
         Else
-            SQL.AddParams("@CategoryID", FrmCategorySearch.dtItems.SelectedRows(0).Cells(0).Value.ToString())
+            SQL.AddParams("@CategoryID", id)
             SQL.ExecQuery("UPDATE categories set CategoryName=@categoryname,DeletedDate=(select case when @disuse=1 then getdate() else null end),updatedDate=getdate() where CategoryID=@CategoryID")
         End If
 
@@ -29,5 +30,9 @@
         If Not String.IsNullOrEmpty(Trim(txtCategoryname.Text)) Then
             btnInsert.Enabled = True
         End If
+    End Sub
+
+    Private Sub FrmCategoryEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

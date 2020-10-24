@@ -297,7 +297,7 @@
                           <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
-                        <BackgroundColor>=iif(Fields!Qty.Value&lt;=Fields!MinStocks.Value,"Red",iif(Fields!Qty.Value&lt;=Fields!OrderPoint.Value,"Orange","White"))</BackgroundColor>
+                        <BackgroundColor>=iif(Fields!Qty.Value&lt;=Fields!MinimumOrderQty.Value,"Red",iif(Fields!Qty.Value&lt;=Fields!OrderingPointQty.Value,"Orange","White"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -549,12 +549,12 @@
           <DataField>Qty</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="MinStocks">
-          <DataField>MinStocks</DataField>
+        <Field Name="MinimumOrderQty">
+          <DataField>MinimumOrderQty</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OrderPoint">
-          <DataField>OrderPoint</DataField>
+        <Field Name="OrderingPointQty">
+          <DataField>OrderingPointQty</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

@@ -37,7 +37,7 @@ Partial Class LoginForm
         '
         'btnLogin
         '
-        Me.btnLogin.BackColor = System.Drawing.Color.Teal
+        Me.btnLogin.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnLogin.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnLogin.ForeColor = System.Drawing.Color.White

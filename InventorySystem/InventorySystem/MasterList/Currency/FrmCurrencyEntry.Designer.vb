@@ -33,10 +33,10 @@ Partial Class FrmCurrencyEntry
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(426, 24)
+        Me.chkDisuse.Location = New System.Drawing.Point(426, 20)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
-        Me.chkDisuse.TabIndex = 81
+        Me.chkDisuse.TabIndex = 2
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
@@ -56,17 +56,19 @@ Partial Class FrmCurrencyEntry
         Me.txtDes.MaxLength = 50
         Me.txtDes.Name = "txtDes"
         Me.txtDes.Size = New System.Drawing.Size(375, 26)
-        Me.txtDes.TabIndex = 80
+        Me.txtDes.TabIndex = 1
         '
         'btnInsert
         '
+        Me.btnInsert.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(392, 89)
+        Me.btnInsert.ForeColor = System.Drawing.Color.White
+        Me.btnInsert.Location = New System.Drawing.Point(218, 86)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
-        Me.btnInsert.TabIndex = 82
-        Me.btnInsert.Text = "INSERT"
-        Me.btnInsert.UseVisualStyleBackColor = True
+        Me.btnInsert.Size = New System.Drawing.Size(174, 30)
+        Me.btnInsert.TabIndex = 3
+        Me.btnInsert.Text = "SAVE"
+        Me.btnInsert.UseVisualStyleBackColor = False
         '
         'txtQtyunit
         '
@@ -75,7 +77,7 @@ Partial Class FrmCurrencyEntry
         Me.txtQtyunit.MaxLength = 50
         Me.txtQtyunit.Name = "txtQtyunit"
         Me.txtQtyunit.Size = New System.Drawing.Size(245, 26)
-        Me.txtQtyunit.TabIndex = 79
+        Me.txtQtyunit.TabIndex = 0
         '
         'Label1
         '
@@ -90,7 +92,7 @@ Partial Class FrmCurrencyEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(529, 136)
+        Me.ClientSize = New System.Drawing.Size(529, 126)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtDes)

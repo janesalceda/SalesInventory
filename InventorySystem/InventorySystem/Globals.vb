@@ -104,6 +104,6 @@
     Public Function GetUserLevel()
         SQL.ExecQuery("SELECT * from UserLevel where deletedDate is null ")
         If SQL.HasException Then Return False
-        Return SQL.DBDT.Rows(0).Item(0)
+        Return SQL.DBDT
     End Function
 End Module

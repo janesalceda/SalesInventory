@@ -130,6 +130,8 @@ Partial Class SelectionItem
         '
         Me.dtitems.AllowUserToAddRows = False
         Me.dtitems.AllowUserToDeleteRows = False
+        Me.dtitems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtitems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtitems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtitems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemCode, Me.ItemName, Me.Column1, Me.Column2, Me.Column3, Me.Column4})
         Me.dtitems.Location = New System.Drawing.Point(9, 145)
@@ -146,12 +148,14 @@ Partial Class SelectionItem
         Me.ItemCode.HeaderText = "Item"
         Me.ItemCode.Name = "ItemCode"
         Me.ItemCode.ReadOnly = True
+        Me.ItemCode.Width = 60
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 111
         '
         'Column1
         '
@@ -203,7 +207,7 @@ Partial Class SelectionItem
         Me.MinimumSize = New System.Drawing.Size(403, 437)
         Me.Name = "SelectionItem"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SelectionItem"
+        Me.Text = "List of Items"
         CType(Me.dtitems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -18,8 +18,8 @@
               <xs:element name="ItemId" msprop:Generator_ColumnVarNameInTable="columnItemId" msprop:Generator_ColumnPropNameInRow="ItemId" msprop:Generator_ColumnPropNameInTable="ItemIdColumn" msprop:Generator_UserColumnName="ItemId" type="xs:string" minOccurs="0" />
               <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
               <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:string" minOccurs="0" />
-              <xs:element name="MinStocks" msprop:Generator_ColumnVarNameInTable="columnMinStocks" msprop:Generator_ColumnPropNameInRow="MinStocks" msprop:Generator_ColumnPropNameInTable="MinStocksColumn" msprop:Generator_UserColumnName="MinStocks" type="xs:string" minOccurs="0" />
-              <xs:element name="OrderPoint" msprop:Generator_ColumnVarNameInTable="columnOrderPoint" msprop:Generator_ColumnPropNameInRow="OrderPoint" msprop:Generator_ColumnPropNameInTable="OrderPointColumn" msprop:Generator_UserColumnName="OrderPoint" type="xs:string" minOccurs="0" />
+              <xs:element name="MinimumOrderQty" msprop:Generator_ColumnVarNameInTable="columnMinimumOrderQty" msprop:Generator_ColumnPropNameInRow="MinimumOrderQty" msprop:Generator_ColumnPropNameInTable="MinimumOrderQtyColumn" msprop:Generator_UserColumnName="MinimumOrderQty" type="xs:string" minOccurs="0" />
+              <xs:element name="OrderingPointQty" msprop:Generator_ColumnVarNameInTable="columnOrderingPointQty" msprop:Generator_ColumnPropNameInRow="OrderingPointQty" msprop:Generator_ColumnPropNameInTable="OrderingPointQtyColumn" msprop:Generator_UserColumnName="OrderingPointQty" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

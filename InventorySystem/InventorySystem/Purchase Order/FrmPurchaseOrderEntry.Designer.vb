@@ -52,6 +52,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dtETA = New System.Windows.Forms.DateTimePicker()
@@ -71,6 +72,9 @@ Partial Class FrmPurchaseOrderEntry
         Me.txtCliUnit = New System.Windows.Forms.TextBox()
         Me.txtCliQty = New System.Windows.Forms.TextBox()
         Me.dtablePoDetails = New System.Windows.Forms.DataGridView()
+        Me.chkcancelPO = New System.Windows.Forms.CheckBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -86,9 +90,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Cancel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.Rec = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.RecAdd = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.chkcancelPO = New System.Windows.Forms.CheckBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.InvQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtablePoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -292,13 +294,15 @@ Partial Class FrmPurchaseOrderEntry
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.ForeColor = System.Drawing.Color.White
         Me.btnSave.Location = New System.Drawing.Point(1096, 610)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(116, 31)
         Me.btnSave.TabIndex = 60
         Me.btnSave.Text = "SAVE P.O."
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btnSave.UseVisualStyleBackColor = False
         '
         'txtSupUnit
         '
@@ -358,6 +362,7 @@ Partial Class FrmPurchaseOrderEntry
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.Color.White
+        Me.GroupBox1.Controls.Add(Me.btnDelete)
         Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.dtETA)
@@ -390,6 +395,17 @@ Partial Class FrmPurchaseOrderEntry
         Me.GroupBox1.TabIndex = 69
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Purchase Details"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.BackColor = System.Drawing.Color.White
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelete.Location = New System.Drawing.Point(222, 384)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(117, 30)
+        Me.btnDelete.TabIndex = 177
+        Me.btnDelete.Text = "DELETE"
+        Me.btnDelete.UseVisualStyleBackColor = False
         '
         'btnClear
         '
@@ -576,13 +592,49 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtablePoDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtablePoDetails.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtablePoDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtablePoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.UnitPrice, Me.TotalPrice, Me.ETD, Me.ETA, Me.FTRY, Me.Cancel, Me.Rec, Me.RecAdd})
+        Me.dtablePoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.UnitPrice, Me.TotalPrice, Me.ETD, Me.ETA, Me.FTRY, Me.Cancel, Me.Rec, Me.RecAdd, Me.InvQty})
         Me.dtablePoDetails.Location = New System.Drawing.Point(349, 14)
         Me.dtablePoDetails.Name = "dtablePoDetails"
         Me.dtablePoDetails.ReadOnly = True
         Me.dtablePoDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtablePoDetails.Size = New System.Drawing.Size(845, 421)
         Me.dtablePoDetails.TabIndex = 69
+        '
+        'chkcancelPO
+        '
+        Me.chkcancelPO.AutoSize = True
+        Me.chkcancelPO.Enabled = False
+        Me.chkcancelPO.Location = New System.Drawing.Point(1127, 108)
+        Me.chkcancelPO.Name = "chkcancelPO"
+        Me.chkcancelPO.Size = New System.Drawing.Size(76, 22)
+        Me.chkcancelPO.TabIndex = 91
+        Me.chkcancelPO.Text = "Cancel"
+        Me.chkcancelPO.UseVisualStyleBackColor = True
+        '
+        'Label19
+        '
+        Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label19.ForeColor = System.Drawing.Color.Red
+        Me.Label19.Location = New System.Drawing.Point(7, 624)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(217, 19)
+        Me.Label19.TabIndex = 127
+        Me.Label19.Text = "*NOTE: ALL * ARE IMPORTANT"
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(976, 610)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(116, 31)
+        Me.Button1.TabIndex = 128
+        Me.Button1.Text = "PRINT"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
         '
         'Seq
         '
@@ -691,42 +743,14 @@ Partial Class FrmPurchaseOrderEntry
         Me.RecAdd.Name = "RecAdd"
         Me.RecAdd.ReadOnly = True
         Me.RecAdd.Visible = False
+        Me.RecAdd.Width = 88
         '
-        'chkcancelPO
+        'InvQty
         '
-        Me.chkcancelPO.AutoSize = True
-        Me.chkcancelPO.Enabled = False
-        Me.chkcancelPO.Location = New System.Drawing.Point(1127, 108)
-        Me.chkcancelPO.Name = "chkcancelPO"
-        Me.chkcancelPO.Size = New System.Drawing.Size(76, 22)
-        Me.chkcancelPO.TabIndex = 91
-        Me.chkcancelPO.Text = "Cancel"
-        Me.chkcancelPO.UseVisualStyleBackColor = True
-        '
-        'Label19
-        '
-        Me.Label19.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label19.AutoSize = True
-        Me.Label19.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label19.ForeColor = System.Drawing.Color.Red
-        Me.Label19.Location = New System.Drawing.Point(7, 624)
-        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(217, 19)
-        Me.Label19.TabIndex = 127
-        Me.Label19.Text = "*NOTE: ALL * ARE IMPORTANT"
-        '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(976, 610)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(116, 31)
-        Me.Button1.TabIndex = 128
-        Me.Button1.Text = "PRINT"
-        Me.Button1.UseVisualStyleBackColor = True
-        Me.Button1.Visible = False
+        Me.InvQty.HeaderText = "Invoice Qty"
+        Me.InvQty.Name = "InvQty"
+        Me.InvQty.ReadOnly = True
+        Me.InvQty.Width = 106
         '
         'FrmPurchaseOrderEntry
         '
@@ -822,6 +846,9 @@ Partial Class FrmPurchaseOrderEntry
     Friend WithEvents chkcancelPO As CheckBox
     Friend WithEvents Label18 As Label
     Friend WithEvents Label19 As Label
+    Friend WithEvents btnClear As Button
+    Friend WithEvents Button1 As Button
+    Friend WithEvents btnDelete As Button
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
@@ -837,6 +864,5 @@ Partial Class FrmPurchaseOrderEntry
     Friend WithEvents Cancel As DataGridViewCheckBoxColumn
     Friend WithEvents Rec As DataGridViewCheckBoxColumn
     Friend WithEvents RecAdd As DataGridViewTextBoxColumn
-    Friend WithEvents btnClear As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents InvQty As DataGridViewTextBoxColumn
 End Class

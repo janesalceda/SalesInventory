@@ -6,9 +6,9 @@
         query += AddingWhere(query)
         query += " i.deletedDate is null"
         If formname = "AddPurchaseOrder" Then
-            SQL.AddParams("@issuedDate", IssuedDate)
+            SQL.AddParams("@issuedDate", IssuedDate.ToShortDateString)
             query += AddingWhere(query)
-            query += " ip.AppliedDate<=@issuedDate"
+            query += " convert(VARCHAR(10),ip.AppliedDate,111)<=@issuedDate"
         End If
         If txtItems.Text <> "" Then
             SQL.AddParams("@ItemId", txtItems.Text)

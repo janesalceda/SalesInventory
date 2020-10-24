@@ -1,11 +1,7 @@
 ﻿Public Class AddUser
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ExecuteQueries("Insert")
-    End Sub
-
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
-        ExecuteQueries("Update")
+        If txtPassword.Text = txtVPassword.Text Then ExecuteQueries(btnSave.Text)
     End Sub
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@username", txtUserName.Text)
@@ -16,21 +12,25 @@
         End If
 
         SQL.AddParams("@username", txtUserName.Text)
-        SQL.AddParams("@usertype", cmbUserType.Text)
+        SQL.AddParams("@usertype", cmbUserLevel.SelectedValue)
         SQL.AddParams("@pass", txtPassword.Text)
-        SQL.AddParams("@updatedby", "35593")
+        SQL.AddParams("@updatedby", moduleId)
 
-        If Query = "Insert" Then
+        If Query = "SAVE" Then
             SQL.ExecQuery("
                 INSERT INTO Users 
                 VALUES
                 (@username,@pass,@usertype,GETDATE(),GETDATE(),NULL,@updatedby)")
 
             SQL.AddParams("@empname", txtName.Text)
-            SQL.AddParams("@gender", txtUserName.Text)
-            SQL.AddParams("@age", txtPassword.Text)
-            SQL.AddParams("@position", cmbUserType.Text)
-            SQL.AddParams("@updatedby", "35593")
+            If radMale.Checked = True Then
+                SQL.AddParams("@gender", "M")
+            Else radFemale.Checked = True
+                SQL.AddParams("@gender", "F")
+            End If
+            SQL.AddParams("@age", txtAge.Text)
+            SQL.AddParams("@position", cmbUserLevel.SelectedValue)
+            SQL.AddParams("@updatedby", moduleId)
 
             SQL.ExecQuery("
                 INSERT INTO employees 
@@ -48,7 +48,7 @@
         Me.Close()
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
@@ -58,5 +58,13 @@
             lblnmatch.Visible = True
         End If
     End Sub
-
+    Private Sub LoadUserLevel()
+        cmbUserLevel.DataSource = GetUserLevel()
+        cmbUserLevel.DisplayMember = "UserLevel"
+        cmbUserLevel.ValueMember = "UserLevelId"
+        cmbUserLevel.SelectedIndex = -1
+    End Sub
+    Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadUserLevel()
+    End Sub
 End Class

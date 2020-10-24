@@ -282,7 +282,6 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.frmInventory.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchInvoice.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmSearchPO.resources
-C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmMessageBox.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Resources.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PurchaseOrderList.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmUser.resources
@@ -295,7 +294,6 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.EditSupplierName.resources
-C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.Form1.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe.config
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\InventorySystem.exe
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\InventorySystem.pdb
@@ -464,3 +462,4 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreview.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmConfigurationSettings.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmCompanyInfo.resources
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmChangeUOM.resources

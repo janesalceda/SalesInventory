@@ -315,6 +315,22 @@ Partial Public Class DataSet1
         
         Private columnTermsofPayment As Global.System.Data.DataColumn
         
+        Private columnCompanyName As Global.System.Data.DataColumn
+        
+        Private columnStreetAdress As Global.System.Data.DataColumn
+        
+        Private columnCityZip As Global.System.Data.DataColumn
+        
+        Private columnCompPhone As Global.System.Data.DataColumn
+        
+        Private columnCompFax As Global.System.Data.DataColumn
+        
+        Private columnwebsite As Global.System.Data.DataColumn
+        
+        Private columnCompanyLogo As Global.System.Data.DataColumn
+        
+        Private columnEncoder As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -479,6 +495,70 @@ Partial Public Class DataSet1
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CompanyNameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCompanyName
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property StreetAdressColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnStreetAdress
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CityZipColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCityZip
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CompPhoneColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCompPhone
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CompFaxColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCompFax
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property websiteColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnwebsite
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CompanyLogoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCompanyLogo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property EncoderColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEncoder
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -531,9 +611,17 @@ Partial Public Class DataSet1
                     ByVal Remarks As String,  _
                     ByVal DeliveryPlaces As String,  _
                     ByVal TermsofDelivery As String,  _
-                    ByVal TermsofPayment As String) As PODetailsRow
+                    ByVal TermsofPayment As String,  _
+                    ByVal CompanyName As String,  _
+                    ByVal StreetAdress As String,  _
+                    ByVal CityZip As String,  _
+                    ByVal CompPhone As String,  _
+                    ByVal CompFax As String,  _
+                    ByVal website As String,  _
+                    ByVal CompanyLogo As String,  _
+                    ByVal Encoder As String) As PODetailsRow
             Dim rowPODetailsRow As PODetailsRow = CType(Me.NewRow,PODetailsRow)
-            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, UnitPrice, Total, PONo, IssuedDate, TotalAmount, SupplierName, Phone, Fax, Address, Remarks, DeliveryPlaces, TermsofDelivery, TermsofPayment}
+            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, UnitPrice, Total, PONo, IssuedDate, TotalAmount, SupplierName, Phone, Fax, Address, Remarks, DeliveryPlaces, TermsofDelivery, TermsofPayment, CompanyName, StreetAdress, CityZip, CompPhone, CompFax, website, CompanyLogo, Encoder}
             rowPODetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPODetailsRow)
             Return rowPODetailsRow
@@ -572,6 +660,14 @@ Partial Public Class DataSet1
             Me.columnDeliveryPlaces = MyBase.Columns("DeliveryPlaces")
             Me.columnTermsofDelivery = MyBase.Columns("TermsofDelivery")
             Me.columnTermsofPayment = MyBase.Columns("TermsofPayment")
+            Me.columnCompanyName = MyBase.Columns("CompanyName")
+            Me.columnStreetAdress = MyBase.Columns("StreetAdress")
+            Me.columnCityZip = MyBase.Columns("CityZip")
+            Me.columnCompPhone = MyBase.Columns("CompPhone")
+            Me.columnCompFax = MyBase.Columns("CompFax")
+            Me.columnwebsite = MyBase.Columns("website")
+            Me.columnCompanyLogo = MyBase.Columns("CompanyLogo")
+            Me.columnEncoder = MyBase.Columns("Encoder")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -609,6 +705,22 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnTermsofDelivery)
             Me.columnTermsofPayment = New Global.System.Data.DataColumn("TermsofPayment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTermsofPayment)
+            Me.columnCompanyName = New Global.System.Data.DataColumn("CompanyName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCompanyName)
+            Me.columnStreetAdress = New Global.System.Data.DataColumn("StreetAdress", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnStreetAdress)
+            Me.columnCityZip = New Global.System.Data.DataColumn("CityZip", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCityZip)
+            Me.columnCompPhone = New Global.System.Data.DataColumn("CompPhone", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCompPhone)
+            Me.columnCompFax = New Global.System.Data.DataColumn("CompFax", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCompFax)
+            Me.columnwebsite = New Global.System.Data.DataColumn("website", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnwebsite)
+            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCompanyLogo)
+            Me.columnEncoder = New Global.System.Data.DataColumn("Encoder", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEncoder)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -995,6 +1107,126 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CompanyName() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.CompanyNameColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyName' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.CompanyNameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property StreetAdress() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.StreetAdressColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'StreetAdress' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.StreetAdressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CityZip() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.CityZipColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CityZip' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.CityZipColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CompPhone() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.CompPhoneColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CompPhone' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.CompPhoneColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CompFax() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.CompFaxColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CompFax' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.CompFaxColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property website() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.websiteColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'website' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.websiteColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CompanyLogo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.CompanyLogoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyLogo' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.CompanyLogoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Encoder() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.EncoderColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Encoder' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.EncoderColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsItemIdNull() As Boolean
             Return Me.IsNull(Me.tablePODetails.ItemIdColumn)
         End Function
@@ -1183,6 +1415,102 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetTermsofPaymentNull()
             Me(Me.tablePODetails.TermsofPaymentColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCompanyNameNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.CompanyNameColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCompanyNameNull()
+            Me(Me.tablePODetails.CompanyNameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsStreetAdressNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.StreetAdressColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetStreetAdressNull()
+            Me(Me.tablePODetails.StreetAdressColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCityZipNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.CityZipColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCityZipNull()
+            Me(Me.tablePODetails.CityZipColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCompPhoneNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.CompPhoneColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCompPhoneNull()
+            Me(Me.tablePODetails.CompPhoneColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCompFaxNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.CompFaxColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCompFaxNull()
+            Me(Me.tablePODetails.CompFaxColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IswebsiteNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.websiteColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetwebsiteNull()
+            Me(Me.tablePODetails.websiteColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCompanyLogoNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.CompanyLogoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCompanyLogoNull()
+            Me(Me.tablePODetails.CompanyLogoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsEncoderNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.EncoderColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetEncoderNull()
+            Me(Me.tablePODetails.EncoderColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

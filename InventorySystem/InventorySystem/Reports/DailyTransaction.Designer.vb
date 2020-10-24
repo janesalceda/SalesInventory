@@ -61,9 +61,9 @@ Partial Class DailyTransaction
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "DailyTransaction"
-        Me.Text = "DailyTransaction"
+        Me.Text = "Daily Transaction REport"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

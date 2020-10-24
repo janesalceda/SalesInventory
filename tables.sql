@@ -304,6 +304,7 @@ CREATE TABLE dbo.SupplierItemPrices
 	ItemPriceId INT IDENTITY NOT NULL,
 	ItemId VARCHAR(20) NOT NULL,
 	SupplierId VARCHAR(25) NOT NULL,
+	SupplierItemId VARCHAR(20) NOT NULL,
 	AppliedDate DATETIME NOT NULL,
 	UnitPrice DECIMAL(18,8) NOT NULL,
 	LeadTime NUMERIC(3,0) NULL,
@@ -311,7 +312,7 @@ CREATE TABLE dbo.SupplierItemPrices
 	DeletedDate DATETIME NULL,
 	UpdatedDate DATETIME DEFAULT (getdate()) NULL,
 	UpdatedBy INT NULL,
-	CONSTRAINT PK__Supplier__7E70A262318258D2 PRIMARY KEY (ItemPriceId)
+	CONSTRAINT PK__Supplier__7E70A2621A69E950 PRIMARY KEY (ItemPriceId)
 	)
 GO
 

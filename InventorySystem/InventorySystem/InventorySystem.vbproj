@@ -159,6 +159,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DataSets\DataSet2.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -189,12 +192,6 @@
       <DependentUpon>EditSupplierName.vb</DependentUpon>
     </Compile>
     <Compile Include="EditSupplierName.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ForApproval.Designer.vb">
-      <DependentUpon>ForApproval.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ForApproval.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCompanyInfo.Designer.vb">
@@ -299,10 +296,10 @@
     <Compile Include="MasterList\Items\FrmItemEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MasterList\FrmItemPriceAdd.Designer.vb">
+    <Compile Include="MasterList\Items\FrmItemPriceAdd.Designer.vb">
       <DependentUpon>FrmItemPriceAdd.vb</DependentUpon>
     </Compile>
-    <Compile Include="MasterList\FrmItemPriceAdd.vb">
+    <Compile Include="MasterList\Items\FrmItemPriceAdd.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MasterList\TermofPayment\FrmTermofPaymentSearch.Designer.vb">
@@ -451,12 +448,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Globals.vb" />
-    <Compile Include="MessageBox.Designer.vb">
-      <DependentUpon>MessageBox.vb</DependentUpon>
-    </Compile>
-    <Compile Include="MessageBox.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -528,13 +519,16 @@
     <Compile Include="Stocks\ScanItem.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Utilities\FrmChangeUOM.Designer.vb">
+      <DependentUpon>FrmChangeUOM.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\FrmChangeUOM.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="EditSupplierName.resx">
       <DependentUpon>EditSupplierName.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ForApproval.resx">
-      <DependentUpon>ForApproval.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCompanyInfo.resx">
       <DependentUpon>FrmCompanyInfo.vb</DependentUpon>
@@ -593,7 +587,7 @@
     <EmbeddedResource Include="MasterList\Items\FrmItemEntry.resx">
       <DependentUpon>FrmItemEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MasterList\FrmItemPriceAdd.resx">
+    <EmbeddedResource Include="MasterList\Items\FrmItemPriceAdd.resx">
       <DependentUpon>FrmItemPriceAdd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\TermofPayment\FrmTermofPaymentSearch.resx">
@@ -670,9 +664,6 @@
     <EmbeddedResource Include="MasterList\TermofPayment\FrmTermsofPaymentEntry.resx">
       <DependentUpon>FrmTermsofPaymentEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MessageBox.resx">
-      <DependentUpon>MessageBox.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -702,6 +693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Stocks\ScanItem.resx">
       <DependentUpon>ScanItem.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Utilities\FrmChangeUOM.resx">
+      <DependentUpon>FrmChangeUOM.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -801,9 +795,7 @@
     <None Include="Resources\Print.png" />
     <None Include="Resources\QRCode.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Utilities\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

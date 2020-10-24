@@ -39,7 +39,7 @@ Partial Class EditSupplierName
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Label1.Location = New System.Drawing.Point(10, 16)
+        Me.Label1.Location = New System.Drawing.Point(8, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(116, 18)
         Me.Label1.TabIndex = 1
@@ -66,7 +66,7 @@ Partial Class EditSupplierName
         Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "EditSupplierName"
-        Me.Text = "EditSupplierName"
+        Me.Text = "Edit Supplier Name"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

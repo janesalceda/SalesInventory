@@ -31,16 +31,18 @@ Partial Class FrmItemPriceAdd
         Me.dtAppliedDate = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.txtSupItemCode = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'txtUnitPrice
         '
         Me.txtUnitPrice.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUnitPrice.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUnitPrice.Location = New System.Drawing.Point(112, 46)
+        Me.txtUnitPrice.Location = New System.Drawing.Point(154, 78)
         Me.txtUnitPrice.MaxLength = 19
         Me.txtUnitPrice.Name = "txtUnitPrice"
-        Me.txtUnitPrice.Size = New System.Drawing.Size(370, 26)
+        Me.txtUnitPrice.Size = New System.Drawing.Size(328, 26)
         Me.txtUnitPrice.TabIndex = 2
         '
         'Label3
@@ -48,7 +50,7 @@ Partial Class FrmItemPriceAdd
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.White
         Me.Label3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(5, 49)
+        Me.Label3.Location = New System.Drawing.Point(5, 81)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(80, 18)
         Me.Label3.TabIndex = 20
@@ -59,7 +61,7 @@ Partial Class FrmItemPriceAdd
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSupplier.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSupplier.Location = New System.Drawing.Point(194, 12)
+        Me.btnSupplier.Location = New System.Drawing.Point(236, 12)
         Me.btnSupplier.Name = "btnSupplier"
         Me.btnSupplier.Size = New System.Drawing.Size(32, 26)
         Me.btnSupplier.TabIndex = 0
@@ -71,16 +73,16 @@ Partial Class FrmItemPriceAdd
         Me.txtSupDes.BackColor = System.Drawing.Color.White
         Me.txtSupDes.Enabled = False
         Me.txtSupDes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSupDes.Location = New System.Drawing.Point(232, 12)
+        Me.txtSupDes.Location = New System.Drawing.Point(272, 12)
         Me.txtSupDes.Name = "txtSupDes"
-        Me.txtSupDes.Size = New System.Drawing.Size(295, 26)
+        Me.txtSupDes.Size = New System.Drawing.Size(255, 26)
         Me.txtSupDes.TabIndex = 56
         '
         'txtSupplierID
         '
         Me.txtSupplierID.BackColor = System.Drawing.Color.LightBlue
         Me.txtSupplierID.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSupplierID.Location = New System.Drawing.Point(112, 12)
+        Me.txtSupplierID.Location = New System.Drawing.Point(154, 12)
         Me.txtSupplierID.MaxLength = 25
         Me.txtSupplierID.Name = "txtSupplierID"
         Me.txtSupplierID.Size = New System.Drawing.Size(114, 26)
@@ -100,9 +102,9 @@ Partial Class FrmItemPriceAdd
         'dtAppliedDate
         '
         Me.dtAppliedDate.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtAppliedDate.Location = New System.Drawing.Point(112, 82)
+        Me.dtAppliedDate.Location = New System.Drawing.Point(154, 110)
         Me.dtAppliedDate.Name = "dtAppliedDate"
-        Me.dtAppliedDate.Size = New System.Drawing.Size(273, 26)
+        Me.dtAppliedDate.Size = New System.Drawing.Size(328, 26)
         Me.dtAppliedDate.TabIndex = 3
         '
         'Label1
@@ -110,7 +112,7 @@ Partial Class FrmItemPriceAdd
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(4, 84)
+        Me.Label1.Location = New System.Drawing.Point(4, 116)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(104, 18)
         Me.Label1.TabIndex = 60
@@ -118,21 +120,45 @@ Partial Class FrmItemPriceAdd
         '
         'btnSave
         '
-        Me.btnSave.BackColor = System.Drawing.Color.White
+        Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(374, 112)
+        Me.btnSave.ForeColor = System.Drawing.Color.Black
+        Me.btnSave.Location = New System.Drawing.Point(224, 142)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(152, 28)
         Me.btnSave.TabIndex = 4
         Me.btnSave.Text = "INSERT PRICE"
         Me.btnSave.UseVisualStyleBackColor = False
         '
+        'txtSupItemCode
+        '
+        Me.txtSupItemCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.txtSupItemCode.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtSupItemCode.Location = New System.Drawing.Point(154, 44)
+        Me.txtSupItemCode.MaxLength = 19
+        Me.txtSupItemCode.Name = "txtSupItemCode"
+        Me.txtSupItemCode.Size = New System.Drawing.Size(328, 26)
+        Me.txtSupItemCode.TabIndex = 61
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(5, 47)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(142, 18)
+        Me.Label2.TabIndex = 62
+        Me.Label2.Text = "Supplier Item Code"
+        '
         'FrmItemPriceAdd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(534, 143)
+        Me.ClientSize = New System.Drawing.Size(534, 180)
+        Me.Controls.Add(Me.txtSupItemCode)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtAppliedDate)
@@ -161,4 +187,6 @@ Partial Class FrmItemPriceAdd
     Friend WithEvents dtAppliedDate As DateTimePicker
     Friend WithEvents Label1 As Label
     Friend WithEvents btnSave As Button
+    Friend WithEvents txtSupItemCode As TextBox
+    Friend WithEvents Label2 As Label
 End Class

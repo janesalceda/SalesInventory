@@ -33,10 +33,10 @@ Partial Class FrmDeliveryPlacesEntry
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(434, 19)
+        Me.chkDisuse.Location = New System.Drawing.Point(434, 14)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
-        Me.chkDisuse.TabIndex = 73
+        Me.chkDisuse.TabIndex = 2
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
@@ -56,26 +56,28 @@ Partial Class FrmDeliveryPlacesEntry
         Me.txtDes.MaxLength = 50
         Me.txtDes.Name = "txtDes"
         Me.txtDes.Size = New System.Drawing.Size(375, 26)
-        Me.txtDes.TabIndex = 72
+        Me.txtDes.TabIndex = 1
         '
         'btnInsert
         '
+        Me.btnInsert.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(400, 84)
+        Me.btnInsert.ForeColor = System.Drawing.Color.White
+        Me.btnInsert.Location = New System.Drawing.Point(210, 82)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
-        Me.btnInsert.TabIndex = 74
-        Me.btnInsert.Text = "INSERT"
-        Me.btnInsert.UseVisualStyleBackColor = True
+        Me.btnInsert.Size = New System.Drawing.Size(174, 30)
+        Me.btnInsert.TabIndex = 3
+        Me.btnInsert.Text = "SAVE"
+        Me.btnInsert.UseVisualStyleBackColor = False
         '
         'txtQtyunit
         '
         Me.txtQtyunit.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtQtyunit.Location = New System.Drawing.Point(138, 13)
+        Me.txtQtyunit.Location = New System.Drawing.Point(140, 13)
         Me.txtQtyunit.MaxLength = 50
         Me.txtQtyunit.Name = "txtQtyunit"
         Me.txtQtyunit.Size = New System.Drawing.Size(245, 26)
-        Me.txtQtyunit.TabIndex = 71
+        Me.txtQtyunit.TabIndex = 0
         '
         'Label1
         '

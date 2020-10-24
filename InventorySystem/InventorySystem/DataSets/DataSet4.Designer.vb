@@ -289,9 +289,9 @@ Partial Public Class DataSet4
         
         Private columnQty As Global.System.Data.DataColumn
         
-        Private columnMinStocks As Global.System.Data.DataColumn
+        Private columnMinimumOrderQty As Global.System.Data.DataColumn
         
-        Private columnOrderPoint As Global.System.Data.DataColumn
+        Private columnOrderingPointQty As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -354,17 +354,17 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property MinStocksColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property MinimumOrderQtyColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnMinStocks
+                Return Me.columnMinimumOrderQty
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property OrderPointColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property OrderingPointQtyColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnOrderPoint
+                Return Me.columnOrderingPointQty
             End Get
         End Property
         
@@ -405,9 +405,9 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddItemStocksDataSetRow(ByVal ItemId As String, ByVal Description As String, ByVal Qty As String, ByVal MinStocks As String, ByVal OrderPoint As String) As ItemStocksDataSetRow
+        Public Overloads Function AddItemStocksDataSetRow(ByVal ItemId As String, ByVal Description As String, ByVal Qty As String, ByVal MinimumOrderQty As String, ByVal OrderingPointQty As String) As ItemStocksDataSetRow
             Dim rowItemStocksDataSetRow As ItemStocksDataSetRow = CType(Me.NewRow,ItemStocksDataSetRow)
-            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, MinStocks, OrderPoint}
+            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, MinimumOrderQty, OrderingPointQty}
             rowItemStocksDataSetRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowItemStocksDataSetRow)
             Return rowItemStocksDataSetRow
@@ -433,8 +433,8 @@ Partial Public Class DataSet4
             Me.columnItemId = MyBase.Columns("ItemId")
             Me.columnDescription = MyBase.Columns("Description")
             Me.columnQty = MyBase.Columns("Qty")
-            Me.columnMinStocks = MyBase.Columns("MinStocks")
-            Me.columnOrderPoint = MyBase.Columns("OrderPoint")
+            Me.columnMinimumOrderQty = MyBase.Columns("MinimumOrderQty")
+            Me.columnOrderingPointQty = MyBase.Columns("OrderingPointQty")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -446,10 +446,10 @@ Partial Public Class DataSet4
             MyBase.Columns.Add(Me.columnDescription)
             Me.columnQty = New Global.System.Data.DataColumn("Qty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQty)
-            Me.columnMinStocks = New Global.System.Data.DataColumn("MinStocks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnMinStocks)
-            Me.columnOrderPoint = New Global.System.Data.DataColumn("OrderPoint", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnOrderPoint)
+            Me.columnMinimumOrderQty = New Global.System.Data.DataColumn("MinimumOrderQty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnMinimumOrderQty)
+            Me.columnOrderingPointQty = New Global.System.Data.DataColumn("OrderingPointQty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnOrderingPointQty)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -641,31 +641,31 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property MinStocks() As String
+        Public Property MinimumOrderQty() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableItemStocksDataSet.MinStocksColumn),String)
+                    Return CType(Me(Me.tableItemStocksDataSet.MinimumOrderQtyColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'MinStocks' in table 'ItemStocksDataSet' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'MinimumOrderQty' in table 'ItemStocksDataSet' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableItemStocksDataSet.MinStocksColumn) = value
+                Me(Me.tableItemStocksDataSet.MinimumOrderQtyColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property OrderPoint() As String
+        Public Property OrderingPointQty() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableItemStocksDataSet.OrderPointColumn),String)
+                    Return CType(Me(Me.tableItemStocksDataSet.OrderingPointQtyColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'OrderPoint' in table 'ItemStocksDataSet' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'OrderingPointQty' in table 'ItemStocksDataSet' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableItemStocksDataSet.OrderPointColumn) = value
+                Me(Me.tableItemStocksDataSet.OrderingPointQtyColumn) = value
             End Set
         End Property
         
@@ -707,26 +707,26 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsMinStocksNull() As Boolean
-            Return Me.IsNull(Me.tableItemStocksDataSet.MinStocksColumn)
+        Public Function IsMinimumOrderQtyNull() As Boolean
+            Return Me.IsNull(Me.tableItemStocksDataSet.MinimumOrderQtyColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetMinStocksNull()
-            Me(Me.tableItemStocksDataSet.MinStocksColumn) = Global.System.Convert.DBNull
+        Public Sub SetMinimumOrderQtyNull()
+            Me(Me.tableItemStocksDataSet.MinimumOrderQtyColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsOrderPointNull() As Boolean
-            Return Me.IsNull(Me.tableItemStocksDataSet.OrderPointColumn)
+        Public Function IsOrderingPointQtyNull() As Boolean
+            Return Me.IsNull(Me.tableItemStocksDataSet.OrderingPointQtyColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetOrderPointNull()
-            Me(Me.tableItemStocksDataSet.OrderPointColumn) = Global.System.Convert.DBNull
+        Public Sub SetOrderingPointQtyNull()
+            Me(Me.tableItemStocksDataSet.OrderingPointQtyColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

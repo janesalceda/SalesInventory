@@ -50,14 +50,16 @@ Partial Class FrmTermsofDeliveryEntry
         '
         'btnSave
         '
+        Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.Enabled = False
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(416, 90)
+        Me.btnSave.ForeColor = System.Drawing.Color.White
+        Me.btnSave.Location = New System.Drawing.Point(234, 90)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(116, 30)
+        Me.btnSave.Size = New System.Drawing.Size(174, 30)
         Me.btnSave.TabIndex = 3
         Me.btnSave.Text = "SAVE"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btnSave.UseVisualStyleBackColor = False
         '
         'txtDes
         '
@@ -87,7 +89,7 @@ Partial Class FrmTermsofDeliveryEntry
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
-        'FrmTermsofDelivery
+        'FrmTermsofDeliveryEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -101,7 +103,7 @@ Partial Class FrmTermsofDeliveryEntry
         Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "FrmTermsofDelivery"
+        Me.Name = "FrmTermsofDeliveryEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmTermsofDelivery"
         Me.ResumeLayout(False)

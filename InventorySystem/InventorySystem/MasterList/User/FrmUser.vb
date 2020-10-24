@@ -25,7 +25,7 @@
             '.txtEmpCode.Enabled = True
             .txtPassword.Enabled = True
             '.txtTitle.Enabled = True
-            .cmbUserType.Enabled = True
+            .cmbUserLevel.Enabled = True
             .txtUserName.Enabled = True
             .Show()
         End With
@@ -37,14 +37,15 @@
             MsgBox("Deleted User")
         End If
     End Sub
-    Private Sub LoadDeliveryPlaces()
-        cmbUserLevel.DataSource = getDeliveryPlaces()
+    Private Sub LoadUserLevel()
+        cmbUserLevel.DataSource = GetUserLevel()
         cmbUserLevel.DisplayMember = "UserLevel"
         cmbUserLevel.ValueMember = "UserLevelId"
         cmbUserLevel.SelectedIndex = -1
     End Sub
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
+        LoadUserLevel()
         LoadDataGrid()
     End Sub
     Private Sub FindItem()
@@ -63,11 +64,11 @@
             i = .CurrentRow.Index
             With AddUser
                 .Text = "User Details"
-                .btnUpdate.Visible = True
-                .cmbUserType.Enabled = True
+                .btnSave.Text = "UPDATE"
+                .cmbUserLevel.Enabled = True
                 .txtPassword.Text = dtUsers.Rows(i).Cells(4).Value.ToString
                 .txtUserName.Text = dtUsers.Rows(i).Cells(3).Value.ToString
-                .cmbUserType.Text = dtUsers.Rows(i).Cells(5).Value.ToString
+                .cmbUserLevel.Text = dtUsers.Rows(i).Cells(5).Value.ToString
                 .Show()
             End With
         End With

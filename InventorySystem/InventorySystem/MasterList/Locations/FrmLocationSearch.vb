@@ -58,6 +58,7 @@
             With FrmLocationEntry
                 .Text = "Location  Details"
                 .btnInsert.Text = "UPDATE"
+                .id = dtItems.SelectedRows(0).Cells(0).Value
                 .txtQtyunit.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .txtDes.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .Show()

@@ -35,7 +35,6 @@ Partial Class FrmAccountDetails
         Me.radM = New System.Windows.Forms.RadioButton()
         Me.radF = New System.Windows.Forms.RadioButton()
         Me.btnUpdate = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
         CType(Me.picVisible, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.picProf, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -60,7 +59,7 @@ Partial Class FrmAccountDetails
         'txtUsername
         '
         Me.txtUsername.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtUsername.Location = New System.Drawing.Point(17, 125)
+        Me.txtUsername.Location = New System.Drawing.Point(116, 124)
         Me.txtUsername.MaxLength = 50
         Me.txtUsername.Name = "txtUsername"
         Me.txtUsername.Size = New System.Drawing.Size(258, 26)
@@ -78,7 +77,7 @@ Partial Class FrmAccountDetails
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(17, 104)
+        Me.Label3.Location = New System.Drawing.Point(16, 126)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(84, 18)
         Me.Label3.TabIndex = 4
@@ -87,7 +86,7 @@ Partial Class FrmAccountDetails
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(17, 153)
+        Me.Label4.Location = New System.Drawing.Point(18, 168)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(82, 18)
         Me.Label4.TabIndex = 6
@@ -97,7 +96,7 @@ Partial Class FrmAccountDetails
         '
         Me.txtPass.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPass.Enabled = False
-        Me.txtPass.Location = New System.Drawing.Point(17, 174)
+        Me.txtPass.Location = New System.Drawing.Point(116, 164)
         Me.txtPass.MaxLength = 50
         Me.txtPass.Name = "txtPass"
         Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
@@ -109,7 +108,7 @@ Partial Class FrmAccountDetails
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 11.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Blue
-        Me.Label5.Location = New System.Drawing.Point(73, 203)
+        Me.Label5.Location = New System.Drawing.Point(178, 198)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(116, 18)
         Me.Label5.TabIndex = 7
@@ -117,7 +116,7 @@ Partial Class FrmAccountDetails
         '
         'picVisible
         '
-        Me.picVisible.Location = New System.Drawing.Point(282, 178)
+        Me.picVisible.Location = New System.Drawing.Point(374, 168)
         Me.picVisible.Name = "picVisible"
         Me.picVisible.Size = New System.Drawing.Size(25, 16)
         Me.picVisible.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -128,7 +127,7 @@ Partial Class FrmAccountDetails
         'picProf
         '
         Me.picProf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.picProf.Location = New System.Drawing.Point(285, 11)
+        Me.picProf.Location = New System.Drawing.Point(284, 26)
         Me.picProf.Name = "picProf"
         Me.picProf.Size = New System.Drawing.Size(107, 86)
         Me.picProf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -161,26 +160,15 @@ Partial Class FrmAccountDetails
         '
         'btnUpdate
         '
-        Me.btnUpdate.BackColor = System.Drawing.Color.White
+        Me.btnUpdate.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.ForeColor = System.Drawing.SystemColors.InfoText
-        Me.btnUpdate.Location = New System.Drawing.Point(219, 234)
+        Me.btnUpdate.ForeColor = System.Drawing.Color.White
+        Me.btnUpdate.Location = New System.Drawing.Point(146, 230)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(84, 28)
+        Me.btnUpdate.Size = New System.Drawing.Size(166, 28)
         Me.btnUpdate.TabIndex = 12
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = False
-        '
-        'btnCancel
-        '
-        Me.btnCancel.BackColor = System.Drawing.Color.White
-        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(310, 234)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(84, 28)
-        Me.btnCancel.TabIndex = 13
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = False
         '
         'FrmAccountDetails
         '
@@ -188,7 +176,6 @@ Partial Class FrmAccountDetails
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(403, 272)
-        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.radF)
         Me.Controls.Add(Me.radM)
@@ -229,5 +216,4 @@ Partial Class FrmAccountDetails
     Friend WithEvents radM As RadioButton
     Friend WithEvents radF As RadioButton
     Friend WithEvents btnUpdate As Button
-    Friend WithEvents btnCancel As Button
 End Class

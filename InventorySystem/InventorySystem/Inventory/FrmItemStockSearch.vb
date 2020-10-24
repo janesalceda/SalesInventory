@@ -10,19 +10,24 @@
             SQL.AddParams("@ItemId", txtitem.Text)
             where = " and itemid=@itemId"
         End If
-        SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' FROM Items i
+        If Not String.IsNullOrEmpty(ComboBox1.Text) Then
+            where += " order by " & ComboBox1.Text
+        End If
+        SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' ,
+            case when test.qty<=MinimumOrderQty then 'Critical'
+            when test.qty<=OrderingPointQty then 'Ordering Point' end 'Status'
+            FROM Items i
 	        LEFT JOIN (SELECT * FROM GetStockBalance(@from)) AS test
 	        ON test.ItemId = i.ItemId where i.deletedDate is null" & where)
         If SQL.DBDT.Rows.Count = 0 Then
             MsgBox("No record found!", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
-        If SQL.DBDT.Rows.Count = 0 Then Exit Sub
         Dim row As New DataTable
         row = SQL.DBDT
         dgvData.Rows.Clear()
         For i As Integer = 0 To row.Rows.Count - 1
-            dgvData.Rows.Add(row.Rows(i).Item(0), row.Rows(i).Item(1), row.Rows(i).Item(2))
+            dgvData.Rows.Add(row.Rows(i).Item(0), row.Rows(i).Item(1), row.Rows(i).Item(2), row.Rows(i).Item(3))
         Next
     End Sub
 

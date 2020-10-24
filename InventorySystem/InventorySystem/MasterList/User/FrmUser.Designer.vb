@@ -58,6 +58,7 @@ Partial Class FrmUser
         'cmbUserLevel
         '
         Me.cmbUserLevel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cmbUserLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbUserLevel.FormattingEnabled = True
         Me.cmbUserLevel.Location = New System.Drawing.Point(118, 48)
         Me.cmbUserLevel.Name = "cmbUserLevel"

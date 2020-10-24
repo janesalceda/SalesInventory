@@ -175,7 +175,7 @@ Partial Class FrmInventoryStockReport
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmInventoryStockReport"
-        Me.Text = "FrmInventoryStockReport"
+        Me.Text = "Inventory Stock Report"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

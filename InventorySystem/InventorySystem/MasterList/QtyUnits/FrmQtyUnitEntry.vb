@@ -1,18 +1,19 @@
 ﻿Public Class FrmQtyUnitEntry
+    Public id As Integer
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@QtyUnit", txtQtyunit.Text)
         SQL.AddParams("@Description", txtDes.Text)
         SQL.AddParams("@UpdatedBy", moduleId)
         SQL.AddParams("@disuse", chkDisuse.Checked)
 
-        If Query = "INSERT" Then
+        If Query = "SAVE" Then
             SQL.ExecQuery("
                 INSERT INTO QtyUnits 
                 (QtyUnit,Description,DeletedDate,UpdatedBy)
                 VALUES
                 (@QtyUnit,@description,(select case when @disuse=1 then getdate() else null end),@UpdatedBy)")
         Else
-            SQL.AddParams("@QtyUnitId", FrmQtyUnitSearch.dtItems.SelectedRows(0).Cells(0).Value.ToString())
+            SQL.AddParams("@QtyUnitId", id)
             SQL.ExecQuery("update QtyUnits set QtyUnit=@QtyUnit,updatedDate=getdate(), 
                 UpdatedBy=@UpdatedBy,
                 deletedDate=(select case when @disuse=1 then getdate() else null end),

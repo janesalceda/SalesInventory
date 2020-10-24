@@ -1,6 +1,6 @@
 ﻿Public Class FrmRejectReturnSearch
     Private Sub getAllData(where As String)
-        SQL.ExecQuery("SELECT STID,CountedDate,
+        SQL.ExecQuery("SELECT ReturnID,CountedDate,
             CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',
             Remarks,st.UpdatedDate,
             CASE WHEN st.UpdatedBy=e.EmpId THEN e.EmployeeName ELSE '' END AS 'UpdatedBy',

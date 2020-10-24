@@ -218,13 +218,15 @@ Partial Class FrmSupplierEntry
         '
         'btnSave
         '
+        Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(385, 387)
+        Me.btnSave.ForeColor = System.Drawing.Color.White
+        Me.btnSave.Location = New System.Drawing.Point(246, 386)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(133, 30)
+        Me.btnSave.Size = New System.Drawing.Size(186, 30)
         Me.btnSave.TabIndex = 15
         Me.btnSave.Text = "SAVE"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btnSave.UseVisualStyleBackColor = False
         '
         'Label7
         '
@@ -322,14 +324,14 @@ Partial Class FrmSupplierEntry
         '
         Me.chkImport.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.chkImport.AutoSize = True
-        Me.chkImport.Location = New System.Drawing.Point(23, 388)
+        Me.chkImport.Location = New System.Drawing.Point(446, 392)
         Me.chkImport.Name = "chkImport"
         Me.chkImport.Size = New System.Drawing.Size(70, 22)
         Me.chkImport.TabIndex = 81
         Me.chkImport.Text = "Import"
         Me.chkImport.UseVisualStyleBackColor = True
         '
-        'AddSupplier
+        'FrmSupplierEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -366,7 +368,7 @@ Partial Class FrmSupplierEntry
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "AddSupplier"
+        Me.Name = "FrmSupplierEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Supplier"
         Me.ResumeLayout(False)

@@ -1,19 +1,19 @@
 ﻿Public Class FrmDeliveryPlacesEntry
-
+    Public id As Integer
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@DeliveryPlace", txtQtyunit.Text)
         SQL.AddParams("@Description", txtDes.Text)
         SQL.AddParams("@UpdatedBy", moduleId)
         SQL.AddParams("@disuse", chkDisuse.Checked)
 
-        If Query = "INSERT" Then
+        If Query = "SAVE" Then
             SQL.ExecQuery("
                 INSERT INTO DeliveryPlaces 
                 (DeliveryPlace,Description,DeletedDate,UpdatedBy)
                 VALUES
                 (@DeliveryPlace,@description,(select case when @disuse=1 then getdate() else null end),@UpdatedBy)")
         Else
-            SQL.AddParams("@DeliveryPlaceId", FrmDeliveryPlacesSearch.dtItems.SelectedRows(0).Cells(0).Value.ToString())
+            SQL.AddParams("@DeliveryPlaceId", id)
             SQL.ExecQuery("update DeliveryPlaces set DeliveryPlace=@DeliveryPlace,updatedDate=getdate(), 
                 UpdatedBy=@UpdatedBy,
                 deletedDate=(select case when @disuse=1 then getdate() else null end),

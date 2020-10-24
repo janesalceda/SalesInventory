@@ -5,6 +5,7 @@ Public Class ItemStockReport
     End Sub
     Private Sub loadReport()
         Dim rptDs As ReportDataSource
+        Dim where As String = ""
         PrintPreview.ReportViewer1.RefreshReport()
         Try
             With PrintPreview.ReportViewer1.LocalReport
@@ -14,12 +15,14 @@ Public Class ItemStockReport
                 Dim ds As New DataSet1
 
                 SQL.AddParams("@from", DateTimePicker1.Value.ToShortDateString)
-                SQL.ExecQuery("SELECT i.itemid,i.Description,
-                isnull(test.qty,0) AS 'QTY',i.MinimumOrderQty AS 'MinStocks'	,
-                i.OrderingPointQty	AS 'OrderPoint'
-                FROM Items i
+                If Not String.IsNullOrEmpty(ComboBox1.Text) Then
+                    where += " order by " & ComboBox1.Text
+                End If
+                SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' ,
+                    MinimumOrderQty,OrderingPointQty
+                    FROM Items i
 	                LEFT JOIN (SELECT * FROM GetStockBalance(@from)) AS test
-	                ON test.ItemId = i.ItemId where i.deletedDate is null")
+	                ON test.ItemId = i.ItemId where i.deletedDate is null" & where)
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
@@ -31,14 +34,6 @@ Public Class ItemStockReport
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub
         End Try
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
 
     End Sub
 End Class

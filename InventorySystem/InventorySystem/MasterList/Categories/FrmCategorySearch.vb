@@ -60,6 +60,7 @@
             With FrmCategoryEntry
                 .Text = "Category Details"
                 .btnInsert.Text = "UPDATE"
+                .id = dtItems.SelectedRows(0).Cells(0).Value
                 .txtCategoryname.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .Show()
             End With

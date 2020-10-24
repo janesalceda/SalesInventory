@@ -55,7 +55,7 @@ Public Class FrmAccountDetails
         picVisible.Visible = True
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) 
         Me.Close()
     End Sub
 

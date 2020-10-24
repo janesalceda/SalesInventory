@@ -34,7 +34,7 @@ Partial Class PrintPreview
         Me.ReportViewer1.Size = New System.Drawing.Size(1067, 658)
         Me.ReportViewer1.TabIndex = 0
         '
-        'SaleReports
+        'PrintPreview
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -45,9 +45,9 @@ Partial Class PrintPreview
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "SaleReports"
+        Me.Name = "PrintPreview"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "SaleReports"
+        Me.Text = "Print Preview"
         Me.ResumeLayout(False)
 
     End Sub

@@ -50,6 +50,7 @@ Partial Class FrmInvoiceEntry
         Me.txtEncoded = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Delivery = New System.Windows.Forms.TabPage()
+        Me.btnDelDelete = New System.Windows.Forms.Button()
         Me.btndelclear = New System.Windows.Forms.Button()
         Me.dtDeliveryDate = New System.Windows.Forms.DateTimePicker()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -86,6 +87,7 @@ Partial Class FrmInvoiceEntry
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtItemDel = New System.Windows.Forms.TextBox()
         Me.Invoice = New System.Windows.Forms.TabPage()
+        Me.btnInvDelete = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.txtPoSeq = New System.Windows.Forms.TextBox()
@@ -115,7 +117,7 @@ Partial Class FrmInvoiceEntry
         Me.btnItems = New System.Windows.Forms.Button()
         Me.btnAddItem = New System.Windows.Forms.Button()
         Me.chkReceived = New System.Windows.Forms.CheckBox()
-        Me.chkCancel = New System.Windows.Forms.CheckBox()
+        Me.chkOk = New System.Windows.Forms.CheckBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.txtTotalPrice = New System.Windows.Forms.TextBox()
@@ -140,13 +142,14 @@ Partial Class FrmInvoiceEntry
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Location = New System.Drawing.Point(1064, 580)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(156, 30)
         Me.btnSave.TabIndex = 116
         Me.btnSave.Text = "SAVE INVOICE"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btnSave.UseVisualStyleBackColor = False
         '
         'txtStaffName
         '
@@ -233,9 +236,9 @@ Partial Class FrmInvoiceEntry
         Me.Label8.AutoSize = True
         Me.Label8.Location = New System.Drawing.Point(461, 14)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(104, 18)
+        Me.Label8.Size = New System.Drawing.Size(98, 18)
         Me.Label8.TabIndex = 94
-        Me.Label8.Text = "*Invoice Date:"
+        Me.Label8.Text = "Invoice Date:"
         '
         'txtInvoiceNo
         '
@@ -311,9 +314,9 @@ Partial Class FrmInvoiceEntry
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(828, 14)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(122, 18)
+        Me.Label2.Size = New System.Drawing.Size(116, 18)
         Me.Label2.TabIndex = 119
-        Me.Label2.Text = "*Received Date:"
+        Me.Label2.Text = "Received Date:"
         '
         'Label4
         '
@@ -382,6 +385,7 @@ Partial Class FrmInvoiceEntry
         'Delivery
         '
         Me.Delivery.BackColor = System.Drawing.Color.White
+        Me.Delivery.Controls.Add(Me.btnDelDelete)
         Me.Delivery.Controls.Add(Me.btndelclear)
         Me.Delivery.Controls.Add(Me.dtDeliveryDate)
         Me.Delivery.Controls.Add(Me.Label21)
@@ -411,6 +415,17 @@ Partial Class FrmInvoiceEntry
         Me.Delivery.Size = New System.Drawing.Size(1201, 401)
         Me.Delivery.TabIndex = 0
         Me.Delivery.Text = "Delivery Details"
+        '
+        'btnDelDelete
+        '
+        Me.btnDelDelete.BackColor = System.Drawing.Color.White
+        Me.btnDelDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelDelete.Location = New System.Drawing.Point(176, 352)
+        Me.btnDelDelete.Name = "btnDelDelete"
+        Me.btnDelDelete.Size = New System.Drawing.Size(161, 30)
+        Me.btnDelDelete.TabIndex = 203
+        Me.btnDelDelete.Text = "DELETE"
+        Me.btnDelDelete.UseVisualStyleBackColor = False
         '
         'btndelclear
         '
@@ -720,6 +735,7 @@ Partial Class FrmInvoiceEntry
         'Invoice
         '
         Me.Invoice.BackColor = System.Drawing.Color.White
+        Me.Invoice.Controls.Add(Me.btnInvDelete)
         Me.Invoice.Controls.Add(Me.btnClear)
         Me.Invoice.Controls.Add(Me.Label29)
         Me.Invoice.Controls.Add(Me.txtPoSeq)
@@ -733,7 +749,7 @@ Partial Class FrmInvoiceEntry
         Me.Invoice.Controls.Add(Me.btnItems)
         Me.Invoice.Controls.Add(Me.btnAddItem)
         Me.Invoice.Controls.Add(Me.chkReceived)
-        Me.Invoice.Controls.Add(Me.chkCancel)
+        Me.Invoice.Controls.Add(Me.chkOk)
         Me.Invoice.Controls.Add(Me.Label16)
         Me.Invoice.Controls.Add(Me.Label14)
         Me.Invoice.Controls.Add(Me.txtTotalPrice)
@@ -753,6 +769,17 @@ Partial Class FrmInvoiceEntry
         Me.Invoice.Size = New System.Drawing.Size(1201, 401)
         Me.Invoice.TabIndex = 1
         Me.Invoice.Text = "Invoice"
+        '
+        'btnInvDelete
+        '
+        Me.btnInvDelete.BackColor = System.Drawing.Color.White
+        Me.btnInvDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnInvDelete.Location = New System.Drawing.Point(188, 338)
+        Me.btnInvDelete.Name = "btnInvDelete"
+        Me.btnInvDelete.Size = New System.Drawing.Size(161, 30)
+        Me.btnInvDelete.TabIndex = 176
+        Me.btnInvDelete.Text = "DELETE"
+        Me.btnInvDelete.UseVisualStyleBackColor = False
         '
         'btnClear
         '
@@ -990,16 +1017,16 @@ Partial Class FrmInvoiceEntry
         Me.chkReceived.Text = "Received"
         Me.chkReceived.UseVisualStyleBackColor = True
         '
-        'chkCancel
+        'chkOk
         '
-        Me.chkCancel.AutoSize = True
-        Me.chkCancel.Enabled = False
-        Me.chkCancel.Location = New System.Drawing.Point(104, 268)
-        Me.chkCancel.Name = "chkCancel"
-        Me.chkCancel.Size = New System.Drawing.Size(47, 22)
-        Me.chkCancel.TabIndex = 161
-        Me.chkCancel.Text = "Ok"
-        Me.chkCancel.UseVisualStyleBackColor = True
+        Me.chkOk.AutoSize = True
+        Me.chkOk.Enabled = False
+        Me.chkOk.Location = New System.Drawing.Point(104, 268)
+        Me.chkOk.Name = "chkOk"
+        Me.chkOk.Size = New System.Drawing.Size(47, 22)
+        Me.chkOk.TabIndex = 161
+        Me.chkOk.Text = "Ok"
+        Me.chkOk.UseVisualStyleBackColor = True
         '
         'Label16
         '
@@ -1222,7 +1249,7 @@ Partial Class FrmInvoiceEntry
     Friend WithEvents btnItems As Button
     Friend WithEvents btnAddItem As Button
     Friend WithEvents chkReceived As CheckBox
-    Friend WithEvents chkCancel As CheckBox
+    Friend WithEvents chkOk As CheckBox
     Friend WithEvents Label16 As Label
     Friend WithEvents Label14 As Label
     Friend WithEvents txtTotalPrice As TextBox
@@ -1281,4 +1308,6 @@ Partial Class FrmInvoiceEntry
     Friend WithEvents ETD As DataGridViewTextBoxColumn
     Friend WithEvents ETA As DataGridViewTextBoxColumn
     Friend WithEvents AddRec As DataGridViewTextBoxColumn
+    Friend WithEvents btnInvDelete As Button
+    Friend WithEvents btnDelDelete As Button
 End Class

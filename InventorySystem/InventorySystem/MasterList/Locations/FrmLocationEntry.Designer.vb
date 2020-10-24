@@ -60,13 +60,15 @@ Partial Class FrmLocationEntry
         '
         'btnInsert
         '
+        Me.btnInsert.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(404, 80)
+        Me.btnInsert.ForeColor = System.Drawing.Color.White
+        Me.btnInsert.Location = New System.Drawing.Point(214, 82)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
+        Me.btnInsert.Size = New System.Drawing.Size(174, 30)
         Me.btnInsert.TabIndex = 66
-        Me.btnInsert.Text = "INSERT"
-        Me.btnInsert.UseVisualStyleBackColor = True
+        Me.btnInsert.Text = "SAVE"
+        Me.btnInsert.UseVisualStyleBackColor = False
         '
         'txtQtyunit
         '

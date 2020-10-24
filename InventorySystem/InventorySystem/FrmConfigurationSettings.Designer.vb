@@ -119,12 +119,14 @@ Partial Class FrmConfigurationSettings
         '
         'btnSettings
         '
+        Me.btnSettings.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnSettings.ForeColor = System.Drawing.Color.White
         Me.btnSettings.Location = New System.Drawing.Point(170, 142)
         Me.btnSettings.Name = "btnSettings"
         Me.btnSettings.Size = New System.Drawing.Size(174, 32)
         Me.btnSettings.TabIndex = 12
         Me.btnSettings.Text = "Configure Settings"
-        Me.btnSettings.UseVisualStyleBackColor = True
+        Me.btnSettings.UseVisualStyleBackColor = False
         '
         'FrmConfigurationSettings
         '
@@ -144,7 +146,7 @@ Partial Class FrmConfigurationSettings
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmConfigurationSettings"
-        Me.Text = "FrmConfigurationSettings"
+        Me.Text = "Configuration Settings"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

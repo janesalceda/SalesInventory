@@ -5,16 +5,25 @@ Public Class FrmPurchaseOrderEntry
     Public boolUpdate As Boolean = False
 
     Private Sub getPODetails()
-        SQL.AddParams("@PONo", txtPONo.Text)
-        SQL.ExecQuery("SELECT poh.PONo,poh.SupplierID,CurrencyUnit,IssuedDate,TermOfDelivery,TermOfPayment,DeliveryPlace,poh.Remarks,
+        Try
+            SQL.AddParams("@PONo", txtPONo.Text)
+            SQL.ExecQuery("SELECT poh.PONo,poh.SupplierID,CurrencyUnit,IssuedDate,TermOfDelivery,TermOfPayment,DeliveryPlace,poh.Remarks,
                 e.EmployeeName,
-				poh.TotalAmount,pod.ItemId,i.Description,Qty,
+				poh.TotalAmount,pod.ItemId,i.Description,pod.Qty,
                (select dbo.getUnit(pod.QtyUnit)) AS 'Cli',
-				EquivalentQty,
+				pod.EquivalentQty,
                 (select dbo.getUnit(pod.EquivalentQtyUnit)) 'Sup',
-				UnitPrice,EtdDate,
+				pod.UnitPrice,EtdDate,
                 EtaDate,FtryDate,Canceled,ReceivedAllInvoices,
-                CASE WHEN poh.DeletedDate IS NULL THEN 0 ELSE 1 END POCancelled,PoDetailSeq
+                CASE WHEN poh.DeletedDate IS NULL THEN 0 ELSE 1 END POCancelled,
+                pod.PoDetailSeq,
+                (SELECT                  
+                SUM(Qty) AS Expr1
+				FROM                     
+				dbo.InvoiceDetails
+				WHERE                   
+				(PoNo = Pod.PoNo) 
+				AND (PoDetailSeq = pod.PoDetailSeq)) AS InvoiceQty
                 FROM POHeaders poh 
                 INNER	JOIN PoDetails pod 
                 ON poh.PONo=pod.PoNo
@@ -24,38 +33,44 @@ Public Class FrmPurchaseOrderEntry
                 INNER JOIN DeliveryPlaces dp ON dp.DeliveryPlaceId=poh.DeliveryPlaceId
                 INNER JOIN Employees e ON poh.EncodedStaff=e.EmpId
                 INNER JOIN Items i ON i.ItemId=pod.ItemId	
-                INNER JOIN QtyUnits q ON q.QtyUnitid=pod.QtyUnit	
+                INNER JOIN QtyUnits q ON q.QtyUnitid=pod.QtyUnit
                 where poh.PONo=@PONo")
-        Dim row As New DataTable
-        row = SQL.DBDT
-        If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
-        txtSupplier.Text = row.Rows(0).Item(1)
-        txtCurrency.Text = row.Rows(0).Item(2)
-        dtIssued.Value = row.Rows(0).Item(3)
-        cmbTDelivery.Text = row.Rows(0).Item(4)
-        cmbTPayment.Text = row.Rows(0).Item(5)
-        cmbDeliveryPlace.Text = row.Rows(0).Item(6)
-        txtRemarks.Text = row.Rows(0).Item(7)
-        txtStaffName.Text = row.Rows(0).Item(8)
-        txtTotalAmount.Text = row.Rows(0).Item(9)
-        For i As Integer = 0 To row.Rows.Count - 1
-            dtablePoDetails.Rows.Add(
-                row.Rows(i).Item(23),
-                row.Rows(i).Item(10),
-                row.Rows(i).Item(11),
-                row.Rows(i).Item(12),
-                row.Rows(i).Item(13),
-                row.Rows(i).Item(14),
-                row.Rows(i).Item(15),
-                row.Rows(i).Item(16),
-                Val(row.Rows(i).Item(16)) * Val(row.Rows(i).Item(14)),
-                row.Rows(i).Item(17),
-                row.Rows(i).Item(18),
-                row.Rows(i).Item(19),
-                row.Rows(i).Item(20),
-                row.Rows(0).Item(21), "No")
-        Next
-        chkcancelPO.Checked = row.Rows(0).Item(22)
+            Dim row As New DataTable
+            row = SQL.DBDT
+            If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
+            txtSupplier.Text = row.Rows(0).Item(1)
+            txtCurrency.Text = row.Rows(0).Item(2)
+            dtIssued.Value = row.Rows(0).Item(3)
+            cmbTDelivery.Text = row.Rows(0).Item(4)
+            cmbTPayment.Text = row.Rows(0).Item(5)
+            cmbDeliveryPlace.Text = row.Rows(0).Item(6)
+            txtRemarks.Text = row.Rows(0).Item(7)
+            txtStaffName.Text = row.Rows(0).Item(8)
+            txtTotalAmount.Text = row.Rows(0).Item(9)
+            For i As Integer = 0 To row.Rows.Count - 1
+                dtablePoDetails.Rows.Add(
+                    row.Rows(i).Item(23),
+                    row.Rows(i).Item(10),
+                    row.Rows(i).Item(11),
+                    row.Rows(i).Item(12),
+                    row.Rows(i).Item(13),
+                    row.Rows(i).Item(14),
+                    row.Rows(i).Item(15),
+                    row.Rows(i).Item(16),
+                    Val(row.Rows(i).Item(16)) * Val(row.Rows(i).Item(14)),
+                    row.Rows(i).Item(17),
+                    row.Rows(i).Item(18),
+                    row.Rows(i).Item(19),
+                    row.Rows(i).Item("Canceled"),
+                    row.Rows(i).Item("ReceivedAllInvoices"), "No", row.Rows(i).Item("InvoiceQty"))
+            Next
+            chkcancelPO.Checked = row.Rows(0).Item(22)
+        Catch ex As Exception
+            'CAPTURE ERROR
+            MsgBox("ExecuteQuery Error: " & vbNewLine & ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            ' CLOSE CONNECTION
+        End Try
     End Sub
     Private Sub PurchDetailsClear()
         txtItemCode.Clear()
@@ -125,7 +140,6 @@ Public Class FrmPurchaseOrderEntry
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-
         If String.IsNullOrEmpty(txtSupplier.Text) Or
             cmbDeliveryPlace.SelectedIndex = -1 Or
             dtablePoDetails.Rows.Count = 0 Then
@@ -346,9 +360,9 @@ Public Class FrmPurchaseOrderEntry
                     End If
                 Next
             End If
+            MsgBox("Successfully Save", MsgBoxStyle.Information, "Information")
             HeaderClear()
             'Me.Close()
-            MsgBox("Successfully Save", MsgBoxStyle.Information, "Information")
             Me.Close()
         End If
     End Sub
@@ -356,9 +370,6 @@ Public Class FrmPurchaseOrderEntry
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         formname = "AddPurchaseOrder"
         SupplierList.Show()
-    End Sub
-    Private Sub dtPoDetails_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs)
-        dtablePoDetails.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
     End Sub
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
         If txtSupplier.Text = "" Then
@@ -380,23 +391,24 @@ Public Class FrmPurchaseOrderEntry
         End If
         Dim row As ArrayList = New ArrayList
         If btnAddItem.Text = "INSERT ITEM" Then
+            dtablePoDetails.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
-            dtablePoDetails.Rows.Add(dtablePoDetails.Rows.Count + 1,
-            txtItemCode.Text,
-            txtItemName.Text,
-            txtCliQty.Text,
-            txtCliUnit.Text,
-            txtSupQty.Text,
-            txtSupUnit.Text,
-            txtUnit.Text,
-            txtTotalPrice.Text,
-            dtETD.Value,
-            dtETA.Value,
-            DTFtry.Value,
-            chkCancel.Checked,
-            chkReceived.Checked, "")
+            dtablePoDetails.SelectedRows(0).Cells(1).Value = txtItemCode.Text
+            dtablePoDetails.SelectedRows(0).Cells(2).Value = txtItemName.Text
+            dtablePoDetails.SelectedRows(0).Cells(3).Value = txtCliQty.Text
+            dtablePoDetails.SelectedRows(0).Cells(4).Value = txtCliUnit.Text
+            dtablePoDetails.SelectedRows(0).Cells(5).Value = txtSupQty.Text
+            dtablePoDetails.SelectedRows(0).Cells(6).Value = txtSupUnit.Text
+            dtablePoDetails.SelectedRows(0).Cells(7).Value = txtUnit.Text
+            dtablePoDetails.SelectedRows(0).Cells(8).Value = txtTotalPrice.Text
+            dtablePoDetails.SelectedRows(0).Cells(9).Value = dtETD.Value
+            dtablePoDetails.SelectedRows(0).Cells(10).Value = dtETA.Value
+            dtablePoDetails.SelectedRows(0).Cells(11).Value = DTFtry.Value
+            dtablePoDetails.SelectedRows(0).Cells(12).Value = chkCancel.Checked
+            dtablePoDetails.SelectedRows(0).Cells(13).Value = chkReceived.Checked
             PurchDetailsClear()
         Else
+            txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + (Val(txtTotalPrice.Text) - dtablePoDetails.SelectedRows(0).Cells(8).Value), "0.00")
             dtablePoDetails.SelectedRows(0).Cells(1).Value = txtItemCode.Text
             dtablePoDetails.SelectedRows(0).Cells(2).Value = txtItemName.Text
             dtablePoDetails.SelectedRows(0).Cells(3).Value = txtCliQty.Text
@@ -460,21 +472,25 @@ Public Class FrmPurchaseOrderEntry
         txtUnit.Text = Format(Val(row.Item(4)), "0.00")
     End Sub
     Private Sub dtablePoDetails_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellClick
-        txtItemCode.Text = dtablePoDetails.SelectedRows(0).Cells(1).Value.ToString()
-        txtItemName.Text = dtablePoDetails.SelectedRows(0).Cells(2).Value.ToString()
-        txtCliQty.Text = dtablePoDetails.SelectedRows(0).Cells(3).Value.ToString()
-        txtCliUnit.Text = dtablePoDetails.SelectedRows(0).Cells(4).Value.ToString()
-        txtSupQty.Text = dtablePoDetails.SelectedRows(0).Cells(5).Value.ToString()
-        txtSupUnit.Text = dtablePoDetails.SelectedRows(0).Cells(6).Value.ToString()
-        txtUnit.Text = dtablePoDetails.SelectedRows(0).Cells(7).Value.ToString()
-        txtTotalPrice.Text = dtablePoDetails.SelectedRows(0).Cells(8).Value.ToString()
-        dtETD.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(9).Value.ToString())
-        dtETA.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(10).Value.ToString())
-        DTFtry.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(11).Value.ToString())
-        chkCancel.Checked = dtablePoDetails.SelectedRows(0).Cells(12).Value.ToString()
-        chkReceived.Checked = dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()
-        btnAddItem.Text = "UPDATE ITEM"
-        btnClear.Enabled = True
+        If String.IsNullOrWhiteSpace(dtablePoDetails.SelectedRows(0).Cells(15).Value.ToString()) Then
+            txtItemCode.Text = dtablePoDetails.SelectedRows(0).Cells(1).Value.ToString()
+            txtItemName.Text = dtablePoDetails.SelectedRows(0).Cells(2).Value.ToString()
+            txtCliQty.Text = dtablePoDetails.SelectedRows(0).Cells(3).Value.ToString()
+            txtCliUnit.Text = dtablePoDetails.SelectedRows(0).Cells(4).Value.ToString()
+            txtSupQty.Text = dtablePoDetails.SelectedRows(0).Cells(5).Value.ToString()
+            txtSupUnit.Text = dtablePoDetails.SelectedRows(0).Cells(6).Value.ToString()
+            txtUnit.Text = dtablePoDetails.SelectedRows(0).Cells(7).Value.ToString()
+            txtTotalPrice.Text = dtablePoDetails.SelectedRows(0).Cells(8).Value.ToString()
+            dtETD.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(9).Value.ToString())
+            dtETA.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(10).Value.ToString())
+            DTFtry.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(11).Value.ToString())
+            chkCancel.Checked = dtablePoDetails.SelectedRows(0).Cells(12).Value.ToString()
+            chkReceived.Checked = dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()
+            btnAddItem.Text = "UPDATE ITEM"
+            btnClear.Enabled = True
+        Else
+            MsgBox("Cannot modify there is already an invoice!", MsgBoxStyle.Information, "Information")
+        End If
     End Sub
 
     Private Sub txtCliQty_LostFocus(sender As Object, e As EventArgs) Handles txtCliQty.LostFocus
@@ -503,7 +519,7 @@ Public Class FrmPurchaseOrderEntry
             ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',
             ConvertingCoefficient,
             UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q 
-            where s.AppliedDate<=@IssuedDate and i.ItemId=@ItemId order by AppliedDate desc")
+            where convert(VARCHAR(10),s.AppliedDate,111)<=@IssuedDate and i.ItemId=@ItemId order by AppliedDate desc")
         If SQL.HasException Then Return Globalrow
         If SQL.RecordCount = 0 Then Return Globalrow
         Globalrow.Add(SQL.DBDT.Rows(0).Item(0))
@@ -537,20 +553,27 @@ Public Class FrmPurchaseOrderEntry
                 Dim dt As New DataTable
                 Dim ds As New DataSet1
                 SQL.AddParams("@PONo", txtPONo.Text)
-                SQL.ExecQuery("SELECT pod.ItemId,i.Description,pod.UnitPrice,pod.Qty,(pod.EquivalentQty*pod.UnitPrice) AS 'Total',
-                poh.PONo,convert(varchar(10),poh.IssuedDate,111),pod.UnitPrice,poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,s.Remarks,
-                dp.Description AS DeliveryPlaces,td.Description AS TermsOfDelivery,tp.Description AS TermsOfPayment	
-                FROM POHeaders poh 
-                INNER	JOIN PoDetails pod 
-                ON poh.PONo=pod.PoNo
-                INNER JOIN TermsOfDelivery td ON poh.TermOfDeliveryId=td.TermOfDeliveryId
-                INNER JOIN TermsOfPayment tp ON tp.TermOfPaymentId=poh.TermOfPaymentId
-                INNER JOIN DeliveryPlaces dp ON dp.DeliveryPlaceId=poh.DeliveryPlaceId
-                INNER JOIN Employees e ON poh.EncodedStaff=e.EmpId
-                INNER JOIN Items i ON i.ItemId=pod.ItemId 
-                INNER JOIN Suppliers s ON s.SupplierId=poh.SupplierID		
-                where poh.PONo=@PONo")
+                SQL.ExecQuery("SELECT case when sp.SupplierItemId is null or sp.SupplierItemId='' then i.ItemId else  sp.SupplierItemId end as 'ItemId',i.Description,pod.UnitPrice,pod.Qty,(pod.EquivalentQty*pod.UnitPrice) AS 'Total',
+                    poh.PONo,convert(varchar(10),poh.IssuedDate,111) 'IssuedDate',pod.UnitPrice,poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,s.Remarks,
+                    dp.Description AS DeliveryPlaces,td.Description AS TermsOfDelivery,tp.Description AS TermsOfPayment	
+                    ,CompanyName,StreetAdress,CityZip,a.Phone 'CompPhone',a.Fax'CompFax',website,CompanyLogo
+                    ,e.EmployeeName 'Encoder'	FROM POHeaders poh 
+                    INNER	JOIN PoDetails pod 
+                    ON poh.PONo=pod.PoNo
+                    INNER JOIN TermsOfDelivery td ON poh.TermOfDeliveryId=td.TermOfDeliveryId
+                    INNER JOIN TermsOfPayment tp ON tp.TermOfPaymentId=poh.TermOfPaymentId
+                    INNER JOIN DeliveryPlaces dp ON dp.DeliveryPlaceId=poh.DeliveryPlaceId
+                    INNER JOIN Employees e ON poh.EncodedStaff=e.EmpId
+                    INNER JOIN Items i ON i.ItemId=pod.ItemId 
+                    INNER JOIN Suppliers s ON s.SupplierId=poh.SupplierID	
+                    left JOIN SupplierItemPrices sp ON poh.SupplierID=sp.SupplierID 
+                    and pod.ItemId=sp.ItemId,CompanyInfo a 
+                    where poh.PONo=@PONo")
+                If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
                 rptDs = New ReportDataSource("PODataSet", SQL.DBDT)
+                'SQL.ExecQuery("Select * from Companyinfo")
+                'PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+                'rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
                 PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
@@ -574,5 +597,15 @@ Public Class FrmPurchaseOrderEntry
         '
         'SaleReports.ReportViewer1.RefreshReport()
 
+    End Sub
+
+    Private Sub dtablePoDetails_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtablePoDetails.CellFormatting
+        dtablePoDetails.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        If MsgBox("Are you sure you want to delete this record?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = vbYes Then
+            dtablePoDetails.Rows.RemoveAt(dtablePoDetails.SelectedRows(0).Index)
+        End If
     End Sub
 End Class

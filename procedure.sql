@@ -1,27 +1,3 @@
-CREATE	PROCEDURE PurchaseOrderList
-@ItemId VARCHAR(20),
-@SupplierId  VARCHAR(10)
-as
-SELECT     PurchaseOrder.SupplierID,
-PoDetails.PoNo,
-PoDetails.ItemID,PoDetails.PoDetailSeq,  
-PoDetails.Qty as POQty,isnull(A.InvoiceQty,0)as InvoiceQty, 	
-PoDetails.Qty - isnull(A.InvoiceQty,0)  as BalQty 	
-FROM       PurchaseOrder  	INNER JOIN PoDetails  	
-ON         PurchaseOrder.PoNo = PoDetails.PoNo  	
-INNER JOIN Suppliers  	ON         
-PurchaseOrder.SupplierId = Suppliers.SupplierId   	
-Left Join  (  
-Select   SupplierID,PONO,PODetailSeq,ItemID,Sum(InvoiceDetails.QTY) as InvoiceQty  
-From InvoiceDetails  Where ItemId = @ItemId  And SupplierId = @SupplierId 
-Group by SupplierID,PONO,PODetailSeq,ItemID  )A  On PurchaseOrder.SupplierID = A.SupplierID    
-And PoDetails.PONO = A.PONO    And PoDetails.PoDetailSeq = A.PoDetailSeq    And PoDetails.ItemID = A.ItemID    
-WHERE      PurchaseOrder.SupplierId =@SupplierId AND        PoDetails.ItemId = @ItemId 
-AND PoDetails.ReceivedAllInvoices = 0 
-AND PoDetails.Canceled = 0  Group by PurchaseOrder.SupplierID,  
-PoDetails.PoNo,PoDetails.ItemID,PoDetails.PoDetailSeq,A.InvoiceQty,PoDetails.Qty
-GO
-
 CREATE PROCEDURE TotalIn
 		@TransactionDate DATETIME,
 		@ItemId VARCHAR(20)
@@ -52,5 +28,29 @@ CREATE PROCEDURE TotalOut
 		INNER JOIN StockOutDetails ON 
 		StockOutHeaders.StockOutCode = StockOutDetails.StockOutCode
 		WHERE StockOutDate=@TransactionDate AND ItemID=@ItemId 
+GO
+
+CREATE	PROCEDURE PurchaseOrderList
+@ItemId VARCHAR(20),
+@SupplierId  VARCHAR(10)
+as
+SELECT     PurchaseOrder.SupplierID,
+PoDetails.PoNo,
+PoDetails.ItemID,PoDetails.PoDetailSeq,  
+PoDetails.Qty as POQty,isnull(A.InvoiceQty,0)as InvoiceQty, 	
+PoDetails.Qty - isnull(A.InvoiceQty,0)  as BalQty 	
+FROM       PurchaseOrder  	INNER JOIN PoDetails  	
+ON         PurchaseOrder.PoNo = PoDetails.PoNo  	
+INNER JOIN Suppliers  	ON         
+PurchaseOrder.SupplierId = Suppliers.SupplierId   	
+Left Join  (  
+Select   SupplierID,PONO,PODetailSeq,ItemID,Sum(InvoiceDetails.QTY) as InvoiceQty  
+From InvoiceDetails  Where ItemId = @ItemId  And SupplierId = @SupplierId 
+Group by SupplierID,PONO,PODetailSeq,ItemID  )A  On PurchaseOrder.SupplierID = A.SupplierID    
+And PoDetails.PONO = A.PONO    And PoDetails.PoDetailSeq = A.PoDetailSeq    And PoDetails.ItemID = A.ItemID    
+WHERE      PurchaseOrder.SupplierId =@SupplierId AND        PoDetails.ItemId = @ItemId 
+AND PoDetails.ReceivedAllInvoices = 0 
+AND PoDetails.Canceled = 0  Group by PurchaseOrder.SupplierID,  
+PoDetails.PoNo,PoDetails.ItemID,PoDetails.PoDetailSeq,A.InvoiceQty,PoDetails.Qty
 GO
 

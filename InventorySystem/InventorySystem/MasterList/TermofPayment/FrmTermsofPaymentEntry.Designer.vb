@@ -33,7 +33,7 @@ Partial Class FrmTermsofPaymentEntry
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(451, 18)
+        Me.chkDisuse.Location = New System.Drawing.Point(451, 20)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
         Me.chkDisuse.TabIndex = 2
@@ -42,14 +42,16 @@ Partial Class FrmTermsofPaymentEntry
         '
         'btnSave
         '
+        Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.Enabled = False
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(416, 90)
+        Me.btnSave.ForeColor = System.Drawing.Color.White
+        Me.btnSave.Location = New System.Drawing.Point(238, 90)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(116, 30)
+        Me.btnSave.Size = New System.Drawing.Size(174, 30)
         Me.btnSave.TabIndex = 3
         Me.btnSave.Text = "SAVE"
-        Me.btnSave.UseVisualStyleBackColor = True
+        Me.btnSave.UseVisualStyleBackColor = False
         '
         'txtDes
         '

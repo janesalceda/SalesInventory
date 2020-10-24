@@ -48,14 +48,16 @@ Partial Class FrmCategoryEntry
         '
         'btnInsert
         '
+        Me.btnInsert.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInsert.Enabled = False
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.Location = New System.Drawing.Point(414, 54)
+        Me.btnInsert.ForeColor = System.Drawing.Color.White
+        Me.btnInsert.Location = New System.Drawing.Point(206, 52)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(116, 30)
+        Me.btnInsert.Size = New System.Drawing.Size(174, 30)
         Me.btnInsert.TabIndex = 2
-        Me.btnInsert.Text = "INSERT"
-        Me.btnInsert.UseVisualStyleBackColor = True
+        Me.btnInsert.Text = "SAVE"
+        Me.btnInsert.UseVisualStyleBackColor = False
         '
         'chkDisuse
         '
@@ -72,7 +74,7 @@ Partial Class FrmCategoryEntry
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(546, 101)
+        Me.ClientSize = New System.Drawing.Size(546, 93)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.btnInsert)
         Me.Controls.Add(Me.txtCategoryname)

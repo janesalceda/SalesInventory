@@ -45,7 +45,7 @@ Partial Class frmInventory
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(365, 22)
+        Me.btnSearch.Location = New System.Drawing.Point(346, 25)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(132, 30)
         Me.btnSearch.TabIndex = 0
@@ -59,7 +59,7 @@ Partial Class frmInventory
         Me.txtitem.Location = New System.Drawing.Point(60, 25)
         Me.txtitem.MaxLength = 20
         Me.txtitem.Name = "txtitem"
-        Me.txtitem.Size = New System.Drawing.Size(274, 26)
+        Me.txtitem.Size = New System.Drawing.Size(280, 26)
         Me.txtitem.TabIndex = 1
         '
         'dgvData
@@ -130,23 +130,27 @@ Partial Class frmInventory
         '
         'dtFrom
         '
+        Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtFrom.Location = New System.Drawing.Point(60, 58)
         Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(274, 26)
+        Me.dtFrom.Size = New System.Drawing.Size(125, 26)
         Me.dtFrom.TabIndex = 5
         '
         'dtTo
         '
-        Me.dtTo.Location = New System.Drawing.Point(365, 58)
+        Me.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtTo.Location = New System.Drawing.Point(216, 58)
+        Me.dtTo.MaxDate = New Date(2020, 10, 25, 14, 48, 18, 0)
         Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(268, 26)
+        Me.dtTo.Size = New System.Drawing.Size(124, 26)
         Me.dtTo.TabIndex = 6
+        Me.dtTo.Value = New Date(2020, 10, 25, 0, 0, 0, 0)
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(340, 59)
+        Me.Label2.Location = New System.Drawing.Point(191, 61)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(19, 23)
         Me.Label2.TabIndex = 7
@@ -181,7 +185,7 @@ Partial Class frmInventory
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(500, 22)
+        Me.btnClear.Location = New System.Drawing.Point(346, 58)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(132, 30)
         Me.btnClear.TabIndex = 9

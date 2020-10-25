@@ -9,11 +9,11 @@
         txtIssuedBy.Enabled = False
         dtableStockout.Enabled = False
         If rights > 2 Or rights = 0 Then
-            chkApprove.Enabled = False
+            'chkApprove.Enabled = False
             btnSave.Visible = False
             txtRemarks.Enabled = False
         Else
-            chkApprove.Enabled = True
+            'chkApprove.Enabled = True
         End If
     End Sub
     Private Sub AddingData()
@@ -26,7 +26,14 @@
         dtableStockout.Enabled = True
         btnSave.Visible = True
         txtRemarks.Enabled = True
-        chkApprove.Enabled = False
+        dtableStockout.Rows.Clear()
+        txtItemCode.Clear()
+        dtSOutDate.Value = Today
+        txtQty.Clear()
+        txtSTRemarks.Clear()
+        txtIssuedBy.Text = moduleName
+        txtRemarks.Clear()
+        'chkApprove.Enabled = False
     End Sub
     Private Sub getSCID()
         SQL.AddParams("@stid", txtStockOutID.Text)
@@ -50,11 +57,11 @@
                                  SQL.DBDT.Rows(i).Item(6).ToString, SQL.DBDT.Rows(i).Item(7).ToString,
                                  SQL.DBDT.Rows(i).Item(6).ToString, SQL.DBDT.Rows(i).Item(8).ToString)
         Next
-        If Not String.IsNullOrEmpty(SQL.DBDT.Rows(0).Item(9).ToString) Then
-            chkApprove.Checked = True
-        Else
-            chkApprove.Checked = False
-        End If
+        'If Not String.IsNullOrEmpty(SQL.DBDT.Rows(0).Item(9).ToString) Then
+        '    'chkApprove.Checked = True
+        'Else
+        '    'chkApprove.Checked = False
+        'End If
 
     End Sub
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
@@ -115,11 +122,6 @@
 
         If MsgBox("Are you sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then
             If btnSave.Text = "UPDATE" Then
-                If chkApprove.Checked = True Then
-                    SQL.AddParams("@approve", moduleId)
-                Else
-                    SQL.AddParams("@approve", "")
-                End If
                 SQL.AddParams("@remarks", txtRemarks.Text)
                 SQL.AddParams("@StockOutCode", txtStockOutID.Text)
                 SQL.ExecQuery("UPDATE StockOutHeaders
@@ -161,13 +163,17 @@
                 Next
             End If
             MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
-            FrmStockoutSearch.btnSearch.PerformClick()
-            Me.Close()
+            If rights = 3 Then
+                AddingData()
+            Else
+                FrmStockoutSearch.btnSearch.PerformClick()
+                Me.Close()
+            End If
         End If
     End Sub
 
     Private Sub AddStockOut_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MdiParent = AppForm
+        'MdiParent = AppForm
         txtEncodedStaff.Text = moduleName
         If btnSave.Text = "UPDATE" Then
             UpdatingData()

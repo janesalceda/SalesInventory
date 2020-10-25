@@ -16,6 +16,15 @@
             Return " WHERE "
         End If
     End Function
+    Public Sub msgboxDisplay(strMessage As String, toPromt As Integer)
+        If toPromt = 1 Then
+            MsgBox(strMessage, MsgBoxStyle.Information, "Information")
+        ElseIf toPromt = 2 Then
+            MsgBox(strMessage, MsgBoxStyle.Exclamation, "Warning")
+        ElseIf toPromt = 3 Then
+            MsgBox(strMessage, MsgBoxStyle.Critical, "Critical")
+        End If
+    End Sub
     Public Function GetSupplierName(SupplierId As String) As ArrayList
         Dim Globalrow As ArrayList = New ArrayList
         SQL.AddParams("@supplierid", SupplierId)

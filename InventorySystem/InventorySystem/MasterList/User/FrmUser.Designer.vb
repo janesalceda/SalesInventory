@@ -29,8 +29,12 @@ Partial Class FrmUser
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.btnDelete = New System.Windows.Forms.Button()
         Me.dtUsers = New System.Windows.Forms.DataGridView()
+        Me.EmpId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmployeeName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UserLevel = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Delete = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dtUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -48,7 +52,7 @@ Partial Class FrmUser
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(949, 506)
+        Me.btnAdd.Location = New System.Drawing.Point(571, 506)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(116, 30)
         Me.btnAdd.TabIndex = 30
@@ -60,7 +64,7 @@ Partial Class FrmUser
         Me.cmbUserLevel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbUserLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbUserLevel.FormattingEnabled = True
-        Me.cmbUserLevel.Location = New System.Drawing.Point(118, 48)
+        Me.cmbUserLevel.Location = New System.Drawing.Point(-383, 48)
         Me.cmbUserLevel.Name = "cmbUserLevel"
         Me.cmbUserLevel.Size = New System.Drawing.Size(204, 26)
         Me.cmbUserLevel.TabIndex = 29
@@ -69,7 +73,7 @@ Partial Class FrmUser
         '
         Me.Label8.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(14, 51)
+        Me.Label8.Location = New System.Drawing.Point(-487, 51)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(78, 18)
         Me.Label8.TabIndex = 28
@@ -92,17 +96,6 @@ Partial Class FrmUser
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Name:"
         '
-        'btnDelete
-        '
-        Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.Location = New System.Drawing.Point(1071, 506)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(116, 30)
-        Me.btnDelete.TabIndex = 24
-        Me.btnDelete.Text = "Delete User"
-        Me.btnDelete.UseVisualStyleBackColor = True
-        '
         'dtUsers
         '
         Me.dtUsers.AllowUserToAddRows = False
@@ -113,6 +106,7 @@ Partial Class FrmUser
         Me.dtUsers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dtUsers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EmpId, Me.EmployeeName, Me.UserLevel, Me.Delete, Me.DeletedDate})
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 12.0!)
@@ -126,22 +120,58 @@ Partial Class FrmUser
         Me.dtUsers.ReadOnly = True
         Me.dtUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.dtUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtUsers.Size = New System.Drawing.Size(1173, 420)
+        Me.dtUsers.Size = New System.Drawing.Size(672, 420)
         Me.dtUsers.TabIndex = 22
+        '
+        'EmpId
+        '
+        Me.EmpId.HeaderText = "EmpId"
+        Me.EmpId.Name = "EmpId"
+        Me.EmpId.ReadOnly = True
+        Me.EmpId.Width = 78
+        '
+        'EmployeeName
+        '
+        Me.EmployeeName.HeaderText = "Employee Name"
+        Me.EmployeeName.Name = "EmployeeName"
+        Me.EmployeeName.ReadOnly = True
+        Me.EmployeeName.Width = 136
+        '
+        'UserLevel
+        '
+        Me.UserLevel.HeaderText = "User Level"
+        Me.UserLevel.Name = "UserLevel"
+        Me.UserLevel.ReadOnly = True
+        Me.UserLevel.Width = 98
+        '
+        'Delete
+        '
+        Me.Delete.HeaderText = "Delete"
+        Me.Delete.Name = "Delete"
+        Me.Delete.ReadOnly = True
+        Me.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Delete.Width = 79
+        '
+        'DeletedDate
+        '
+        Me.DeletedDate.HeaderText = "DeletedDate"
+        Me.DeletedDate.Name = "DeletedDate"
+        Me.DeletedDate.ReadOnly = True
+        Me.DeletedDate.Width = 122
         '
         'FrmUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1200, 539)
+        Me.ClientSize = New System.Drawing.Size(699, 539)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.cmbUserLevel)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtSearch)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.dtUsers)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -160,6 +190,10 @@ Partial Class FrmUser
     Friend WithEvents Label8 As Label
     Friend WithEvents txtSearch As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents btnDelete As Button
     Friend WithEvents dtUsers As DataGridView
+    Friend WithEvents EmpId As DataGridViewTextBoxColumn
+    Friend WithEvents EmployeeName As DataGridViewTextBoxColumn
+    Friend WithEvents UserLevel As DataGridViewTextBoxColumn
+    Friend WithEvents Delete As DataGridViewCheckBoxColumn
+    Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
 End Class

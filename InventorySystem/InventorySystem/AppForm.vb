@@ -74,7 +74,7 @@
     End Sub
 
     Private Sub ChangSupplierNameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangSupplierNameToolStripMenuItem.Click
-        EditSupplierName.Show()
+        FrmChangeSupplierName.Show()
     End Sub
 
     Private Sub StockOutToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles StockOutToolStripMenuItem1.Click
@@ -144,10 +144,19 @@
     End Sub
 
     Private Sub AppForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If rights > 2 Then
+        If rights = 2 Then
             miSettings.Visible = False
             miUtilities.Visible = False
+            ReturnRefundToolStripMenuItem.Visible = False
             RequestApprovalToolStripMenuItem.Visible = False
         End If
+    End Sub
+
+    Private Sub ChangeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeToolStripMenuItem.Click
+        FrmChangeUOM.Show()
+    End Sub
+
+    Private Sub ChangeDescriptionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeDescriptionToolStripMenuItem.Click
+        FrmChangeItemDescription.Show()
     End Sub
 End Class

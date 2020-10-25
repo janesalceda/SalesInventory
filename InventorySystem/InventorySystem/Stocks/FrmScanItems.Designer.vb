@@ -69,12 +69,14 @@ Partial Class FrmScanItems
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(144, 122)
+        Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(148, 127)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(109, 32)
         Me.Button1.TabIndex = 41
         Me.Button1.Text = "Enter"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'FrmScanItems
         '
@@ -93,7 +95,8 @@ Partial Class FrmScanItems
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmScanItems"
-        Me.Text = "Return Details"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Scanned Details"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

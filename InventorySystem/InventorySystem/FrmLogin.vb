@@ -3,6 +3,8 @@ Imports ZXing
 Public Class LoginForm
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        'ImportItems.Show()
+        'Exit Sub
         If txtUsername.Text = "" Or txtPass.Text = "" Then
             MessageBox.Show("Please complete fields", "No Entry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtUsername.Focus()
@@ -24,6 +26,11 @@ Public Class LoginForm
                 rights = SQL.DBDT.Rows(0).Item(2)
                 txtPass.Clear()
                 txtUsername.Clear()
+                If rights = 3 Then
+                    Hide()
+                    FrmStockOutEntry.ShowDialog()
+                    Exit Sub
+                End If
                 AppForm.Show()
                 Me.Hide()
             End If

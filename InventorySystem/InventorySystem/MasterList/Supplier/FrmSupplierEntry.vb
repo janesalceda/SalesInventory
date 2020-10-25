@@ -82,7 +82,7 @@
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         SQL.AddParams("@SupplierId", txtSupplierId.Text)
-        SQL.ExecQuery("SELECT * FROM SUPPLIER where SupplierId=@SupplierId")
+        SQL.ExecQuery("SELECT * FROM SUPPLIERs where SupplierId=@SupplierId")
         If SQL.DBDT.Rows.Count > 0 Then MsgBox("SupplierId already exists!", MsgBoxStyle.Critical, "Error")
         SQL.AddParams("@SupplierId", txtSupplierId.Text)
         SQL.AddParams("@SupplierName", txtSupplierName.Text)
@@ -110,22 +110,23 @@
     End Sub
 
     Private Sub txtSupplierId_TextChanged(sender As Object, e As EventArgs) Handles txtSupplierId.TextChanged
-        SQL.AddParams("@SupplierId", txtSupplierId.Text)
-        SQL.ExecQuery("SELECT * FROM SUPPLIER WHERE SupplierId=@SupplierId")
-        If SQL.DBDT.Rows.Count = 0 Then Exit Sub
-
-        txtSupplierId.Text = SQL.DBDT.Rows(0).Item(0)
-        txtSupplierName.Text = SQL.DBDT.Rows(0).Item(1)
-        txtAttention.Text = SQL.DBDT.Rows(0).Item(2)
-        txtAddress.Text = SQL.DBDT.Rows(0).Item(3)
-        txtPhone.Text = SQL.DBDT.Rows(0).Item(4)
-        txtFax.Text = SQL.DBDT.Rows(0).Item(5)
-        txtRemarks.Text = SQL.DBDT.Rows(0).Item(6)
-        txtAccountsName.Text = SQL.DBDT.Rows(0).Item(7)
-        cmbTOD.SelectedValue = SQL.DBDT.Rows(0).Item(8)
-        cmbTOP.SelectedValue = SQL.DBDT.Rows(0).Item(9)
-        cmbCurrency.SelectedValue = SQL.DBDT.Rows(0).Item(10)
-        chkImport.Checked = SQL.DBDT.Rows(0).Item(11)
-        txtEmailAd.Text = SQL.DBDT.Rows(0).Item(12)
+        If btnSave.Text = "UPDATE" Then
+            SQL.AddParams("@SupplierId", txtSupplierId.Text)
+            SQL.ExecQuery("SELECT * FROM SUPPLIERs WHERE SupplierId=@SupplierId")
+            If SQL.DBDT.Rows.Count = 0 Then Exit Sub
+            txtSupplierId.Text = SQL.DBDT.Rows(0).Item(0)
+            txtSupplierName.Text = SQL.DBDT.Rows(0).Item(1)
+            txtAttention.Text = SQL.DBDT.Rows(0).Item(2)
+            txtAddress.Text = SQL.DBDT.Rows(0).Item(3)
+            txtPhone.Text = SQL.DBDT.Rows(0).Item(4)
+            txtFax.Text = SQL.DBDT.Rows(0).Item(5)
+            txtRemarks.Text = SQL.DBDT.Rows(0).Item(6)
+            txtAccountsName.Text = SQL.DBDT.Rows(0).Item(7)
+            cmbTOD.SelectedValue = SQL.DBDT.Rows(0).Item(8)
+            cmbTOP.SelectedValue = SQL.DBDT.Rows(0).Item(9)
+            cmbCurrency.SelectedValue = SQL.DBDT.Rows(0).Item(10)
+            chkImport.Checked = SQL.DBDT.Rows(0).Item(11)
+            txtEmailAd.Text = SQL.DBDT.Rows(0).Item(12)
+        End If
     End Sub
 End Class

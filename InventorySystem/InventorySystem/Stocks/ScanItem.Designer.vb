@@ -61,7 +61,10 @@ Partial Class ScanItem
         Me.Controls.Add(Me.txtItemID)
         Me.Font = New System.Drawing.Font("Arial", 20.0!)
         Me.Margin = New System.Windows.Forms.Padding(8, 7, 8, 7)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "ScanItem"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Scan Barcode"
         Me.ResumeLayout(False)
         Me.PerformLayout()

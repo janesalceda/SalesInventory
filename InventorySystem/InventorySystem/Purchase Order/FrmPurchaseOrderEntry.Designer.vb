@@ -72,9 +72,6 @@ Partial Class FrmPurchaseOrderEntry
         Me.txtCliUnit = New System.Windows.Forms.TextBox()
         Me.txtCliQty = New System.Windows.Forms.TextBox()
         Me.dtablePoDetails = New System.Windows.Forms.DataGridView()
-        Me.chkcancelPO = New System.Windows.Forms.CheckBox()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -91,6 +88,9 @@ Partial Class FrmPurchaseOrderEntry
         Me.Rec = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.RecAdd = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.chkcancelPO = New System.Windows.Forms.CheckBox()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtablePoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -406,6 +406,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.btnDelete.TabIndex = 177
         Me.btnDelete.Text = "DELETE"
         Me.btnDelete.UseVisualStyleBackColor = False
+        Me.btnDelete.Visible = False
         '
         'btnClear
         '
@@ -600,6 +601,123 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtablePoDetails.Size = New System.Drawing.Size(845, 421)
         Me.dtablePoDetails.TabIndex = 69
         '
+        'Seq
+        '
+        Me.Seq.HeaderText = "Seq"
+        Me.Seq.Name = "Seq"
+        Me.Seq.ReadOnly = True
+        Me.Seq.Width = 62
+        '
+        'ItemId
+        '
+        Me.ItemId.HeaderText = "Item"
+        Me.ItemId.Name = "ItemId"
+        Me.ItemId.ReadOnly = True
+        Me.ItemId.Width = 62
+        '
+        'ItemName
+        '
+        Me.ItemName.HeaderText = "Description"
+        Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 113
+        '
+        'ClientQUnit
+        '
+        Me.ClientQUnit.HeaderText = "ClientQty"
+        Me.ClientQUnit.Name = "ClientQUnit"
+        Me.ClientQUnit.ReadOnly = True
+        Me.ClientQUnit.Width = 96
+        '
+        'ClientQty
+        '
+        Me.ClientQty.HeaderText = "Unit"
+        Me.ClientQty.Name = "ClientQty"
+        Me.ClientQty.ReadOnly = True
+        Me.ClientQty.Width = 60
+        '
+        'PO
+        '
+        Me.PO.HeaderText = "SupplierQty"
+        Me.PO.Name = "PO"
+        Me.PO.ReadOnly = True
+        Me.PO.Width = 114
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Unit"
+        Me.Unit.Name = "Unit"
+        Me.Unit.ReadOnly = True
+        Me.Unit.Width = 60
+        '
+        'UnitPrice
+        '
+        Me.UnitPrice.HeaderText = "Unit Price"
+        Me.UnitPrice.Name = "UnitPrice"
+        Me.UnitPrice.ReadOnly = True
+        Me.UnitPrice.Width = 101
+        '
+        'TotalPrice
+        '
+        Me.TotalPrice.HeaderText = "TotalPrice"
+        Me.TotalPrice.Name = "TotalPrice"
+        Me.TotalPrice.ReadOnly = True
+        Me.TotalPrice.Width = 102
+        '
+        'ETD
+        '
+        Me.ETD.HeaderText = "ETD"
+        Me.ETD.Name = "ETD"
+        Me.ETD.ReadOnly = True
+        Me.ETD.Width = 65
+        '
+        'ETA
+        '
+        Me.ETA.HeaderText = "ETA"
+        Me.ETA.Name = "ETA"
+        Me.ETA.ReadOnly = True
+        Me.ETA.Width = 63
+        '
+        'FTRY
+        '
+        Me.FTRY.HeaderText = "FTRY"
+        Me.FTRY.Name = "FTRY"
+        Me.FTRY.ReadOnly = True
+        Me.FTRY.Width = 72
+        '
+        'Cancel
+        '
+        Me.Cancel.HeaderText = "Cancel"
+        Me.Cancel.Name = "Cancel"
+        Me.Cancel.ReadOnly = True
+        Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Cancel.Width = 82
+        '
+        'Rec
+        '
+        Me.Rec.HeaderText = "Rec"
+        Me.Rec.Name = "Rec"
+        Me.Rec.ReadOnly = True
+        Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Rec.Width = 61
+        '
+        'RecAdd
+        '
+        Me.RecAdd.HeaderText = "RecAdd"
+        Me.RecAdd.Name = "RecAdd"
+        Me.RecAdd.ReadOnly = True
+        Me.RecAdd.Visible = False
+        Me.RecAdd.Width = 88
+        '
+        'InvQty
+        '
+        Me.InvQty.HeaderText = "Invoice Qty"
+        Me.InvQty.Name = "InvQty"
+        Me.InvQty.ReadOnly = True
+        Me.InvQty.Width = 108
+        '
         'chkcancelPO
         '
         Me.chkcancelPO.AutoSize = True
@@ -635,122 +753,6 @@ Partial Class FrmPurchaseOrderEntry
         Me.Button1.Text = "PRINT"
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
-        '
-        'Seq
-        '
-        Me.Seq.HeaderText = "Seq"
-        Me.Seq.Name = "Seq"
-        Me.Seq.ReadOnly = True
-        Me.Seq.Width = 60
-        '
-        'ItemId
-        '
-        Me.ItemId.HeaderText = "Item"
-        Me.ItemId.Name = "ItemId"
-        Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 60
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "Description"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 111
-        '
-        'ClientQUnit
-        '
-        Me.ClientQUnit.HeaderText = "ClientQty"
-        Me.ClientQUnit.Name = "ClientQUnit"
-        Me.ClientQUnit.ReadOnly = True
-        Me.ClientQUnit.Width = 94
-        '
-        'ClientQty
-        '
-        Me.ClientQty.HeaderText = "Unit"
-        Me.ClientQty.Name = "ClientQty"
-        Me.ClientQty.ReadOnly = True
-        Me.ClientQty.Width = 58
-        '
-        'PO
-        '
-        Me.PO.HeaderText = "SupplierQty"
-        Me.PO.Name = "PO"
-        Me.PO.ReadOnly = True
-        Me.PO.Width = 112
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Unit"
-        Me.Unit.Name = "Unit"
-        Me.Unit.ReadOnly = True
-        Me.Unit.Width = 58
-        '
-        'UnitPrice
-        '
-        Me.UnitPrice.HeaderText = "Unit Price"
-        Me.UnitPrice.Name = "UnitPrice"
-        Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 99
-        '
-        'TotalPrice
-        '
-        Me.TotalPrice.HeaderText = "TotalPrice"
-        Me.TotalPrice.Name = "TotalPrice"
-        Me.TotalPrice.ReadOnly = True
-        '
-        'ETD
-        '
-        Me.ETD.HeaderText = "ETD"
-        Me.ETD.Name = "ETD"
-        Me.ETD.ReadOnly = True
-        Me.ETD.Width = 63
-        '
-        'ETA
-        '
-        Me.ETA.HeaderText = "ETA"
-        Me.ETA.Name = "ETA"
-        Me.ETA.ReadOnly = True
-        Me.ETA.Width = 61
-        '
-        'FTRY
-        '
-        Me.FTRY.HeaderText = "FTRY"
-        Me.FTRY.Name = "FTRY"
-        Me.FTRY.ReadOnly = True
-        Me.FTRY.Width = 70
-        '
-        'Cancel
-        '
-        Me.Cancel.HeaderText = "Cancel"
-        Me.Cancel.Name = "Cancel"
-        Me.Cancel.ReadOnly = True
-        Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Cancel.Width = 80
-        '
-        'Rec
-        '
-        Me.Rec.HeaderText = "Rec"
-        Me.Rec.Name = "Rec"
-        Me.Rec.ReadOnly = True
-        Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Rec.Width = 59
-        '
-        'RecAdd
-        '
-        Me.RecAdd.HeaderText = "RecAdd"
-        Me.RecAdd.Name = "RecAdd"
-        Me.RecAdd.ReadOnly = True
-        Me.RecAdd.Visible = False
-        Me.RecAdd.Width = 88
-        '
-        'InvQty
-        '
-        Me.InvQty.HeaderText = "Invoice Qty"
-        Me.InvQty.Name = "InvQty"
-        Me.InvQty.ReadOnly = True
-        Me.InvQty.Width = 106
         '
         'FrmPurchaseOrderEntry
         '

@@ -3,11 +3,7 @@
     Private Sub ExecuteQueries(Query As String)
         SQL.AddParams("@description", txtDes.Text)
         SQL.AddParams("@termpayment", txtTD.Text)
-        If chkDisuse.Checked = True Then
-            SQL.AddParams("@disuse", "getdate()")
-        Else
-            SQL.AddParams("@disuse", "getdate()")
-        End If
+        SQL.AddParams("@disuse", chkDisuse.Checked)
         SQL.AddParams("@updatedby", moduleId)
 
         If Query = "SAVE" Then
@@ -15,7 +11,7 @@
                 INSERT INTO TermsofPayment 
                 (TermOfPayment,Description,DeletedDate,UpdatedBy)
                 VALUES
-                (@termpayment,@description,(select case when @disuse='getdate()' then getdate() else null end),@updatedby)")
+                (@termpayment,@description,(select case when @disuse=1 then getdate() else null end),@updatedby)")
         Else
             SQL.AddParams("@id", id)
             SQL.ExecQuery("UPDATE TermsOfPayment SET TermOfPayment=@termdelivery,Description=@description,DeltedDate=s(select case when @disuse='getdate()' then getdate() else null end),updateddate=getdate(),updatedby=@updatedby WHERE TermOfPaymentId=@id")

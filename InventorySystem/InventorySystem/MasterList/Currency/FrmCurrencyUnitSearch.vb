@@ -56,6 +56,7 @@
             With FrmCurrencyEntry
                 .Text = "Currency Details"
                 .btnInsert.Text = "UPDATE"
+                .chkDisuse.Enabled = True
                 .id = dtItems.SelectedRows(0).Cells(0).Value
                 .txtQtyunit.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .txtDes.Text = dtItems.SelectedRows(0).Cells(2).Value.ToString

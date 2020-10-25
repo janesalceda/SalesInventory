@@ -29,8 +29,8 @@
         Dim lastbalance As Decimal
         Dim currentbalance As Decimal
         Dim strTransactionDate As Date
-        SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
-        SQL.AddParams("@to", dtTo.Value.ToShortDateString)
+        SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
+        SQL.AddParams("@to", dtTo.Value.ToString("yyyy/MM/dd"))
         SQL.AddParams("@itemid", txtitem.Text)
         SQL.ExecQuery("SELECT * FROM SAMPLEINV WHERE 
             convert(VARCHAR(10),TransactedDate,111) >= @from
@@ -38,10 +38,13 @@
             AND ItemID=@itemid
             ORDER BY TransactedDate asc, TransactionTypeID DESC")
         If SQL.HasException Then Exit Sub
-
+        If SQL.DBDT.Rows.Count = 0 Then
+            MsgBox("No re")
+            Exit Sub
+        End If
         row = SQL.DBDT
 
-        SQL.AddParams("@from", (DateAdd("D", -1, dtFrom.Value.ToShortDateString)).ToShortDateString)
+        SQL.AddParams("@from", DateAdd("D", -1, dtFrom.Value.ToString("yyyy/MM/dd")))
         SQL.AddParams("@itemid", txtitem.Text)
         SQL.ExecQuery("SELECT Qty FROM GetStockBalance(@from) WHERE ItemID=@itemid")
         If SQL.HasException Then Exit Sub
@@ -63,7 +66,7 @@
                         If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToShortDateString Then
                             'get the stockbalance based on transaction date row  -1 and add the qty row
                             SQL.params.Clear()
-                            SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToShortDateString)
+                            SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToString("yyyy/MM/dd"))
                             SQL.AddParams("@itemid", txtitem.Text)
                             SQL.ExecQuery("SELECT top 1 Qty FROM GetStockBalance(@from) WHERE ItemID=@itemid")
                             If SQL.DBDT.Rows.Count = 0 Then
@@ -136,6 +139,10 @@
         dtFrom.Value = Today
         dtTo.Value = Today
         dgvData.Rows.Clear()
+    End Sub
+
+    Private Sub txtitem_TextChanged(sender As Object, e As EventArgs) Handles txtitem.TextChanged
+
     End Sub
 
     'Private Sub dgvData_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dgvData.CellFormatting

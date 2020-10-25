@@ -106,8 +106,7 @@
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If dtableStockTaking.Rows.Count = 0 Or
-            String.IsNullOrWhiteSpace(dtCountedDate.Checked) Then
+        If dtableStockTaking.Rows.Count = 0 Then
             MsgBox("Please complete all * important detils", MsgBoxStyle.Exclamation, "Warning")
             Exit Sub
         End If

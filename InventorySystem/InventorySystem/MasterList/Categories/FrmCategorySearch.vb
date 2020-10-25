@@ -48,7 +48,6 @@
             Else
                 dtItems.SelectedRows(0).Cells(3).Value = 0
             End If
-            'dtItems.SelectedRows(0).Cells(3).Value = False
             SQL.AddParams("@disuse", dtItems.SelectedRows(0).Cells(3).Value)
             SQL.AddParams("@categoryid", dtItems.SelectedRows(0).Cells(0).Value)
             SQL.ExecQuery("UPDATE Categories set 
@@ -60,6 +59,7 @@
             With FrmCategoryEntry
                 .Text = "Category Details"
                 .btnInsert.Text = "UPDATE"
+                .chkDisuse.Enabled = True
                 .id = dtItems.SelectedRows(0).Cells(0).Value
                 .txtCategoryname.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .Show()

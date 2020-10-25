@@ -14,7 +14,7 @@
                 FrmInvoiceEntry.dtableInvoice.Rows(i).Cells(2).Value.ToString,
                 FrmInvoiceEntry.dtableInvoice.Rows(i).Cells(3).Value.ToString,
                 FrmInvoiceEntry.dtableInvoice.Rows(i).Cells(4).Value.ToString,
-                FrmInvoiceEntry.dtableInvoice.Rows(i).Cells(7).Value.ToString)
+                FrmInvoiceEntry.dtableInvoice.Rows(i).Cells(5).Value.ToString)
         Next
     End Sub
     Private Sub save()

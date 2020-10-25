@@ -62,6 +62,7 @@ Partial Class FrmCategoryEntry
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
+        Me.chkDisuse.Enabled = False
         Me.chkDisuse.Location = New System.Drawing.Point(454, 18)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(76, 22)

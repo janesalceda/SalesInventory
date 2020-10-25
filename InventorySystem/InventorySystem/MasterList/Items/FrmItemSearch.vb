@@ -24,12 +24,13 @@
         LoadCategories()
     End Sub
     Private Sub dtItems_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellDoubleClick
-
-        FrmItemEntry.txtItemId.Text = dtItems.SelectedRows(0).Cells(0).Value.ToString
-        FrmItemEntry.btnSave.Text = "UPDATE"
-        FrmItemEntry.Text = "Item Details"
+        With FrmItemEntry
+            .txtItemId.Text = dtItems.SelectedRows(0).Cells(0).Value.ToString
+            .btnSave.Text = "UPDATE"
+            .Text = "Item Details"
+            .chkDisuse.Enabled = True
+        End With
         FrmItemEntry.Show()
-        'Add viewing of data
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click

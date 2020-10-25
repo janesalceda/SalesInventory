@@ -391,21 +391,11 @@ Public Class FrmPurchaseOrderEntry
         End If
         Dim row As ArrayList = New ArrayList
         If btnAddItem.Text = "INSERT ITEM" Then
-            dtablePoDetails.Rows.Add("", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
-            dtablePoDetails.SelectedRows(0).Cells(1).Value = txtItemCode.Text
-            dtablePoDetails.SelectedRows(0).Cells(2).Value = txtItemName.Text
-            dtablePoDetails.SelectedRows(0).Cells(3).Value = txtCliQty.Text
-            dtablePoDetails.SelectedRows(0).Cells(4).Value = txtCliUnit.Text
-            dtablePoDetails.SelectedRows(0).Cells(5).Value = txtSupQty.Text
-            dtablePoDetails.SelectedRows(0).Cells(6).Value = txtSupUnit.Text
-            dtablePoDetails.SelectedRows(0).Cells(7).Value = txtUnit.Text
-            dtablePoDetails.SelectedRows(0).Cells(8).Value = txtTotalPrice.Text
-            dtablePoDetails.SelectedRows(0).Cells(9).Value = dtETD.Value
-            dtablePoDetails.SelectedRows(0).Cells(10).Value = dtETA.Value
-            dtablePoDetails.SelectedRows(0).Cells(11).Value = DTFtry.Value
-            dtablePoDetails.SelectedRows(0).Cells(12).Value = chkCancel.Checked
-            dtablePoDetails.SelectedRows(0).Cells(13).Value = chkReceived.Checked
+            dtablePoDetails.Rows.Add(dtablePoDetails.Rows.Count + 1, txtItemCode.Text, txtItemName.Text,
+                                     txtCliQty.Text, txtCliUnit.Text, txtSupQty.Text, txtSupUnit.Text, txtUnit.Text,
+                                     txtTotalPrice.Text, dtETD.Value, dtETA.Value, DTFtry.Value, chkCancel.Checked,
+                                     chkReceived.Checked, "", "")
             PurchDetailsClear()
         Else
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + (Val(txtTotalPrice.Text) - dtablePoDetails.SelectedRows(0).Cells(8).Value), "0.00")
@@ -472,25 +462,29 @@ Public Class FrmPurchaseOrderEntry
         txtUnit.Text = Format(Val(row.Item(4)), "0.00")
     End Sub
     Private Sub dtablePoDetails_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellClick
-        If String.IsNullOrWhiteSpace(dtablePoDetails.SelectedRows(0).Cells(15).Value.ToString()) Then
-            txtItemCode.Text = dtablePoDetails.SelectedRows(0).Cells(1).Value.ToString()
-            txtItemName.Text = dtablePoDetails.SelectedRows(0).Cells(2).Value.ToString()
-            txtCliQty.Text = dtablePoDetails.SelectedRows(0).Cells(3).Value.ToString()
-            txtCliUnit.Text = dtablePoDetails.SelectedRows(0).Cells(4).Value.ToString()
-            txtSupQty.Text = dtablePoDetails.SelectedRows(0).Cells(5).Value.ToString()
-            txtSupUnit.Text = dtablePoDetails.SelectedRows(0).Cells(6).Value.ToString()
-            txtUnit.Text = dtablePoDetails.SelectedRows(0).Cells(7).Value.ToString()
-            txtTotalPrice.Text = dtablePoDetails.SelectedRows(0).Cells(8).Value.ToString()
-            dtETD.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(9).Value.ToString())
-            dtETA.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(10).Value.ToString())
-            DTFtry.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(11).Value.ToString())
-            chkCancel.Checked = dtablePoDetails.SelectedRows(0).Cells(12).Value.ToString()
-            chkReceived.Checked = dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()
-            btnAddItem.Text = "UPDATE ITEM"
-            btnClear.Enabled = True
-        Else
-            MsgBox("Cannot modify there is already an invoice!", MsgBoxStyle.Information, "Information")
-        End If
+        Try
+            If String.IsNullOrWhiteSpace(dtablePoDetails.SelectedRows(0).Cells(15).Value.ToString()) Then
+                txtItemCode.Text = dtablePoDetails.SelectedRows(0).Cells(1).Value.ToString()
+                txtItemName.Text = dtablePoDetails.SelectedRows(0).Cells(2).Value.ToString()
+                txtCliQty.Text = dtablePoDetails.SelectedRows(0).Cells(3).Value.ToString()
+                txtCliUnit.Text = dtablePoDetails.SelectedRows(0).Cells(4).Value.ToString()
+                txtSupQty.Text = dtablePoDetails.SelectedRows(0).Cells(5).Value.ToString()
+                txtSupUnit.Text = dtablePoDetails.SelectedRows(0).Cells(6).Value.ToString()
+                txtUnit.Text = dtablePoDetails.SelectedRows(0).Cells(7).Value.ToString()
+                txtTotalPrice.Text = dtablePoDetails.SelectedRows(0).Cells(8).Value.ToString()
+                dtETD.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(9).Value.ToString())
+                dtETA.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(10).Value.ToString())
+                DTFtry.Value = Convert.ToDateTime(dtablePoDetails.SelectedRows(0).Cells(11).Value.ToString())
+                chkCancel.Checked = dtablePoDetails.SelectedRows(0).Cells(12).Value.ToString()
+                chkReceived.Checked = dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()
+                btnAddItem.Text = "UPDATE ITEM"
+                btnClear.Enabled = True
+            Else
+                MsgBox("Cannot modify there is already an invoice!", MsgBoxStyle.Information, "Information")
+            End If
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+        End Try
     End Sub
 
     Private Sub txtCliQty_LostFocus(sender As Object, e As EventArgs) Handles txtCliQty.LostFocus
@@ -547,7 +541,7 @@ Public Class FrmPurchaseOrderEntry
         PrintPreview.ReportViewer1.RefreshReport()
         Try
             With PrintPreview.ReportViewer1.LocalReport
-                .ReportPath = "C:\temp\SalesandInventory\Report1.rdlc"
+                .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report1.rdlc"
                 .DataSources.Clear()
                 '.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("PODataset", dt))
                 Dim dt As New DataTable

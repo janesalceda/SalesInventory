@@ -16,6 +16,13 @@
 
     Private Sub txtItemID_KeyDown(sender As Object, e As KeyEventArgs) Handles txtItemID.KeyDown
         If e.KeyCode = Keys.Enter Then
+            SQL.AddParams("@ItemID", txtItemID.Text)
+            SQL.ExecQuery("Select * from items where deleteddate is null and ItemID=@ItemID")
+            If SQL.DBDT.Rows.Count = 0 Then
+                MsgBox("Item does not exist", MsgBoxStyle.Information, "Information")
+                txtItemID.Clear()
+                Exit Sub
+            End If
             FrmScanItems.ItemCode = txtItemID.Text
             txtItemID.Clear()
             FrmScanItems.Show()

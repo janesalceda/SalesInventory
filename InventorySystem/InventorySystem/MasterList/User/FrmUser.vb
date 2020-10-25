@@ -4,38 +4,31 @@
         If Query <> "" Then
             SQL.ExecQuery(Query)
         Else
-            SQL.ExecQuery("SELECT EmpId, EmployeeName, Username, Password, UserLevelId FROM Users u INNER JOIN Employees e ON u.UserID=e.EmpId")
+            SQL.ExecQuery("SELECT EmpId, EmployeeName, ul.UserLevel,case when u.deletedDate is null then 0 else 1 end ,u.deletedDate FROM Users u 
+                INNER Join Employees e ON u.UserID=e.EmpId
+                inner Join UserLevel ul on ul.UserLevelId=u.UserLevelId")
         End If
-        If SQL.HasException(True) Then Exit Sub
-        dtUsers.DataSource = SQL.DBDT
-
-        Dim btn As New DataGridViewButtonColumn()
-        dtUsers.Columns.Add(btn)
-        btn.HeaderText = "Delete"
-        btn.Text = "X"
-        btn.Name = "btn"
-        btn.UseColumnTextForButtonValue = True
+        If SQL.HasException() Then Exit Sub
+        dtUsers.Rows.Clear()
+        Try
+            For i = 0 To SQL.DBDT.Rows.Count - 1
+                dtUsers.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), SQL.DBDT.Rows(i).Item(2),
+                                 SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4))
+            Next
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Error")
+        End Try
 
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         With AddUser
-            '.txtTitle.Text = "ADD USER"
             .btnSave.Visible = True
-            '.txtEmpCode.Enabled = True
             .txtPassword.Enabled = True
-            '.txtTitle.Enabled = True
             .cmbUserLevel.Enabled = True
             .txtUserName.Enabled = True
             .Show()
         End With
-    End Sub
-
-    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        If MsgBox("Do you really want to delete this user?", MessageBoxButtons.YesNo + MessageBoxIcon.Question, "Delete Data") = vbYes Then
-            SQL.ExecQuery("Update Users set deleted where userid=@useid")
-            MsgBox("Deleted User")
-        End If
     End Sub
     Private Sub LoadUserLevel()
         cmbUserLevel.DataSource = GetUserLevel()
@@ -50,12 +43,13 @@
     End Sub
     Private Sub FindItem()
         SQL.AddParams("@user", "'%" & txtSearch.Text & "%'")
-        LoadDataGrid("SELECT EmployeeNo, EmployeeName, Username, UserLevelId FROM users u INNER JOIN Employees e ON u.EmployeeNo=e.EmployeeCode
-            inner join userlevel ul on u.UserLevelId=ul.UserLevelId where employeeName like @user;")
+        LoadDataGrid("SELECT EmpId, EmployeeName, ul.UserLevel,u.deletedDate FROM Users u 
+            INNER JOIN Employees e ON u.UserID=e.EmpId
+            inner join UserLevel ul on ul.UserLevelId=u.UserLevelId where employeeName like @user;")
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        FindItem()
+        LoadDataGrid()
     End Sub
 
     Private Sub dtUsers_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtUsers.CellDoubleClick
@@ -72,5 +66,23 @@
                 .Show()
             End With
         End With
+    End Sub
+
+    Private Sub dtUsers_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtUsers.CellClick
+        If e.ColumnIndex = 3 Then
+            If MsgBox("Are you sure to edit this user?", MessageBoxButtons.YesNo + MessageBoxIcon.Question, "Delete Data") = vbYes Then
+                If dtUsers.SelectedRows(0).Cells(3).Value = False Then
+                    dtUsers.SelectedRows(0).Cells(3).Value = True
+                Else
+                    dtUsers.SelectedRows(0).Cells(3).Value = False
+                End If
+                SQL.AddParams("@deleted", dtUsers.SelectedRows(0).Cells(3).Value)
+                SQL.AddParams("@userid", dtUsers.SelectedRows(0).Cells(0).Value)
+                SQL.ExecQuery("Update Users set deleteddate=(select case when @deleted=1 then getdate() else null end) 
+                where userid=@userid")
+                If SQL.HasException Then Exit Sub
+                MsgBox("Successfully saved!", MsgBoxStyle.Information, "Information")
+            End If
+        End If
     End Sub
 End Class

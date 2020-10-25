@@ -73,7 +73,7 @@
                 With FrmInvoiceEntry
                     .txtPo.Text = dtitems.SelectedRows(0).Cells(0).Value.ToString()
                     .txtPoSeq.Text = dtitems.SelectedRows(0).Cells(1).Value.ToString()
-                    '.btnAddItem.Visible = True
+                    .txtCliQty.Text = dtitems.SelectedRows(0).Cells(2).Value.ToString()
                     Me.Close()
                 End With
             ElseIf formname = "AddDelivery" Then

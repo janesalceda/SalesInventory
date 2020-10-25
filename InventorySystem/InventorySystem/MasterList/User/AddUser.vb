@@ -29,7 +29,7 @@
                 SQL.AddParams("@gender", "F")
             End If
             SQL.AddParams("@age", txtAge.Text)
-            SQL.AddParams("@position", cmbUserLevel.SelectedValue)
+            SQL.AddParams("@position", cmbUserLevel.Text)
             SQL.AddParams("@updatedby", moduleId)
 
             SQL.ExecQuery("

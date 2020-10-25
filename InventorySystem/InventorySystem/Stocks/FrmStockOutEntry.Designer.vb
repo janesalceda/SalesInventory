@@ -46,7 +46,6 @@ Partial Class FrmStockOutEntry
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtStockOutID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.chkApprove = New System.Windows.Forms.CheckBox()
         Me.txtIssuedBy = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtEncodedStaff = New System.Windows.Forms.TextBox()
@@ -59,10 +58,13 @@ Partial Class FrmStockOutEntry
         'dtSOutDate
         '
         Me.dtSOutDate.Checked = False
+        Me.dtSOutDate.Enabled = False
+        Me.dtSOutDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtSOutDate.Location = New System.Drawing.Point(133, 49)
         Me.dtSOutDate.Name = "dtSOutDate"
         Me.dtSOutDate.Size = New System.Drawing.Size(173, 26)
         Me.dtSOutDate.TabIndex = 0
+        Me.dtSOutDate.Value = New Date(2020, 10, 25, 13, 58, 33, 0)
         '
         'btnSave
         '
@@ -80,31 +82,35 @@ Partial Class FrmStockOutEntry
         Me.Unit.HeaderText = "Remarks"
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
+        Me.Unit.Width = 96
         '
         'PO
         '
         Me.PO.HeaderText = "Qty"
         Me.PO.Name = "PO"
         Me.PO.ReadOnly = True
+        Me.PO.Width = 56
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 113
         '
         'ItemId
         '
         Me.ItemId.HeaderText = "Item"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
+        Me.ItemId.Width = 62
         '
         'Seq
         '
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 40
+        Me.Seq.Width = 62
         '
         'btnItems
         '
@@ -160,6 +166,8 @@ Partial Class FrmStockOutEntry
         Me.dtableStockout.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtableStockout.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.dtableStockout.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableStockout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
         Me.dtableStockout.Location = New System.Drawing.Point(349, 30)
@@ -195,9 +203,9 @@ Partial Class FrmStockOutEntry
         Me.Label1.Location = New System.Drawing.Point(7, 53)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(120, 18)
+        Me.Label1.Size = New System.Drawing.Size(114, 18)
         Me.Label1.TabIndex = 109
-        Me.Label1.Text = "*StockOut Date:"
+        Me.Label1.Text = "StockOut Date:"
         '
         'txtItemName
         '
@@ -286,17 +294,6 @@ Partial Class FrmStockOutEntry
         Me.Label7.TabIndex = 107
         Me.Label7.Text = "StockOut ID"
         '
-        'chkApprove
-        '
-        Me.chkApprove.AutoSize = True
-        Me.chkApprove.Enabled = False
-        Me.chkApprove.Location = New System.Drawing.Point(806, 4)
-        Me.chkApprove.Name = "chkApprove"
-        Me.chkApprove.Size = New System.Drawing.Size(86, 22)
-        Me.chkApprove.TabIndex = 120
-        Me.chkApprove.Text = "Approve"
-        Me.chkApprove.UseVisualStyleBackColor = True
-        '
         'txtIssuedBy
         '
         Me.txtIssuedBy.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -358,7 +355,6 @@ Partial Class FrmStockOutEntry
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtEncodedStaff)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.chkApprove)
         Me.Controls.Add(Me.dtSOutDate)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtRemarks)
@@ -372,7 +368,6 @@ Partial Class FrmStockOutEntry
         Me.Name = "FrmStockOutEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "StockOut Entry"
-        Me.TopMost = True
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -404,7 +399,6 @@ Partial Class FrmStockOutEntry
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents txtStockOutID As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents chkApprove As CheckBox
     Friend WithEvents txtIssuedBy As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents txtEncodedStaff As TextBox

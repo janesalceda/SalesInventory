@@ -37,7 +37,7 @@
             ElseIf formname = "FrmSearchPO" Then
                 FrmSearchPO.txtSupplier.Text = .SelectedRows(0).Cells(0).Value.ToString
             ElseIf formname = "AddItem" Then
-                FrmItemPriceAdd.txtSupplierID.Text = .SelectedRows(0).Cells(0).Value.ToString
+                FrmSupplierItemPriceEntry.txtSupplierID.Text = .SelectedRows(0).Cells(0).Value.ToString
             End If
         End With
         Me.Close()

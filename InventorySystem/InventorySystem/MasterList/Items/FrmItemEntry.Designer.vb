@@ -458,41 +458,42 @@ Partial Class FrmItemEntry
         Me.SupplierID.HeaderText = "SupplierID"
         Me.SupplierID.Name = "SupplierID"
         Me.SupplierID.ReadOnly = True
+        Me.SupplierID.Width = 98
         '
         'AppliedDate
         '
         Me.AppliedDate.HeaderText = "Applied Date"
         Me.AppliedDate.Name = "AppliedDate"
         Me.AppliedDate.ReadOnly = True
-        Me.AppliedDate.Width = 108
+        Me.AppliedDate.Width = 106
         '
         'UnitPrice
         '
         Me.UnitPrice.HeaderText = "Unit Price"
         Me.UnitPrice.Name = "UnitPrice"
         Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 89
+        Me.UnitPrice.Width = 87
         '
         'ItemPriceID
         '
         Me.ItemPriceID.HeaderText = "Item Price ID"
         Me.ItemPriceID.Name = "ItemPriceID"
         Me.ItemPriceID.ReadOnly = True
-        Me.ItemPriceID.Width = 95
+        Me.ItemPriceID.Width = 93
         '
         'SupplierItemCode
         '
         Me.SupplierItemCode.HeaderText = "SupplierItemCode"
         Me.SupplierItemCode.Name = "SupplierItemCode"
         Me.SupplierItemCode.ReadOnly = True
-        Me.SupplierItemCode.Width = 148
+        Me.SupplierItemCode.Width = 146
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 127
+        Me.RegisteredDate.Width = 125
         '
         'Label10
         '
@@ -580,28 +581,28 @@ Partial Class FrmItemEntry
         Me.DataGridViewTextBoxColumn2.HeaderText = "Applied Date"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 108
+        Me.DataGridViewTextBoxColumn2.Width = 106
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Unit Price"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 89
+        Me.DataGridViewTextBoxColumn3.Width = 87
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "Item Price ID"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 95
+        Me.DataGridViewTextBoxColumn4.Width = 93
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Registered Date"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 127
+        Me.DataGridViewTextBoxColumn6.Width = 125
         '
         'TabPage1
         '

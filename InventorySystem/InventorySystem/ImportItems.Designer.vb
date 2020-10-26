@@ -31,9 +31,12 @@ Partial Class ImportItems
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnLoadData = New System.Windows.Forms.Button()
         Me.btnUpload = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cboSheet = New System.Windows.Forms.ComboBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,7 +50,7 @@ Partial Class ImportItems
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(1162, 510)
+        Me.DataGridView1.Size = New System.Drawing.Size(1162, 476)
         Me.DataGridView1.TabIndex = 0
         '
         'Column1
@@ -88,31 +91,24 @@ Partial Class ImportItems
         '
         'btnLoadData
         '
-        Me.btnLoadData.Location = New System.Drawing.Point(578, 6)
+        Me.btnLoadData.Location = New System.Drawing.Point(372, 10)
         Me.btnLoadData.Margin = New System.Windows.Forms.Padding(4)
         Me.btnLoadData.Name = "btnLoadData"
-        Me.btnLoadData.Size = New System.Drawing.Size(91, 37)
+        Me.btnLoadData.Size = New System.Drawing.Size(158, 37)
         Me.btnLoadData.TabIndex = 1
         Me.btnLoadData.Text = "LoadData"
         Me.btnLoadData.UseVisualStyleBackColor = True
         '
         'btnUpload
         '
-        Me.btnUpload.Location = New System.Drawing.Point(479, 6)
+        Me.btnUpload.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnUpload.Location = New System.Drawing.Point(328, 12)
         Me.btnUpload.Margin = New System.Windows.Forms.Padding(4)
         Me.btnUpload.Name = "btnUpload"
-        Me.btnUpload.Size = New System.Drawing.Size(91, 37)
+        Me.btnUpload.Size = New System.Drawing.Size(36, 26)
         Me.btnUpload.TabIndex = 2
-        Me.btnUpload.Text = "Upload"
+        Me.btnUpload.Text = "..."
         Me.btnUpload.UseVisualStyleBackColor = True
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(29, 17)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(442, 26)
-        Me.TextBox1.TabIndex = 3
         '
         'OpenFileDialog1
         '
@@ -120,19 +116,56 @@ Partial Class ImportItems
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(479, 51)
+        Me.btnSave.Location = New System.Drawing.Point(532, 10)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(4)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(190, 37)
+        Me.btnSave.Size = New System.Drawing.Size(160, 37)
         Me.btnSave.TabIndex = 4
-        Me.btnSave.Text = "Save"
+        Me.btnSave.Text = "Save to Items"
         Me.btnSave.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(86, 12)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(244, 26)
+        Me.TextBox1.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(8, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(77, 18)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Filename:"
+        '
+        'cboSheet
+        '
+        Me.cboSheet.FormattingEnabled = True
+        Me.cboSheet.Location = New System.Drawing.Point(78, 586)
+        Me.cboSheet.Name = "cboSheet"
+        Me.cboSheet.Size = New System.Drawing.Size(121, 26)
+        Me.cboSheet.TabIndex = 6
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(20, 588)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 18)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "Sheet:"
         '
         'ImportItems
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1200, 623)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.cboSheet)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.btnUpload)
@@ -157,7 +190,10 @@ Partial Class ImportItems
     Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents btnUpload As Button
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents btnSave As Button
+    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cboSheet As ComboBox
+    Friend WithEvents Label2 As Label
 End Class

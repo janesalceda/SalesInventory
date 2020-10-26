@@ -3,8 +3,8 @@ Imports ZXing
 Public Class LoginForm
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        'ImportItems.Show()
-        'Exit Sub
+        ImportItems.Show()
+        Exit Sub
         If txtUsername.Text = "" Or txtPass.Text = "" Then
             MessageBox.Show("Please complete fields", "No Entry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             txtUsername.Focus()

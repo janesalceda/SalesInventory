@@ -135,16 +135,16 @@ Partial Class frmInventory
         Me.dtFrom.Name = "dtFrom"
         Me.dtFrom.Size = New System.Drawing.Size(125, 26)
         Me.dtFrom.TabIndex = 5
+        Me.dtFrom.Value = New Date(2020, 10, 26, 7, 15, 32, 0)
         '
         'dtTo
         '
         Me.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtTo.Location = New System.Drawing.Point(216, 58)
-        Me.dtTo.MaxDate = New Date(2020, 10, 25, 14, 48, 18, 0)
         Me.dtTo.Name = "dtTo"
         Me.dtTo.Size = New System.Drawing.Size(124, 26)
         Me.dtTo.TabIndex = 6
-        Me.dtTo.Value = New Date(2020, 10, 25, 0, 0, 0, 0)
+        Me.dtTo.Value = New Date(2020, 10, 26, 0, 0, 0, 0)
         '
         'Label2
         '

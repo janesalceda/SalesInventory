@@ -56,7 +56,7 @@ Public Class FrmPrintingItemBarcode
 
             num = Math.Ceiling(remaining / 2)
         Else
-            x = 40
+            x = 10
 
             num = Math.Ceiling(remaining / 3)
         End If
@@ -97,7 +97,7 @@ Public Class FrmPrintingItemBarcode
                     x = x + w + 330
                     lx = lx + 440
                 Else
-                    x = x + w + 40
+                    x = x + w + 30
                 End If
             Next
 
@@ -108,7 +108,7 @@ Public Class FrmPrintingItemBarcode
                 y = y + h + 80
                 ly = ly + h + 80
             Else
-                y = y + h + 30
+                y = y + h + 10
 
             End If
         End While

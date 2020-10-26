@@ -259,4 +259,8 @@ Public Class FrmItemEntry
     Private Sub btnAddPrice_Click(sender As Object, e As EventArgs) Handles btnAddPrice.Click
         FrmCliItemPrice.Show()
     End Sub
+
+    Private Sub cmbCategory_GotFocus(sender As Object, e As EventArgs) Handles cmbCategory.GotFocus
+        LoadCategories()
+    End Sub
 End Class

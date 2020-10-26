@@ -25,6 +25,12 @@
             MsgBox(strMessage, MsgBoxStyle.Critical, "Critical")
         End If
     End Sub
+    Public Function getClientPrice(itemid As String) As Decimal
+        SQL.AddParams("@itemid", itemid)
+        SQL.ExecQuery("SELECT TOP 1 Unitprice from ClientItemPrices where itemid=@itemid
+        order by AppliedDate desc")
+        Return SQL.DBDT.Rows(0).Item("Unitprice")
+    End Function
     Public Function GetSupplierName(SupplierId As String) As ArrayList
         Dim Globalrow As ArrayList = New ArrayList
         SQL.AddParams("@supplierid", SupplierId)

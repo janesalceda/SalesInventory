@@ -553,3 +553,10 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SalesRecord.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.dll
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.dll
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.pdb
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.xml
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.pdb
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.xml
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SalesRecord.resources

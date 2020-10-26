@@ -1,5 +1,6 @@
 ﻿Public Class FrmStockOutEntry
     Private DTCount As Integer
+    Public cliprice As Decimal
     Private Sub UpdatingData()
         txtItemCode.Enabled = False
         dtSOutDate.Enabled = False
@@ -72,6 +73,7 @@
         End If
         Dim row As ArrayList = New ArrayList
         DTCount += 1
+        txtTotalAmount.Text = Val(txtTotalAmount.Text) + Val(txtQty.Text) * cliprice
         row.Add(DTCount)
         row.Add(txtItemCode.Text)
         row.Add(txtItemName.Text)
@@ -100,6 +102,7 @@
             Exit Sub
         End If
         txtItemName.Text = row.Item(0)
+        cliprice = getClientPrice(txtItemCode.Text)
     End Sub
     Private Function checkingSaving() As String
         Dim msg As String
@@ -195,5 +198,17 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         formname = "StockOut"
         ScanItem.Show()
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
+
     End Sub
 End Class

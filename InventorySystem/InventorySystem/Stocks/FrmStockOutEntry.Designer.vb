@@ -51,6 +51,8 @@ Partial Class FrmStockOutEntry
         Me.txtEncodedStaff = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtTotalAmount = New System.Windows.Forms.TextBox()
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -62,7 +64,7 @@ Partial Class FrmStockOutEntry
         Me.dtSOutDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtSOutDate.Location = New System.Drawing.Point(133, 49)
         Me.dtSOutDate.Name = "dtSOutDate"
-        Me.dtSOutDate.Size = New System.Drawing.Size(173, 26)
+        Me.dtSOutDate.Size = New System.Drawing.Size(150, 26)
         Me.dtSOutDate.TabIndex = 0
         Me.dtSOutDate.Value = New Date(2020, 10, 25, 13, 58, 33, 0)
         '
@@ -70,7 +72,7 @@ Partial Class FrmStockOutEntry
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(783, 413)
+        Me.btnSave.Location = New System.Drawing.Point(783, 427)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(116, 30)
         Me.btnSave.TabIndex = 8
@@ -174,23 +176,23 @@ Partial Class FrmStockOutEntry
         Me.dtableStockout.Name = "dtableStockout"
         Me.dtableStockout.ReadOnly = True
         Me.dtableStockout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableStockout.Size = New System.Drawing.Size(544, 292)
+        Me.dtableStockout.Size = New System.Drawing.Size(544, 294)
         Me.dtableStockout.TabIndex = 69
         '
         'txtRemarks
         '
         Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtRemarks.Location = New System.Drawing.Point(675, 28)
+        Me.txtRemarks.Location = New System.Drawing.Point(715, 12)
         Me.txtRemarks.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(220, 49)
+        Me.txtRemarks.Size = New System.Drawing.Size(181, 49)
         Me.txtRemarks.TabIndex = 2
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(675, 8)
+        Me.Label2.Location = New System.Drawing.Point(607, 15)
         Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(70, 18)
@@ -200,7 +202,7 @@ Partial Class FrmStockOutEntry
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 53)
+        Me.Label1.Location = New System.Drawing.Point(13, 52)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(114, 18)
@@ -257,9 +259,9 @@ Partial Class FrmStockOutEntry
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.txtItemCode)
-        Me.GroupBox1.Location = New System.Drawing.Point(4, 85)
+        Me.GroupBox1.Location = New System.Drawing.Point(4, 97)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(898, 328)
+        Me.GroupBox1.Size = New System.Drawing.Size(898, 330)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stock Out Details"
@@ -281,13 +283,13 @@ Partial Class FrmStockOutEntry
         Me.txtStockOutID.Location = New System.Drawing.Point(133, 15)
         Me.txtStockOutID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtStockOutID.Name = "txtStockOutID"
-        Me.txtStockOutID.Size = New System.Drawing.Size(173, 26)
+        Me.txtStockOutID.Size = New System.Drawing.Size(150, 26)
         Me.txtStockOutID.TabIndex = 108
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 18)
+        Me.Label7.Location = New System.Drawing.Point(13, 18)
         Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(91, 18)
@@ -297,16 +299,16 @@ Partial Class FrmStockOutEntry
         'txtIssuedBy
         '
         Me.txtIssuedBy.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtIssuedBy.Location = New System.Drawing.Point(428, 15)
+        Me.txtIssuedBy.Location = New System.Drawing.Point(407, 15)
         Me.txtIssuedBy.Margin = New System.Windows.Forms.Padding(4)
         Me.txtIssuedBy.Name = "txtIssuedBy"
-        Me.txtIssuedBy.Size = New System.Drawing.Size(231, 26)
+        Me.txtIssuedBy.Size = New System.Drawing.Size(192, 26)
         Me.txtIssuedBy.TabIndex = 1
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(312, 18)
+        Me.Label4.Location = New System.Drawing.Point(291, 18)
         Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(85, 18)
@@ -316,16 +318,16 @@ Partial Class FrmStockOutEntry
         'txtEncodedStaff
         '
         Me.txtEncodedStaff.Enabled = False
-        Me.txtEncodedStaff.Location = New System.Drawing.Point(428, 49)
+        Me.txtEncodedStaff.Location = New System.Drawing.Point(407, 49)
         Me.txtEncodedStaff.Margin = New System.Windows.Forms.Padding(4)
         Me.txtEncodedStaff.Name = "txtEncodedStaff"
-        Me.txtEncodedStaff.Size = New System.Drawing.Size(231, 26)
+        Me.txtEncodedStaff.Size = New System.Drawing.Size(192, 26)
         Me.txtEncodedStaff.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(313, 54)
+        Me.Label3.Location = New System.Drawing.Point(292, 54)
         Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(111, 18)
@@ -338,18 +340,39 @@ Partial Class FrmStockOutEntry
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(4, 428)
+        Me.Label5.Location = New System.Drawing.Point(4, 442)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(217, 19)
         Me.Label5.TabIndex = 125
         Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(607, 72)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(100, 18)
+        Me.Label6.TabIndex = 126
+        Me.Label6.Text = "Total Amount:"
+        '
+        'txtTotalAmount
+        '
+        Me.txtTotalAmount.Enabled = False
+        Me.txtTotalAmount.Location = New System.Drawing.Point(715, 69)
+        Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtTotalAmount.Name = "txtTotalAmount"
+        Me.txtTotalAmount.Size = New System.Drawing.Size(180, 26)
+        Me.txtTotalAmount.TabIndex = 127
+        '
         'FrmStockOutEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(909, 448)
+        Me.ClientSize = New System.Drawing.Size(909, 462)
+        Me.Controls.Add(Me.txtTotalAmount)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtIssuedBy)
         Me.Controls.Add(Me.Label4)
@@ -405,4 +428,6 @@ Partial Class FrmStockOutEntry
     Friend WithEvents Label3 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents txtTotalAmount As TextBox
 End Class

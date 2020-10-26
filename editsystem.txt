@@ -1,5 +1,6 @@
-add supplier items price table
-ano ilalagay ko sa deliverydate
-add invoice total amount field
-maari bang stocktaking at stockout? marami ding item ?
-para gagayahin ko lang yung way ng pagsasave sa invoice at po
+SAVING NG TOTAL AMOUNT SA STOCKOUT
+GUMAWA NG VIEW AT PRINT SA MGA TOTAL COST
+AYUSIN NA YUNG IMPORT NG CSV AT EXCEL SA GRIDVIEW
+LAGYAN NG LOGO YUNG MGA PRINT
+PRINTING NG BARCODE QR
+SYSTEM TESTING

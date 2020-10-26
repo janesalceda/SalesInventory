@@ -22,6 +22,7 @@
         row.Add(txtremarks.Text)
         If formname = "StockOut" Then
             FrmStockOutEntry.dtableStockout.Rows.Add(row.ToArray())
+            FrmStockOutEntry.txtTotalAmount.Text = Val(FrmStockOutEntry.txtTotalAmount.Text) + Val(txtQty.Text) * FrmStockOutEntry.cliprice
         ElseIf formname = "StockTaking" Then
             FrmStockTakingEntry.dtableStockTaking.Rows.Add(row.ToArray())
         Else

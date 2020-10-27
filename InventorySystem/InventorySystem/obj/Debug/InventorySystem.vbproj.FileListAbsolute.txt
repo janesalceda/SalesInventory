@@ -561,3 +561,4 @@ C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\b
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SalesRecord.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmConfirmation.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmConfirmation.resources

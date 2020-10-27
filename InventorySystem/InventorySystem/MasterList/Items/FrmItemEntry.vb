@@ -8,10 +8,10 @@ Public Class FrmItemEntry
     End Sub
     Private Sub AddItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
-        LoadCliUnit()
-        LoadSupUnit()
-        LoadLocation()
-        LoadCategories()
+        'LoadCliUnit()
+        'LoadSupUnit()
+        'LoadLocation()
+        'LoadCategories()
         ViewItemData()
         ViewSupplierPriceData()
         txtConCoe.Text = 1
@@ -41,6 +41,10 @@ Public Class FrmItemEntry
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Dim completefields As String = "Please input the ff:" & vbNewLine
         If String.IsNullOrWhiteSpace(txtDes.Text) Then completefields += "*Description" & vbNewLine
+        If cmbCliQtyUnit.SelectedIndex = -1 Then completefields += "*QtyUnit" & vbNewLine
+        If cmbLocation.SelectedIndex = -1 Then completefields += "*Location" & vbNewLine
+        If cmbCategory.SelectedIndex = -1 Then completefields += "*Category" & vbNewLine
+        If cmbSupQtyUnit.SelectedIndex = -1 Then completefields += "*Supplier QtyUnit" & vbNewLine
         If String.IsNullOrWhiteSpace(txtConCoe.Text) Then completefields += "*Converting Coefficient" & vbNewLine
         If String.IsNullOrWhiteSpace(txtMax.Text) Then completefields += "*Max Ordering Point" & vbNewLine
         If String.IsNullOrWhiteSpace(txtMinQty.Text) Then completefields += "*Minimum Qty" & vbNewLine
@@ -262,5 +266,17 @@ Public Class FrmItemEntry
 
     Private Sub cmbCategory_GotFocus(sender As Object, e As EventArgs) Handles cmbCategory.GotFocus
         LoadCategories()
+    End Sub
+
+    Private Sub cmbCliQtyUnit_GotFocus(sender As Object, e As EventArgs) Handles cmbCliQtyUnit.GotFocus
+        LoadCliUnit()
+    End Sub
+
+    Private Sub cmbSupQtyUnit_GotFocus(sender As Object, e As EventArgs) Handles cmbSupQtyUnit.GotFocus
+        LoadSupUnit()
+    End Sub
+
+    Private Sub cmbLocation_GotFocus(sender As Object, e As EventArgs) Handles cmbLocation.GotFocus
+        LoadLocation()
     End Sub
 End Class

@@ -45,14 +45,15 @@ Partial Class FrmStockTakingEntry
         Me.dtCountedDate = New System.Windows.Forms.DateTimePicker()
         Me.chkApprove = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtTotalAmount = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtTotalAmount = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
+        Me.SupplierPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -216,7 +217,7 @@ Partial Class FrmStockTakingEntry
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.Unit})
+        Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.Unit, Me.SupplierPrice})
         Me.dtableStockTaking.Location = New System.Drawing.Point(349, 28)
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
@@ -302,6 +303,25 @@ Partial Class FrmStockTakingEntry
         Me.Label5.TabIndex = 126
         Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
+        'txtTotalAmount
+        '
+        Me.txtTotalAmount.Enabled = False
+        Me.txtTotalAmount.Location = New System.Drawing.Point(512, 75)
+        Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtTotalAmount.Name = "txtTotalAmount"
+        Me.txtTotalAmount.Size = New System.Drawing.Size(278, 26)
+        Me.txtTotalAmount.TabIndex = 921
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(385, 78)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(97, 18)
+        Me.Label4.TabIndex = 920
+        Me.Label4.Text = "TotalAmount:"
+        '
         'Seq
         '
         Me.Seq.HeaderText = "Seq"
@@ -339,24 +359,11 @@ Partial Class FrmStockTakingEntry
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
         '
-        'txtTotalAmount
+        'SupplierPrice
         '
-        Me.txtTotalAmount.Enabled = False
-        Me.txtTotalAmount.Location = New System.Drawing.Point(512, 75)
-        Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(4)
-        Me.txtTotalAmount.Name = "txtTotalAmount"
-        Me.txtTotalAmount.Size = New System.Drawing.Size(278, 26)
-        Me.txtTotalAmount.TabIndex = 921
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(385, 78)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(97, 18)
-        Me.Label4.TabIndex = 920
-        Me.Label4.Text = "TotalAmount:"
+        Me.SupplierPrice.HeaderText = "SupplierPrice"
+        Me.SupplierPrice.Name = "SupplierPrice"
+        Me.SupplierPrice.ReadOnly = True
         '
         'FrmStockTakingEntry
         '
@@ -412,12 +419,13 @@ Partial Class FrmStockTakingEntry
     Friend WithEvents chkApprove As CheckBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents txtTotalAmount As TextBox
+    Friend WithEvents Label4 As Label
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents PO As DataGridViewTextBoxColumn
     Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents txtTotalAmount As TextBox
-    Friend WithEvents Label4 As Label
+    Friend WithEvents SupplierPrice As DataGridViewTextBoxColumn
 End Class

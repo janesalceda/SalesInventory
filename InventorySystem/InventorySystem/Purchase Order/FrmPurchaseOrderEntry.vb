@@ -13,7 +13,7 @@ Public Class FrmPurchaseOrderEntry
                (select dbo.getUnit(pod.QtyUnit)) AS 'Cli',
 				pod.EquivalentQty,
                 (select dbo.getUnit(pod.EquivalentQtyUnit)) 'Sup',
-				pod.UnitPrice,EtdDate,
+				pod.SupplierUnitPrice,EtdDate,
                 EtaDate,FtryDate,Canceled,ReceivedAllInvoices,
                 CASE WHEN poh.DeletedDate IS NULL THEN 0 ELSE 1 END POCancelled,
                 pod.PoDetailSeq,
@@ -23,7 +23,7 @@ Public Class FrmPurchaseOrderEntry
 				dbo.InvoiceDetails
 				WHERE                   
 				(PoNo = Pod.PoNo) 
-				AND (PoDetailSeq = pod.PoDetailSeq)) AS InvoiceQty
+				AND (PoDetailSeq = pod.PoDetailSeq)) AS InvoiceQty,pod.ClientUnitPrice
                 FROM POHeaders poh 
                 INNER	JOIN PoDetails pod 
                 ON poh.PONo=pod.PoNo
@@ -62,7 +62,7 @@ Public Class FrmPurchaseOrderEntry
                     row.Rows(i).Item(18),
                     row.Rows(i).Item(19),
                     row.Rows(i).Item("Canceled"),
-                    row.Rows(i).Item("ReceivedAllInvoices"), "No", row.Rows(i).Item("InvoiceQty"))
+                    row.Rows(i).Item("ReceivedAllInvoices"), "No", row.Rows(i).Item("InvoiceQty"), row.Rows(i).Item("ClientUnitPrice"))
             Next
             chkcancelPO.Checked = row.Rows(0).Item(22)
         Catch ex As Exception
@@ -125,12 +125,11 @@ Public Class FrmPurchaseOrderEntry
     Private Sub AddPurchaseOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         txtStaffName.Text = moduleName
-        LoadPayment()
-        LoadDelivery()
-        LoadDeliveryPlaces()
+        'LoadPayment()
+        'LoadDelivery()
+        'LoadDeliveryPlaces()
         If String.IsNullOrEmpty(txtPONo.Text) Then
             HeaderClear()
-            dtablePoDetails.ColumnCount = 15
         Else
             chkCancel.Enabled = True
             chkReceived.Enabled = True
@@ -190,24 +189,26 @@ Public Class FrmPurchaseOrderEntry
                         SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
                         SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
                         SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
-                        SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                        SQL.AddParams("@supunitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                        SQL.AddParams("@cliunitprice", dtablePoDetails.Rows(i).Cells(16).Value.ToString())
                         SQL.AddParams("@updatedby", moduleId)
 
                         SQL.ExecQuery("UPDATE dbo.PoDetails
-                    SET ItemId = @itemid,
-	                    EtdDate = @etddate,
-	                    EtaDate = @etadate,
-	                    FtryDate = @ftrydate,
-	                    ReceivedAllInvoices = @receivedallinvoices,
-	                    Canceled = @canceled,
-	                    Qty = @qty,
-	                    QtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
-	                    EquivalentQty = @equivalentqty,
-	                    EquivalentQtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
-	                    UnitPrice = @unitprice,
-	                    UpdatedDate = getdate(),
-	                    UpdatedBy = @updatedby
-                    WHERE PoNo=@pono and PoDetailSeq = @podetailseq")
+                            SET ItemId = @itemid,
+	                            EtdDate = @etddate,
+	                            EtaDate = @etadate,
+	                            FtryDate = @ftrydate,
+	                            ReceivedAllInvoices = @receivedallinvoices,
+	                            Canceled = @canceled,
+	                            Qty = @qty,
+	                            QtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
+	                            EquivalentQty = @equivalentqty,
+	                            EquivalentQtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
+	                            SupplierUnitPrice = @supunitprice,
+	                            ClientUnitPrice = @cliunitprice,
+	                            UpdatedDate = getdate(),
+	                            UpdatedBy = @updatedby
+                            WHERE PoNo=@pono and PoDetailSeq = @podetailseq")
                         If SQL.HasException Then
                             MsgBox("Error in Editing!", MsgBoxStyle.Critical, "Error")
                             Exit Sub
@@ -224,7 +225,8 @@ Public Class FrmPurchaseOrderEntry
                         SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
                         SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
                         SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
-                        SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                        SQL.AddParams("@cliunitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                        SQL.AddParams("@supunitprice", dtablePoDetails.Rows(i).Cells(16).Value.ToString())
                         SQL.AddParams("@updatedby", moduleId)
                         SQL.ExecQuery("
                     INSERT INTO dbo.PoDetails
@@ -241,7 +243,8 @@ Public Class FrmPurchaseOrderEntry
 	                    QtyUnit,
 	                    EquivalentQty,
 	                    EquivalentQtyUnit,
-	                    UnitPrice,
+	                    SupplierUnitPrice,
+	                    ClientUnitPrice,
 	                    UpdatedBy
 	                    )
                     VALUES 
@@ -258,14 +261,11 @@ Public Class FrmPurchaseOrderEntry
 	                    (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
 	                    @equivalentqty,
 	                    (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
-	                    @unitprice,
+	                    @supunitprice,
+                        @cliunitprice,
 	                    @updatedby
 	                    )")
-                        If SQL.HasException Then
-                            'SQL.AddParams("@pono", txtPONo.Text)
-                            'SQL.ExecQuery("delete from POHeaders where PONo=@pono;delete from PoDetails where PONo=@pono;")
-                            Exit Sub
-                        End If
+                        If SQL.HasException Then Exit Sub
                     End If
                 Next
             Else
@@ -316,7 +316,8 @@ Public Class FrmPurchaseOrderEntry
                     SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
                     SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
                     SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
-                    SQL.AddParams("@unitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                    SQL.AddParams("@cliunitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                    SQL.AddParams("@supunitprice", dtablePoDetails.Rows(i).Cells(16).Value.ToString())
                     SQL.AddParams("@updatedby", moduleId)
                     SQL.ExecQuery("
                     INSERT INTO dbo.PoDetails
@@ -333,7 +334,8 @@ Public Class FrmPurchaseOrderEntry
 	                    QtyUnit,
 	                    EquivalentQty,
 	                    EquivalentQtyUnit,
-	                    UnitPrice,
+	                    SupplierUnitPrice,
+	                    ClientUnitPrice,
 	                    UpdatedBy
 	                    )
                     VALUES 
@@ -350,12 +352,12 @@ Public Class FrmPurchaseOrderEntry
 	                    (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
 	                    @equivalentqty,
 	                    (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
-	                    @unitprice,
+	                    @supunitprice,
+	                    @cliunitprice,
 	                    @updatedby
 	                    )")
                     If SQL.HasException Then
-                        'SQL.AddParams("@pono", txtPONo.Text)
-                        'SQL.ExecQuery("delete from POHeaders where PONo=@pono;delete from PoDetails where PONo=@pono;")
+                        SQL.ExecQuery("delete from PoDetails where PONo=(select max(pono) from poheaders);delete from POHeaders where PONo=(select max(pono) from poheaders);")
                         Exit Sub
                     End If
                 Next
@@ -395,7 +397,7 @@ Public Class FrmPurchaseOrderEntry
             dtablePoDetails.Rows.Add(dtablePoDetails.Rows.Count + 1, txtItemCode.Text, txtItemName.Text,
                                      txtCliQty.Text, txtCliUnit.Text, txtSupQty.Text, txtSupUnit.Text, txtUnit.Text,
                                      txtTotalPrice.Text, dtETD.Value, dtETA.Value, DTFtry.Value, chkCancel.Checked,
-                                     chkReceived.Checked, "", "")
+                                     chkReceived.Checked, "", "", getClientPrice(txtItemCode.Text, dtIssued.Value))
             PurchDetailsClear()
         Else
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + (Val(txtTotalPrice.Text) - dtablePoDetails.SelectedRows(0).Cells(8).Value), "0.00")
@@ -412,6 +414,7 @@ Public Class FrmPurchaseOrderEntry
             dtablePoDetails.SelectedRows(0).Cells(11).Value = DTFtry.Value
             dtablePoDetails.SelectedRows(0).Cells(12).Value = chkCancel.Checked
             dtablePoDetails.SelectedRows(0).Cells(13).Value = chkReceived.Checked
+            dtablePoDetails.SelectedRows(0).Cells(16).Value = getClientPrice(txtItemCode.Text, dtIssued.Value)
             btnAddItem.Text = "INSERT ITEM"
             PurchDetailsClear()
         End If
@@ -463,7 +466,7 @@ Public Class FrmPurchaseOrderEntry
     End Sub
     Private Sub dtablePoDetails_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellClick
         Try
-            If String.IsNullOrWhiteSpace(dtablePoDetails.SelectedRows(0).Cells(15).Value.ToString()) Then
+            If String.IsNullOrWhiteSpace(dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()) Then
                 txtItemCode.Text = dtablePoDetails.SelectedRows(0).Cells(1).Value.ToString()
                 txtItemName.Text = dtablePoDetails.SelectedRows(0).Cells(2).Value.ToString()
                 txtCliQty.Text = dtablePoDetails.SelectedRows(0).Cells(3).Value.ToString()
@@ -601,5 +604,31 @@ Public Class FrmPurchaseOrderEntry
         If MsgBox("Are you sure you want to delete this record?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = vbYes Then
             dtablePoDetails.Rows.RemoveAt(dtablePoDetails.SelectedRows(0).Index)
         End If
+    End Sub
+
+    Private Sub dtIssued_ValueChanged(sender As Object, e As EventArgs) Handles dtIssued.ValueChanged
+        'If dtablePoDetails.Rows.Count > 0 Then
+        '    msgboxDisplay("Cannot modify IssuedDate there is already a POdetails", 3)
+        '    e.h
+        'End If
+    End Sub
+
+    Private Sub dtIssued_KeyUp(sender As Object, e As KeyEventArgs) Handles dtIssued.KeyUp
+        If dtablePoDetails.Rows.Count > 0 Then
+            msgboxDisplay("Cannot modify IssuedDate there is already a POdetails", 3)
+            e.Handled = False
+        End If
+    End Sub
+
+    Private Sub cmbTDelivery_GotFocus(sender As Object, e As EventArgs) Handles cmbTDelivery.GotFocus
+        LoadDelivery()
+    End Sub
+
+    Private Sub cmbDeliveryPlace_GotFocus(sender As Object, e As EventArgs) Handles cmbDeliveryPlace.GotFocus
+        LoadDeliveryPlaces()
+    End Sub
+
+    Private Sub cmbTPayment_GotFocus(sender As Object, e As EventArgs) Handles cmbTPayment.GotFocus
+        LoadPayment()
     End Sub
 End Class

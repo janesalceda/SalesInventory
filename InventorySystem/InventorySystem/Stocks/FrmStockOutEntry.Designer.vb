@@ -30,12 +30,6 @@ Partial Class FrmStockOutEntry
         Me.txtSTRemarks = New System.Windows.Forms.TextBox()
         Me.txtQty = New System.Windows.Forms.TextBox()
         Me.dtableStockout = New System.Windows.Forms.DataGridView()
-        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtRemarks = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -54,6 +48,13 @@ Partial Class FrmStockOutEntry
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtTotalAmount = New System.Windows.Forms.TextBox()
+        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SupplierItemPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -136,55 +137,13 @@ Partial Class FrmStockOutEntry
         Me.dtableStockout.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockout.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableStockout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.Unit})
+        Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.Unit, Me.SupplierItemPrice})
         Me.dtableStockout.Location = New System.Drawing.Point(349, 30)
         Me.dtableStockout.Name = "dtableStockout"
         Me.dtableStockout.ReadOnly = True
         Me.dtableStockout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dtableStockout.Size = New System.Drawing.Size(544, 294)
         Me.dtableStockout.TabIndex = 69
-        '
-        'Seq
-        '
-        Me.Seq.HeaderText = "Seq"
-        Me.Seq.Name = "Seq"
-        Me.Seq.ReadOnly = True
-        Me.Seq.Width = 60
-        '
-        'ItemId
-        '
-        Me.ItemId.HeaderText = "Item"
-        Me.ItemId.Name = "ItemId"
-        Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 60
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "Description"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 111
-        '
-        'PO
-        '
-        Me.PO.HeaderText = "Qty"
-        Me.PO.Name = "PO"
-        Me.PO.ReadOnly = True
-        Me.PO.Width = 54
-        '
-        'UnitPrice
-        '
-        Me.UnitPrice.HeaderText = "UnitPrice"
-        Me.UnitPrice.Name = "UnitPrice"
-        Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 95
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Remarks"
-        Me.Unit.Name = "Unit"
-        Me.Unit.ReadOnly = True
-        Me.Unit.Width = 94
         '
         'txtRemarks
         '
@@ -373,6 +332,55 @@ Partial Class FrmStockOutEntry
         Me.txtTotalAmount.Size = New System.Drawing.Size(180, 26)
         Me.txtTotalAmount.TabIndex = 127
         '
+        'Seq
+        '
+        Me.Seq.HeaderText = "Seq"
+        Me.Seq.Name = "Seq"
+        Me.Seq.ReadOnly = True
+        Me.Seq.Width = 62
+        '
+        'ItemId
+        '
+        Me.ItemId.HeaderText = "Item"
+        Me.ItemId.Name = "ItemId"
+        Me.ItemId.ReadOnly = True
+        Me.ItemId.Width = 62
+        '
+        'ItemName
+        '
+        Me.ItemName.HeaderText = "Description"
+        Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 113
+        '
+        'PO
+        '
+        Me.PO.HeaderText = "Qty"
+        Me.PO.Name = "PO"
+        Me.PO.ReadOnly = True
+        Me.PO.Width = 56
+        '
+        'UnitPrice
+        '
+        Me.UnitPrice.HeaderText = "UnitPrice"
+        Me.UnitPrice.Name = "UnitPrice"
+        Me.UnitPrice.ReadOnly = True
+        Me.UnitPrice.Width = 97
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Remarks"
+        Me.Unit.Name = "Unit"
+        Me.Unit.ReadOnly = True
+        Me.Unit.Width = 96
+        '
+        'SupplierItemPrice
+        '
+        Me.SupplierItemPrice.HeaderText = "SupplierItemPrice"
+        Me.SupplierItemPrice.Name = "SupplierItemPrice"
+        Me.SupplierItemPrice.ReadOnly = True
+        Me.SupplierItemPrice.Width = 157
+        '
         'FrmStockOutEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -438,4 +446,5 @@ Partial Class FrmStockOutEntry
     Friend WithEvents PO As DataGridViewTextBoxColumn
     Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
+    Friend WithEvents SupplierItemPrice As DataGridViewTextBoxColumn
 End Class

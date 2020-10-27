@@ -33,6 +33,14 @@
             order by AppliedDate desc")
         Return SQL.DBDT.Rows(0).Item("Unitprice")
     End Function
+    Public Function getSupplierPrice(itemid As String, Applieddate As Date) As Decimal
+        SQL.AddParams("@itemid", itemid)
+        SQL.AddParams("@AppliedDate", Applieddate)
+        SQL.ExecQuery("SELECT TOP 1 Unitprice from SupplierItemPrices 
+            where itemid=@itemid AND convert(VARCHAR(10),AppliedDate,111)<=@AppliedDate
+            order by AppliedDate desc")
+        Return SQL.DBDT.Rows(0).Item("Unitprice")
+    End Function
     Public Function GetSupplierName(SupplierId As String) As ArrayList
         Dim Globalrow As ArrayList = New ArrayList
         SQL.AddParams("@supplierid", SupplierId)

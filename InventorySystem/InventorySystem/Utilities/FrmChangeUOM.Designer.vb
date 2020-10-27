@@ -241,7 +241,7 @@ Partial Class FrmChangeUOM
         Me.cmbNewSupQtyUnit.Enabled = False
         Me.cmbNewSupQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.cmbNewSupQtyUnit.FormattingEnabled = True
-        Me.cmbNewSupQtyUnit.Location = New System.Drawing.Point(352, 25)
+        Me.cmbNewSupQtyUnit.Location = New System.Drawing.Point(352, 21)
         Me.cmbNewSupQtyUnit.Name = "cmbNewSupQtyUnit"
         Me.cmbNewSupQtyUnit.Size = New System.Drawing.Size(86, 29)
         Me.cmbNewSupQtyUnit.TabIndex = 61

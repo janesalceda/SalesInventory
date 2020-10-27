@@ -66,21 +66,21 @@ Partial Class FrmItemSearch
         Me.ItemId.HeaderText = "Item Id"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 70
+        Me.ItemId.Width = 72
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Item Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 131
+        Me.ItemName.Width = 133
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 133
+        Me.RegisteredDate.Width = 135
         '
         'Disused
         '
@@ -89,14 +89,14 @@ Partial Class FrmItemSearch
         Me.Disused.ReadOnly = True
         Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 89
+        Me.Disused.Width = 91
         '
         'DeletedDate
         '
         Me.DeletedDate.HeaderText = "DeletedDate"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 120
+        Me.DeletedDate.Width = 122
         '
         'txtItemID
         '

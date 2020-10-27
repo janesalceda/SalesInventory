@@ -41,7 +41,7 @@
         SQL.AddParams("@stid", txtStockOutID.Text)
         SQL.ExecQuery("SELECT st.StockOutCode,StockOutDate,st.Remarks,
             CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',st.UpdatedDate,
-            sd.ItemID,Description,sd.Qty,sd.Remarks, st.ApprovedBy,IssuedByStaff,st.TotalAmount,sd.Unitprice
+            sd.ItemID,Description,sd.Qty,sd.Remarks, st.ApprovedBy,IssuedByStaff,st.TotalAmount,sd.ClientUnitprice,sd.SupplierUnitprice
             from StockOutHeaders st INNER JOIN StockOutDetails sd ON
             st.StockOutCode=sd.StockOutCode INNER JOIN Employees e ON e.EmpId=st.EncodedStaff 
             INNER JOIN Items i ON i.ItemId=sd.ItemID	 
@@ -58,7 +58,7 @@
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
             dtableStockout.Rows.Add(SQL.DBDT.Rows(i).Item(4).ToString, SQL.DBDT.Rows(i).Item(5).ToString,
                                  SQL.DBDT.Rows(i).Item(6).ToString, SQL.DBDT.Rows(i).Item(7).ToString,
-                                 SQL.DBDT.Rows(i).Item(12).ToString, SQL.DBDT.Rows(i).Item(8).ToString)
+                                 SQL.DBDT.Rows(i).Item(12).ToString, SQL.DBDT.Rows(i).Item(8).ToString, SQL.DBDT.Rows(i).Item(13).ToString)
         Next
     End Sub
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
@@ -77,6 +77,7 @@
             row.Add(txtQty.Text)
             row.Add(cliprice)
             row.Add(txtSTRemarks.Text)
+            row.Add(getSupplierPrice(txtItemCode.Text, dtSOutDate.Value))
             dtableStockout.Rows.Add(row.ToArray())
             StockOutdetailsClear()
         Else
@@ -87,6 +88,7 @@
                 dtableStockout.SelectedRows(0).Cells(2).Value = txtItemName.Text
                 dtableStockout.SelectedRows(0).Cells(3).Value = txtQty.Text
                 dtableStockout.SelectedRows(0).Cells(5).Value = txtRemarks.Text
+                dtableStockout.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value)
                 btnAddItem.Text = "INSERT"
                 confirm = False
             End If
@@ -166,12 +168,13 @@
                     SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value.ToString())
                     SQL.AddParams("@itemid", dtableStockout.Rows(i).Cells(1).Value.ToString())
                     SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value.ToString())
-                    SQL.AddParams("@Unitprice", dtableStockout.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@SupplierUnitprice", dtableStockout.Rows(i).Cells(6).Value.ToString())
+                    SQL.AddParams("@ClientUnitprice", dtableStockout.Rows(i).Cells(4).Value.ToString())
                     SQL.AddParams("@remarks", dtableStockout.Rows(i).Cells(5).Value.ToString())
                     SQL.AddParams("@updatedby", moduleId)
                     SQL.ExecQuery("INSERT INTO dbo.StockOutDetails
-	            (StockOutCode,ItemSeq,ItemID,Qty,Unitprice,Remarks,UpdatedBy)
-            VALUES((SELECT max(StockOutCode) from StockOutHeaders),@itemseq,@itemid,@qty,@Unitprice,@remarks,@updatedby)")
+	            (StockOutCode,ItemSeq,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
+            VALUES((SELECT max(StockOutCode) from StockOutHeaders),@itemseq,@itemid,@qty,@ClientUnitprice,@SupplierUnitprice,@remarks,@updatedby)")
                     If SQL.HasException Then
                         SQL.AddParams("@stockoutcode", txtStockOutID.Text)
                         SQL.ExecQuery("delete from StockOutDetails where StockOutCode=(SELECT max(STID) from StockTakingHeaders);delete from StockOutHeaders where StockOutCode=(SELECT max(STID) from StockTakingHeaders);")

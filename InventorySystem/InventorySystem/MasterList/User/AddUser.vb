@@ -67,4 +67,7 @@
     Private Sub AddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadUserLevel()
     End Sub
+    Private Sub cmbUserLevel_GotFocus(sender As Object, e As EventArgs) Handles cmbUserLevel.GotFocus
+        LoadUserLevel()
+    End Sub
 End Class

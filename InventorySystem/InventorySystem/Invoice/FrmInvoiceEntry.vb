@@ -1,6 +1,7 @@
 ﻿Public Class FrmInvoiceEntry
     Public InvoiceSeq As Integer = 0
     Private DTCount1 As Integer = 0
+    Private ClientPrice As Decimal = 0.00
     Public Sub getInvoiceNo()
         'SQL.ExecQuery("SELECT ih.InvoiceNo,ih.SupplierID,CurrencyUnit,ActualETDDate,InvoiceDate,ih.TotalAmount,
         '        ih.CreatedDate,ReceivedDate,ih.Remarks,e.EmployeeName,ih.UpdatedDate,id.InvoiceDetailSeq,
@@ -58,8 +59,8 @@
                 (select dbo.getunit(pod.QtyUnit))'Cli',
                 id.EquivalentQty,
                 (select dbo.getunit(pod.EquivalentQtyUnit))'Sup',
-                id.UnitPrice,(id.UnitPrice*id.EquivalentQty)'TotalPrice',
-                id.DeliveryCompletedDate,id.Remarks
+                id.SupplierUnitPrice,(id.SupplierUnitPrice*id.EquivalentQty)'TotalPrice',
+                id.DeliveryCompletedDate,id.Remarks,id.ClientUnitPrice
                 FROM InvoiceDetails id
                 INNER JOIN Items i ON id.ItemId	=i.ItemId	
                 INNER JOIN POHeaders poh ON poh.PONo=id.PoNo
@@ -84,7 +85,7 @@
             0,
             0,
             row.Rows(i).Item(11).ToString,
-            row.Rows(i).Item(12).ToString, "NO")
+            row.Rows(i).Item(12).ToString, "NO", row.Rows(i).Item(13).ToString)
         Next
 
         SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
@@ -247,7 +248,8 @@
                     SQL.AddParams("@DeliveryCompletedDate", Convert.ToDateTime(dtableInvoice.Rows(i).Cells(13).Value.ToString()))
                     SQL.AddParams("@Qty", dtableInvoice.Rows(i).Cells(5).Value.ToString)
                     SQL.AddParams("@EquivalentQty", dtableInvoice.Rows(i).Cells(7).Value.ToString)
-                    SQL.AddParams("@UnitPrice", dtableInvoice.Rows(i).Cells(9).Value.ToString)
+                    SQL.AddParams("@SupplierUnitPrice", dtableInvoice.Rows(i).Cells(9).Value.ToString)
+                    SQL.AddParams("@ClientUnitPrice", dtableInvoice.Rows(i).Cells(15).Value.ToString)
                     SQL.AddParams("@UpdatedBy", moduleId)
                     SQL.ExecQuery("INSERT INTO InvoiceDetails
                 (InvoiceNo,
@@ -260,7 +262,8 @@
                 DeliveryCompletedDate,
                 Qty,
                 EquivalentQty,
-                UnitPrice,
+                SupplierUnitPrice,
+                ClientUnitPrice,
                 UpdatedBy)
             VALUES(@InvoiceNo,
                 @SupplierId,
@@ -272,7 +275,8 @@
                 @DeliveryCompletedDate,
                 @Qty,
                 @EquivalentQty,
-                @UnitPrice,
+                @SupplierUnitPrice,
+                @ClientUnitPrice,
                 @UpdatedBy)")
                     If SQL.HasException Then
                         SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
@@ -335,7 +339,8 @@
                     SQL.AddParams("@DeliveryCompletedDate", Convert.ToDateTime(dtableInvoice.Rows(i).Cells(13).Value.ToString()))
                     SQL.AddParams("@Qty", dtableInvoice.Rows(i).Cells(5).Value.ToString)
                     SQL.AddParams("@EquivalentQty", dtableInvoice.Rows(i).Cells(7).Value.ToString)
-                    SQL.AddParams("@UnitPrice", dtableInvoice.Rows(i).Cells(9).Value.ToString)
+                    SQL.AddParams("@SupplierUnitPrice", dtableInvoice.Rows(i).Cells(9).Value.ToString)
+                    SQL.AddParams("@ClientUnitPrice", dtableInvoice.Rows(i).Cells(15).Value.ToString)
                     SQL.AddParams("@UpdatedBy", moduleId)
                     SQL.AddParams("@deleteddate", chkcancelPO.Checked)
                     If Not String.IsNullOrWhiteSpace(dtableInvoice.Rows(i).Cells(15).Value.ToString) Then
@@ -349,7 +354,8 @@
 	                DeliveryCompletedDate = @deliverycompleteddate,
 	                Qty = @qty,
 	                EquivalentQty = @equivalentqty,
-	                UnitPrice = @unitprice,
+	                SupplierUnitPrice = @SupplierUnitPrice,
+	                ClientUnitPrice = @ClientUnitPrice,
 	                DeletedDate =(select case when @deleteddate=1 then getdate() else NULL end),
 	                UpdatedDate = getdate(),
 	                UpdatedBy = @updatedby
@@ -370,7 +376,8 @@
                         DeliveryCompletedDate,
                         Qty,
                         EquivalentQty,
-                        UnitPrice,
+                        SupplierUnitPrice,
+                        ClientUnitPrice,
                         UpdatedBy)
                     VALUES(@InvoiceNo,
                         @SupplierId,
@@ -382,7 +389,8 @@
                         @DeliveryCompletedDate,
                         @Qty,
                         @EquivalentQty,
-                        @UnitPrice,
+                        @SupplierUnitPrice,
+                        @ClientUnitPrice,
                         @UpdatedBy)")
                         If SQL.HasException Then
                             SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
@@ -446,15 +454,18 @@
     Private Sub txtPoSeq_TextChanged(sender As Object, e As EventArgs) Handles txtPoSeq.TextChanged
         SQL.AddParams("@PoNo", txtPo.Text)
         SQL.AddParams("@PoDetailSeq", txtPoSeq.Text)
-        SQL.ExecQuery("SELECT DISTINCT Qty,
-                ( SELECT  q.QtyUnit FROM PoDetails p, QtyUnits q WHERE q.QtyUnitId=p.QtyUnit and p.PoNo=@PoNo AND p.PoDetailSeq=@PoDetailSeq) 'Client',
-                EquivalentQty,( SELECT  q.QtyUnit FROM PoDetails p, QtyUnits q WHERE q.QtyUnitId=p.EquivalentQtyUnit and p.PoNo=@PoNo AND p.PoDetailSeq=@PoDetailSeq) 'Supplier',
-                UnitPrice FROM PoDetails p ,QtyUnits q WHERE p.PoNo=@PoNo AND p.PoDetailSeq=@PoDetailSeq")
+        SQL.ExecQuery("SELECT Qty,
+                ( select dbo.getUnit(p.QtyUnit)) 'Client',
+                EquivalentQty,
+                (select dbo.getUnit(p.EquivalentQtyUnit)) 'Supplier',
+                SupplierUnitPrice,ClientUnitPrice FROM PoDetails p 
+                WHERE p.PoNo=@PoNo AND p.PoDetailSeq=@PoDetailSeq")
         If SQL.HasException Then Exit Sub
         If SQL.RecordCount = 0 Then Exit Sub
         txtCliUnit.Text = SQL.DBDT.Rows(0).Item(1)
         txtSupUnit.Text = SQL.DBDT.Rows(0).Item(3)
         txtUnit.Text = SQL.DBDT.Rows(0).Item(4)
+        ClientPrice = SQL.DBDT.Rows(0).Item(5)
         txtTotalPrice.Text = Val(txtUnit.Text) * Val(txtSupQty.Text)
     End Sub
 
@@ -479,7 +490,7 @@
             txtUnit.Text,
             txtTotalPrice.Text,
             chkOk.Checked,
-            chkReceived.Checked, dtDate.Value, txtInvoiceRemarks.Text)
+            chkReceived.Checked, dtDate.Value, txtInvoiceRemarks.Text, ClientPrice)
             InvoicesClear()
 
         Else
@@ -498,6 +509,7 @@
                 dtableInvoice.SelectedRows(0).Cells(12).Value = chkReceived.Checked
             If dtDate.Checked = True Then dtableInvoice.SelectedRows(0).Cells(13).Value = dtDate.Value
             dtableInvoice.SelectedRows(0).Cells(14).Value = txtInvoiceRemarks.Text
+            dtableInvoice.SelectedRows(0).Cells(15).Value = ClientPrice
             InvoicesClear()
         End If
     End Sub
@@ -517,6 +529,7 @@
         chkOk.Checked = False
         chkReceived.Checked = False
         dtDate.Checked = False
+        ClientPrice = 0.00
         btnAddItem.Text = "INSERT INVOICE"
     End Sub
 
@@ -728,6 +741,10 @@
     Private Sub txtCliQty_TextChanged(sender As Object, e As EventArgs) Handles txtCliQty.TextChanged
         txtSupQty.Text = Val(txtCliQty.Text) * coefficient
         txtTotalPrice.Text = Format(Val(txtSupQty.Text) * Val(txtUnit.Text), "0.00")
+    End Sub
+
+    Private Sub txtPo_TextChanged(sender As Object, e As EventArgs) Handles txtPo.TextChanged
+
     End Sub
 
 

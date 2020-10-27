@@ -69,9 +69,6 @@
         End If
     End Sub
     Private Sub AddSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadCurrency()
-        LoadPayment()
-        LoadDelivery()
         If btnSave.Text = "UPDATE" Then
             LoadData()
             ViewSupplier()
@@ -128,5 +125,15 @@
             chkImport.Checked = SQL.DBDT.Rows(0).Item(11)
             txtEmailAd.Text = SQL.DBDT.Rows(0).Item(12)
         End If
+    End Sub
+    Private Sub cmbCurrency_GotFocus(sender As Object, e As EventArgs) Handles cmbCurrency.GotFocus
+        LoadCurrency()
+    End Sub
+
+    Private Sub cmbTOP_GotFocus(sender As Object, e As EventArgs) Handles cmbTOP.GotFocus
+        LoadPayment()
+    End Sub
+    Private Sub cmbTOD_GotFocus(sender As Object, e As EventArgs) Handles cmbTOD.GotFocus
+        LoadDelivery()
     End Sub
 End Class

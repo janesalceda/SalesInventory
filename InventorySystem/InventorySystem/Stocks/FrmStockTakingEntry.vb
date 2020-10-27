@@ -98,6 +98,7 @@
             row.Add(txtQty.Text)
             row.Add(cliprice)
             row.Add(txtSTRemarks.Text)
+            row.Add(getSupplierPrice(txtItemCode.Text, dtCountedDate.Value))
             dtableStockTaking.Rows.Add(row.ToArray())
             StockTakingdetailsClear()
         Else
@@ -108,6 +109,7 @@
                 dtableStockTaking.SelectedRows(0).Cells(2).Value = txtItemName.Text
                 dtableStockTaking.SelectedRows(0).Cells(3).Value = txtQty.Text
                 dtableStockTaking.SelectedRows(0).Cells(5).Value = txtRemarks.Text
+                dtableStockTaking.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtCountedDate.Value)
                 btnAddItem.Text = "INSERT"
                 confirm = False
             End If
@@ -164,15 +166,17 @@
                     SQL.AddParams("@stid", txtStockTakingID.Text)
                     SQL.AddParams("@itemid", dtableStockTaking.Rows(i).Cells(1).Value.ToString())
                     SQL.AddParams("@qty", dtableStockTaking.Rows(i).Cells(3).Value.ToString())
-                    SQL.AddParams("@Unitprice", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@ClientUnitprice", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@SupplierUnitprice", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
                     SQL.AddParams("@remarks", dtableStockTaking.Rows(i).Cells(5).Value.ToString())
                     SQL.AddParams("@updatedby", moduleId)
                     SQL.ExecQuery("INSERT INTO dbo.StockTakingDetails
-	                (STID,ItemID,Qty,Unitprice,Remarks,UpdatedBy)
+	                (STID,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
                 VALUES((select max(stid) from StockTakingHeaders),
                     @itemid,
                     @qty,
-                    @Unitprice,
+                    @ClientUnitprice,
+                    @SupplierUnitprice,
                     @remarks,
                     @updatedby)")
                     If SQL.HasException Then

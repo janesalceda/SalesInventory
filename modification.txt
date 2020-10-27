@@ -1,0 +1,15 @@
+
+Transaction Date
+TransID
+IN QTY 
+OUT QTY
+AC QTY 
+BALANCE QTY
+
+Supplier Cost
+
+Client Cost
+Remarks
+
+sampleINV
+GETSTOCKBALANCE

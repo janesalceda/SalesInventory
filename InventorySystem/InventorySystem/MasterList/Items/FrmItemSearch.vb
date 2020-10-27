@@ -21,7 +21,7 @@
 
     Private Sub FormItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
-        LoadCategories()
+        ' LoadCategories()
     End Sub
     Private Sub dtItems_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellDoubleClick
         With FrmItemEntry
@@ -81,5 +81,8 @@
         txtDes.Clear()
         txtItemID.Clear()
         dtItems.Rows.Clear()
+    End Sub
+    Private Sub cmbCategory_GotFocus(sender As Object, e As EventArgs) Handles cmbCategory.GotFocus
+        LoadCategories()
     End Sub
 End Class

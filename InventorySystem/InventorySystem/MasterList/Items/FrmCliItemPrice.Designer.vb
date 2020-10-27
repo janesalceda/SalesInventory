@@ -85,6 +85,7 @@ Partial Class FrmCliItemPrice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(460, 132)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label1)

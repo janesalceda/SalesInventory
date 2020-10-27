@@ -209,6 +209,12 @@
     <Compile Include="FrmConfigurationSettings.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FrmConfirmation.Designer.vb">
+      <DependentUpon>FrmConfirmation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmConfirmation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ImportItems.Designer.vb">
       <DependentUpon>ImportItems.vb</DependentUpon>
     </Compile>
@@ -566,6 +572,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfigurationSettings.resx">
       <DependentUpon>FrmConfigurationSettings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmConfirmation.resx">
+      <DependentUpon>FrmConfirmation.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportItems.resx">
       <DependentUpon>ImportItems.vb</DependentUpon>

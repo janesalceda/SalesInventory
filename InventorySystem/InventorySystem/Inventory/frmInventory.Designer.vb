@@ -25,13 +25,6 @@ Partial Class frmInventory
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.txtitem = New System.Windows.Forms.TextBox()
         Me.dgvData = New System.Windows.Forms.DataGridView()
-        Me.TransactionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TRANSID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.INQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OUTQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ACQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BALANCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.dtTo = New System.Windows.Forms.DateTimePicker()
@@ -39,6 +32,14 @@ Partial Class frmInventory
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnClear = New System.Windows.Forms.Button()
+        Me.TransactionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TRANSID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OUTQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ACQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BALANCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.COST = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -70,12 +71,85 @@ Partial Class frmInventory
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE, Me.Remarks})
+        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE, Me.COST, Me.Remarks})
         Me.dgvData.Location = New System.Drawing.Point(14, 117)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(745, 430)
+        Me.dgvData.Size = New System.Drawing.Size(843, 430)
         Me.dgvData.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(22, 40)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(49, 18)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Items:"
+        '
+        'dtFrom
+        '
+        Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtFrom.Location = New System.Drawing.Point(60, 58)
+        Me.dtFrom.Name = "dtFrom"
+        Me.dtFrom.Size = New System.Drawing.Size(125, 26)
+        Me.dtFrom.TabIndex = 5
+        Me.dtFrom.Value = New Date(2020, 10, 26, 7, 15, 32, 0)
+        '
+        'dtTo
+        '
+        Me.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtTo.Location = New System.Drawing.Point(216, 58)
+        Me.dtTo.Name = "dtTo"
+        Me.dtTo.Size = New System.Drawing.Size(124, 26)
+        Me.dtTo.TabIndex = 6
+        Me.dtTo.Value = New Date(2020, 10, 27, 0, 0, 0, 0)
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(191, 61)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(19, 23)
+        Me.Label2.TabIndex = 7
+        Me.Label2.Text = "~"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(8, 62)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(46, 18)
+        Me.Label3.TabIndex = 8
+        Me.Label3.Text = "Date:"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
+        Me.GroupBox1.Controls.Add(Me.Label3)
+        Me.GroupBox1.Controls.Add(Me.txtitem)
+        Me.GroupBox1.Controls.Add(Me.btnSearch)
+        Me.GroupBox1.Controls.Add(Me.Label2)
+        Me.GroupBox1.Controls.Add(Me.dtTo)
+        Me.GroupBox1.Controls.Add(Me.dtFrom)
+        Me.GroupBox1.Location = New System.Drawing.Point(14, 11)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(844, 100)
+        Me.GroupBox1.TabIndex = 9
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Item Details"
+        '
+        'btnClear
+        '
+        Me.btnClear.Location = New System.Drawing.Point(346, 58)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(132, 30)
+        Me.btnClear.TabIndex = 9
+        Me.btnClear.Text = "CLEAR"
+        Me.btnClear.UseVisualStyleBackColor = True
         '
         'TransactionDate
         '
@@ -113,84 +187,17 @@ Partial Class frmInventory
         Me.BALANCE.Name = "BALANCE"
         Me.BALANCE.ReadOnly = True
         '
+        'COST
+        '
+        Me.COST.HeaderText = "COST"
+        Me.COST.Name = "COST"
+        Me.COST.ReadOnly = True
+        '
         'Remarks
         '
         Me.Remarks.HeaderText = "Remarks"
         Me.Remarks.Name = "Remarks"
         Me.Remarks.ReadOnly = True
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(22, 40)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 18)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Items:"
-        '
-        'dtFrom
-        '
-        Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtFrom.Location = New System.Drawing.Point(60, 58)
-        Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(125, 26)
-        Me.dtFrom.TabIndex = 5
-        Me.dtFrom.Value = New Date(2020, 10, 26, 7, 15, 32, 0)
-        '
-        'dtTo
-        '
-        Me.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtTo.Location = New System.Drawing.Point(216, 58)
-        Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(124, 26)
-        Me.dtTo.TabIndex = 6
-        Me.dtTo.Value = New Date(2020, 10, 26, 0, 0, 0, 0)
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(191, 61)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(19, 23)
-        Me.Label2.TabIndex = 7
-        Me.Label2.Text = "~"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 62)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 18)
-        Me.Label3.TabIndex = 8
-        Me.Label3.Text = "Date:"
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox1.Controls.Add(Me.btnClear)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.txtitem)
-        Me.GroupBox1.Controls.Add(Me.btnSearch)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.dtTo)
-        Me.GroupBox1.Controls.Add(Me.dtFrom)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 11)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(751, 100)
-        Me.GroupBox1.TabIndex = 9
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Item Details"
-        '
-        'btnClear
-        '
-        Me.btnClear.Location = New System.Drawing.Point(346, 58)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(132, 30)
-        Me.btnClear.TabIndex = 9
-        Me.btnClear.Text = "CLEAR"
-        Me.btnClear.UseVisualStyleBackColor = True
         '
         'frmInventory
         '
@@ -198,7 +205,7 @@ Partial Class frmInventory
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(772, 558)
+        Me.ClientSize = New System.Drawing.Size(865, 558)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dgvData)
         Me.Controls.Add(Me.GroupBox1)
@@ -230,5 +237,6 @@ Partial Class frmInventory
     Friend WithEvents OUTQTY As DataGridViewTextBoxColumn
     Friend WithEvents ACQTY As DataGridViewTextBoxColumn
     Friend WithEvents BALANCE As DataGridViewTextBoxColumn
+    Friend WithEvents COST As DataGridViewTextBoxColumn
     Friend WithEvents Remarks As DataGridViewTextBoxColumn
 End Class

@@ -37,11 +37,6 @@ Partial Class FrmStockTakingEntry
         Me.txtSTRemarks = New System.Windows.Forms.TextBox()
         Me.txtQty = New System.Windows.Forms.TextBox()
         Me.dtableStockTaking = New System.Windows.Forms.DataGridView()
-        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtItemName = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -50,6 +45,14 @@ Partial Class FrmStockTakingEntry
         Me.dtCountedDate = New System.Windows.Forms.DateTimePicker()
         Me.chkApprove = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.txtTotalAmount = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -138,9 +141,9 @@ Partial Class FrmStockTakingEntry
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.txtItemCode)
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 93)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 112)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(899, 305)
+        Me.GroupBox1.Size = New System.Drawing.Size(899, 316)
         Me.GroupBox1.TabIndex = 105
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stock Taking Details"
@@ -149,7 +152,7 @@ Partial Class FrmStockTakingEntry
         '
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(104, 266)
+        Me.Button1.Location = New System.Drawing.Point(100, 246)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(116, 30)
         Me.Button1.TabIndex = 74
@@ -171,7 +174,7 @@ Partial Class FrmStockTakingEntry
         '
         Me.btnAddItem.BackColor = System.Drawing.Color.White
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItem.Location = New System.Drawing.Point(224, 266)
+        Me.btnAddItem.Location = New System.Drawing.Point(220, 246)
         Me.btnAddItem.Name = "btnAddItem"
         Me.btnAddItem.Size = New System.Drawing.Size(116, 30)
         Me.btnAddItem.TabIndex = 6
@@ -213,44 +216,13 @@ Partial Class FrmStockTakingEntry
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
+        Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.Unit})
         Me.dtableStockTaking.Location = New System.Drawing.Point(349, 28)
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
         Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableStockTaking.Size = New System.Drawing.Size(544, 273)
+        Me.dtableStockTaking.Size = New System.Drawing.Size(544, 284)
         Me.dtableStockTaking.TabIndex = 69
-        '
-        'Seq
-        '
-        Me.Seq.HeaderText = "Seq"
-        Me.Seq.Name = "Seq"
-        Me.Seq.ReadOnly = True
-        Me.Seq.Width = 40
-        '
-        'ItemId
-        '
-        Me.ItemId.HeaderText = "Item"
-        Me.ItemId.Name = "ItemId"
-        Me.ItemId.ReadOnly = True
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "Description"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        '
-        'PO
-        '
-        Me.PO.HeaderText = "Qty"
-        Me.PO.Name = "PO"
-        Me.PO.ReadOnly = True
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Remarks"
-        Me.Unit.Name = "Unit"
-        Me.Unit.ReadOnly = True
         '
         'txtItemName
         '
@@ -291,7 +263,7 @@ Partial Class FrmStockTakingEntry
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(783, 404)
+        Me.btnSave.Location = New System.Drawing.Point(783, 434)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(116, 30)
         Me.btnSave.TabIndex = 7
@@ -323,18 +295,76 @@ Partial Class FrmStockTakingEntry
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(0, 417)
+        Me.Label5.Location = New System.Drawing.Point(0, 447)
         Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(217, 19)
         Me.Label5.TabIndex = 126
         Me.Label5.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
+        'Seq
+        '
+        Me.Seq.HeaderText = "Seq"
+        Me.Seq.Name = "Seq"
+        Me.Seq.ReadOnly = True
+        Me.Seq.Width = 40
+        '
+        'ItemId
+        '
+        Me.ItemId.HeaderText = "Item"
+        Me.ItemId.Name = "ItemId"
+        Me.ItemId.ReadOnly = True
+        '
+        'ItemName
+        '
+        Me.ItemName.HeaderText = "Description"
+        Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
+        '
+        'PO
+        '
+        Me.PO.HeaderText = "Qty"
+        Me.PO.Name = "PO"
+        Me.PO.ReadOnly = True
+        '
+        'UnitPrice
+        '
+        Me.UnitPrice.HeaderText = "UnitPrice"
+        Me.UnitPrice.Name = "UnitPrice"
+        Me.UnitPrice.ReadOnly = True
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Remarks"
+        Me.Unit.Name = "Unit"
+        Me.Unit.ReadOnly = True
+        '
+        'txtTotalAmount
+        '
+        Me.txtTotalAmount.Enabled = False
+        Me.txtTotalAmount.Location = New System.Drawing.Point(512, 75)
+        Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtTotalAmount.Name = "txtTotalAmount"
+        Me.txtTotalAmount.Size = New System.Drawing.Size(278, 26)
+        Me.txtTotalAmount.TabIndex = 921
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(385, 78)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(97, 18)
+        Me.Label4.TabIndex = 920
+        Me.Label4.Text = "TotalAmount:"
+        '
         'FrmStockTakingEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(907, 438)
+        Me.ClientSize = New System.Drawing.Size(907, 468)
+        Me.Controls.Add(Me.txtTotalAmount)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.chkApprove)
         Me.Controls.Add(Me.dtCountedDate)
@@ -379,12 +409,15 @@ Partial Class FrmStockTakingEntry
     Friend WithEvents txtItemCode As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents dtCountedDate As DateTimePicker
+    Friend WithEvents chkApprove As CheckBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Button1 As Button
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents PO As DataGridViewTextBoxColumn
+    Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents chkApprove As CheckBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents txtTotalAmount As TextBox
+    Friend WithEvents Label4 As Label
 End Class

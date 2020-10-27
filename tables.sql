@@ -9,6 +9,21 @@ CREATE TABLE dbo.Categories
 	)
 GO
 
+CREATE TABLE dbo.ClientItemPrices
+	(
+	ItemPriceId INT IDENTITY NOT NULL,
+	ItemId VARCHAR(20) NOT NULL,
+	AppliedDate DATETIME NOT NULL,
+	UnitPrice DECIMAL(18,8) NOT NULL,
+	LeadTime NUMERIC(3,0) NULL,
+	CreatedDate DATETIME DEFAULT (getdate()) NULL,
+	DeletedDate DATETIME NULL,
+	UpdatedDate DATETIME DEFAULT (getdate()) NULL,
+	UpdatedBy INT NULL,
+	CONSTRAINT PK__ClientIt__7E70A26223F3538A PRIMARY KEY (ItemPriceId)
+	)
+GO
+
 CREATE TABLE dbo.CompanyInfo
 	(
 	CompanyName VARCHAR(50) NOT NULL,
@@ -245,6 +260,7 @@ CREATE TABLE dbo.StockOutDetails
 	ItemSeq NUMERIC(3,0) NOT NULL,
 	ItemID VARCHAR(20) NOT NULL,
 	Qty DECIMAL(18,8) NULL,
+	UnitPrice DECIMAL(19,4) NULL,
 	Remarks VARCHAR(200) NULL,
 	CreatedDate DATETIME DEFAULT (getdate()) NULL,
 	DeletedDate DATETIME NULL,
@@ -258,6 +274,7 @@ CREATE TABLE dbo.StockOutHeaders
 	(
 	StockOutCode VARCHAR(20) NOT NULL,
 	StockOutDate DATETIME NULL,
+	TotalAmount NUMERIC(19,4) NULL,
 	EncodedStaff INT NULL,
 	IssuedByStaff VARCHAR(100) NULL,
 	ApprovedBy INT NULL,
@@ -275,6 +292,7 @@ CREATE TABLE dbo.StockTakingDetails
 	STID VARCHAR(20) NOT NULL,
 	ItemID VARCHAR(20) NOT NULL,
 	Qty DECIMAL(18,8) NULL,
+	UnitPrice DECIMAL(19,4) NULL,
 	Remarks VARCHAR(200) NULL,
 	CreatedDate DATETIME DEFAULT (getdate()) NULL,
 	DeletedDate DATETIME NULL,
@@ -288,6 +306,7 @@ CREATE TABLE dbo.StockTakingHeaders
 	(
 	STID VARCHAR(20) NOT NULL,
 	CountedDate DATETIME NOT NULL,
+	TotalAmount NUMERIC(10,2) NULL,
 	EncodedStaff INT NOT NULL,
 	Remarks VARCHAR(200) NULL,
 	ApprovedBy INT NULL,
@@ -389,6 +408,19 @@ CREATE TABLE dbo.Users
 	UpdatedDate DATETIME DEFAULT (getdate()) NULL,
 	UpdatedBy INT NULL,
 	CONSTRAINT PK__Users__536C85E55CA1C101 PRIMARY KEY (Username)
+	)
+GO
+
+CREATE TABLE dbo.UtilitiesLogs
+	(
+	UtilityLogID INT IDENTITY NOT NULL,
+	UtilityCategory NVARCHAR(1000) NOT NULL,
+	Remarks NVARCHAR(1000) NULL,
+	CreatedDate DATETIME DEFAULT (getdate()) NOT NULL,
+	DeletedDate DATETIME NULL,
+	UpdatedDate DATETIME DEFAULT (getdate()) NOT NULL,
+	UpdatedBy INT NOT NULL,
+	CONSTRAINT PK__Utilitie__ECBD44BC29AC2CE0 PRIMARY KEY (UtilityLogID)
 	)
 GO
 

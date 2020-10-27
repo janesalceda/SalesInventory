@@ -24,17 +24,18 @@ Partial Class FrmStockOutEntry
     Private Sub InitializeComponent()
         Me.dtSOutDate = New System.Windows.Forms.DateTimePicker()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnItems = New System.Windows.Forms.Button()
         Me.btnAddItem = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.txtSTRemarks = New System.Windows.Forms.TextBox()
         Me.txtQty = New System.Windows.Forms.TextBox()
         Me.dtableStockout = New System.Windows.Forms.DataGridView()
+        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtRemarks = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -61,7 +62,6 @@ Partial Class FrmStockOutEntry
         '
         Me.dtSOutDate.Checked = False
         Me.dtSOutDate.Enabled = False
-        Me.dtSOutDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtSOutDate.Location = New System.Drawing.Point(133, 49)
         Me.dtSOutDate.Name = "dtSOutDate"
         Me.dtSOutDate.Size = New System.Drawing.Size(150, 26)
@@ -78,41 +78,6 @@ Partial Class FrmStockOutEntry
         Me.btnSave.TabIndex = 8
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = True
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Remarks"
-        Me.Unit.Name = "Unit"
-        Me.Unit.ReadOnly = True
-        Me.Unit.Width = 96
-        '
-        'PO
-        '
-        Me.PO.HeaderText = "Qty"
-        Me.PO.Name = "PO"
-        Me.PO.ReadOnly = True
-        Me.PO.Width = 56
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "Description"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 113
-        '
-        'ItemId
-        '
-        Me.ItemId.HeaderText = "Item"
-        Me.ItemId.Name = "ItemId"
-        Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 62
-        '
-        'Seq
-        '
-        Me.Seq.HeaderText = "Seq"
-        Me.Seq.Name = "Seq"
-        Me.Seq.ReadOnly = True
-        Me.Seq.Width = 62
         '
         'btnItems
         '
@@ -171,7 +136,7 @@ Partial Class FrmStockOutEntry
         Me.dtableStockout.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockout.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableStockout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
+        Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.Unit})
         Me.dtableStockout.Location = New System.Drawing.Point(349, 30)
         Me.dtableStockout.Name = "dtableStockout"
         Me.dtableStockout.ReadOnly = True
@@ -179,10 +144,52 @@ Partial Class FrmStockOutEntry
         Me.dtableStockout.Size = New System.Drawing.Size(544, 294)
         Me.dtableStockout.TabIndex = 69
         '
+        'Seq
+        '
+        Me.Seq.HeaderText = "Seq"
+        Me.Seq.Name = "Seq"
+        Me.Seq.ReadOnly = True
+        Me.Seq.Width = 60
+        '
+        'ItemId
+        '
+        Me.ItemId.HeaderText = "Item"
+        Me.ItemId.Name = "ItemId"
+        Me.ItemId.ReadOnly = True
+        Me.ItemId.Width = 60
+        '
+        'ItemName
+        '
+        Me.ItemName.HeaderText = "Description"
+        Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 111
+        '
+        'PO
+        '
+        Me.PO.HeaderText = "Qty"
+        Me.PO.Name = "PO"
+        Me.PO.ReadOnly = True
+        Me.PO.Width = 54
+        '
+        'UnitPrice
+        '
+        Me.UnitPrice.HeaderText = "UnitPrice"
+        Me.UnitPrice.Name = "UnitPrice"
+        Me.UnitPrice.ReadOnly = True
+        Me.UnitPrice.Width = 95
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Remarks"
+        Me.Unit.Name = "Unit"
+        Me.Unit.ReadOnly = True
+        Me.Unit.Width = 94
+        '
         'txtRemarks
         '
         Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtRemarks.Location = New System.Drawing.Point(715, 12)
+        Me.txtRemarks.Location = New System.Drawing.Point(720, 12)
         Me.txtRemarks.Margin = New System.Windows.Forms.Padding(4)
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
@@ -360,7 +367,7 @@ Partial Class FrmStockOutEntry
         'txtTotalAmount
         '
         Me.txtTotalAmount.Enabled = False
-        Me.txtTotalAmount.Location = New System.Drawing.Point(715, 69)
+        Me.txtTotalAmount.Location = New System.Drawing.Point(720, 69)
         Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(4)
         Me.txtTotalAmount.Name = "txtTotalAmount"
         Me.txtTotalAmount.Size = New System.Drawing.Size(180, 26)
@@ -401,11 +408,6 @@ Partial Class FrmStockOutEntry
 
     Friend WithEvents dtSOutDate As DateTimePicker
     Friend WithEvents btnSave As Button
-    Friend WithEvents Unit As DataGridViewTextBoxColumn
-    Friend WithEvents PO As DataGridViewTextBoxColumn
-    Friend WithEvents ItemName As DataGridViewTextBoxColumn
-    Friend WithEvents ItemId As DataGridViewTextBoxColumn
-    Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents btnItems As Button
     Friend WithEvents btnAddItem As Button
     Friend WithEvents Label12 As Label
@@ -430,4 +432,10 @@ Partial Class FrmStockOutEntry
     Friend WithEvents Button1 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents txtTotalAmount As TextBox
+    Friend WithEvents Seq As DataGridViewTextBoxColumn
+    Friend WithEvents ItemId As DataGridViewTextBoxColumn
+    Friend WithEvents ItemName As DataGridViewTextBoxColumn
+    Friend WithEvents PO As DataGridViewTextBoxColumn
+    Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents Unit As DataGridViewTextBoxColumn
 End Class

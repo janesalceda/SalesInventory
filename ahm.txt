@@ -1,0 +1,2 @@
+Confirmation sa items registration 
+confirmation editing of stocktaking and stockout

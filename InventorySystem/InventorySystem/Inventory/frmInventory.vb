@@ -12,6 +12,8 @@
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         'LoadGrid()
+        dtFrom.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        dtTo.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
     End Sub
     Private Sub FindItem()
         SQL.AddParams("@user", "%" & txtitem.Text & "%")
@@ -29,11 +31,13 @@
             Dim row As New DataTable
             Dim lastbalance As Decimal
             Dim currentbalance As Decimal
+            Dim lastcost As Decimal
+            Dim currentcost As Decimal
             Dim strTransactionDate As Date
             SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
             SQL.AddParams("@to", dtTo.Value.ToString("yyyy/MM/dd"))
             SQL.AddParams("@itemid", txtitem.Text)
-            SQL.ExecQuery("SELECT * FROM SAMPLEINV WHERE 
+            SQL.ExecQuery("SELECT * FROM CostInv WHERE 
             convert(VARCHAR(10),TransactedDate,111) >= @from
             AND convert(VARCHAR(10),TransactedDate,111) <=@to
             AND ItemID=@itemid
@@ -56,6 +60,17 @@
             End If
             currentbalance = lastbalance
 
+            SQL.AddParams("@from", DateAdd("D", -1, dtFrom.Value.ToString("yyyy/MM/dd")))
+            SQL.AddParams("@itemid", txtitem.Text)
+            SQL.ExecQuery("SELECT Cost FROM GetcostBalance(@from) WHERE ItemID=@itemid")
+            If SQL.HasException Then Exit Sub
+            If SQL.DBDT.Rows.Count = 0 Then
+                lastcost = 0
+            Else
+                lastcost = SQL.DBDT.Rows(0).Item(0)
+            End If
+            currentcost = lastcost
+
             With row
                 For i As Integer = 0 To row.Rows.Count - 1
                     SQL.params.Clear()
@@ -75,9 +90,18 @@
                                 Else
                                     currentbalance = SQL.DBDT.Rows(0).Item(0) + .Rows(i).Item(3)
                                 End If
+                                SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToString("yyyy/MM/dd"))
+                                SQL.AddParams("@itemid", txtitem.Text)
+                                SQL.ExecQuery("SELECT top 1 Cost FROM GetCostBalance(@from) WHERE ItemID=@itemid")
+                                If SQL.DBDT.Rows.Count = 0 Then
+                                    currentcost = 0 + .Rows(i).Item(6)
+                                Else
+                                    currentcost = SQL.DBDT.Rows(0).Item(0) + .Rows(i).Item(6)
+                                End If
                             Else
                                 'add the qty row to the currentbalance
                                 currentbalance += .Rows(i).Item(3)
+                                currentcost += .Rows(i).Item(6)
                             End If
                             dgvData.Rows(i).Cells(2).Value = .Rows(i).Item(3)
                         'Out items based on stock out
@@ -91,12 +115,20 @@
                                 If SQL.DBDT.Rows.Count = 0 Then
                                     currentbalance = 0 - .Rows(i).Item(3)
                                 Else
-
                                     currentbalance = SQL.DBDT.Rows(0).Item(0) - .Rows(i).Item(3)
+                                End If
+                                SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToShortDateString)
+                                SQL.AddParams("@itemid", txtitem.Text)
+                                SQL.ExecQuery("SELECT top 1 Cost FROM GetCostBalance(@from) WHERE ItemID=@itemid")
+                                If SQL.DBDT.Rows.Count = 0 Then
+                                    currentcost = 0 - .Rows(i).Item(6)
+                                Else
+                                    currentcost = SQL.DBDT.Rows(0).Item(0) - .Rows(i).Item(6)
                                 End If
                             Else
                                 'minus the qty row to the currentbalance
                                 currentbalance -= .Rows(i).Item(3)
+                                currentcost -= .Rows(i).Item(6)
                             End If
                             dgvData.Rows(i).Cells(3).Value = .Rows(i).Item(3)
                         'AC of items in Stock Taking
@@ -118,6 +150,21 @@
                                 Dim totalout As Integer = SQL.DBDT.Rows(0).Item(0)
 
                                 currentbalance = .Rows(i).Item(3) - (totalout + totalin)
+
+                                'FOR COST
+                                SQL.AddParams("@transdate", .Rows(i).Item(0))
+                                SQL.AddParams("@item", txtitem.Text)
+                                'Get the current balance based on row and (- the total sum of in and out based on row
+                                'transaction date)
+                                SQL.ExecQuery("EXECUTE dbo.TotalCostOut @TransactionDate = @transdate, @ItemId =@item ")
+                                totalin = SQL.DBDT.Rows(0).Item(0)
+                                If SQL.HasException Then Exit Sub
+                                SQL.AddParams("@transdate", .Rows(i).Item(0))
+                                SQL.AddParams("@item", txtitem.Text)
+                                SQL.ExecQuery("EXECUTE dbo.TotalCostIn @TransactionDate = @transdate, @ItemId =@item ")
+                                totalout = SQL.DBDT.Rows(0).Item(0)
+
+                                currentcost = .Rows(i).Item(6) - (totalout + totalin)
                             End If
                             dgvData.Rows(i).Cells(4).Value = .Rows(i).Item(3)
                     End Select
@@ -128,6 +175,7 @@
                     dgvData.Rows(i).Cells(0).Value = .Rows(i).Item(0)
                     dgvData.Rows(i).Cells(1).Value = .Rows(i).Item(1)
                     dgvData.Rows(i).Cells(5).Value = currentbalance
+                    dgvData.Rows(i).Cells(6).Value = currentcost
                 Next
             End With
         Catch ex As Exception

@@ -1,5 +1,7 @@
 ﻿Public Class FrmStockTakingEntry
     Private DTCount As Integer
+    Public cliprice As Decimal
+    Public confirm As Boolean = False
     Private Sub getSTID()
         SQL.AddParams("@stid", txtStockTakingID.Text)
         SQL.ExecQuery("SELECT st.STID,CountedDate,st.Remarks,
@@ -77,6 +79,7 @@
             Exit Sub
         End If
         txtItemName.Text = row.Item(0)
+        cliprice = getClientPrice(txtItemCode.Text, dtCountedDate.Value)
     End Sub
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
@@ -84,15 +87,31 @@
             String.IsNullOrEmpty(txtQty.Text) Then
             MsgBox("Please complete all * important details!", MsgBoxStyle.Exclamation, "Warning")
         End If
-        Dim row As ArrayList = New ArrayList
-        DTCount += 1
-        row.Add(DTCount)
-        row.Add(txtItemCode.Text)
-        row.Add(txtItemName.Text)
-        row.Add(txtQty.Text)
-        row.Add(txtSTRemarks.Text)
-        dtableStockTaking.Rows.Add(row.ToArray())
-        StockTakingdetailsClear()
+        If btnAddItem.Text = "INSERT" Then
+            Dim row As ArrayList = New ArrayList
+
+            DTCount += 1
+            txtTotalAmount.Text = Val(txtTotalAmount.Text) + (Val(txtQty.Text) * cliprice)
+            row.Add(DTCount)
+            row.Add(txtItemCode.Text)
+            row.Add(txtItemName.Text)
+            row.Add(txtQty.Text)
+            row.Add(cliprice)
+            row.Add(txtSTRemarks.Text)
+            dtableStockTaking.Rows.Add(row.ToArray())
+            StockTakingdetailsClear()
+        Else
+            FrmConfirmation.ShowDialog()
+            If confirm = True Then
+                txtTotalAmount.Text = Val(txtTotalAmount.Text) + ((Val(txtQty.Text) - dtableStockTaking.SelectedRows(0).Cells(3).Value) * cliprice)
+                dtableStockTaking.SelectedRows(0).Cells(1).Value = txtItemCode.Text
+                dtableStockTaking.SelectedRows(0).Cells(2).Value = txtItemName.Text
+                dtableStockTaking.SelectedRows(0).Cells(3).Value = txtQty.Text
+                dtableStockTaking.SelectedRows(0).Cells(5).Value = txtRemarks.Text
+                btnAddItem.Text = "INSERT"
+                confirm = False
+            End If
+        End If
     End Sub
     Private Sub StockTakingdetailsClear()
         txtItemCode.Clear()
@@ -126,15 +145,16 @@
             Else
                 SQL.AddParams("@counteddate", dtCountedDate.Value)
                 SQL.AddParams("@encodedstaff", moduleId)
+                SQL.AddParams("@totalamount", txtTotalAmount.Text)
                 SQL.AddParams("@remarks", txtRemarks.Text)
                 SQL.ExecQuery("INSERT INTO dbo.StockTakingHeaders
-	            (STID,CountedDate,EncodedStaff,Remarks,ApprovedBy,UpdatedBy)
+	            (STID,CountedDate,EncodedStaff,TotalAmount,Remarks,ApprovedBy,UpdatedBy)
             VALUES((SELECT CASE WHEN max(STID) IS NULL 
                     THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
                     CASE WHEN Cast(right(max(STID),len(max(STID))-12) AS INT) +1<10
                     THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
                     ELSE 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
-                    END END AS 'pomax' from StockTakingHeaders),@counteddate,@encodedstaff,@remarks,NULL,@encodedstaff)")
+                    END END AS 'pomax' from StockTakingHeaders),@counteddate,@encodedstaff,@totalamount,@remarks,NULL,@encodedstaff)")
                 If SQL.HasException Then
                     MsgBox("Error in saving", MsgBoxStyle.Critical, "Error")
                     Exit Sub
@@ -144,13 +164,15 @@
                     SQL.AddParams("@stid", txtStockTakingID.Text)
                     SQL.AddParams("@itemid", dtableStockTaking.Rows(i).Cells(1).Value.ToString())
                     SQL.AddParams("@qty", dtableStockTaking.Rows(i).Cells(3).Value.ToString())
-                    SQL.AddParams("@remarks", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@Unitprice", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
+                    SQL.AddParams("@remarks", dtableStockTaking.Rows(i).Cells(5).Value.ToString())
                     SQL.AddParams("@updatedby", moduleId)
                     SQL.ExecQuery("INSERT INTO dbo.StockTakingDetails
-	                (STID,ItemID,Qty,Remarks,UpdatedBy)
+	                (STID,ItemID,Qty,Unitprice,Remarks,UpdatedBy)
                 VALUES((select max(stid) from StockTakingHeaders),
                     @itemid,
                     @qty,
+                    @Unitprice,
                     @remarks,
                     @updatedby)")
                     If SQL.HasException Then

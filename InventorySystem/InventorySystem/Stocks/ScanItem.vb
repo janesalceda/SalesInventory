@@ -23,9 +23,11 @@
                 txtItemID.Clear()
                 Exit Sub
             End If
+
             FrmScanItems.ItemCode = txtItemID.Text
             txtItemID.Clear()
             FrmScanItems.Show()
         End If
     End Sub
+
 End Class

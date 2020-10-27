@@ -19,13 +19,22 @@
         row.Add(ItemCode)
         row.Add(itemname)
         row.Add(txtQty.Text)
-        row.Add(txtremarks.Text)
         If formname = "StockOut" Then
+            FrmStockOutEntry.cliprice = getClientPrice(ItemCode, FrmStockOutEntry.dtSOutDate.Value)
+            row.Add(FrmStockOutEntry.cliprice)
+            row.Add(txtremarks.Text)
             FrmStockOutEntry.dtableStockout.Rows.Add(row.ToArray())
-            FrmStockOutEntry.txtTotalAmount.Text = Val(FrmStockOutEntry.txtTotalAmount.Text) + Val(txtQty.Text) * FrmStockOutEntry.cliprice
+            FrmStockOutEntry.txtTotalAmount.Text += Val(txtQty.Text) * FrmStockOutEntry.cliprice
         ElseIf formname = "StockTaking" Then
+            FrmStockTakingEntry.cliprice = getClientPrice(ItemCode, FrmStockTakingEntry.dtCountedDate.Value)
+            row.Add(FrmStockTakingEntry.cliprice)
+            row.Add(txtremarks.Text)
             FrmStockTakingEntry.dtableStockTaking.Rows.Add(row.ToArray())
+            FrmStockTakingEntry.txtTotalAmount.Text += Val(txtQty.Text) * FrmStockTakingEntry.cliprice
         Else
+            'FrmRejectReturnEntry.cliprice = getClientPrice(ItemCode, FrmRejectReturnEntry.dtSOutDate.Value)
+            'row.Add(FrmStockOutEntry.cliprice)
+            row.Add(txtremarks.Text)
             FrmRejectReturnEntry.dtableStockTaking.Rows.Add(row.ToArray())
         End If
         Me.Close()

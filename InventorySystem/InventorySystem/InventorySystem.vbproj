@@ -90,6 +90,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files\Limilabs\Barcode\Redistributables\Barcode.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
     </Reference>
@@ -197,16 +200,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet5.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FrmCompanyInfo.Designer.vb">
+    <Compile Include="MasterList\FrmCompanyInfo.Designer.vb">
       <DependentUpon>FrmCompanyInfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmCompanyInfo.vb">
+    <Compile Include="MasterList\FrmCompanyInfo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmConfigurationSettings.Designer.vb">
+    <Compile Include="MasterList\FrmConfigurationSettings.Designer.vb">
       <DependentUpon>FrmConfigurationSettings.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmConfigurationSettings.vb">
+    <Compile Include="MasterList\FrmConfigurationSettings.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmConfirmation.Designer.vb">
@@ -567,10 +570,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FrmCompanyInfo.resx">
+    <EmbeddedResource Include="MasterList\FrmCompanyInfo.resx">
       <DependentUpon>FrmCompanyInfo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmConfigurationSettings.resx">
+    <EmbeddedResource Include="MasterList\FrmConfigurationSettings.resx">
       <DependentUpon>FrmConfigurationSettings.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConfirmation.resx">
@@ -850,7 +853,9 @@
     <None Include="Resources\Print.png" />
     <None Include="Resources\QRCode.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>

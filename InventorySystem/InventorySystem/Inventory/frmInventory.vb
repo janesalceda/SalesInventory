@@ -31,8 +31,10 @@
             Dim row As New DataTable
             Dim lastbalance As Decimal
             Dim currentbalance As Decimal
-            Dim lastcost As Decimal
-            Dim currentcost As Decimal
+            Dim lastclicost As Decimal
+            Dim currentclicost As Decimal
+            Dim lastsupcost As Decimal
+            Dim currentsupcost As Decimal
             Dim strTransactionDate As Date
             SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
             SQL.AddParams("@to", dtTo.Value.ToString("yyyy/MM/dd"))
@@ -62,14 +64,17 @@
 
             SQL.AddParams("@from", DateAdd("D", -1, dtFrom.Value.ToString("yyyy/MM/dd")))
             SQL.AddParams("@itemid", txtitem.Text)
-            SQL.ExecQuery("SELECT Cost FROM GetcostBalance(@from) WHERE ItemID=@itemid")
+            SQL.ExecQuery("SELECT ClientCost,SupplierCost FROM GetcostBalance(@from) WHERE ItemID=@itemid")
             If SQL.HasException Then Exit Sub
             If SQL.DBDT.Rows.Count = 0 Then
-                lastcost = 0
+                lastclicost = 0
+                lastsupcost = 0
             Else
-                lastcost = SQL.DBDT.Rows(0).Item(0)
+                lastclicost = SQL.DBDT.Rows(0).Item(0)
+                lastsupcost = SQL.DBDT.Rows(0).Item(1)
             End If
-            currentcost = lastcost
+            currentclicost = lastclicost
+            currentsupcost = lastsupcost
 
             With row
                 For i As Integer = 0 To row.Rows.Count - 1
@@ -92,16 +97,19 @@
                                 End If
                                 SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToString("yyyy/MM/dd"))
                                 SQL.AddParams("@itemid", txtitem.Text)
-                                SQL.ExecQuery("SELECT top 1 Cost FROM GetCostBalance(@from) WHERE ItemID=@itemid")
+                                SQL.ExecQuery("SELECT top 1 ClientCost,SupplierCost FROM GetCostBalance(@from) WHERE ItemID=@itemid")
                                 If SQL.DBDT.Rows.Count = 0 Then
-                                    currentcost = 0 + .Rows(i).Item(6)
+                                    currentclicost = 0 + .Rows(i).Item(6)
+                                    currentsupcost = 0 + .Rows(i).Item(7)
                                 Else
-                                    currentcost = SQL.DBDT.Rows(0).Item(0) + .Rows(i).Item(6)
+                                    currentclicost = SQL.DBDT.Rows(0).Item(0) + .Rows(i).Item(6)
+                                    currentsupcost = SQL.DBDT.Rows(0).Item(1) + .Rows(i).Item(7)
                                 End If
                             Else
                                 'add the qty row to the currentbalance
                                 currentbalance += .Rows(i).Item(3)
-                                currentcost += .Rows(i).Item(6)
+                                currentclicost += .Rows(i).Item(6)
+                                currentsupcost += .Rows(i).Item(7)
                             End If
                             dgvData.Rows(i).Cells(2).Value = .Rows(i).Item(3)
                         'Out items based on stock out
@@ -119,16 +127,19 @@
                                 End If
                                 SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToShortDateString)
                                 SQL.AddParams("@itemid", txtitem.Text)
-                                SQL.ExecQuery("SELECT top 1 Cost FROM GetCostBalance(@from) WHERE ItemID=@itemid")
+                                SQL.ExecQuery("SELECT top 1 ClientCost,SupplierCost FROM GetCostBalance(@from) WHERE ItemID=@itemid")
                                 If SQL.DBDT.Rows.Count = 0 Then
-                                    currentcost = 0 - .Rows(i).Item(6)
+                                    currentclicost = 0 - .Rows(i).Item(6)
+                                    currentsupcost = 0 - .Rows(i).Item(7)
                                 Else
-                                    currentcost = SQL.DBDT.Rows(0).Item(0) - .Rows(i).Item(6)
+                                    currentclicost = SQL.DBDT.Rows(0).Item(0) - .Rows(i).Item(6)
+                                    currentsupcost = SQL.DBDT.Rows(0).Item(1) - .Rows(i).Item(7)
                                 End If
                             Else
                                 'minus the qty row to the currentbalance
                                 currentbalance -= .Rows(i).Item(3)
-                                currentcost -= .Rows(i).Item(6)
+                                currentclicost -= .Rows(i).Item(6)
+                                currentsupcost -= .Rows(i).Item(7)
                             End If
                             dgvData.Rows(i).Cells(3).Value = .Rows(i).Item(3)
                         'AC of items in Stock Taking
@@ -157,14 +168,18 @@
                                 'Get the current balance based on row and (- the total sum of in and out based on row
                                 'transaction date)
                                 SQL.ExecQuery("EXECUTE dbo.TotalCostOut @TransactionDate = @transdate, @ItemId =@item ")
-                                totalin = SQL.DBDT.Rows(0).Item(0)
                                 If SQL.HasException Then Exit Sub
+                                totalin = SQL.DBDT.Rows(0).Item(0)
+                                Dim supin As Integer = SQL.DBDT.Rows(0).Item(1)
+
                                 SQL.AddParams("@transdate", .Rows(i).Item(0))
                                 SQL.AddParams("@item", txtitem.Text)
                                 SQL.ExecQuery("EXECUTE dbo.TotalCostIn @TransactionDate = @transdate, @ItemId =@item ")
                                 totalout = SQL.DBDT.Rows(0).Item(0)
+                                Dim supout As Integer = SQL.DBDT.Rows(0).Item(1)
 
-                                currentcost = .Rows(i).Item(6) - (totalout + totalin)
+                                currentclicost = .Rows(i).Item(6) - (totalout + totalin)
+                                currentsupcost = .Rows(i).Item(7) - (supout + supin)
                             End If
                             dgvData.Rows(i).Cells(4).Value = .Rows(i).Item(3)
                     End Select
@@ -175,7 +190,8 @@
                     dgvData.Rows(i).Cells(0).Value = .Rows(i).Item(0)
                     dgvData.Rows(i).Cells(1).Value = .Rows(i).Item(1)
                     dgvData.Rows(i).Cells(5).Value = currentbalance
-                    dgvData.Rows(i).Cells(6).Value = currentcost
+                    dgvData.Rows(i).Cells(6).Value = currentclicost
+                    dgvData.Rows(i).Cells(7).Value = currentsupcost
                 Next
             End With
         Catch ex As Exception

@@ -25,6 +25,11 @@ Partial Class SalesRecord
         Me.txtitem = New System.Windows.Forms.TextBox()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.dgvData = New System.Windows.Forms.DataGridView()
+        Me.TransactionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TRANSID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.INQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
@@ -34,11 +39,6 @@ Partial Class SalesRecord
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.btnClear = New System.Windows.Forms.Button()
-        Me.TransactionDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TRANSID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.INQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Status = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -47,17 +47,19 @@ Partial Class SalesRecord
         '
         Me.txtitem.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtitem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtitem.Location = New System.Drawing.Point(62, 25)
+        Me.txtitem.Location = New System.Drawing.Point(55, 22)
+        Me.txtitem.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtitem.MaxLength = 20
         Me.txtitem.Name = "txtitem"
-        Me.txtitem.Size = New System.Drawing.Size(218, 26)
+        Me.txtitem.Size = New System.Drawing.Size(170, 23)
         Me.txtitem.TabIndex = 0
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(480, 26)
+        Me.btnSearch.Location = New System.Drawing.Point(382, 23)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(132, 30)
+        Me.btnSearch.Size = New System.Drawing.Size(103, 27)
         Me.btnSearch.TabIndex = 3
         Me.btnSearch.Text = "VIEW"
         Me.btnSearch.UseVisualStyleBackColor = True
@@ -73,35 +75,74 @@ Partial Class SalesRecord
         Me.dgvData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.Status, Me.Remarks})
-        Me.dgvData.Location = New System.Drawing.Point(14, 120)
+        Me.dgvData.Location = New System.Drawing.Point(11, 107)
+        Me.dgvData.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(648, 410)
+        Me.dgvData.Size = New System.Drawing.Size(504, 364)
         Me.dgvData.TabIndex = 13
+        '
+        'TransactionDate
+        '
+        Me.TransactionDate.HeaderText = "Item Id"
+        Me.TransactionDate.Name = "TransactionDate"
+        Me.TransactionDate.ReadOnly = True
+        Me.TransactionDate.Width = 72
+        '
+        'TRANSID
+        '
+        Me.TRANSID.HeaderText = "Description"
+        Me.TRANSID.Name = "TRANSID"
+        Me.TRANSID.ReadOnly = True
+        Me.TRANSID.Width = 102
+        '
+        'INQTY
+        '
+        Me.INQTY.HeaderText = "QTY"
+        Me.INQTY.Name = "INQTY"
+        Me.INQTY.ReadOnly = True
+        Me.INQTY.Width = 60
+        '
+        'Status
+        '
+        Me.Status.HeaderText = "Cost"
+        Me.Status.Name = "Status"
+        Me.Status.ReadOnly = True
+        Me.Status.Width = 60
+        '
+        'Remarks
+        '
+        Me.Remarks.HeaderText = "Remarks"
+        Me.Remarks.Name = "Remarks"
+        Me.Remarks.ReadOnly = True
+        Me.Remarks.Width = 87
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(19, 34)
+        Me.Label1.Location = New System.Drawing.Point(15, 30)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(53, 18)
+        Me.Label1.Size = New System.Drawing.Size(49, 16)
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "ItemId:"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 62)
+        Me.Label3.Location = New System.Drawing.Point(6, 55)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 18)
+        Me.Label3.Size = New System.Drawing.Size(42, 16)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Date:"
         '
         'dtFrom
         '
-        Me.dtFrom.Location = New System.Drawing.Point(64, 56)
+        Me.dtFrom.Location = New System.Drawing.Point(57, 50)
+        Me.dtFrom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(188, 26)
+        Me.dtFrom.Size = New System.Drawing.Size(147, 23)
         Me.dtFrom.TabIndex = 1
         '
         'GroupBox1
@@ -117,9 +158,11 @@ Partial Class SalesRecord
         Me.GroupBox1.Controls.Add(Me.txtitem)
         Me.GroupBox1.Controls.Add(Me.btnSearch)
         Me.GroupBox1.Controls.Add(Me.dtFrom)
-        Me.GroupBox1.Location = New System.Drawing.Point(11, 5)
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 4)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(649, 109)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.GroupBox1.Size = New System.Drawing.Size(505, 97)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Details"
@@ -128,7 +171,8 @@ Partial Class SalesRecord
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(256, 58)
+        Me.Label4.Location = New System.Drawing.Point(206, 52)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(19, 23)
         Me.Label4.TabIndex = 17
@@ -136,17 +180,19 @@ Partial Class SalesRecord
         '
         'dtTo
         '
-        Me.dtTo.Location = New System.Drawing.Point(278, 56)
+        Me.dtTo.Location = New System.Drawing.Point(226, 50)
+        Me.dtTo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(188, 26)
+        Me.dtTo.Size = New System.Drawing.Size(147, 23)
         Me.dtTo.TabIndex = 16
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(286, 30)
+        Me.Label2.Location = New System.Drawing.Point(229, 27)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(41, 18)
+        Me.Label2.Size = New System.Drawing.Size(38, 16)
         Me.Label2.TabIndex = 15
         Me.Label2.Text = "Sort:"
         '
@@ -155,65 +201,32 @@ Partial Class SalesRecord
         Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Items.AddRange(New Object() {"Stock In", "Stock Out", "Stock Taking"})
-        Me.ComboBox1.Location = New System.Drawing.Point(342, 26)
+        Me.ComboBox1.Location = New System.Drawing.Point(273, 23)
+        Me.ComboBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(124, 26)
+        Me.ComboBox1.Size = New System.Drawing.Size(97, 24)
         Me.ComboBox1.TabIndex = 2
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(478, 58)
+        Me.btnClear.Location = New System.Drawing.Point(382, 52)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(132, 30)
+        Me.btnClear.Size = New System.Drawing.Size(103, 27)
         Me.btnClear.TabIndex = 4
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = True
         '
-        'TransactionDate
-        '
-        Me.TransactionDate.HeaderText = "Item Id"
-        Me.TransactionDate.Name = "TransactionDate"
-        Me.TransactionDate.ReadOnly = True
-        Me.TransactionDate.Width = 76
-        '
-        'TRANSID
-        '
-        Me.TRANSID.HeaderText = "Description"
-        Me.TRANSID.Name = "TRANSID"
-        Me.TRANSID.ReadOnly = True
-        Me.TRANSID.Width = 111
-        '
-        'INQTY
-        '
-        Me.INQTY.HeaderText = "QTY"
-        Me.INQTY.Name = "INQTY"
-        Me.INQTY.ReadOnly = True
-        Me.INQTY.Width = 61
-        '
-        'Status
-        '
-        Me.Status.HeaderText = "Cost"
-        Me.Status.Name = "Status"
-        Me.Status.ReadOnly = True
-        Me.Status.Width = 64
-        '
-        'Remarks
-        '
-        Me.Remarks.HeaderText = "Remarks"
-        Me.Remarks.Name = "Remarks"
-        Me.Remarks.ReadOnly = True
-        Me.Remarks.Width = 94
-        '
         'SalesRecord
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(670, 558)
+        Me.ClientSize = New System.Drawing.Size(521, 496)
         Me.Controls.Add(Me.dgvData)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "SalesRecord"
         Me.Text = "Sales Record"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()

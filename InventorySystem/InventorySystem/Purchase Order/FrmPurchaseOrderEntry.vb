@@ -550,8 +550,8 @@ Public Class FrmPurchaseOrderEntry
                 Dim dt As New DataTable
                 Dim ds As New DataSet1
                 SQL.AddParams("@PONo", txtPONo.Text)
-                SQL.ExecQuery("SELECT case when sp.SupplierItemId is null or sp.SupplierItemId='' then i.ItemId else  sp.SupplierItemId end as 'ItemId',i.Description,pod.UnitPrice,pod.Qty,(pod.EquivalentQty*pod.UnitPrice) AS 'Total',
-                    poh.PONo,convert(varchar(10),poh.IssuedDate,111) 'IssuedDate',pod.UnitPrice,poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,s.Remarks,
+                SQL.ExecQuery("SELECT case when sp.SupplierItemId is null or sp.SupplierItemId='' then i.ItemId else  sp.SupplierItemId end as 'ItemId',i.Description,pod.SupplierUnitPrice,pod.Qty,(pod.EquivalentQty*pod.SupplierUnitPrice) AS 'Total',
+                    poh.PONo,convert(varchar(10),poh.IssuedDate,111) 'IssuedDate',pod.SupplierUnitPrice,poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,s.Remarks,
                     dp.Description AS DeliveryPlaces,td.Description AS TermsOfDelivery,tp.Description AS TermsOfPayment	
                     ,CompanyName,StreetAdress,CityZip,a.Phone 'CompPhone',a.Fax'CompFax',website,CompanyLogo
                     ,e.EmployeeName 'Encoder'	FROM POHeaders poh 

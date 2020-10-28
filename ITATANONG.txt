@@ -1,0 +1,16 @@
+in cost, will i compute the purchase item that is only recieved or regardless if received or not
+
+in sales, will I only show the percentage or total amount of sales
+
+IN(SupplierCost) - Out(Client)
+
+https://indzara.com/2013/07/inventory-and-sales-manager-excel-template/
+
+
+fast moving
+
+top 1
+top 10 
+top 50
+top 100
+show all

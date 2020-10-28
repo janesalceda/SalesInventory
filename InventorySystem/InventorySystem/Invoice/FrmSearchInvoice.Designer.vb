@@ -62,12 +62,13 @@ Partial Class FrmSearchInvoice
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtPoDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtPoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
-        Me.dtPoDetails.Location = New System.Drawing.Point(14, 282)
+        Me.dtPoDetails.Location = New System.Drawing.Point(4, 251)
+        Me.dtPoDetails.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtPoDetails.Name = "dtPoDetails"
         Me.dtPoDetails.ReadOnly = True
         Me.dtPoDetails.RowHeadersVisible = False
         Me.dtPoDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtPoDetails.Size = New System.Drawing.Size(845, 330)
+        Me.dtPoDetails.Size = New System.Drawing.Size(664, 293)
         Me.dtPoDetails.TabIndex = 75
         '
         'Seq
@@ -106,9 +107,10 @@ Partial Class FrmSearchInvoice
         Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSearch.BackColor = System.Drawing.Color.White
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(616, 245)
+        Me.btnSearch.Location = New System.Drawing.Point(479, 218)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(116, 32)
+        Me.btnSearch.Size = New System.Drawing.Size(90, 28)
         Me.btnSearch.TabIndex = 74
         Me.btnSearch.Text = "SEARCH"
         Me.btnSearch.UseVisualStyleBackColor = False
@@ -118,9 +120,10 @@ Partial Class FrmSearchInvoice
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(739, 245)
+        Me.btnClear.Location = New System.Drawing.Point(575, 218)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(116, 32)
+        Me.btnClear.Size = New System.Drawing.Size(90, 28)
         Me.btnClear.TabIndex = 73
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -129,9 +132,10 @@ Partial Class FrmSearchInvoice
         '
         Me.btnitems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnitems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnitems.Location = New System.Drawing.Point(363, 25)
+        Me.btnitems.Location = New System.Drawing.Point(296, 22)
+        Me.btnitems.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnitems.Name = "btnitems"
-        Me.btnitems.Size = New System.Drawing.Size(36, 26)
+        Me.btnitems.Size = New System.Drawing.Size(28, 23)
         Me.btnitems.TabIndex = 51
         Me.btnitems.Text = "..."
         Me.btnitems.UseVisualStyleBackColor = False
@@ -139,26 +143,29 @@ Partial Class FrmSearchInvoice
         'txtItemName
         '
         Me.txtItemName.Enabled = False
-        Me.txtItemName.Location = New System.Drawing.Point(406, 25)
+        Me.txtItemName.Location = New System.Drawing.Point(328, 22)
+        Me.txtItemName.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemName.Name = "txtItemName"
-        Me.txtItemName.Size = New System.Drawing.Size(392, 26)
+        Me.txtItemName.Size = New System.Drawing.Size(306, 23)
         Me.txtItemName.TabIndex = 49
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(7, 26)
+        Me.Label4.Location = New System.Drawing.Point(5, 23)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 18)
+        Me.Label4.Size = New System.Drawing.Size(45, 16)
         Me.Label4.TabIndex = 42
         Me.Label4.Text = "Items:"
         '
         'txtItemCode
         '
         Me.txtItemCode.BackColor = System.Drawing.Color.LightBlue
-        Me.txtItemCode.Location = New System.Drawing.Point(105, 25)
+        Me.txtItemCode.Location = New System.Drawing.Point(94, 22)
+        Me.txtItemCode.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemCode.Name = "txtItemCode"
-        Me.txtItemCode.Size = New System.Drawing.Size(294, 26)
+        Me.txtItemCode.Size = New System.Drawing.Size(230, 23)
         Me.txtItemCode.TabIndex = 45
         '
         'GroupBox2
@@ -172,9 +179,11 @@ Partial Class FrmSearchInvoice
         Me.GroupBox2.Controls.Add(Me.txtItemName)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.txtItemCode)
-        Me.GroupBox2.Location = New System.Drawing.Point(14, 150)
+        Me.GroupBox2.Location = New System.Drawing.Point(11, 133)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(848, 89)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.GroupBox2.Size = New System.Drawing.Size(660, 79)
         Me.GroupBox2.TabIndex = 72
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Invoice Details Information"
@@ -182,17 +191,19 @@ Partial Class FrmSearchInvoice
         'txtPO
         '
         Me.txtPO.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtPO.Location = New System.Drawing.Point(105, 56)
+        Me.txtPO.Location = New System.Drawing.Point(94, 50)
+        Me.txtPO.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtPO.Name = "txtPO"
-        Me.txtPO.Size = New System.Drawing.Size(294, 26)
+        Me.txtPO.Size = New System.Drawing.Size(230, 23)
         Me.txtPO.TabIndex = 53
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(7, 59)
+        Me.Label3.Location = New System.Drawing.Point(5, 52)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(59, 18)
+        Me.Label3.Size = New System.Drawing.Size(53, 16)
         Me.Label3.TabIndex = 52
         Me.Label3.Text = "PO No:"
         '
@@ -200,9 +211,10 @@ Partial Class FrmSearchInvoice
         '
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSupplier.Location = New System.Drawing.Point(363, 58)
+        Me.btnSupplier.Location = New System.Drawing.Point(296, 52)
+        Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSupplier.Name = "btnSupplier"
-        Me.btnSupplier.Size = New System.Drawing.Size(36, 26)
+        Me.btnSupplier.Size = New System.Drawing.Size(28, 23)
         Me.btnSupplier.TabIndex = 51
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.UseVisualStyleBackColor = False
@@ -210,70 +222,78 @@ Partial Class FrmSearchInvoice
         'dtInvoiceTo
         '
         Me.dtInvoiceTo.Checked = False
-        Me.dtInvoiceTo.Location = New System.Drawing.Point(406, 90)
+        Me.dtInvoiceTo.Location = New System.Drawing.Point(328, 80)
+        Me.dtInvoiceTo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtInvoiceTo.Name = "dtInvoiceTo"
         Me.dtInvoiceTo.ShowCheckBox = True
-        Me.dtInvoiceTo.Size = New System.Drawing.Size(294, 26)
+        Me.dtInvoiceTo.Size = New System.Drawing.Size(230, 23)
         Me.dtInvoiceTo.TabIndex = 50
         '
         'txtinvoice
         '
         Me.txtinvoice.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtinvoice.Location = New System.Drawing.Point(105, 25)
+        Me.txtinvoice.Location = New System.Drawing.Point(94, 22)
+        Me.txtinvoice.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtinvoice.Name = "txtinvoice"
-        Me.txtinvoice.Size = New System.Drawing.Size(294, 26)
+        Me.txtinvoice.Size = New System.Drawing.Size(230, 23)
         Me.txtinvoice.TabIndex = 43
         '
         'txtSupplierName
         '
         Me.txtSupplierName.Enabled = False
-        Me.txtSupplierName.Location = New System.Drawing.Point(406, 58)
+        Me.txtSupplierName.Location = New System.Drawing.Point(328, 52)
+        Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(388, 26)
+        Me.txtSupplierName.Size = New System.Drawing.Size(303, 23)
         Me.txtSupplierName.TabIndex = 49
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(7, 27)
+        Me.Label7.Location = New System.Drawing.Point(5, 24)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(84, 18)
+        Me.Label7.Size = New System.Drawing.Size(77, 16)
         Me.Label7.TabIndex = 42
         Me.Label7.Text = "Invoice No:"
         '
         'dtInvoiceFrom
         '
         Me.dtInvoiceFrom.Checked = False
-        Me.dtInvoiceFrom.Location = New System.Drawing.Point(105, 90)
+        Me.dtInvoiceFrom.Location = New System.Drawing.Point(94, 80)
+        Me.dtInvoiceFrom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtInvoiceFrom.Name = "dtInvoiceFrom"
         Me.dtInvoiceFrom.ShowCheckBox = True
-        Me.dtInvoiceFrom.Size = New System.Drawing.Size(294, 26)
+        Me.dtInvoiceFrom.Size = New System.Drawing.Size(230, 23)
         Me.dtInvoiceFrom.TabIndex = 48
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 61)
+        Me.Label1.Location = New System.Drawing.Point(5, 54)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 18)
+        Me.Label1.Size = New System.Drawing.Size(64, 16)
         Me.Label1.TabIndex = 44
         Me.Label1.Text = "Supplier:"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(6, 96)
+        Me.Label8.Location = New System.Drawing.Point(5, 85)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(98, 18)
+        Me.Label8.Size = New System.Drawing.Size(90, 16)
         Me.Label8.TabIndex = 47
         Me.Label8.Text = "Invoice Date:"
         '
         'txtSupplier
         '
         Me.txtSupplier.BackColor = System.Drawing.Color.LightBlue
-        Me.txtSupplier.Location = New System.Drawing.Point(105, 58)
+        Me.txtSupplier.Location = New System.Drawing.Point(94, 52)
+        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(294, 26)
+        Me.txtSupplier.Size = New System.Drawing.Size(230, 23)
         Me.txtSupplier.TabIndex = 45
         '
         'GroupBox1
@@ -290,9 +310,11 @@ Partial Class FrmSearchInvoice
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 11)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 10)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(848, 133)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.GroupBox1.Size = New System.Drawing.Size(660, 118)
         Me.GroupBox1.TabIndex = 71
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Invoice Headers Information"
@@ -302,7 +324,8 @@ Partial Class FrmSearchInvoice
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(14, 263)
+        Me.Label2.Location = New System.Drawing.Point(11, 228)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(334, 19)
         Me.Label2.TabIndex = 76
@@ -310,18 +333,18 @@ Partial Class FrmSearchInvoice
         '
         'FrmSearchInvoice
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(868, 623)
+        Me.ClientSize = New System.Drawing.Size(675, 554)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dtPoDetails)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmSearchInvoice"
         Me.Text = "Search Invoice"
         CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).EndInit()

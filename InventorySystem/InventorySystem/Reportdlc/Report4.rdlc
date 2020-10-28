@@ -566,7 +566,7 @@
   <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>2.13458cm</Height>
+      <Height>3.90729cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -591,6 +591,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
+          <Top>1.5875cm</Top>
           <Left>2.57323cm</Left>
           <Height>0.86458cm</Height>
           <Width>11.36354cm</Width>
@@ -621,7 +622,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ItemId</rd:DefaultName>
-          <Top>1.35819cm</Top>
+          <Top>2.94569cm</Top>
           <Left>1.50608cm</Left>
           <Height>0.6cm</Height>
           <Width>5.78083cm</Width>
@@ -653,8 +654,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ItemId1</rd:DefaultName>
-          <Top>1.35819cm</Top>
-          <Left>0.07323cm</Left>
+          <Top>2.94569cm</Top>
+          <Left>0.14379cm</Left>
           <Height>0.6cm</Height>
           <Width>1.36229cm</Width>
           <ZIndex>2</ZIndex>
@@ -668,6 +669,21 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="Image1">
+          <Source>Database</Source>
+          <Value>=First(Fields!CompanyLogo.Value, "PODataSet")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>Fit</Sizing>
+          <Height>1.39375cm</Height>
+          <Width>4.8073cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingBottom>5pt</PaddingBottom>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>

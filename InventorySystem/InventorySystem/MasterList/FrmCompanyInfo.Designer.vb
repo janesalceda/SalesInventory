@@ -204,7 +204,7 @@ Partial Class FrmCompanyInfo
         '
         Me.Button2.Location = New System.Drawing.Point(410, 368)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 34)
+        Me.Button2.Size = New System.Drawing.Size(94, 34)
         Me.Button2.TabIndex = 19
         Me.Button2.Text = "Save"
         Me.Button2.UseVisualStyleBackColor = True

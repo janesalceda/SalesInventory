@@ -1405,17 +1405,19 @@
           </Style>
         </Textbox>
         <Image Name="Image1">
-          <Source>Embedded</Source>
-          <Value>=Fields!CompanyLogo.Value</Value>
+          <Source>Database</Source>
+          <Value>=First(Fields!CompanyLogo.Value, "PODataSet")</Value>
+          <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Left>0.06675cm</Left>
-          <Height>1.81653cm</Height>
-          <Width>4.09292cm</Width>
+          <Height>1.39375cm</Height>
+          <Width>4.8073cm</Width>
           <ZIndex>25</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <PaddingBottom>5pt</PaddingBottom>
           </Style>
         </Image>
       </ReportItems>

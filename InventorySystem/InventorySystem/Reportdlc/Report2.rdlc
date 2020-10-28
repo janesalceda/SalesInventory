@@ -369,6 +369,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
+          <Top>1.5875cm</Top>
           <Left>4.25662cm</Left>
           <Height>1.26146cm</Height>
           <Width>7.76521cm</Width>
@@ -504,6 +505,21 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="Image1">
+          <Source>Database</Source>
+          <Value>=First(Fields!CompanyLogo.Value, "PODataSet")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>Fit</Sizing>
+          <Height>1.39375cm</Height>
+          <Width>4.8073cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingBottom>5pt</PaddingBottom>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>

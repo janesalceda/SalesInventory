@@ -62,7 +62,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -99,7 +98,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -136,7 +134,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -173,7 +170,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -210,7 +206,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -247,7 +242,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -287,7 +281,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -322,7 +315,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -357,7 +349,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -392,7 +383,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -427,7 +417,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -462,7 +451,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -505,7 +493,7 @@
   <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>2.13141cm</Height>
+      <Height>3.5337cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -530,6 +518,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
+          <Top>1.5875cm</Top>
           <Left>2.30865cm</Left>
           <Height>0.86458cm</Height>
           <Width>11.36354cm</Width>
@@ -561,7 +550,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DateFrom</rd:DefaultName>
-          <Top>1.26682cm</Top>
+          <Top>2.85432cm</Top>
           <Left>4.0034cm</Left>
           <Height>0.6cm</Height>
           <Width>3.0027cm</Width>
@@ -594,7 +583,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DateTo</rd:DefaultName>
-          <Top>1.26682cm</Top>
+          <Top>2.85432cm</Top>
           <Left>7.73056cm</Left>
           <Height>0.6cm</Height>
           <Width>5.13906cm</Width>
@@ -627,7 +616,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>1.26682cm</Top>
+          <Top>2.85432cm</Top>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -659,7 +648,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>1.26682cm</Top>
+          <Top>2.85432cm</Top>
           <Left>2.57056cm</Left>
           <Height>0.6cm</Height>
           <Width>1.25645cm</Width>
@@ -692,7 +681,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>1.26682cm</Top>
+          <Top>2.85432cm</Top>
           <Left>7.0061cm</Left>
           <Height>0.6cm</Height>
           <Width>0.72445cm</Width>
@@ -707,6 +696,21 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="Image1">
+          <Source>Database</Source>
+          <Value>=First(Fields!CompanyLogo.Value, "PODataSet")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>Fit</Sizing>
+          <Height>1.39375cm</Height>
+          <Width>4.8073cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingBottom>5pt</PaddingBottom>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>

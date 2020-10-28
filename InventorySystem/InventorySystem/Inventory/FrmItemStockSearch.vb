@@ -10,8 +10,8 @@
             SQL.AddParams("@ItemId", txtitem.Text)
             where = " and itemid=@itemId"
         End If
-        If Not String.IsNullOrEmpty(ComboBox1.Text) Then
-            where += " order by " & ComboBox1.Text
+        If Not String.IsNullOrEmpty(cmbSort.Text) Then
+            where += " order by " & cmbSort.Text
         End If
         SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' ,
             case when test.qty<=MinimumOrderQty then 'Critical'

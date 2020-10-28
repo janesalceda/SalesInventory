@@ -1,0 +1,8 @@
+--Terms of delivery
+INSERT INTO TermsOfDelivery  (TermOfDelivery,Description,DeletedDate,UpdatedBy)VALUES ('1 day upon order','1 day upon order',NULL,1)
+INSERT INTO TermsOfDelivery  (TermOfDelivery,Description,DeletedDate,UpdatedBy)VALUES ('15 days upon order','15 days upon order',NULL,1)
+INSERT INTO TermsOfDelivery  (TermOfDelivery,Description,DeletedDate,UpdatedBy)VALUES ('30 days upon order','30 days upon order',NULL,1)
+
+--Terms of payment
+INSERT INTO TermsofPayment  (TermOfPayment,Description,DeletedDate,UpdatedBy)VALUES ('50% downpayment 50% upon deliver','50% downpayment 50% upon deliver',null,1)
+INSERT INTO TermsofPayment  (TermOfPayment,Description,DeletedDate,UpdatedBy)VALUES ('100% payment','100% payment',null,1)

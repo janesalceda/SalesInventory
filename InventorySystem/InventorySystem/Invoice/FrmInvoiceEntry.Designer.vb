@@ -145,10 +145,10 @@ Partial Class FrmInvoiceEntry
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(828, 518)
+        Me.btnSave.Location = New System.Drawing.Point(823, 486)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(121, 27)
+        Me.btnSave.Size = New System.Drawing.Size(121, 25)
         Me.btnSave.TabIndex = 116
         Me.btnSave.Text = "SAVE INVOICE"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -156,19 +156,19 @@ Partial Class FrmInvoiceEntry
         'txtStaffName
         '
         Me.txtStaffName.Enabled = False
-        Me.txtStaffName.Location = New System.Drawing.Point(744, 66)
+        Me.txtStaffName.Location = New System.Drawing.Point(727, 62)
         Me.txtStaffName.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtStaffName.Name = "txtStaffName"
-        Me.txtStaffName.Size = New System.Drawing.Size(202, 23)
+        Me.txtStaffName.Size = New System.Drawing.Size(199, 21)
         Me.txtStaffName.TabIndex = 114
         '
         'chkcancelPO
         '
         Me.chkcancelPO.AutoSize = True
-        Me.chkcancelPO.Location = New System.Drawing.Point(880, 96)
+        Me.chkcancelPO.Location = New System.Drawing.Point(879, 92)
         Me.chkcancelPO.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkcancelPO.Name = "chkcancelPO"
-        Me.chkcancelPO.Size = New System.Drawing.Size(71, 20)
+        Me.chkcancelPO.Size = New System.Drawing.Size(65, 19)
         Me.chkcancelPO.TabIndex = 118
         Me.chkcancelPO.Text = "Cancel"
         Me.chkcancelPO.UseVisualStyleBackColor = True
@@ -176,66 +176,69 @@ Partial Class FrmInvoiceEntry
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(644, 71)
+        Me.Label10.Location = New System.Drawing.Point(627, 67)
         Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(88, 16)
+        Me.Label10.Size = New System.Drawing.Size(75, 15)
         Me.Label10.TabIndex = 113
         Me.Label10.Text = "Encoded By:"
         '
         'DtInvoiceDate
         '
         Me.DtInvoiceDate.Checked = False
-        Me.DtInvoiceDate.Location = New System.Drawing.Point(448, 10)
+        Me.DtInvoiceDate.Location = New System.Drawing.Point(429, 9)
         Me.DtInvoiceDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DtInvoiceDate.Name = "DtInvoiceDate"
-        Me.DtInvoiceDate.Size = New System.Drawing.Size(194, 23)
+        Me.DtInvoiceDate.Size = New System.Drawing.Size(194, 21)
         Me.DtInvoiceDate.TabIndex = 103
         '
         'txtCurrency
         '
         Me.txtCurrency.Enabled = False
-        Me.txtCurrency.Location = New System.Drawing.Point(125, 66)
+        Me.txtCurrency.Location = New System.Drawing.Point(106, 62)
         Me.txtCurrency.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtCurrency.Name = "txtCurrency"
-        Me.txtCurrency.Size = New System.Drawing.Size(230, 23)
+        Me.txtCurrency.Size = New System.Drawing.Size(230, 21)
         Me.txtCurrency.TabIndex = 102
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(4, 68)
+        Me.Label3.Location = New System.Drawing.Point(4, 64)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(70, 16)
+        Me.Label3.Size = New System.Drawing.Size(59, 15)
         Me.Label3.TabIndex = 101
         Me.Label3.Text = "Currency:"
         '
         'txtSupplierName
         '
         Me.txtSupplierName.Enabled = False
-        Me.txtSupplierName.Location = New System.Drawing.Point(287, 38)
+        Me.txtSupplierName.Location = New System.Drawing.Point(268, 36)
         Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(355, 23)
+        Me.txtSupplierName.Size = New System.Drawing.Size(355, 21)
         Me.txtSupplierName.TabIndex = 100
         '
         'btnSupplier
         '
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSupplier.Location = New System.Drawing.Point(254, 38)
+        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnSupplier.Location = New System.Drawing.Point(233, 36)
         Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSupplier.Name = "btnSupplier"
-        Me.btnSupplier.Size = New System.Drawing.Size(28, 23)
+        Me.btnSupplier.Size = New System.Drawing.Size(30, 23)
         Me.btnSupplier.TabIndex = 99
         Me.btnSupplier.Text = "..."
+        Me.btnSupplier.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnSupplier.UseVisualStyleBackColor = False
         '
         'txtSupplier
         '
         Me.txtSupplier.BackColor = System.Drawing.Color.LightBlue
-        Me.txtSupplier.Location = New System.Drawing.Point(125, 38)
+        Me.txtSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSupplier.Location = New System.Drawing.Point(106, 36)
         Me.txtSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
@@ -245,155 +248,155 @@ Partial Class FrmInvoiceEntry
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(359, 12)
+        Me.Label8.Location = New System.Drawing.Point(340, 11)
         Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(90, 16)
+        Me.Label8.Size = New System.Drawing.Size(77, 15)
         Me.Label8.TabIndex = 94
         Me.Label8.Text = "Invoice Date:"
         '
         'txtInvoiceNo
         '
         Me.txtInvoiceNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtInvoiceNo.Location = New System.Drawing.Point(125, 10)
+        Me.txtInvoiceNo.Location = New System.Drawing.Point(106, 9)
         Me.txtInvoiceNo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtInvoiceNo.MaxLength = 50
         Me.txtInvoiceNo.Name = "txtInvoiceNo"
-        Me.txtInvoiceNo.Size = New System.Drawing.Size(230, 23)
+        Me.txtInvoiceNo.Size = New System.Drawing.Size(230, 21)
         Me.txtInvoiceNo.TabIndex = 93
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(4, 12)
+        Me.Label7.Location = New System.Drawing.Point(4, 11)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(82, 16)
+        Me.Label7.Size = New System.Drawing.Size(72, 15)
         Me.Label7.TabIndex = 92
         Me.Label7.Text = "*Invoice No:"
         '
         'txtRemarks
         '
         Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtRemarks.Location = New System.Drawing.Point(745, 38)
+        Me.txtRemarks.Location = New System.Drawing.Point(728, 36)
         Me.txtRemarks.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(202, 23)
+        Me.txtRemarks.Size = New System.Drawing.Size(199, 21)
         Me.txtRemarks.TabIndex = 112
         '
         'txtTotalAmount
         '
         Me.txtTotalAmount.Enabled = False
-        Me.txtTotalAmount.Location = New System.Drawing.Point(461, 66)
+        Me.txtTotalAmount.Location = New System.Drawing.Point(442, 62)
         Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtTotalAmount.Name = "txtTotalAmount"
-        Me.txtTotalAmount.Size = New System.Drawing.Size(181, 23)
+        Me.txtTotalAmount.Size = New System.Drawing.Size(181, 21)
         Me.txtTotalAmount.TabIndex = 110
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(361, 68)
+        Me.Label6.Location = New System.Drawing.Point(342, 64)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(93, 16)
+        Me.Label6.Size = New System.Drawing.Size(80, 15)
         Me.Label6.TabIndex = 109
         Me.Label6.Text = "Total Amount:"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(644, 40)
+        Me.Label9.Location = New System.Drawing.Point(627, 38)
         Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(68, 16)
+        Me.Label9.Size = New System.Drawing.Size(61, 15)
         Me.Label9.TabIndex = 111
         Me.Label9.Text = "Remarks:"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(4, 41)
+        Me.Label1.Location = New System.Drawing.Point(4, 38)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 16)
+        Me.Label1.Size = New System.Drawing.Size(61, 15)
         Me.Label1.TabIndex = 97
         Me.Label1.Text = "*Supplier:"
         '
         'dtReceived
         '
         Me.dtReceived.Checked = False
-        Me.dtReceived.Location = New System.Drawing.Point(745, 10)
+        Me.dtReceived.Location = New System.Drawing.Point(728, 9)
         Me.dtReceived.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtReceived.Name = "dtReceived"
-        Me.dtReceived.Size = New System.Drawing.Size(202, 23)
+        Me.dtReceived.Size = New System.Drawing.Size(199, 21)
         Me.dtReceived.TabIndex = 120
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(644, 12)
+        Me.Label2.Location = New System.Drawing.Point(627, 11)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(105, 16)
+        Me.Label2.Size = New System.Drawing.Size(90, 15)
         Me.Label2.TabIndex = 119
         Me.Label2.Text = "Received Date:"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(4, 96)
+        Me.Label4.Location = New System.Drawing.Point(4, 92)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(122, 16)
+        Me.Label4.Size = New System.Drawing.Size(104, 15)
         Me.Label4.TabIndex = 121
         Me.Label4.Text = "*Actual ETD Date:"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(361, 96)
+        Me.Label5.Location = New System.Drawing.Point(342, 90)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(102, 16)
+        Me.Label5.Size = New System.Drawing.Size(88, 15)
         Me.Label5.TabIndex = 123
         Me.Label5.Text = "Encoded Date:"
         '
         'txtUpdated
         '
         Me.txtUpdated.Enabled = False
-        Me.txtUpdated.Location = New System.Drawing.Point(744, 93)
+        Me.txtUpdated.Location = New System.Drawing.Point(727, 89)
         Me.txtUpdated.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtUpdated.Name = "txtUpdated"
-        Me.txtUpdated.Size = New System.Drawing.Size(132, 23)
+        Me.txtUpdated.Size = New System.Drawing.Size(129, 21)
         Me.txtUpdated.TabIndex = 126
         '
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(644, 98)
+        Me.Label18.Location = New System.Drawing.Point(627, 92)
         Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(99, 16)
+        Me.Label18.Size = New System.Drawing.Size(86, 15)
         Me.Label18.TabIndex = 125
         Me.Label18.Text = "Updated Date:"
         '
         'dtActualETD
         '
         Me.dtActualETD.Checked = False
-        Me.dtActualETD.Location = New System.Drawing.Point(125, 93)
+        Me.dtActualETD.Location = New System.Drawing.Point(106, 87)
         Me.dtActualETD.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtActualETD.Name = "dtActualETD"
-        Me.dtActualETD.Size = New System.Drawing.Size(230, 23)
+        Me.dtActualETD.Size = New System.Drawing.Size(230, 21)
         Me.dtActualETD.TabIndex = 127
         '
         'txtEncoded
         '
         Me.txtEncoded.Enabled = False
-        Me.txtEncoded.Location = New System.Drawing.Point(461, 93)
+        Me.txtEncoded.Location = New System.Drawing.Point(442, 89)
         Me.txtEncoded.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtEncoded.Name = "txtEncoded"
-        Me.txtEncoded.Size = New System.Drawing.Size(181, 23)
+        Me.txtEncoded.Size = New System.Drawing.Size(181, 21)
         Me.txtEncoded.TabIndex = 128
         '
         'TabControl1
@@ -403,11 +406,12 @@ Partial Class FrmInvoiceEntry
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.Delivery)
         Me.TabControl1.Controls.Add(Me.Invoice)
-        Me.TabControl1.Location = New System.Drawing.Point(2, 126)
+        Me.TabControl1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.TabControl1.Location = New System.Drawing.Point(2, 118)
         Me.TabControl1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(949, 386)
+        Me.TabControl1.Size = New System.Drawing.Size(949, 362)
         Me.TabControl1.TabIndex = 116
         '
         'Delivery
@@ -441,7 +445,7 @@ Partial Class FrmInvoiceEntry
         Me.Delivery.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Delivery.Name = "Delivery"
         Me.Delivery.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Delivery.Size = New System.Drawing.Size(941, 357)
+        Me.Delivery.Size = New System.Drawing.Size(941, 333)
         Me.Delivery.TabIndex = 0
         Me.Delivery.Text = "Delivery Details"
         '
@@ -449,10 +453,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnDelDelete.BackColor = System.Drawing.Color.White
         Me.btnDelDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelDelete.Location = New System.Drawing.Point(137, 313)
+        Me.btnDelDelete.Location = New System.Drawing.Point(147, 295)
         Me.btnDelDelete.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnDelDelete.Name = "btnDelDelete"
-        Me.btnDelDelete.Size = New System.Drawing.Size(125, 27)
+        Me.btnDelDelete.Size = New System.Drawing.Size(125, 25)
         Me.btnDelDelete.TabIndex = 203
         Me.btnDelDelete.Text = "DELETE"
         Me.btnDelDelete.UseVisualStyleBackColor = False
@@ -462,10 +466,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btndelclear.BackColor = System.Drawing.Color.White
         Me.btndelclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btndelclear.Location = New System.Drawing.Point(137, 283)
+        Me.btndelclear.Location = New System.Drawing.Point(147, 267)
         Me.btndelclear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btndelclear.Name = "btndelclear"
-        Me.btndelclear.Size = New System.Drawing.Size(125, 27)
+        Me.btndelclear.Size = New System.Drawing.Size(125, 25)
         Me.btndelclear.TabIndex = 202
         Me.btndelclear.Text = "CLEAR"
         Me.btndelclear.UseVisualStyleBackColor = False
@@ -473,7 +477,7 @@ Partial Class FrmInvoiceEntry
         'dtDeliveryDate
         '
         Me.dtDeliveryDate.Checked = False
-        Me.dtDeliveryDate.Location = New System.Drawing.Point(106, 45)
+        Me.dtDeliveryDate.Location = New System.Drawing.Point(106, 36)
         Me.dtDeliveryDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtDeliveryDate.Name = "dtDeliveryDate"
         Me.dtDeliveryDate.Size = New System.Drawing.Size(166, 23)
@@ -482,7 +486,7 @@ Partial Class FrmInvoiceEntry
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(5, 51)
+        Me.Label21.Location = New System.Drawing.Point(106, 48)
         Me.Label21.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(102, 16)
@@ -495,7 +499,7 @@ Partial Class FrmInvoiceEntry
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.Red
-        Me.Label27.Location = New System.Drawing.Point(276, 336)
+        Me.Label27.Location = New System.Drawing.Point(276, 315)
         Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(180, 19)
@@ -505,7 +509,7 @@ Partial Class FrmInvoiceEntry
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(3, 214)
+        Me.Label26.Location = New System.Drawing.Point(3, 212)
         Me.Label26.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(58, 16)
@@ -515,17 +519,17 @@ Partial Class FrmInvoiceEntry
         'txtqtyok
         '
         Me.txtqtyok.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtqtyok.Location = New System.Drawing.Point(102, 212)
+        Me.txtqtyok.Location = New System.Drawing.Point(106, 209)
         Me.txtqtyok.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtqtyok.MaxLength = 18
         Me.txtqtyok.Name = "txtqtyok"
-        Me.txtqtyok.Size = New System.Drawing.Size(167, 23)
+        Me.txtqtyok.Size = New System.Drawing.Size(171, 23)
         Me.txtqtyok.TabIndex = 199
         '
         'txtposeqdel
         '
         Me.txtposeqdel.Enabled = False
-        Me.txtposeqdel.Location = New System.Drawing.Point(215, 130)
+        Me.txtposeqdel.Location = New System.Drawing.Point(106, 122)
         Me.txtposeqdel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtposeqdel.Name = "txtposeqdel"
         Me.txtposeqdel.Size = New System.Drawing.Size(55, 23)
@@ -534,7 +538,7 @@ Partial Class FrmInvoiceEntry
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(3, 244)
+        Me.Label25.Location = New System.Drawing.Point(3, 241)
         Me.Label25.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(89, 16)
@@ -544,16 +548,16 @@ Partial Class FrmInvoiceEntry
         'txtBal
         '
         Me.txtBal.Enabled = False
-        Me.txtBal.Location = New System.Drawing.Point(102, 242)
+        Me.txtBal.Location = New System.Drawing.Point(106, 238)
         Me.txtBal.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtBal.Name = "txtBal"
-        Me.txtBal.Size = New System.Drawing.Size(167, 23)
+        Me.txtBal.Size = New System.Drawing.Size(171, 23)
         Me.txtBal.TabIndex = 196
         '
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(3, 186)
+        Me.Label23.Location = New System.Drawing.Point(106, 183)
         Me.Label23.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(97, 16)
@@ -563,17 +567,17 @@ Partial Class FrmInvoiceEntry
         'txtRec
         '
         Me.txtRec.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtRec.Location = New System.Drawing.Point(102, 183)
+        Me.txtRec.Location = New System.Drawing.Point(106, 180)
         Me.txtRec.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtRec.MaxLength = 18
         Me.txtRec.Name = "txtRec"
-        Me.txtRec.Size = New System.Drawing.Size(167, 23)
+        Me.txtRec.Size = New System.Drawing.Size(171, 23)
         Me.txtRec.TabIndex = 194
         '
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(3, 158)
+        Me.Label22.Location = New System.Drawing.Point(3, 154)
         Me.Label22.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(96, 16)
@@ -583,10 +587,10 @@ Partial Class FrmInvoiceEntry
         'txtExp
         '
         Me.txtExp.Enabled = False
-        Me.txtExp.Location = New System.Drawing.Point(102, 156)
+        Me.txtExp.Location = New System.Drawing.Point(106, 151)
         Me.txtExp.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtExp.Name = "txtExp"
-        Me.txtExp.Size = New System.Drawing.Size(167, 23)
+        Me.txtExp.Size = New System.Drawing.Size(171, 23)
         Me.txtExp.TabIndex = 192
         '
         'dtableDelivery
@@ -598,6 +602,7 @@ Partial Class FrmInvoiceEntry
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableDelivery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableDelivery.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dtableDelivery.BackgroundColor = System.Drawing.Color.White
         Me.dtableDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DeliveryId, Me.DeliveryDate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.RecAdd})
         Me.dtableDelivery.Location = New System.Drawing.Point(276, 7)
@@ -605,7 +610,7 @@ Partial Class FrmInvoiceEntry
         Me.dtableDelivery.Name = "dtableDelivery"
         Me.dtableDelivery.ReadOnly = True
         Me.dtableDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableDelivery.Size = New System.Drawing.Size(658, 326)
+        Me.dtableDelivery.Size = New System.Drawing.Size(658, 306)
         Me.dtableDelivery.TabIndex = 188
         '
         'DataGridViewTextBoxColumn1
@@ -613,34 +618,35 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewTextBoxColumn1.HeaderText = "InvoiceSeq"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 102
         '
         'DeliveryId
         '
         Me.DeliveryId.HeaderText = "DeliveryId"
         Me.DeliveryId.Name = "DeliveryId"
         Me.DeliveryId.ReadOnly = True
-        Me.DeliveryId.Width = 93
+        Me.DeliveryId.Width = 95
         '
         'DeliveryDate
         '
         Me.DeliveryDate.HeaderText = "DeliveryDate"
         Me.DeliveryDate.Name = "DeliveryDate"
         Me.DeliveryDate.ReadOnly = True
-        Me.DeliveryDate.Width = 112
+        Me.DeliveryDate.Width = 114
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "Item"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 57
+        Me.DataGridViewTextBoxColumn2.Width = 59
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Description"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 102
+        Me.DataGridViewTextBoxColumn3.Width = 104
         '
         'DataGridViewCheckBoxColumn1
         '
@@ -648,54 +654,54 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.ReadOnly = True
         Me.DataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewCheckBoxColumn1.Width = 115
+        Me.DataGridViewCheckBoxColumn1.Width = 117
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "PONo"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 68
+        Me.DataGridViewTextBoxColumn4.Width = 70
         '
         'POSeq
         '
         Me.POSeq.HeaderText = "POSeq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
-        Me.POSeq.Width = 76
+        Me.POSeq.Width = 78
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.HeaderText = "Qty Received"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 116
+        Me.DataGridViewTextBoxColumn5.Width = 118
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Qty Ok"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 75
+        Me.DataGridViewTextBoxColumn6.Width = 77
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.HeaderText = "Qty Balance"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 108
+        Me.DataGridViewTextBoxColumn7.Width = 110
         '
         'RecAdd
         '
         Me.RecAdd.HeaderText = "RecAdd"
         Me.RecAdd.Name = "RecAdd"
         Me.RecAdd.ReadOnly = True
-        Me.RecAdd.Width = 81
+        Me.RecAdd.Width = 83
         '
         'label17
         '
         Me.label17.AutoSize = True
-        Me.label17.Location = New System.Drawing.Point(9, 21)
+        Me.label17.Location = New System.Drawing.Point(9, 20)
         Me.label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label17.Name = "label17"
         Me.label17.Size = New System.Drawing.Size(74, 16)
@@ -705,7 +711,7 @@ Partial Class FrmInvoiceEntry
         'txtDeliveryID
         '
         Me.txtDeliveryID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDeliveryID.Location = New System.Drawing.Point(107, 19)
+        Me.txtDeliveryID.Location = New System.Drawing.Point(106, 7)
         Me.txtDeliveryID.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtDeliveryID.MaxLength = 50
         Me.txtDeliveryID.Name = "txtDeliveryID"
@@ -715,10 +721,10 @@ Partial Class FrmInvoiceEntry
         'btnInsertDel
         '
         Me.btnInsertDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsertDel.Location = New System.Drawing.Point(7, 283)
+        Me.btnInsertDel.Location = New System.Drawing.Point(17, 267)
         Me.btnInsertDel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnInsertDel.Name = "btnInsertDel"
-        Me.btnInsertDel.Size = New System.Drawing.Size(124, 27)
+        Me.btnInsertDel.Size = New System.Drawing.Size(124, 25)
         Me.btnInsertDel.TabIndex = 184
         Me.btnInsertDel.Text = "INSERT DELIVERY"
         Me.btnInsertDel.UseVisualStyleBackColor = True
@@ -726,7 +732,7 @@ Partial Class FrmInvoiceEntry
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(3, 132)
+        Me.Label20.Location = New System.Drawing.Point(3, 124)
         Me.Label20.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(58, 16)
@@ -737,7 +743,7 @@ Partial Class FrmInvoiceEntry
         '
         Me.txtPoDel.BackColor = System.Drawing.Color.White
         Me.txtPoDel.Enabled = False
-        Me.txtPoDel.Location = New System.Drawing.Point(102, 130)
+        Me.txtPoDel.Location = New System.Drawing.Point(106, 121)
         Me.txtPoDel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtPoDel.MaxLength = 20
         Me.txtPoDel.Name = "txtPoDel"
@@ -748,18 +754,19 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnItemInv.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItemInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItemInv.Location = New System.Drawing.Point(242, 72)
+        Me.btnItemInv.Location = New System.Drawing.Point(237, 64)
         Me.btnItemInv.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnItemInv.Name = "btnItemInv"
-        Me.btnItemInv.Size = New System.Drawing.Size(28, 24)
+        Me.btnItemInv.Size = New System.Drawing.Size(33, 23)
         Me.btnItemInv.TabIndex = 180
         Me.btnItemInv.Text = "..."
+        Me.btnItemInv.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnItemInv.UseVisualStyleBackColor = False
         '
         'txtIteamNameDel
         '
         Me.txtIteamNameDel.Enabled = False
-        Me.txtIteamNameDel.Location = New System.Drawing.Point(15, 101)
+        Me.txtIteamNameDel.Location = New System.Drawing.Point(106, 92)
         Me.txtIteamNameDel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtIteamNameDel.Name = "txtIteamNameDel"
         Me.txtIteamNameDel.Size = New System.Drawing.Size(255, 23)
@@ -768,7 +775,7 @@ Partial Class FrmInvoiceEntry
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(3, 76)
+        Me.Label24.Location = New System.Drawing.Point(3, 71)
         Me.Label24.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(39, 16)
@@ -778,7 +785,7 @@ Partial Class FrmInvoiceEntry
         'txtItemDel
         '
         Me.txtItemDel.BackColor = System.Drawing.Color.LightBlue
-        Me.txtItemDel.Location = New System.Drawing.Point(106, 73)
+        Me.txtItemDel.Location = New System.Drawing.Point(106, 64)
         Me.txtItemDel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemDel.MaxLength = 20
         Me.txtItemDel.Name = "txtItemDel"
@@ -820,7 +827,7 @@ Partial Class FrmInvoiceEntry
         Me.Invoice.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Invoice.Name = "Invoice"
         Me.Invoice.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.Invoice.Size = New System.Drawing.Size(941, 357)
+        Me.Invoice.Size = New System.Drawing.Size(941, 333)
         Me.Invoice.TabIndex = 1
         Me.Invoice.Text = "Invoice"
         '
@@ -828,10 +835,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnInvDelete.BackColor = System.Drawing.Color.White
         Me.btnInvDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInvDelete.Location = New System.Drawing.Point(146, 300)
+        Me.btnInvDelete.Location = New System.Drawing.Point(143, 302)
         Me.btnInvDelete.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnInvDelete.Name = "btnInvDelete"
-        Me.btnInvDelete.Size = New System.Drawing.Size(125, 27)
+        Me.btnInvDelete.Size = New System.Drawing.Size(125, 25)
         Me.btnInvDelete.TabIndex = 176
         Me.btnInvDelete.Text = "DELETE"
         Me.btnInvDelete.UseVisualStyleBackColor = False
@@ -840,10 +847,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(145, 271)
+        Me.btnClear.Location = New System.Drawing.Point(143, 272)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(125, 27)
+        Me.btnClear.Size = New System.Drawing.Size(125, 25)
         Me.btnClear.TabIndex = 175
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -854,7 +861,7 @@ Partial Class FrmInvoiceEntry
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.Red
-        Me.Label29.Location = New System.Drawing.Point(273, 332)
+        Me.Label29.Location = New System.Drawing.Point(273, 311)
         Me.Label29.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(180, 19)
@@ -864,7 +871,7 @@ Partial Class FrmInvoiceEntry
         'txtPoSeq
         '
         Me.txtPoSeq.Enabled = False
-        Me.txtPoSeq.Location = New System.Drawing.Point(210, 69)
+        Me.txtPoSeq.Location = New System.Drawing.Point(213, 71)
         Me.txtPoSeq.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtPoSeq.Name = "txtPoSeq"
         Me.txtPoSeq.Size = New System.Drawing.Size(55, 23)
@@ -884,7 +891,7 @@ Partial Class FrmInvoiceEntry
         Me.dtableInvoice.Name = "dtableInvoice"
         Me.dtableInvoice.ReadOnly = True
         Me.dtableInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableInvoice.Size = New System.Drawing.Size(665, 317)
+        Me.dtableInvoice.Size = New System.Drawing.Size(665, 297)
         Me.dtableInvoice.TabIndex = 172
         '
         'Seq
@@ -1000,10 +1007,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnPo.BackColor = System.Drawing.Color.Gainsboro
         Me.btnPo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPo.Location = New System.Drawing.Point(180, 69)
+        Me.btnPo.Location = New System.Drawing.Point(183, 71)
         Me.btnPo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnPo.Name = "btnPo"
-        Me.btnPo.Size = New System.Drawing.Size(28, 23)
+        Me.btnPo.Size = New System.Drawing.Size(28, 22)
         Me.btnPo.TabIndex = 171
         Me.btnPo.Text = "..."
         Me.btnPo.UseVisualStyleBackColor = False
@@ -1011,7 +1018,7 @@ Partial Class FrmInvoiceEntry
         'txtInvoiceRemarks
         '
         Me.txtInvoiceRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtInvoiceRemarks.Location = New System.Drawing.Point(81, 210)
+        Me.txtInvoiceRemarks.Location = New System.Drawing.Point(81, 216)
         Me.txtInvoiceRemarks.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtInvoiceRemarks.Name = "txtInvoiceRemarks"
         Me.txtInvoiceRemarks.Size = New System.Drawing.Size(187, 23)
@@ -1020,7 +1027,7 @@ Partial Class FrmInvoiceEntry
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(6, 212)
+        Me.Label15.Location = New System.Drawing.Point(6, 219)
         Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(68, 16)
@@ -1030,7 +1037,7 @@ Partial Class FrmInvoiceEntry
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(6, 72)
+        Me.Label19.Location = New System.Drawing.Point(6, 74)
         Me.Label19.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(58, 16)
@@ -1040,16 +1047,16 @@ Partial Class FrmInvoiceEntry
         'txtPo
         '
         Me.txtPo.BackColor = System.Drawing.Color.LightBlue
-        Me.txtPo.Location = New System.Drawing.Point(79, 69)
+        Me.txtPo.Location = New System.Drawing.Point(86, 71)
         Me.txtPo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtPo.Name = "txtPo"
-        Me.txtPo.Size = New System.Drawing.Size(129, 23)
+        Me.txtPo.Size = New System.Drawing.Size(123, 23)
         Me.txtPo.TabIndex = 168
         '
         'dtDate
         '
         Me.dtDate.Checked = False
-        Me.dtDate.Location = New System.Drawing.Point(81, 182)
+        Me.dtDate.Location = New System.Drawing.Point(81, 187)
         Me.dtDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtDate.Name = "dtDate"
         Me.dtDate.Size = New System.Drawing.Size(187, 23)
@@ -1059,10 +1066,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItems.Location = New System.Drawing.Point(240, 12)
+        Me.btnItems.Location = New System.Drawing.Point(239, 11)
         Me.btnItems.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnItems.Name = "btnItems"
-        Me.btnItems.Size = New System.Drawing.Size(28, 25)
+        Me.btnItems.Size = New System.Drawing.Size(29, 23)
         Me.btnItems.TabIndex = 164
         Me.btnItems.Text = "..."
         Me.btnItems.UseVisualStyleBackColor = False
@@ -1071,10 +1078,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnAddItem.BackColor = System.Drawing.Color.White
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItem.Location = New System.Drawing.Point(14, 271)
+        Me.btnAddItem.Location = New System.Drawing.Point(14, 273)
         Me.btnAddItem.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnAddItem.Name = "btnAddItem"
-        Me.btnAddItem.Size = New System.Drawing.Size(125, 27)
+        Me.btnAddItem.Size = New System.Drawing.Size(125, 25)
         Me.btnAddItem.TabIndex = 163
         Me.btnAddItem.Text = "INSERT INVOICE"
         Me.btnAddItem.UseVisualStyleBackColor = False
@@ -1083,7 +1090,7 @@ Partial Class FrmInvoiceEntry
         '
         Me.chkReceived.AutoSize = True
         Me.chkReceived.Enabled = False
-        Me.chkReceived.Location = New System.Drawing.Point(182, 237)
+        Me.chkReceived.Location = New System.Drawing.Point(183, 246)
         Me.chkReceived.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkReceived.Name = "chkReceived"
         Me.chkReceived.Size = New System.Drawing.Size(86, 20)
@@ -1095,7 +1102,7 @@ Partial Class FrmInvoiceEntry
         '
         Me.chkOk.AutoSize = True
         Me.chkOk.Enabled = False
-        Me.chkOk.Location = New System.Drawing.Point(81, 238)
+        Me.chkOk.Location = New System.Drawing.Point(82, 247)
         Me.chkOk.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkOk.Name = "chkOk"
         Me.chkOk.Size = New System.Drawing.Size(45, 20)
@@ -1106,7 +1113,7 @@ Partial Class FrmInvoiceEntry
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(6, 182)
+        Me.Label16.Location = New System.Drawing.Point(6, 192)
         Me.Label16.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(42, 16)
@@ -1116,7 +1123,7 @@ Partial Class FrmInvoiceEntry
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(6, 156)
+        Me.Label14.Location = New System.Drawing.Point(6, 160)
         Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(70, 16)
@@ -1126,7 +1133,7 @@ Partial Class FrmInvoiceEntry
         'txtTotalPrice
         '
         Me.txtTotalPrice.Enabled = False
-        Me.txtTotalPrice.Location = New System.Drawing.Point(81, 154)
+        Me.txtTotalPrice.Location = New System.Drawing.Point(81, 158)
         Me.txtTotalPrice.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtTotalPrice.Name = "txtTotalPrice"
         Me.txtTotalPrice.Size = New System.Drawing.Size(187, 23)
@@ -1135,7 +1142,7 @@ Partial Class FrmInvoiceEntry
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(6, 129)
+        Me.Label12.Location = New System.Drawing.Point(6, 132)
         Me.Label12.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(72, 16)
@@ -1145,7 +1152,7 @@ Partial Class FrmInvoiceEntry
         'txtUnit
         '
         Me.txtUnit.Enabled = False
-        Me.txtUnit.Location = New System.Drawing.Point(81, 126)
+        Me.txtUnit.Location = New System.Drawing.Point(81, 129)
         Me.txtUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtUnit.Name = "txtUnit"
         Me.txtUnit.Size = New System.Drawing.Size(187, 23)
@@ -1154,7 +1161,7 @@ Partial Class FrmInvoiceEntry
         'txtCliUnit
         '
         Me.txtCliUnit.Enabled = False
-        Me.txtCliUnit.Location = New System.Drawing.Point(128, 98)
+        Me.txtCliUnit.Location = New System.Drawing.Point(132, 100)
         Me.txtCliUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtCliUnit.Name = "txtCliUnit"
         Me.txtCliUnit.Size = New System.Drawing.Size(41, 23)
@@ -1163,7 +1170,7 @@ Partial Class FrmInvoiceEntry
         'txtCliQty
         '
         Me.txtCliQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtCliQty.Location = New System.Drawing.Point(82, 98)
+        Me.txtCliQty.Location = New System.Drawing.Point(86, 100)
         Me.txtCliQty.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtCliQty.Name = "txtCliQty"
         Me.txtCliQty.Size = New System.Drawing.Size(41, 23)
@@ -1172,7 +1179,7 @@ Partial Class FrmInvoiceEntry
         'txtItemName
         '
         Me.txtItemName.Enabled = False
-        Me.txtItemName.Location = New System.Drawing.Point(11, 41)
+        Me.txtItemName.Location = New System.Drawing.Point(12, 42)
         Me.txtItemName.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemName.Name = "txtItemName"
         Me.txtItemName.Size = New System.Drawing.Size(257, 23)
@@ -1181,7 +1188,7 @@ Partial Class FrmInvoiceEntry
         'txtSupUnit
         '
         Me.txtSupUnit.Enabled = False
-        Me.txtSupUnit.Location = New System.Drawing.Point(223, 98)
+        Me.txtSupUnit.Location = New System.Drawing.Point(227, 100)
         Me.txtSupUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupUnit.Name = "txtSupUnit"
         Me.txtSupUnit.Size = New System.Drawing.Size(41, 23)
@@ -1190,7 +1197,7 @@ Partial Class FrmInvoiceEntry
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(6, 16)
+        Me.Label13.Location = New System.Drawing.Point(6, 15)
         Me.Label13.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(39, 16)
@@ -1200,7 +1207,7 @@ Partial Class FrmInvoiceEntry
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(6, 101)
+        Me.Label11.Location = New System.Drawing.Point(6, 99)
         Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(39, 16)
@@ -1210,16 +1217,16 @@ Partial Class FrmInvoiceEntry
         'txtItemCode
         '
         Me.txtItemCode.BackColor = System.Drawing.Color.LightBlue
-        Me.txtItemCode.Location = New System.Drawing.Point(56, 13)
+        Me.txtItemCode.Location = New System.Drawing.Point(100, 12)
         Me.txtItemCode.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemCode.Name = "txtItemCode"
-        Me.txtItemCode.Size = New System.Drawing.Size(212, 23)
+        Me.txtItemCode.Size = New System.Drawing.Size(168, 23)
         Me.txtItemCode.TabIndex = 149
         '
         'txtSupQty
         '
         Me.txtSupQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtSupQty.Location = New System.Drawing.Point(176, 98)
+        Me.txtSupQty.Location = New System.Drawing.Point(180, 100)
         Me.txtSupQty.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupQty.Name = "txtSupQty"
         Me.txtSupQty.Size = New System.Drawing.Size(41, 23)
@@ -1231,7 +1238,7 @@ Partial Class FrmInvoiceEntry
         Me.Label28.AutoSize = True
         Me.Label28.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.ForeColor = System.Drawing.Color.Red
-        Me.Label28.Location = New System.Drawing.Point(4, 526)
+        Me.Label28.Location = New System.Drawing.Point(4, 493)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(217, 19)
         Me.Label28.TabIndex = 129
@@ -1239,10 +1246,10 @@ Partial Class FrmInvoiceEntry
         '
         'FrmInvoiceEntry
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(955, 548)
+        Me.ClientSize = New System.Drawing.Size(955, 514)
         Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.txtEncoded)
@@ -1271,7 +1278,7 @@ Partial Class FrmInvoiceEntry
         Me.Controls.Add(Me.txtTotalAmount)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label9)
-        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmInvoiceEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent

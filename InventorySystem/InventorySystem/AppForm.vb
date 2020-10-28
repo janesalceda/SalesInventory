@@ -159,4 +159,26 @@
     Private Sub ChangeDescriptionToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangeDescriptionToolStripMenuItem.Click
         FrmChangeItemDescription.Show()
     End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    End Sub
+
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        SQL.ExecQuery("SELECT count(*) from items")
+        If SQL.DBDT.Rows.Count = 0 Then Exit Sub
+        txtAllItems.Text = SQL.DBDT.Rows(0).Item(0)
+        SQL.AddParams("@currentdate", DateTime.Now().ToString("yyyy/MM/dd"))
+        SQL.ExecQuery("SELECT count(*) from getstockbalance(@currentdate) where qty>=1")
+        If SQL.DBDT.Rows.Count = 0 Then Exit Sub
+        txtProAvail.Text = SQL.DBDT.Rows(0).Item(0)
+        SQL.AddParams("@currentdate", DateTime.Now().ToString("yyyy/MM/dd"))
+        SQL.ExecQuery("SELECT sum(qty) from getstockbalance(@currentdate)  where qty>=1")
+        If SQL.DBDT.Rows.Count = 0 Then Exit Sub
+        txtQuantity.Text = Math.Floor(SQL.DBDT.Rows(0).Item(0))
+        SQL.AddParams("@currentdate", DateTime.Now().ToString("yyyy/MM/dd"))
+        SQL.ExecQuery("SELECT count(*) from items where OrderingPointQty<(select qty from getstockbalance(@currentdate) where itemid=items.itemid)")
+        If SQL.DBDT.Rows.Count = 0 Then Exit Sub
+        txtToreOrder.Text = SQL.DBDT.Rows(0).Item(0)
+
+    End Sub
 End Class

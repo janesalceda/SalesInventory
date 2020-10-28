@@ -87,10 +87,10 @@ Public Class FrmItemEntry
         VALUES 
 	        (
             (SELECT CASE WHEN max(ITEMID) IS NULL 
-                    THEN 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1<10
-                    THEN 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1 AS VARCHAR	)
-                    ELSE 'IT' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(ITEMID),len(max(ITEMID))-12) AS INT) +1 AS VARCHAR	)
+                    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
+                    CASE WHEN right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) + 1<10
+                    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) +1 as varchar)
+                    ELSE 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) +1 as varchar)
                     END END AS 'pomax' from ITEMS)
             ,@description,@convertingcoefficient,@category,@clientqtyunit,@supplierqtyunit,
 	        @location,@maxorderqty,@orderingpointqty,@minimumorderqty,@remarks,@updatedby)")

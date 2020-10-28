@@ -1,0 +1,45 @@
+--CATEGORIES
+INSERT INTO Categories (CategoryName,DeletedDate,UpdatedBy) VALUES ('SAMSUNG',NULL,1)
+INSERT INTO Categories (CategoryName,DeletedDate,UpdatedBy) VALUES ('SONY',NULL,1)
+INSERT INTO Categories (CategoryName,DeletedDate,UpdatedBy) VALUES ('NIKON',NULL,1)
+INSERT INTO Categories (CategoryName,DeletedDate,UpdatedBy) VALUES ('CANON',NULL,1)
+--CurrencyUnits
+INSERT INTO CurrencyUnits (CurrencyUnit,AmountRoundType,DeletedDate,UpdatedBy)VALUES('PHP',0,NULL,1)
+INSERT INTO CurrencyUnits (CurrencyUnit,AmountRoundType,DeletedDate,UpdatedBy)VALUES('JPY',0,NULL,1)
+INSERT INTO CurrencyUnits (CurrencyUnit,AmountRoundType,DeletedDate,UpdatedBy)VALUES('US$',0,NULL,1)
+--Locations
+INSERT INTO Locations (Location,Description,DeletedDate,UpdatedBy) VALUES ('A1','Area 1',NULL,1)
+INSERT INTO Locations (Location,Description,DeletedDate,UpdatedBy) VALUES ('A2','Area 2',NULL,1)
+INSERT INTO Locations (Location,Description,DeletedDate,UpdatedBy) VALUES ('A3','Area 3',NULL,1)
+INSERT INTO Locations (Location,Description,DeletedDate,UpdatedBy) VALUES ('A4','Area 4',NULL,1)
+INSERT INTO Locations (Location,Description,DeletedDate,UpdatedBy) VALUES ('A5','Area 5',NULL,1)
+--QtyUnit
+ INSERT INTO QtyUnits  (QtyUnit,Description,DeletedDate,UpdatedBy)VALUES('pc','peices',NULL,1)
+ INSERT INTO QtyUnits  (QtyUnit,Description,DeletedDate,UpdatedBy)VALUES('box','box',NULL,1)
+ INSERT INTO QtyUnits  (QtyUnit,Description,DeletedDate,UpdatedBy)VALUES('sck','sack',NULL,1)
+ --Suppliers
+INSERT INTO Suppliers(SupplierId,SupplierName,Attention,
+        Address,Phone,Fax,Remarks,AccountsName,TermOfDeliveryId,TermOfPaymentId,
+        CurrencyUnitId,ImportSupplier,EmailAddress,UpdatedBy)
+        VALUES('SupplierA','Supplier A','SupplierNameA','Cavite','1110-1111','-','just a test','BDO',1,1,
+            1,0,'test@gmail.com',1) 
+INSERT INTO Suppliers(SupplierId,SupplierName,Attention,
+        Address,Phone,Fax,Remarks,AccountsName,TermOfDeliveryId,TermOfPaymentId,
+        CurrencyUnitId,ImportSupplier,EmailAddress,UpdatedBy)
+        VALUES('SupplierB','Supplier B','SupplierNameB','Cavite','1110-1111','-','just a test','BDO',1,1,
+            1,0,'test@gmail.com',1) 
+INSERT INTO Suppliers(SupplierId,SupplierName,Attention,
+        Address,Phone,Fax,Remarks,AccountsName,TermOfDeliveryId,TermOfPaymentId,
+        CurrencyUnitId,ImportSupplier,EmailAddress,UpdatedBy)
+        VALUES('SupplierC','Supplier C','SupplierNameC','Cavite','1110-1111','-','just a test','BDO',1,1,
+            1,0,'test@gmail.com',1) "
+"INSERT INTO Suppliers(SupplierId,SupplierName,Attention,
+        Address,Phone,Fax,Remarks,AccountsName,TermOfDeliveryId,TermOfPaymentId,
+        CurrencyUnitId,ImportSupplier,EmailAddress,UpdatedBy)
+        VALUES('SupplierD','Supplier D','SupplierNameD','Cavite','1110-1111','-','just a test','BDO',1,1,
+            1,0,'test@gmail.com',1) 
+INSERT INTO Suppliers(SupplierId,SupplierName,Attention,
+        Address,Phone,Fax,Remarks,AccountsName,TermOfDeliveryId,TermOfPaymentId,
+        CurrencyUnitId,ImportSupplier,EmailAddress,UpdatedBy)
+        VALUES('SupplierE','Supplier E','SupplierNameE','Cavite','1110-1111','-','just a test','BDO',1,1,
+            1,0,'test@gmail.com',1) 

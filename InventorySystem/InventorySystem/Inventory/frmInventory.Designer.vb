@@ -31,8 +31,6 @@ Partial Class frmInventory
         Me.OUTQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ACQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BALANCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CLIENTCOST = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SUPPLIERCOST = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
@@ -47,19 +45,21 @@ Partial Class frmInventory
         '
         'btnSearch
         '
-        Me.btnSearch.Location = New System.Drawing.Point(274, 20)
+        Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Location = New System.Drawing.Point(279, 26)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(103, 25)
         Me.btnSearch.TabIndex = 0
         Me.btnSearch.Text = "VIEW"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'txtitem
         '
         Me.txtitem.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtitem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtitem.Location = New System.Drawing.Point(52, 20)
+        Me.txtitem.Location = New System.Drawing.Point(57, 26)
         Me.txtitem.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtitem.MaxLength = 20
         Me.txtitem.Name = "txtitem"
@@ -75,13 +75,14 @@ Partial Class frmInventory
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dgvData.BackgroundColor = System.Drawing.Color.White
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE, Me.CLIENTCOST, Me.SUPPLIERCOST, Me.Remarks})
+        Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE, Me.Remarks})
         Me.dgvData.Location = New System.Drawing.Point(4, 100)
         Me.dgvData.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(832, 358)
+        Me.dgvData.Size = New System.Drawing.Size(631, 358)
         Me.dgvData.TabIndex = 2
         '
         'TransactionDate
@@ -89,68 +90,54 @@ Partial Class frmInventory
         Me.TransactionDate.HeaderText = "Transaction Date"
         Me.TransactionDate.Name = "TransactionDate"
         Me.TransactionDate.ReadOnly = True
-        Me.TransactionDate.Width = 127
+        Me.TransactionDate.Width = 115
         '
         'TRANSID
         '
-        Me.TRANSID.HeaderText = "TRANSID"
+        Me.TRANSID.HeaderText = "TransID"
         Me.TRANSID.Name = "TRANSID"
         Me.TRANSID.ReadOnly = True
-        Me.TRANSID.Width = 90
+        Me.TRANSID.Width = 76
         '
         'INQTY
         '
         Me.INQTY.HeaderText = "IN QTY"
         Me.INQTY.Name = "INQTY"
         Me.INQTY.ReadOnly = True
-        Me.INQTY.Width = 70
+        Me.INQTY.Width = 65
         '
         'OUTQTY
         '
         Me.OUTQTY.HeaderText = "OUT QTY"
         Me.OUTQTY.Name = "OUTQTY"
         Me.OUTQTY.ReadOnly = True
-        Me.OUTQTY.Width = 85
+        Me.OUTQTY.Width = 77
         '
         'ACQTY
         '
         Me.ACQTY.HeaderText = "AC QTY"
         Me.ACQTY.Name = "ACQTY"
         Me.ACQTY.ReadOnly = True
-        Me.ACQTY.Width = 76
+        Me.ACQTY.Width = 69
         '
         'BALANCE
         '
         Me.BALANCE.HeaderText = "BALANCE"
         Me.BALANCE.Name = "BALANCE"
         Me.BALANCE.ReadOnly = True
-        Me.BALANCE.Width = 94
-        '
-        'CLIENTCOST
-        '
-        Me.CLIENTCOST.HeaderText = "CLIENTCOST"
-        Me.CLIENTCOST.Name = "CLIENTCOST"
-        Me.CLIENTCOST.ReadOnly = True
-        Me.CLIENTCOST.Width = 118
-        '
-        'SUPPLIERCOST
-        '
-        Me.SUPPLIERCOST.HeaderText = "SUPPLIER COST"
-        Me.SUPPLIERCOST.Name = "SUPPLIERCOST"
-        Me.SUPPLIERCOST.ReadOnly = True
-        Me.SUPPLIERCOST.Width = 128
+        Me.BALANCE.Width = 87
         '
         'Remarks
         '
         Me.Remarks.HeaderText = "Remarks"
         Me.Remarks.Name = "Remarks"
         Me.Remarks.ReadOnly = True
-        Me.Remarks.Width = 87
+        Me.Remarks.Width = 83
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(4, 22)
+        Me.Label1.Location = New System.Drawing.Point(9, 28)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(45, 16)
@@ -160,7 +147,7 @@ Partial Class frmInventory
         'dtFrom
         '
         Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtFrom.Location = New System.Drawing.Point(52, 49)
+        Me.dtFrom.Location = New System.Drawing.Point(57, 55)
         Me.dtFrom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtFrom.Name = "dtFrom"
         Me.dtFrom.Size = New System.Drawing.Size(98, 23)
@@ -170,7 +157,7 @@ Partial Class frmInventory
         'dtTo
         '
         Me.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.dtTo.Location = New System.Drawing.Point(173, 49)
+        Me.dtTo.Location = New System.Drawing.Point(178, 55)
         Me.dtTo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtTo.Name = "dtTo"
         Me.dtTo.Size = New System.Drawing.Size(97, 23)
@@ -181,7 +168,7 @@ Partial Class frmInventory
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(154, 50)
+        Me.Label2.Location = New System.Drawing.Point(159, 56)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(19, 23)
@@ -191,7 +178,7 @@ Partial Class frmInventory
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 51)
+        Me.Label3.Location = New System.Drawing.Point(11, 57)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(42, 16)
@@ -215,14 +202,15 @@ Partial Class frmInventory
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(830, 84)
+        Me.GroupBox1.Size = New System.Drawing.Size(629, 90)
         Me.GroupBox1.TabIndex = 9
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Details"
         '
         'btnClear
         '
-        Me.btnClear.Location = New System.Drawing.Point(274, 49)
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Location = New System.Drawing.Point(279, 55)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(103, 25)
@@ -236,7 +224,7 @@ Partial Class frmInventory
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(843, 465)
+        Me.ClientSize = New System.Drawing.Size(642, 465)
         Me.Controls.Add(Me.dgvData)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
@@ -266,7 +254,5 @@ Partial Class frmInventory
     Friend WithEvents OUTQTY As DataGridViewTextBoxColumn
     Friend WithEvents ACQTY As DataGridViewTextBoxColumn
     Friend WithEvents BALANCE As DataGridViewTextBoxColumn
-    Friend WithEvents CLIENTCOST As DataGridViewTextBoxColumn
-    Friend WithEvents SUPPLIERCOST As DataGridViewTextBoxColumn
     Friend WithEvents Remarks As DataGridViewTextBoxColumn
 End Class

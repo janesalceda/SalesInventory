@@ -747,6 +747,86 @@
 
     End Sub
 
+    Private Sub dtDeliveryDate_ValueChanged(sender As Object, e As EventArgs) Handles dtDeliveryDate.ValueChanged
+
+    End Sub
+
+    Private Sub dtActualETD_ValueChanged(sender As Object, e As EventArgs) Handles dtActualETD.ValueChanged
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub txtCurrency_TextChanged(sender As Object, e As EventArgs) Handles txtCurrency.TextChanged
+
+    End Sub
+
+    Private Sub txtInvoiceNo_TextChanged(sender As Object, e As EventArgs) Handles txtInvoiceNo.TextChanged
+
+    End Sub
+
+    Private Sub txtDeliveryID_TextChanged(sender As Object, e As EventArgs) Handles txtDeliveryID.TextChanged
+
+    End Sub
+
+    Private Sub txtPoDel_TextChanged(sender As Object, e As EventArgs) Handles txtPoDel.TextChanged
+
+    End Sub
+
+    Private Sub txtExp_TextChanged(sender As Object, e As EventArgs) Handles txtExp.TextChanged
+
+    End Sub
+
+    Private Sub Invoice_Click(sender As Object, e As EventArgs) Handles Invoice.Click
+
+    End Sub
+
+    Private Sub txtItemName_TextChanged(sender As Object, e As EventArgs) Handles txtItemName.TextChanged
+
+    End Sub
+
+    Private Sub txtSupUnit_TextChanged(sender As Object, e As EventArgs) Handles txtSupUnit.TextChanged
+
+    End Sub
+
+    Private Sub txtUnit_TextChanged(sender As Object, e As EventArgs) Handles txtUnit.TextChanged
+
+    End Sub
+
+    Private Sub txtTotalPrice_TextChanged(sender As Object, e As EventArgs) Handles txtTotalPrice.TextChanged
+
+    End Sub
+
+    Private Sub Label15_Click(sender As Object, e As EventArgs) Handles Label15.Click
+
+    End Sub
+
+    Private Sub chkReceived_CheckedChanged(sender As Object, e As EventArgs) Handles chkReceived.CheckedChanged
+
+    End Sub
+
+    Private Sub chkOk_CheckedChanged(sender As Object, e As EventArgs) Handles chkOk.CheckedChanged
+
+    End Sub
+
+    Private Sub Label16_Click(sender As Object, e As EventArgs) Handles Label16.Click
+
+    End Sub
+
+    Private Sub Label14_Click(sender As Object, e As EventArgs) Handles Label14.Click
+
+    End Sub
+
+    Private Sub txtInvoiceRemarks_TextChanged(sender As Object, e As EventArgs) Handles txtInvoiceRemarks.TextChanged
+
+    End Sub
+
+    Private Sub Label12_Click(sender As Object, e As EventArgs) Handles Label12.Click
+
+    End Sub
+
 
 
 

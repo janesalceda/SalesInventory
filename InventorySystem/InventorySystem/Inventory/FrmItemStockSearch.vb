@@ -10,9 +10,9 @@
             SQL.AddParams("@ItemId", txtitem.Text)
             where = " and itemid=@itemId"
         End If
-        If Not String.IsNullOrEmpty(cmbSort.Text) Then
-            where += " order by " & cmbSort.Text
-        End If
+        'If Not String.IsNullOrEmpty(cmbSort.Text) Then
+        '    where += " order by " & cmbSort.Text
+        'End If
         SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' ,
             case when test.qty<=MinimumOrderQty then 'Critical'
             when test.qty<=OrderingPointQty then 'Ordering Point' end 'Status'
@@ -40,6 +40,10 @@
 
     Private Sub FrmItemStockSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
+    End Sub
+
+    Private Sub cmbStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbStatus.SelectedIndexChanged
+
     End Sub
     'Private Sub loadReport()
     '    Dim rptDs As ReportDataSource

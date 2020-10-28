@@ -22,6 +22,7 @@ Partial Class AppForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.msMain = New System.Windows.Forms.MenuStrip()
         Me.Account = New System.Windows.Forms.ToolStripMenuItem()
         Me.AccountDetails = New System.Windows.Forms.ToolStripMenuItem()
@@ -69,6 +70,12 @@ Partial Class AppForm
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManulaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.txtAllItems = New System.Windows.Forms.TextBox()
+        Me.txtProAvail = New System.Windows.Forms.TextBox()
+        Me.txtQuantity = New System.Windows.Forms.TextBox()
+        Me.txtToreOrder = New System.Windows.Forms.TextBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnRefresh = New System.Windows.Forms.Button()
         Me.msMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -326,7 +333,7 @@ Partial Class AppForm
         '
         Me.ItemsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeDescriptionToolStripMenuItem, Me.ChangeToolStripMenuItem})
         Me.ItemsToolStripMenuItem.Name = "ItemsToolStripMenuItem"
-        Me.ItemsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ItemsToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
         Me.ItemsToolStripMenuItem.Text = "Items"
         '
         'ChangeDescriptionToolStripMenuItem
@@ -345,7 +352,7 @@ Partial Class AppForm
         '
         Me.SuppliersToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangSupplierNameToolStripMenuItem})
         Me.SuppliersToolStripMenuItem1.Name = "SuppliersToolStripMenuItem1"
-        Me.SuppliersToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.SuppliersToolStripMenuItem1.Size = New System.Drawing.Size(137, 22)
         Me.SuppliersToolStripMenuItem1.Text = "Suppliers"
         '
         'ChangSupplierNameToolStripMenuItem
@@ -373,11 +380,68 @@ Partial Class AppForm
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(64, 21)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
+        'txtAllItems
+        '
+        Me.txtAllItems.Font = New System.Drawing.Font("Arial", 40.0!)
+        Me.txtAllItems.Location = New System.Drawing.Point(12, 41)
+        Me.txtAllItems.Multiline = True
+        Me.txtAllItems.Name = "txtAllItems"
+        Me.txtAllItems.Size = New System.Drawing.Size(257, 122)
+        Me.txtAllItems.TabIndex = 2
+        Me.txtAllItems.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtProAvail
+        '
+        Me.txtProAvail.Font = New System.Drawing.Font("Arial", 40.0!)
+        Me.txtProAvail.Location = New System.Drawing.Point(275, 41)
+        Me.txtProAvail.Multiline = True
+        Me.txtProAvail.Name = "txtProAvail"
+        Me.txtProAvail.Size = New System.Drawing.Size(257, 122)
+        Me.txtProAvail.TabIndex = 3
+        Me.txtProAvail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtQuantity
+        '
+        Me.txtQuantity.Font = New System.Drawing.Font("Arial", 40.0!)
+        Me.txtQuantity.Location = New System.Drawing.Point(538, 41)
+        Me.txtQuantity.Multiline = True
+        Me.txtQuantity.Name = "txtQuantity"
+        Me.txtQuantity.Size = New System.Drawing.Size(257, 122)
+        Me.txtQuantity.TabIndex = 4
+        Me.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'txtToreOrder
+        '
+        Me.txtToreOrder.Font = New System.Drawing.Font("Arial", 40.0!)
+        Me.txtToreOrder.Location = New System.Drawing.Point(801, 41)
+        Me.txtToreOrder.Multiline = True
+        Me.txtToreOrder.Name = "txtToreOrder"
+        Me.txtToreOrder.Size = New System.Drawing.Size(257, 122)
+        Me.txtToreOrder.TabIndex = 5
+        Me.txtToreOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Timer1
+        '
+        '
+        'btnRefresh
+        '
+        Me.btnRefresh.Location = New System.Drawing.Point(13, 183)
+        Me.btnRefresh.Name = "btnRefresh"
+        Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
+        Me.btnRefresh.TabIndex = 6
+        Me.btnRefresh.Text = "Refresh"
+        Me.btnRefresh.UseVisualStyleBackColor = True
+        '
         'AppForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1231, 662)
+        Me.Controls.Add(Me.btnRefresh)
+        Me.Controls.Add(Me.txtToreOrder)
+        Me.Controls.Add(Me.txtQuantity)
+        Me.Controls.Add(Me.txtProAvail)
+        Me.Controls.Add(Me.txtAllItems)
         Me.Controls.Add(Me.msMain)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.IsMdiContainer = True
@@ -389,6 +453,7 @@ Partial Class AppForm
         Me.msMain.ResumeLayout(False)
         Me.msMain.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -439,4 +504,10 @@ Partial Class AppForm
     Friend WithEvents StockOutToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents CompanyInformationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReturnsToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents txtAllItems As TextBox
+    Friend WithEvents txtProAvail As TextBox
+    Friend WithEvents txtQuantity As TextBox
+    Friend WithEvents txtToreOrder As TextBox
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents btnRefresh As Button
 End Class

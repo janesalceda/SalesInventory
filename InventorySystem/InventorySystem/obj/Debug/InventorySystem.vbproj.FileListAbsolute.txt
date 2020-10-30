@@ -562,7 +562,9 @@ C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\b
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.SalesRecord.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmConfirmation.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmConfirmation.resources
-C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.ProductRanking.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmProductRanking.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPrintingBarcode.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.DashBoard.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.DashBoard.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmProductRanking.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmPrintingBarcode.resources

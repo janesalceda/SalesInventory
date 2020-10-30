@@ -39,85 +39,90 @@ Partial Class SupplierList
         Me.dtSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtSupplier.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtSupplier.Location = New System.Drawing.Point(6, 116)
+        Me.dtSupplier.Location = New System.Drawing.Point(5, 97)
+        Me.dtSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtSupplier.Name = "dtSupplier"
         Me.dtSupplier.ReadOnly = True
         Me.dtSupplier.RowHeadersVisible = False
         Me.dtSupplier.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtSupplier.Size = New System.Drawing.Size(360, 229)
+        Me.dtSupplier.Size = New System.Drawing.Size(293, 191)
         Me.dtSupplier.TabIndex = 0
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(11, 16)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label4.Location = New System.Drawing.Point(9, 13)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(70, 18)
+        Me.Label4.Size = New System.Drawing.Size(64, 16)
         Me.Label4.TabIndex = 67
         Me.Label4.Text = "Supplier:"
         '
         'txtSupplier
         '
         Me.txtSupplier.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtSupplier.Location = New System.Drawing.Point(90, 11)
-        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSupplier.Location = New System.Drawing.Point(76, 9)
+        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(274, 26)
+        Me.txtSupplier.Size = New System.Drawing.Size(214, 23)
         Me.txtSupplier.TabIndex = 68
         '
         'txtSupplierName
         '
         Me.txtSupplierName.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtSupplierName.Location = New System.Drawing.Point(9, 45)
-        Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSupplierName.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSupplierName.Location = New System.Drawing.Point(13, 38)
+        Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtSupplierName.MaxLength = 100
         Me.txtSupplierName.Name = "txtSupplierName"
-        Me.txtSupplierName.Size = New System.Drawing.Size(355, 26)
+        Me.txtSupplierName.Size = New System.Drawing.Size(277, 23)
         Me.txtSupplierName.TabIndex = 70
         '
         'btnClear
         '
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(280, 78)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnClear.Location = New System.Drawing.Point(228, 66)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(84, 29)
+        Me.btnClear.Size = New System.Drawing.Size(65, 24)
         Me.btnClear.TabIndex = 73
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
         '
         'btnSearch
         '
-        Me.btnSearch.BackColor = System.Drawing.Color.White
+        Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(183, 78)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnSearch.Location = New System.Drawing.Point(148, 66)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(88, 29)
+        Me.btnSearch.Size = New System.Drawing.Size(74, 24)
         Me.btnSearch.TabIndex = 72
         Me.btnSearch.Text = "SEARCH"
         Me.btnSearch.UseVisualStyleBackColor = False
         '
         'btnOk
         '
-        Me.btnOk.BackColor = System.Drawing.Color.White
+        Me.btnOk.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOk.Location = New System.Drawing.Point(277, 351)
-        Me.btnOk.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnOk.Location = New System.Drawing.Point(228, 292)
+        Me.btnOk.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(88, 29)
+        Me.btnOk.Size = New System.Drawing.Size(68, 24)
         Me.btnOk.TabIndex = 74
         Me.btnOk.Text = "OK"
         Me.btnOk.UseVisualStyleBackColor = False
         '
         'SupplierList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(372, 380)
+        Me.ClientSize = New System.Drawing.Size(301, 317)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.btnSearch)
@@ -125,12 +130,12 @@ Partial Class SupplierList
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtSupplier)
         Me.Controls.Add(Me.dtSupplier)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(388, 408)
+        Me.MinimumSize = New System.Drawing.Size(305, 347)
         Me.Name = "SupplierList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "List of Suppliers"

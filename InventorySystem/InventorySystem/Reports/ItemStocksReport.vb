@@ -19,10 +19,10 @@ Public Class ItemStockReport
                     where += " order by " & ComboBox1.Text
                 End If
                 SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' ,
-                    MinimumOrderQty,OrderingPointQty
+                    MinimumOrderQty,OrderingPointQty,CompanyLogo
                     FROM Items i
 	                LEFT JOIN (SELECT * FROM GetStockBalance(@from)) AS test
-	                ON test.ItemId = i.ItemId where i.deletedDate is null" & where)
+	                ON test.ItemId = i.ItemId ,companyinfo where i.deletedDate is null" & where)
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)

@@ -163,6 +163,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="DashBoard.Designer.vb">
+      <DependentUpon>DashBoard.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoard.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DataSets\DataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -197,6 +203,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet5.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\DataSet6.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSet6.vb">
+      <DependentUpon>DataSet6.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\FrmProductRanking.Designer.vb">
       <DependentUpon>FrmProductRanking.vb</DependentUpon>
     </Compile>
@@ -227,10 +241,10 @@
     <Compile Include="ImportItems.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory\SalesRecord.Designer.vb">
+    <Compile Include="Reports\SalesRecord.Designer.vb">
       <DependentUpon>SalesRecord.vb</DependentUpon>
     </Compile>
-    <Compile Include="Inventory\SalesRecord.vb">
+    <Compile Include="Reports\SalesRecord.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Items.vb" />
@@ -238,6 +252,12 @@
       <DependentUpon>FrmCliItemPrice.vb</DependentUpon>
     </Compile>
     <Compile Include="MasterList\Items\FrmCliItemPrice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterList\Items\FrmPrintingBarcode.Designer.vb">
+      <DependentUpon>FrmPrintingBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MasterList\Items\FrmPrintingBarcode.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RejectAndReturn\FrmRejectReturnEntry.Designer.vb">
@@ -573,6 +593,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DashBoard.resx">
+      <DependentUpon>DashBoard.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FrmProductRanking.resx">
       <DependentUpon>FrmProductRanking.vb</DependentUpon>
     </EmbeddedResource>
@@ -588,11 +611,14 @@
     <EmbeddedResource Include="ImportItems.resx">
       <DependentUpon>ImportItems.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\SalesRecord.resx">
+    <EmbeddedResource Include="Reports\SalesRecord.resx">
       <DependentUpon>SalesRecord.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\Items\FrmCliItemPrice.resx">
       <DependentUpon>FrmCliItemPrice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterList\Items\FrmPrintingBarcode.resx">
+      <DependentUpon>FrmPrintingBarcode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RejectAndReturn\FrmRejectReturnEntry.resx">
       <DependentUpon>FrmRejectReturnEntry.vb</DependentUpon>
@@ -603,6 +629,7 @@
     <EmbeddedResource Include="Reportdlc\Report3.rdlc" />
     <EmbeddedResource Include="Reportdlc\Report4.rdlc" />
     <EmbeddedResource Include="Reportdlc\Report5.rdlc" />
+    <EmbeddedResource Include="Reportdlc\Report6.rdlc" />
     <EmbeddedResource Include="Reports\DailyTransaction.resx">
       <DependentUpon>DailyTransaction.vb</DependentUpon>
     </EmbeddedResource>
@@ -818,6 +845,17 @@
     </None>
     <None Include="DataSets\DataSet5.xss">
       <DependentUpon>DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet6.xsc">
+      <DependentUpon>DataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet6.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet6.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSets\DataSet6.xss">
+      <DependentUpon>DataSet6.xsd</DependentUpon>
     </None>
     <None Include="InventorySystem_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />

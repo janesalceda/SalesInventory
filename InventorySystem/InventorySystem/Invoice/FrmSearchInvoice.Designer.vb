@@ -105,7 +105,7 @@ Partial Class FrmSearchInvoice
         'btnSearch
         '
         Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSearch.BackColor = System.Drawing.Color.White
+        Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Location = New System.Drawing.Point(479, 218)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)

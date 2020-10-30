@@ -11,7 +11,8 @@ Public Class DailyTransaction
                 Dim ds As New DataSet1
 
                 SQL.AddParams("@from", DateTimePicker1.Value.ToShortDateString)
-                SQL.ExecQuery("SELECT *,@from as 'TransactionDate' FROM dbo.GetDailyTransaction (@from)")
+                SQL.ExecQuery("SELECT *,@from as 'TransactionDate',CompanyLogo
+                     FROM dbo.GetDailyTransaction (@from),companyinfo")
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)

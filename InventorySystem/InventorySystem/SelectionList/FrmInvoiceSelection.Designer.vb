@@ -35,14 +35,15 @@ Partial Class FrmInvoiceSelection
         '
         'btnOk
         '
+        Me.btnOk.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOk.Location = New System.Drawing.Point(602, 383)
-        Me.btnOk.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnOk.Location = New System.Drawing.Point(468, 319)
+        Me.btnOk.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(78, 31)
+        Me.btnOk.Size = New System.Drawing.Size(61, 26)
         Me.btnOk.TabIndex = 81
         Me.btnOk.Text = "OK"
-        Me.btnOk.UseVisualStyleBackColor = True
+        Me.btnOk.UseVisualStyleBackColor = False
         '
         'dtitems
         '
@@ -52,13 +53,13 @@ Partial Class FrmInvoiceSelection
         Me.dtitems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtitems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtitems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemID, Me.ItemName, Me.PONo, Me.POSeq, Me.qtyexpected})
-        Me.dtitems.Location = New System.Drawing.Point(9, 13)
-        Me.dtitems.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtitems.Location = New System.Drawing.Point(7, 11)
+        Me.dtitems.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dtitems.Name = "dtitems"
         Me.dtitems.ReadOnly = True
         Me.dtitems.RowHeadersVisible = False
         Me.dtitems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtitems.Size = New System.Drawing.Size(671, 362)
+        Me.dtitems.Size = New System.Drawing.Size(522, 302)
         Me.dtitems.TabIndex = 73
         '
         'Seq
@@ -66,52 +67,52 @@ Partial Class FrmInvoiceSelection
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 60
+        Me.Seq.Width = 56
         '
         'ItemID
         '
         Me.ItemID.HeaderText = "ItemID"
         Me.ItemID.Name = "ItemID"
         Me.ItemID.ReadOnly = True
-        Me.ItemID.Width = 75
+        Me.ItemID.Width = 70
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 111
+        Me.ItemName.Width = 102
         '
         'PONo
         '
         Me.PONo.HeaderText = "PONo"
         Me.PONo.Name = "PONo"
         Me.PONo.ReadOnly = True
-        Me.PONo.Width = 74
+        Me.PONo.Width = 68
         '
         'POSeq
         '
         Me.POSeq.HeaderText = "Seq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
-        Me.POSeq.Width = 60
+        Me.POSeq.Width = 56
         '
         'qtyexpected
         '
         Me.qtyexpected.HeaderText = "QtyExpected"
         Me.qtyexpected.Name = "qtyexpected"
         Me.qtyexpected.ReadOnly = True
-        Me.qtyexpected.Width = 120
+        Me.qtyexpected.Width = 111
         '
         'FrmInvoiceSelection
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(693, 421)
+        Me.ClientSize = New System.Drawing.Size(539, 351)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.dtitems)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmInvoiceSelection"

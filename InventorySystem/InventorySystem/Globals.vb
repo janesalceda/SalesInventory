@@ -26,20 +26,31 @@
         End If
     End Sub
     Public Function getClientPrice(itemid As String, Applieddate As Date) As Decimal
+        Dim Globalrow As ArrayList = New ArrayList
         SQL.AddParams("@itemid", itemid)
         SQL.AddParams("@AppliedDate", Applieddate)
         SQL.ExecQuery("SELECT TOP 1 Unitprice from ClientItemPrices 
             where itemid=@itemid AND convert(VARCHAR(10),AppliedDate,111)<=@AppliedDate
             order by AppliedDate desc")
-        Return SQL.DBDT.Rows(0).Item("Unitprice")
+        If SQL.HasException Then Return False
+        If SQL.RecordCount = 0 Then Return False
+        Return SQL.DBDT.Rows(0).Item(0)
     End Function
-    Public Function getSupplierPrice(itemid As String, Applieddate As Date) As Decimal
+    Public Function getSupplierPrice(itemid As String, Applieddate As Date, SupplierId As String) As Decimal
+        Dim Globalrow As ArrayList = New ArrayList
+        Dim where As String = ""
         SQL.AddParams("@itemid", itemid)
         SQL.AddParams("@AppliedDate", Applieddate)
+        If Not String.IsNullOrWhiteSpace(SupplierId) Then
+            SQL.AddParams("@supplierId", SupplierId)
+            where = "AND supplierId=@supplierId"
+        End If
         SQL.ExecQuery("SELECT TOP 1 Unitprice from SupplierItemPrices 
-            where itemid=@itemid AND convert(VARCHAR(10),AppliedDate,111)<=@AppliedDate
-            order by AppliedDate desc")
-        Return SQL.DBDT.Rows(0).Item("Unitprice")
+            where itemid=@itemid AND convert(VARCHAR(10),AppliedDate,111)<=@AppliedDate " & where &
+           " order by AppliedDate,ItemPriceId desc")
+        If SQL.HasException Then Return False
+        If SQL.RecordCount = 0 Then Return False
+        Return SQL.DBDT.Rows(0).Item(0)
     End Function
     Public Function GetSupplierName(SupplierId As String) As ArrayList
         Dim Globalrow As ArrayList = New ArrayList

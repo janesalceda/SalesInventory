@@ -22,7 +22,10 @@
             INNER JOIN Suppliers s ON p.SupplierID=s.SupplierId INNER JOIN PoDetails pd
             ON pd.PoNo=p.PONo " & where)
             dtPoDetails.Rows.Clear()
-
+            If SQL.RecordCount = 0 Then
+                MsgBox("No Record Found", MsgBoxStyle.Information, "Information")
+                Exit Sub
+            End If
             For index As Integer = 0 To SQL.DBDT.Rows.Count - 1
                 Dim row As ArrayList = New ArrayList
                 row.Add(SQL.DBDT.Rows(index).Item(0))
@@ -128,5 +131,57 @@
         dtIssuedFrom.Value = Today
         dtIssuedTo.Checked = False
         dtIssuedTo.Value = Today
+    End Sub
+
+    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub radNo_CheckedChanged(sender As Object, e As EventArgs) Handles radNo.CheckedChanged
+
+    End Sub
+
+    Private Sub radYes_CheckedChanged(sender As Object, e As EventArgs) Handles radYes.CheckedChanged
+
+    End Sub
+
+    Private Sub dtIssuedTo_ValueChanged(sender As Object, e As EventArgs) Handles dtIssuedTo.ValueChanged
+
+    End Sub
+
+    Private Sub txtPONo_TextChanged(sender As Object, e As EventArgs) Handles txtPONo.TextChanged
+
+    End Sub
+
+    Private Sub txtSupplierName_TextChanged(sender As Object, e As EventArgs) Handles txtSupplierName.TextChanged
+
+    End Sub
+
+    Private Sub Label7_Click(sender As Object, e As EventArgs) Handles Label7.Click
+
+    End Sub
+
+    Private Sub dtIssuedFrom_ValueChanged(sender As Object, e As EventArgs) Handles dtIssuedFrom.ValueChanged
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+
+    End Sub
+
+    Private Sub txtItemsName_TextChanged(sender As Object, e As EventArgs) Handles txtItemsName.TextChanged
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
     End Sub
 End Class

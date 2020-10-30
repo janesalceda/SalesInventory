@@ -142,5 +142,25 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
+<member name="T:InventorySystem.DataSet6">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet6.DataTable1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet6.DataTable1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet6.DataTable1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 </members>
 </doc>

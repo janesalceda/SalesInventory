@@ -53,12 +53,13 @@ Partial Class FrmItemSearch
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
-        Me.dtItems.Location = New System.Drawing.Point(18, 132)
+        Me.dtItems.Location = New System.Drawing.Point(14, 110)
+        Me.dtItems.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(730, 368)
+        Me.dtItems.Size = New System.Drawing.Size(568, 307)
         Me.dtItems.TabIndex = 0
         '
         'ItemId
@@ -66,21 +67,21 @@ Partial Class FrmItemSearch
         Me.ItemId.HeaderText = "Item Id"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 72
+        Me.ItemId.Width = 62
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Item Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 133
+        Me.ItemName.Width = 110
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 135
+        Me.RegisteredDate.Width = 110
         '
         'Disused
         '
@@ -89,80 +90,94 @@ Partial Class FrmItemSearch
         Me.Disused.ReadOnly = True
         Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 91
+        Me.Disused.Width = 77
         '
         'DeletedDate
         '
         Me.DeletedDate.HeaderText = "DeletedDate"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 122
+        Me.DeletedDate.Width = 99
         '
         'txtItemID
         '
         Me.txtItemID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtItemID.Location = New System.Drawing.Point(119, 17)
+        Me.txtItemID.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtItemID.Location = New System.Drawing.Point(92, 10)
+        Me.txtItemID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtItemID.Name = "txtItemID"
-        Me.txtItemID.Size = New System.Drawing.Size(198, 26)
+        Me.txtItemID.Size = New System.Drawing.Size(155, 23)
         Me.txtItemID.TabIndex = 17
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(12, 20)
+        Me.Label7.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label7.Location = New System.Drawing.Point(9, 13)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(41, 18)
+        Me.Label7.Size = New System.Drawing.Size(38, 16)
         Me.Label7.TabIndex = 16
         Me.Label7.Text = "Item:"
         '
         'btnAdd
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAdd.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(623, 512)
+        Me.btnAdd.Location = New System.Drawing.Point(485, 427)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(126, 30)
+        Me.btnAdd.Size = New System.Drawing.Size(98, 25)
         Me.btnAdd.TabIndex = 20
         Me.btnAdd.Text = "Add Item"
-        Me.btnAdd.UseVisualStyleBackColor = True
+        Me.btnAdd.UseVisualStyleBackColor = False
         '
         'btnSearch
         '
+        Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(482, 14)
+        Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnSearch.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnSearch.Location = New System.Drawing.Point(375, 12)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(116, 30)
+        Me.btnSearch.Size = New System.Drawing.Size(90, 25)
         Me.btnSearch.TabIndex = 21
         Me.btnSearch.Text = "Search"
-        Me.btnSearch.UseVisualStyleBackColor = True
+        Me.btnSearch.UseVisualStyleBackColor = False
         '
         'txtDes
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDes.Location = New System.Drawing.Point(118, 46)
+        Me.txtDes.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtDes.Location = New System.Drawing.Point(92, 38)
+        Me.txtDes.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(353, 26)
+        Me.txtDes.Size = New System.Drawing.Size(275, 23)
         Me.txtDes.TabIndex = 22
         '
         'cmbCategory
         '
         Me.cmbCategory.BackColor = System.Drawing.Color.LightBlue
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCategory.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbCategory.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(118, 76)
+        Me.cmbCategory.Location = New System.Drawing.Point(92, 66)
+        Me.cmbCategory.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cmbCategory.Name = "cmbCategory"
-        Me.cmbCategory.Size = New System.Drawing.Size(352, 29)
+        Me.cmbCategory.Size = New System.Drawing.Size(275, 24)
         Me.cmbCategory.TabIndex = 65
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.White
-        Me.Label6.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(10, 80)
+        Me.Label6.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label6.Location = New System.Drawing.Point(8, 70)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(85, 21)
+        Me.Label6.Size = New System.Drawing.Size(75, 16)
         Me.Label6.TabIndex = 66
         Me.Label6.Text = "*Category:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -170,9 +185,11 @@ Partial Class FrmItemSearch
         'chkDisuse
         '
         Me.chkDisuse.AutoSize = True
-        Me.chkDisuse.Location = New System.Drawing.Point(348, 18)
+        Me.chkDisuse.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.chkDisuse.Location = New System.Drawing.Point(296, 10)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
+        Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 67
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
@@ -181,20 +198,23 @@ Partial Class FrmItemSearch
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(18, 502)
+        Me.Label2.Location = New System.Drawing.Point(14, 434)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(261, 19)
+        Me.Label2.Size = New System.Drawing.Size(221, 16)
         Me.Label2.TabIndex = 77
         Me.Label2.Text = "*NOTE: CLICK TO VIEW/UPDATE"
         '
         'btnclear
         '
         Me.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnclear.Location = New System.Drawing.Point(482, 50)
+        Me.btnclear.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnclear.Location = New System.Drawing.Point(375, 42)
+        Me.btnclear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnclear.Name = "btnclear"
-        Me.btnclear.Size = New System.Drawing.Size(116, 30)
+        Me.btnclear.Size = New System.Drawing.Size(90, 25)
         Me.btnclear.TabIndex = 78
         Me.btnclear.Text = "Clear"
         Me.btnclear.UseVisualStyleBackColor = True
@@ -202,18 +222,20 @@ Partial Class FrmItemSearch
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(10, 50)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label1.Location = New System.Drawing.Point(8, 42)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(92, 18)
+        Me.Label1.Size = New System.Drawing.Size(83, 16)
         Me.Label1.TabIndex = 79
         Me.Label1.Text = "Description:"
         '
         'FrmItemSearch
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(757, 550)
+        Me.ClientSize = New System.Drawing.Size(589, 458)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnclear)
         Me.Controls.Add(Me.Label2)
@@ -226,9 +248,8 @@ Partial Class FrmItemSearch
         Me.Controls.Add(Me.txtItemID)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dtItems)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmItemSearch"
         Me.Text = "Search Item"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()

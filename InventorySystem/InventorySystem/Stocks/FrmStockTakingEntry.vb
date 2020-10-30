@@ -98,7 +98,7 @@
             row.Add(txtQty.Text)
             row.Add(cliprice)
             row.Add(txtSTRemarks.Text)
-            row.Add(getSupplierPrice(txtItemCode.Text, dtCountedDate.Value))
+            row.Add(getSupplierPrice(txtItemCode.Text, dtCountedDate.Value, ""))
             dtableStockTaking.Rows.Add(row.ToArray())
             StockTakingdetailsClear()
         Else
@@ -109,7 +109,7 @@
                 dtableStockTaking.SelectedRows(0).Cells(2).Value = txtItemName.Text
                 dtableStockTaking.SelectedRows(0).Cells(3).Value = txtQty.Text
                 dtableStockTaking.SelectedRows(0).Cells(5).Value = txtRemarks.Text
-                dtableStockTaking.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtCountedDate.Value)
+                dtableStockTaking.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtCountedDate.Value, "")
                 btnAddItem.Text = "INSERT"
                 confirm = False
             End If

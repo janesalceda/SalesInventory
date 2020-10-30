@@ -41,6 +41,8 @@ Partial Class FrmItemEntry
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grpItemDetails = New System.Windows.Forms.GroupBox()
         Me.chkDisuse = New System.Windows.Forms.CheckBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.picprint = New System.Windows.Forms.PictureBox()
         Me.cmbCategory = New System.Windows.Forms.ComboBox()
         Me.PictureBox4 = New System.Windows.Forms.PictureBox()
@@ -50,8 +52,6 @@ Partial Class FrmItemEntry
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
         Me.btnAddItemPrice = New System.Windows.Forms.Button()
         Me.dtableItemPrices = New System.Windows.Forms.DataGridView()
         Me.SupplierID = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -87,31 +87,34 @@ Partial Class FrmItemEntry
         'txtItemId
         '
         Me.txtItemId.BackColor = System.Drawing.Color.White
-        Me.txtItemId.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtItemId.Location = New System.Drawing.Point(116, 27)
+        Me.txtItemId.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtItemId.Location = New System.Drawing.Point(87, 20)
+        Me.txtItemId.Margin = New System.Windows.Forms.Padding(2)
         Me.txtItemId.Name = "txtItemId"
-        Me.txtItemId.Size = New System.Drawing.Size(218, 29)
+        Me.txtItemId.Size = New System.Drawing.Size(164, 23)
         Me.txtItemId.TabIndex = 0
         '
         'txtDes
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDes.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtDes.Location = New System.Drawing.Point(124, 75)
+        Me.txtDes.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtDes.Location = New System.Drawing.Point(93, 55)
+        Me.txtDes.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDes.MaxLength = 255
         Me.txtDes.Multiline = True
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(571, 31)
+        Me.txtDes.Size = New System.Drawing.Size(429, 24)
         Me.txtDes.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.Location = New System.Drawing.Point(17, 78)
+        Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label3.Location = New System.Drawing.Point(13, 57)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(99, 21)
+        Me.Label3.Size = New System.Drawing.Size(88, 16)
         Me.Label3.TabIndex = 18
         Me.Label3.Text = "*Description:"
         '
@@ -121,11 +124,12 @@ Partial Class FrmItemEntry
         Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnSave.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.btnSave.ForeColor = System.Drawing.Color.Black
-        Me.btnSave.Location = New System.Drawing.Point(564, 580)
+        Me.btnSave.Location = New System.Drawing.Point(534, 435)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(141, 36)
+        Me.btnSave.Size = New System.Drawing.Size(106, 27)
         Me.btnSave.TabIndex = 11
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -134,20 +138,22 @@ Partial Class FrmItemEntry
         'txtConCoe
         '
         Me.txtConCoe.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtConCoe.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtConCoe.Location = New System.Drawing.Point(605, 112)
+        Me.txtConCoe.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtConCoe.Location = New System.Drawing.Point(524, 80)
+        Me.txtConCoe.Margin = New System.Windows.Forms.Padding(2)
         Me.txtConCoe.MaxLength = 18
         Me.txtConCoe.Name = "txtConCoe"
-        Me.txtConCoe.Size = New System.Drawing.Size(88, 29)
+        Me.txtConCoe.Size = New System.Drawing.Size(67, 23)
         Me.txtConCoe.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label2.Location = New System.Drawing.Point(432, 114)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label2.Location = New System.Drawing.Point(352, 84)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(171, 25)
+        Me.Label2.Size = New System.Drawing.Size(170, 18)
         Me.Label2.TabIndex = 32
         Me.Label2.Text = "*Converting coefficient:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -156,10 +162,11 @@ Partial Class FrmItemEntry
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.Color.White
-        Me.Label9.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label9.Location = New System.Drawing.Point(15, 152)
+        Me.Label9.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label9.Location = New System.Drawing.Point(11, 112)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(80, 21)
+        Me.Label9.Size = New System.Drawing.Size(71, 16)
         Me.Label9.TabIndex = 38
         Me.Label9.Text = "*Location:"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -167,99 +174,108 @@ Partial Class FrmItemEntry
         'txtMax
         '
         Me.txtMax.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtMax.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtMax.Location = New System.Drawing.Point(124, 184)
+        Me.txtMax.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtMax.Location = New System.Drawing.Point(86, 128)
+        Me.txtMax.Margin = New System.Windows.Forms.Padding(2)
         Me.txtMax.MaxLength = 18
         Me.txtMax.Multiline = True
         Me.txtMax.Name = "txtMax"
-        Me.txtMax.Size = New System.Drawing.Size(62, 56)
+        Me.txtMax.Size = New System.Drawing.Size(72, 42)
         Me.txtMax.TabIndex = 6
         '
         'txtRemarks
         '
         Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtRemarks.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtRemarks.Location = New System.Drawing.Point(124, 246)
+        Me.txtRemarks.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtRemarks.Location = New System.Drawing.Point(93, 181)
+        Me.txtRemarks.Margin = New System.Windows.Forms.Padding(2)
         Me.txtRemarks.MaxLength = 150
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(418, 54)
+        Me.txtRemarks.Size = New System.Drawing.Size(411, 41)
         Me.txtRemarks.TabIndex = 9
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.BackColor = System.Drawing.Color.White
-        Me.Label11.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label11.Location = New System.Drawing.Point(12, 246)
+        Me.Label11.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label11.Location = New System.Drawing.Point(9, 181)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(78, 21)
+        Me.Label11.Size = New System.Drawing.Size(68, 16)
         Me.Label11.TabIndex = 46
         Me.Label11.Text = "Remarks:"
         '
         'txtMinQty
         '
         Me.txtMinQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtMinQty.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtMinQty.Location = New System.Drawing.Point(300, 184)
+        Me.txtMinQty.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtMinQty.Location = New System.Drawing.Point(254, 128)
+        Me.txtMinQty.Margin = New System.Windows.Forms.Padding(2)
         Me.txtMinQty.MaxLength = 18
         Me.txtMinQty.Multiline = True
         Me.txtMinQty.Name = "txtMinQty"
-        Me.txtMinQty.Size = New System.Drawing.Size(62, 56)
+        Me.txtMinQty.Size = New System.Drawing.Size(68, 42)
         Me.txtMinQty.TabIndex = 7
         '
         'txtOrderPoint
         '
         Me.txtOrderPoint.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtOrderPoint.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.txtOrderPoint.Location = New System.Drawing.Point(480, 186)
+        Me.txtOrderPoint.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtOrderPoint.Location = New System.Drawing.Point(428, 130)
+        Me.txtOrderPoint.Margin = New System.Windows.Forms.Padding(2)
         Me.txtOrderPoint.MaxLength = 18
         Me.txtOrderPoint.Multiline = True
         Me.txtOrderPoint.Name = "txtOrderPoint"
-        Me.txtOrderPoint.Size = New System.Drawing.Size(62, 52)
+        Me.txtOrderPoint.Size = New System.Drawing.Size(60, 39)
         Me.txtOrderPoint.TabIndex = 8
         '
         'cmbCliQtyUnit
         '
         Me.cmbCliQtyUnit.BackColor = System.Drawing.Color.LightBlue
         Me.cmbCliQtyUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCliQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbCliQtyUnit.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbCliQtyUnit.FormattingEnabled = True
-        Me.cmbCliQtyUnit.Location = New System.Drawing.Point(124, 113)
+        Me.cmbCliQtyUnit.Location = New System.Drawing.Point(93, 83)
+        Me.cmbCliQtyUnit.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbCliQtyUnit.Name = "cmbCliQtyUnit"
-        Me.cmbCliQtyUnit.Size = New System.Drawing.Size(75, 29)
+        Me.cmbCliQtyUnit.Size = New System.Drawing.Size(57, 24)
         Me.cmbCliQtyUnit.TabIndex = 1
         '
         'cmbSupQtyUnit
         '
         Me.cmbSupQtyUnit.BackColor = System.Drawing.Color.LightBlue
         Me.cmbSupQtyUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbSupQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbSupQtyUnit.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbSupQtyUnit.FormattingEnabled = True
-        Me.cmbSupQtyUnit.Location = New System.Drawing.Point(352, 113)
+        Me.cmbSupQtyUnit.Location = New System.Drawing.Point(292, 83)
+        Me.cmbSupQtyUnit.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbSupQtyUnit.Name = "cmbSupQtyUnit"
-        Me.cmbSupQtyUnit.Size = New System.Drawing.Size(75, 29)
+        Me.cmbSupQtyUnit.Size = New System.Drawing.Size(57, 24)
         Me.cmbSupQtyUnit.TabIndex = 2
         '
         'cmbLocation
         '
         Me.cmbLocation.BackColor = System.Drawing.Color.LightBlue
         Me.cmbLocation.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbLocation.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbLocation.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbLocation.FormattingEnabled = True
-        Me.cmbLocation.Location = New System.Drawing.Point(123, 148)
+        Me.cmbLocation.Location = New System.Drawing.Point(92, 109)
+        Me.cmbLocation.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbLocation.Name = "cmbLocation"
-        Me.cmbLocation.Size = New System.Drawing.Size(225, 29)
+        Me.cmbLocation.Size = New System.Drawing.Size(170, 24)
         Me.cmbLocation.TabIndex = 4
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 30)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label1.Location = New System.Drawing.Point(7, 22)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 21)
+        Me.Label1.Size = New System.Drawing.Size(55, 16)
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Item ID:"
         '
@@ -268,18 +284,25 @@ Partial Class FrmItemEntry
         Me.grpItemDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grpItemDetails.Controls.Add(Me.chkDisuse)
+        Me.grpItemDetails.Controls.Add(Me.Label14)
+        Me.grpItemDetails.Controls.Add(Me.Label15)
         Me.grpItemDetails.Controls.Add(Me.picprint)
         Me.grpItemDetails.Controls.Add(Me.cmbCategory)
         Me.grpItemDetails.Controls.Add(Me.PictureBox4)
         Me.grpItemDetails.Controls.Add(Me.Label6)
         Me.grpItemDetails.Controls.Add(Me.picQR)
         Me.grpItemDetails.Controls.Add(Me.txtItemId)
+        Me.grpItemDetails.Controls.Add(Me.txtMax)
         Me.grpItemDetails.Controls.Add(Me.Label1)
         Me.grpItemDetails.Controls.Add(Me.picBar)
-        Me.grpItemDetails.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!)
-        Me.grpItemDetails.Location = New System.Drawing.Point(8, 10)
+        Me.grpItemDetails.Controls.Add(Me.txtMinQty)
+        Me.grpItemDetails.Controls.Add(Me.txtOrderPoint)
+        Me.grpItemDetails.Font = New System.Drawing.Font("Arial", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.grpItemDetails.Location = New System.Drawing.Point(6, 7)
+        Me.grpItemDetails.Margin = New System.Windows.Forms.Padding(2)
         Me.grpItemDetails.Name = "grpItemDetails"
-        Me.grpItemDetails.Size = New System.Drawing.Size(698, 298)
+        Me.grpItemDetails.Padding = New System.Windows.Forms.Padding(2)
+        Me.grpItemDetails.Size = New System.Drawing.Size(635, 220)
         Me.grpItemDetails.TabIndex = 55
         Me.grpItemDetails.TabStop = False
         Me.grpItemDetails.Text = "Item Details"
@@ -288,20 +311,48 @@ Partial Class FrmItemEntry
         '
         Me.chkDisuse.AutoSize = True
         Me.chkDisuse.Enabled = False
-        Me.chkDisuse.Location = New System.Drawing.Point(609, 29)
+        Me.chkDisuse.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.chkDisuse.Location = New System.Drawing.Point(457, 21)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(78, 25)
+        Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 65
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
+        'Label14
+        '
+        Me.Label14.BackColor = System.Drawing.Color.White
+        Me.Label14.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label14.Location = New System.Drawing.Point(160, 130)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(92, 38)
+        Me.Label14.TabIndex = 61
+        Me.Label14.Text = "*Min. Order Qty:"
+        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'Label15
+        '
+        Me.Label15.BackColor = System.Drawing.Color.White
+        Me.Label15.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label15.Location = New System.Drawing.Point(326, 130)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(100, 38)
+        Me.Label15.TabIndex = 62
+        Me.Label15.Text = "*Ordering Point:"
+        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'picprint
         '
+        Me.picprint.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.picprint.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picprint.Image = Global.InventorySystem.My.Resources.Resources.Print
-        Me.picprint.Location = New System.Drawing.Point(640, 262)
+        Me.picprint.Location = New System.Drawing.Point(564, 196)
+        Me.picprint.Margin = New System.Windows.Forms.Padding(2)
         Me.picprint.Name = "picprint"
-        Me.picprint.Size = New System.Drawing.Size(26, 24)
+        Me.picprint.Size = New System.Drawing.Size(20, 18)
         Me.picprint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picprint.TabIndex = 2
         Me.picprint.TabStop = False
@@ -311,20 +362,23 @@ Partial Class FrmItemEntry
         '
         Me.cmbCategory.BackColor = System.Drawing.Color.LightBlue
         Me.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCategory.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbCategory.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbCategory.FormattingEnabled = True
-        Me.cmbCategory.Location = New System.Drawing.Point(454, 138)
+        Me.cmbCategory.Location = New System.Drawing.Point(340, 102)
+        Me.cmbCategory.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbCategory.Name = "cmbCategory"
-        Me.cmbCategory.Size = New System.Drawing.Size(230, 29)
+        Me.cmbCategory.Size = New System.Drawing.Size(174, 24)
         Me.cmbCategory.TabIndex = 5
         '
         'PictureBox4
         '
+        Me.PictureBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox4.Image = Global.InventorySystem.My.Resources.Resources.Print
-        Me.PictureBox4.Location = New System.Drawing.Point(578, 262)
+        Me.PictureBox4.Location = New System.Drawing.Point(525, 196)
+        Me.PictureBox4.Margin = New System.Windows.Forms.Padding(2)
         Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(26, 24)
+        Me.PictureBox4.Size = New System.Drawing.Size(20, 18)
         Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox4.TabIndex = 3
         Me.PictureBox4.TabStop = False
@@ -334,21 +388,24 @@ Partial Class FrmItemEntry
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.White
-        Me.Label6.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(370, 142)
+        Me.Label6.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label6.Location = New System.Drawing.Point(260, 104)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(85, 21)
+        Me.Label6.Size = New System.Drawing.Size(75, 16)
         Me.Label6.TabIndex = 64
         Me.Label6.Text = "*Category:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'picQR
         '
+        Me.picQR.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.picQR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picQR.Image = Global.InventorySystem.My.Resources.Resources.QRCode
-        Me.picQR.Location = New System.Drawing.Point(556, 238)
+        Me.picQR.Location = New System.Drawing.Point(508, 178)
+        Me.picQR.Margin = New System.Windows.Forms.Padding(2)
         Me.picQR.Name = "picQR"
-        Me.picQR.Size = New System.Drawing.Size(48, 48)
+        Me.picQR.Size = New System.Drawing.Size(36, 36)
         Me.picQR.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picQR.TabIndex = 0
         Me.picQR.TabStop = False
@@ -356,11 +413,13 @@ Partial Class FrmItemEntry
         '
         'picBar
         '
+        Me.picBar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.picBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.picBar.Image = Global.InventorySystem.My.Resources.Resources.Barcode
-        Me.picBar.Location = New System.Drawing.Point(618, 238)
+        Me.picBar.Location = New System.Drawing.Point(548, 178)
+        Me.picBar.Margin = New System.Windows.Forms.Padding(2)
         Me.picBar.Name = "picBar"
-        Me.picBar.Size = New System.Drawing.Size(48, 48)
+        Me.picBar.Size = New System.Drawing.Size(36, 36)
         Me.picBar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.picBar.TabIndex = 1
         Me.picBar.TabStop = False
@@ -369,10 +428,11 @@ Partial Class FrmItemEntry
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.White
-        Me.Label4.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label4.Location = New System.Drawing.Point(16, 114)
+        Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label4.Location = New System.Drawing.Point(12, 84)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(96, 25)
+        Me.Label4.Size = New System.Drawing.Size(72, 18)
         Me.Label4.TabIndex = 56
         Me.Label4.Text = "*Qty Unit:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -380,10 +440,11 @@ Partial Class FrmItemEntry
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.White
-        Me.Label5.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label5.Location = New System.Drawing.Point(202, 114)
+        Me.Label5.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label5.Location = New System.Drawing.Point(152, 84)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(144, 25)
+        Me.Label5.Size = New System.Drawing.Size(134, 18)
         Me.Label5.TabIndex = 57
         Me.Label5.Text = "*Supplier Qty Unit:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -391,35 +452,14 @@ Partial Class FrmItemEntry
         'Label7
         '
         Me.Label7.BackColor = System.Drawing.Color.White
-        Me.Label7.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.Location = New System.Drawing.Point(16, 186)
+        Me.Label7.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label7.Location = New System.Drawing.Point(12, 137)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(96, 52)
+        Me.Label7.Size = New System.Drawing.Size(78, 38)
         Me.Label7.TabIndex = 60
         Me.Label7.Text = "*Max Order Qty:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label14
-        '
-        Me.Label14.BackColor = System.Drawing.Color.White
-        Me.Label14.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label14.Location = New System.Drawing.Point(196, 186)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(96, 52)
-        Me.Label14.TabIndex = 61
-        Me.Label14.Text = "*Min. Order Qty:"
-        Me.Label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'Label15
-        '
-        Me.Label15.BackColor = System.Drawing.Color.White
-        Me.Label15.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label15.Location = New System.Drawing.Point(374, 186)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(96, 52)
-        Me.Label15.TabIndex = 62
-        Me.Label15.Text = "*Ordering Point:"
-        Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'btnAddItemPrice
         '
@@ -427,11 +467,12 @@ Partial Class FrmItemEntry
         Me.btnAddItemPrice.BackColor = System.Drawing.Color.Gainsboro
         Me.btnAddItemPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddItemPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItemPrice.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnAddItemPrice.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnAddItemPrice.ForeColor = System.Drawing.Color.Black
-        Me.btnAddItemPrice.Location = New System.Drawing.Point(11, 193)
+        Me.btnAddItemPrice.Location = New System.Drawing.Point(8, 152)
+        Me.btnAddItemPrice.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAddItemPrice.Name = "btnAddItemPrice"
-        Me.btnAddItemPrice.Size = New System.Drawing.Size(192, 36)
+        Me.btnAddItemPrice.Size = New System.Drawing.Size(144, 27)
         Me.btnAddItemPrice.TabIndex = 10
         Me.btnAddItemPrice.Text = "Add Supplier Item Price"
         Me.btnAddItemPrice.UseVisualStyleBackColor = False
@@ -447,10 +488,11 @@ Partial Class FrmItemEntry
         Me.dtableItemPrices.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableItemPrices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableItemPrices.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SupplierID, Me.AppliedDate, Me.UnitPrice, Me.ItemPriceID, Me.SupplierItemCode, Me.RegisteredDate})
-        Me.dtableItemPrices.Location = New System.Drawing.Point(11, 6)
+        Me.dtableItemPrices.Location = New System.Drawing.Point(8, 4)
+        Me.dtableItemPrices.Margin = New System.Windows.Forms.Padding(2)
         Me.dtableItemPrices.Name = "dtableItemPrices"
         Me.dtableItemPrices.ReadOnly = True
-        Me.dtableItemPrices.Size = New System.Drawing.Size(682, 181)
+        Me.dtableItemPrices.Size = New System.Drawing.Size(623, 142)
         Me.dtableItemPrices.TabIndex = 63
         '
         'SupplierID
@@ -458,52 +500,54 @@ Partial Class FrmItemEntry
         Me.SupplierID.HeaderText = "SupplierID"
         Me.SupplierID.Name = "SupplierID"
         Me.SupplierID.ReadOnly = True
+        Me.SupplierID.Width = 88
         '
         'AppliedDate
         '
         Me.AppliedDate.HeaderText = "Applied Date"
         Me.AppliedDate.Name = "AppliedDate"
         Me.AppliedDate.ReadOnly = True
-        Me.AppliedDate.Width = 108
+        Me.AppliedDate.Width = 94
         '
         'UnitPrice
         '
         Me.UnitPrice.HeaderText = "Unit Price"
         Me.UnitPrice.Name = "UnitPrice"
         Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 89
+        Me.UnitPrice.Width = 76
         '
         'ItemPriceID
         '
         Me.ItemPriceID.HeaderText = "Item Price ID"
         Me.ItemPriceID.Name = "ItemPriceID"
         Me.ItemPriceID.ReadOnly = True
-        Me.ItemPriceID.Width = 95
+        Me.ItemPriceID.Width = 80
         '
         'SupplierItemCode
         '
         Me.SupplierItemCode.HeaderText = "SupplierItemCode"
         Me.SupplierItemCode.Name = "SupplierItemCode"
         Me.SupplierItemCode.ReadOnly = True
-        Me.SupplierItemCode.Width = 148
+        Me.SupplierItemCode.Width = 128
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 127
+        Me.RegisteredDate.Width = 108
         '
         'Label10
         '
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.White
-        Me.Label10.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.Red
-        Me.Label10.Location = New System.Drawing.Point(12, 601)
+        Me.Label10.Location = New System.Drawing.Point(9, 451)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(245, 19)
+        Me.Label10.Size = New System.Drawing.Size(175, 15)
         Me.Label10.TabIndex = 65
         Me.Label10.Text = "*NOTE: ALL * ARE IMPORTANT"
         '
@@ -525,20 +569,22 @@ Partial Class FrmItemEntry
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage2)
         Me.TabControl1.Controls.Add(Me.TabPage1)
-        Me.TabControl1.Location = New System.Drawing.Point(8, 305)
+        Me.TabControl1.Location = New System.Drawing.Point(6, 225)
+        Me.TabControl1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(706, 269)
+        Me.TabControl1.Size = New System.Drawing.Size(641, 206)
         Me.TabControl1.TabIndex = 66
         '
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.btnAddPrice)
         Me.TabPage2.Controls.Add(Me.dtableCliPrice)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 28)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage2.Margin = New System.Windows.Forms.Padding(2)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(698, 237)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(2)
+        Me.TabPage2.Size = New System.Drawing.Size(633, 179)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Item Price"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -549,11 +595,12 @@ Partial Class FrmItemEntry
         Me.btnAddPrice.BackColor = System.Drawing.Color.Gainsboro
         Me.btnAddPrice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnAddPrice.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddPrice.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.btnAddPrice.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.btnAddPrice.ForeColor = System.Drawing.Color.Black
-        Me.btnAddPrice.Location = New System.Drawing.Point(9, 195)
+        Me.btnAddPrice.Location = New System.Drawing.Point(7, 149)
+        Me.btnAddPrice.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAddPrice.Name = "btnAddPrice"
-        Me.btnAddPrice.Size = New System.Drawing.Size(192, 36)
+        Me.btnAddPrice.Size = New System.Drawing.Size(144, 27)
         Me.btnAddPrice.TabIndex = 65
         Me.btnAddPrice.Text = "Add Item Price"
         Me.btnAddPrice.UseVisualStyleBackColor = False
@@ -569,10 +616,11 @@ Partial Class FrmItemEntry
         Me.dtableCliPrice.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableCliPrice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableCliPrice.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn6})
-        Me.dtableCliPrice.Location = New System.Drawing.Point(8, 12)
+        Me.dtableCliPrice.Location = New System.Drawing.Point(6, 9)
+        Me.dtableCliPrice.Margin = New System.Windows.Forms.Padding(2)
         Me.dtableCliPrice.Name = "dtableCliPrice"
         Me.dtableCliPrice.ReadOnly = True
-        Me.dtableCliPrice.Size = New System.Drawing.Size(682, 173)
+        Me.dtableCliPrice.Size = New System.Drawing.Size(622, 132)
         Me.dtableCliPrice.TabIndex = 64
         '
         'DataGridViewTextBoxColumn2
@@ -580,50 +628,49 @@ Partial Class FrmItemEntry
         Me.DataGridViewTextBoxColumn2.HeaderText = "Applied Date"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 108
+        Me.DataGridViewTextBoxColumn2.Width = 94
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Unit Price"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 89
+        Me.DataGridViewTextBoxColumn3.Width = 76
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "Item Price ID"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 95
+        Me.DataGridViewTextBoxColumn4.Width = 80
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Registered Date"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 127
+        Me.DataGridViewTextBoxColumn6.Width = 108
         '
         'TabPage1
         '
         Me.TabPage1.Controls.Add(Me.dtableItemPrices)
         Me.TabPage1.Controls.Add(Me.btnAddItemPrice)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 28)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 23)
+        Me.TabPage1.Margin = New System.Windows.Forms.Padding(2)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(698, 237)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(2)
+        Me.TabPage1.Size = New System.Drawing.Size(633, 179)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Supplier Item Price"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'FrmItemEntry
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 14.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(720, 623)
+        Me.ClientSize = New System.Drawing.Size(651, 467)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
@@ -632,9 +679,6 @@ Partial Class FrmItemEntry
         Me.Controls.Add(Me.cmbCliQtyUnit)
         Me.Controls.Add(Me.txtRemarks)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.txtMinQty)
-        Me.Controls.Add(Me.txtOrderPoint)
-        Me.Controls.Add(Me.txtMax)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.txtConCoe)
         Me.Controls.Add(Me.Label2)
@@ -643,9 +687,8 @@ Partial Class FrmItemEntry
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.grpItemDetails)
         Me.Controls.Add(Me.TabControl1)
-        Me.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Font = New System.Drawing.Font("Calibri", 9.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmItemEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Items Entry"

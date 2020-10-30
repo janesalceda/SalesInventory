@@ -15,7 +15,7 @@ Public Class FrmStockOutReport
 
                 SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
                 SQL.AddParams("@to", dtTo.Value.ToShortDateString)
-                SQL.ExecQuery("SELECT *,@from as 'DateFrom',@to as 'DateTo' FROM dbo.GetStockOut ( @from,@to)")
+                SQL.ExecQuery("SELECT *,@from as 'DateFrom',@to as 'DateTo',CompanyLogo FROM dbo.GetStockOut ( @from,@to) ,companyinfo")
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)

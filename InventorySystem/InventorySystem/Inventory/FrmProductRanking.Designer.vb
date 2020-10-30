@@ -70,7 +70,7 @@ Partial Class FrmProductRanking
         Me.cmbAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cmbAmount.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbAmount.FormattingEnabled = True
-        Me.cmbAmount.Items.AddRange(New Object() {"Amount", "Qty"})
+        Me.cmbAmount.Items.AddRange(New Object() {"Amount(Client)", "Amount(Supplier)", "Quantity"})
         Me.cmbAmount.Location = New System.Drawing.Point(508, 25)
         Me.cmbAmount.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbAmount.Name = "cmbAmount"
@@ -101,42 +101,42 @@ Partial Class FrmProductRanking
         Me.Rank.HeaderText = "Rank"
         Me.Rank.Name = "Rank"
         Me.Rank.ReadOnly = True
-        Me.Rank.Width = 61
+        Me.Rank.Width = 59
         '
         'ItemCode
         '
         Me.ItemCode.HeaderText = "ItemCode"
         Me.ItemCode.Name = "ItemCode"
         Me.ItemCode.ReadOnly = True
-        Me.ItemCode.Width = 86
+        Me.ItemCode.Width = 84
         '
         'Description
         '
         Me.Description.HeaderText = "Description"
         Me.Description.Name = "Description"
         Me.Description.ReadOnly = True
-        Me.Description.Width = 95
+        Me.Description.Width = 93
         '
         'Quantity
         '
         Me.Quantity.HeaderText = "Quantity"
         Me.Quantity.Name = "Quantity"
         Me.Quantity.ReadOnly = True
-        Me.Quantity.Width = 76
+        Me.Quantity.Width = 74
         '
         'TotalSup
         '
         Me.TotalSup.HeaderText = "Total Amount(based on supplier)"
         Me.TotalSup.Name = "TotalSup"
         Me.TotalSup.ReadOnly = True
-        Me.TotalSup.Width = 147
+        Me.TotalSup.Width = 145
         '
         'TotalAmountCli
         '
         Me.TotalAmountCli.HeaderText = "Total Amount(based on client)"
         Me.TotalAmountCli.Name = "TotalAmountCli"
         Me.TotalAmountCli.ReadOnly = True
-        Me.TotalAmountCli.Width = 147
+        Me.TotalAmountCli.Width = 145
         '
         'btnSearch
         '

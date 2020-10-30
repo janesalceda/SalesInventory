@@ -35,21 +35,23 @@ Partial Class FrmChangeItemDescription
         'txtItemId
         '
         Me.txtItemId.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtItemId.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemId.Location = New System.Drawing.Point(75, 12)
+        Me.txtItemId.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtItemId.Location = New System.Drawing.Point(60, 11)
+        Me.txtItemId.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemId.MaxLength = 19
         Me.txtItemId.Name = "txtItemId"
-        Me.txtItemId.Size = New System.Drawing.Size(328, 26)
+        Me.txtItemId.Size = New System.Drawing.Size(266, 23)
         Me.txtItemId.TabIndex = 63
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(9, 15)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label2.Location = New System.Drawing.Point(7, 13)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 18)
+        Me.Label2.Size = New System.Drawing.Size(55, 16)
         Me.Label2.TabIndex = 64
         Me.Label2.Text = "Item ID:"
         '
@@ -57,42 +59,46 @@ Partial Class FrmChangeItemDescription
         '
         Me.txtCurDescription.BackColor = System.Drawing.Color.White
         Me.txtCurDescription.Enabled = False
-        Me.txtCurDescription.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtCurDescription.Location = New System.Drawing.Point(11, 71)
+        Me.txtCurDescription.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtCurDescription.Location = New System.Drawing.Point(9, 63)
+        Me.txtCurDescription.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtCurDescription.MaxLength = 19
         Me.txtCurDescription.Name = "txtCurDescription"
-        Me.txtCurDescription.Size = New System.Drawing.Size(392, 26)
+        Me.txtCurDescription.Size = New System.Drawing.Size(315, 23)
         Me.txtCurDescription.TabIndex = 65
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 47)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label1.Location = New System.Drawing.Point(7, 42)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(180, 18)
+        Me.Label1.Size = New System.Drawing.Size(165, 16)
         Me.Label1.TabIndex = 66
         Me.Label1.Text = "Current Item Description:"
         '
         'txtNewDescription
         '
         Me.txtNewDescription.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtNewDescription.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNewDescription.Location = New System.Drawing.Point(12, 127)
+        Me.txtNewDescription.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtNewDescription.Location = New System.Drawing.Point(9, 113)
+        Me.txtNewDescription.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtNewDescription.MaxLength = 19
         Me.txtNewDescription.Name = "txtNewDescription"
-        Me.txtNewDescription.Size = New System.Drawing.Size(391, 26)
+        Me.txtNewDescription.Size = New System.Drawing.Size(315, 23)
         Me.txtNewDescription.TabIndex = 67
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 106)
+        Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label3.Location = New System.Drawing.Point(7, 94)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(156, 18)
+        Me.Label3.Size = New System.Drawing.Size(139, 16)
         Me.Label3.TabIndex = 68
         Me.Label3.Text = "New Item Description"
         '
@@ -100,9 +106,10 @@ Partial Class FrmChangeItemDescription
         '
         Me.btnUpdate.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.Location = New System.Drawing.Point(228, 159)
+        Me.btnUpdate.Location = New System.Drawing.Point(180, 141)
+        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(84, 36)
+        Me.btnUpdate.Size = New System.Drawing.Size(65, 32)
         Me.btnUpdate.TabIndex = 69
         Me.btnUpdate.Text = "Update"
         Me.btnUpdate.UseVisualStyleBackColor = False
@@ -111,18 +118,19 @@ Partial Class FrmChangeItemDescription
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(318, 159)
+        Me.btnCancel.Location = New System.Drawing.Point(250, 141)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(81, 36)
+        Me.btnCancel.Size = New System.Drawing.Size(63, 32)
         Me.btnCancel.TabIndex = 73
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
         'FrmChangeItemDescription
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(428, 206)
+        Me.ClientSize = New System.Drawing.Size(333, 183)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.txtNewDescription)
@@ -131,8 +139,8 @@ Partial Class FrmChangeItemDescription
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtItemId)
         Me.Controls.Add(Me.Label2)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmChangeItemDescription"
         Me.Text = "Change Item Description"
         Me.ResumeLayout(False)

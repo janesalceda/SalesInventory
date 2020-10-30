@@ -5,7 +5,7 @@
         '    MsgBox("Please input itemid!", MsgBoxStyle.Exclamation, "Warning")
         '    Exit Sub
         'End If
-        SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
+        SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
         If Not String.IsNullOrEmpty(txtitem.Text) Then
             SQL.AddParams("@ItemId", txtitem.Text)
             where = " and itemid=@itemId"
@@ -13,12 +13,13 @@
         'If Not String.IsNullOrEmpty(cmbSort.Text) Then
         '    where += " order by " & cmbSort.Text
         'End If
-        SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' ,
-            case when test.qty<=MinimumOrderQty then 'Critical'
-            when test.qty<=OrderingPointQty then 'Ordering Point' end 'Status'
+        SQL.ExecQuery("SELECT i.itemid,i.Description,
+            isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)'qty',
+            case when isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=MinimumOrderQty 
+            OR isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=OrderingPointQty then 'TO RE-ORDER'
+            ELSE 'NO' end 'Status'
             FROM Items i
-	        LEFT JOIN (SELECT * FROM GetStockBalance(@from)) AS test
-	        ON test.ItemId = i.ItemId where i.deletedDate is null" & where)
+             where i.deletedDate is null " & where)
         If SQL.DBDT.Rows.Count = 0 Then
             MsgBox("No record found!", MsgBoxStyle.Information, "Information")
             Exit Sub

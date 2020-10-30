@@ -56,6 +56,7 @@ Partial Class ScanItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(16.0!, 32.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(451, 154)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtItemID)

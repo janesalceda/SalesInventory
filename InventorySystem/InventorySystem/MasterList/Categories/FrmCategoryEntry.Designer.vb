@@ -31,18 +31,20 @@ Partial Class FrmCategoryEntry
         'txtCategoryname
         '
         Me.txtCategoryname.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtCategoryname.Location = New System.Drawing.Point(142, 16)
+        Me.txtCategoryname.Location = New System.Drawing.Point(111, 14)
+        Me.txtCategoryname.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtCategoryname.MaxLength = 50
         Me.txtCategoryname.Name = "txtCategoryname"
-        Me.txtCategoryname.Size = New System.Drawing.Size(303, 26)
+        Me.txtCategoryname.Size = New System.Drawing.Size(237, 23)
         Me.txtCategoryname.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 18)
+        Me.Label1.Location = New System.Drawing.Point(4, 18)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(122, 18)
+        Me.Label1.Size = New System.Drawing.Size(110, 16)
         Me.Label1.TabIndex = 46
         Me.Label1.Text = "Category Name:"
         '
@@ -51,10 +53,11 @@ Partial Class FrmCategoryEntry
         Me.btnInsert.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInsert.Enabled = False
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.ForeColor = System.Drawing.Color.White
-        Me.btnInsert.Location = New System.Drawing.Point(206, 52)
+        Me.btnInsert.ForeColor = System.Drawing.Color.Black
+        Me.btnInsert.Location = New System.Drawing.Point(160, 46)
+        Me.btnInsert.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(174, 30)
+        Me.btnInsert.Size = New System.Drawing.Size(135, 27)
         Me.btnInsert.TabIndex = 2
         Me.btnInsert.Text = "SAVE"
         Me.btnInsert.UseVisualStyleBackColor = False
@@ -63,25 +66,26 @@ Partial Class FrmCategoryEntry
         '
         Me.chkDisuse.AutoSize = True
         Me.chkDisuse.Enabled = False
-        Me.chkDisuse.Location = New System.Drawing.Point(454, 18)
+        Me.chkDisuse.Location = New System.Drawing.Point(354, 16)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
+        Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 1
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
         'FrmCategoryEntry
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(546, 93)
+        Me.ClientSize = New System.Drawing.Size(425, 83)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.btnInsert)
         Me.Controls.Add(Me.txtCategoryname)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmCategoryEntry"
         Me.Text = "Categories"
         Me.ResumeLayout(False)

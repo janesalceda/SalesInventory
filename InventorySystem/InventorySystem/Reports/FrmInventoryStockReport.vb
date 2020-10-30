@@ -18,7 +18,7 @@ Public Class FrmInventoryStockReport
         SQL.AddParams("@from", dtFrom.Value.ToShortDateString)
         SQL.AddParams("@to", dtTo.Value.ToShortDateString)
         SQL.AddParams("@itemid", txtitem.Text)
-        SQL.ExecQuery("SELECT * FROM SAMPLEINV WHERE 
+        SQL.ExecQuery("SELECT *,CompanyLogo FROM SAMPLEINV,companyinfo WHERE 
             convert(VARCHAR(10),TransactedDate,111) >= @from
             AND convert(VARCHAR(10),TransactedDate,111) <=@to
             AND ItemID=@itemid
@@ -142,7 +142,7 @@ Public Class FrmInventoryStockReport
                                 dgvData.Rows(i).Cells(5).Value, dgvData.Rows(i).Cells(6).Value)
                 Next
                 If dgvData.Rows.Count = 0 Then
-                    MsgBox("No data found!0", MsgBoxStyle.Information, "Information")
+                    MsgBox("No data found!", MsgBoxStyle.Information, "Information")
                     Exit Sub
                 End If
                 rptDs = New ReportDataSource("DataSet1", dt)

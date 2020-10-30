@@ -34,9 +34,10 @@ Partial Class FrmStockOutReport
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(8, 40)
+        Me.Label3.Location = New System.Drawing.Point(6, 36)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 18)
+        Me.Label3.Size = New System.Drawing.Size(42, 16)
         Me.Label3.TabIndex = 23
         Me.Label3.Text = "Date:"
         '
@@ -44,26 +45,31 @@ Partial Class FrmStockOutReport
         '
         Me.txtitem.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtitem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtitem.Location = New System.Drawing.Point(60, 4)
+        Me.txtitem.Location = New System.Drawing.Point(50, 4)
+        Me.txtitem.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtitem.MaxLength = 20
         Me.txtitem.Name = "txtitem"
-        Me.txtitem.Size = New System.Drawing.Size(274, 26)
+        Me.txtitem.Size = New System.Drawing.Size(214, 23)
         Me.txtitem.TabIndex = 18
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(357, 3)
+        Me.btnPrint.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrint.Location = New System.Drawing.Point(281, 3)
+        Me.btnPrint.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(132, 30)
+        Me.btnPrint.Size = New System.Drawing.Size(103, 27)
         Me.btnPrint.TabIndex = 17
         Me.btnPrint.Text = "PRINT"
-        Me.btnPrint.UseVisualStyleBackColor = True
+        Me.btnPrint.UseVisualStyleBackColor = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(336, 38)
+        Me.Label2.Location = New System.Drawing.Point(264, 34)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(19, 23)
         Me.Label2.TabIndex = 22
@@ -71,32 +77,36 @@ Partial Class FrmStockOutReport
         '
         'dtTo
         '
-        Me.dtTo.Location = New System.Drawing.Point(360, 36)
+        Me.dtTo.Location = New System.Drawing.Point(283, 32)
+        Me.dtTo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(268, 26)
+        Me.dtTo.Size = New System.Drawing.Size(209, 23)
         Me.dtTo.TabIndex = 21
         '
         'dtFrom
         '
-        Me.dtFrom.Location = New System.Drawing.Point(60, 36)
+        Me.dtFrom.Location = New System.Drawing.Point(50, 32)
+        Me.dtFrom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(274, 26)
+        Me.dtFrom.Size = New System.Drawing.Size(214, 23)
         Me.dtFrom.TabIndex = 20
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 8)
+        Me.Label1.Location = New System.Drawing.Point(6, 7)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 18)
+        Me.Label1.Size = New System.Drawing.Size(45, 16)
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Items:"
         '
         'FrmStockOutReport
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(636, 76)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(495, 68)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtitem)
         Me.Controls.Add(Me.btnPrint)
@@ -104,8 +114,8 @@ Partial Class FrmStockOutReport
         Me.Controls.Add(Me.dtTo)
         Me.Controls.Add(Me.dtFrom)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmStockOutReport"
         Me.Text = "Stock Out Report"
         Me.ResumeLayout(False)

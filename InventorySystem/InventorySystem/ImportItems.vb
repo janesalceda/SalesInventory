@@ -38,7 +38,7 @@ Public Class ImportItems
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
             TextBox1.Text = OpenFileDialog1.FileName
         Else

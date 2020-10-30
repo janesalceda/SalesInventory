@@ -43,9 +43,10 @@ Partial Class FrmInventoryStockReport
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(4, 42)
+        Me.Label3.Location = New System.Drawing.Point(3, 37)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(46, 18)
+        Me.Label3.Size = New System.Drawing.Size(42, 16)
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Date:"
         '
@@ -53,26 +54,31 @@ Partial Class FrmInventoryStockReport
         '
         Me.txtitem.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtitem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtitem.Location = New System.Drawing.Point(56, 6)
+        Me.txtitem.Location = New System.Drawing.Point(48, 5)
+        Me.txtitem.Margin = New System.Windows.Forms.Padding(2)
         Me.txtitem.MaxLength = 20
         Me.txtitem.Name = "txtitem"
-        Me.txtitem.Size = New System.Drawing.Size(274, 26)
+        Me.txtitem.Size = New System.Drawing.Size(214, 23)
         Me.txtitem.TabIndex = 11
         '
         'btnPrint
         '
-        Me.btnPrint.Location = New System.Drawing.Point(353, 5)
+        Me.btnPrint.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPrint.Location = New System.Drawing.Point(279, 4)
+        Me.btnPrint.Margin = New System.Windows.Forms.Padding(2)
         Me.btnPrint.Name = "btnPrint"
-        Me.btnPrint.Size = New System.Drawing.Size(132, 30)
+        Me.btnPrint.Size = New System.Drawing.Size(103, 27)
         Me.btnPrint.TabIndex = 10
         Me.btnPrint.Text = "PRINT"
-        Me.btnPrint.UseVisualStyleBackColor = True
+        Me.btnPrint.UseVisualStyleBackColor = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(332, 40)
+        Me.Label2.Location = New System.Drawing.Point(262, 35)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(19, 23)
         Me.Label2.TabIndex = 15
@@ -80,24 +86,27 @@ Partial Class FrmInventoryStockReport
         '
         'dtTo
         '
-        Me.dtTo.Location = New System.Drawing.Point(356, 38)
+        Me.dtTo.Location = New System.Drawing.Point(281, 34)
+        Me.dtTo.Margin = New System.Windows.Forms.Padding(2)
         Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(268, 26)
+        Me.dtTo.Size = New System.Drawing.Size(209, 23)
         Me.dtTo.TabIndex = 14
         '
         'dtFrom
         '
-        Me.dtFrom.Location = New System.Drawing.Point(56, 38)
+        Me.dtFrom.Location = New System.Drawing.Point(48, 34)
+        Me.dtFrom.Margin = New System.Windows.Forms.Padding(2)
         Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(274, 26)
+        Me.dtFrom.Size = New System.Drawing.Size(214, 23)
         Me.dtFrom.TabIndex = 13
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(4, 10)
+        Me.Label1.Location = New System.Drawing.Point(3, 9)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 18)
+        Me.Label1.Size = New System.Drawing.Size(45, 16)
         Me.Label1.TabIndex = 12
         Me.Label1.Text = "Items:"
         '
@@ -110,10 +119,11 @@ Partial Class FrmInventoryStockReport
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.OUTQTY, Me.ACQTY, Me.BALANCE, Me.Remarks})
-        Me.dgvData.Location = New System.Drawing.Point(574, 2)
+        Me.dgvData.Location = New System.Drawing.Point(448, 2)
+        Me.dgvData.Margin = New System.Windows.Forms.Padding(2)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
-        Me.dgvData.Size = New System.Drawing.Size(34, 48)
+        Me.dgvData.Size = New System.Drawing.Size(42, 43)
         Me.dgvData.TabIndex = 17
         Me.dgvData.Visible = False
         '
@@ -161,9 +171,9 @@ Partial Class FrmInventoryStockReport
         '
         'FrmInventoryStockReport
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(629, 84)
+        Me.ClientSize = New System.Drawing.Size(505, 75)
         Me.Controls.Add(Me.dgvData)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtitem)
@@ -172,8 +182,7 @@ Partial Class FrmInventoryStockReport
         Me.Controls.Add(Me.dtTo)
         Me.Controls.Add(Me.dtFrom)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.Name = "FrmInventoryStockReport"
         Me.Text = "Inventory Stock Report"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()

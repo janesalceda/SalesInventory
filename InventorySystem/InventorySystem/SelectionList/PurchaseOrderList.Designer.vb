@@ -42,12 +42,11 @@ Partial Class PurchaseOrderList
         '
         'btnOk
         '
-        Me.btnOk.BackColor = System.Drawing.Color.White
+        Me.btnOk.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnOk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnOk.Location = New System.Drawing.Point(296, 368)
-        Me.btnOk.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnOk.Location = New System.Drawing.Point(230, 307)
         Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(88, 29)
+        Me.btnOk.Size = New System.Drawing.Size(68, 24)
         Me.btnOk.TabIndex = 82
         Me.btnOk.Text = "OK"
         Me.btnOk.UseVisualStyleBackColor = False
@@ -56,22 +55,22 @@ Partial Class PurchaseOrderList
         '
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(286, 113)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnClear.Location = New System.Drawing.Point(228, 94)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(84, 29)
+        Me.btnClear.Size = New System.Drawing.Size(65, 24)
         Me.btnClear.TabIndex = 81
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
         '
         'btnSearch
         '
-        Me.btnSearch.BackColor = System.Drawing.Color.White
+        Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(189, 113)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnSearch.Location = New System.Drawing.Point(146, 94)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(88, 29)
+        Me.btnSearch.Size = New System.Drawing.Size(79, 24)
         Me.btnSearch.TabIndex = 80
         Me.btnSearch.Text = "SEARCH"
         Me.btnSearch.UseVisualStyleBackColor = False
@@ -79,51 +78,51 @@ Partial Class PurchaseOrderList
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(15, 84)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label1.Location = New System.Drawing.Point(12, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 18)
+        Me.Label1.Size = New System.Drawing.Size(64, 16)
         Me.Label1.TabIndex = 78
         Me.Label1.Text = "Supplier:"
         '
         'txtSupplier
         '
         Me.txtSupplier.Enabled = False
-        Me.txtSupplier.Location = New System.Drawing.Point(92, 83)
-        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSupplier.Location = New System.Drawing.Point(78, 69)
         Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
-        Me.txtSupplier.Size = New System.Drawing.Size(277, 26)
+        Me.txtSupplier.Size = New System.Drawing.Size(216, 23)
         Me.txtSupplier.TabIndex = 79
         '
         'txtItems
         '
         Me.txtItems.Enabled = False
-        Me.txtItems.Location = New System.Drawing.Point(92, 50)
-        Me.txtItems.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtItems.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtItems.Location = New System.Drawing.Point(78, 42)
         Me.txtItems.MaxLength = 20
         Me.txtItems.Name = "txtItems"
-        Me.txtItems.Size = New System.Drawing.Size(277, 26)
+        Me.txtItems.Size = New System.Drawing.Size(216, 23)
         Me.txtItems.TabIndex = 77
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(15, 18)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label4.Location = New System.Drawing.Point(12, 15)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(59, 18)
+        Me.Label4.Size = New System.Drawing.Size(53, 16)
         Me.Label4.TabIndex = 75
         Me.Label4.Text = "PO No:"
         '
         'txtpo
         '
         Me.txtpo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtpo.Location = New System.Drawing.Point(92, 17)
-        Me.txtpo.Margin = New System.Windows.Forms.Padding(4)
+        Me.txtpo.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtpo.Location = New System.Drawing.Point(78, 14)
         Me.txtpo.MaxLength = 20
         Me.txtpo.Name = "txtpo"
-        Me.txtpo.Size = New System.Drawing.Size(277, 26)
+        Me.txtpo.Size = New System.Drawing.Size(216, 23)
         Me.txtpo.TabIndex = 76
         '
         'dtitems
@@ -134,13 +133,12 @@ Partial Class PurchaseOrderList
         Me.dtitems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtitems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtitems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemCode, Me.ItemName, Me.Column2, Me.Column1, Me.Column3})
-        Me.dtitems.Location = New System.Drawing.Point(4, 150)
-        Me.dtitems.Margin = New System.Windows.Forms.Padding(4)
+        Me.dtitems.Location = New System.Drawing.Point(3, 125)
         Me.dtitems.Name = "dtitems"
         Me.dtitems.ReadOnly = True
         Me.dtitems.RowHeadersVisible = False
         Me.dtitems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtitems.Size = New System.Drawing.Size(379, 210)
+        Me.dtitems.Size = New System.Drawing.Size(295, 175)
         Me.dtitems.TabIndex = 74
         '
         'ItemCode
@@ -148,14 +146,14 @@ Partial Class PurchaseOrderList
         Me.ItemCode.HeaderText = "PO No"
         Me.ItemCode.Name = "ItemCode"
         Me.ItemCode.ReadOnly = True
-        Me.ItemCode.Width = 54
+        Me.ItemCode.Width = 66
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Seq"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 60
+        Me.ItemName.Width = 52
         '
         'Column2
         '
@@ -169,7 +167,7 @@ Partial Class PurchaseOrderList
         Me.Column1.HeaderText = "Balance Qty"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 105
+        Me.Column1.Width = 95
         '
         'Column3
         '
@@ -181,18 +179,18 @@ Partial Class PurchaseOrderList
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(15, 50)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label2.Location = New System.Drawing.Point(12, 42)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 18)
+        Me.Label2.Size = New System.Drawing.Size(49, 16)
         Me.Label2.TabIndex = 84
         Me.Label2.Text = "ItemId:"
         '
         'PurchaseOrderList
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(393, 401)
+        Me.ClientSize = New System.Drawing.Size(306, 334)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.btnClear)
@@ -203,12 +201,11 @@ Partial Class PurchaseOrderList
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.txtpo)
         Me.Controls.Add(Me.dtitems)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(409, 440)
+        Me.MaximumSize = New System.Drawing.Size(322, 373)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(409, 440)
+        Me.MinimumSize = New System.Drawing.Size(322, 373)
         Me.Name = "PurchaseOrderList"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "List of Purchase Order "

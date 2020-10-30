@@ -12,7 +12,7 @@
   <xs:element name="DataSet4" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet4" msprop:Generator_UserDSName="DataSet4">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ItemStocksDataSet" msprop:Generator_TableClassName="ItemStocksDataSetDataTable" msprop:Generator_TableVarName="tableItemStocksDataSet" msprop:Generator_TablePropName="ItemStocksDataSet" msprop:Generator_RowDeletingName="ItemStocksDataSetRowDeleting" msprop:Generator_RowChangingName="ItemStocksDataSetRowChanging" msprop:Generator_RowEvHandlerName="ItemStocksDataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemStocksDataSetRowDeleted" msprop:Generator_UserTableName="ItemStocksDataSet" msprop:Generator_RowChangedName="ItemStocksDataSetRowChanged" msprop:Generator_RowEvArgName="ItemStocksDataSetRowChangeEvent" msprop:Generator_RowClassName="ItemStocksDataSetRow">
+        <xs:element name="ItemStocksDataSet" msprop:Generator_TableClassName="ItemStocksDataSetDataTable" msprop:Generator_TableVarName="tableItemStocksDataSet" msprop:Generator_RowChangedName="ItemStocksDataSetRowChanged" msprop:Generator_TablePropName="ItemStocksDataSet" msprop:Generator_RowDeletingName="ItemStocksDataSetRowDeleting" msprop:Generator_RowChangingName="ItemStocksDataSetRowChanging" msprop:Generator_RowEvHandlerName="ItemStocksDataSetRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemStocksDataSetRowDeleted" msprop:Generator_RowClassName="ItemStocksDataSetRow" msprop:Generator_UserTableName="ItemStocksDataSet" msprop:Generator_RowEvArgName="ItemStocksDataSetRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ItemId" msprop:Generator_ColumnVarNameInTable="columnItemId" msprop:Generator_ColumnPropNameInRow="ItemId" msprop:Generator_ColumnPropNameInTable="ItemIdColumn" msprop:Generator_UserColumnName="ItemId" type="xs:string" minOccurs="0" />
@@ -20,6 +20,7 @@
               <xs:element name="Qty" msprop:Generator_ColumnVarNameInTable="columnQty" msprop:Generator_ColumnPropNameInRow="Qty" msprop:Generator_ColumnPropNameInTable="QtyColumn" msprop:Generator_UserColumnName="Qty" type="xs:string" minOccurs="0" />
               <xs:element name="MinimumOrderQty" msprop:Generator_ColumnVarNameInTable="columnMinimumOrderQty" msprop:Generator_ColumnPropNameInRow="MinimumOrderQty" msprop:Generator_ColumnPropNameInTable="MinimumOrderQtyColumn" msprop:Generator_UserColumnName="MinimumOrderQty" type="xs:string" minOccurs="0" />
               <xs:element name="OrderingPointQty" msprop:Generator_ColumnVarNameInTable="columnOrderingPointQty" msprop:Generator_ColumnPropNameInRow="OrderingPointQty" msprop:Generator_ColumnPropNameInTable="OrderingPointQtyColumn" msprop:Generator_UserColumnName="OrderingPointQty" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyLogo" msprop:Generator_ColumnVarNameInTable="columnCompanyLogo" msprop:Generator_ColumnPropNameInRow="CompanyLogo" msprop:Generator_ColumnPropNameInTable="CompanyLogoColumn" msprop:Generator_UserColumnName="CompanyLogo" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

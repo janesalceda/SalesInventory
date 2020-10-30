@@ -49,10 +49,11 @@ Partial Class FrmChangeUOM
         'Label4
         '
         Me.Label4.BackColor = System.Drawing.Color.White
-        Me.Label4.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label4.Location = New System.Drawing.Point(5, 13)
+        Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label4.Location = New System.Drawing.Point(5, 12)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(124, 25)
+        Me.Label4.Size = New System.Drawing.Size(96, 22)
         Me.Label4.TabIndex = 58
         Me.Label4.Text = "Choose UOM:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -61,12 +62,13 @@ Partial Class FrmChangeUOM
         '
         Me.cmbCliQtyUnit.BackColor = System.Drawing.Color.LightBlue
         Me.cmbCliQtyUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbCliQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbCliQtyUnit.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbCliQtyUnit.FormattingEnabled = True
         Me.cmbCliQtyUnit.Items.AddRange(New Object() {"Client Qty Unit", "Converting Coefficient", "Supplier Qty Unit"})
-        Me.cmbCliQtyUnit.Location = New System.Drawing.Point(135, 9)
+        Me.cmbCliQtyUnit.Location = New System.Drawing.Point(114, 8)
+        Me.cmbCliQtyUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbCliQtyUnit.Name = "cmbCliQtyUnit"
-        Me.cmbCliQtyUnit.Size = New System.Drawing.Size(241, 29)
+        Me.cmbCliQtyUnit.Size = New System.Drawing.Size(188, 24)
         Me.cmbCliQtyUnit.TabIndex = 57
         '
         'btnSave
@@ -77,9 +79,10 @@ Partial Class FrmChangeUOM
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
         Me.btnSave.ForeColor = System.Drawing.Color.Black
-        Me.btnSave.Location = New System.Drawing.Point(339, 348)
+        Me.btnSave.Location = New System.Drawing.Point(248, 310)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(88, 36)
+        Me.btnSave.Size = New System.Drawing.Size(78, 32)
         Me.btnSave.TabIndex = 59
         Me.btnSave.Text = "Update"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -87,21 +90,23 @@ Partial Class FrmChangeUOM
         'txtItemid
         '
         Me.txtItemid.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtItemid.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtItemid.Location = New System.Drawing.Point(135, 61)
+        Me.txtItemid.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtItemid.Location = New System.Drawing.Point(114, 54)
+        Me.txtItemid.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemid.MaxLength = 19
         Me.txtItemid.Name = "txtItemid"
-        Me.txtItemid.Size = New System.Drawing.Size(377, 26)
+        Me.txtItemid.Size = New System.Drawing.Size(294, 23)
         Me.txtItemid.TabIndex = 65
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(6, 64)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label2.Location = New System.Drawing.Point(5, 57)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 18)
+        Me.Label2.Size = New System.Drawing.Size(55, 16)
         Me.Label2.TabIndex = 66
         Me.Label2.Text = "Item ID:"
         '
@@ -113,30 +118,36 @@ Partial Class FrmChangeUOM
         Me.GroupBox1.Controls.Add(Me.cmbOldSupQtyUnit)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.cmbOldCliQtyUnit)
-        Me.GroupBox1.Location = New System.Drawing.Point(9, 108)
+        Me.GroupBox1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.GroupBox1.Location = New System.Drawing.Point(7, 90)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(511, 108)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.GroupBox1.Size = New System.Drawing.Size(397, 102)
         Me.GroupBox1.TabIndex = 67
         Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Current Qty Unit"
         '
         'txtOldConCoe
         '
         Me.txtOldConCoe.BackColor = System.Drawing.Color.White
         Me.txtOldConCoe.Enabled = False
-        Me.txtOldConCoe.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtOldConCoe.Location = New System.Drawing.Point(183, 64)
+        Me.txtOldConCoe.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtOldConCoe.Location = New System.Drawing.Point(196, 56)
+        Me.txtOldConCoe.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtOldConCoe.MaxLength = 19
         Me.txtOldConCoe.Name = "txtOldConCoe"
-        Me.txtOldConCoe.Size = New System.Drawing.Size(322, 26)
+        Me.txtOldConCoe.Size = New System.Drawing.Size(194, 23)
         Me.txtOldConCoe.TabIndex = 66
         '
         'Label5
         '
         Me.Label5.BackColor = System.Drawing.Color.White
         Me.Label5.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label5.Location = New System.Drawing.Point(6, 65)
+        Me.Label5.Location = New System.Drawing.Point(5, 58)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(186, 25)
+        Me.Label5.Size = New System.Drawing.Size(189, 22)
         Me.Label5.TabIndex = 63
         Me.Label5.Text = "Converting Coeffiecient:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -145,9 +156,10 @@ Partial Class FrmChangeUOM
         '
         Me.Label3.BackColor = System.Drawing.Color.White
         Me.Label3.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label3.Location = New System.Drawing.Point(218, 25)
+        Me.Label3.Location = New System.Drawing.Point(194, 26)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(128, 25)
+        Me.Label3.Size = New System.Drawing.Size(124, 24)
         Me.Label3.TabIndex = 62
         Me.Label3.Text = "SupplierQtyUnit:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -157,20 +169,22 @@ Partial Class FrmChangeUOM
         Me.cmbOldSupQtyUnit.BackColor = System.Drawing.Color.LightBlue
         Me.cmbOldSupQtyUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOldSupQtyUnit.Enabled = False
-        Me.cmbOldSupQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbOldSupQtyUnit.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbOldSupQtyUnit.FormattingEnabled = True
-        Me.cmbOldSupQtyUnit.Location = New System.Drawing.Point(352, 21)
+        Me.cmbOldSupQtyUnit.Location = New System.Drawing.Point(320, 26)
+        Me.cmbOldSupQtyUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbOldSupQtyUnit.Name = "cmbOldSupQtyUnit"
-        Me.cmbOldSupQtyUnit.Size = New System.Drawing.Size(86, 29)
+        Me.cmbOldSupQtyUnit.Size = New System.Drawing.Size(68, 24)
         Me.cmbOldSupQtyUnit.TabIndex = 61
         '
         'Label1
         '
         Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label1.Location = New System.Drawing.Point(9, 25)
+        Me.Label1.Location = New System.Drawing.Point(5, 25)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(111, 25)
+        Me.Label1.Size = New System.Drawing.Size(107, 25)
         Me.Label1.TabIndex = 60
         Me.Label1.Text = "ClientQtyUnit:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -180,11 +194,12 @@ Partial Class FrmChangeUOM
         Me.cmbOldCliQtyUnit.BackColor = System.Drawing.Color.LightBlue
         Me.cmbOldCliQtyUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbOldCliQtyUnit.Enabled = False
-        Me.cmbOldCliQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbOldCliQtyUnit.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbOldCliQtyUnit.FormattingEnabled = True
-        Me.cmbOldCliQtyUnit.Location = New System.Drawing.Point(126, 21)
+        Me.cmbOldCliQtyUnit.Location = New System.Drawing.Point(114, 25)
+        Me.cmbOldCliQtyUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbOldCliQtyUnit.Name = "cmbOldCliQtyUnit"
-        Me.cmbOldCliQtyUnit.Size = New System.Drawing.Size(86, 29)
+        Me.cmbOldCliQtyUnit.Size = New System.Drawing.Size(68, 24)
         Me.cmbOldCliQtyUnit.TabIndex = 59
         '
         'GroupBox2
@@ -195,30 +210,36 @@ Partial Class FrmChangeUOM
         Me.GroupBox2.Controls.Add(Me.cmbNewSupQtyUnit)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.cmbNewCliQtyUnit)
-        Me.GroupBox2.Location = New System.Drawing.Point(9, 222)
+        Me.GroupBox2.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.GroupBox2.Location = New System.Drawing.Point(7, 197)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(511, 108)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.GroupBox2.Size = New System.Drawing.Size(397, 96)
         Me.GroupBox2.TabIndex = 68
         Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "New Qty Unit"
         '
         'txtNewConCoe
         '
         Me.txtNewConCoe.BackColor = System.Drawing.Color.White
         Me.txtNewConCoe.Enabled = False
-        Me.txtNewConCoe.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtNewConCoe.Location = New System.Drawing.Point(183, 64)
+        Me.txtNewConCoe.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtNewConCoe.Location = New System.Drawing.Point(192, 57)
+        Me.txtNewConCoe.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtNewConCoe.MaxLength = 19
         Me.txtNewConCoe.Name = "txtNewConCoe"
-        Me.txtNewConCoe.Size = New System.Drawing.Size(322, 26)
+        Me.txtNewConCoe.Size = New System.Drawing.Size(201, 23)
         Me.txtNewConCoe.TabIndex = 66
         '
         'Label6
         '
         Me.Label6.BackColor = System.Drawing.Color.White
         Me.Label6.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label6.Location = New System.Drawing.Point(6, 65)
+        Me.Label6.Location = New System.Drawing.Point(5, 58)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(186, 25)
+        Me.Label6.Size = New System.Drawing.Size(187, 22)
         Me.Label6.TabIndex = 63
         Me.Label6.Text = "Converting Coeffiecient:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -227,9 +248,10 @@ Partial Class FrmChangeUOM
         '
         Me.Label7.BackColor = System.Drawing.Color.White
         Me.Label7.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label7.Location = New System.Drawing.Point(218, 25)
+        Me.Label7.Location = New System.Drawing.Point(194, 21)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(128, 25)
+        Me.Label7.Size = New System.Drawing.Size(124, 23)
         Me.Label7.TabIndex = 62
         Me.Label7.Text = "SupplierQtyUnit:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -239,20 +261,22 @@ Partial Class FrmChangeUOM
         Me.cmbNewSupQtyUnit.BackColor = System.Drawing.Color.LightBlue
         Me.cmbNewSupQtyUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbNewSupQtyUnit.Enabled = False
-        Me.cmbNewSupQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbNewSupQtyUnit.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbNewSupQtyUnit.FormattingEnabled = True
-        Me.cmbNewSupQtyUnit.Location = New System.Drawing.Point(352, 21)
+        Me.cmbNewSupQtyUnit.Location = New System.Drawing.Point(320, 22)
+        Me.cmbNewSupQtyUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbNewSupQtyUnit.Name = "cmbNewSupQtyUnit"
-        Me.cmbNewSupQtyUnit.Size = New System.Drawing.Size(86, 29)
+        Me.cmbNewSupQtyUnit.Size = New System.Drawing.Size(68, 24)
         Me.cmbNewSupQtyUnit.TabIndex = 61
         '
         'Label8
         '
         Me.Label8.BackColor = System.Drawing.Color.White
         Me.Label8.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label8.Location = New System.Drawing.Point(9, 25)
+        Me.Label8.Location = New System.Drawing.Point(5, 22)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(111, 25)
+        Me.Label8.Size = New System.Drawing.Size(109, 24)
         Me.Label8.TabIndex = 60
         Me.Label8.Text = "ClientQtyUnit:"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -261,30 +285,32 @@ Partial Class FrmChangeUOM
         '
         Me.cmbNewCliQtyUnit.BackColor = System.Drawing.Color.LightBlue
         Me.cmbNewCliQtyUnit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cmbNewCliQtyUnit.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
+        Me.cmbNewCliQtyUnit.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbNewCliQtyUnit.FormattingEnabled = True
-        Me.cmbNewCliQtyUnit.Location = New System.Drawing.Point(126, 21)
+        Me.cmbNewCliQtyUnit.Location = New System.Drawing.Point(114, 22)
+        Me.cmbNewCliQtyUnit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbNewCliQtyUnit.Name = "cmbNewCliQtyUnit"
-        Me.cmbNewCliQtyUnit.Size = New System.Drawing.Size(86, 29)
+        Me.cmbNewCliQtyUnit.Size = New System.Drawing.Size(68, 24)
         Me.cmbNewCliQtyUnit.TabIndex = 59
         '
         'btnCancel
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(433, 348)
+        Me.btnCancel.Location = New System.Drawing.Point(330, 309)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(81, 36)
+        Me.btnCancel.Size = New System.Drawing.Size(70, 32)
         Me.btnCancel.TabIndex = 72
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
         'FrmChangeUOM
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(524, 396)
+        Me.ClientSize = New System.Drawing.Size(408, 352)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -293,8 +319,8 @@ Partial Class FrmChangeUOM
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.cmbCliQtyUnit)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmChangeUOM"
         Me.Text = "Change Item UOM"
         Me.GroupBox1.ResumeLayout(False)

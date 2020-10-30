@@ -297,6 +297,8 @@ Partial Public Class DataSet3
         
         Private columnTransactionDate As Global.System.Data.DataColumn
         
+        Private columnCompanyLogo As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -389,6 +391,14 @@ Partial Public Class DataSet3
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CompanyLogoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCompanyLogo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -425,9 +435,9 @@ Partial Public Class DataSet3
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDailyTransactionRow(ByVal ItemID As String, ByVal Description As String, ByVal OpeningTransaction As String, ByVal StockOut As String, ByVal IncomingDelivery As String, ByVal ClosingTransaction As String, ByVal TransactionDate As String) As DailyTransactionRow
+        Public Overloads Function AddDailyTransactionRow(ByVal ItemID As String, ByVal Description As String, ByVal OpeningTransaction As String, ByVal StockOut As String, ByVal IncomingDelivery As String, ByVal ClosingTransaction As String, ByVal TransactionDate As String, ByVal CompanyLogo As String) As DailyTransactionRow
             Dim rowDailyTransactionRow As DailyTransactionRow = CType(Me.NewRow,DailyTransactionRow)
-            Dim columnValuesArray() As Object = New Object() {ItemID, Description, OpeningTransaction, StockOut, IncomingDelivery, ClosingTransaction, TransactionDate}
+            Dim columnValuesArray() As Object = New Object() {ItemID, Description, OpeningTransaction, StockOut, IncomingDelivery, ClosingTransaction, TransactionDate, CompanyLogo}
             rowDailyTransactionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDailyTransactionRow)
             Return rowDailyTransactionRow
@@ -457,6 +467,7 @@ Partial Public Class DataSet3
             Me.columnIncomingDelivery = MyBase.Columns("IncomingDelivery")
             Me.columnClosingTransaction = MyBase.Columns("ClosingTransaction")
             Me.columnTransactionDate = MyBase.Columns("TransactionDate")
+            Me.columnCompanyLogo = MyBase.Columns("CompanyLogo")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -476,6 +487,8 @@ Partial Public Class DataSet3
             MyBase.Columns.Add(Me.columnClosingTransaction)
             Me.columnTransactionDate = New Global.System.Data.DataColumn("TransactionDate", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTransactionDate)
+            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCompanyLogo)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -727,6 +740,21 @@ Partial Public Class DataSet3
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CompanyLogo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDailyTransaction.CompanyLogoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyLogo' in table 'DailyTransaction' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDailyTransaction.CompanyLogoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsItemIDNull() As Boolean
             Return Me.IsNull(Me.tableDailyTransaction.ItemIDColumn)
         End Function
@@ -807,6 +835,18 @@ Partial Public Class DataSet3
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetTransactionDateNull()
             Me(Me.tableDailyTransaction.TransactionDateColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCompanyLogoNull() As Boolean
+            Return Me.IsNull(Me.tableDailyTransaction.CompanyLogoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCompanyLogoNull()
+            Me(Me.tableDailyTransaction.CompanyLogoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

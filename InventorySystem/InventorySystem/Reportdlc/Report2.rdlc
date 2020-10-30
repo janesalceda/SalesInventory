@@ -369,8 +369,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>1.5875cm</Top>
-          <Left>4.25662cm</Left>
+          <Top>1.6637cm</Top>
+          <Left>3.91738cm</Left>
           <Height>1.26146cm</Height>
           <Width>7.76521cm</Width>
           <Style>
@@ -507,7 +507,7 @@
         </Textbox>
         <Image Name="Image1">
           <Source>Database</Source>
-          <Value>=First(Fields!CompanyLogo.Value, "PODataSet")</Value>
+          <Value>=Fields!CompanyLogo.Value</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Height>1.39375cm</Height>
@@ -571,6 +571,10 @@
         </Field>
         <Field Name="OrderingPointQty">
           <DataField>OrderingPointQty</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

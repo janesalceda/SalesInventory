@@ -38,21 +38,23 @@ Partial Class FrmSupplierItemPriceEntry
         'txtUnitPrice
         '
         Me.txtUnitPrice.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtUnitPrice.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUnitPrice.Location = New System.Drawing.Point(154, 78)
+        Me.txtUnitPrice.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtUnitPrice.Location = New System.Drawing.Point(136, 68)
+        Me.txtUnitPrice.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtUnitPrice.MaxLength = 19
         Me.txtUnitPrice.Name = "txtUnitPrice"
-        Me.txtUnitPrice.Size = New System.Drawing.Size(328, 26)
+        Me.txtUnitPrice.Size = New System.Drawing.Size(298, 23)
         Me.txtUnitPrice.TabIndex = 2
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.White
-        Me.Label3.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(5, 81)
+        Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label3.Location = New System.Drawing.Point(4, 72)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(80, 18)
+        Me.Label3.Size = New System.Drawing.Size(72, 16)
         Me.Label3.TabIndex = 20
         Me.Label3.Text = "Unit Price:"
         '
@@ -60,10 +62,11 @@ Partial Class FrmSupplierItemPriceEntry
         '
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSupplier.Location = New System.Drawing.Point(236, 12)
+        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnSupplier.Location = New System.Drawing.Point(238, 10)
+        Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSupplier.Name = "btnSupplier"
-        Me.btnSupplier.Size = New System.Drawing.Size(32, 26)
+        Me.btnSupplier.Size = New System.Drawing.Size(31, 23)
         Me.btnSupplier.TabIndex = 0
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.UseVisualStyleBackColor = False
@@ -72,49 +75,54 @@ Partial Class FrmSupplierItemPriceEntry
         '
         Me.txtSupDes.BackColor = System.Drawing.Color.White
         Me.txtSupDes.Enabled = False
-        Me.txtSupDes.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSupDes.Location = New System.Drawing.Point(272, 12)
+        Me.txtSupDes.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSupDes.Location = New System.Drawing.Point(270, 10)
+        Me.txtSupDes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupDes.Name = "txtSupDes"
-        Me.txtSupDes.Size = New System.Drawing.Size(255, 26)
+        Me.txtSupDes.Size = New System.Drawing.Size(199, 23)
         Me.txtSupDes.TabIndex = 56
         '
         'txtSupplierID
         '
         Me.txtSupplierID.BackColor = System.Drawing.Color.LightBlue
-        Me.txtSupplierID.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSupplierID.Location = New System.Drawing.Point(154, 12)
+        Me.txtSupplierID.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSupplierID.Location = New System.Drawing.Point(136, 10)
+        Me.txtSupplierID.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupplierID.MaxLength = 25
         Me.txtSupplierID.Name = "txtSupplierID"
-        Me.txtSupplierID.Size = New System.Drawing.Size(114, 26)
+        Me.txtSupplierID.Size = New System.Drawing.Size(132, 23)
         Me.txtSupplierID.TabIndex = 1
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.White
-        Me.Label8.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(5, 15)
+        Me.Label8.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label8.Location = New System.Drawing.Point(4, 13)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(89, 18)
+        Me.Label8.Size = New System.Drawing.Size(81, 16)
         Me.Label8.TabIndex = 57
         Me.Label8.Text = "Supplier ID:"
         '
         'dtAppliedDate
         '
-        Me.dtAppliedDate.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtAppliedDate.Location = New System.Drawing.Point(154, 110)
+        Me.dtAppliedDate.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtAppliedDate.Location = New System.Drawing.Point(136, 97)
+        Me.dtAppliedDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtAppliedDate.Name = "dtAppliedDate"
-        Me.dtAppliedDate.Size = New System.Drawing.Size(328, 26)
+        Me.dtAppliedDate.Size = New System.Drawing.Size(298, 23)
         Me.dtAppliedDate.TabIndex = 3
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
-        Me.Label1.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(4, 116)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label1.Location = New System.Drawing.Point(3, 103)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(104, 18)
+        Me.Label1.Size = New System.Drawing.Size(93, 16)
         Me.Label1.TabIndex = 60
         Me.Label1.Text = "Applied Date:"
         '
@@ -122,10 +130,12 @@ Partial Class FrmSupplierItemPriceEntry
         '
         Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnSave.ForeColor = System.Drawing.Color.Black
-        Me.btnSave.Location = New System.Drawing.Point(224, 142)
+        Me.btnSave.Location = New System.Drawing.Point(232, 126)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(152, 28)
+        Me.btnSave.Size = New System.Drawing.Size(118, 25)
         Me.btnSave.TabIndex = 4
         Me.btnSave.Text = "INSERT PRICE"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -133,30 +143,32 @@ Partial Class FrmSupplierItemPriceEntry
         'txtSupItemCode
         '
         Me.txtSupItemCode.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtSupItemCode.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtSupItemCode.Location = New System.Drawing.Point(154, 44)
+        Me.txtSupItemCode.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSupItemCode.Location = New System.Drawing.Point(136, 38)
+        Me.txtSupItemCode.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSupItemCode.MaxLength = 19
         Me.txtSupItemCode.Name = "txtSupItemCode"
-        Me.txtSupItemCode.Size = New System.Drawing.Size(328, 26)
+        Me.txtSupItemCode.Size = New System.Drawing.Size(298, 23)
         Me.txtSupItemCode.TabIndex = 61
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.White
-        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(5, 47)
+        Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label2.Location = New System.Drawing.Point(4, 42)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(142, 18)
+        Me.Label2.Size = New System.Drawing.Size(128, 16)
         Me.Label2.TabIndex = 62
         Me.Label2.Text = "Supplier Item Code"
         '
-        'FrmItemPriceAdd
+        'FrmSupplierItemPriceEntry
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(534, 180)
+        Me.ClientSize = New System.Drawing.Size(473, 160)
         Me.Controls.Add(Me.txtSupItemCode)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnSave)
@@ -168,9 +180,9 @@ Partial Class FrmSupplierItemPriceEntry
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.txtUnitPrice)
         Me.Controls.Add(Me.Label3)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.Name = "FrmItemPriceAdd"
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.Name = "FrmSupplierItemPriceEntry"
         Me.Text = "Item Price Entry"
         Me.TopMost = True
         Me.ResumeLayout(False)

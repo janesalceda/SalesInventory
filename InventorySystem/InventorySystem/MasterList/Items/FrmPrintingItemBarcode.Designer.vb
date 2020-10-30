@@ -36,11 +36,12 @@ Partial Class FrmPrintingItemBarcode
         '
         Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.TextBox1.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(60, 26)
+        Me.TextBox1.Location = New System.Drawing.Point(47, 23)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.TextBox1.MaxLength = 255
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(202, 31)
+        Me.TextBox1.Size = New System.Drawing.Size(158, 28)
         Me.TextBox1.TabIndex = 0
         '
         'Label1
@@ -48,7 +49,8 @@ Partial Class FrmPrintingItemBarcode
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.White
         Me.Label1.Font = New System.Drawing.Font("Arial Unicode MS", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(128, Byte))
-        Me.Label1.Location = New System.Drawing.Point(16, 29)
+        Me.Label1.Location = New System.Drawing.Point(12, 26)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 21)
         Me.Label1.TabIndex = 22
@@ -56,9 +58,10 @@ Partial Class FrmPrintingItemBarcode
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(109, 63)
+        Me.Button1.Location = New System.Drawing.Point(85, 56)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(83, 28)
+        Me.Button1.Size = New System.Drawing.Size(65, 25)
         Me.Button1.TabIndex = 23
         Me.Button1.Text = "PRINT"
         Me.Button1.UseVisualStyleBackColor = True
@@ -82,16 +85,16 @@ Partial Class FrmPrintingItemBarcode
         '
         'FrmPrintingItemBarcode
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(287, 108)
+        Me.ClientSize = New System.Drawing.Size(223, 96)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmPrintingItemBarcode"

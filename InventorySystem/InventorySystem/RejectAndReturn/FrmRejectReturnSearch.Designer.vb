@@ -40,11 +40,13 @@ Partial Class FrmRejectReturnSearch
         '
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.Red
-        Me.Label2.Location = New System.Drawing.Point(11, 486)
+        Me.Label2.Location = New System.Drawing.Point(9, 405)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(334, 19)
+        Me.Label2.Size = New System.Drawing.Size(283, 16)
         Me.Label2.TabIndex = 140
         Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
         '
@@ -52,9 +54,11 @@ Partial Class FrmRejectReturnSearch
         '
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(528, 6)
+        Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnClear.Location = New System.Drawing.Point(448, 5)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(111, 28)
+        Me.btnClear.Size = New System.Drawing.Size(86, 27)
         Me.btnClear.TabIndex = 139
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -62,9 +66,11 @@ Partial Class FrmRejectReturnSearch
         'chkApproved
         '
         Me.chkApproved.AutoSize = True
-        Me.chkApproved.Location = New System.Drawing.Point(310, 9)
+        Me.chkApproved.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.chkApproved.Location = New System.Drawing.Point(264, 7)
+        Me.chkApproved.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.chkApproved.Name = "chkApproved"
-        Me.chkApproved.Size = New System.Drawing.Size(95, 22)
+        Me.chkApproved.Size = New System.Drawing.Size(88, 20)
         Me.chkApproved.TabIndex = 138
         Me.chkApproved.Text = "Approved"
         Me.chkApproved.UseVisualStyleBackColor = True
@@ -72,37 +78,45 @@ Partial Class FrmRejectReturnSearch
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 41)
+        Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label1.Location = New System.Drawing.Point(12, 40)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 18)
+        Me.Label1.Size = New System.Drawing.Size(89, 16)
         Me.Label1.TabIndex = 137
         Me.Label1.Text = "Return Date:"
         '
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
-        Me.dtCountedTo.Location = New System.Drawing.Point(331, 39)
+        Me.dtCountedTo.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtCountedTo.Location = New System.Drawing.Point(300, 36)
+        Me.dtCountedTo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
-        Me.dtCountedTo.Size = New System.Drawing.Size(198, 26)
+        Me.dtCountedTo.Size = New System.Drawing.Size(178, 23)
         Me.dtCountedTo.TabIndex = 136
         '
         'dtCountedFrom
         '
         Me.dtCountedFrom.Checked = False
-        Me.dtCountedFrom.Location = New System.Drawing.Point(107, 38)
+        Me.dtCountedFrom.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtCountedFrom.Location = New System.Drawing.Point(106, 36)
+        Me.dtCountedFrom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
-        Me.dtCountedFrom.Size = New System.Drawing.Size(218, 26)
+        Me.dtCountedFrom.Size = New System.Drawing.Size(192, 23)
         Me.dtCountedFrom.TabIndex = 135
         '
         'btnSearch
         '
-        Me.btnSearch.BackColor = System.Drawing.Color.White
+        Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSearch.Location = New System.Drawing.Point(410, 5)
+        Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnSearch.Location = New System.Drawing.Point(356, 4)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(111, 28)
+        Me.btnSearch.Size = New System.Drawing.Size(86, 26)
         Me.btnSearch.TabIndex = 134
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = False
@@ -110,28 +124,34 @@ Partial Class FrmRejectReturnSearch
         'btnAdd
         '
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAdd.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(850, 476)
+        Me.btnAdd.Location = New System.Drawing.Point(661, 397)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(160, 30)
+        Me.btnAdd.Size = New System.Drawing.Size(124, 25)
         Me.btnAdd.TabIndex = 133
         Me.btnAdd.Text = "Add Return"
-        Me.btnAdd.UseVisualStyleBackColor = True
+        Me.btnAdd.UseVisualStyleBackColor = False
         '
         'txtSTID
         '
         Me.txtSTID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtSTID.Location = New System.Drawing.Point(107, 7)
+        Me.txtSTID.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.txtSTID.Location = New System.Drawing.Point(106, 6)
+        Me.txtSTID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtSTID.Name = "txtSTID"
-        Me.txtSTID.Size = New System.Drawing.Size(198, 26)
+        Me.txtSTID.Size = New System.Drawing.Size(155, 23)
         Me.txtSTID.TabIndex = 132
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 10)
+        Me.Label7.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Label7.Location = New System.Drawing.Point(12, 8)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(76, 18)
+        Me.Label7.Size = New System.Drawing.Size(72, 16)
         Me.Label7.TabIndex = 131
         Me.Label7.Text = "Return ID:"
         '
@@ -147,19 +167,21 @@ Partial Class FrmRejectReturnSearch
         Me.dtableStockTaking.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockTaking.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.dtableStockTaking.Location = New System.Drawing.Point(13, 76)
+        Me.dtableStockTaking.Location = New System.Drawing.Point(10, 63)
+        Me.dtableStockTaking.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
         Me.dtableStockTaking.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableStockTaking.Size = New System.Drawing.Size(1001, 394)
+        Me.dtableStockTaking.Size = New System.Drawing.Size(779, 328)
         Me.dtableStockTaking.TabIndex = 130
         '
         'FrmRejectReturnSearch
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1016, 513)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(790, 427)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.chkApproved)
@@ -171,8 +193,7 @@ Partial Class FrmRejectReturnSearch
         Me.Controls.Add(Me.txtSTID)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dtableStockTaking)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.Name = "FrmRejectReturnSearch"
         Me.Text = "Return Search"
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).EndInit()

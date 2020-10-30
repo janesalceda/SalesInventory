@@ -34,9 +34,10 @@ Partial Class FrmTermsofPaymentEntry
         '
         Me.chkDisuse.AutoSize = True
         Me.chkDisuse.Enabled = False
-        Me.chkDisuse.Location = New System.Drawing.Point(451, 20)
+        Me.chkDisuse.Location = New System.Drawing.Point(362, 18)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
+        Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 2
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
@@ -46,10 +47,11 @@ Partial Class FrmTermsofPaymentEntry
         Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.Enabled = False
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.ForeColor = System.Drawing.Color.White
-        Me.btnSave.Location = New System.Drawing.Point(238, 90)
+        Me.btnSave.ForeColor = System.Drawing.Color.Black
+        Me.btnSave.Location = New System.Drawing.Point(196, 80)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(174, 30)
+        Me.btnSave.Size = New System.Drawing.Size(135, 27)
         Me.btnSave.TabIndex = 3
         Me.btnSave.Text = "SAVE"
         Me.btnSave.UseVisualStyleBackColor = False
@@ -57,53 +59,57 @@ Partial Class FrmTermsofPaymentEntry
         'txtDes
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDes.Location = New System.Drawing.Point(160, 55)
+        Me.txtDes.Location = New System.Drawing.Point(135, 49)
+        Me.txtDes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtDes.MaxLength = 150
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(373, 26)
+        Me.txtDes.Size = New System.Drawing.Size(291, 23)
         Me.txtDes.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(14, 58)
+        Me.Label1.Location = New System.Drawing.Point(6, 52)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(92, 18)
+        Me.Label1.Size = New System.Drawing.Size(83, 16)
         Me.Label1.TabIndex = 54
         Me.Label1.Text = "Description:"
         '
         'txtTD
         '
         Me.txtTD.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtTD.Location = New System.Drawing.Point(160, 19)
+        Me.txtTD.Location = New System.Drawing.Point(135, 17)
+        Me.txtTD.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtTD.MaxLength = 100
         Me.txtTD.Name = "txtTD"
-        Me.txtTD.Size = New System.Drawing.Size(284, 26)
+        Me.txtTD.Size = New System.Drawing.Size(222, 23)
         Me.txtTD.TabIndex = 0
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(14, 22)
+        Me.Label7.Location = New System.Drawing.Point(6, 20)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(135, 18)
+        Me.Label7.Size = New System.Drawing.Size(124, 16)
         Me.Label7.TabIndex = 52
         Me.Label7.Text = "Terms Of Payment"
         '
         'FrmTermsofPaymentEntry
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(546, 133)
+        Me.ClientSize = New System.Drawing.Size(437, 118)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.txtDes)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtTD)
         Me.Controls.Add(Me.Label7)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmTermsofPaymentEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmTermsofPayment"

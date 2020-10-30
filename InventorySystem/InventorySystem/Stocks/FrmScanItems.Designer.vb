@@ -32,38 +32,42 @@ Partial Class FrmScanItems
         'txtQty
         '
         Me.txtQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtQty.Location = New System.Drawing.Point(96, 6)
+        Me.txtQty.Location = New System.Drawing.Point(76, 5)
+        Me.txtQty.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtQty.MaxLength = 6
         Me.txtQty.Name = "txtQty"
-        Me.txtQty.Size = New System.Drawing.Size(70, 26)
+        Me.txtQty.Size = New System.Drawing.Size(55, 23)
         Me.txtQty.TabIndex = 36
         Me.txtQty.Text = "1"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(10, 11)
+        Me.Label7.Location = New System.Drawing.Point(8, 10)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(35, 18)
+        Me.Label7.Size = New System.Drawing.Size(34, 16)
         Me.Label7.TabIndex = 35
         Me.Label7.Text = "Qty:"
         '
         'txtremarks
         '
         Me.txtremarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtremarks.Location = New System.Drawing.Point(98, 42)
+        Me.txtremarks.Location = New System.Drawing.Point(77, 37)
+        Me.txtremarks.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtremarks.MaxLength = 200
         Me.txtremarks.Multiline = True
         Me.txtremarks.Name = "txtremarks"
-        Me.txtremarks.Size = New System.Drawing.Size(256, 70)
+        Me.txtremarks.Size = New System.Drawing.Size(200, 63)
         Me.txtremarks.TabIndex = 39
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 48)
+        Me.Label2.Location = New System.Drawing.Point(9, 43)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 18)
+        Me.Label2.Size = New System.Drawing.Size(68, 16)
         Me.Label2.TabIndex = 40
         Me.Label2.Text = "Remarks:"
         '
@@ -71,27 +75,28 @@ Partial Class FrmScanItems
         '
         Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(148, 127)
+        Me.Button1.Location = New System.Drawing.Point(116, 113)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(109, 32)
+        Me.Button1.Size = New System.Drawing.Size(85, 28)
         Me.Button1.TabIndex = 41
         Me.Button1.Text = "Enter"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'FrmScanItems
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(381, 171)
+        Me.ClientSize = New System.Drawing.Size(296, 152)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtremarks)
         Me.Controls.Add(Me.txtQty)
         Me.Controls.Add(Me.Label7)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmScanItems"

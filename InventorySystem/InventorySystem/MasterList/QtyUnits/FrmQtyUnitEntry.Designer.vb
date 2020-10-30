@@ -34,10 +34,11 @@ Partial Class FrmQtyUnitEntry
         '
         Me.btnInsert.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInsert.ForeColor = System.Drawing.Color.White
-        Me.btnInsert.Location = New System.Drawing.Point(208, 76)
+        Me.btnInsert.ForeColor = System.Drawing.Color.Black
+        Me.btnInsert.Location = New System.Drawing.Point(154, 68)
+        Me.btnInsert.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnInsert.Name = "btnInsert"
-        Me.btnInsert.Size = New System.Drawing.Size(174, 30)
+        Me.btnInsert.Size = New System.Drawing.Size(135, 27)
         Me.btnInsert.TabIndex = 3
         Me.btnInsert.Text = "SAVE"
         Me.btnInsert.UseVisualStyleBackColor = False
@@ -45,36 +46,40 @@ Partial Class FrmQtyUnitEntry
         'txtQtyunit
         '
         Me.txtQtyunit.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtQtyunit.Location = New System.Drawing.Point(140, 6)
+        Me.txtQtyunit.Location = New System.Drawing.Point(102, 5)
+        Me.txtQtyunit.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtQtyunit.MaxLength = 50
         Me.txtQtyunit.Name = "txtQtyunit"
-        Me.txtQtyunit.Size = New System.Drawing.Size(245, 26)
+        Me.txtQtyunit.Size = New System.Drawing.Size(191, 23)
         Me.txtQtyunit.TabIndex = 0
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 12)
+        Me.Label1.Location = New System.Drawing.Point(16, 11)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 18)
+        Me.Label1.Size = New System.Drawing.Size(61, 16)
         Me.Label1.TabIndex = 55
         Me.Label1.Text = "QtyUnits"
         '
         'txtDes
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtDes.Location = New System.Drawing.Point(142, 38)
+        Me.txtDes.Location = New System.Drawing.Point(102, 34)
+        Me.txtDes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtDes.MaxLength = 50
         Me.txtDes.Name = "txtDes"
-        Me.txtDes.Size = New System.Drawing.Size(375, 26)
+        Me.txtDes.Size = New System.Drawing.Size(293, 23)
         Me.txtDes.TabIndex = 1
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(20, 40)
+        Me.Label2.Location = New System.Drawing.Point(16, 36)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(88, 18)
+        Me.Label2.Size = New System.Drawing.Size(79, 16)
         Me.Label2.TabIndex = 62
         Me.Label2.Text = "Description"
         '
@@ -82,27 +87,28 @@ Partial Class FrmQtyUnitEntry
         '
         Me.chkDisuse.AutoSize = True
         Me.chkDisuse.Enabled = False
-        Me.chkDisuse.Location = New System.Drawing.Point(435, 8)
+        Me.chkDisuse.Location = New System.Drawing.Point(330, 7)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkDisuse.Name = "chkDisuse"
-        Me.chkDisuse.Size = New System.Drawing.Size(76, 22)
+        Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 2
         Me.chkDisuse.Text = "Disuse"
         Me.chkDisuse.UseVisualStyleBackColor = True
         '
         'FrmQtyUnitEntry
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(532, 120)
+        Me.ClientSize = New System.Drawing.Size(414, 107)
         Me.Controls.Add(Me.chkDisuse)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtDes)
         Me.Controls.Add(Me.btnInsert)
         Me.Controls.Add(Me.txtQtyunit)
         Me.Controls.Add(Me.Label1)
-        Me.Font = New System.Drawing.Font("Arial", 12.0!)
-        Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmQtyUnitEntry"
         Me.Text = "FrmQtyUnit"
         Me.ResumeLayout(False)

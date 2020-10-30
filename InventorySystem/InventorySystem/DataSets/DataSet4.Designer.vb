@@ -293,6 +293,8 @@ Partial Public Class DataSet4
         
         Private columnOrderingPointQty As Global.System.Data.DataColumn
         
+        Private columnCompanyLogo As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -369,6 +371,14 @@ Partial Public Class DataSet4
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CompanyLogoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCompanyLogo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -405,9 +415,9 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddItemStocksDataSetRow(ByVal ItemId As String, ByVal Description As String, ByVal Qty As String, ByVal MinimumOrderQty As String, ByVal OrderingPointQty As String) As ItemStocksDataSetRow
+        Public Overloads Function AddItemStocksDataSetRow(ByVal ItemId As String, ByVal Description As String, ByVal Qty As String, ByVal MinimumOrderQty As String, ByVal OrderingPointQty As String, ByVal CompanyLogo As String) As ItemStocksDataSetRow
             Dim rowItemStocksDataSetRow As ItemStocksDataSetRow = CType(Me.NewRow,ItemStocksDataSetRow)
-            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, MinimumOrderQty, OrderingPointQty}
+            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, MinimumOrderQty, OrderingPointQty, CompanyLogo}
             rowItemStocksDataSetRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowItemStocksDataSetRow)
             Return rowItemStocksDataSetRow
@@ -435,6 +445,7 @@ Partial Public Class DataSet4
             Me.columnQty = MyBase.Columns("Qty")
             Me.columnMinimumOrderQty = MyBase.Columns("MinimumOrderQty")
             Me.columnOrderingPointQty = MyBase.Columns("OrderingPointQty")
+            Me.columnCompanyLogo = MyBase.Columns("CompanyLogo")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -450,6 +461,8 @@ Partial Public Class DataSet4
             MyBase.Columns.Add(Me.columnMinimumOrderQty)
             Me.columnOrderingPointQty = New Global.System.Data.DataColumn("OrderingPointQty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOrderingPointQty)
+            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCompanyLogo)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -671,6 +684,21 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CompanyLogo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableItemStocksDataSet.CompanyLogoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyLogo' in table 'ItemStocksDataSet' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableItemStocksDataSet.CompanyLogoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsItemIdNull() As Boolean
             Return Me.IsNull(Me.tableItemStocksDataSet.ItemIdColumn)
         End Function
@@ -727,6 +755,18 @@ Partial Public Class DataSet4
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetOrderingPointQtyNull()
             Me(Me.tableItemStocksDataSet.OrderingPointQtyColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCompanyLogoNull() As Boolean
+            Return Me.IsNull(Me.tableItemStocksDataSet.CompanyLogoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCompanyLogoNull()
+            Me(Me.tableItemStocksDataSet.CompanyLogoColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

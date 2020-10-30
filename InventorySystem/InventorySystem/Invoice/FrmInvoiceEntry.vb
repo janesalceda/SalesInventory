@@ -206,6 +206,7 @@
     End Sub
     Private Sub InvoiceStoreData(Query As String)
         Try
+            SQL.params.Clear()
             SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
             SQL.AddParams("@SupplierId", txtSupplier.Text)
             SQL.AddParams("@ReceivedDate", dtReceived.Value)
@@ -331,35 +332,35 @@
                 For i As Integer = 0 To dtableInvoice.Rows.Count - 1
                     SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
                     SQL.AddParams("@SupplierId", txtSupplier.Text)
-                    SQL.AddParams("@InvoiceDetailSeq", dtableInvoice.Rows(i).Cells(0).Value.ToString)
+                    SQL.AddParams("@InvoiceDetailSeq", dtableInvoice.Rows(i).Cells(0).Value)
                     SQL.AddParams("@ItemId", dtableInvoice.Rows(i).Cells(1).Value.ToString)
                     SQL.AddParams("@PONo", dtableInvoice.Rows(i).Cells(3).Value.ToString)
-                    SQL.AddParams("@PODetailSeq", dtableInvoice.Rows(i).Cells(4).Value.ToString)
+                    SQL.AddParams("@PODetailSeq", dtableInvoice.Rows(i).Cells(4).Value)
                     SQL.AddParams("@Remarks", dtableInvoice.Rows(i).Cells(14).Value.ToString)
                     SQL.AddParams("@DeliveryCompletedDate", Convert.ToDateTime(dtableInvoice.Rows(i).Cells(13).Value.ToString()))
-                    SQL.AddParams("@Qty", dtableInvoice.Rows(i).Cells(5).Value.ToString)
-                    SQL.AddParams("@EquivalentQty", dtableInvoice.Rows(i).Cells(7).Value.ToString)
-                    SQL.AddParams("@SupplierUnitPrice", dtableInvoice.Rows(i).Cells(9).Value.ToString)
-                    SQL.AddParams("@ClientUnitPrice", dtableInvoice.Rows(i).Cells(15).Value.ToString)
+                    SQL.AddParams("@Qty", dtableInvoice.Rows(i).Cells(5).Value)
+                    SQL.AddParams("@EquivalentQty", dtableInvoice.Rows(i).Cells(7).Value)
+                    SQL.AddParams("@SupplierUnitPrice", dtableInvoice.Rows(i).Cells(9).Value)
+                    SQL.AddParams("@ClientUnitPrice", dtableInvoice.Rows(i).Cells(16).Value)
                     SQL.AddParams("@UpdatedBy", moduleId)
                     SQL.AddParams("@deleteddate", chkcancelPO.Checked)
                     If Not String.IsNullOrWhiteSpace(dtableInvoice.Rows(i).Cells(15).Value.ToString) Then
                         SQL.ExecQuery("UPDATE dbo.InvoiceDetails
-                SET 
-	                SupplierId = @supplierid,
-	                ItemId = @itemid,
-	                PoNo = @pono,
-	                PoDetailSeq = @podetailseq,
-	                Remarks = @remarks,
-	                DeliveryCompletedDate = @deliverycompleteddate,
-	                Qty = @qty,
-	                EquivalentQty = @equivalentqty,
-	                SupplierUnitPrice = @SupplierUnitPrice,
-	                ClientUnitPrice = @ClientUnitPrice,
-	                DeletedDate =(select case when @deleteddate=1 then getdate() else NULL end),
-	                UpdatedDate = getdate(),
-	                UpdatedBy = @updatedby
-	                WHERE InvoiceNo = @invoiceno AND InvoiceDetailSeq = @invoicedetailseq")
+                            SET 
+	                            SupplierId = @supplierid,
+	                            ItemId = @itemid,
+	                            PoNo = @pono,
+	                            PoDetailSeq = @podetailseq,
+	                            Remarks = @remarks,
+	                            DeliveryCompletedDate = @deliverycompleteddate,
+	                            Qty = @qty,
+	                            EquivalentQty = @equivalentqty,
+	                            SupplierUnitPrice = @SupplierUnitPrice,
+	                            ClientUnitPrice = @ClientUnitPrice,
+	                            DeletedDate =(select case when @deleteddate=1 then getdate() else NULL end),
+	                            UpdatedDate = getdate(),
+	                            UpdatedBy = @updatedby
+	                            WHERE InvoiceNo = @invoiceno AND InvoiceDetailSeq = @invoicedetailseq")
                         If SQL.HasException Then
                             MsgBox("Error in Updating Data!", MsgBoxStyle.Critical, "Error")
                             Exit Sub
@@ -404,12 +405,12 @@
                     SQL.AddParams("@deleteddate", chkcancelPO.Checked)
                     SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
                     SQL.AddParams("@SupplierId", txtSupplier.Text)
-                    SQL.AddParams("@InvoiceDetailSeq", dtableDelivery.Rows(i).Cells(0).Value.ToString)
+                    SQL.AddParams("@InvoiceDetailSeq", dtableDelivery.Rows(i).Cells(0).Value)
                     SQL.AddParams("@DeliveryId", dtableDelivery.Rows(i).Cells(1).Value.ToString)
                     SQL.AddParams("@DeliveryDate", Convert.ToDateTime(dtableDelivery.Rows(i).Cells(2).Value.ToString()))
-                    SQL.AddParams("@QtyExpected", dtableDelivery.Rows(i).Cells(5).Value.ToString)
-                    SQL.AddParams("@QtyReceived", dtableDelivery.Rows(i).Cells(8).Value.ToString)
-                    SQL.AddParams("@QtyOk", dtableDelivery.Rows(i).Cells(9).Value.ToString)
+                    SQL.AddParams("@QtyExpected", dtableDelivery.Rows(i).Cells(5).Value)
+                    SQL.AddParams("@QtyReceived", dtableDelivery.Rows(i).Cells(8).Value)
+                    SQL.AddParams("@QtyOk", dtableDelivery.Rows(i).Cells(9).Value)
                     SQL.AddParams("@UpdatedBy", moduleId)
 
                     If Not String.IsNullOrWhiteSpace(dtableDelivery.Rows(i).Cells(11).Value.ToString) Then
@@ -581,7 +582,7 @@
             txtposeqdel.Text,
             txtRec.Text,
             txtqtyok.Text,
-            txtBal.Text)
+            txtBal.Text, "")
             'row.Add(dtDeliveryDate.Value)
             DeliveryClear()
         Else
@@ -638,7 +639,7 @@
     End Sub
 
     Private Sub dtableInvoice_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellClick
-        If dtableInvoice.SelectedRows(0).Cells(11).Value = 0 Then
+        If dtableInvoice.SelectedRows(0).Cells(11).Value = True Then
             txtItemCode.Text = dtableInvoice.SelectedRows(0).Cells(1).Value.ToString()
             txtItemName.Text = dtableInvoice.SelectedRows(0).Cells(2).Value.ToString()
             txtPo.Text = dtableInvoice.SelectedRows(0).Cells(3).Value.ToString()

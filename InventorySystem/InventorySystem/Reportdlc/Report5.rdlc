@@ -698,7 +698,7 @@
         </Textbox>
         <Image Name="Image1">
           <Source>Database</Source>
-          <Value>=First(Fields!CompanyLogo.Value, "PODataSet")</Value>
+          <Value>=Fields!CompanyLogo.Value</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Height>1.39375cm</Height>
@@ -770,6 +770,10 @@
         </Field>
         <Field Name="DateTo">
           <DataField>DateTo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyLogo">
+          <DataField>CompanyLogo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

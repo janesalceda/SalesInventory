@@ -77,7 +77,7 @@
             row.Add(txtQty.Text)
             row.Add(cliprice)
             row.Add(txtSTRemarks.Text)
-            row.Add(getSupplierPrice(txtItemCode.Text, dtSOutDate.Value))
+            row.Add(getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, ""))
             dtableStockout.Rows.Add(row.ToArray())
             StockOutdetailsClear()
         Else
@@ -88,7 +88,7 @@
                 dtableStockout.SelectedRows(0).Cells(2).Value = txtItemName.Text
                 dtableStockout.SelectedRows(0).Cells(3).Value = txtQty.Text
                 dtableStockout.SelectedRows(0).Cells(5).Value = txtRemarks.Text
-                dtableStockout.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value)
+                dtableStockout.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, "")
                 btnAddItem.Text = "INSERT"
                 confirm = False
             End If

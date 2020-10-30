@@ -44,6 +44,7 @@ Partial Class AppForm
         Me.MiInventory = New System.Windows.Forms.ToolStripMenuItem()
         Me.checkInventory = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReceivedToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProductRankingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.miSettings = New System.Windows.Forms.ToolStripMenuItem()
         Me.miCategory = New System.Windows.Forms.ToolStripMenuItem()
         Me.CurrencyUnitsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,12 +71,9 @@ Partial Class AppForm
         Me.ReturnsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManulaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.txtAllItems = New System.Windows.Forms.TextBox()
-        Me.txtProAvail = New System.Windows.Forms.TextBox()
-        Me.txtQuantity = New System.Windows.Forms.TextBox()
-        Me.txtToreOrder = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.btnRefresh = New System.Windows.Forms.Button()
+        Me.SalesReportToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DashBoardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -83,7 +81,7 @@ Partial Class AppForm
         '
         Me.msMain.AutoSize = False
         Me.msMain.Font = New System.Drawing.Font("Arial", 11.25!)
-        Me.msMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Account, Me.PurchasesToolStripMenuItem, Me.InvoicesToolStripMenuItem, Me.ReturnRefundToolStripMenuItem, Me.miStocks, Me.MiInventory, Me.miSettings, Me.miUtilities, Me.ReturnsToolStripMenuItem, Me.LogoutToolStripMenuItem})
+        Me.msMain.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Account, Me.PurchasesToolStripMenuItem, Me.InvoicesToolStripMenuItem, Me.ReturnRefundToolStripMenuItem, Me.miStocks, Me.MiInventory, Me.miSettings, Me.miUtilities, Me.ReturnsToolStripMenuItem, Me.LogoutToolStripMenuItem, Me.DashBoardToolStripMenuItem})
         Me.msMain.Location = New System.Drawing.Point(0, 0)
         Me.msMain.Name = "msMain"
         Me.msMain.Padding = New System.Windows.Forms.Padding(9, 3, 0, 3)
@@ -201,7 +199,7 @@ Partial Class AppForm
         '
         'MiInventory
         '
-        Me.MiInventory.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.checkInventory, Me.ReceivedToolStripMenuItem})
+        Me.MiInventory.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.checkInventory, Me.ReceivedToolStripMenuItem, Me.ProductRankingToolStripMenuItem})
         Me.MiInventory.Name = "MiInventory"
         Me.MiInventory.Size = New System.Drawing.Size(78, 21)
         Me.MiInventory.Text = "Inventory"
@@ -209,14 +207,20 @@ Partial Class AppForm
         'checkInventory
         '
         Me.checkInventory.Name = "checkInventory"
-        Me.checkInventory.Size = New System.Drawing.Size(182, 22)
+        Me.checkInventory.Size = New System.Drawing.Size(184, 22)
         Me.checkInventory.Text = "Item Stocks"
         '
         'ReceivedToolStripMenuItem
         '
         Me.ReceivedToolStripMenuItem.Name = "ReceivedToolStripMenuItem"
-        Me.ReceivedToolStripMenuItem.Size = New System.Drawing.Size(182, 22)
+        Me.ReceivedToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.ReceivedToolStripMenuItem.Text = "InventoryRecord"
+        '
+        'ProductRankingToolStripMenuItem
+        '
+        Me.ProductRankingToolStripMenuItem.Name = "ProductRankingToolStripMenuItem"
+        Me.ProductRankingToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
+        Me.ProductRankingToolStripMenuItem.Text = "Product Ranking"
         '
         'miSettings
         '
@@ -281,7 +285,7 @@ Partial Class AppForm
         '
         'SalesToolStripMenuItem1
         '
-        Me.SalesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesToolStripMenuItem2, Me.StocksToolStripMenuItem1, Me.StockMonitoringToolStripMenuItem, Me.StockOutToolStripMenuItem2})
+        Me.SalesToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesToolStripMenuItem2, Me.StocksToolStripMenuItem1, Me.StockMonitoringToolStripMenuItem, Me.StockOutToolStripMenuItem2, Me.SalesReportToolStripMenuItem})
         Me.SalesToolStripMenuItem1.Name = "SalesToolStripMenuItem1"
         Me.SalesToolStripMenuItem1.Size = New System.Drawing.Size(215, 22)
         Me.SalesToolStripMenuItem1.Text = "Reports"
@@ -333,7 +337,7 @@ Partial Class AppForm
         '
         Me.ItemsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangeDescriptionToolStripMenuItem, Me.ChangeToolStripMenuItem})
         Me.ItemsToolStripMenuItem.Name = "ItemsToolStripMenuItem"
-        Me.ItemsToolStripMenuItem.Size = New System.Drawing.Size(137, 22)
+        Me.ItemsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ItemsToolStripMenuItem.Text = "Items"
         '
         'ChangeDescriptionToolStripMenuItem
@@ -352,7 +356,7 @@ Partial Class AppForm
         '
         Me.SuppliersToolStripMenuItem1.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangSupplierNameToolStripMenuItem})
         Me.SuppliersToolStripMenuItem1.Name = "SuppliersToolStripMenuItem1"
-        Me.SuppliersToolStripMenuItem1.Size = New System.Drawing.Size(137, 22)
+        Me.SuppliersToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
         Me.SuppliersToolStripMenuItem1.Text = "Suppliers"
         '
         'ChangSupplierNameToolStripMenuItem
@@ -380,68 +384,26 @@ Partial Class AppForm
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(64, 21)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'txtAllItems
-        '
-        Me.txtAllItems.Font = New System.Drawing.Font("Arial", 40.0!)
-        Me.txtAllItems.Location = New System.Drawing.Point(12, 41)
-        Me.txtAllItems.Multiline = True
-        Me.txtAllItems.Name = "txtAllItems"
-        Me.txtAllItems.Size = New System.Drawing.Size(257, 122)
-        Me.txtAllItems.TabIndex = 2
-        Me.txtAllItems.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtProAvail
-        '
-        Me.txtProAvail.Font = New System.Drawing.Font("Arial", 40.0!)
-        Me.txtProAvail.Location = New System.Drawing.Point(275, 41)
-        Me.txtProAvail.Multiline = True
-        Me.txtProAvail.Name = "txtProAvail"
-        Me.txtProAvail.Size = New System.Drawing.Size(257, 122)
-        Me.txtProAvail.TabIndex = 3
-        Me.txtProAvail.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtQuantity
-        '
-        Me.txtQuantity.Font = New System.Drawing.Font("Arial", 40.0!)
-        Me.txtQuantity.Location = New System.Drawing.Point(538, 41)
-        Me.txtQuantity.Multiline = True
-        Me.txtQuantity.Name = "txtQuantity"
-        Me.txtQuantity.Size = New System.Drawing.Size(257, 122)
-        Me.txtQuantity.TabIndex = 4
-        Me.txtQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'txtToreOrder
-        '
-        Me.txtToreOrder.Font = New System.Drawing.Font("Arial", 40.0!)
-        Me.txtToreOrder.Location = New System.Drawing.Point(801, 41)
-        Me.txtToreOrder.Multiline = True
-        Me.txtToreOrder.Name = "txtToreOrder"
-        Me.txtToreOrder.Size = New System.Drawing.Size(257, 122)
-        Me.txtToreOrder.TabIndex = 5
-        Me.txtToreOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Timer1
         '
         '
-        'btnRefresh
+        'SalesReportToolStripMenuItem
         '
-        Me.btnRefresh.Location = New System.Drawing.Point(13, 183)
-        Me.btnRefresh.Name = "btnRefresh"
-        Me.btnRefresh.Size = New System.Drawing.Size(75, 23)
-        Me.btnRefresh.TabIndex = 6
-        Me.btnRefresh.Text = "Refresh"
-        Me.btnRefresh.UseVisualStyleBackColor = True
+        Me.SalesReportToolStripMenuItem.Name = "SalesReportToolStripMenuItem"
+        Me.SalesReportToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
+        Me.SalesReportToolStripMenuItem.Text = "Sales Report"
+        '
+        'DashBoardToolStripMenuItem
+        '
+        Me.DashBoardToolStripMenuItem.Name = "DashBoardToolStripMenuItem"
+        Me.DashBoardToolStripMenuItem.Size = New System.Drawing.Size(94, 21)
+        Me.DashBoardToolStripMenuItem.Text = "DashBoard"
         '
         'AppForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1231, 662)
-        Me.Controls.Add(Me.btnRefresh)
-        Me.Controls.Add(Me.txtToreOrder)
-        Me.Controls.Add(Me.txtQuantity)
-        Me.Controls.Add(Me.txtProAvail)
-        Me.Controls.Add(Me.txtAllItems)
         Me.Controls.Add(Me.msMain)
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.IsMdiContainer = True
@@ -453,7 +415,6 @@ Partial Class AppForm
         Me.msMain.ResumeLayout(False)
         Me.msMain.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -504,10 +465,8 @@ Partial Class AppForm
     Friend WithEvents StockOutToolStripMenuItem2 As ToolStripMenuItem
     Friend WithEvents CompanyInformationToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ReturnsToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents txtAllItems As TextBox
-    Friend WithEvents txtProAvail As TextBox
-    Friend WithEvents txtQuantity As TextBox
-    Friend WithEvents txtToreOrder As TextBox
     Friend WithEvents Timer1 As Timer
-    Friend WithEvents btnRefresh As Button
+    Friend WithEvents ProductRankingToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SalesReportToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents DashBoardToolStripMenuItem As ToolStripMenuItem
 End Class

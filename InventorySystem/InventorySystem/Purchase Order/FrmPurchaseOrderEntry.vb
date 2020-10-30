@@ -7,7 +7,8 @@ Public Class FrmPurchaseOrderEntry
     Private Sub getPODetails()
         Try
             SQL.AddParams("@PONo", txtPONo.Text)
-            SQL.ExecQuery("SELECT poh.PONo,poh.SupplierID,CurrencyUnit,IssuedDate,TermOfDelivery,TermOfPayment,DeliveryPlace,poh.Remarks,
+            SQL.ExecQuery("SELECT poh.PONo,poh.SupplierID,CurrencyUnit,IssuedDate,
+                TermOfDeliveryId,TermOfPaymentId,DeliveryPlaceId,poh.Remarks,
                 e.EmployeeName,
 				poh.TotalAmount,pod.ItemId,i.Description,pod.Qty,
                (select dbo.getUnit(pod.QtyUnit)) AS 'Cli',
@@ -17,20 +18,17 @@ Public Class FrmPurchaseOrderEntry
                 EtaDate,FtryDate,Canceled,ReceivedAllInvoices,
                 CASE WHEN poh.DeletedDate IS NULL THEN 0 ELSE 1 END POCancelled,
                 pod.PoDetailSeq,
-                (SELECT                  
+                isnull((SELECT                  
                 SUM(Qty) AS Expr1
 				FROM                     
 				dbo.InvoiceDetails
 				WHERE                   
 				(PoNo = Pod.PoNo) 
-				AND (PoDetailSeq = pod.PoDetailSeq)) AS InvoiceQty,pod.ClientUnitPrice
+				AND (PoDetailSeq = pod.PoDetailSeq)),0) AS InvoiceQty,pod.ClientUnitPrice
                 FROM POHeaders poh 
                 INNER	JOIN PoDetails pod 
                 ON poh.PONo=pod.PoNo
                 INNER JOIN CurrencyUnits c ON poh.CurrencyUnitId=c.CurrencyUnitId
-                INNER JOIN TermsOfDelivery td ON poh.TermOfDeliveryId=td.TermOfDeliveryId
-                INNER JOIN TermsOfPayment tp ON tp.TermOfPaymentId=poh.TermOfPaymentId
-                INNER JOIN DeliveryPlaces dp ON dp.DeliveryPlaceId=poh.DeliveryPlaceId
                 INNER JOIN Employees e ON poh.EncodedStaff=e.EmpId
                 INNER JOIN Items i ON i.ItemId=pod.ItemId	
                 INNER JOIN QtyUnits q ON q.QtyUnitid=pod.QtyUnit
@@ -41,9 +39,9 @@ Public Class FrmPurchaseOrderEntry
             txtSupplier.Text = row.Rows(0).Item(1)
             txtCurrency.Text = row.Rows(0).Item(2)
             dtIssued.Value = row.Rows(0).Item(3)
-            cmbTDelivery.Text = row.Rows(0).Item(4)
-            cmbTPayment.Text = row.Rows(0).Item(5)
-            cmbDeliveryPlace.Text = row.Rows(0).Item(6)
+            cmbTDelivery.SelectedValue = row.Rows(0).Item(4)
+            cmbTPayment.SelectedValue = row.Rows(0).Item(5)
+            cmbDeliveryPlace.SelectedValue = row.Rows(0).Item(6)
             txtRemarks.Text = row.Rows(0).Item(7)
             txtStaffName.Text = row.Rows(0).Item(8)
             txtTotalAmount.Text = row.Rows(0).Item(9)
@@ -125,9 +123,9 @@ Public Class FrmPurchaseOrderEntry
     Private Sub AddPurchaseOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         txtStaffName.Text = moduleName
-        'LoadPayment()
-        'LoadDelivery()
-        'LoadDeliveryPlaces()
+        LoadPayment()
+        LoadDelivery()
+        LoadDeliveryPlaces()
         If String.IsNullOrEmpty(txtPONo.Text) Then
             HeaderClear()
         Else
@@ -225,8 +223,8 @@ Public Class FrmPurchaseOrderEntry
                         SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
                         SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
                         SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
-                        SQL.AddParams("@cliunitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
-                        SQL.AddParams("@supunitprice", dtablePoDetails.Rows(i).Cells(16).Value.ToString())
+                        SQL.AddParams("@supunitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                        SQL.AddParams("@cliunitprice", dtablePoDetails.Rows(i).Cells(16).Value.ToString())
                         SQL.AddParams("@updatedby", moduleId)
                         SQL.ExecQuery("
                     INSERT INTO dbo.PoDetails
@@ -285,10 +283,10 @@ Public Class FrmPurchaseOrderEntry
 	                )
                 VALUES 
 	                ((SELECT CASE WHEN max(PONo) IS NULL 
-                    THEN replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1<10 
-                    THEN replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1 AS VARCHAR	)
-                    ELSE replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' +cast(Cast(right(max(PONo),len(max(PONo))-10) AS INT) +1 AS VARCHAR	)
+                    THEN 'PO' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
+                    CASE WHEN right(max(PONo),len(max(PONo))-CHARINDEX('-',max(PONo))) + 1<10
+                    THEN 'PO' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(PONo),len(max(PONo))-CHARINDEX('-',max(PONo))) +1 as varchar)
+                    ELSE 'PO' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(PONo),len(max(PONo))-CHARINDEX('-',max(PONo))) +1 as varchar)
                     END END AS 'pomax' from POHeaders),
 	                @supplierid,
                     (select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid),
@@ -316,8 +314,8 @@ Public Class FrmPurchaseOrderEntry
                     SQL.AddParams("@qtyunit", dtablePoDetails.Rows(i).Cells(4).Value.ToString())
                     SQL.AddParams("@equivalentqty", dtablePoDetails.Rows(i).Cells(5).Value.ToString())
                     SQL.AddParams("@equivalentqtyunit", dtablePoDetails.Rows(i).Cells(6).Value.ToString())
-                    SQL.AddParams("@cliunitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
-                    SQL.AddParams("@supunitprice", dtablePoDetails.Rows(i).Cells(16).Value.ToString())
+                    SQL.AddParams("@supunitprice", dtablePoDetails.Rows(i).Cells(7).Value.ToString())
+                    SQL.AddParams("@cliunitprice", dtablePoDetails.Rows(i).Cells(16).Value.ToString())
                     SQL.AddParams("@updatedby", moduleId)
                     SQL.ExecQuery("
                     INSERT INTO dbo.PoDetails
@@ -374,14 +372,23 @@ Public Class FrmPurchaseOrderEntry
         SupplierList.Show()
     End Sub
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
-        If txtSupplier.Text = "" Then
-            MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation, "Warning")
-            Exit Sub
-        End If
-        SelectionItem.txtSupplier.Text = txtSupplier.Text
-        SelectionItem.IssuedDate = dtIssued.Value
-        formname = "AddPurchaseOrder"
-        SelectionItem.Show()
+        Try
+            If dtablePoDetails.Rows.Count > 0 Then
+                If dtablePoDetails.SelectedRows(0).Cells(15).Value > 0 And
+                btnAddItem.Text = "UPDATE ITEM" Then
+                    msgboxDisplay("Cannot be modify because it has Invoice", 2)
+                End If
+            End If
+            If txtSupplier.Text = "" Then
+                MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation, "Warning")
+                Exit Sub
+            End If
+            SelectionItem.txtSupplier.Text = txtSupplier.Text
+            SelectionItem.IssuedDate = dtIssued.Value
+            formname = "AddPurchaseOrder"
+            SelectionItem.Show()
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
@@ -394,10 +401,22 @@ Public Class FrmPurchaseOrderEntry
         Dim row As ArrayList = New ArrayList
         If btnAddItem.Text = "INSERT ITEM" Then
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
-            dtablePoDetails.Rows.Add(dtablePoDetails.Rows.Count + 1, txtItemCode.Text, txtItemName.Text,
-                                     txtCliQty.Text, txtCliUnit.Text, txtSupQty.Text, txtSupUnit.Text, txtUnit.Text,
-                                     txtTotalPrice.Text, dtETD.Value, dtETA.Value, DTFtry.Value, chkCancel.Checked,
-                                     chkReceived.Checked, "", "", getClientPrice(txtItemCode.Text, dtIssued.Value))
+            dtablePoDetails.Rows.Add(dtablePoDetails.Rows.Count + 1,
+                                     txtItemCode.Text, txtItemName.Text,
+                                     txtCliQty.Text,
+                                     txtCliUnit.Text,
+                                     txtSupQty.Text,
+                                     txtSupUnit.Text,
+                                     getSupplierPrice(txtItemCode.Text, dtIssued.Value, txtSupplier.Text),
+                                     txtTotalPrice.Text,
+                                     dtETD.Value,
+                                     dtETA.Value,
+                                     DTFtry.Value,
+                                     chkCancel.Checked,
+                                     chkReceived.Checked,
+                                     "",
+                                     "",
+                                     getClientPrice(txtItemCode.Text, dtIssued.Value))
             PurchDetailsClear()
         Else
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + (Val(txtTotalPrice.Text) - dtablePoDetails.SelectedRows(0).Cells(8).Value), "0.00")
@@ -407,7 +426,7 @@ Public Class FrmPurchaseOrderEntry
             dtablePoDetails.SelectedRows(0).Cells(4).Value = txtCliUnit.Text
             dtablePoDetails.SelectedRows(0).Cells(5).Value = txtSupQty.Text
             dtablePoDetails.SelectedRows(0).Cells(6).Value = txtSupUnit.Text
-            dtablePoDetails.SelectedRows(0).Cells(7).Value = txtUnit.Text
+            dtablePoDetails.SelectedRows(0).Cells(7).Value = getSupplierPrice(txtItemCode.Text, dtIssued.Value, txtSupplier.Text)
             dtablePoDetails.SelectedRows(0).Cells(8).Value = txtTotalPrice.Text
             dtablePoDetails.SelectedRows(0).Cells(9).Value = dtETD.Value
             dtablePoDetails.SelectedRows(0).Cells(10).Value = dtETA.Value
@@ -466,7 +485,7 @@ Public Class FrmPurchaseOrderEntry
     End Sub
     Private Sub dtablePoDetails_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellClick
         Try
-            If String.IsNullOrWhiteSpace(dtablePoDetails.SelectedRows(0).Cells(13).Value.ToString()) Then
+            If dtablePoDetails.SelectedRows(0).Cells(15).Value <= 0 Then
                 txtItemCode.Text = dtablePoDetails.SelectedRows(0).Cells(1).Value.ToString()
                 txtItemName.Text = dtablePoDetails.SelectedRows(0).Cells(2).Value.ToString()
                 txtCliQty.Text = dtablePoDetails.SelectedRows(0).Cells(3).Value.ToString()
@@ -506,6 +525,12 @@ Public Class FrmPurchaseOrderEntry
 
     Private Sub txtSupQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSupQty.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
+        If dtablePoDetails.Rows.Count > 0 Then
+            If dtablePoDetails.SelectedRows(0).Cells(15).Value > 0 And
+                btnAddItem.Text = "UPDATE ITEM" Then
+                msgboxDisplay("Cannot be modify because it has Invoice", 2)
+            End If
+        End If
     End Sub
     Private Function GetItemDetailsforPO(ItemId As String, IssuedDate As Date) As ArrayList
         Dim Globalrow As ArrayList = New ArrayList
@@ -532,9 +557,6 @@ Public Class FrmPurchaseOrderEntry
         btnAddItem.Text = "INSERT ITEM"
     End Sub
 
-    Private Sub dtablePoDetails_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellContentClick
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         loadReport
@@ -630,5 +652,16 @@ Public Class FrmPurchaseOrderEntry
 
     Private Sub cmbTPayment_GotFocus(sender As Object, e As EventArgs) Handles cmbTPayment.GotFocus
         LoadPayment()
+    End Sub
+    Private Sub txtPONo_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPONo.KeyPress
+        e.Handled = True
+    End Sub
+
+    Private Sub dtablePoDetails_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellContentClick
+
+    End Sub
+
+    Private Sub cmbTDelivery_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTDelivery.SelectedIndexChanged
+
     End Sub
 End Class

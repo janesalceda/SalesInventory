@@ -8,10 +8,10 @@ Public Class FrmItemEntry
     End Sub
     Private Sub AddItem_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
-        'LoadCliUnit()
-        'LoadSupUnit()
-        'LoadLocation()
-        'LoadCategories()
+        LoadCliUnit()
+        LoadSupUnit()
+        LoadLocation()
+        LoadCategories()
         ViewItemData()
         ViewSupplierPriceData()
         txtConCoe.Text = 1
@@ -163,9 +163,7 @@ Public Class FrmItemEntry
         If String.IsNullOrEmpty(txtItemId.Text) Then Exit Sub
 
         SQL.AddParams("@ItemId", txtItemId.Text)
-        SQL.ExecQuery(" select * from ITEMS i left JOIN SupplierItemPrices s
-            ON  i.itemid=s.ItemId
-            where i.ItemID=@ItemId ORDER BY applieddate ASC")
+        SQL.ExecQuery(" select * from ITEMS i where i.ItemID=@ItemId")
         If SQL.DBDT.Rows.Count = 0 Then Exit Sub
         txtItemId.Text = SQL.DBDT.Rows(0).Item(0)
         txtDes.Text = SQL.DBDT.Rows(0).Item(1)
@@ -183,10 +181,13 @@ Public Class FrmItemEntry
         Else
             chkDisuse.Checked = True
         End If
+        SQL.AddParams("@ItemId", txtItemId.Text)
+        SQL.ExecQuery(" select SupplierId,AppliedDate,UnitPrice,ItemPriceId,SupplierItemId,CreatedDate
+            from SupplierItemPrices where ItemID=@ItemId ORDER BY applieddate ASC")
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
-            dtableItemPrices.Rows.Add(SQL.DBDT.Rows(i).Item(17), SQL.DBDT.Rows(i).Item(19),
-                                  SQL.DBDT.Rows(i).Item(20), SQL.DBDT.Rows(i).Item(15),
-                                  SQL.DBDT.Rows(i).Item(18), SQL.DBDT.Rows(i).Item(21))
+            dtableItemPrices.Rows.Add(SQL.DBDT.Rows(i).Item("SupplierId"), SQL.DBDT.Rows(i).Item("AppliedDate"),
+                                  SQL.DBDT.Rows(i).Item("UnitPrice"), SQL.DBDT.Rows(i).Item("ItemPriceId"),
+                                  SQL.DBDT.Rows(i).Item("SupplierItemId"), SQL.DBDT.Rows(i).Item("CreatedDate"))
         Next
         SQL.AddParams("@ItemId", txtItemId.Text)
         SQL.ExecQuery(" select * from clientitemprices where ItemID=@ItemId ORDER BY applieddate ASC")
@@ -278,5 +279,9 @@ Public Class FrmItemEntry
 
     Private Sub cmbLocation_GotFocus(sender As Object, e As EventArgs) Handles cmbLocation.GotFocus
         LoadLocation()
+    End Sub
+
+    Private Sub txtItemId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtItemId.KeyPress
+        e.Handled = False
     End Sub
 End Class

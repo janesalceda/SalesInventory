@@ -1,3 +1,4 @@
+
 CREATE TABLE dbo.Categories
 	(
 	CategoryID INT IDENTITY NOT NULL,

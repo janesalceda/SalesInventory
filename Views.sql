@@ -1,11 +1,12 @@
-CREATE VIEW CostInv AS 
+CREATE VIEW [dbo].[CostInv] AS 
 -- tocal cost ni STOCK IN
 SELECT 
 InvoiceDetails.CreatedDate AS 'TransactedDate',
 InvoiceDeliveryDetails.DeliveryId AS 'TransID',
 InvoiceDetails.ItemId,sum(InvoiceDeliveryDetails.QtyOk)'Qty',
 1 AS TransactionTypeID,InvoiceDetails.Remarks,
-sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.UnitPrice) 'Cost',
+isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.ClientUnitPrice),0) 'ClientCost',
+isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.SupplierUnitPrice),0) 'SupplierCost',
 Items.Description
 FROM  InvoiceDeliveryDetails
 INNER JOIN InvoiceDetails ON 
@@ -23,50 +24,38 @@ InvoiceDeliveryDetails.DeliveryId,InvoiceDetails.Remarks
 UNION ALL
 
 --STOCK OUT
-SELECT 
-StockOutHeaders.StockOutDate AS 'TransactedDate',
-
-StockOutHeaders.StockOutCode AS 'TransID',
-SAMPLEINV.ItemId,sum(SAMPLEINV.qty)'Qty',
-2 AS TransactionTypeID,StockOutHeaders.Remarks,
-sum(StockOutDetails.UnitPrice * StockOutDetails.Qty)'Cost'
+SELECT StockOutDate AS 'TransactedDate',StockOutHeaders.StockOutCode AS 'TransID',
+Items.ItemID,SUM(Qty) AS QTY, 2 AS TransactionTypeID,StockOutHeaders.Remarks,
+isnull(sum(StockOutDetails.ClientUnitPrice * StockOutDetails.Qty),0)'ClientCost',
+isnull(sum(StockOutDetails.SupplierUnitPrice * StockOutDetails.Qty),0)'SupplierCost'
 , Items.Description
-FROM SAMPLEINV	
-INNER JOIN StockOutHeaders ON 
-StockOutHeaders.StockOutCode=SAMPLEINV.TransID 
-INNER JOIN StockOutDetails	
-ON 	SAMPLEINV.ItemId=StockOutDetails.ItemID
-AND SAMPLEINV.TransID=StockOutDetails.StockOutCode
-AND StockOutHeaders.StockOutCode=StockOutDetails.StockOutCode
-INNER JOIN Items ON Items.ItemId=SAMPLEINV.ItemId
-GROUP BY SAMPLEINV.ItemId,Items.Description,StockOutHeaders.StockOutDate,
-StockOutHeaders.StockOutCode , StockOutHeaders.Remarks
+FROM StockOutHeaders 
+INNER JOIN StockOutDetails ON 
+StockOutHeaders.StockOutCode = StockOutDetails.StockOutCode
+INNER JOIN ITEMS ON
+ITEMS.ItemID = StockOutDetails.ItemID
+GROUP BY StockOutDate,StockOutHeaders.StockOutCode,Items.ItemID, StockOutHeaders.Remarks, Items.Description
 UNION ALL
 --AC
-SELECT 
-StockTakingHeaders.CountedDate	 AS 'TransactedDate',
-StockTakingHeaders.STID AS 'TransID',
-SAMPLEINV.ItemId,sum(SAMPLEINV.qty)'Qty',
-3 AS TransactionTypeID, StockTakingHeaders.Remarks,
-sum(StockTakingDetails.UnitPrice * StockTakingDetails.Qty)'Cost',
-Items.Description
-FROM SAMPLEINV	
-INNER JOIN StockTakingHeaders ON 
-StockTakingHeaders.STID=SAMPLEINV.TransID 
-INNER JOIN StockTakingDetails	
-ON 	SAMPLEINV.ItemId=StockTakingDetails.ItemID
-AND SAMPLEINV.TransID=StockTakingDetails.STID
-AND StockTakingHeaders.STID=StockTakingDetails.STID
-INNER JOIN Items ON Items.ItemId=SAMPLEINV.ItemId
-GROUP BY SAMPLEINV.ItemId,Items.Description,StockTakingHeaders.CountedDate,
-StockTakingHeaders.STID , StockTakingHeaders.Remarks
 
+SELECT CountedDate  AS 'TransactedDate',StockTakingHeaders.STID AS 'TransID',
+Items.ItemID,SUM(Qty) AS QTY, 
+3 AS TransactionTypeID ,StockTakingHeaders.Remarks,
+isnull(sum(StockTakingDetails.ClientUnitPrice * StockTakingDetails.Qty),0)'ClientCost',
+isnull(sum(StockTakingDetails.SupplierUnitPrice * StockTakingDetails.Qty),0)'SupplierCost',
+Items.Description
+FROM StockTakingHeaders 
+INNER JOIN StockTakingDetails ON 
+StockTakingHeaders.STID = StockTakingDetails.STID
+INNER JOIN ITEMS ON
+ITEMS.ItemID = StockTakingDetails.ItemID
+GROUP BY CountedDate,StockTakingHeaders.STID,Items.ItemID, StockTakingHeaders.Remarks, Items.Description
 
 
 
 GO
 
-CREATE VIEW  SAMPLEINV  AS
+CREATE VIEW  [dbo].[SAMPLEINV]  AS
 		SELECT * FROM (	
 			
 			--IN ITEMS BASED ON DELIVERY OK
@@ -104,6 +93,7 @@ CREATE VIEW  SAMPLEINV  AS
 			GROUP BY CountedDate,StockTakingHeaders.STID,ItemID, StockTakingHeaders.Remarks) TEST
 	
 			
+
 
 
 

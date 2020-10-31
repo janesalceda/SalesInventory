@@ -231,7 +231,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!ItemId.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -261,7 +263,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Description.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -291,7 +295,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!Qty.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                                <Format>0</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -313,21 +320,23 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="UnitPrice">
+                    <Textbox Name="SupplierUnitPrice">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!UnitPrice.Value</Value>
-                              <Style />
+                              <Value>=Fields!SupplierUnitPrice.Value</Value>
+                              <Style>
+                                <FontSize>8pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>UnitPrice</rd:DefaultName>
+                      <rd:DefaultName>SupplierUnitPrice</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -352,6 +361,7 @@
                             <TextRun>
                               <Value>=Fields!Total.Value</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <Format>00.00</Format>
                               </Style>
                             </TextRun>
@@ -400,6 +410,9 @@
                           <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BottomBorder>
+                          <Width>2pt</Width>
+                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -430,6 +443,9 @@
                           <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BottomBorder>
+                          <Width>2pt</Width>
+                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
@@ -463,6 +479,9 @@
                           <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BottomBorder>
+                          <Width>2pt</Width>
+                        </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
                         </LeftBorder>
@@ -498,6 +517,9 @@
                           <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BottomBorder>
+                          <Width>2pt</Width>
+                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -517,6 +539,7 @@
                             <TextRun>
                               <Value>=Sum(Fields!Total.Value)</Value>
                               <Style>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>00.00</Format>
                               </Style>
@@ -531,12 +554,16 @@
                           <Style>Solid</Style>
                           <Width>1.5pt</Width>
                         </Border>
+                        <BottomBorder>
+                          <Width>2pt</Width>
+                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -580,7 +607,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.70866in</Height>
+    <Height>0.75033in</Height>
     <Style />
   </Body>
   <Width>6.54017in</Width>
@@ -630,7 +657,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Fields!IssuedDate.Value</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
+                    <FontSize>9pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -660,7 +690,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=Fields!PONo.Value</Value>
-                  <Style />
+                  <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
+                    <FontSize>9pt</FontSize>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -835,6 +868,7 @@
                 <TextRun>
                   <Value>=Fields!SupplierName.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -867,6 +901,7 @@
                 <TextRun>
                   <Value>=Fields!Address.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -899,6 +934,7 @@
                 <TextRun>
                   <Value>=Fields!Phone.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -931,6 +967,7 @@
                 <TextRun>
                   <Value>=Fields!Fax.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1093,6 +1130,7 @@
                 <TextRun>
                   <Value>=Fields!DeliveryPlaces.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1157,6 +1195,7 @@
                 <TextRun>
                   <Value>=Fields!StreetAdress.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1189,6 +1228,7 @@
                 <TextRun>
                   <Value>=Fields!CityZip.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1221,6 +1261,7 @@
                 <TextRun>
                   <Value>=Fields!CompPhone.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1253,6 +1294,7 @@
                 <TextRun>
                   <Value>=Fields!CompFax.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1285,6 +1327,7 @@
                 <TextRun>
                   <Value>=Fields!website.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1317,6 +1360,7 @@
                 <TextRun>
                   <Value>=Fields!Encoder.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1349,6 +1393,7 @@
                 <TextRun>
                   <Value>=Fields!CompanyName.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1381,6 +1426,7 @@
                 <TextRun>
                   <Value>=Fields!CityZip.Value</Value>
                   <Style>
+                    <FontFamily>Arial Unicode MS</FontFamily>
                     <FontSize>9pt</FontSize>
                   </Style>
                 </TextRun>
@@ -1495,6 +1541,9 @@
               <Style>Solid</Style>
               <Width>1.5pt</Width>
             </Border>
+            <BottomBorder>
+              <Width>2pt</Width>
+            </BottomBorder>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1526,6 +1575,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>d3706d79-1b0e-436c-bf55-1d06af8f2ae7</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="DataSet7">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>0c4f22d8-583b-405e-ad3c-1f3394af5aa5</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="PODataSet">
@@ -1546,8 +1602,8 @@
           <DataField>Qty</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="UnitPrice">
-          <DataField>UnitPrice</DataField>
+        <Field Name="SupplierUnitPrice">
+          <DataField>SupplierUnitPrice</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="Total">

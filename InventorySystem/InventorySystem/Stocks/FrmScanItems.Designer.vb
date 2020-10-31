@@ -32,13 +32,15 @@ Partial Class FrmScanItems
         'txtQty
         '
         Me.txtQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtQty.Location = New System.Drawing.Point(76, 5)
+        Me.txtQty.Font = New System.Drawing.Font("Arial", 20.0!)
+        Me.txtQty.Location = New System.Drawing.Point(81, 5)
         Me.txtQty.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtQty.MaxLength = 6
         Me.txtQty.Name = "txtQty"
-        Me.txtQty.Size = New System.Drawing.Size(55, 23)
+        Me.txtQty.Size = New System.Drawing.Size(98, 38)
         Me.txtQty.TabIndex = 36
         Me.txtQty.Text = "1"
+        Me.txtQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label7
         '
@@ -53,7 +55,7 @@ Partial Class FrmScanItems
         'txtremarks
         '
         Me.txtremarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtremarks.Location = New System.Drawing.Point(77, 37)
+        Me.txtremarks.Location = New System.Drawing.Point(82, 48)
         Me.txtremarks.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtremarks.MaxLength = 200
         Me.txtremarks.Multiline = True
@@ -64,7 +66,7 @@ Partial Class FrmScanItems
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(9, 43)
+        Me.Label2.Location = New System.Drawing.Point(9, 54)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(68, 16)
@@ -75,7 +77,7 @@ Partial Class FrmScanItems
         '
         Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(116, 113)
+        Me.Button1.Location = New System.Drawing.Point(116, 118)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(85, 28)

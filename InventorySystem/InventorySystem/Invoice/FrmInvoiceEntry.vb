@@ -250,7 +250,7 @@
                     SQL.AddParams("@Qty", dtableInvoice.Rows(i).Cells(5).Value.ToString)
                     SQL.AddParams("@EquivalentQty", dtableInvoice.Rows(i).Cells(7).Value.ToString)
                     SQL.AddParams("@SupplierUnitPrice", dtableInvoice.Rows(i).Cells(9).Value.ToString)
-                    SQL.AddParams("@ClientUnitPrice", dtableInvoice.Rows(i).Cells(15).Value.ToString)
+                    SQL.AddParams("@ClientUnitPrice", dtableInvoice.Rows(i).Cells(16).Value.ToString)
                     SQL.AddParams("@UpdatedBy", moduleId)
                     SQL.ExecQuery("INSERT INTO InvoiceDetails
                 (InvoiceNo,
@@ -480,7 +480,7 @@
             Dim row As ArrayList = New ArrayList
 
             txtTotalAmount.Text = Format(Val(txtTotalAmount.Text) + Val(txtTotalPrice.Text), "0.00")
-            dtableInvoice.Rows.Add("", txtItemCode.Text,
+            dtableInvoice.Rows.Add(dtableInvoice.Rows.Count + 1, txtItemCode.Text,
             txtItemName.Text,
             txtPo.Text,
             txtPoSeq.Text,
@@ -491,7 +491,7 @@
             txtUnit.Text,
             txtTotalPrice.Text,
             chkOk.Checked,
-            chkReceived.Checked, dtDate.Value, txtInvoiceRemarks.Text, ClientPrice)
+            chkReceived.Checked, dtDate.Value, txtInvoiceRemarks.Text, "", ClientPrice)
             InvoicesClear()
 
         Else
@@ -507,10 +507,10 @@
             dtableInvoice.SelectedRows(0).Cells(9).Value = txtUnit.Text
             dtableInvoice.SelectedRows(0).Cells(10).Value = txtTotalPrice.Text
             dtableInvoice.SelectedRows(0).Cells(11).Value = chkOk.Checked
-                dtableInvoice.SelectedRows(0).Cells(12).Value = chkReceived.Checked
-            If dtDate.Checked = True Then dtableInvoice.SelectedRows(0).Cells(13).Value = dtDate.Value
+            dtableInvoice.SelectedRows(0).Cells(12).Value = chkReceived.Checked
+            dtableInvoice.SelectedRows(0).Cells(13).Value = dtDate.Value
             dtableInvoice.SelectedRows(0).Cells(14).Value = txtInvoiceRemarks.Text
-            dtableInvoice.SelectedRows(0).Cells(15).Value = ClientPrice
+            dtableInvoice.SelectedRows(0).Cells(16).Value = ClientPrice
             InvoicesClear()
         End If
     End Sub
@@ -639,7 +639,7 @@
     End Sub
 
     Private Sub dtableInvoice_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellClick
-        If dtableInvoice.SelectedRows(0).Cells(11).Value = True Then
+        If dtableInvoice.SelectedRows(0).Cells(11).Value = False Then
             txtItemCode.Text = dtableInvoice.SelectedRows(0).Cells(1).Value.ToString()
             txtItemName.Text = dtableInvoice.SelectedRows(0).Cells(2).Value.ToString()
             txtPo.Text = dtableInvoice.SelectedRows(0).Cells(3).Value.ToString()

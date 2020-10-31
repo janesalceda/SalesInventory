@@ -40,13 +40,14 @@ Partial Class FrmStockoutSearch
         '
         Me.chkApproved.AutoSize = True
         Me.chkApproved.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.chkApproved.Location = New System.Drawing.Point(260, 9)
-        Me.chkApproved.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkApproved.Location = New System.Drawing.Point(446, 36)
+        Me.chkApproved.Margin = New System.Windows.Forms.Padding(2)
         Me.chkApproved.Name = "chkApproved"
         Me.chkApproved.Size = New System.Drawing.Size(88, 20)
         Me.chkApproved.TabIndex = 131
         Me.chkApproved.Text = "Approved"
         Me.chkApproved.UseVisualStyleBackColor = True
+        Me.chkApproved.Visible = False
         '
         'Label1
         '
@@ -63,22 +64,24 @@ Partial Class FrmStockoutSearch
         '
         Me.dtCountedTo.Checked = False
         Me.dtCountedTo.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.dtCountedTo.Location = New System.Drawing.Point(276, 34)
-        Me.dtCountedTo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtCountedTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtCountedTo.Location = New System.Drawing.Point(220, 34)
+        Me.dtCountedTo.Margin = New System.Windows.Forms.Padding(2)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
-        Me.dtCountedTo.Size = New System.Drawing.Size(176, 23)
+        Me.dtCountedTo.Size = New System.Drawing.Size(122, 23)
         Me.dtCountedTo.TabIndex = 129
         '
         'dtCountedFrom
         '
         Me.dtCountedFrom.Checked = False
         Me.dtCountedFrom.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtCountedFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtCountedFrom.Location = New System.Drawing.Point(92, 34)
-        Me.dtCountedFrom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtCountedFrom.Margin = New System.Windows.Forms.Padding(2)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
-        Me.dtCountedFrom.Size = New System.Drawing.Size(180, 23)
+        Me.dtCountedFrom.Size = New System.Drawing.Size(124, 23)
         Me.dtCountedFrom.TabIndex = 128
         '
         'btnSearch
@@ -86,10 +89,10 @@ Partial Class FrmStockoutSearch
         Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSearch.Location = New System.Drawing.Point(350, 6)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSearch.Location = New System.Drawing.Point(352, 2)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(86, 23)
+        Me.btnSearch.Size = New System.Drawing.Size(86, 28)
         Me.btnSearch.TabIndex = 127
         Me.btnSearch.Text = "Search"
         Me.btnSearch.UseVisualStyleBackColor = False
@@ -100,7 +103,7 @@ Partial Class FrmStockoutSearch
         Me.btnAdd.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Location = New System.Drawing.Point(661, 397)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(124, 25)
         Me.btnAdd.TabIndex = 126
@@ -112,9 +115,9 @@ Partial Class FrmStockoutSearch
         Me.txtSTID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtSTID.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtSTID.Location = New System.Drawing.Point(92, 7)
-        Me.txtSTID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSTID.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSTID.Name = "txtSTID"
-        Me.txtSTID.Size = New System.Drawing.Size(164, 23)
+        Me.txtSTID.Size = New System.Drawing.Size(248, 23)
         Me.txtSTID.TabIndex = 125
         '
         'Label7
@@ -139,9 +142,10 @@ Partial Class FrmStockoutSearch
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableStockOut.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockOut.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dtableStockOut.BackgroundColor = System.Drawing.Color.White
         Me.dtableStockOut.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtableStockOut.Location = New System.Drawing.Point(7, 65)
-        Me.dtableStockOut.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtableStockOut.Margin = New System.Windows.Forms.Padding(2)
         Me.dtableStockOut.Name = "dtableStockOut"
         Me.dtableStockOut.ReadOnly = True
         Me.dtableStockOut.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
@@ -154,10 +158,10 @@ Partial Class FrmStockoutSearch
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnClear.Location = New System.Drawing.Point(440, 6)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnClear.Location = New System.Drawing.Point(352, 32)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(86, 23)
+        Me.btnClear.Size = New System.Drawing.Size(86, 28)
         Me.btnClear.TabIndex = 132
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False

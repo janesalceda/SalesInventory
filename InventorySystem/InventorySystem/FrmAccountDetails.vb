@@ -1,6 +1,7 @@
 ﻿
 Public Class FrmAccountDetails
     Public SQL As New SQLControl
+    Public OpenFlg As Boolean
     Private Sub LoadDataGrid(Optional Query As String = "")
         SQL.AddParams("@userid", moduleId)
         SQL.AddParams("@user", txtUsername.Text)
@@ -40,7 +41,7 @@ Public Class FrmAccountDetails
     End Sub
 
     Private Sub FrmAccountDetails_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'MdiParent = AppForm
+        MdiParent = AppForm
         LoadDataGrid()
         If radM.Checked = True Then
             picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\maleuser.png")
@@ -65,5 +66,9 @@ Public Class FrmAccountDetails
         picVisible.Image = Image.FromFile("C:\temp\SalesandInventory\images\invisible.png")
         picVisible.Visible = True
         txtPass.PasswordChar = "•"
+    End Sub
+
+    Private Sub FrmAccountDetails_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        OpenFlg = False
     End Sub
 End Class

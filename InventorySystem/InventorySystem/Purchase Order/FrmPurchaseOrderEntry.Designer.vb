@@ -131,11 +131,11 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSupplier.Location = New System.Drawing.Point(288, 35)
+        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.btnSupplier.Location = New System.Drawing.Point(294, 35)
         Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSupplier.Name = "btnSupplier"
-        Me.btnSupplier.Size = New System.Drawing.Size(33, 25)
+        Me.btnSupplier.Size = New System.Drawing.Size(28, 23)
         Me.btnSupplier.TabIndex = 41
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.UseVisualStyleBackColor = False
@@ -198,6 +198,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtIssued.CalendarMonthBackground = System.Drawing.Color.White
         Me.dtIssued.Checked = False
         Me.dtIssued.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtIssued.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtIssued.Location = New System.Drawing.Point(453, 10)
         Me.dtIssued.Margin = New System.Windows.Forms.Padding(2)
         Me.dtIssued.Name = "dtIssued"
@@ -206,6 +207,8 @@ Partial Class FrmPurchaseOrderEntry
         '
         'cmbTDelivery
         '
+        Me.cmbTDelivery.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbTDelivery.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTDelivery.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbTDelivery.FormattingEnabled = True
         Me.cmbTDelivery.Location = New System.Drawing.Point(453, 35)
@@ -238,6 +241,8 @@ Partial Class FrmPurchaseOrderEntry
         '
         'cmbTPayment
         '
+        Me.cmbTPayment.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbTPayment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTPayment.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbTPayment.FormattingEnabled = True
         Me.cmbTPayment.Location = New System.Drawing.Point(453, 62)
@@ -250,7 +255,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label5.Location = New System.Drawing.Point(327, 90)
+        Me.Label5.Location = New System.Drawing.Point(327, 92)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(107, 16)
@@ -259,9 +264,11 @@ Partial Class FrmPurchaseOrderEntry
         '
         'cmbDeliveryPlace
         '
+        Me.cmbDeliveryPlace.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.cmbDeliveryPlace.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbDeliveryPlace.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbDeliveryPlace.FormattingEnabled = True
-        Me.cmbDeliveryPlace.Location = New System.Drawing.Point(453, 87)
+        Me.cmbDeliveryPlace.Location = New System.Drawing.Point(453, 89)
         Me.cmbDeliveryPlace.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbDeliveryPlace.Name = "cmbDeliveryPlace"
         Me.cmbDeliveryPlace.Size = New System.Drawing.Size(194, 24)
@@ -443,11 +450,12 @@ Partial Class FrmPurchaseOrderEntry
         Me.GroupBox1.Controls.Add(Me.txtItemCode)
         Me.GroupBox1.Controls.Add(Me.txtSupQty)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.GroupBox1.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 120)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(954, 386)
+        Me.GroupBox1.Size = New System.Drawing.Size(954, 390)
         Me.GroupBox1.TabIndex = 69
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Purchase Details"
@@ -457,7 +465,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.btnDelete.BackColor = System.Drawing.Color.Red
         Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnDelete.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnDelete.Location = New System.Drawing.Point(18, 318)
+        Me.btnDelete.Location = New System.Drawing.Point(144, 320)
         Me.btnDelete.Margin = New System.Windows.Forms.Padding(2)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(124, 26)
@@ -485,7 +493,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.Red
-        Me.Label18.Location = New System.Drawing.Point(269, 366)
+        Me.Label18.Location = New System.Drawing.Point(269, 368)
         Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(219, 19)
@@ -497,6 +505,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtETA.CalendarMonthBackground = System.Drawing.Color.White
         Me.dtETA.Checked = False
         Me.dtETA.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtETA.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtETA.Location = New System.Drawing.Point(86, 200)
         Me.dtETA.Margin = New System.Windows.Forms.Padding(2)
         Me.dtETA.Name = "dtETA"
@@ -509,6 +518,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtETD.CalendarMonthBackground = System.Drawing.Color.White
         Me.dtETD.Checked = False
         Me.dtETD.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtETD.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtETD.Location = New System.Drawing.Point(86, 175)
         Me.dtETD.Margin = New System.Windows.Forms.Padding(2)
         Me.dtETD.Name = "dtETD"
@@ -520,10 +530,11 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnItems.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.btnItems.Location = New System.Drawing.Point(236, 44)
         Me.btnItems.Margin = New System.Windows.Forms.Padding(2)
         Me.btnItems.Name = "btnItems"
-        Me.btnItems.Size = New System.Drawing.Size(28, 22)
+        Me.btnItems.Size = New System.Drawing.Size(28, 23)
         Me.btnItems.TabIndex = 87
         Me.btnItems.Text = "..."
         Me.btnItems.UseVisualStyleBackColor = False
@@ -547,6 +558,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.DTFtry.CalendarMonthBackground = System.Drawing.Color.White
         Me.DTFtry.Checked = False
         Me.DTFtry.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.DTFtry.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DTFtry.Location = New System.Drawing.Point(86, 227)
         Me.DTFtry.Margin = New System.Windows.Forms.Padding(2)
         Me.DTFtry.Name = "DTFtry"
@@ -680,16 +692,19 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.dtablePoDetails.AllowUserToAddRows = False
         Me.dtablePoDetails.AllowUserToDeleteRows = False
+        Me.dtablePoDetails.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtablePoDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtablePoDetails.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtablePoDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtablePoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.SupplierUnitPrice, Me.TotalPrice, Me.ETD, Me.ETA, Me.FTRY, Me.Cancel, Me.Rec, Me.RecAdd, Me.InvQty, Me.ClientUnitPrice})
-        Me.dtablePoDetails.Location = New System.Drawing.Point(270, 14)
+        Me.dtablePoDetails.Location = New System.Drawing.Point(270, 20)
         Me.dtablePoDetails.Margin = New System.Windows.Forms.Padding(2)
         Me.dtablePoDetails.Name = "dtablePoDetails"
         Me.dtablePoDetails.ReadOnly = True
         Me.dtablePoDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtablePoDetails.Size = New System.Drawing.Size(678, 351)
+        Me.dtablePoDetails.Size = New System.Drawing.Size(678, 344)
         Me.dtablePoDetails.TabIndex = 69
         '
         'Seq
@@ -697,84 +712,84 @@ Partial Class FrmPurchaseOrderEntry
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 52
+        Me.Seq.Width = 56
         '
         'ItemId
         '
         Me.ItemId.HeaderText = "Item"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 54
+        Me.ItemId.Width = 57
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 93
+        Me.ItemName.Width = 102
         '
         'ClientQUnit
         '
         Me.ClientQUnit.HeaderText = "ClientQty"
         Me.ClientQUnit.Name = "ClientQUnit"
         Me.ClientQUnit.ReadOnly = True
-        Me.ClientQUnit.Width = 79
+        Me.ClientQUnit.Width = 89
         '
         'ClientQty
         '
         Me.ClientQty.HeaderText = "Unit"
         Me.ClientQty.Name = "ClientQty"
         Me.ClientQty.ReadOnly = True
-        Me.ClientQty.Width = 52
+        Me.ClientQty.Width = 55
         '
         'PO
         '
         Me.PO.HeaderText = "SupplierQty"
         Me.PO.Name = "PO"
         Me.PO.ReadOnly = True
-        Me.PO.Width = 93
+        Me.PO.Width = 105
         '
         'Unit
         '
         Me.Unit.HeaderText = "Unit"
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
-        Me.Unit.Width = 52
+        Me.Unit.Width = 55
         '
         'SupplierUnitPrice
         '
-        Me.SupplierUnitPrice.HeaderText = "Supplier Unit Price"
+        Me.SupplierUnitPrice.HeaderText = "Unit Price"
         Me.SupplierUnitPrice.Name = "SupplierUnitPrice"
         Me.SupplierUnitPrice.ReadOnly = True
-        Me.SupplierUnitPrice.Width = 95
+        Me.SupplierUnitPrice.Width = 91
         '
         'TotalPrice
         '
         Me.TotalPrice.HeaderText = "TotalPrice"
         Me.TotalPrice.Name = "TotalPrice"
         Me.TotalPrice.ReadOnly = True
-        Me.TotalPrice.Width = 84
+        Me.TotalPrice.Width = 93
         '
         'ETD
         '
         Me.ETD.HeaderText = "ETD"
         Me.ETD.Name = "ETD"
         Me.ETD.ReadOnly = True
-        Me.ETD.Width = 54
+        Me.ETD.Width = 59
         '
         'ETA
         '
         Me.ETA.HeaderText = "ETA"
         Me.ETA.Name = "ETA"
         Me.ETA.ReadOnly = True
-        Me.ETA.Width = 51
+        Me.ETA.Width = 57
         '
         'FTRY
         '
         Me.FTRY.HeaderText = "FTRY"
         Me.FTRY.Name = "FTRY"
         Me.FTRY.ReadOnly = True
-        Me.FTRY.Width = 60
+        Me.FTRY.Width = 68
         '
         'Cancel
         '
@@ -783,7 +798,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Cancel.ReadOnly = True
         Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Cancel.Width = 69
+        Me.Cancel.Width = 75
         '
         'Rec
         '
@@ -792,13 +807,14 @@ Partial Class FrmPurchaseOrderEntry
         Me.Rec.ReadOnly = True
         Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Rec.Width = 52
+        Me.Rec.Width = 56
         '
         'RecAdd
         '
         Me.RecAdd.HeaderText = "RecAdd"
         Me.RecAdd.Name = "RecAdd"
         Me.RecAdd.ReadOnly = True
+        Me.RecAdd.Visible = False
         Me.RecAdd.Width = 73
         '
         'InvQty
@@ -806,13 +822,14 @@ Partial Class FrmPurchaseOrderEntry
         Me.InvQty.HeaderText = "Invoice Qty"
         Me.InvQty.Name = "InvQty"
         Me.InvQty.ReadOnly = True
-        Me.InvQty.Width = 81
+        Me.InvQty.Width = 101
         '
         'ClientUnitPrice
         '
         Me.ClientUnitPrice.HeaderText = "ClientUnitPrice"
         Me.ClientUnitPrice.Name = "ClientUnitPrice"
         Me.ClientUnitPrice.ReadOnly = True
+        Me.ClientUnitPrice.Visible = False
         Me.ClientUnitPrice.Width = 112
         '
         'chkcancelPO
@@ -856,6 +873,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(970, 537)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label19)

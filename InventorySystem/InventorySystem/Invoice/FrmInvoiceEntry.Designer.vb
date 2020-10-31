@@ -92,6 +92,23 @@ Partial Class FrmInvoiceEntry
         Me.Label29 = New System.Windows.Forms.Label()
         Me.txtPoSeq = New System.Windows.Forms.TextBox()
         Me.dtableInvoice = New System.Windows.Forms.DataGridView()
+        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PONo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PONo1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClientQUnit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClientQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Rec = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.Cancel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.ETD = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ETA = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClientUnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnPo = New System.Windows.Forms.Button()
         Me.txtInvoiceRemarks = New System.Windows.Forms.TextBox()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -116,23 +133,6 @@ Partial Class FrmInvoiceEntry
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.txtSupQty = New System.Windows.Forms.TextBox()
         Me.Label28 = New System.Windows.Forms.Label()
-        Me.Seq = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PONo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PONo1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClientQUnit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClientQty = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Rec = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.Cancel = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.ETD = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ETA = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AddRec = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClientUnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.Delivery.SuspendLayout()
         CType(Me.dtableDelivery, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -224,11 +224,11 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSupplier.Location = New System.Drawing.Point(233, 36)
+        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.btnSupplier.Location = New System.Drawing.Point(236, 36)
         Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSupplier.Name = "btnSupplier"
-        Me.btnSupplier.Size = New System.Drawing.Size(30, 23)
+        Me.btnSupplier.Size = New System.Drawing.Size(28, 23)
         Me.btnSupplier.TabIndex = 99
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -477,10 +477,11 @@ Partial Class FrmInvoiceEntry
         'dtDeliveryDate
         '
         Me.dtDeliveryDate.Checked = False
+        Me.dtDeliveryDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtDeliveryDate.Location = New System.Drawing.Point(106, 36)
         Me.dtDeliveryDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtDeliveryDate.Name = "dtDeliveryDate"
-        Me.dtDeliveryDate.Size = New System.Drawing.Size(166, 23)
+        Me.dtDeliveryDate.Size = New System.Drawing.Size(170, 23)
         Me.dtDeliveryDate.TabIndex = 201
         '
         'Label21
@@ -519,7 +520,7 @@ Partial Class FrmInvoiceEntry
         'txtqtyok
         '
         Me.txtqtyok.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtqtyok.Location = New System.Drawing.Point(106, 209)
+        Me.txtqtyok.Location = New System.Drawing.Point(105, 209)
         Me.txtqtyok.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtqtyok.MaxLength = 18
         Me.txtqtyok.Name = "txtqtyok"
@@ -529,10 +530,10 @@ Partial Class FrmInvoiceEntry
         'txtposeqdel
         '
         Me.txtposeqdel.Enabled = False
-        Me.txtposeqdel.Location = New System.Drawing.Point(220, 122)
+        Me.txtposeqdel.Location = New System.Drawing.Point(218, 122)
         Me.txtposeqdel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtposeqdel.Name = "txtposeqdel"
-        Me.txtposeqdel.Size = New System.Drawing.Size(55, 23)
+        Me.txtposeqdel.Size = New System.Drawing.Size(58, 23)
         Me.txtposeqdel.TabIndex = 197
         '
         'Label25
@@ -548,7 +549,7 @@ Partial Class FrmInvoiceEntry
         'txtBal
         '
         Me.txtBal.Enabled = False
-        Me.txtBal.Location = New System.Drawing.Point(106, 238)
+        Me.txtBal.Location = New System.Drawing.Point(105, 238)
         Me.txtBal.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtBal.Name = "txtBal"
         Me.txtBal.Size = New System.Drawing.Size(171, 23)
@@ -567,7 +568,7 @@ Partial Class FrmInvoiceEntry
         'txtRec
         '
         Me.txtRec.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.txtRec.Location = New System.Drawing.Point(106, 180)
+        Me.txtRec.Location = New System.Drawing.Point(105, 180)
         Me.txtRec.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtRec.MaxLength = 18
         Me.txtRec.Name = "txtRec"
@@ -587,7 +588,7 @@ Partial Class FrmInvoiceEntry
         'txtExp
         '
         Me.txtExp.Enabled = False
-        Me.txtExp.Location = New System.Drawing.Point(106, 151)
+        Me.txtExp.Location = New System.Drawing.Point(105, 151)
         Me.txtExp.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtExp.Name = "txtExp"
         Me.txtExp.Size = New System.Drawing.Size(171, 23)
@@ -605,12 +606,12 @@ Partial Class FrmInvoiceEntry
         Me.dtableDelivery.BackgroundColor = System.Drawing.Color.White
         Me.dtableDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DeliveryId, Me.DeliveryDate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.RecAdd})
-        Me.dtableDelivery.Location = New System.Drawing.Point(276, 7)
+        Me.dtableDelivery.Location = New System.Drawing.Point(282, 4)
         Me.dtableDelivery.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtableDelivery.Name = "dtableDelivery"
         Me.dtableDelivery.ReadOnly = True
         Me.dtableDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableDelivery.Size = New System.Drawing.Size(658, 306)
+        Me.dtableDelivery.Size = New System.Drawing.Size(652, 309)
         Me.dtableDelivery.TabIndex = 188
         '
         'DataGridViewTextBoxColumn1
@@ -714,7 +715,7 @@ Partial Class FrmInvoiceEntry
         Me.txtDeliveryID.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtDeliveryID.MaxLength = 50
         Me.txtDeliveryID.Name = "txtDeliveryID"
-        Me.txtDeliveryID.Size = New System.Drawing.Size(164, 23)
+        Me.txtDeliveryID.Size = New System.Drawing.Size(170, 23)
         Me.txtDeliveryID.TabIndex = 187
         '
         'btnInsertDel
@@ -743,21 +744,22 @@ Partial Class FrmInvoiceEntry
         '
         Me.txtPoDel.BackColor = System.Drawing.Color.White
         Me.txtPoDel.Enabled = False
-        Me.txtPoDel.Location = New System.Drawing.Point(106, 122)
+        Me.txtPoDel.Location = New System.Drawing.Point(104, 122)
         Me.txtPoDel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtPoDel.MaxLength = 20
         Me.txtPoDel.Name = "txtPoDel"
-        Me.txtPoDel.Size = New System.Drawing.Size(110, 23)
+        Me.txtPoDel.Size = New System.Drawing.Size(112, 23)
         Me.txtPoDel.TabIndex = 182
         '
         'btnItemInv
         '
         Me.btnItemInv.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItemInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItemInv.Location = New System.Drawing.Point(237, 64)
+        Me.btnItemInv.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.btnItemInv.Location = New System.Drawing.Point(248, 64)
         Me.btnItemInv.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnItemInv.Name = "btnItemInv"
-        Me.btnItemInv.Size = New System.Drawing.Size(33, 23)
+        Me.btnItemInv.Size = New System.Drawing.Size(28, 23)
         Me.btnItemInv.TabIndex = 180
         Me.btnItemInv.Text = "..."
         Me.btnItemInv.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -766,10 +768,10 @@ Partial Class FrmInvoiceEntry
         'txtIteamNameDel
         '
         Me.txtIteamNameDel.Enabled = False
-        Me.txtIteamNameDel.Location = New System.Drawing.Point(106, 92)
+        Me.txtIteamNameDel.Location = New System.Drawing.Point(2, 92)
         Me.txtIteamNameDel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtIteamNameDel.Name = "txtIteamNameDel"
-        Me.txtIteamNameDel.Size = New System.Drawing.Size(255, 23)
+        Me.txtIteamNameDel.Size = New System.Drawing.Size(274, 23)
         Me.txtIteamNameDel.TabIndex = 179
         '
         'Label24
@@ -789,7 +791,7 @@ Partial Class FrmInvoiceEntry
         Me.txtItemDel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtItemDel.MaxLength = 20
         Me.txtItemDel.Name = "txtItemDel"
-        Me.txtItemDel.Size = New System.Drawing.Size(164, 23)
+        Me.txtItemDel.Size = New System.Drawing.Size(170, 23)
         Me.txtItemDel.TabIndex = 178
         '
         'Invoice
@@ -833,7 +835,7 @@ Partial Class FrmInvoiceEntry
         '
         'btnInvDelete
         '
-        Me.btnInvDelete.BackColor = System.Drawing.Color.White
+        Me.btnInvDelete.BackColor = System.Drawing.Color.Red
         Me.btnInvDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnInvDelete.Location = New System.Drawing.Point(143, 302)
         Me.btnInvDelete.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -842,6 +844,7 @@ Partial Class FrmInvoiceEntry
         Me.btnInvDelete.TabIndex = 176
         Me.btnInvDelete.Text = "DELETE"
         Me.btnInvDelete.UseVisualStyleBackColor = False
+        Me.btnInvDelete.Visible = False
         '
         'btnClear
         '
@@ -884,6 +887,7 @@ Partial Class FrmInvoiceEntry
         Me.dtableInvoice.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dtableInvoice.BackgroundColor = System.Drawing.Color.White
         Me.dtableInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableInvoice.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PONo, Me.PONo1, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.UnitPrice, Me.TotalPrice, Me.Rec, Me.Cancel, Me.ETD, Me.ETA, Me.AddRec, Me.ClientUnitPrice})
         Me.dtableInvoice.Location = New System.Drawing.Point(273, 5)
@@ -894,14 +898,122 @@ Partial Class FrmInvoiceEntry
         Me.dtableInvoice.Size = New System.Drawing.Size(665, 297)
         Me.dtableInvoice.TabIndex = 172
         '
+        'Seq
+        '
+        Me.Seq.HeaderText = "Seq"
+        Me.Seq.Name = "Seq"
+        Me.Seq.ReadOnly = True
+        Me.Seq.Width = 40
+        '
+        'ItemId
+        '
+        Me.ItemId.HeaderText = "Item"
+        Me.ItemId.Name = "ItemId"
+        Me.ItemId.ReadOnly = True
+        '
+        'ItemName
+        '
+        Me.ItemName.HeaderText = "Description"
+        Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
+        '
+        'PONo
+        '
+        Me.PONo.HeaderText = "PONo"
+        Me.PONo.Name = "PONo"
+        Me.PONo.ReadOnly = True
+        '
+        'PONo1
+        '
+        Me.PONo1.HeaderText = "POSeq"
+        Me.PONo1.Name = "PONo1"
+        Me.PONo1.ReadOnly = True
+        '
+        'ClientQUnit
+        '
+        Me.ClientQUnit.HeaderText = "ClientQty"
+        Me.ClientQUnit.Name = "ClientQUnit"
+        Me.ClientQUnit.ReadOnly = True
+        '
+        'ClientQty
+        '
+        Me.ClientQty.HeaderText = "Unit"
+        Me.ClientQty.Name = "ClientQty"
+        Me.ClientQty.ReadOnly = True
+        '
+        'PO
+        '
+        Me.PO.HeaderText = "SupplierQty"
+        Me.PO.Name = "PO"
+        Me.PO.ReadOnly = True
+        '
+        'Unit
+        '
+        Me.Unit.HeaderText = "Unit"
+        Me.Unit.Name = "Unit"
+        Me.Unit.ReadOnly = True
+        '
+        'UnitPrice
+        '
+        Me.UnitPrice.HeaderText = "Unit Price"
+        Me.UnitPrice.Name = "UnitPrice"
+        Me.UnitPrice.ReadOnly = True
+        '
+        'TotalPrice
+        '
+        Me.TotalPrice.HeaderText = "TotalPrice"
+        Me.TotalPrice.Name = "TotalPrice"
+        Me.TotalPrice.ReadOnly = True
+        '
+        'Rec
+        '
+        Me.Rec.HeaderText = "Rec"
+        Me.Rec.Name = "Rec"
+        Me.Rec.ReadOnly = True
+        Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'Cancel
+        '
+        Me.Cancel.HeaderText = "Ok"
+        Me.Cancel.Name = "Cancel"
+        Me.Cancel.ReadOnly = True
+        Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        '
+        'ETD
+        '
+        Me.ETD.HeaderText = "Date"
+        Me.ETD.Name = "ETD"
+        Me.ETD.ReadOnly = True
+        '
+        'ETA
+        '
+        Me.ETA.HeaderText = "Remarks"
+        Me.ETA.Name = "ETA"
+        Me.ETA.ReadOnly = True
+        '
+        'AddRec
+        '
+        Me.AddRec.HeaderText = "AddRec"
+        Me.AddRec.Name = "AddRec"
+        Me.AddRec.ReadOnly = True
+        '
+        'ClientUnitPrice
+        '
+        Me.ClientUnitPrice.HeaderText = "ClientUnitPrice"
+        Me.ClientUnitPrice.Name = "ClientUnitPrice"
+        Me.ClientUnitPrice.ReadOnly = True
+        '
         'btnPo
         '
         Me.btnPo.BackColor = System.Drawing.Color.Gainsboro
         Me.btnPo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPo.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.btnPo.Location = New System.Drawing.Point(183, 71)
         Me.btnPo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnPo.Name = "btnPo"
-        Me.btnPo.Size = New System.Drawing.Size(28, 22)
+        Me.btnPo.Size = New System.Drawing.Size(28, 23)
         Me.btnPo.TabIndex = 171
         Me.btnPo.Text = "..."
         Me.btnPo.UseVisualStyleBackColor = False
@@ -957,17 +1069,18 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItems.Location = New System.Drawing.Point(239, 11)
+        Me.btnItems.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.btnItems.Location = New System.Drawing.Point(240, 12)
         Me.btnItems.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnItems.Name = "btnItems"
-        Me.btnItems.Size = New System.Drawing.Size(29, 23)
+        Me.btnItems.Size = New System.Drawing.Size(28, 23)
         Me.btnItems.TabIndex = 164
         Me.btnItems.Text = "..."
         Me.btnItems.UseVisualStyleBackColor = False
         '
         'btnAddItem
         '
-        Me.btnAddItem.BackColor = System.Drawing.Color.White
+        Me.btnAddItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddItem.Location = New System.Drawing.Point(14, 273)
         Me.btnAddItem.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -1134,113 +1247,6 @@ Partial Class FrmInvoiceEntry
         Me.Label28.Size = New System.Drawing.Size(217, 19)
         Me.Label28.TabIndex = 129
         Me.Label28.Text = "*NOTE: ALL * ARE IMPORTANT"
-        '
-        'Seq
-        '
-        Me.Seq.HeaderText = "Seq"
-        Me.Seq.Name = "Seq"
-        Me.Seq.ReadOnly = True
-        Me.Seq.Width = 40
-        '
-        'ItemId
-        '
-        Me.ItemId.HeaderText = "Item"
-        Me.ItemId.Name = "ItemId"
-        Me.ItemId.ReadOnly = True
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "Description"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        '
-        'PONo
-        '
-        Me.PONo.HeaderText = "PONo"
-        Me.PONo.Name = "PONo"
-        Me.PONo.ReadOnly = True
-        '
-        'PONo1
-        '
-        Me.PONo1.HeaderText = "POSeq"
-        Me.PONo1.Name = "PONo1"
-        Me.PONo1.ReadOnly = True
-        '
-        'ClientQUnit
-        '
-        Me.ClientQUnit.HeaderText = "ClientQty"
-        Me.ClientQUnit.Name = "ClientQUnit"
-        Me.ClientQUnit.ReadOnly = True
-        '
-        'ClientQty
-        '
-        Me.ClientQty.HeaderText = "Unit"
-        Me.ClientQty.Name = "ClientQty"
-        Me.ClientQty.ReadOnly = True
-        '
-        'PO
-        '
-        Me.PO.HeaderText = "SupplierQty"
-        Me.PO.Name = "PO"
-        Me.PO.ReadOnly = True
-        '
-        'Unit
-        '
-        Me.Unit.HeaderText = "Unit"
-        Me.Unit.Name = "Unit"
-        Me.Unit.ReadOnly = True
-        '
-        'UnitPrice
-        '
-        Me.UnitPrice.HeaderText = "Unit Price"
-        Me.UnitPrice.Name = "UnitPrice"
-        Me.UnitPrice.ReadOnly = True
-        '
-        'TotalPrice
-        '
-        Me.TotalPrice.HeaderText = "TotalPrice"
-        Me.TotalPrice.Name = "TotalPrice"
-        Me.TotalPrice.ReadOnly = True
-        '
-        'Rec
-        '
-        Me.Rec.HeaderText = "Rec"
-        Me.Rec.Name = "Rec"
-        Me.Rec.ReadOnly = True
-        Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'Cancel
-        '
-        Me.Cancel.HeaderText = "Ok"
-        Me.Cancel.Name = "Cancel"
-        Me.Cancel.ReadOnly = True
-        Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        '
-        'ETD
-        '
-        Me.ETD.HeaderText = "Date"
-        Me.ETD.Name = "ETD"
-        Me.ETD.ReadOnly = True
-        '
-        'ETA
-        '
-        Me.ETA.HeaderText = "Remarks"
-        Me.ETA.Name = "ETA"
-        Me.ETA.ReadOnly = True
-        '
-        'AddRec
-        '
-        Me.AddRec.HeaderText = "AddRec"
-        Me.AddRec.Name = "AddRec"
-        Me.AddRec.ReadOnly = True
-        '
-        'ClientUnitPrice
-        '
-        Me.ClientUnitPrice.HeaderText = "ClientUnitPrice"
-        Me.ClientUnitPrice.Name = "ClientUnitPrice"
-        Me.ClientUnitPrice.ReadOnly = True
         '
         'FrmInvoiceEntry
         '

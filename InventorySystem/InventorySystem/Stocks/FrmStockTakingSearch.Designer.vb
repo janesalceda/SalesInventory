@@ -41,7 +41,7 @@ Partial Class FrmStockTakingSearch
         Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSearch.Location = New System.Drawing.Point(363, 7)
+        Me.btnSearch.Location = New System.Drawing.Point(372, 10)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(86, 23)
@@ -69,7 +69,7 @@ Partial Class FrmStockTakingSearch
         Me.txtSTID.Location = New System.Drawing.Point(114, 9)
         Me.txtSTID.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSTID.Name = "txtSTID"
-        Me.txtSTID.Size = New System.Drawing.Size(155, 23)
+        Me.txtSTID.Size = New System.Drawing.Size(250, 23)
         Me.txtSTID.TabIndex = 34
         '
         'Label7
@@ -94,6 +94,7 @@ Partial Class FrmStockTakingSearch
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableStockTaking.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockTaking.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dtableStockTaking.BackgroundColor = System.Drawing.Color.White
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.dtableStockTaking.Location = New System.Drawing.Point(11, 67)
         Me.dtableStockTaking.Margin = New System.Windows.Forms.Padding(2)
@@ -108,22 +109,24 @@ Partial Class FrmStockTakingSearch
         '
         Me.dtCountedFrom.Checked = False
         Me.dtCountedFrom.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtCountedFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtCountedFrom.Location = New System.Drawing.Point(114, 35)
         Me.dtCountedFrom.Margin = New System.Windows.Forms.Padding(2)
         Me.dtCountedFrom.Name = "dtCountedFrom"
         Me.dtCountedFrom.ShowCheckBox = True
-        Me.dtCountedFrom.Size = New System.Drawing.Size(226, 23)
+        Me.dtCountedFrom.Size = New System.Drawing.Size(124, 23)
         Me.dtCountedFrom.TabIndex = 118
         '
         'dtCountedTo
         '
         Me.dtCountedTo.Checked = False
         Me.dtCountedTo.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.dtCountedTo.Location = New System.Drawing.Point(362, 36)
+        Me.dtCountedTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtCountedTo.Location = New System.Drawing.Point(242, 36)
         Me.dtCountedTo.Margin = New System.Windows.Forms.Padding(2)
         Me.dtCountedTo.Name = "dtCountedTo"
         Me.dtCountedTo.ShowCheckBox = True
-        Me.dtCountedTo.Size = New System.Drawing.Size(210, 23)
+        Me.dtCountedTo.Size = New System.Drawing.Size(124, 23)
         Me.dtCountedTo.TabIndex = 119
         '
         'Label1
@@ -141,20 +144,21 @@ Partial Class FrmStockTakingSearch
         '
         Me.chkApproved.AutoSize = True
         Me.chkApproved.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.chkApproved.Location = New System.Drawing.Point(272, 11)
+        Me.chkApproved.Location = New System.Drawing.Point(466, 38)
         Me.chkApproved.Margin = New System.Windows.Forms.Padding(2)
         Me.chkApproved.Name = "chkApproved"
         Me.chkApproved.Size = New System.Drawing.Size(88, 20)
         Me.chkApproved.TabIndex = 122
         Me.chkApproved.Text = "Approved"
         Me.chkApproved.UseVisualStyleBackColor = True
+        Me.chkApproved.Visible = False
         '
         'btnClear
         '
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnClear.Location = New System.Drawing.Point(454, 8)
+        Me.btnClear.Location = New System.Drawing.Point(372, 36)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(86, 23)

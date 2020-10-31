@@ -58,8 +58,8 @@ Partial Class FrmSearchPO
         '
         Me.txtSupplier.BackColor = System.Drawing.Color.LightBlue
         Me.txtSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtSupplier.Location = New System.Drawing.Point(86, 50)
-        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSupplier.Location = New System.Drawing.Point(92, 50)
+        Me.txtSupplier.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
         Me.txtSupplier.Size = New System.Drawing.Size(227, 23)
@@ -80,8 +80,8 @@ Partial Class FrmSearchPO
         '
         Me.txtPONo.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtPONo.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtPONo.Location = New System.Drawing.Point(86, 22)
-        Me.txtPONo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtPONo.Location = New System.Drawing.Point(92, 22)
+        Me.txtPONo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPONo.MaxLength = 20
         Me.txtPONo.Name = "txtPONo"
         Me.txtPONo.Size = New System.Drawing.Size(227, 23)
@@ -103,8 +103,8 @@ Partial Class FrmSearchPO
         Me.dtIssuedFrom.Checked = False
         Me.dtIssuedFrom.CustomFormat = "YYYY/MM/DD"
         Me.dtIssuedFrom.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.dtIssuedFrom.Location = New System.Drawing.Point(86, 77)
-        Me.dtIssuedFrom.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtIssuedFrom.Location = New System.Drawing.Point(92, 77)
+        Me.dtIssuedFrom.Margin = New System.Windows.Forms.Padding(2)
         Me.dtIssuedFrom.Name = "dtIssuedFrom"
         Me.dtIssuedFrom.ShowCheckBox = True
         Me.dtIssuedFrom.Size = New System.Drawing.Size(228, 23)
@@ -125,8 +125,8 @@ Partial Class FrmSearchPO
         '
         Me.txtSupplierName.Enabled = False
         Me.txtSupplierName.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtSupplierName.Location = New System.Drawing.Point(316, 50)
-        Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSupplierName.Location = New System.Drawing.Point(322, 50)
+        Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSupplierName.Name = "txtSupplierName"
         Me.txtSupplierName.Size = New System.Drawing.Size(303, 23)
         Me.txtSupplierName.TabIndex = 49
@@ -148,9 +148,9 @@ Partial Class FrmSearchPO
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.txtSupplier)
         Me.GroupBox1.Location = New System.Drawing.Point(9, 10)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(655, 127)
         Me.GroupBox1.TabIndex = 50
         Me.GroupBox1.TabStop = False
@@ -160,7 +160,7 @@ Partial Class FrmSearchPO
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label2.Location = New System.Drawing.Point(316, 24)
+        Me.Label2.Location = New System.Drawing.Point(322, 24)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(75, 16)
@@ -172,8 +172,8 @@ Partial Class FrmSearchPO
         Me.radNo.AutoSize = True
         Me.radNo.Checked = True
         Me.radNo.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.radNo.Location = New System.Drawing.Point(454, 24)
-        Me.radNo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.radNo.Location = New System.Drawing.Point(460, 24)
+        Me.radNo.Margin = New System.Windows.Forms.Padding(2)
         Me.radNo.Name = "radNo"
         Me.radNo.Size = New System.Drawing.Size(43, 20)
         Me.radNo.TabIndex = 53
@@ -185,8 +185,8 @@ Partial Class FrmSearchPO
         '
         Me.radYes.AutoSize = True
         Me.radYes.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.radYes.Location = New System.Drawing.Point(398, 23)
-        Me.radYes.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.radYes.Location = New System.Drawing.Point(404, 23)
+        Me.radYes.Margin = New System.Windows.Forms.Padding(2)
         Me.radYes.Name = "radYes"
         Me.radYes.Size = New System.Drawing.Size(49, 20)
         Me.radYes.TabIndex = 52
@@ -198,11 +198,11 @@ Partial Class FrmSearchPO
         '
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSupplier.Location = New System.Drawing.Point(282, 50)
-        Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.btnSupplier.Location = New System.Drawing.Point(292, 50)
+        Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSupplier.Name = "btnSupplier"
-        Me.btnSupplier.Size = New System.Drawing.Size(32, 24)
+        Me.btnSupplier.Size = New System.Drawing.Size(28, 23)
         Me.btnSupplier.TabIndex = 51
         Me.btnSupplier.Text = "..."
         Me.btnSupplier.UseVisualStyleBackColor = False
@@ -212,8 +212,8 @@ Partial Class FrmSearchPO
         Me.dtIssuedTo.Checked = False
         Me.dtIssuedTo.CustomFormat = "YYYY/MM/DD"
         Me.dtIssuedTo.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.dtIssuedTo.Location = New System.Drawing.Point(319, 77)
-        Me.dtIssuedTo.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtIssuedTo.Location = New System.Drawing.Point(325, 77)
+        Me.dtIssuedTo.Margin = New System.Windows.Forms.Padding(2)
         Me.dtIssuedTo.Name = "dtIssuedTo"
         Me.dtIssuedTo.ShowCheckBox = True
         Me.dtIssuedTo.Size = New System.Drawing.Size(229, 23)
@@ -228,9 +228,9 @@ Partial Class FrmSearchPO
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.txtItems)
         Me.GroupBox2.Location = New System.Drawing.Point(9, 142)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox2.Size = New System.Drawing.Size(655, 56)
         Me.GroupBox2.TabIndex = 51
         Me.GroupBox2.TabStop = False
@@ -240,11 +240,11 @@ Partial Class FrmSearchPO
         '
         Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnItems.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnItems.Location = New System.Drawing.Point(278, 21)
-        Me.btnItems.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnItems.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.btnItems.Location = New System.Drawing.Point(284, 21)
+        Me.btnItems.Margin = New System.Windows.Forms.Padding(2)
         Me.btnItems.Name = "btnItems"
-        Me.btnItems.Size = New System.Drawing.Size(32, 25)
+        Me.btnItems.Size = New System.Drawing.Size(28, 23)
         Me.btnItems.TabIndex = 51
         Me.btnItems.Text = "..."
         Me.btnItems.UseVisualStyleBackColor = False
@@ -254,7 +254,7 @@ Partial Class FrmSearchPO
         Me.txtItemsName.Enabled = False
         Me.txtItemsName.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtItemsName.Location = New System.Drawing.Point(319, 21)
-        Me.txtItemsName.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtItemsName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtItemsName.Name = "txtItemsName"
         Me.txtItemsName.Size = New System.Drawing.Size(303, 23)
         Me.txtItemsName.TabIndex = 49
@@ -263,7 +263,7 @@ Partial Class FrmSearchPO
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label4.Location = New System.Drawing.Point(5, 22)
+        Me.Label4.Location = New System.Drawing.Point(5, 24)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(45, 16)
@@ -275,7 +275,7 @@ Partial Class FrmSearchPO
         Me.txtItems.BackColor = System.Drawing.Color.LightBlue
         Me.txtItems.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtItems.Location = New System.Drawing.Point(84, 21)
-        Me.txtItems.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtItems.Margin = New System.Windows.Forms.Padding(2)
         Me.txtItems.MaxLength = 20
         Me.txtItems.Name = "txtItems"
         Me.txtItems.Size = New System.Drawing.Size(227, 23)
@@ -287,7 +287,7 @@ Partial Class FrmSearchPO
         Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Location = New System.Drawing.Point(480, 202)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(90, 27)
         Me.btnSearch.TabIndex = 62
@@ -300,7 +300,7 @@ Partial Class FrmSearchPO
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Location = New System.Drawing.Point(576, 202)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(90, 27)
         Me.btnClear.TabIndex = 61
@@ -321,7 +321,7 @@ Partial Class FrmSearchPO
         Me.dtPoDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtPoDetails.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PONO, Me.SupplierId, Me.SupplierName, Me.IssuedDate, Me.Cancelled})
         Me.dtPoDetails.Location = New System.Drawing.Point(8, 234)
-        Me.dtPoDetails.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtPoDetails.Margin = New System.Windows.Forms.Padding(2)
         Me.dtPoDetails.Name = "dtPoDetails"
         Me.dtPoDetails.ReadOnly = True
         Me.dtPoDetails.RowHeadersVisible = False

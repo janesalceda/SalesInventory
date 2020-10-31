@@ -16,14 +16,25 @@
             INNER Join Suppliers  	ON         
             po.SupplierId = Suppliers.SupplierId
                     Left Join(
-            Select   SupplierID, PONO, PODetailSeq, ItemID, Sum(InvoiceDetails.QTY) as InvoiceQty  
-            From InvoiceDetails  Where ItemId = @ItemId   And SupplierId = @SupplierId
-            Group by SupplierID,PONO,PODetailSeq,ItemID  )A  On po.SupplierID = A.SupplierID
+            Select  InvoiceDeliveryDetails.SupplierID, PONO, PODetailSeq, ItemID, 
+            Sum(InvoiceDeliveryDetails.QtyOk) as InvoiceQty  
+            From InvoiceDeliveryDetails  
+            INNER JOIN InvoiceDetails ON
+            InvoiceDeliveryDetails.InvoiceNo=InvoiceDetails.InvoiceNo AND
+            InvoiceDeliveryDetails.InvoiceDetailSeq	=InvoiceDetails.InvoiceDetailSeq
+            Where ItemId = @ItemId   And InvoiceDeliveryDetails.SupplierId = @SupplierId
+            Group by InvoiceDeliveryDetails.SupplierID,PONO,PODetailSeq,ItemID  )A  On po.SupplierID = A.SupplierID
             And pod.PONO = A.PONO    And pod.PoDetailSeq = A.PoDetailSeq    And pod.ItemID = A.ItemID    
-            WHERE      po.SupplierId =@SupplierId AND        pod.ItemId = @ItemId
+            WHERE      
+            po.SupplierId =@SupplierId AND        
+            pod.ItemId = @ItemId 
             And pod.ReceivedAllInvoices = 0 
-            And pod.Canceled = 0  Group by po.SupplierID,  
-            pod.PoNo, pod.ItemID, pod.PoDetailSeq, A.InvoiceQty, pod.Qty "
+            And pod.Canceled = 0  
+            AND 
+            pod.Qty - isnull(A.InvoiceQty, 0) <>0
+            Group by po.SupplierID,  
+            pod.PoNo, pod.ItemID, pod.PoDetailSeq, A.InvoiceQty, pod.Qty 
+            "
 )
         If SQL.RecordCount = 0 Then
             MsgBox("No Record Found", MsgBoxStyle.Information, "Information")

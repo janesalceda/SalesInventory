@@ -106,7 +106,7 @@ Partial Class FrmChangeItemDescription
         '
         Me.btnUpdate.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnUpdate.Location = New System.Drawing.Point(180, 141)
+        Me.btnUpdate.Location = New System.Drawing.Point(186, 141)
         Me.btnUpdate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(65, 32)
@@ -118,7 +118,7 @@ Partial Class FrmChangeItemDescription
         '
         Me.btnCancel.BackColor = System.Drawing.Color.Red
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnCancel.Location = New System.Drawing.Point(250, 141)
+        Me.btnCancel.Location = New System.Drawing.Point(256, 141)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(63, 32)

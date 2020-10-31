@@ -29,7 +29,7 @@
             isnull(sum(sod.Qty*sod.ClientUnitPrice),0)'TotalClient' from
             items i left join StockOutDetails sod on i.ItemId=sod.ItemId
             group by i.ItemId,i.Description) a
-            GROUP BY itemId,description")
+            GROUP BY itemId,description" & where)
             If SQL.HasException Then
                 msgboxDisplay("Error in Viewing Data", 3)
                 Exit Sub

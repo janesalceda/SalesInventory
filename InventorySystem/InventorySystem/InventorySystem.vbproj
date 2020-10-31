@@ -211,6 +211,14 @@
     <Compile Include="DataSets\DataSet6.vb">
       <DependentUpon>DataSet6.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataSets\DataSet7.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\DataSet7.vb">
+      <DependentUpon>DataSet7.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Inventory\FrmProductRanking.Designer.vb">
       <DependentUpon>FrmProductRanking.vb</DependentUpon>
     </Compile>
@@ -856,6 +864,17 @@
     </None>
     <None Include="DataSets\DataSet6.xss">
       <DependentUpon>DataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet7.xsc">
+      <DependentUpon>DataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\DataSet7.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet7.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="DataSets\DataSet7.xss">
+      <DependentUpon>DataSet7.xsd</DependentUpon>
     </None>
     <None Include="InventorySystem_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />

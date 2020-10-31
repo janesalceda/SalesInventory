@@ -132,6 +132,7 @@ Partial Class FrmSearchInvoice
         '
         Me.btnitems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnitems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnitems.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.btnitems.Location = New System.Drawing.Point(296, 22)
         Me.btnitems.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnitems.Name = "btnitems"
@@ -211,6 +212,7 @@ Partial Class FrmSearchInvoice
         '
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSupplier.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.btnSupplier.Location = New System.Drawing.Point(296, 52)
         Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSupplier.Name = "btnSupplier"

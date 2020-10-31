@@ -203,17 +203,24 @@ where SupplierID=@SupplierID
 END
 GO
 
-CREATE procedure [dbo].[UpdateSupplierName] (@SupplierID VARCHAR(25),@SupplierName varchar(100),@updatedid int)
-as
-BEGIN
-declare @OldSupplierName varchar(100)
-set @OldSupplierName =(select SupplierName from suppliers where SupplierID=@SupplierID)
+CREATE procedure 
+[dbo].[UpdateUOM](@itemid varchar(20),@uomtype int,@QtyUnitVal int,@ConvertingCoefficient decimal(18,12),@updatedid int) as
+declare @OldClientQtyUnit int
+declare @OldSupplierQtyUnit int
+declare @OldConvertingCoefficient decimal(18,12)
 
-update Suppliers set 
-SupplierName = @SupplierName,
-UpdatedDate = getdate(),
-UpdatedBy = @updatedid
-where SupplierID=@SupplierID
+set @OldClientQtyUnit = (select ClientQtyUnit from items where itemid=@itemid)
+set @OldSupplierQtyUnit = (select SupplierQtyUnit from items where itemid=@itemid)
+set @OldConvertingCoefficient = (select ConvertingCoefficient from items where itemid=@itemid)
+
+--client qty
+if @uomtype = 1 
+BEGIN
+	update items set 
+	ClientQtyUnit =  @QtyUnitVal,
+	UpdatedDate = getdate(),
+	UpdatedBy = @updatedid
+	where itemid=@itemid
 --add to logs
 	INSERT INTO [dbo].[UtilitiesLogs]
            ([UtilityCategory]
@@ -223,12 +230,69 @@ where SupplierID=@SupplierID
            ,[UpdatedDate]
            ,[UpdatedBy])
      VALUES
-           ('Change Supplier Name of Supplier'
-           ,'Update Supplier Name supplier id: ' +@SupplierID+' from '+@OldSupplierName+' to '+@SupplierName
+           ('Change Item Client Qty Unit'
+           ,'Update Client Qty Unit item id: ' +@itemid+' from '
+           +cast(@OldClientQtyUnit AS NVARCHAR(6))+' to '+cast(@QtyUnitVal AS NVARCHAR(6))
+           ,getdate()
+           ,null
+           ,getdate()
+           ,@updatedid)
+		   
+END
+--supplierqty
+else if @uomtype = 2 
+BEGIN
+	update items set 
+	SupplierQtyUnit =  @QtyUnitVal,
+	UpdatedDate = getdate(),
+	UpdatedBy = @updatedid
+	where itemid=@itemid
+--add to logs
+	INSERT INTO [dbo].[UtilitiesLogs]
+           ([UtilityCategory]
+           ,[Remarks]
+           ,[CreatedDate]
+           ,[DeletedDate]
+           ,[UpdatedDate]
+           ,[UpdatedBy])
+     VALUES
+           ('Change Item Supplier Qty Unit'
+           ,'Update Supplier Qty Unit item id: ' +@itemid+' from '        
+           +cast(@OldSupplierQtyUnit AS NVARCHAR(6))+' to '+cast(@QtyUnitVal AS NVARCHAR(6))
+           ,getdate()
+           ,null
+           ,getdate()
+           ,@updatedid)
+		   
+END
+--converting coefficient
+else if @uomtype = 3 
+BEGIN
+	update items set 
+	ConvertingCoefficient =  @ConvertingCoefficient,
+	UpdatedDate = getdate(),
+	UpdatedBy = @updatedid
+	where itemid=@itemid
+--add to logs
+	INSERT INTO [dbo].[UtilitiesLogs]
+           ([UtilityCategory]
+           ,[Remarks]
+           ,[CreatedDate]
+           ,[DeletedDate]
+           ,[UpdatedDate]
+           ,[UpdatedBy])
+     VALUES
+           ('Change Item Converting Coefficient'
+           ,'Update Converting Coefficient item id: ' +@itemid+' from '
+           +cast(@OldConvertingCoefficient AS NVARCHAR(6))+' to '+cast(@ConvertingCoefficient AS NVARCHAR(6))
            ,getdate()
            ,null
            ,getdate()
            ,@updatedid)
 END
+
+
+
+
 GO
 

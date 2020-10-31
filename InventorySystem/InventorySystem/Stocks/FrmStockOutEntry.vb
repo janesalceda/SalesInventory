@@ -71,11 +71,12 @@
             Dim row As ArrayList = New ArrayList
             DTCount += 1
             txtTotalAmount.Text = Val(txtTotalAmount.Text) + (Val(txtQty.Text) * cliprice)
-            row.Add(DTCount)
+            row.Add(dtableStockout.Rows.Count + 1)
             row.Add(txtItemCode.Text)
             row.Add(txtItemName.Text)
             row.Add(txtQty.Text)
             row.Add(cliprice)
+            row.Add(Val(txtQty.Text) * cliprice)
             row.Add(txtSTRemarks.Text)
             row.Add(getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, ""))
             dtableStockout.Rows.Add(row.ToArray())
@@ -87,8 +88,10 @@
                 dtableStockout.SelectedRows(0).Cells(1).Value = txtItemCode.Text
                 dtableStockout.SelectedRows(0).Cells(2).Value = txtItemName.Text
                 dtableStockout.SelectedRows(0).Cells(3).Value = txtQty.Text
-                dtableStockout.SelectedRows(0).Cells(5).Value = txtRemarks.Text
-                dtableStockout.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, "")
+                dtableStockout.SelectedRows(0).Cells(4).Value = cliprice
+                dtableStockout.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * cliprice
+                dtableStockout.SelectedRows(0).Cells(6).Value = txtSTRemarks.Text
+                dtableStockout.SelectedRows(0).Cells(7).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, "")
                 btnAddItem.Text = "INSERT"
                 confirm = False
             End If
@@ -156,25 +159,27 @@
                 SQL.ExecQuery("INSERT INTO dbo.StockOutHeaders
 	        (StockOutCode,StockOutDate,TotalAmount,EncodedStaff,IssuedByStaff,ApprovedBy,Remarks,UpdatedBy)
         VALUES((SELECT CASE WHEN max(StockOutCode) IS NULL 
-                    THEN 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1<10
-                    THEN 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1 AS VARCHAR	)
-                    ELSE 'SC' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(StockOutCode),len(max(StockOutCode))-12) AS INT) +1 AS VARCHAR	)
+                    THEN 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
+                    CASE WHEN right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) + 1<10
+                    THEN 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) +1 as varchar)
+                    ELSE 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) +1 as varchar)
                     END END AS 'pomax' from StockOutHeaders),@stockoutdate,@totalamount,@encodedstaff,@issuedbystaff,NULL,@remarks,@encodedstaff)")
                 If SQL.HasException Then Exit Sub
 
                 For i As Integer = 0 To dtableStockout.Rows.Count - 1
                     SQL.AddParams("@stockoutcode", txtStockOutID.Text)
-                    SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value.ToString())
+                    SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value)
                     SQL.AddParams("@itemid", dtableStockout.Rows(i).Cells(1).Value.ToString())
-                    SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value.ToString())
-                    SQL.AddParams("@SupplierUnitprice", dtableStockout.Rows(i).Cells(6).Value.ToString())
-                    SQL.AddParams("@ClientUnitprice", dtableStockout.Rows(i).Cells(4).Value.ToString())
-                    SQL.AddParams("@remarks", dtableStockout.Rows(i).Cells(5).Value.ToString())
+                    SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value)
+                    SQL.AddParams("@SupplierUnitprice", dtableStockout.Rows(i).Cells(7).Value)
+                    SQL.AddParams("@ClientUnitprice", dtableStockout.Rows(i).Cells(4).Value)
+                    SQL.AddParams("@remarks", dtableStockout.Rows(i).Cells(6).Value.ToString())
                     SQL.AddParams("@updatedby", moduleId)
                     SQL.ExecQuery("INSERT INTO dbo.StockOutDetails
-	            (StockOutCode,ItemSeq,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
-            VALUES((SELECT max(StockOutCode) from StockOutHeaders),@itemseq,@itemid,@qty,@ClientUnitprice,@SupplierUnitprice,@remarks,@updatedby)")
+	                    (StockOutCode,ItemSeq,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
+                        VALUES((SELECT max(StockOutCode) from StockOutHeaders),
+                        @itemseq,@itemid,@qty,@ClientUnitprice,@SupplierUnitprice,
+                        @remarks,@updatedby)")
                     If SQL.HasException Then
                         SQL.AddParams("@stockoutcode", txtStockOutID.Text)
                         SQL.ExecQuery("delete from StockOutDetails where StockOutCode=(SELECT max(STID) from StockTakingHeaders);delete from StockOutHeaders where StockOutCode=(SELECT max(STID) from StockTakingHeaders);")
@@ -220,8 +225,11 @@
         txtItemCode.Text = dtableStockout.SelectedRows(0).Cells(1).Value
         txtItemName.Text = dtableStockout.SelectedRows(0).Cells(2).Value
         txtQty.Text = dtableStockout.SelectedRows(0).Cells(3).Value
-        txtRemarks.Text = dtableStockout.SelectedRows(0).Cells(4).Value
+        txtSTRemarks.Text = dtableStockout.SelectedRows(0).Cells(5).Value
         btnAddItem.Text = "UPDATE"
     End Sub
 
+    Private Sub txtStockOutID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtStockOutID.KeyPress
+        e.Handled = True
+    End Sub
 End Class

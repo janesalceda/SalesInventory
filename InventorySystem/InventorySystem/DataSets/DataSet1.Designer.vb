@@ -289,7 +289,7 @@ Partial Public Class DataSet1
         
         Private columnQty As Global.System.Data.DataColumn
         
-        Private columnUnitPrice As Global.System.Data.DataColumn
+        Private columnSupplierUnitPrice As Global.System.Data.DataColumn
         
         Private columnTotal As Global.System.Data.DataColumn
         
@@ -392,9 +392,9 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property UnitPriceColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property SupplierUnitPriceColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnUnitPrice
+                Return Me.columnSupplierUnitPrice
             End Get
         End Property
         
@@ -599,7 +599,7 @@ Partial Public Class DataSet1
                     ByVal ItemId As String,  _
                     ByVal Description As String,  _
                     ByVal Qty As Decimal,  _
-                    ByVal UnitPrice As Decimal,  _
+                    ByVal SupplierUnitPrice As Decimal,  _
                     ByVal Total As Decimal,  _
                     ByVal PONo As String,  _
                     ByVal IssuedDate As String,  _
@@ -621,7 +621,7 @@ Partial Public Class DataSet1
                     ByVal CompanyLogo As String,  _
                     ByVal Encoder As String) As PODetailsRow
             Dim rowPODetailsRow As PODetailsRow = CType(Me.NewRow,PODetailsRow)
-            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, UnitPrice, Total, PONo, IssuedDate, TotalAmount, SupplierName, Phone, Fax, Address, Remarks, DeliveryPlaces, TermsofDelivery, TermsofPayment, CompanyName, StreetAdress, CityZip, CompPhone, CompFax, website, CompanyLogo, Encoder}
+            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, SupplierUnitPrice, Total, PONo, IssuedDate, TotalAmount, SupplierName, Phone, Fax, Address, Remarks, DeliveryPlaces, TermsofDelivery, TermsofPayment, CompanyName, StreetAdress, CityZip, CompPhone, CompFax, website, CompanyLogo, Encoder}
             rowPODetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPODetailsRow)
             Return rowPODetailsRow
@@ -647,7 +647,7 @@ Partial Public Class DataSet1
             Me.columnItemId = MyBase.Columns("ItemId")
             Me.columnDescription = MyBase.Columns("Description")
             Me.columnQty = MyBase.Columns("Qty")
-            Me.columnUnitPrice = MyBase.Columns("UnitPrice")
+            Me.columnSupplierUnitPrice = MyBase.Columns("SupplierUnitPrice")
             Me.columnTotal = MyBase.Columns("Total")
             Me.columnPONo = MyBase.Columns("PONo")
             Me.columnIssuedDate = MyBase.Columns("IssuedDate")
@@ -679,8 +679,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnDescription)
             Me.columnQty = New Global.System.Data.DataColumn("Qty", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQty)
-            Me.columnUnitPrice = New Global.System.Data.DataColumn("UnitPrice", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnUnitPrice)
+            Me.columnSupplierUnitPrice = New Global.System.Data.DataColumn("SupplierUnitPrice", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSupplierUnitPrice)
             Me.columnTotal = New Global.System.Data.DataColumn("Total", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotal)
             Me.columnPONo = New Global.System.Data.DataColumn("PONo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -912,16 +912,16 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property UnitPrice() As Decimal
+        Public Property SupplierUnitPrice() As Decimal
             Get
                 Try 
-                    Return CType(Me(Me.tablePODetails.UnitPriceColumn),Decimal)
+                    Return CType(Me(Me.tablePODetails.SupplierUnitPriceColumn),Decimal)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'UnitPrice' in table 'PODetails' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SupplierUnitPrice' in table 'PODetails' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablePODetails.UnitPriceColumn) = value
+                Me(Me.tablePODetails.SupplierUnitPriceColumn) = value
             End Set
         End Property
         
@@ -1263,14 +1263,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsUnitPriceNull() As Boolean
-            Return Me.IsNull(Me.tablePODetails.UnitPriceColumn)
+        Public Function IsSupplierUnitPriceNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.SupplierUnitPriceColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetUnitPriceNull()
-            Me(Me.tablePODetails.UnitPriceColumn) = Global.System.Convert.DBNull
+        Public Sub SetSupplierUnitPriceNull()
+            Me(Me.tablePODetails.SupplierUnitPriceColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

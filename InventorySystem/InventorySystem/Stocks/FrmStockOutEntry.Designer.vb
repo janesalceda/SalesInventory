@@ -35,6 +35,7 @@ Partial Class FrmStockOutEntry
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PO = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UnitPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Unit = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SupplierItemPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.txtRemarks = New System.Windows.Forms.TextBox()
@@ -45,6 +46,8 @@ Partial Class FrmStockOutEntry
         Me.Label11 = New System.Windows.Forms.Label()
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label27 = New System.Windows.Forms.Label()
+        Me.btnDelete = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtStockOutID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -64,6 +67,7 @@ Partial Class FrmStockOutEntry
         Me.dtSOutDate.Checked = False
         Me.dtSOutDate.Enabled = False
         Me.dtSOutDate.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtSOutDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtSOutDate.Location = New System.Drawing.Point(113, 57)
         Me.dtSOutDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtSOutDate.Name = "dtSOutDate"
@@ -76,7 +80,7 @@ Partial Class FrmStockOutEntry
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.Location = New System.Drawing.Point(779, 367)
+        Me.btnSave.Location = New System.Drawing.Point(819, 380)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(90, 25)
@@ -102,7 +106,7 @@ Partial Class FrmStockOutEntry
         Me.btnAddItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddItem.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnAddItem.Location = New System.Drawing.Point(177, 240)
+        Me.btnAddItem.Location = New System.Drawing.Point(174, 174)
         Me.btnAddItem.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnAddItem.Name = "btnAddItem"
         Me.btnAddItem.Size = New System.Drawing.Size(90, 25)
@@ -125,7 +129,7 @@ Partial Class FrmStockOutEntry
         '
         Me.txtSTRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtSTRemarks.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtSTRemarks.Location = New System.Drawing.Point(78, 143)
+        Me.txtSTRemarks.Location = New System.Drawing.Point(76, 143)
         Me.txtSTRemarks.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtSTRemarks.Name = "txtSTRemarks"
         Me.txtSTRemarks.Size = New System.Drawing.Size(191, 23)
@@ -135,7 +139,7 @@ Partial Class FrmStockOutEntry
         '
         Me.txtQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtQty.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtQty.Location = New System.Drawing.Point(78, 109)
+        Me.txtQty.Location = New System.Drawing.Point(76, 109)
         Me.txtQty.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtQty.Name = "txtQty"
         Me.txtQty.Size = New System.Drawing.Size(102, 23)
@@ -150,14 +154,15 @@ Partial Class FrmStockOutEntry
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableStockout.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockout.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        Me.dtableStockout.BackgroundColor = System.Drawing.Color.White
         Me.dtableStockout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.Unit, Me.SupplierItemPrice})
+        Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.TotalPrice, Me.Unit, Me.SupplierItemPrice})
         Me.dtableStockout.Location = New System.Drawing.Point(271, 25)
         Me.dtableStockout.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtableStockout.Name = "dtableStockout"
         Me.dtableStockout.ReadOnly = True
         Me.dtableStockout.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableStockout.Size = New System.Drawing.Size(593, 249)
+        Me.dtableStockout.Size = New System.Drawing.Size(633, 230)
         Me.dtableStockout.TabIndex = 69
         '
         'Seq
@@ -165,55 +170,62 @@ Partial Class FrmStockOutEntry
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 52
+        Me.Seq.Width = 56
         '
         'ItemId
         '
         Me.ItemId.HeaderText = "Item"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 54
+        Me.ItemId.Width = 57
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 93
+        Me.ItemName.Width = 102
         '
         'PO
         '
         Me.PO.HeaderText = "Qty"
         Me.PO.Name = "PO"
         Me.PO.ReadOnly = True
-        Me.PO.Width = 47
+        Me.PO.Width = 53
         '
         'UnitPrice
         '
         Me.UnitPrice.HeaderText = "UnitPrice"
         Me.UnitPrice.Name = "UnitPrice"
         Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 80
+        Me.UnitPrice.Width = 87
+        '
+        'TotalPrice
+        '
+        Me.TotalPrice.HeaderText = "TotalPrice"
+        Me.TotalPrice.Name = "TotalPrice"
+        Me.TotalPrice.ReadOnly = True
+        Me.TotalPrice.Width = 93
         '
         'Unit
         '
         Me.Unit.HeaderText = "Remarks"
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
-        Me.Unit.Width = 81
+        Me.Unit.Width = 87
         '
         'SupplierItemPrice
         '
         Me.SupplierItemPrice.HeaderText = "SupplierItemPrice"
         Me.SupplierItemPrice.Name = "SupplierItemPrice"
         Me.SupplierItemPrice.ReadOnly = True
-        Me.SupplierItemPrice.Width = 128
+        Me.SupplierItemPrice.Width = 141
         '
         'txtRemarks
         '
         Me.txtRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtRemarks.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtRemarks.Location = New System.Drawing.Point(608, 12)
+        Me.txtRemarks.Location = New System.Drawing.Point(610, 12)
         Me.txtRemarks.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
@@ -224,7 +236,7 @@ Partial Class FrmStockOutEntry
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label2.Location = New System.Drawing.Point(510, 16)
+        Me.Label2.Location = New System.Drawing.Point(512, 16)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(63, 16)
         Me.Label2.TabIndex = 110
@@ -287,6 +299,8 @@ Partial Class FrmStockOutEntry
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.Label27)
+        Me.GroupBox1.Controls.Add(Me.btnDelete)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.btnItems)
         Me.GroupBox1.Controls.Add(Me.btnAddItem)
@@ -298,21 +312,48 @@ Partial Class FrmStockOutEntry
         Me.GroupBox1.Controls.Add(Me.Label13)
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.txtItemCode)
+        Me.GroupBox1.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 88)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(868, 279)
+        Me.GroupBox1.Size = New System.Drawing.Size(908, 284)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stock Out Details"
+        '
+        'Label27
+        '
+        Me.Label27.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label27.AutoSize = True
+        Me.Label27.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label27.ForeColor = System.Drawing.Color.Red
+        Me.Label27.Location = New System.Drawing.Point(270, 261)
+        Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(180, 19)
+        Me.Label27.TabIndex = 130
+        Me.Label27.Text = "*NOTE: CLICK TO UPDATE"
+        '
+        'btnDelete
+        '
+        Me.btnDelete.BackColor = System.Drawing.Color.Red
+        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnDelete.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnDelete.Location = New System.Drawing.Point(174, 204)
+        Me.btnDelete.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btnDelete.Name = "btnDelete"
+        Me.btnDelete.Size = New System.Drawing.Size(90, 25)
+        Me.btnDelete.TabIndex = 127
+        Me.btnDelete.Text = "DELETE"
+        Me.btnDelete.UseVisualStyleBackColor = False
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.White
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Button1.Location = New System.Drawing.Point(6, 240)
+        Me.Button1.Location = New System.Drawing.Point(76, 174)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 25)
@@ -322,7 +363,6 @@ Partial Class FrmStockOutEntry
         '
         'txtStockOutID
         '
-        Me.txtStockOutID.Enabled = False
         Me.txtStockOutID.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtStockOutID.Location = New System.Drawing.Point(113, 12)
         Me.txtStockOutID.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -344,7 +384,7 @@ Partial Class FrmStockOutEntry
         '
         Me.txtIssuedBy.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtIssuedBy.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtIssuedBy.Location = New System.Drawing.Point(352, 12)
+        Me.txtIssuedBy.Location = New System.Drawing.Point(354, 12)
         Me.txtIssuedBy.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtIssuedBy.Name = "txtIssuedBy"
         Me.txtIssuedBy.Size = New System.Drawing.Size(150, 23)
@@ -354,7 +394,7 @@ Partial Class FrmStockOutEntry
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label4.Location = New System.Drawing.Point(256, 16)
+        Me.Label4.Location = New System.Drawing.Point(258, 16)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(78, 16)
         Me.Label4.TabIndex = 123
@@ -364,7 +404,7 @@ Partial Class FrmStockOutEntry
         '
         Me.txtEncodedStaff.Enabled = False
         Me.txtEncodedStaff.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtEncodedStaff.Location = New System.Drawing.Point(354, 57)
+        Me.txtEncodedStaff.Location = New System.Drawing.Point(356, 57)
         Me.txtEncodedStaff.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtEncodedStaff.Name = "txtEncodedStaff"
         Me.txtEncodedStaff.Size = New System.Drawing.Size(150, 23)
@@ -374,7 +414,7 @@ Partial Class FrmStockOutEntry
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(254, 60)
+        Me.Label3.Location = New System.Drawing.Point(256, 60)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(101, 16)
         Me.Label3.TabIndex = 121
@@ -386,7 +426,7 @@ Partial Class FrmStockOutEntry
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.Red
-        Me.Label5.Location = New System.Drawing.Point(3, 374)
+        Me.Label5.Location = New System.Drawing.Point(3, 387)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(217, 19)
         Me.Label5.TabIndex = 125
@@ -396,7 +436,7 @@ Partial Class FrmStockOutEntry
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label6.Location = New System.Drawing.Point(510, 60)
+        Me.Label6.Location = New System.Drawing.Point(512, 60)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 16)
         Me.Label6.TabIndex = 126
@@ -406,10 +446,10 @@ Partial Class FrmStockOutEntry
         '
         Me.txtTotalAmount.Enabled = False
         Me.txtTotalAmount.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtTotalAmount.Location = New System.Drawing.Point(608, 57)
+        Me.txtTotalAmount.Location = New System.Drawing.Point(610, 57)
         Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtTotalAmount.Name = "txtTotalAmount"
-        Me.txtTotalAmount.Size = New System.Drawing.Size(141, 23)
+        Me.txtTotalAmount.Size = New System.Drawing.Size(144, 23)
         Me.txtTotalAmount.TabIndex = 127
         '
         'FrmStockOutEntry
@@ -417,7 +457,7 @@ Partial Class FrmStockOutEntry
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(877, 396)
+        Me.ClientSize = New System.Drawing.Size(917, 409)
         Me.Controls.Add(Me.txtTotalAmount)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -472,11 +512,14 @@ Partial Class FrmStockOutEntry
     Friend WithEvents Button1 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents txtTotalAmount As TextBox
+    Friend WithEvents btnDelete As Button
+    Friend WithEvents Label27 As Label
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
     Friend WithEvents PO As DataGridViewTextBoxColumn
     Friend WithEvents UnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents TotalPrice As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents SupplierItemPrice As DataGridViewTextBoxColumn
 End Class

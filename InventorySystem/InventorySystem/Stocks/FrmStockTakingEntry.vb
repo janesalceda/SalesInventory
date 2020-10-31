@@ -97,6 +97,7 @@
             row.Add(txtItemName.Text)
             row.Add(txtQty.Text)
             row.Add(cliprice)
+            row.Add(Val(txtQty.Text) * cliprice)
             row.Add(txtSTRemarks.Text)
             row.Add(getSupplierPrice(txtItemCode.Text, dtCountedDate.Value, ""))
             dtableStockTaking.Rows.Add(row.ToArray())
@@ -108,8 +109,10 @@
                 dtableStockTaking.SelectedRows(0).Cells(1).Value = txtItemCode.Text
                 dtableStockTaking.SelectedRows(0).Cells(2).Value = txtItemName.Text
                 dtableStockTaking.SelectedRows(0).Cells(3).Value = txtQty.Text
-                dtableStockTaking.SelectedRows(0).Cells(5).Value = txtRemarks.Text
-                dtableStockTaking.SelectedRows(0).Cells(6).Value = getSupplierPrice(txtItemCode.Text, dtCountedDate.Value, "")
+                dtableStockTaking.SelectedRows(0).Cells(4).Value = cliprice
+                dtableStockTaking.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * cliprice
+                dtableStockTaking.SelectedRows(0).Cells(6).Value = txtRemarks.Text
+                dtableStockTaking.SelectedRows(0).Cells(7).Value = getSupplierPrice(txtItemCode.Text, dtCountedDate.Value, "")
                 btnAddItem.Text = "INSERT"
                 confirm = False
             End If
@@ -152,10 +155,10 @@
                 SQL.ExecQuery("INSERT INTO dbo.StockTakingHeaders
 	            (STID,CountedDate,EncodedStaff,TotalAmount,Remarks,ApprovedBy,UpdatedBy)
             VALUES((SELECT CASE WHEN max(STID) IS NULL 
-                    THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN Cast(right(max(STID),len(max(STID))-12) AS INT) +1<10
-                    THEN 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','') + '-0'+ cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
-                    ELSE 'ST' + replace(convert(VARCHAR(12),getdate(),111),'/','')+ '-' +cast(Cast(right(max(STID),len(max(STID))-12) AS INT) +1 AS VARCHAR	)
+                    THEN 'ST' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
+                    CASE WHEN right(max(STID),len(max(STID))-CHARINDEX('-',max(STID))) + 1<10
+                    THEN 'ST' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(STID),len(max(STID))-CHARINDEX('-',max(STID))) +1 as varchar)
+                    ELSE 'ST' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(STID),len(max(STID))-CHARINDEX('-',max(STID))) +1 as varchar)
                     END END AS 'pomax' from StockTakingHeaders),@counteddate,@encodedstaff,@totalamount,@remarks,NULL,@encodedstaff)")
                 If SQL.HasException Then
                     MsgBox("Error in saving", MsgBoxStyle.Critical, "Error")
@@ -207,5 +210,9 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         formname = "StockTaking"
         ScanItem.Show()
+    End Sub
+
+    Private Sub txtStockTakingID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtStockTakingID.KeyPress
+        e.Handled = True
     End Sub
 End Class

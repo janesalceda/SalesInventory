@@ -63,7 +63,7 @@
         End If
         If dtIssuedFrom.Checked = True And dtIssuedTo.Checked = True Then
             where += AddingWhere(where)
-            where += "p.IssuedDate BETWEEN'" & dtIssuedFrom.Value.ToShortDateString() & "' AND '" & dtIssuedTo.Value.ToShortDateString() & "'"
+            where += "p.IssuedDate BETWEEN'" & dtIssuedFrom.Value.ToString("yyyy/MM/dd") & "' AND '" & dtIssuedTo.Value.ToString("yyyy/MM/dd") & "'"
         End If
         If radYes.Checked = True Then
             where += AddingWhere(where)

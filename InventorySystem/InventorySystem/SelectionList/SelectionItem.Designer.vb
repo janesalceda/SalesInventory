@@ -53,12 +53,12 @@ Partial Class SelectionItem
         '
         'btnClear
         '
-        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnClear.Location = New System.Drawing.Point(219, 94)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(66, 24)
+        Me.btnClear.Size = New System.Drawing.Size(66, 26)
         Me.btnClear.TabIndex = 71
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -70,7 +70,7 @@ Partial Class SelectionItem
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnSearch.Location = New System.Drawing.Point(136, 94)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(75, 24)
+        Me.btnSearch.Size = New System.Drawing.Size(75, 26)
         Me.btnSearch.TabIndex = 70
         Me.btnSearch.Text = "SEARCH"
         Me.btnSearch.UseVisualStyleBackColor = False
@@ -146,14 +146,14 @@ Partial Class SelectionItem
         Me.ItemCode.HeaderText = "Item"
         Me.ItemCode.Name = "ItemCode"
         Me.ItemCode.ReadOnly = True
-        Me.ItemCode.Width = 54
+        Me.ItemCode.Width = 56
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 93
+        Me.ItemName.Width = 95
         '
         'Column1
         '
@@ -187,6 +187,7 @@ Partial Class SelectionItem
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(301, 332)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.btnClear)

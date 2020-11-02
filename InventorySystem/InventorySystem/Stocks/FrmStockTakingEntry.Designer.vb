@@ -52,10 +52,10 @@ Partial Class FrmStockTakingEntry
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.btnSave = New System.Windows.Forms.Button()
         Me.dtCountedDate = New System.Windows.Forms.DateTimePicker()
-        Me.chkApprove = New System.Windows.Forms.CheckBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtTotalAmount = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.chkApprove = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -149,7 +149,7 @@ Partial Class FrmStockTakingEntry
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(859, 271)
+        Me.GroupBox1.Size = New System.Drawing.Size(859, 265)
         Me.GroupBox1.TabIndex = 105
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stock Taking Details"
@@ -160,7 +160,7 @@ Partial Class FrmStockTakingEntry
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.Red
-        Me.Label27.Location = New System.Drawing.Point(274, 246)
+        Me.Label27.Location = New System.Drawing.Point(274, 240)
         Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(180, 19)
@@ -184,6 +184,7 @@ Partial Class FrmStockTakingEntry
         '
         Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnItems.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.btnItems.Location = New System.Drawing.Point(235, 52)
         Me.btnItems.Margin = New System.Windows.Forms.Padding(2)
         Me.btnItems.Name = "btnItems"
@@ -245,7 +246,7 @@ Partial Class FrmStockTakingEntry
         Me.dtableStockTaking.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtableStockTaking.BackgroundColor = System.Drawing.Color.White
+        Me.dtableStockTaking.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.TotalPrice, Me.Unit, Me.SupplierPrice})
         Me.dtableStockTaking.Location = New System.Drawing.Point(271, 23)
@@ -253,7 +254,7 @@ Partial Class FrmStockTakingEntry
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
         Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableStockTaking.Size = New System.Drawing.Size(583, 221)
+        Me.dtableStockTaking.Size = New System.Drawing.Size(583, 215)
         Me.dtableStockTaking.TabIndex = 69
         '
         'Seq
@@ -373,19 +374,6 @@ Partial Class FrmStockTakingEntry
         Me.dtCountedDate.Size = New System.Drawing.Size(177, 23)
         Me.dtCountedDate.TabIndex = 0
         '
-        'chkApprove
-        '
-        Me.chkApprove.AutoSize = True
-        Me.chkApprove.Enabled = False
-        Me.chkApprove.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.chkApprove.Location = New System.Drawing.Point(637, 39)
-        Me.chkApprove.Margin = New System.Windows.Forms.Padding(2)
-        Me.chkApprove.Name = "chkApprove"
-        Me.chkApprove.Size = New System.Drawing.Size(80, 20)
-        Me.chkApprove.TabIndex = 107
-        Me.chkApprove.Text = "Approve"
-        Me.chkApprove.UseVisualStyleBackColor = True
-        '
         'Label5
         '
         Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
@@ -402,7 +390,7 @@ Partial Class FrmStockTakingEntry
         '
         Me.txtTotalAmount.Enabled = False
         Me.txtTotalAmount.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtTotalAmount.Location = New System.Drawing.Point(412, 62)
+        Me.txtTotalAmount.Location = New System.Drawing.Point(411, 66)
         Me.txtTotalAmount.Name = "txtTotalAmount"
         Me.txtTotalAmount.Size = New System.Drawing.Size(217, 23)
         Me.txtTotalAmount.TabIndex = 921
@@ -411,11 +399,24 @@ Partial Class FrmStockTakingEntry
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label4.Location = New System.Drawing.Point(308, 65)
+        Me.Label4.Location = New System.Drawing.Point(308, 69)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(90, 16)
         Me.Label4.TabIndex = 920
         Me.Label4.Text = "TotalAmount:"
+        '
+        'chkApprove
+        '
+        Me.chkApprove.AutoSize = True
+        Me.chkApprove.Enabled = False
+        Me.chkApprove.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.chkApprove.Location = New System.Drawing.Point(637, 39)
+        Me.chkApprove.Margin = New System.Windows.Forms.Padding(2)
+        Me.chkApprove.Name = "chkApprove"
+        Me.chkApprove.Size = New System.Drawing.Size(80, 20)
+        Me.chkApprove.TabIndex = 107
+        Me.chkApprove.Text = "Approve"
+        Me.chkApprove.UseVisualStyleBackColor = True
         '
         'FrmStockTakingEntry
         '
@@ -468,7 +469,6 @@ Partial Class FrmStockTakingEntry
     Friend WithEvents txtItemCode As TextBox
     Friend WithEvents btnSave As Button
     Friend WithEvents dtCountedDate As DateTimePicker
-    Friend WithEvents chkApprove As CheckBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Button1 As Button
     Friend WithEvents txtTotalAmount As TextBox
@@ -482,4 +482,5 @@ Partial Class FrmStockTakingEntry
     Friend WithEvents TotalPrice As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents SupplierPrice As DataGridViewTextBoxColumn
+    Friend WithEvents chkApprove As CheckBox
 End Class

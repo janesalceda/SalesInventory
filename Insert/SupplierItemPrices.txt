@@ -1,88 +1,88 @@
 --SupplierItemPrices
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-01 ' ,
+                    VALUES('IT20201101-01 ' ,
                     'SupplierA','SupplierItem1','2020/10/28',1194,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-02 ' ,
+                    VALUES('IT20201101-02 ' ,
                     'SupplierA','SupplierItem1','2020/10/28',7901,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-02 ' ,
+                    VALUES('IT20201101-02 ' ,
                     'SupplierA','SupplierItem1','2020/10/28',7073,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-03 ' ,
+                    VALUES('IT20201101-03 ' ,
                     'SupplierA','SupplierItem1','2020/10/28',4621,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-04 ' ,
+                    VALUES('IT20201101-04 ' ,
                     'SupplierB','SupplierItem1','2020/10/28',6372,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-04 ' ,
+                    VALUES('IT20201101-04 ' ,
                     'SupplierB','SupplierItem1','2020/10/28',3652,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-05 ' ,
+                    VALUES('IT20201101-05 ' ,
                     'SupplierB','SupplierItem1','2020/10/28',8312,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-05 ' ,
+                    VALUES('IT20201101-05 ' ,
                     'SupplierB','SupplierItem1','2020/10/28',7445,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-06' ,
+                    VALUES('IT20201101-06' ,
                     'SupplierB','SupplierItem1','2020/10/28',4752,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-06' ,
+                    VALUES('IT20201101-06' ,
                     'SupplierB','SupplierItem1','2020/10/28',4077,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-06' ,
+                    VALUES('IT20201101-06' ,
                     'SupplierB','SupplierItem1','2020/10/28',6164,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-07' ,
+                    VALUES('IT20201101-07' ,
                     'SupplierC','SupplierItem1','2020/10/28',1799,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-08 ' ,
+                    VALUES('IT20201101-08 ' ,
                     'SupplierC','SupplierItem1','2020/10/28',8441,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-08 ' ,
+                    VALUES('IT20201101-08 ' ,
                     'SupplierC','SupplierItem1','2020/10/28',2170,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-09 ' ,
+                    VALUES('IT20201101-09 ' ,
                     'SupplierC','SupplierItem1','2020/10/28',8858,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-09 ' ,
+                    VALUES('IT20201101-09 ' ,
                     'SupplierC','SupplierItem1','2020/10/28',8493,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-09 ' ,
+                    VALUES('IT20201101-09 ' ,
                     'SupplierC','SupplierItem1','2020/10/28',9131,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-10' ,
+                    VALUES('IT20201101-10' ,
                     'SupplierD','SupplierItem1','2020/10/28',9622,NULL,1)
 
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-11' ,
+                    VALUES('IT20201101-11' ,
                     'SupplierD','SupplierItem1','2020/10/28',5117,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-11' ,
+                    VALUES('IT20201101-11' ,
                     'SupplierD','SupplierItem1','2020/10/28',7352,NULL,1)
 INSERT INTO SupplierItemPrices 
                     (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES('IT20201028-12' ,
+                    VALUES('IT20201101-12' ,
                     'SupplierD','SupplierItem1','2020/10/28',3836,NULL,1)
 
 

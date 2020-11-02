@@ -72,6 +72,7 @@ Partial Class FrmItemEntry
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.chkApproved = New System.Windows.Forms.CheckBox()
         Me.grpItemDetails.SuspendLayout()
         CType(Me.picprint, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -283,6 +284,7 @@ Partial Class FrmItemEntry
         '
         Me.grpItemDetails.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.grpItemDetails.Controls.Add(Me.chkApproved)
         Me.grpItemDetails.Controls.Add(Me.chkDisuse)
         Me.grpItemDetails.Controls.Add(Me.Label14)
         Me.grpItemDetails.Controls.Add(Me.Label15)
@@ -500,42 +502,42 @@ Partial Class FrmItemEntry
         Me.SupplierID.HeaderText = "SupplierID"
         Me.SupplierID.Name = "SupplierID"
         Me.SupplierID.ReadOnly = True
-        Me.SupplierID.Width = 88
+        Me.SupplierID.Width = 90
         '
         'AppliedDate
         '
         Me.AppliedDate.HeaderText = "Applied Date"
         Me.AppliedDate.Name = "AppliedDate"
         Me.AppliedDate.ReadOnly = True
-        Me.AppliedDate.Width = 94
+        Me.AppliedDate.Width = 96
         '
         'UnitPrice
         '
         Me.UnitPrice.HeaderText = "Unit Price"
         Me.UnitPrice.Name = "UnitPrice"
         Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 76
+        Me.UnitPrice.Width = 78
         '
         'ItemPriceID
         '
         Me.ItemPriceID.HeaderText = "Item Price ID"
         Me.ItemPriceID.Name = "ItemPriceID"
         Me.ItemPriceID.ReadOnly = True
-        Me.ItemPriceID.Width = 80
+        Me.ItemPriceID.Width = 82
         '
         'SupplierItemCode
         '
         Me.SupplierItemCode.HeaderText = "SupplierItemCode"
         Me.SupplierItemCode.Name = "SupplierItemCode"
         Me.SupplierItemCode.ReadOnly = True
-        Me.SupplierItemCode.Width = 128
+        Me.SupplierItemCode.Width = 130
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 108
+        Me.RegisteredDate.Width = 110
         '
         'Label10
         '
@@ -628,28 +630,28 @@ Partial Class FrmItemEntry
         Me.DataGridViewTextBoxColumn2.HeaderText = "Applied Date"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 94
+        Me.DataGridViewTextBoxColumn2.Width = 96
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Unit Price"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 76
+        Me.DataGridViewTextBoxColumn3.Width = 78
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "Item Price ID"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 80
+        Me.DataGridViewTextBoxColumn4.Width = 82
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Registered Date"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 108
+        Me.DataGridViewTextBoxColumn6.Width = 110
         '
         'TabPage1
         '
@@ -663,6 +665,17 @@ Partial Class FrmItemEntry
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Supplier Item Price"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'chkApproved
+        '
+        Me.chkApproved.AutoSize = True
+        Me.chkApproved.Location = New System.Drawing.Point(532, 21)
+        Me.chkApproved.Name = "chkApproved"
+        Me.chkApproved.Size = New System.Drawing.Size(80, 20)
+        Me.chkApproved.TabIndex = 66
+        Me.chkApproved.Text = "Approved"
+        Me.chkApproved.UseVisualStyleBackColor = True
+        Me.chkApproved.Visible = False
         '
         'FrmItemEntry
         '
@@ -757,4 +770,5 @@ Partial Class FrmItemEntry
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents chkApproved As CheckBox
 End Class

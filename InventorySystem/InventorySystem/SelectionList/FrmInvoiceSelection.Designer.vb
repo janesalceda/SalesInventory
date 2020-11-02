@@ -67,47 +67,48 @@ Partial Class FrmInvoiceSelection
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 56
+        Me.Seq.Width = 54
         '
         'ItemID
         '
         Me.ItemID.HeaderText = "ItemID"
         Me.ItemID.Name = "ItemID"
         Me.ItemID.ReadOnly = True
-        Me.ItemID.Width = 70
+        Me.ItemID.Width = 68
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 102
+        Me.ItemName.Width = 95
         '
         'PONo
         '
         Me.PONo.HeaderText = "PONo"
         Me.PONo.Name = "PONo"
         Me.PONo.ReadOnly = True
-        Me.PONo.Width = 68
+        Me.PONo.Width = 65
         '
         'POSeq
         '
         Me.POSeq.HeaderText = "Seq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
-        Me.POSeq.Width = 56
+        Me.POSeq.Width = 54
         '
         'qtyexpected
         '
         Me.qtyexpected.HeaderText = "QtyExpected"
         Me.qtyexpected.Name = "qtyexpected"
         Me.qtyexpected.ReadOnly = True
-        Me.qtyexpected.Width = 111
+        Me.qtyexpected.Width = 99
         '
         'FrmInvoiceSelection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(539, 351)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.dtitems)

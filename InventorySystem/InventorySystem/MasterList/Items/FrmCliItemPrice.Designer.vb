@@ -35,7 +35,7 @@ Partial Class FrmCliItemPrice
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.ForeColor = System.Drawing.Color.Black
         Me.btnSave.Location = New System.Drawing.Point(166, 74)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(118, 25)
         Me.btnSave.TabIndex = 67
@@ -58,7 +58,7 @@ Partial Class FrmCliItemPrice
         '
         Me.dtAppliedDate.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.dtAppliedDate.Location = New System.Drawing.Point(106, 42)
-        Me.dtAppliedDate.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtAppliedDate.Margin = New System.Windows.Forms.Padding(2)
         Me.dtAppliedDate.Name = "dtAppliedDate"
         Me.dtAppliedDate.Size = New System.Drawing.Size(256, 23)
         Me.dtAppliedDate.TabIndex = 66
@@ -68,7 +68,7 @@ Partial Class FrmCliItemPrice
         Me.txtUnitPrice.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtUnitPrice.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtUnitPrice.Location = New System.Drawing.Point(106, 14)
-        Me.txtUnitPrice.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtUnitPrice.Margin = New System.Windows.Forms.Padding(2)
         Me.txtUnitPrice.MaxLength = 19
         Me.txtUnitPrice.Name = "txtUnitPrice"
         Me.txtUnitPrice.Size = New System.Drawing.Size(256, 23)

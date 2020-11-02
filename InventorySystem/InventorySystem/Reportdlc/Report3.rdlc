@@ -614,7 +614,7 @@
         </Textbox>
         <Image Name="Image1">
           <Source>Database</Source>
-          <Value>=Fields!CompanyLogo.Value</Value>
+          <Value>=First(Fields!CompanyLogo.Value, "DataSet1")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Height>1.39375cm</Height>
@@ -651,6 +651,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>f2856401-c040-4f6c-9899-d0f463210e11</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="DataSet7">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>4dee66cb-2285-4e0f-be1b-076d335e9866</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>

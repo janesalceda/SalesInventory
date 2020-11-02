@@ -344,4 +344,23 @@ Public Class AppForm
             DashBoard.Show()
         End If
     End Sub
+
+    Private Sub ItemsApprovalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ItemsApprovalToolStripMenuItem.Click
+
+        If Application.OpenForms().OfType(Of FrmItemsForApproval).Any Then
+            FrmItemsForApproval.Close()
+            FrmItemsForApproval.Show()
+        Else
+            FrmItemsForApproval.Show()
+        End If
+    End Sub
+
+    Private Sub ImportItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImportItemsToolStripMenuItem.Click
+        If Application.OpenForms().OfType(Of ImportItems).Any Then
+            ImportItems.Close()
+            ImportItems.Show()
+        Else
+            ImportItems.Show()
+        End If
+    End Sub
 End Class

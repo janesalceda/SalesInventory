@@ -315,6 +315,8 @@ Partial Public Class DataSet1
         
         Private columnTermsofPayment As Global.System.Data.DataColumn
         
+        Private columnEncoder As Global.System.Data.DataColumn
+        
         Private columnCompanyName As Global.System.Data.DataColumn
         
         Private columnStreetAdress As Global.System.Data.DataColumn
@@ -328,8 +330,6 @@ Partial Public Class DataSet1
         Private columnwebsite As Global.System.Data.DataColumn
         
         Private columnCompanyLogo As Global.System.Data.DataColumn
-        
-        Private columnEncoder As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -496,6 +496,14 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property EncoderColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnEncoder
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property CompanyNameColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCompanyName
@@ -547,14 +555,6 @@ Partial Public Class DataSet1
         Public ReadOnly Property CompanyLogoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCompanyLogo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property EncoderColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnEncoder
             End Get
         End Property
         
@@ -612,16 +612,16 @@ Partial Public Class DataSet1
                     ByVal DeliveryPlaces As String,  _
                     ByVal TermsofDelivery As String,  _
                     ByVal TermsofPayment As String,  _
+                    ByVal Encoder As String,  _
                     ByVal CompanyName As String,  _
                     ByVal StreetAdress As String,  _
                     ByVal CityZip As String,  _
                     ByVal CompPhone As String,  _
                     ByVal CompFax As String,  _
                     ByVal website As String,  _
-                    ByVal CompanyLogo As String,  _
-                    ByVal Encoder As String) As PODetailsRow
+                    ByVal CompanyLogo As String) As PODetailsRow
             Dim rowPODetailsRow As PODetailsRow = CType(Me.NewRow,PODetailsRow)
-            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, SupplierUnitPrice, Total, PONo, IssuedDate, TotalAmount, SupplierName, Phone, Fax, Address, Remarks, DeliveryPlaces, TermsofDelivery, TermsofPayment, CompanyName, StreetAdress, CityZip, CompPhone, CompFax, website, CompanyLogo, Encoder}
+            Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, SupplierUnitPrice, Total, PONo, IssuedDate, TotalAmount, SupplierName, Phone, Fax, Address, Remarks, DeliveryPlaces, TermsofDelivery, TermsofPayment, Encoder, CompanyName, StreetAdress, CityZip, CompPhone, CompFax, website, CompanyLogo}
             rowPODetailsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowPODetailsRow)
             Return rowPODetailsRow
@@ -660,6 +660,7 @@ Partial Public Class DataSet1
             Me.columnDeliveryPlaces = MyBase.Columns("DeliveryPlaces")
             Me.columnTermsofDelivery = MyBase.Columns("TermsofDelivery")
             Me.columnTermsofPayment = MyBase.Columns("TermsofPayment")
+            Me.columnEncoder = MyBase.Columns("Encoder")
             Me.columnCompanyName = MyBase.Columns("CompanyName")
             Me.columnStreetAdress = MyBase.Columns("StreetAdress")
             Me.columnCityZip = MyBase.Columns("CityZip")
@@ -667,7 +668,6 @@ Partial Public Class DataSet1
             Me.columnCompFax = MyBase.Columns("CompFax")
             Me.columnwebsite = MyBase.Columns("website")
             Me.columnCompanyLogo = MyBase.Columns("CompanyLogo")
-            Me.columnEncoder = MyBase.Columns("Encoder")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -705,6 +705,8 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnTermsofDelivery)
             Me.columnTermsofPayment = New Global.System.Data.DataColumn("TermsofPayment", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTermsofPayment)
+            Me.columnEncoder = New Global.System.Data.DataColumn("Encoder", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnEncoder)
             Me.columnCompanyName = New Global.System.Data.DataColumn("CompanyName", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCompanyName)
             Me.columnStreetAdress = New Global.System.Data.DataColumn("StreetAdress", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -719,8 +721,6 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnwebsite)
             Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCompanyLogo)
-            Me.columnEncoder = New Global.System.Data.DataColumn("Encoder", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnEncoder)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1107,6 +1107,21 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Encoder() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablePODetails.EncoderColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'Encoder' in table 'PODetails' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablePODetails.EncoderColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property CompanyName() As String
             Get
                 Try 
@@ -1207,21 +1222,6 @@ Partial Public Class DataSet1
             End Get
             Set
                 Me(Me.tablePODetails.CompanyLogoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property Encoder() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tablePODetails.EncoderColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'Encoder' in table 'PODetails' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablePODetails.EncoderColumn) = value
             End Set
         End Property
         
@@ -1419,6 +1419,18 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsEncoderNull() As Boolean
+            Return Me.IsNull(Me.tablePODetails.EncoderColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetEncoderNull()
+            Me(Me.tablePODetails.EncoderColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsCompanyNameNull() As Boolean
             Return Me.IsNull(Me.tablePODetails.CompanyNameColumn)
         End Function
@@ -1499,18 +1511,6 @@ Partial Public Class DataSet1
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetCompanyLogoNull()
             Me(Me.tablePODetails.CompanyLogoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsEncoderNull() As Boolean
-            Return Me.IsNull(Me.tablePODetails.EncoderColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetEncoderNull()
-            Me(Me.tablePODetails.EncoderColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

@@ -31,6 +31,7 @@ Partial Class ItemStockReport
         '
         'DateTimePicker1
         '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DateTimePicker1.Location = New System.Drawing.Point(130, 9)
         Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DateTimePicker1.Name = "DateTimePicker1"
@@ -49,12 +50,12 @@ Partial Class ItemStockReport
         '
         'Button1
         '
-        Me.Button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(141, 68)
+        Me.Button1.Location = New System.Drawing.Point(130, 67)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(128, 23)
+        Me.Button1.Size = New System.Drawing.Size(178, 30)
         Me.Button1.TabIndex = 2
         Me.Button1.Text = "Print"
         Me.Button1.UseVisualStyleBackColor = False

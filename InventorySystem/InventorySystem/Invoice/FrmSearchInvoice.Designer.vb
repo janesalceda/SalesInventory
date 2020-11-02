@@ -118,7 +118,7 @@ Partial Class FrmSearchInvoice
         'btnClear
         '
         Me.btnClear.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Location = New System.Drawing.Point(575, 218)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
@@ -224,6 +224,7 @@ Partial Class FrmSearchInvoice
         'dtInvoiceTo
         '
         Me.dtInvoiceTo.Checked = False
+        Me.dtInvoiceTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtInvoiceTo.Location = New System.Drawing.Point(328, 80)
         Me.dtInvoiceTo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtInvoiceTo.Name = "dtInvoiceTo"
@@ -262,6 +263,7 @@ Partial Class FrmSearchInvoice
         'dtInvoiceFrom
         '
         Me.dtInvoiceFrom.Checked = False
+        Me.dtInvoiceFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtInvoiceFrom.Location = New System.Drawing.Point(94, 80)
         Me.dtInvoiceFrom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtInvoiceFrom.Name = "dtInvoiceFrom"
@@ -347,7 +349,10 @@ Partial Class FrmSearchInvoice
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmSearchInvoice"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Search Invoice"
         CType(Me.dtPoDetails, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)

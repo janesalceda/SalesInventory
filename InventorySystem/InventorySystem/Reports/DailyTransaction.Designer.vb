@@ -23,21 +23,30 @@ Partial Class DailyTransaction
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.LightSeaGreen
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(89, 57)
+        Me.Button1.Location = New System.Drawing.Point(73, 63)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.Size = New System.Drawing.Size(103, 26)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "Print"
         Me.Button1.UseVisualStyleBackColor = False
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DateTimePicker1.Location = New System.Drawing.Point(14, 34)
+        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(198, 23)
+        Me.DateTimePicker1.TabIndex = 3
         '
         'Label1
         '
@@ -49,33 +58,28 @@ Partial Class DailyTransaction
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Transaction Date:"
         '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(9, 28)
-        Me.DateTimePicker1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(253, 23)
-        Me.DateTimePicker1.TabIndex = 3
-        '
         'DailyTransaction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(264, 87)
+        Me.ClientSize = New System.Drawing.Size(228, 94)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "DailyTransaction"
-        Me.Text = "Daily Transaction REport"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Daily Transaction Report"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents Button1 As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents Label1 As Label
 End Class

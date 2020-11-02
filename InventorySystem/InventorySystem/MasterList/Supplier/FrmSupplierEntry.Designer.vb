@@ -396,7 +396,7 @@ Partial Class FrmSupplierEntry
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmSupplierEntry"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Add Supplier"
         Me.ResumeLayout(False)
         Me.PerformLayout()

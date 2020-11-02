@@ -1,11 +1,16 @@
 ﻿Public Class FrmTermofPaymentSearch
     Public Sub LoadDataGrid(Optional Query As String = "")
-        SQL.ExecQuery("SELECT TermOfPaymentId,TermOfPayment,Description,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM TermsOfPayment " & Query)
-        If SQL.HasException(True) Then Exit Sub
-        dtItems.Rows.Clear()
-        For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
-            dtItems.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4))
-        Next
+        Try
+            SQL.ExecQuery("SELECT TermOfPaymentId,TermOfPayment,Description,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM TermsOfPayment " & Query)
+            If SQL.HasException(True) Then Exit Sub
+            dtItems.Rows.Clear()
+            For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
+                dtItems.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4))
+            Next
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+            Exit Sub
+        End Try
     End Sub
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim where As String = ""

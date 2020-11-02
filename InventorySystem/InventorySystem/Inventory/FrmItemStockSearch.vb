@@ -1,50 +1,57 @@
 ﻿Public Class FrmItemStockSearch
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
-        Dim where As String = ""
-        'If String.IsNullOrWhiteSpace(txtitem.Text) Then
-        '    MsgBox("Please input itemid!", MsgBoxStyle.Exclamation, "Warning")
-        '    Exit Sub
-        'End If
-        SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
-        If Not String.IsNullOrEmpty(txtitem.Text) Then
-            SQL.AddParams("@ItemId", txtitem.Text)
-            where = " and itemid=@itemId"
-        End If
-        'If Not String.IsNullOrEmpty(cmbSort.Text) Then
-        '    where += " order by " & cmbSort.Text
-        'End If
-        SQL.ExecQuery("SELECT i.itemid,i.Description,
-            isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)'qty',
-            case when isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=MinimumOrderQty 
-            OR isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=OrderingPointQty then 'TO RE-ORDER'
-            ELSE 'NO' end 'Status'
-            FROM Items i
-             where i.deletedDate is null " & where)
-        If SQL.DBDT.Rows.Count = 0 Then
-            MsgBox("No record found!", MsgBoxStyle.Information, "Information")
+        Try
+            Dim where As String = ""
+            SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
+            If Not String.IsNullOrEmpty(txtitem.Text) Then
+                SQL.AddParams("@ItemId", txtitem.Text)
+                where = " and itemid=@itemId"
+            End If
+            If cmbStatus.SelectedIndex = 0 Then
+                where += " and isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=MinimumOrderQty 
+                    OR isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=OrderingPointQty"
+            ElseIf cmbStatus.SelectedIndex = 1 Then
+                where += " and isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)>MinimumOrderQty 
+                    and isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)>OrderingPointQty"
+            End If
+            SQL.ExecQuery("SELECT i.itemid,i.Description,
+                isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)'qty',
+                case when isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=MinimumOrderQty 
+                OR isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)<=OrderingPointQty then 'YES'
+                ELSE 'NO' end 'Status'
+                FROM Items i
+                 where i.deletedDate is null " & where)
+            If SQL.DBDT.Rows.Count = 0 Then
+                MsgBox("No record found!", MsgBoxStyle.Information, "Information")
+                Exit Sub
+            End If
+            Dim row As New DataTable
+            row = SQL.DBDT
+            dgvData.Rows.Clear()
+            For i As Integer = 0 To row.Rows.Count - 1
+                dgvData.Rows.Add(row.Rows(i).Item(0), row.Rows(i).Item(1), row.Rows(i).Item(2), row.Rows(i).Item(3))
+            Next
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
             Exit Sub
-        End If
-        Dim row As New DataTable
-        row = SQL.DBDT
-        dgvData.Rows.Clear()
-        For i As Integer = 0 To row.Rows.Count - 1
-            dgvData.Rows.Add(row.Rows(i).Item(0), row.Rows(i).Item(1), row.Rows(i).Item(2), row.Rows(i).Item(3))
-        Next
+        End Try
     End Sub
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+        reLoad()
+    End Sub
+    Private Sub reLoad()
         txtitem.Clear()
         dtFrom.Checked = False
-        dtFrom.Value = Today
+        dtFrom.Value = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")
+        'dtFrom.MaxDate = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")
         dgvData.Rows.Clear()
+        cmbStatus.SelectedIndex = -1
     End Sub
 
     Private Sub FrmItemStockSearch_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
-    End Sub
-
-    Private Sub cmbStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbStatus.SelectedIndexChanged
-
+        reLoad()
     End Sub
     'Private Sub loadReport()
     '    Dim rptDs As ReportDataSource

@@ -1,19 +1,25 @@
 ﻿Public Class FrmStockoutSearch
     Public Sub getAllData(where As String)
-        SQL.ExecQuery("SELECT StockOutCode,StockOutDate,st.IssuedByStaff,
-        CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',
-        Remarks,st.UpdatedDate
-        from StockOutHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where)
+        Try
+            SQL.ExecQuery("SELECT StockOutCode,StockOutDate,st.IssuedByStaff,
+                CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',
+                Remarks,st.UpdatedDate
+                from StockOutHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where)
 
-        If SQL.HasException Then Exit Sub
+            If SQL.HasException Then Exit Sub
 
-        dtableStockOut.DataSource = SQL.DBDT
+            dtableStockOut.DataSource = SQL.DBDT
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+            Exit Sub
+        End Try
     End Sub
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         FrmStockOutEntry.Text = "Stock Out Entry"
         FrmStockOutEntry.Show()
     End Sub
     Public Sub search()
+
         Dim where As String = ""
         If Not String.IsNullOrEmpty(txtSTID.Text) Then
             where += AddingWhere(where)
@@ -38,6 +44,10 @@
 
     Private Sub FrmStockout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
+        dtCountedFrom.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        'dtCountedFrom.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        dtCountedTo.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        'dtCountedTo.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
     End Sub
 
     Private Sub dtableStockTaking_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockOut.CellDoubleClick
@@ -53,5 +63,9 @@
         dtCountedTo.Checked = False
         chkApproved.Checked = False
         dtableStockOut.DataSource = Nothing
+    End Sub
+
+    Private Sub dtableStockOut_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockOut.CellContentClick
+
     End Sub
 End Class

@@ -8,48 +8,49 @@
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim where As String = ""
-        If Not String.IsNullOrWhiteSpace(op.FileName) Then
-            Dim filename As String = op.FileName & ".jpg"
-            Dim mstream As New System.IO.MemoryStream()
-            PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
-            Dim arrImage() As Byte = mstream.GetBuffer()
-            mstream.Close()
+        Try
+            Dim where As String = ""
+            If Not String.IsNullOrWhiteSpace(op.FileName) Then
+                Dim filename As String = op.FileName & ".jpg"
+                Dim mstream As New System.IO.MemoryStream()
+                PictureBox1.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Jpeg)
+                Dim arrImage() As Byte = mstream.GetBuffer()
+                mstream.Close()
 
-            SQL.AddParams("@companylogo", arrImage)
-            where = " ,CompanyLogo=@companylogo"
-        End If
-        'Dim filesize = mstream.Length
-        SQL.AddParams("@companyname", txtCompany.Text)
-        SQL.AddParams("@website", txtWeb.Text)
-        SQL.AddParams("@streetadress", txtStreet.Text)
-        SQL.AddParams("@cityzip", txtZip.Text)
-        SQL.AddParams("@phone", txtPhone.Text)
-        SQL.AddParams("@fax", txtFax.Text)
-        If Button2.Text = "Save" Then
-            SQL.ExecQuery("INSERT INTO dbo.CompanyInfo
-	        (
-	        CompanyName,
-	        StreetAdress,
-	        CityZip,
-	        Phone,
-	        Fax,
-	        website,
-	        CompanyLogo
-	        )
-        VALUES 
-	        (
-	        @companyname,
-	        @streetadress,
-	        @cityzip,
-	        @phone,
-	        @fax,
-	        @website,
-	        @companylogo
-	        )
-        ")
-        Else
-            SQL.ExecQuery("update  dbo.CompanyInfo
+                SQL.AddParams("@companylogo", arrImage)
+                where = " ,CompanyLogo=@companylogo"
+            End If
+            'Dim filesize = mstream.Length
+            SQL.AddParams("@companyname", txtCompany.Text)
+            SQL.AddParams("@website", txtWeb.Text)
+            SQL.AddParams("@streetadress", txtStreet.Text)
+            SQL.AddParams("@cityzip", txtZip.Text)
+            SQL.AddParams("@phone", txtPhone.Text)
+            SQL.AddParams("@fax", txtFax.Text)
+            If Button2.Text = "Save" Then
+                SQL.ExecQuery("INSERT INTO dbo.CompanyInfo
+	                (
+	                CompanyName,
+	                StreetAdress,
+	                CityZip,
+	                Phone,
+	                Fax,
+	                website,
+	                CompanyLogo
+	                )
+                VALUES 
+	                (
+	                @companyname,
+	                @streetadress,
+	                @cityzip,
+	                @phone,
+	                @fax,
+	                @website,
+	                @companylogo
+	                )
+                ")
+            Else
+                SQL.ExecQuery("update  dbo.CompanyInfo
 	        set
 	        CompanyName= @companyname,
 	        StreetAdress=@streetadress,
@@ -57,13 +58,17 @@
 	        Phone=@phone,
 	        Fax=@fax,
 	        website=@website" & where)
-        End If
-        If SQL.HasException Then
-            MsgBox("Failed to upload", MsgBoxStyle.Critical, "Error")
+            End If
+            If SQL.HasException Then
+                MsgBox("Failed to upload", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+            End If
+            MsgBox("Successfully uploaded!", MsgBoxStyle.Information, "Information")
+            Close()
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
             Exit Sub
-        End If
-        MsgBox("Successfully uploaded!", MsgBoxStyle.Information, "Information")
-        Close()
+        End Try
     End Sub
 
     Private Sub FrmCompanyInfo_Load(sender As Object, e As EventArgs) Handles MyBase.Load

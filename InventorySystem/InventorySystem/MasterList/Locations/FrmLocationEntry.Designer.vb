@@ -109,7 +109,10 @@ Partial Class FrmLocationEntry
         Me.Controls.Add(Me.Label1)
         Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmLocationEntry"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmLocation"
         Me.ResumeLayout(False)
         Me.PerformLayout()

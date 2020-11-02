@@ -103,6 +103,7 @@ Partial Class FrmSearchPO
         Me.dtIssuedFrom.Checked = False
         Me.dtIssuedFrom.CustomFormat = "YYYY/MM/DD"
         Me.dtIssuedFrom.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtIssuedFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtIssuedFrom.Location = New System.Drawing.Point(92, 77)
         Me.dtIssuedFrom.Margin = New System.Windows.Forms.Padding(2)
         Me.dtIssuedFrom.Name = "dtIssuedFrom"
@@ -212,6 +213,7 @@ Partial Class FrmSearchPO
         Me.dtIssuedTo.Checked = False
         Me.dtIssuedTo.CustomFormat = "YYYY/MM/DD"
         Me.dtIssuedTo.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.dtIssuedTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtIssuedTo.Location = New System.Drawing.Point(325, 77)
         Me.dtIssuedTo.Margin = New System.Windows.Forms.Padding(2)
         Me.dtIssuedTo.Name = "dtIssuedTo"
@@ -334,35 +336,35 @@ Partial Class FrmSearchPO
         Me.PONO.HeaderText = "PONO"
         Me.PONO.Name = "PONO"
         Me.PONO.ReadOnly = True
-        Me.PONO.Width = 65
+        Me.PONO.Width = 67
         '
         'SupplierId
         '
         Me.SupplierId.HeaderText = "SupplierId"
         Me.SupplierId.Name = "SupplierId"
         Me.SupplierId.ReadOnly = True
-        Me.SupplierId.Width = 86
+        Me.SupplierId.Width = 88
         '
         'SupplierName
         '
         Me.SupplierName.HeaderText = "SupplierName"
         Me.SupplierName.Name = "SupplierName"
         Me.SupplierName.ReadOnly = True
-        Me.SupplierName.Width = 110
+        Me.SupplierName.Width = 112
         '
         'IssuedDate
         '
         Me.IssuedDate.HeaderText = "Issued Date"
         Me.IssuedDate.Name = "IssuedDate"
         Me.IssuedDate.ReadOnly = True
-        Me.IssuedDate.Width = 97
+        Me.IssuedDate.Width = 99
         '
         'Cancelled
         '
         Me.Cancelled.HeaderText = "Cancelled"
         Me.Cancelled.Name = "Cancelled"
         Me.Cancelled.ReadOnly = True
-        Me.Cancelled.Width = 67
+        Me.Cancelled.Width = 69
         '
         'Label3
         '
@@ -389,6 +391,7 @@ Partial Class FrmSearchPO
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.Name = "FrmSearchPO"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Search Purchase Order"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

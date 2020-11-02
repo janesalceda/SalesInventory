@@ -82,13 +82,13 @@ Partial Class SupplierList
         '
         'btnClear
         '
-        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnClear.Location = New System.Drawing.Point(228, 66)
+        Me.btnClear.Location = New System.Drawing.Point(211, 66)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(65, 24)
+        Me.btnClear.Size = New System.Drawing.Size(78, 24)
         Me.btnClear.TabIndex = 73
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -98,7 +98,7 @@ Partial Class SupplierList
         Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSearch.Location = New System.Drawing.Point(148, 66)
+        Me.btnSearch.Location = New System.Drawing.Point(131, 66)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(74, 24)
@@ -122,6 +122,7 @@ Partial Class SupplierList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(301, 317)
         Me.Controls.Add(Me.btnOk)
         Me.Controls.Add(Me.btnClear)

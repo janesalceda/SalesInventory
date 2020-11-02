@@ -24,8 +24,14 @@
             MsgBox("Please choose UOM!", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
-        If String.IsNullOrWhiteSpace(txtItemid.Text) Then
-            MsgBox("Input ItemID!", MsgBoxStyle.Information, "Information")
+        If String.IsNullOrWhiteSpace(txtOldConCoe.Text) Or
+            cmbOldCliQtyUnit.SelectedIndex = -1 Or cmbOldSupQtyUnit.SelectedIndex = -1 Then
+            MsgBox("Please input valid ItemID!", MsgBoxStyle.Information, "Information")
+            Exit Sub
+        End If
+        If String.IsNullOrWhiteSpace(txtNewConCoe.Text) And
+            cmbOldCliQtyUnit.SelectedIndex = -1 And cmbOldSupQtyUnit.SelectedIndex = -1 Then
+            MsgBox("Please input valid Changes!", MsgBoxStyle.Information, "Information")
             Exit Sub
         End If
         If MsgBox("Are you sure you want to save?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = vbYes Then
@@ -92,5 +98,25 @@
 
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Close()
+    End Sub
+
+    Private Sub txtItemid_TextChanged(sender As Object, e As EventArgs) Handles txtItemid.TextChanged
+        Dim row As ArrayList = New ArrayList
+        row = GetItemDetails(txtItemid.Text)
+        If row.Count = 0 Then
+            cmbOldCliQtyUnit.Text = ""
+            cmbOldSupQtyUnit.Text = ""
+            txtOldConCoe.Text = ""
+            Exit Sub
+        End If
+        cmbOldCliQtyUnit.Text = row.Item(1)
+        cmbOldSupQtyUnit.Text = row.Item(2)
+        txtOldConCoe = row.Item(3)
+    End Sub
+
+
+    Private Sub txtNewConCoe_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtNewConCoe.KeyPress
+        If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
+
     End Sub
 End Class

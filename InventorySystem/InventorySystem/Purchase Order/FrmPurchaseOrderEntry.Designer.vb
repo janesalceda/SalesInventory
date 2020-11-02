@@ -52,7 +52,6 @@ Partial Class FrmPurchaseOrderEntry
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.dtETA = New System.Windows.Forms.DateTimePicker()
@@ -92,6 +91,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.chkcancelPO = New System.Windows.Forms.CheckBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label21 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtablePoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -110,7 +110,7 @@ Partial Class FrmPurchaseOrderEntry
         'txtPONo
         '
         Me.txtPONo.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtPONo.Location = New System.Drawing.Point(79, 10)
+        Me.txtPONo.Location = New System.Drawing.Point(81, 10)
         Me.txtPONo.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPONo.Name = "txtPONo"
         Me.txtPONo.Size = New System.Drawing.Size(243, 23)
@@ -120,7 +120,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label7.Location = New System.Drawing.Point(9, 12)
+        Me.Label7.Location = New System.Drawing.Point(7, 12)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(53, 16)
@@ -132,7 +132,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.btnSupplier.BackColor = System.Drawing.Color.Gainsboro
         Me.btnSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSupplier.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.btnSupplier.Location = New System.Drawing.Point(294, 35)
+        Me.btnSupplier.Location = New System.Drawing.Point(296, 37)
         Me.btnSupplier.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSupplier.Name = "btnSupplier"
         Me.btnSupplier.Size = New System.Drawing.Size(28, 23)
@@ -144,7 +144,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.txtSupplier.BackColor = System.Drawing.Color.LightBlue
         Me.txtSupplier.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtSupplier.Location = New System.Drawing.Point(79, 35)
+        Me.txtSupplier.Location = New System.Drawing.Point(81, 37)
         Me.txtSupplier.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSupplier.MaxLength = 25
         Me.txtSupplier.Name = "txtSupplier"
@@ -155,7 +155,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label1.Location = New System.Drawing.Point(9, 38)
+        Me.Label1.Location = New System.Drawing.Point(7, 40)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 16)
@@ -166,7 +166,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.txtSupplierName.Enabled = False
         Me.txtSupplierName.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtSupplierName.Location = New System.Drawing.Point(8, 62)
+        Me.txtSupplierName.Location = New System.Drawing.Point(12, 64)
         Me.txtSupplierName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSupplierName.Name = "txtSupplierName"
         Me.txtSupplierName.Size = New System.Drawing.Size(314, 23)
@@ -176,7 +176,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.txtCurrency.Enabled = False
         Me.txtCurrency.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtCurrency.Location = New System.Drawing.Point(82, 88)
+        Me.txtCurrency.Location = New System.Drawing.Point(83, 91)
         Me.txtCurrency.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCurrency.Name = "txtCurrency"
         Me.txtCurrency.Size = New System.Drawing.Size(240, 23)
@@ -186,7 +186,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(9, 91)
+        Me.Label3.Location = New System.Drawing.Point(7, 94)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 16)
@@ -211,7 +211,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.cmbTDelivery.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTDelivery.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbTDelivery.FormattingEnabled = True
-        Me.cmbTDelivery.Location = New System.Drawing.Point(453, 35)
+        Me.cmbTDelivery.Location = New System.Drawing.Point(453, 63)
         Me.cmbTDelivery.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbTDelivery.Name = "cmbTDelivery"
         Me.cmbTDelivery.Size = New System.Drawing.Size(194, 24)
@@ -221,7 +221,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label2.Location = New System.Drawing.Point(327, 38)
+        Me.Label2.Location = New System.Drawing.Point(327, 66)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(121, 16)
@@ -232,7 +232,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label4.Location = New System.Drawing.Point(327, 63)
+        Me.Label4.Location = New System.Drawing.Point(327, 91)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(125, 16)
@@ -245,7 +245,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.cmbTPayment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbTPayment.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbTPayment.FormattingEnabled = True
-        Me.cmbTPayment.Location = New System.Drawing.Point(453, 62)
+        Me.cmbTPayment.Location = New System.Drawing.Point(453, 90)
         Me.cmbTPayment.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbTPayment.Name = "cmbTPayment"
         Me.cmbTPayment.Size = New System.Drawing.Size(194, 24)
@@ -255,7 +255,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label5.Location = New System.Drawing.Point(327, 92)
+        Me.Label5.Location = New System.Drawing.Point(327, 120)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(107, 16)
@@ -268,7 +268,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.cmbDeliveryPlace.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.cmbDeliveryPlace.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.cmbDeliveryPlace.FormattingEnabled = True
-        Me.cmbDeliveryPlace.Location = New System.Drawing.Point(453, 89)
+        Me.cmbDeliveryPlace.Location = New System.Drawing.Point(453, 117)
         Me.cmbDeliveryPlace.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbDeliveryPlace.Name = "cmbDeliveryPlace"
         Me.cmbDeliveryPlace.Size = New System.Drawing.Size(194, 24)
@@ -278,7 +278,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label6.Location = New System.Drawing.Point(654, 90)
+        Me.Label6.Location = New System.Drawing.Point(654, 120)
         Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(93, 16)
@@ -289,7 +289,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.txtTotalAmount.Enabled = False
         Me.txtTotalAmount.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtTotalAmount.Location = New System.Drawing.Point(754, 87)
+        Me.txtTotalAmount.Location = New System.Drawing.Point(754, 117)
         Me.txtTotalAmount.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTotalAmount.Name = "txtTotalAmount"
         Me.txtTotalAmount.Size = New System.Drawing.Size(137, 23)
@@ -304,7 +304,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.txtRemarks.MaxLength = 200
         Me.txtRemarks.Multiline = True
         Me.txtRemarks.Name = "txtRemarks"
-        Me.txtRemarks.Size = New System.Drawing.Size(203, 48)
+        Me.txtRemarks.Size = New System.Drawing.Size(203, 72)
         Me.txtRemarks.TabIndex = 56
         '
         'Label9
@@ -322,7 +322,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.txtStaffName.Enabled = False
         Me.txtStaffName.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtStaffName.Location = New System.Drawing.Point(754, 62)
+        Me.txtStaffName.Location = New System.Drawing.Point(754, 88)
         Me.txtStaffName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtStaffName.Name = "txtStaffName"
         Me.txtStaffName.Size = New System.Drawing.Size(204, 23)
@@ -332,7 +332,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label10.Location = New System.Drawing.Point(654, 63)
+        Me.Label10.Location = New System.Drawing.Point(654, 89)
         Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(101, 16)
@@ -345,7 +345,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.ForeColor = System.Drawing.Color.Black
-        Me.btnSave.Location = New System.Drawing.Point(873, 508)
+        Me.btnSave.Location = New System.Drawing.Point(873, 549)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(90, 26)
@@ -423,7 +423,6 @@ Partial Class FrmPurchaseOrderEntry
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.BackColor = System.Drawing.Color.White
-        Me.GroupBox1.Controls.Add(Me.btnDelete)
         Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.Label18)
         Me.GroupBox1.Controls.Add(Me.dtETA)
@@ -451,28 +450,14 @@ Partial Class FrmPurchaseOrderEntry
         Me.GroupBox1.Controls.Add(Me.txtSupQty)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 120)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 145)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
-        Me.GroupBox1.Size = New System.Drawing.Size(954, 390)
+        Me.GroupBox1.Size = New System.Drawing.Size(954, 400)
         Me.GroupBox1.TabIndex = 69
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Purchase Details"
-        '
-        'btnDelete
-        '
-        Me.btnDelete.BackColor = System.Drawing.Color.Red
-        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnDelete.Location = New System.Drawing.Point(144, 320)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(124, 26)
-        Me.btnDelete.TabIndex = 177
-        Me.btnDelete.Text = "DELETE"
-        Me.btnDelete.UseVisualStyleBackColor = False
-        Me.btnDelete.Visible = False
         '
         'btnClear
         '
@@ -493,7 +478,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Label18.AutoSize = True
         Me.Label18.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.Red
-        Me.Label18.Location = New System.Drawing.Point(269, 368)
+        Me.Label18.Location = New System.Drawing.Point(269, 378)
         Me.Label18.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(219, 19)
@@ -704,7 +689,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.dtablePoDetails.Name = "dtablePoDetails"
         Me.dtablePoDetails.ReadOnly = True
         Me.dtablePoDetails.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtablePoDetails.Size = New System.Drawing.Size(678, 344)
+        Me.dtablePoDetails.Size = New System.Drawing.Size(678, 354)
         Me.dtablePoDetails.TabIndex = 69
         '
         'Seq
@@ -712,84 +697,84 @@ Partial Class FrmPurchaseOrderEntry
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 56
+        Me.Seq.Width = 58
         '
         'ItemId
         '
         Me.ItemId.HeaderText = "Item"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 57
+        Me.ItemId.Width = 59
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 102
+        Me.ItemName.Width = 104
         '
         'ClientQUnit
         '
         Me.ClientQUnit.HeaderText = "ClientQty"
         Me.ClientQUnit.Name = "ClientQUnit"
         Me.ClientQUnit.ReadOnly = True
-        Me.ClientQUnit.Width = 89
+        Me.ClientQUnit.Width = 91
         '
         'ClientQty
         '
         Me.ClientQty.HeaderText = "Unit"
         Me.ClientQty.Name = "ClientQty"
         Me.ClientQty.ReadOnly = True
-        Me.ClientQty.Width = 55
+        Me.ClientQty.Width = 57
         '
         'PO
         '
         Me.PO.HeaderText = "SupplierQty"
         Me.PO.Name = "PO"
         Me.PO.ReadOnly = True
-        Me.PO.Width = 105
+        Me.PO.Width = 107
         '
         'Unit
         '
         Me.Unit.HeaderText = "Unit"
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
-        Me.Unit.Width = 55
+        Me.Unit.Width = 57
         '
         'SupplierUnitPrice
         '
         Me.SupplierUnitPrice.HeaderText = "Unit Price"
         Me.SupplierUnitPrice.Name = "SupplierUnitPrice"
         Me.SupplierUnitPrice.ReadOnly = True
-        Me.SupplierUnitPrice.Width = 91
+        Me.SupplierUnitPrice.Width = 93
         '
         'TotalPrice
         '
         Me.TotalPrice.HeaderText = "TotalPrice"
         Me.TotalPrice.Name = "TotalPrice"
         Me.TotalPrice.ReadOnly = True
-        Me.TotalPrice.Width = 93
+        Me.TotalPrice.Width = 95
         '
         'ETD
         '
         Me.ETD.HeaderText = "ETD"
         Me.ETD.Name = "ETD"
         Me.ETD.ReadOnly = True
-        Me.ETD.Width = 59
+        Me.ETD.Width = 61
         '
         'ETA
         '
         Me.ETA.HeaderText = "ETA"
         Me.ETA.Name = "ETA"
         Me.ETA.ReadOnly = True
-        Me.ETA.Width = 57
+        Me.ETA.Width = 59
         '
         'FTRY
         '
         Me.FTRY.HeaderText = "FTRY"
         Me.FTRY.Name = "FTRY"
         Me.FTRY.ReadOnly = True
-        Me.FTRY.Width = 68
+        Me.FTRY.Width = 70
         '
         'Cancel
         '
@@ -798,7 +783,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Cancel.ReadOnly = True
         Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Cancel.Width = 75
+        Me.Cancel.Width = 77
         '
         'Rec
         '
@@ -807,7 +792,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Rec.ReadOnly = True
         Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Rec.Width = 56
+        Me.Rec.Width = 58
         '
         'RecAdd
         '
@@ -822,7 +807,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.InvQty.HeaderText = "Invoice Qty"
         Me.InvQty.Name = "InvQty"
         Me.InvQty.ReadOnly = True
-        Me.InvQty.Width = 101
+        Me.InvQty.Width = 103
         '
         'ClientUnitPrice
         '
@@ -836,7 +821,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.chkcancelPO.AutoSize = True
         Me.chkcancelPO.Enabled = False
-        Me.chkcancelPO.Location = New System.Drawing.Point(894, 90)
+        Me.chkcancelPO.Location = New System.Drawing.Point(894, 120)
         Me.chkcancelPO.Margin = New System.Windows.Forms.Padding(2)
         Me.chkcancelPO.Name = "chkcancelPO"
         Me.chkcancelPO.Size = New System.Drawing.Size(65, 19)
@@ -850,7 +835,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Label19.AutoSize = True
         Me.Label19.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.Red
-        Me.Label19.Location = New System.Drawing.Point(5, 516)
+        Me.Label19.Location = New System.Drawing.Point(5, 557)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(217, 19)
         Me.Label19.TabIndex = 127
@@ -860,7 +845,7 @@ Partial Class FrmPurchaseOrderEntry
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(780, 508)
+        Me.Button1.Location = New System.Drawing.Point(780, 549)
         Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 26)
@@ -869,12 +854,25 @@ Partial Class FrmPurchaseOrderEntry
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
+        'Label21
+        '
+        Me.Label21.BackColor = System.Drawing.Color.White
+        Me.Label21.Font = New System.Drawing.Font("Arial", 7.0!, System.Drawing.FontStyle.Bold)
+        Me.Label21.ForeColor = System.Drawing.Color.Red
+        Me.Label21.Location = New System.Drawing.Point(452, 34)
+        Me.Label21.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(198, 24)
+        Me.Label21.TabIndex = 131
+        Me.Label21.Text = "*NOTE: automatically delete Purchase Details when changed"
+        '
         'FrmPurchaseOrderEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(970, 537)
+        Me.ClientSize = New System.Drawing.Size(970, 578)
+        Me.Controls.Add(Me.Label21)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label19)
         Me.Controls.Add(Me.chkcancelPO)
@@ -965,7 +963,6 @@ Partial Class FrmPurchaseOrderEntry
     Friend WithEvents Label19 As Label
     Friend WithEvents btnClear As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents btnDelete As Button
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
@@ -983,4 +980,5 @@ Partial Class FrmPurchaseOrderEntry
     Friend WithEvents RecAdd As DataGridViewTextBoxColumn
     Friend WithEvents InvQty As DataGridViewTextBoxColumn
     Friend WithEvents ClientUnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents Label21 As Label
 End Class

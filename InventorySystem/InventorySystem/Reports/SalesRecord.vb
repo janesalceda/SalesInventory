@@ -3,11 +3,17 @@ Public Class SalesRecord
 
 
     Private Sub SalesRecord_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        dtFrom.Value = DateTime.Now.ToLongDateString
-        dtTo.Value = DateTime.Now.ToLongDateString
+        MdiParent = AppForm
+        dtFrom.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        ' dtFrom.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+
+        dtTo.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        ' dtTo.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        btnSearch.Text = "PRINT"
+        btnSearch.Enabled = False
         SQL.params.Clear()
 
         Dim rptDs As ReportDataSource
@@ -37,6 +43,9 @@ Public Class SalesRecord
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub
+        Finally
+            btnSearch.Text = "PRINT"
+            btnSearch.Enabled = False
         End Try
     End Sub
 End Class

@@ -9,14 +9,16 @@
         txtSTRemarks.Enabled = False
         btnAddItem.Enabled = False
         txtIssuedBy.Enabled = False
+        Label27.Visible = False
         dtableStockout.Enabled = False
-        If rights > 2 Or rights = 0 Then
-            'chkApprove.Enabled = False
-            btnSave.Visible = False
-            txtRemarks.Enabled = False
-        Else
-            'chkApprove.Enabled = True
-        End If
+        ' If rights > 2 Or rights = 0 Then
+        'chkApprove.Enabled = False
+        btnSave.Visible = False
+        btnAddItem.Visible = False
+        ' txtRemarks.Enabled = False
+        'Else
+        'chkApprove.Enabled = True
+        'End If
     End Sub
     Private Sub AddingData()
         txtItemCode.Enabled = True
@@ -31,6 +33,7 @@
         dtableStockout.Rows.Clear()
         txtItemCode.Clear()
         dtSOutDate.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        'dtSOutDate.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         txtQty.Clear()
         txtSTRemarks.Clear()
         txtIssuedBy.Text = moduleName
@@ -62,40 +65,46 @@
         Next
     End Sub
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
-        If String.IsNullOrWhiteSpace(txtQty.Text) Or
+        Try
+            If String.IsNullOrWhiteSpace(txtQty.Text) Or
                 String.IsNullOrWhiteSpace(txtItemCode.Text) Then
-            MsgBox("Please complete all * import details!", MsgBoxStyle.Exclamation, "Warning")
-            Exit Sub
-        End If
-        If btnAddItem.Text = "INSERT" Then
-            Dim row As ArrayList = New ArrayList
-            DTCount += 1
-            txtTotalAmount.Text = Val(txtTotalAmount.Text) + (Val(txtQty.Text) * cliprice)
-            row.Add(dtableStockout.Rows.Count + 1)
-            row.Add(txtItemCode.Text)
-            row.Add(txtItemName.Text)
-            row.Add(txtQty.Text)
-            row.Add(cliprice)
-            row.Add(Val(txtQty.Text) * cliprice)
-            row.Add(txtSTRemarks.Text)
-            row.Add(getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, ""))
-            dtableStockout.Rows.Add(row.ToArray())
-            StockOutdetailsClear()
-        Else
-            FrmConfirmation.ShowDialog()
-            If confirm = True Then
-                txtTotalAmount.Text = Val(txtTotalAmount.Text) + ((Val(txtQty.Text) - dtableStockout.SelectedRows(0).Cells(3).Value) * cliprice)
-                dtableStockout.SelectedRows(0).Cells(1).Value = txtItemCode.Text
-                dtableStockout.SelectedRows(0).Cells(2).Value = txtItemName.Text
-                dtableStockout.SelectedRows(0).Cells(3).Value = txtQty.Text
-                dtableStockout.SelectedRows(0).Cells(4).Value = cliprice
-                dtableStockout.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * cliprice
-                dtableStockout.SelectedRows(0).Cells(6).Value = txtSTRemarks.Text
-                dtableStockout.SelectedRows(0).Cells(7).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, "")
-                btnAddItem.Text = "INSERT"
-                confirm = False
+                MsgBox("Please complete all * import details!", MsgBoxStyle.Exclamation, "Warning")
+                Exit Sub
             End If
-        End If
+            If btnAddItem.Text = "INSERT" Then
+                Dim row As ArrayList = New ArrayList
+                DTCount += 1
+                txtTotalAmount.Text = Val(txtTotalAmount.Text) + (Val(txtQty.Text) * cliprice)
+                row.Add(dtableStockout.Rows.Count + 1)
+                row.Add(txtItemCode.Text)
+                row.Add(txtItemName.Text)
+                row.Add(txtQty.Text)
+                row.Add(cliprice)
+                row.Add(Val(txtQty.Text) * cliprice)
+                row.Add(txtSTRemarks.Text)
+                row.Add(getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, ""))
+                dtableStockout.Rows.Add(row.ToArray())
+                StockOutdetailsClear()
+            Else
+                FrmConfirmation.ShowDialog()
+                If confirm = True Then
+                    txtTotalAmount.Text = Val(txtTotalAmount.Text) + ((Val(txtQty.Text) - dtableStockout.SelectedRows(0).Cells(3).Value) * cliprice)
+                    dtableStockout.SelectedRows(0).Cells(1).Value = txtItemCode.Text
+                    dtableStockout.SelectedRows(0).Cells(2).Value = txtItemName.Text
+                    dtableStockout.SelectedRows(0).Cells(3).Value = txtQty.Text
+                    dtableStockout.SelectedRows(0).Cells(4).Value = cliprice
+                    dtableStockout.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * cliprice
+                    dtableStockout.SelectedRows(0).Cells(6).Value = txtSTRemarks.Text
+                    dtableStockout.SelectedRows(0).Cells(7).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, "")
+                    btnAddItem.Text = "INSERT"
+                    confirm = False
+                    StockOutdetailsClear()
+                End If
+            End If
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+            Exit Sub
+        End Try
     End Sub
     Private Sub StockOutdetailsClear()
         txtItemCode.Clear()
@@ -106,6 +115,7 @@
     End Sub
 
     Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
+        If Application.OpenForms().OfType(Of SelectionItem).Any Then SelectionItem.Close()
         formname = "AddStockOut"
         SelectionItem.Show()
     End Sub
@@ -132,31 +142,32 @@
         Return msg
     End Function
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If dtableStockout.Rows.Count = 0 Or
+        Try
+            If dtableStockout.Rows.Count = 0 Or
             String.IsNullOrWhiteSpace(txtIssuedBy.Text) Then
-            MsgBox(checkingSaving, MsgBoxStyle.Exclamation, "Error")
-            Exit Sub
-        End If
+                MsgBox(checkingSaving, MsgBoxStyle.Exclamation, "Error")
+                Exit Sub
+            End If
 
 
-        If MsgBox("Are you sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then
-            If btnSave.Text = "UPDATE" Then
-                SQL.AddParams("@remarks", txtRemarks.Text)
-                SQL.AddParams("@StockOutCode", txtStockOutID.Text)
-                SQL.ExecQuery("UPDATE StockOutHeaders
+            If MsgBox("Are you sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then
+                If btnSave.Text = "UPDATE" Then
+                    SQL.AddParams("@remarks", txtRemarks.Text)
+                    SQL.AddParams("@StockOutCode", txtStockOutID.Text)
+                    SQL.ExecQuery("UPDATE StockOutHeaders
 	            SET ApprovedBy=(select CASE WHEN @approve='' THEN NULL ELSE @approve end),
                 Remarks=@remarks where StockOutCode=@stockoutcode")
-                If SQL.HasException Then
-                    MsgBox("Error in Updating", MsgBoxStyle.Critical, "Error")
-                    Exit Sub
-                End If
-            Else
-                SQL.AddParams("@stockoutdate", dtSOutDate.Value)
-                SQL.AddParams("@encodedstaff", moduleId)
-                SQL.AddParams("@totalamount", txtTotalAmount.Text)
-                SQL.AddParams("@issuedbystaff", txtIssuedBy.Text)
-                SQL.AddParams("@remarks", txtRemarks.Text)
-                SQL.ExecQuery("INSERT INTO dbo.StockOutHeaders
+                    If SQL.HasException Then
+                        MsgBox("Error in Updating", MsgBoxStyle.Critical, "Error")
+                        Exit Sub
+                    End If
+                Else
+                    SQL.AddParams("@stockoutdate", dtSOutDate.Value)
+                    SQL.AddParams("@encodedstaff", moduleId)
+                    SQL.AddParams("@totalamount", txtTotalAmount.Text)
+                    SQL.AddParams("@issuedbystaff", txtIssuedBy.Text)
+                    SQL.AddParams("@remarks", txtRemarks.Text)
+                    SQL.ExecQuery("INSERT INTO dbo.StockOutHeaders
 	        (StockOutCode,StockOutDate,TotalAmount,EncodedStaff,IssuedByStaff,ApprovedBy,Remarks,UpdatedBy)
         VALUES((SELECT CASE WHEN max(StockOutCode) IS NULL 
                     THEN 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
@@ -164,37 +175,41 @@
                     THEN 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) +1 as varchar)
                     ELSE 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) +1 as varchar)
                     END END AS 'pomax' from StockOutHeaders),@stockoutdate,@totalamount,@encodedstaff,@issuedbystaff,NULL,@remarks,@encodedstaff)")
-                If SQL.HasException Then Exit Sub
+                    If SQL.HasException Then Exit Sub
 
-                For i As Integer = 0 To dtableStockout.Rows.Count - 1
-                    SQL.AddParams("@stockoutcode", txtStockOutID.Text)
-                    SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value)
-                    SQL.AddParams("@itemid", dtableStockout.Rows(i).Cells(1).Value.ToString())
-                    SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value)
-                    SQL.AddParams("@SupplierUnitprice", dtableStockout.Rows(i).Cells(7).Value)
-                    SQL.AddParams("@ClientUnitprice", dtableStockout.Rows(i).Cells(4).Value)
-                    SQL.AddParams("@remarks", dtableStockout.Rows(i).Cells(6).Value.ToString())
-                    SQL.AddParams("@updatedby", moduleId)
-                    SQL.ExecQuery("INSERT INTO dbo.StockOutDetails
+                    For i As Integer = 0 To dtableStockout.Rows.Count - 1
+                        SQL.AddParams("@stockoutcode", txtStockOutID.Text)
+                        SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value)
+                        SQL.AddParams("@itemid", dtableStockout.Rows(i).Cells(1).Value.ToString())
+                        SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value)
+                        SQL.AddParams("@SupplierUnitprice", dtableStockout.Rows(i).Cells(7).Value)
+                        SQL.AddParams("@ClientUnitprice", dtableStockout.Rows(i).Cells(4).Value)
+                        SQL.AddParams("@remarks", dtableStockout.Rows(i).Cells(6).Value.ToString())
+                        SQL.AddParams("@updatedby", moduleId)
+                        SQL.ExecQuery("INSERT INTO dbo.StockOutDetails
 	                    (StockOutCode,ItemSeq,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
                         VALUES((SELECT max(StockOutCode) from StockOutHeaders),
                         @itemseq,@itemid,@qty,@ClientUnitprice,@SupplierUnitprice,
                         @remarks,@updatedby)")
-                    If SQL.HasException Then
-                        SQL.AddParams("@stockoutcode", txtStockOutID.Text)
-                        SQL.ExecQuery("delete from StockOutDetails where StockOutCode=(SELECT max(STID) from StockTakingHeaders);delete from StockOutHeaders where StockOutCode=(SELECT max(STID) from StockTakingHeaders);")
-                        Exit Sub
-                    End If
-                Next
+                        If SQL.HasException Then
+                            SQL.AddParams("@stockoutcode", txtStockOutID.Text)
+                            SQL.ExecQuery("delete from StockOutDetails where StockOutCode=(SELECT max(STID) from StockTakingHeaders);delete from StockOutHeaders where StockOutCode=(SELECT max(STID) from StockTakingHeaders);")
+                            Exit Sub
+                        End If
+                    Next
+                End If
+                MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
+                If rights = 3 Then
+                    AddingData()
+                Else
+                    FrmStockoutSearch.btnSearch.PerformClick()
+                    Me.Close()
+                End If
             End If
-            MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
-            If rights = 3 Then
-                AddingData()
-            Else
-                FrmStockoutSearch.btnSearch.PerformClick()
-                Me.Close()
-            End If
-        End If
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+            Exit Sub
+        End Try
     End Sub
 
     Private Sub AddStockOut_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -218,18 +233,38 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If Application.OpenForms().OfType(Of ScanItem).Any Then ScanItem.Close()
+
         formname = "StockOut"
         ScanItem.Show()
     End Sub
     Private Sub dtableStockout_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockout.CellClick
-        txtItemCode.Text = dtableStockout.SelectedRows(0).Cells(1).Value
-        txtItemName.Text = dtableStockout.SelectedRows(0).Cells(2).Value
-        txtQty.Text = dtableStockout.SelectedRows(0).Cells(3).Value
-        txtSTRemarks.Text = dtableStockout.SelectedRows(0).Cells(5).Value
-        btnAddItem.Text = "UPDATE"
+        Try
+            txtItemCode.Text = dtableStockout.SelectedRows(0).Cells(1).Value
+            txtItemName.Text = dtableStockout.SelectedRows(0).Cells(2).Value
+            txtQty.Text = dtableStockout.SelectedRows(0).Cells(3).Value
+            txtSTRemarks.Text = dtableStockout.SelectedRows(0).Cells(5).Value
+            btnAddItem.Text = "UPDATE"
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+            Exit Sub
+        End Try
     End Sub
 
     Private Sub txtStockOutID_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtStockOutID.KeyPress
         e.Handled = True
+    End Sub
+
+    Private Sub dtableStockout_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockout.CellContentClick
+
+    End Sub
+
+    Private Sub BTNLogout_Click(sender As Object, e As EventArgs) Handles BTNLogout.Click
+        LoginForm.Show()
+        Me.Close()
+    End Sub
+
+    Private Sub txtStockOutID_TextChanged(sender As Object, e As EventArgs) Handles txtStockOutID.TextChanged
+
     End Sub
 End Class

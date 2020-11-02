@@ -47,7 +47,7 @@ Partial Class FrmTermofPaymentSearch
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(20, 64)
+        Me.Label3.Location = New System.Drawing.Point(10, 64)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(106, 16)
@@ -71,7 +71,7 @@ Partial Class FrmTermofPaymentSearch
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label1.Location = New System.Drawing.Point(22, 40)
+        Me.Label1.Location = New System.Drawing.Point(12, 40)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(76, 16)
@@ -82,7 +82,7 @@ Partial Class FrmTermofPaymentSearch
         '
         Me.txtDelPlace.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDelPlace.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtDelPlace.Location = New System.Drawing.Point(141, 60)
+        Me.txtDelPlace.Location = New System.Drawing.Point(131, 60)
         Me.txtDelPlace.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtDelPlace.Name = "txtDelPlace"
         Me.txtDelPlace.Size = New System.Drawing.Size(301, 23)
@@ -92,7 +92,7 @@ Partial Class FrmTermofPaymentSearch
         '
         Me.chkDisuse.AutoSize = True
         Me.chkDisuse.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.chkDisuse.Location = New System.Drawing.Point(372, 10)
+        Me.chkDisuse.Location = New System.Drawing.Point(362, 10)
         Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
@@ -104,7 +104,7 @@ Partial Class FrmTermofPaymentSearch
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDes.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtDes.Location = New System.Drawing.Point(141, 35)
+        Me.txtDes.Location = New System.Drawing.Point(131, 35)
         Me.txtDes.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtDes.Name = "txtDes"
         Me.txtDes.Size = New System.Drawing.Size(301, 23)
@@ -115,7 +115,7 @@ Partial Class FrmTermofPaymentSearch
         Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSearch.Location = New System.Drawing.Point(448, 13)
+        Me.btnSearch.Location = New System.Drawing.Point(438, 13)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(90, 25)
@@ -140,7 +140,7 @@ Partial Class FrmTermofPaymentSearch
         '
         Me.txtCatID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCatID.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtCatID.Location = New System.Drawing.Point(141, 10)
+        Me.txtCatID.Location = New System.Drawing.Point(131, 10)
         Me.txtCatID.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtCatID.Name = "txtCatID"
         Me.txtCatID.Size = New System.Drawing.Size(155, 23)
@@ -150,7 +150,7 @@ Partial Class FrmTermofPaymentSearch
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label7.Location = New System.Drawing.Point(22, 15)
+        Me.Label7.Location = New System.Drawing.Point(12, 15)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(121, 16)
@@ -168,7 +168,7 @@ Partial Class FrmTermofPaymentSearch
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
-        Me.dtItems.Location = New System.Drawing.Point(19, 86)
+        Me.dtItems.Location = New System.Drawing.Point(9, 86)
         Me.dtItems.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
@@ -182,28 +182,28 @@ Partial Class FrmTermofPaymentSearch
         Me.ItemId.HeaderText = "TermofPaymentId"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 126
+        Me.ItemId.Width = 128
         '
         'DeliveryPlace
         '
         Me.DeliveryPlace.HeaderText = "TermofPayment"
         Me.DeliveryPlace.Name = "DeliveryPlace"
         Me.DeliveryPlace.ReadOnly = True
-        Me.DeliveryPlace.Width = 116
+        Me.DeliveryPlace.Width = 118
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 93
+        Me.ItemName.Width = 95
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 110
+        Me.RegisteredDate.Width = 112
         '
         'Disused
         '
@@ -212,26 +212,27 @@ Partial Class FrmTermofPaymentSearch
         Me.Disused.ReadOnly = True
         Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 77
+        Me.Disused.Width = 79
         '
         'DeletedDate
         '
         Me.DeletedDate.HeaderText = "DeletedDate"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 99
+        Me.DeletedDate.Width = 101
         '
         'btnClear
         '
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnClear.Location = New System.Drawing.Point(448, 41)
+        Me.btnClear.Location = New System.Drawing.Point(438, 41)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(90, 25)
         Me.btnClear.TabIndex = 123
         Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'FrmTermofPaymentSearch
         '
@@ -252,7 +253,10 @@ Partial Class FrmTermofPaymentSearch
         Me.Controls.Add(Me.dtItems)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmTermofPaymentSearch"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Search TermofPayment"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

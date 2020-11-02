@@ -1,6 +1,8 @@
 ﻿Imports Microsoft.Reporting.WinForms
 Public Class DailyTransaction
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Button1.Text = "Please wait ..."
+        Button1.Enabled = False
         Dim rptDs As ReportDataSource
         PrintPreview.ReportViewer1.RefreshReport()
         Try
@@ -10,9 +12,9 @@ Public Class DailyTransaction
                 Dim dt As New DataTable
                 Dim ds As New DataSet1
 
-                SQL.AddParams("@from", DateTimePicker1.Value.ToShortDateString)
-                SQL.ExecQuery("SELECT *,@from as 'TransactionDate',CompanyLogo
-                     FROM dbo.GetDailyTransaction (@from),companyinfo")
+                SQL.AddParams("@from", DateTimePicker1.Value.ToString("yyyy/MM/dd"))
+                SQL.ExecQuery("SELECT *,@from as 'TransactionDate',(select Companylogo from companyinfo)
+                     FROM dbo.GetDailyTransaction (@from)")
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
@@ -23,7 +25,18 @@ Public Class DailyTransaction
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub
+        Finally
+            Button1.Text = "PRINT"
+            Button1.Enabled = True
         End Try
+
+    End Sub
+
+    Private Sub DailyTransaction_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent = AppForm
+    End Sub
+
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
 
     End Sub
 End Class

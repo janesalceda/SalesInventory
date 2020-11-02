@@ -54,9 +54,9 @@ Partial Class FrmStockOutReport
         '
         'btnPrint
         '
-        Me.btnPrint.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.btnPrint.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPrint.Location = New System.Drawing.Point(281, 3)
+        Me.btnPrint.Location = New System.Drawing.Point(309, 2)
         Me.btnPrint.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnPrint.Name = "btnPrint"
         Me.btnPrint.Size = New System.Drawing.Size(103, 27)
@@ -68,7 +68,7 @@ Partial Class FrmStockOutReport
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Calibri", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(264, 34)
+        Me.Label2.Location = New System.Drawing.Point(217, 33)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(19, 23)
@@ -77,18 +77,20 @@ Partial Class FrmStockOutReport
         '
         'dtTo
         '
-        Me.dtTo.Location = New System.Drawing.Point(283, 32)
+        Me.dtTo.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtTo.Location = New System.Drawing.Point(240, 33)
         Me.dtTo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtTo.Name = "dtTo"
-        Me.dtTo.Size = New System.Drawing.Size(209, 23)
+        Me.dtTo.Size = New System.Drawing.Size(172, 23)
         Me.dtTo.TabIndex = 21
         '
         'dtFrom
         '
+        Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtFrom.Location = New System.Drawing.Point(50, 32)
         Me.dtFrom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtFrom.Name = "dtFrom"
-        Me.dtFrom.Size = New System.Drawing.Size(214, 23)
+        Me.dtFrom.Size = New System.Drawing.Size(163, 23)
         Me.dtFrom.TabIndex = 20
         '
         'Label1
@@ -106,7 +108,7 @@ Partial Class FrmStockOutReport
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(495, 68)
+        Me.ClientSize = New System.Drawing.Size(429, 68)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtitem)
         Me.Controls.Add(Me.btnPrint)

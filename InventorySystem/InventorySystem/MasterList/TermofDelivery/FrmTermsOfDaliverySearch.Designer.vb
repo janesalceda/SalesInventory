@@ -47,12 +47,12 @@ Partial Class FrmTermsOfDaliverySearch
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label3.Location = New System.Drawing.Point(14, 65)
+        Me.Label3.Location = New System.Drawing.Point(14, 40)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(102, 16)
+        Me.Label3.Size = New System.Drawing.Size(106, 16)
         Me.Label3.TabIndex = 111
-        Me.Label3.Text = "TermofDelivery"
+        Me.Label3.Text = "TermofDelivery:"
         '
         'Label2
         '
@@ -71,7 +71,7 @@ Partial Class FrmTermsOfDaliverySearch
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label1.Location = New System.Drawing.Point(16, 38)
+        Me.Label1.Location = New System.Drawing.Point(15, 67)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(76, 16)
@@ -82,8 +82,8 @@ Partial Class FrmTermsOfDaliverySearch
         '
         Me.txtDelPlace.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDelPlace.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtDelPlace.Location = New System.Drawing.Point(130, 60)
-        Me.txtDelPlace.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDelPlace.Location = New System.Drawing.Point(130, 35)
+        Me.txtDelPlace.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDelPlace.Name = "txtDelPlace"
         Me.txtDelPlace.Size = New System.Drawing.Size(242, 23)
         Me.txtDelPlace.TabIndex = 110
@@ -93,7 +93,7 @@ Partial Class FrmTermsOfDaliverySearch
         Me.chkDisuse.AutoSize = True
         Me.chkDisuse.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.chkDisuse.Location = New System.Drawing.Point(310, 7)
-        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 107
@@ -104,8 +104,8 @@ Partial Class FrmTermsOfDaliverySearch
         '
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDes.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.txtDes.Location = New System.Drawing.Point(130, 33)
-        Me.txtDes.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDes.Location = New System.Drawing.Point(131, 62)
+        Me.txtDes.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDes.Name = "txtDes"
         Me.txtDes.Size = New System.Drawing.Size(241, 23)
         Me.txtDes.TabIndex = 106
@@ -115,8 +115,8 @@ Partial Class FrmTermsOfDaliverySearch
         Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSearch.Location = New System.Drawing.Point(384, 5)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSearch.Location = New System.Drawing.Point(384, 12)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(90, 25)
         Me.btnSearch.TabIndex = 105
@@ -129,7 +129,7 @@ Partial Class FrmTermsOfDaliverySearch
         Me.btnAdd.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Location = New System.Drawing.Point(494, 430)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(165, 25)
         Me.btnAdd.TabIndex = 104
@@ -141,7 +141,7 @@ Partial Class FrmTermsOfDaliverySearch
         Me.txtCatID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtCatID.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtCatID.Location = New System.Drawing.Point(130, 7)
-        Me.txtCatID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtCatID.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCatID.Name = "txtCatID"
         Me.txtCatID.Size = New System.Drawing.Size(155, 23)
         Me.txtCatID.TabIndex = 103
@@ -150,7 +150,7 @@ Partial Class FrmTermsOfDaliverySearch
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.Label7.Location = New System.Drawing.Point(16, 12)
+        Me.Label7.Location = New System.Drawing.Point(14, 12)
         Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(117, 16)
@@ -168,13 +168,13 @@ Partial Class FrmTermsOfDaliverySearch
         Me.dtItems.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.DeliveryPlace, Me.ItemName, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
-        Me.dtItems.Location = New System.Drawing.Point(12, 110)
-        Me.dtItems.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtItems.Location = New System.Drawing.Point(12, 89)
+        Me.dtItems.Margin = New System.Windows.Forms.Padding(2)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(646, 317)
+        Me.dtItems.Size = New System.Drawing.Size(646, 338)
         Me.dtItems.TabIndex = 101
         '
         'ItemId
@@ -182,28 +182,28 @@ Partial Class FrmTermsOfDaliverySearch
         Me.ItemId.HeaderText = "TermofDeliveryId"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 121
+        Me.ItemId.Width = 123
         '
         'DeliveryPlace
         '
         Me.DeliveryPlace.HeaderText = "TermofDelivery"
         Me.DeliveryPlace.Name = "DeliveryPlace"
         Me.DeliveryPlace.ReadOnly = True
-        Me.DeliveryPlace.Width = 111
+        Me.DeliveryPlace.Width = 113
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 93
+        Me.ItemName.Width = 95
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 110
+        Me.RegisteredDate.Width = 112
         '
         'Disused
         '
@@ -212,26 +212,27 @@ Partial Class FrmTermsOfDaliverySearch
         Me.Disused.ReadOnly = True
         Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 77
+        Me.Disused.Width = 79
         '
         'DeletedDate
         '
         Me.DeletedDate.HeaderText = "DeletedDate"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 99
+        Me.DeletedDate.Width = 101
         '
         'btnClear
         '
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnClear.Location = New System.Drawing.Point(384, 33)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnClear.Location = New System.Drawing.Point(384, 40)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(90, 25)
         Me.btnClear.TabIndex = 113
         Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'FrmTermsOfDaliverySearch
         '
@@ -252,7 +253,10 @@ Partial Class FrmTermsOfDaliverySearch
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.dtItems)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmTermsOfDaliverySearch"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Search TermsOfDalivery"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

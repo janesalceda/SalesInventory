@@ -24,10 +24,9 @@ Partial Class SalesRecord
     Private Sub InitializeComponent()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.dtTo = New System.Windows.Forms.DateTimePicker()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.btnSearch = New System.Windows.Forms.Button()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label4
@@ -50,16 +49,6 @@ Partial Class SalesRecord
         Me.dtTo.Size = New System.Drawing.Size(147, 23)
         Me.dtTo.TabIndex = 22
         '
-        'btnClear
-        '
-        Me.btnClear.Location = New System.Drawing.Point(274, 48)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(103, 27)
-        Me.btnClear.TabIndex = 20
-        Me.btnClear.Text = "EXPORT"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -70,16 +59,6 @@ Partial Class SalesRecord
         Me.Label3.TabIndex = 21
         Me.Label3.Text = "Date:"
         '
-        'btnSearch
-        '
-        Me.btnSearch.Location = New System.Drawing.Point(170, 48)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(103, 27)
-        Me.btnSearch.TabIndex = 19
-        Me.btnSearch.Text = "VIEW"
-        Me.btnSearch.UseVisualStyleBackColor = True
-        '
         'dtFrom
         '
         Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
@@ -89,14 +68,25 @@ Partial Class SalesRecord
         Me.dtFrom.Size = New System.Drawing.Size(147, 23)
         Me.dtFrom.TabIndex = 18
         '
+        'btnSearch
+        '
+        Me.btnSearch.BackColor = System.Drawing.Color.LightSeaGreen
+        Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSearch.Location = New System.Drawing.Point(273, 43)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(103, 27)
+        Me.btnSearch.TabIndex = 19
+        Me.btnSearch.Text = "PRINT"
+        Me.btnSearch.UseVisualStyleBackColor = False
+        '
         'SalesRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(401, 102)
+        Me.ClientSize = New System.Drawing.Size(389, 82)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.dtTo)
-        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.dtFrom)
@@ -111,8 +101,7 @@ Partial Class SalesRecord
 
     Friend WithEvents Label4 As Label
     Friend WithEvents dtTo As DateTimePicker
-    Friend WithEvents btnClear As Button
     Friend WithEvents Label3 As Label
-    Friend WithEvents btnSearch As Button
     Friend WithEvents dtFrom As DateTimePicker
+    Friend WithEvents btnSearch As Button
 End Class

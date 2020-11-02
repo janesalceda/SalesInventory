@@ -22,7 +22,7 @@ Partial Class FrmUser
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnSearch = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cmbUserLevel = New System.Windows.Forms.ComboBox()
@@ -43,7 +43,7 @@ Partial Class FrmUser
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnSearch.Location = New System.Drawing.Point(318, 14)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(90, 25)
         Me.btnSearch.TabIndex = 31
@@ -56,7 +56,7 @@ Partial Class FrmUser
         Me.btnAdd.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.Location = New System.Drawing.Point(444, 422)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(90, 25)
         Me.btnAdd.TabIndex = 30
@@ -69,7 +69,7 @@ Partial Class FrmUser
         Me.cmbUserLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbUserLevel.FormattingEnabled = True
         Me.cmbUserLevel.Location = New System.Drawing.Point(-298, 40)
-        Me.cmbUserLevel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.cmbUserLevel.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbUserLevel.Name = "cmbUserLevel"
         Me.cmbUserLevel.Size = New System.Drawing.Size(160, 23)
         Me.cmbUserLevel.TabIndex = 29
@@ -90,7 +90,7 @@ Partial Class FrmUser
         Me.txtSearch.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtSearch.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtSearch.Location = New System.Drawing.Point(93, 14)
-        Me.txtSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSearch.Name = "txtSearch"
         Me.txtSearch.Size = New System.Drawing.Size(217, 23)
         Me.txtSearch.TabIndex = 27
@@ -117,16 +117,16 @@ Partial Class FrmUser
         Me.dtUsers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dtUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtUsers.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.EmpId, Me.EmployeeName, Me.UserLevel, Me.Delete, Me.DeletedDate})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Arial", 9.0!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.dtUsers.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Arial", 9.0!)
+        DataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkCyan
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.dtUsers.DefaultCellStyle = DataGridViewCellStyle1
         Me.dtUsers.Location = New System.Drawing.Point(11, 67)
-        Me.dtUsers.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtUsers.Margin = New System.Windows.Forms.Padding(2)
         Me.dtUsers.Name = "dtUsers"
         Me.dtUsers.ReadOnly = True
         Me.dtUsers.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
@@ -139,21 +139,21 @@ Partial Class FrmUser
         Me.EmpId.HeaderText = "EmpId"
         Me.EmpId.Name = "EmpId"
         Me.EmpId.ReadOnly = True
-        Me.EmpId.Width = 66
+        Me.EmpId.Width = 68
         '
         'EmployeeName
         '
         Me.EmployeeName.HeaderText = "Employee Name"
         Me.EmployeeName.Name = "EmployeeName"
         Me.EmployeeName.ReadOnly = True
-        Me.EmployeeName.Width = 112
+        Me.EmployeeName.Width = 114
         '
         'UserLevel
         '
         Me.UserLevel.HeaderText = "User Level"
         Me.UserLevel.Name = "UserLevel"
         Me.UserLevel.ReadOnly = True
-        Me.UserLevel.Width = 82
+        Me.UserLevel.Width = 84
         '
         'Delete
         '
@@ -162,14 +162,14 @@ Partial Class FrmUser
         Me.Delete.ReadOnly = True
         Me.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Delete.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Delete.Width = 66
+        Me.Delete.Width = 68
         '
         'DeletedDate
         '
         Me.DeletedDate.HeaderText = "DeletedDate"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 99
+        Me.DeletedDate.Width = 101
         '
         'FrmUser
         '

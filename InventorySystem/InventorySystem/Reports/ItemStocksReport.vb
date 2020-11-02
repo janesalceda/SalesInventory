@@ -1,6 +1,8 @@
 ﻿Imports Microsoft.Reporting.WinForms
 Public Class ItemStockReport
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Button1.Text = "Please wait ..."
+        Button1.Enabled = False
         loadReport()
     End Sub
     Private Sub loadReport()
@@ -18,12 +20,16 @@ Public Class ItemStockReport
                 If Not String.IsNullOrEmpty(ComboBox1.Text) Then
                     where += " order by " & ComboBox1.Text
                 End If
-                SQL.ExecQuery("SELECT i.itemid,i.Description,isnull(test.qty,0) AS 'QTY' ,
-                    MinimumOrderQty,OrderingPointQty,CompanyLogo
+                SQL.ExecQuery("
+                    SELECT i.itemid,i.Description,
+                    isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)'qty',
+                    MinimumOrderQty,OrderingPointQty, (select Companylogo from companyinfo) a
                     FROM Items i
-	                LEFT JOIN (SELECT * FROM GetStockBalance(@from)) AS test
-	                ON test.ItemId = i.ItemId ,companyinfo where i.deletedDate is null" & where)
+                                     where i.deletedDate is null " & where)
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
+                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+                SQL.ExecQuery("SELECT * FROM CompanyInfo")
+                rptDs = New ReportDataSource("DataSet2", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
                 PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
@@ -33,7 +39,15 @@ Public Class ItemStockReport
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub
+        Finally
+            Button1.Text = "PRINT"
+            Button1.Enabled = False
         End Try
 
+    End Sub
+
+    Private Sub ItemStockReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DateTimePicker1.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        ' DateTimePicker1.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
     End Sub
 End Class

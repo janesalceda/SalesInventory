@@ -219,6 +219,12 @@
     <Compile Include="DataSets\DataSet7.vb">
       <DependentUpon>DataSet7.xsd</DependentUpon>
     </Compile>
+    <Compile Include="FrmItemsForApproval.Designer.vb">
+      <DependentUpon>FrmItemsForApproval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FrmItemsForApproval.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Inventory\FrmProductRanking.Designer.vb">
       <DependentUpon>FrmProductRanking.vb</DependentUpon>
     </Compile>
@@ -290,12 +296,6 @@
       <DependentUpon>FrmItemStockSearch.vb</DependentUpon>
     </Compile>
     <Compile Include="Inventory\FrmItemStockSearch.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventory\StocksMonitoring.Designer.vb">
-      <DependentUpon>StocksMonitoring.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Inventory\StocksMonitoring.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Invoice\FrmInvoiceEntry.Designer.vb">
@@ -604,6 +604,9 @@
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmItemsForApproval.resx">
+      <DependentUpon>FrmItemsForApproval.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FrmProductRanking.resx">
       <DependentUpon>FrmProductRanking.vb</DependentUpon>
     </EmbeddedResource>
@@ -646,9 +649,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FrmItemStockSearch.resx">
       <DependentUpon>FrmItemStockSearch.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventory\StocksMonitoring.resx">
-      <DependentUpon>StocksMonitoring.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice\FrmInvoiceEntry.resx">
       <DependentUpon>FrmInvoiceEntry.vb</DependentUpon>

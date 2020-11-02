@@ -29,7 +29,7 @@ Partial Class FrmConfirmation
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(162, 16)
+        Me.Label1.Location = New System.Drawing.Point(154, 16)
         Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(97, 18)
@@ -38,8 +38,9 @@ Partial Class FrmConfirmation
         '
         'txtPass
         '
-        Me.txtPass.Location = New System.Drawing.Point(46, 36)
+        Me.txtPass.Location = New System.Drawing.Point(38, 36)
         Me.txtPass.Name = "txtPass"
+        Me.txtPass.PasswordChar = Global.Microsoft.VisualBasic.ChrW(8226)
         Me.txtPass.Size = New System.Drawing.Size(348, 26)
         Me.txtPass.TabIndex = 1
         '
@@ -54,7 +55,7 @@ Partial Class FrmConfirmation
         Me.Font = New System.Drawing.Font("Arial", 12.0!)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "FrmConfirmation"
-        Me.Text = "FrmConfirmation"
+        Me.Text = "Confirmation"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

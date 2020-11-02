@@ -26,7 +26,15 @@
         MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
     End Sub
     Private Sub btnInsert_Click(sender As Object, e As EventArgs) Handles btnInsert.Click
+        If String.IsNullOrWhiteSpace(txtQtyunit.Text) Then
+            msgboxDisplay("Please input Qty Unit!", 2)
+            Exit Sub
+        End If
         ExecuteQueries(btnInsert.Text)
         Me.Close()
+    End Sub
+
+    Private Sub FrmQtyUnitEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent = AppForm
     End Sub
 End Class

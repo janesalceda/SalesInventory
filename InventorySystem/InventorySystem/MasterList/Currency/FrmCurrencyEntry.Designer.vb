@@ -109,7 +109,10 @@ Partial Class FrmCurrencyEntry
         Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmCurrencyEntry"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Currency Entry"
         Me.ResumeLayout(False)
         Me.PerformLayout()

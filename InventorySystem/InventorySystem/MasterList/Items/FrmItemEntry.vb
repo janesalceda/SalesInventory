@@ -39,97 +39,127 @@ Public Class FrmItemEntry
         cmbCategory.ValueMember = "CategoryID"
     End Sub
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim completefields As String = "Please input the ff:" & vbNewLine
-        If String.IsNullOrWhiteSpace(txtDes.Text) Then completefields += "*Description" & vbNewLine
-        If cmbCliQtyUnit.SelectedIndex = -1 Then completefields += "*QtyUnit" & vbNewLine
-        If cmbLocation.SelectedIndex = -1 Then completefields += "*Location" & vbNewLine
-        If cmbCategory.SelectedIndex = -1 Then completefields += "*Category" & vbNewLine
-        If cmbSupQtyUnit.SelectedIndex = -1 Then completefields += "*Supplier QtyUnit" & vbNewLine
-        If String.IsNullOrWhiteSpace(txtConCoe.Text) Then completefields += "*Converting Coefficient" & vbNewLine
-        If String.IsNullOrWhiteSpace(txtMax.Text) Then completefields += "*Max Ordering Point" & vbNewLine
-        If String.IsNullOrWhiteSpace(txtMinQty.Text) Then completefields += "*Minimum Qty" & vbNewLine
-        If String.IsNullOrWhiteSpace(txtOrderPoint.Text) Then completefields += "*Ordering Point" & vbNewLine
-        If dtableCliPrice.Rows.Count = 0 Then completefields += "*Item Price" & vbNewLine
-        If dtableItemPrices.Rows.Count = 0 Then completefields += "*Supplier ItemPrice"
-        If completefields <> "Please input the ff:" & vbNewLine Then
-            msgboxDisplay(completefields, 2)
-            Exit Sub
-        End If
-        If MsgBox("Are you sure you want to save?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = vbYes Then
-            If btnSave.Text = "SAVE" Then
-                If String.IsNullOrWhiteSpace(txtDes.Text) Or
-                    cmbCliQtyUnit.SelectedIndex = -1 Or
-                    cmbSupQtyUnit.SelectedIndex = -1 Or
-                    String.IsNullOrWhiteSpace(txtConCoe.Text) Or
-                    cmbLocation.SelectedIndex = -1 Or
-                    cmbCategory.SelectedIndex = -1 Or
-                    String.IsNullOrWhiteSpace(txtMax.Text) Or
-                    String.IsNullOrWhiteSpace(txtMinQty.Text) Or
-                    String.IsNullOrWhiteSpace(txtOrderPoint.Text) Or
-                    dtableItemPrices.Rows.Count = 0 Then
-                    MsgBox("Please comple all * important fields!", MsgBoxStyle.Exclamation, "Warning")
-                    Exit Sub
-                End If
-                SQL.AddParams("@description", txtDes.Text)
-                SQL.AddParams("@convertingcoefficient", txtConCoe.Text)
-                SQL.AddParams("@clientqtyunit", cmbCliQtyUnit.SelectedValue)
-                SQL.AddParams("@supplierqtyunit", cmbSupQtyUnit.SelectedValue)
-                SQL.AddParams("@category", cmbCategory.SelectedValue)
-                SQL.AddParams("@location", cmbLocation.SelectedValue)
-                SQL.AddParams("@maxorderqty", txtMax.Text)
-                SQL.AddParams("@orderingpointqty", txtOrderPoint.Text)
-                SQL.AddParams("@minimumorderqty", txtMinQty.Text)
-                SQL.AddParams("@remarks", txtRemarks.Text)
-                SQL.AddParams("@updatedby", moduleId)
-                SQL.ExecQuery("INSERT INTO dbo.Items
-	        (ItemId,Description,ConvertingCoefficient,CategoryID,ClientQtyUnit,SupplierQtyUnit,
-	        Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
-        VALUES 
-	        (
-            (SELECT CASE WHEN max(ITEMID) IS NULL 
-                    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) + 1<10
-                    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) +1 as varchar)
-                    ELSE 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) +1 as varchar)
-                    END END AS 'pomax' from ITEMS)
-            ,@description,@convertingcoefficient,@category,@clientqtyunit,@supplierqtyunit,
-	        @location,@maxorderqty,@orderingpointqty,@minimumorderqty,@remarks,@updatedby)")
-
-                If SQL.HasException Then Exit Sub
-
+        Dim TableName As String = ""
+        Try
+            Dim completefields As String = "Please input the ff:" & vbNewLine
+            If String.IsNullOrWhiteSpace(txtDes.Text) Then completefields += "*Description" & vbNewLine
+            If cmbCliQtyUnit.SelectedIndex = -1 Then completefields += "*QtyUnit" & vbNewLine
+            If cmbLocation.SelectedIndex = -1 Then completefields += "*Location" & vbNewLine
+            If cmbCategory.SelectedIndex = -1 Then completefields += "*Category" & vbNewLine
+            If cmbSupQtyUnit.SelectedIndex = -1 Then completefields += "*Supplier QtyUnit" & vbNewLine
+            If String.IsNullOrWhiteSpace(txtConCoe.Text) Then completefields += "*Converting Coefficient" & vbNewLine
+            If String.IsNullOrWhiteSpace(txtMax.Text) Then completefields += "*Max Ordering Point" & vbNewLine
+            If String.IsNullOrWhiteSpace(txtMinQty.Text) Then completefields += "*Minimum Qty" & vbNewLine
+            If String.IsNullOrWhiteSpace(txtOrderPoint.Text) Then completefields += "*Ordering Point" & vbNewLine
+            If dtableCliPrice.Rows.Count = 0 Then completefields += "*Item Price" & vbNewLine
+            If dtableItemPrices.Rows.Count = 0 Then completefields += "*Supplier ItemPrice"
+            If completefields <> "Please input the ff:" & vbNewLine Then
+                msgboxDisplay(completefields, 2)
+                Exit Sub
             End If
-            For i As Integer = 0 To dtableItemPrices.Rows.Count - 1
-                If String.IsNullOrEmpty(dtableItemPrices.Rows(i).Cells(3).Value.ToString) Then
-                    SQL.AddParams("@ItemId", txtItemId.Text)
-                    SQL.AddParams("@SupplierID", dtableItemPrices.Rows(i).Cells(0).Value.ToString)
-                    SQL.AddParams("@ItemPrice", dtableItemPrices.Rows(i).Cells(2).Value.ToString)
-                    SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableItemPrices.Rows(i).Cells(1).Value.ToString))
-                    SQL.AddParams("@SupplierItemCode", dtableItemPrices.Rows(i).Cells(4).Value.ToString)
-                    SQL.AddParams("@UpdatedBy", moduleId)
-                    SQL.ExecQuery("INSERT INTO SupplierItemPrices 
-                    (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES((select case when @ItemId='' then max(itemid) else @ItemId end from items) ,
-                    @SupplierID,@SupplierItemCode,@AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
-                End If
-            Next
-            If SQL.HasException Then Exit Sub
-            For i As Integer = 0 To dtableCliPrice.Rows.Count - 1
-                If String.IsNullOrEmpty(dtableCliPrice.Rows(i).Cells(2).Value.ToString) Then
-                    SQL.AddParams("@ItemId", txtItemId.Text)
-                    SQL.AddParams("@ItemPrice", dtableCliPrice.Rows(i).Cells(1).Value.ToString)
-                    SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableCliPrice.Rows(i).Cells(0).Value.ToString))
-                    SQL.AddParams("@UpdatedBy", moduleId)
-                    SQL.ExecQuery("INSERT INTO ClientItemPrices 
-                    (ItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-                    VALUES((select case when @ItemId='' then max(itemid) else @ItemId end from items) ,
-                    @AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
-                End If
-            Next
-            FrmItemSearch.LoadDataGrid()
+            If MsgBox("Are you sure you want to save?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = vbYes Then
+                If btnSave.Text = "SAVE" Then
+                    If String.IsNullOrWhiteSpace(txtDes.Text) Or
+                        cmbCliQtyUnit.SelectedIndex = -1 Or
+                        cmbSupQtyUnit.SelectedIndex = -1 Or
+                        String.IsNullOrWhiteSpace(txtConCoe.Text) Or
+                        cmbLocation.SelectedIndex = -1 Or
+                        cmbCategory.SelectedIndex = -1 Or
+                        String.IsNullOrWhiteSpace(txtMax.Text) Or
+                        String.IsNullOrWhiteSpace(txtMinQty.Text) Or
+                        String.IsNullOrWhiteSpace(txtOrderPoint.Text) Or
+                        dtableItemPrices.Rows.Count = 0 Then
+                        MsgBox("Please comple all * important fields!", MsgBoxStyle.Exclamation, "Warning")
+                        Exit Sub
+                    End If
+                    SQL.AddParams("@description", txtDes.Text)
+                    SQL.AddParams("@convertingcoefficient", txtConCoe.Text)
+                    SQL.AddParams("@clientqtyunit", cmbCliQtyUnit.SelectedValue)
+                    SQL.AddParams("@supplierqtyunit", cmbSupQtyUnit.SelectedValue)
+                    SQL.AddParams("@category", cmbCategory.SelectedValue)
+                    SQL.AddParams("@location", cmbLocation.SelectedValue)
+                    SQL.AddParams("@maxorderqty", txtMax.Text)
+                    SQL.AddParams("@orderingpointqty", txtOrderPoint.Text)
+                    SQL.AddParams("@minimumorderqty", txtMinQty.Text)
+                    SQL.AddParams("@remarks", txtRemarks.Text)
+                    SQL.AddParams("@updatedby", moduleId)
+                    If rights = 4 Then
+                        TableName = "ItemsForApproval"
+                    Else
+                        TableName = "Items"
+                    End If
+                    SQL.ExecQuery("INSERT INTO " & TableName & "
+	                        (ItemId,Description,ConvertingCoefficient,CategoryID,ClientQtyUnit,SupplierQtyUnit,
+	                        Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
+                        VALUES 
+	                            ((SELECT CASE WHEN GItemID IS NULL 
+                                                THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
+                                                CASE when (GItemID + 1)<10
+                                                THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(GItemID +1 as varchar)
+                                                ELSE 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(GItemID +1 as varchar)
+                                                END END AS 'pomax' from(select
+						                            case when
+						                            isnull((select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from items),0)>
+						                            isnull((select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from itemsforapproval),0)
+						                            then (select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from items) else 
+						                            (select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) 
+						                            from itemsforapproval) end 'GItemID')a
+                            ),@description,@convertingcoefficient,@category,@clientqtyunit,@supplierqtyunit,
+	                        @location,@maxorderqty,@orderingpointqty,@minimumorderqty,@remarks,@updatedby)")
 
-            MsgBox("Successfully saved!", MsgBoxStyle.Information, "Information")
-            Me.Close()
-        End If
+                    '(SELECT CASE WHEN max(ITEMID) IS NULL 
+                    '    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
+                    '    CASE WHEN right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) + 1<10
+                    '    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) +1 as varchar)
+                    '    ELSE 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) +1 as varchar)
+                    '    END END AS 'pomax' from ITEMS)
+                    If SQL.HasException Then Exit Sub
+
+                End If
+                Dim itemids As String = ""
+                If String.IsNullOrWhiteSpace(txtItemId.Text) Then
+                    SQL.ExecQuery("Select max(itemid) from " & TableName)
+                    itemids = SQL.DBDT.Rows(0).Item(0)
+                Else
+                    itemids = txtItemId.Text
+                End If
+                For i As Integer = 0 To dtableItemPrices.Rows.Count - 1
+                        If String.IsNullOrEmpty(dtableItemPrices.Rows(i).Cells(3).Value.ToString) Then
+                        SQL.AddParams("@ItemId", itemids)
+                        SQL.AddParams("@SupplierID", dtableItemPrices.Rows(i).Cells(0).Value.ToString)
+                            SQL.AddParams("@ItemPrice", dtableItemPrices.Rows(i).Cells(2).Value.ToString)
+                            SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableItemPrices.Rows(i).Cells(1).Value.ToString))
+                            SQL.AddParams("@SupplierItemCode", dtableItemPrices.Rows(i).Cells(4).Value.ToString)
+                            SQL.AddParams("@UpdatedBy", moduleId)
+                            SQL.ExecQuery("INSERT INTO SupplierItemPrices 
+                            (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
+                            VALUES(@ItemId ,
+                            @SupplierID,@SupplierItemCode,@AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
+                        End If
+                        If SQL.HasException Then Exit Sub
+                    Next
+                    For i As Integer = 0 To dtableCliPrice.Rows.Count - 1
+                        If String.IsNullOrEmpty(dtableCliPrice.Rows(i).Cells(2).Value.ToString) Then
+                        SQL.AddParams("@ItemId", itemids)
+                        SQL.AddParams("@ItemPrice", dtableCliPrice.Rows(i).Cells(1).Value.ToString)
+                            SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableCliPrice.Rows(i).Cells(0).Value.ToString))
+                            SQL.AddParams("@UpdatedBy", moduleId)
+                            SQL.ExecQuery("INSERT INTO ClientItemPrices 
+                            (ItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
+                            VALUES( @ItemId,
+                            @AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
+                        End If
+                    If SQL.HasException Then Exit Sub
+                Next
+                    FrmItemSearch.LoadDataGrid()
+
+                    MsgBox("Successfully saved!", MsgBoxStyle.Information, "Information")
+                    Me.Close()
+                End If
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+            Exit Sub
+        End Try
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs)
@@ -163,7 +193,11 @@ Public Class FrmItemEntry
         If String.IsNullOrEmpty(txtItemId.Text) Then Exit Sub
 
         SQL.AddParams("@ItemId", txtItemId.Text)
-        SQL.ExecQuery(" select * from ITEMS i where i.ItemID=@ItemId")
+        If chkApproved.Visible = False Then
+            SQL.ExecQuery(" select * from ITEMS i where i.ItemID=@ItemId")
+        Else
+            SQL.ExecQuery(" select * from ITEMSforapproval i where i.ItemID=@ItemId")
+        End If
         If SQL.DBDT.Rows.Count = 0 Then Exit Sub
         txtItemId.Text = SQL.DBDT.Rows(0).Item(0)
         txtDes.Text = SQL.DBDT.Rows(0).Item(1)
@@ -212,6 +246,7 @@ Public Class FrmItemEntry
         Next
     End Sub
     Private Sub btnAddItemPrice_Click(sender As Object, e As EventArgs) Handles btnAddItemPrice.Click
+        If Application.OpenForms().OfType(Of FrmSupplierItemPriceEntry).Any Then FrmSupplierItemPriceEntry.Close()
         FrmSupplierItemPriceEntry.ItemId = txtItemId.Text
         FrmSupplierItemPriceEntry.btnSave.Text = "INSERT PRICE"
         FrmSupplierItemPriceEntry.Text = "Insert Item Price"
@@ -234,6 +269,7 @@ Public Class FrmItemEntry
         printbar()
     End Sub
     Private Sub printQR()
+        If Application.OpenForms().OfType(Of FrmPrintingItemBarcode).Any Then FrmPrintingItemBarcode.Close()
         FrmPrintingItemBarcode.formname = "QR"
         FrmPrintingItemBarcode.Show()
     End Sub
@@ -262,6 +298,8 @@ Public Class FrmItemEntry
     End Sub
 
     Private Sub btnAddPrice_Click(sender As Object, e As EventArgs) Handles btnAddPrice.Click
+        If Application.OpenForms().OfType(Of FrmCliItemPrice).Any Then FrmCliItemPrice.Close()
+
         FrmCliItemPrice.Show()
     End Sub
 
@@ -283,5 +321,16 @@ Public Class FrmItemEntry
 
     Private Sub txtItemId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtItemId.KeyPress
         e.Handled = False
+    End Sub
+
+    Private Sub chkApproved_CheckedChanged(sender As Object, e As EventArgs) Handles chkApproved.CheckedChanged
+        If MsgBox("Are you sure you want to approved this item?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
+            SQL.AddParams("@ItemId", txtItemId.Text)
+            SQL.ExecQuery("INSERT INTO ITEMS
+                            SELECT * FROM ITEMSFORAPPROVAL WHERE ITEMID=@ItemId;
+                            DELETE FROM ITEMSFORAPPROVAL WHERE ITEMID=@ItemId")
+            msgboxDisplay("Successfully saved!", 1)
+            Close()
+        End If
     End Sub
 End Class

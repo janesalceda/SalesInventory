@@ -34,6 +34,7 @@ Partial Class AppForm
         Me.InvoicePurchase = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequestReturn = New System.Windows.Forms.ToolStripMenuItem()
         Me.RequestRefundToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ItemsApprovalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.miStocks = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockOut = New System.Windows.Forms.ToolStripMenuItem()
         Me.StockTaking = New System.Windows.Forms.ToolStripMenuItem()
@@ -70,6 +71,7 @@ Partial Class AppForm
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DashBoardToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.ImportItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msMain.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -127,18 +129,18 @@ Partial Class AppForm
         'InvoiceEntry
         '
         Me.InvoiceEntry.Name = "InvoiceEntry"
-        Me.InvoiceEntry.Size = New System.Drawing.Size(123, 22)
+        Me.InvoiceEntry.Size = New System.Drawing.Size(180, 22)
         Me.InvoiceEntry.Text = "Entry"
         '
         'InvoicePurchase
         '
         Me.InvoicePurchase.Name = "InvoicePurchase"
-        Me.InvoicePurchase.Size = New System.Drawing.Size(123, 22)
+        Me.InvoicePurchase.Size = New System.Drawing.Size(180, 22)
         Me.InvoicePurchase.Text = "Search"
         '
         'RequestReturn
         '
-        Me.RequestReturn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequestRefundToolStripMenuItem})
+        Me.RequestReturn.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RequestRefundToolStripMenuItem, Me.ItemsApprovalToolStripMenuItem})
         Me.RequestReturn.Name = "RequestReturn"
         Me.RequestReturn.Size = New System.Drawing.Size(75, 21)
         Me.RequestReturn.Text = "Request"
@@ -148,6 +150,12 @@ Partial Class AppForm
         Me.RequestRefundToolStripMenuItem.Name = "RequestRefundToolStripMenuItem"
         Me.RequestRefundToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
         Me.RequestRefundToolStripMenuItem.Text = "Request for Return"
+        '
+        'ItemsApprovalToolStripMenuItem
+        '
+        Me.ItemsApprovalToolStripMenuItem.Name = "ItemsApprovalToolStripMenuItem"
+        Me.ItemsApprovalToolStripMenuItem.Size = New System.Drawing.Size(200, 22)
+        Me.ItemsApprovalToolStripMenuItem.Text = "Items Approval"
         '
         'miStocks
         '
@@ -195,7 +203,7 @@ Partial Class AppForm
         '
         'miSettings
         '
-        Me.miSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCategory, Me.CompanyInformation, Me.CurrencyUnits, Me.DeliveryPlaces, Me.miItems, Me.miLocations, Me.SalesToolStripMenuItem1, Me.SuppliersToolStripMenuItem, Me.UsersToolStripMenuItem, Me.TermsofDelivery, Me.TermsofPaymentToolStripMenuItem, Me.UserToolStripMenuItem})
+        Me.miSettings.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.miCategory, Me.CompanyInformation, Me.CurrencyUnits, Me.DeliveryPlaces, Me.miItems, Me.miLocations, Me.SalesToolStripMenuItem1, Me.SuppliersToolStripMenuItem, Me.UsersToolStripMenuItem, Me.TermsofDelivery, Me.TermsofPaymentToolStripMenuItem, Me.UserToolStripMenuItem, Me.ImportItemsToolStripMenuItem})
         Me.miSettings.Name = "miSettings"
         Me.miSettings.Size = New System.Drawing.Size(73, 21)
         Me.miSettings.Text = "Settings"
@@ -367,6 +375,12 @@ Partial Class AppForm
         Me.DashBoardToolStripMenuItem.Size = New System.Drawing.Size(94, 21)
         Me.DashBoardToolStripMenuItem.Text = "DashBoard"
         '
+        'ImportItemsToolStripMenuItem
+        '
+        Me.ImportItemsToolStripMenuItem.Name = "ImportItemsToolStripMenuItem"
+        Me.ImportItemsToolStripMenuItem.Size = New System.Drawing.Size(215, 22)
+        Me.ImportItemsToolStripMenuItem.Text = "Import Items"
+        '
         'AppForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 18.0!)
@@ -433,4 +447,6 @@ Partial Class AppForm
     Friend WithEvents ProductRanking As ToolStripMenuItem
     Friend WithEvents SalesReportToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents DashBoardToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ItemsApprovalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ImportItemsToolStripMenuItem As ToolStripMenuItem
 End Class

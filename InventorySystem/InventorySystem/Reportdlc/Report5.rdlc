@@ -39,7 +39,6 @@
                             <TextRun>
                               <Value>No</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -75,7 +74,6 @@
                             <TextRun>
                               <Value>Item Id</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -111,7 +109,6 @@
                             <TextRun>
                               <Value>Description</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -147,7 +144,6 @@
                             <TextRun>
                               <Value>Stock Out Code</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -183,7 +179,6 @@
                             <TextRun>
                               <Value>Item Seq</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -219,7 +214,6 @@
                             <TextRun>
                               <Value>Qty Out</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -698,7 +692,7 @@
         </Textbox>
         <Image Name="Image1">
           <Source>Database</Source>
-          <Value>=Fields!CompanyLogo.Value</Value>
+          <Value>=First(Fields!CompanyLogo.Value, "DataSet1")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Height>1.39375cm</Height>
@@ -735,6 +729,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>3bad2e32-c513-4c36-93ba-757a9c86f780</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="DataSet7">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ff3f5379-bf0f-48e8-90d9-750c395160f5</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>

@@ -33,13 +33,13 @@ Partial Class FrmQtyUnitSearch
         Me.txtCatID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dtItems = New System.Windows.Forms.DataGridView()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DeliveryPlace = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -177,45 +177,33 @@ Partial Class FrmQtyUnitSearch
         Me.dtItems.Size = New System.Drawing.Size(602, 317)
         Me.dtItems.TabIndex = 90
         '
-        'btnClear
-        '
-        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnClear.Location = New System.Drawing.Point(342, 45)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(90, 25)
-        Me.btnClear.TabIndex = 113
-        Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
         'ItemId
         '
         Me.ItemId.HeaderText = "QtyUnitId"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 79
+        Me.ItemId.Width = 81
         '
         'DeliveryPlace
         '
         Me.DeliveryPlace.HeaderText = "QtyUnit"
         Me.DeliveryPlace.Name = "DeliveryPlace"
         Me.DeliveryPlace.ReadOnly = True
-        Me.DeliveryPlace.Width = 69
+        Me.DeliveryPlace.Width = 71
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 93
+        Me.ItemName.Width = 95
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 110
+        Me.RegisteredDate.Width = 112
         '
         'Disused
         '
@@ -224,14 +212,27 @@ Partial Class FrmQtyUnitSearch
         Me.Disused.ReadOnly = True
         Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 77
+        Me.Disused.Width = 79
         '
         'DeletedDate
         '
         Me.DeletedDate.HeaderText = "DeletedDate"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 99
+        Me.DeletedDate.Width = 101
+        '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnClear.Location = New System.Drawing.Point(342, 45)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(90, 25)
+        Me.btnClear.TabIndex = 113
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'FrmQtyUnitSearch
         '
@@ -253,7 +254,10 @@ Partial Class FrmQtyUnitSearch
         Me.Controls.Add(Me.dtItems)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmQtyUnitSearch"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Search QtyUnit"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

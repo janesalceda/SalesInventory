@@ -35,7 +35,7 @@ Partial Class FrmTermsofDeliveryEntry
         Me.txtTD.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtTD.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.txtTD.Location = New System.Drawing.Point(129, 16)
-        Me.txtTD.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtTD.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTD.MaxLength = 100
         Me.txtTD.Name = "txtTD"
         Me.txtTD.Size = New System.Drawing.Size(209, 23)
@@ -58,7 +58,7 @@ Partial Class FrmTermsofDeliveryEntry
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.btnSave.Location = New System.Drawing.Point(187, 80)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(135, 27)
         Me.btnSave.TabIndex = 3
@@ -70,7 +70,7 @@ Partial Class FrmTermsofDeliveryEntry
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDes.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.txtDes.Location = New System.Drawing.Point(129, 48)
-        Me.txtDes.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDes.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDes.MaxLength = 150
         Me.txtDes.Name = "txtDes"
         Me.txtDes.Size = New System.Drawing.Size(291, 23)
@@ -92,7 +92,7 @@ Partial Class FrmTermsofDeliveryEntry
         Me.chkDisuse.Enabled = False
         Me.chkDisuse.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.chkDisuse.Location = New System.Drawing.Point(346, 16)
-        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 2
@@ -112,6 +112,8 @@ Partial Class FrmTermsofDeliveryEntry
         Me.Controls.Add(Me.txtTD)
         Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmTermsofDeliveryEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmTermsofDelivery"

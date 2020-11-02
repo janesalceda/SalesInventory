@@ -91,14 +91,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InventorySystem.exe" size="1195448">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="InventorySystem.exe" size="1224120">
       <assemblyIdentity name="InventorySystem" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>MoZzP4F/Emxkz2gFsIHjLSShcT+QKPM8ScN5gJvOd3M=</dsig:DigestValue>
+        <dsig:DigestValue>yDp9kYL9Fi9IfI+TojbNqbrxWsIJvVu3AiTehuU4Uf8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

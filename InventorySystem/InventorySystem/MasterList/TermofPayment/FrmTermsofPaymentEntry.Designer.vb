@@ -110,6 +110,8 @@ Partial Class FrmTermsofPaymentEntry
         Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmTermsofPaymentEntry"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmTermsofPayment"

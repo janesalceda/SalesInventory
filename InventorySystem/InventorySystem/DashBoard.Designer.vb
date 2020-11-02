@@ -168,6 +168,7 @@ Partial Class DashBoard
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnRefresh)
         Me.Name = "DashBoard"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "DashBoard"
         Me.ResumeLayout(False)
 

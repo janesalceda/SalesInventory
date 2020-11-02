@@ -1,27 +1,35 @@
 ﻿Public Class FrmSupplierItemPriceEntry
     Public ItemId As String
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If String.IsNullOrEmpty(txtSupplierID.Text) Or
+        Try
+            If String.IsNullOrEmpty(txtSupplierID.Text) Or
             String.IsNullOrEmpty(txtUnitPrice.Text) Then
-            MsgBox("Please complete all * important fields!", MsgBoxStyle.Exclamation, "Warning")
-            Exit Sub
-        End If
-        If btnSave.Text = "INSERT PRICE" Then
-            FrmItemEntry.dtableItemPrices.Rows.Add(txtSupplierID.Text, dtAppliedDate.Value, txtUnitPrice.Text, "", txtSupItemCode.Text, "")
-            If Not String.IsNullOrWhiteSpace(FrmItemEntry.txtItemId.Text) Then
-                FrmItemEntry.btnSave.Text = "UPDATE"
-                FrmItemEntry.btnSave.Visible = True
+                MsgBox("Please complete all * important fields!", MsgBoxStyle.Exclamation, "Warning")
+                Exit Sub
             End If
-        Else
-            FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(0).Value = txtSupplierID.Text
-            FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(1).Value = dtAppliedDate.Value.ToShortDateString
-            FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(2).Value = txtUnitPrice.Text
-            FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(4).Value = txtSupItemCode.Text
-        End If
-        Me.Close()
+            If btnSave.Text = "INSERT PRICE" Then
+                FrmItemEntry.dtableItemPrices.Rows.Add(txtSupplierID.Text, dtAppliedDate.Value, txtUnitPrice.Text, "", txtSupItemCode.Text, "")
+                If Not String.IsNullOrWhiteSpace(FrmItemEntry.txtItemId.Text) Then
+                    FrmItemEntry.btnSave.Text = "UPDATE"
+                    FrmItemEntry.btnSave.Visible = True
+                End If
+            Else
+                FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(0).Value = txtSupplierID.Text
+                FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(1).Value = dtAppliedDate.Value.ToShortDateString
+                FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(2).Value = txtUnitPrice.Text
+                FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(4).Value = txtSupItemCode.Text
+            End If
+            Me.Close()
+
+        Catch ex As Exception
+            msgboxDisplay(ex.Message, 3)
+            Exit Sub
+        End Try
     End Sub
 
     Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
+        If Application.OpenForms().OfType(Of SupplierList).Any Then SupplierList.Close()
+
         formname = "AddItem"
         SupplierList.Show()
     End Sub

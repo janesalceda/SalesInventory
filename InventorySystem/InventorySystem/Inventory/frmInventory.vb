@@ -11,9 +11,7 @@
     End Sub
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
-        'LoadGrid()
-        dtFrom.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        dtTo.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        reLoad()
     End Sub
     Private Sub FindItem()
         SQL.AddParams("@user", "%" & txtitem.Text & "%")
@@ -23,9 +21,12 @@
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Try
             dgvData.Rows.Clear()
-
             If String.IsNullOrEmpty(txtitem.Text) Then
                 MsgBox("Please input itemId!", MsgBoxStyle.Exclamation, "Warning")
+                Exit Sub
+            End If
+            If dtFrom.Value.ToString("yyyy/MM/dd") > dtTo.Value.ToString("yyyy/MM/dd") Then
+                msgboxDisplay("Date From cannot be late than Date To ", 3)
                 Exit Sub
             End If
             Dim row As New DataTable
@@ -84,10 +85,10 @@
                     Select Case .Rows(i).Item(4)
                     'In items based on Invoice
                         Case 1
-                            If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToShortDateString Then
+                            If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToString("yyyy/MM/dd") Then
                                 'get the stockbalance based on transaction date row  -1 and add the qty row
                                 SQL.params.Clear()
-                                SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToString("yyyy/MM/dd"))
+                                SQL.AddParams("@from", Convert.ToDateTime(DateAdd("D", -1, .Rows(i).Item(0).ToString)).ToString("yyyy/MM/dd"))
                                 SQL.AddParams("@itemid", txtitem.Text)
                                 SQL.ExecQuery("SELECT top 1 Qty FROM GetStockBalance(@from) WHERE ItemID=@itemid")
                                 If SQL.DBDT.Rows.Count = 0 Then
@@ -95,6 +96,7 @@
                                 Else
                                     currentbalance = SQL.DBDT.Rows(0).Item(0) + .Rows(i).Item(3)
                                 End If
+                                row.Rows(i).Item(0).ToString()
                                 'SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToString("yyyy/MM/dd"))
                                 'SQL.AddParams("@itemid", txtitem.Text)
                                 'SQL.ExecQuery("SELECT top 1 ClientCost,SupplierCost FROM GetBalance(@from) WHERE ItemID=@itemid")
@@ -114,9 +116,9 @@
                             dgvData.Rows(i).Cells(2).Value = .Rows(i).Item(3)
                         'Out items based on stock out
                         Case 2
-                            If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToShortDateString Then
+                            If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToString("yyyy/MM/dd") Then
                                 SQL.params.Clear()
-                                SQL.AddParams("@from", (DateAdd("D", -1, .Rows(i).Item(0))).ToShortDateString)
+                                SQL.AddParams("@from", Convert.ToDateTime(DateAdd("D", -1, .Rows(i).Item(0).ToString)).ToString("yyyy/MM/dd"))
                                 SQL.AddParams("@itemid", txtitem.Text)
                                 'get the stockbalance based on transaction date row  -1 And minus the qty row
                                 SQL.ExecQuery("SELECT top 1 Qty FROM GetStockBalance(@from) WHERE ItemID=@itemid")
@@ -144,18 +146,18 @@
                             dgvData.Rows(i).Cells(3).Value = .Rows(i).Item(3)
                         'AC of items in Stock Taking
                         Case 3
-                            If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToShortDateString Then
+                            If strTransactionDate <> Convert.ToDateTime(.Rows(i).Item(0).ToString).ToString("yyyy/MM/dd HH:mm:ss") Then
                                 'Get the current balance based on row
                                 currentbalance = .Rows(i).Item(3)
                             Else
-                                SQL.AddParams("@transdate", .Rows(i).Item(0))
+                                SQL.AddParams("@transdate", Convert.ToDateTime(.Rows(i).Item(0).ToString).ToString("yyyy/MM/dd HH:mm:ss"))
                                 SQL.AddParams("@item", txtitem.Text)
                                 'Get the current balance based on row and (- the total sum of in and out based on row
                                 'transaction date)
                                 SQL.ExecQuery("EXECUTE dbo.TotalOut @TransactionDate = @transdate, @ItemId =@item ")
                                 Dim totalin As Integer = SQL.DBDT.Rows(0).Item(0)
                                 If SQL.HasException Then Exit Sub
-                                SQL.AddParams("@transdate", .Rows(i).Item(0))
+                                SQL.AddParams("@transdate", Convert.ToDateTime(.Rows(i).Item(0).ToString).ToString("yyyy/MM/dd HH:mm:ss"))
                                 SQL.AddParams("@item", txtitem.Text)
                                 SQL.ExecQuery("EXECUTE dbo.TotalIn @TransactionDate = @transdate, @ItemId =@item ")
                                 Dim totalout As Integer = SQL.DBDT.Rows(0).Item(0)
@@ -186,7 +188,7 @@
                     'Get latest transactiondate
                     'strTransactionDate
                     'Add other columns data
-                    strTransactionDate = Convert.ToDateTime(.Rows(i).Item(0).ToString).ToShortDateString
+                    strTransactionDate = Convert.ToDateTime(.Rows(i).Item(0).ToString).ToString("yyyy/MM/dd")
                     dgvData.Rows(i).Cells(0).Value = .Rows(i).Item(0)
                     dgvData.Rows(i).Cells(1).Value = .Rows(i).Item(1)
                     dgvData.Rows(i).Cells(5).Value = currentbalance
@@ -197,14 +199,19 @@
             End With
         Catch ex As Exception
             msgboxDisplay(ex.Message, 3)
+            Exit Sub
         End Try
     End Sub
-
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub reLoad()
         txtitem.Clear()
-        dtFrom.Value = Today
-        dtTo.Value = Today
+        dtFrom.Value = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")
+        'dtFrom.MaxDate = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")
+        dtTo.Value = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")
+        ' dtTo.MaxDate = DateTime.Now.ToString("yyyy/MM/dd hh:mm:ss")
         dgvData.Rows.Clear()
+    End Sub
+    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+
     End Sub
 
     Private Sub txtitem_TextChanged(sender As Object, e As EventArgs) Handles txtitem.TextChanged

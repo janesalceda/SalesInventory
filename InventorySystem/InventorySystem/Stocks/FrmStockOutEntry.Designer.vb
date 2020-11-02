@@ -47,7 +47,6 @@ Partial Class FrmStockOutEntry
         Me.txtItemCode = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.btnDelete = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.txtStockOutID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -58,6 +57,7 @@ Partial Class FrmStockOutEntry
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtTotalAmount = New System.Windows.Forms.TextBox()
+        Me.BTNLogout = New System.Windows.Forms.Button()
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -154,7 +154,7 @@ Partial Class FrmStockOutEntry
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableStockout.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableStockout.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dtableStockout.BackgroundColor = System.Drawing.Color.White
+        Me.dtableStockout.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dtableStockout.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableStockout.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.UnitPrice, Me.TotalPrice, Me.Unit, Me.SupplierItemPrice})
         Me.dtableStockout.Location = New System.Drawing.Point(271, 25)
@@ -170,56 +170,56 @@ Partial Class FrmStockOutEntry
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 56
+        Me.Seq.Width = 58
         '
         'ItemId
         '
         Me.ItemId.HeaderText = "Item"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 57
+        Me.ItemId.Width = 59
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 102
+        Me.ItemName.Width = 104
         '
         'PO
         '
         Me.PO.HeaderText = "Qty"
         Me.PO.Name = "PO"
         Me.PO.ReadOnly = True
-        Me.PO.Width = 53
+        Me.PO.Width = 55
         '
         'UnitPrice
         '
         Me.UnitPrice.HeaderText = "UnitPrice"
         Me.UnitPrice.Name = "UnitPrice"
         Me.UnitPrice.ReadOnly = True
-        Me.UnitPrice.Width = 87
+        Me.UnitPrice.Width = 89
         '
         'TotalPrice
         '
         Me.TotalPrice.HeaderText = "TotalPrice"
         Me.TotalPrice.Name = "TotalPrice"
         Me.TotalPrice.ReadOnly = True
-        Me.TotalPrice.Width = 93
+        Me.TotalPrice.Width = 95
         '
         'Unit
         '
         Me.Unit.HeaderText = "Remarks"
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
-        Me.Unit.Width = 87
+        Me.Unit.Width = 89
         '
         'SupplierItemPrice
         '
         Me.SupplierItemPrice.HeaderText = "SupplierItemPrice"
         Me.SupplierItemPrice.Name = "SupplierItemPrice"
         Me.SupplierItemPrice.ReadOnly = True
-        Me.SupplierItemPrice.Width = 141
+        Me.SupplierItemPrice.Width = 143
         '
         'txtRemarks
         '
@@ -300,7 +300,6 @@ Partial Class FrmStockOutEntry
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label27)
-        Me.GroupBox1.Controls.Add(Me.btnDelete)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.btnItems)
         Me.GroupBox1.Controls.Add(Me.btnAddItem)
@@ -334,19 +333,6 @@ Partial Class FrmStockOutEntry
         Me.Label27.Size = New System.Drawing.Size(180, 19)
         Me.Label27.TabIndex = 130
         Me.Label27.Text = "*NOTE: CLICK TO UPDATE"
-        '
-        'btnDelete
-        '
-        Me.btnDelete.BackColor = System.Drawing.Color.Red
-        Me.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelete.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnDelete.Location = New System.Drawing.Point(174, 204)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(90, 25)
-        Me.btnDelete.TabIndex = 127
-        Me.btnDelete.Text = "DELETE"
-        Me.btnDelete.UseVisualStyleBackColor = False
         '
         'Button1
         '
@@ -452,12 +438,27 @@ Partial Class FrmStockOutEntry
         Me.txtTotalAmount.Size = New System.Drawing.Size(144, 23)
         Me.txtTotalAmount.TabIndex = 127
         '
+        'BTNLogout
+        '
+        Me.BTNLogout.BackColor = System.Drawing.Color.DarkGray
+        Me.BTNLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BTNLogout.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.BTNLogout.Location = New System.Drawing.Point(821, 11)
+        Me.BTNLogout.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.BTNLogout.Name = "BTNLogout"
+        Me.BTNLogout.Size = New System.Drawing.Size(90, 25)
+        Me.BTNLogout.TabIndex = 128
+        Me.BTNLogout.Text = "LOGOUT"
+        Me.BTNLogout.UseVisualStyleBackColor = False
+        Me.BTNLogout.Visible = False
+        '
         'FrmStockOutEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(917, 409)
+        Me.Controls.Add(Me.BTNLogout)
         Me.Controls.Add(Me.txtTotalAmount)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -512,7 +513,6 @@ Partial Class FrmStockOutEntry
     Friend WithEvents Button1 As Button
     Friend WithEvents Label6 As Label
     Friend WithEvents txtTotalAmount As TextBox
-    Friend WithEvents btnDelete As Button
     Friend WithEvents Label27 As Label
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
@@ -522,4 +522,5 @@ Partial Class FrmStockOutEntry
     Friend WithEvents TotalPrice As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents SupplierItemPrice As DataGridViewTextBoxColumn
+    Friend WithEvents BTNLogout As Button
 End Class

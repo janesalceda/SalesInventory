@@ -50,7 +50,6 @@ Partial Class FrmInvoiceEntry
         Me.txtEncoded = New System.Windows.Forms.TextBox()
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.Delivery = New System.Windows.Forms.TabPage()
-        Me.btnDelDelete = New System.Windows.Forms.Button()
         Me.btndelclear = New System.Windows.Forms.Button()
         Me.dtDeliveryDate = New System.Windows.Forms.DateTimePicker()
         Me.Label21 = New System.Windows.Forms.Label()
@@ -87,7 +86,6 @@ Partial Class FrmInvoiceEntry
         Me.Label24 = New System.Windows.Forms.Label()
         Me.txtItemDel = New System.Windows.Forms.TextBox()
         Me.Invoice = New System.Windows.Forms.TabPage()
-        Me.btnInvDelete = New System.Windows.Forms.Button()
         Me.btnClear = New System.Windows.Forms.Button()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.txtPoSeq = New System.Windows.Forms.TextBox()
@@ -186,6 +184,7 @@ Partial Class FrmInvoiceEntry
         'DtInvoiceDate
         '
         Me.DtInvoiceDate.Checked = False
+        Me.DtInvoiceDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.DtInvoiceDate.Location = New System.Drawing.Point(429, 9)
         Me.DtInvoiceDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.DtInvoiceDate.Name = "DtInvoiceDate"
@@ -384,6 +383,7 @@ Partial Class FrmInvoiceEntry
         'dtActualETD
         '
         Me.dtActualETD.Checked = False
+        Me.dtActualETD.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtActualETD.Location = New System.Drawing.Point(106, 87)
         Me.dtActualETD.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtActualETD.Name = "dtActualETD"
@@ -417,7 +417,6 @@ Partial Class FrmInvoiceEntry
         'Delivery
         '
         Me.Delivery.BackColor = System.Drawing.Color.White
-        Me.Delivery.Controls.Add(Me.btnDelDelete)
         Me.Delivery.Controls.Add(Me.btndelclear)
         Me.Delivery.Controls.Add(Me.dtDeliveryDate)
         Me.Delivery.Controls.Add(Me.Label21)
@@ -448,19 +447,6 @@ Partial Class FrmInvoiceEntry
         Me.Delivery.Size = New System.Drawing.Size(941, 333)
         Me.Delivery.TabIndex = 0
         Me.Delivery.Text = "Delivery Details"
-        '
-        'btnDelDelete
-        '
-        Me.btnDelDelete.BackColor = System.Drawing.Color.Red
-        Me.btnDelDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDelDelete.Location = New System.Drawing.Point(147, 295)
-        Me.btnDelDelete.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btnDelDelete.Name = "btnDelDelete"
-        Me.btnDelDelete.Size = New System.Drawing.Size(125, 25)
-        Me.btnDelDelete.TabIndex = 203
-        Me.btnDelDelete.Text = "DELETE"
-        Me.btnDelDelete.UseVisualStyleBackColor = False
-        Me.btnDelDelete.Visible = False
         '
         'btndelclear
         '
@@ -500,7 +486,7 @@ Partial Class FrmInvoiceEntry
         Me.Label27.AutoSize = True
         Me.Label27.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label27.ForeColor = System.Drawing.Color.Red
-        Me.Label27.Location = New System.Drawing.Point(276, 315)
+        Me.Label27.Location = New System.Drawing.Point(276, 308)
         Me.Label27.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(180, 19)
@@ -603,7 +589,7 @@ Partial Class FrmInvoiceEntry
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dtableDelivery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dtableDelivery.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dtableDelivery.BackgroundColor = System.Drawing.Color.White
+        Me.dtableDelivery.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dtableDelivery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableDelivery.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DeliveryId, Me.DeliveryDate, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewCheckBoxColumn1, Me.DataGridViewTextBoxColumn4, Me.POSeq, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.RecAdd})
         Me.dtableDelivery.Location = New System.Drawing.Point(282, 4)
@@ -611,7 +597,7 @@ Partial Class FrmInvoiceEntry
         Me.dtableDelivery.Name = "dtableDelivery"
         Me.dtableDelivery.ReadOnly = True
         Me.dtableDelivery.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableDelivery.Size = New System.Drawing.Size(652, 309)
+        Me.dtableDelivery.Size = New System.Drawing.Size(652, 294)
         Me.dtableDelivery.TabIndex = 188
         '
         'DataGridViewTextBoxColumn1
@@ -619,34 +605,35 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewTextBoxColumn1.HeaderText = "InvoiceSeq"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 102
         '
         'DeliveryId
         '
         Me.DeliveryId.HeaderText = "DeliveryId"
         Me.DeliveryId.Name = "DeliveryId"
         Me.DeliveryId.ReadOnly = True
-        Me.DeliveryId.Width = 93
+        Me.DeliveryId.Width = 95
         '
         'DeliveryDate
         '
         Me.DeliveryDate.HeaderText = "DeliveryDate"
         Me.DeliveryDate.Name = "DeliveryDate"
         Me.DeliveryDate.ReadOnly = True
-        Me.DeliveryDate.Width = 112
+        Me.DeliveryDate.Width = 114
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "Item"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 57
+        Me.DataGridViewTextBoxColumn2.Width = 59
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Description"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 102
+        Me.DataGridViewTextBoxColumn3.Width = 104
         '
         'DataGridViewCheckBoxColumn1
         '
@@ -654,49 +641,49 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.ReadOnly = True
         Me.DataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewCheckBoxColumn1.Width = 115
+        Me.DataGridViewCheckBoxColumn1.Width = 117
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "PONo"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 68
+        Me.DataGridViewTextBoxColumn4.Width = 70
         '
         'POSeq
         '
         Me.POSeq.HeaderText = "POSeq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
-        Me.POSeq.Width = 76
+        Me.POSeq.Width = 78
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.HeaderText = "Qty Received"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 116
+        Me.DataGridViewTextBoxColumn5.Width = 118
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Qty Ok"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 75
+        Me.DataGridViewTextBoxColumn6.Width = 77
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.HeaderText = "Qty Balance"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 108
+        Me.DataGridViewTextBoxColumn7.Width = 110
         '
         'RecAdd
         '
         Me.RecAdd.HeaderText = "RecAdd"
         Me.RecAdd.Name = "RecAdd"
         Me.RecAdd.ReadOnly = True
-        Me.RecAdd.Width = 81
+        Me.RecAdd.Width = 83
         '
         'label17
         '
@@ -797,7 +784,6 @@ Partial Class FrmInvoiceEntry
         'Invoice
         '
         Me.Invoice.BackColor = System.Drawing.Color.White
-        Me.Invoice.Controls.Add(Me.btnInvDelete)
         Me.Invoice.Controls.Add(Me.btnClear)
         Me.Invoice.Controls.Add(Me.Label29)
         Me.Invoice.Controls.Add(Me.txtPoSeq)
@@ -833,27 +819,14 @@ Partial Class FrmInvoiceEntry
         Me.Invoice.TabIndex = 1
         Me.Invoice.Text = "Invoice"
         '
-        'btnInvDelete
-        '
-        Me.btnInvDelete.BackColor = System.Drawing.Color.Red
-        Me.btnInvDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnInvDelete.Location = New System.Drawing.Point(143, 302)
-        Me.btnInvDelete.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.btnInvDelete.Name = "btnInvDelete"
-        Me.btnInvDelete.Size = New System.Drawing.Size(125, 25)
-        Me.btnInvDelete.TabIndex = 176
-        Me.btnInvDelete.Text = "DELETE"
-        Me.btnInvDelete.UseVisualStyleBackColor = False
-        Me.btnInvDelete.Visible = False
-        '
         'btnClear
         '
         Me.btnClear.BackColor = System.Drawing.Color.White
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(143, 272)
+        Me.btnClear.Location = New System.Drawing.Point(148, 272)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(125, 25)
+        Me.btnClear.Size = New System.Drawing.Size(137, 25)
         Me.btnClear.TabIndex = 175
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -864,7 +837,7 @@ Partial Class FrmInvoiceEntry
         Me.Label29.AutoSize = True
         Me.Label29.Font = New System.Drawing.Font("Calibri", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label29.ForeColor = System.Drawing.Color.Red
-        Me.Label29.Location = New System.Drawing.Point(273, 311)
+        Me.Label29.Location = New System.Drawing.Point(285, 311)
         Me.Label29.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(180, 19)
@@ -887,15 +860,15 @@ Partial Class FrmInvoiceEntry
         Me.dtableInvoice.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dtableInvoice.BackgroundColor = System.Drawing.Color.White
+        Me.dtableInvoice.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dtableInvoice.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableInvoice.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PONo, Me.PONo1, Me.ClientQUnit, Me.ClientQty, Me.PO, Me.Unit, Me.UnitPrice, Me.TotalPrice, Me.Rec, Me.Cancel, Me.ETD, Me.ETA, Me.AddRec, Me.ClientUnitPrice})
-        Me.dtableInvoice.Location = New System.Drawing.Point(273, 5)
+        Me.dtableInvoice.Location = New System.Drawing.Point(289, 5)
         Me.dtableInvoice.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtableInvoice.Name = "dtableInvoice"
         Me.dtableInvoice.ReadOnly = True
         Me.dtableInvoice.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtableInvoice.Size = New System.Drawing.Size(665, 297)
+        Me.dtableInvoice.Size = New System.Drawing.Size(649, 297)
         Me.dtableInvoice.TabIndex = 172
         '
         'Seq
@@ -1049,7 +1022,8 @@ Partial Class FrmInvoiceEntry
         '
         'txtPo
         '
-        Me.txtPo.BackColor = System.Drawing.Color.LightBlue
+        Me.txtPo.BackColor = System.Drawing.Color.White
+        Me.txtPo.Enabled = False
         Me.txtPo.Location = New System.Drawing.Point(86, 71)
         Me.txtPo.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.txtPo.Name = "txtPo"
@@ -1059,6 +1033,7 @@ Partial Class FrmInvoiceEntry
         'dtDate
         '
         Me.dtDate.Checked = False
+        Me.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtDate.Location = New System.Drawing.Point(81, 187)
         Me.dtDate.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtDate.Name = "dtDate"
@@ -1082,10 +1057,10 @@ Partial Class FrmInvoiceEntry
         '
         Me.btnAddItem.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddItem.Location = New System.Drawing.Point(14, 273)
+        Me.btnAddItem.Location = New System.Drawing.Point(3, 272)
         Me.btnAddItem.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnAddItem.Name = "btnAddItem"
-        Me.btnAddItem.Size = New System.Drawing.Size(125, 25)
+        Me.btnAddItem.Size = New System.Drawing.Size(143, 25)
         Me.btnAddItem.TabIndex = 163
         Me.btnAddItem.Text = "INSERT INVOICE"
         Me.btnAddItem.UseVisualStyleBackColor = False
@@ -1094,7 +1069,7 @@ Partial Class FrmInvoiceEntry
         '
         Me.chkReceived.AutoSize = True
         Me.chkReceived.Enabled = False
-        Me.chkReceived.Location = New System.Drawing.Point(183, 246)
+        Me.chkReceived.Location = New System.Drawing.Point(183, 245)
         Me.chkReceived.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkReceived.Name = "chkReceived"
         Me.chkReceived.Size = New System.Drawing.Size(86, 20)
@@ -1106,7 +1081,7 @@ Partial Class FrmInvoiceEntry
         '
         Me.chkOk.AutoSize = True
         Me.chkOk.Enabled = False
-        Me.chkOk.Location = New System.Drawing.Point(82, 247)
+        Me.chkOk.Location = New System.Drawing.Point(81, 245)
         Me.chkOk.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.chkOk.Name = "chkOk"
         Me.chkOk.Size = New System.Drawing.Size(45, 20)
@@ -1390,8 +1365,6 @@ Partial Class FrmInvoiceEntry
     Friend WithEvents RecAdd As DataGridViewTextBoxColumn
     Friend WithEvents btnClear As Button
     Friend WithEvents btndelclear As Button
-    Friend WithEvents btnInvDelete As Button
-    Friend WithEvents btnDelDelete As Button
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn

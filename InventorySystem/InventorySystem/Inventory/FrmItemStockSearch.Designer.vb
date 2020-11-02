@@ -58,7 +58,7 @@ Partial Class FrmItemStockSearch
         Me.btnSearch.Location = New System.Drawing.Point(318, 20)
         Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnSearch.Name = "btnSearch"
-        Me.btnSearch.Size = New System.Drawing.Size(103, 25)
+        Me.btnSearch.Size = New System.Drawing.Size(103, 28)
         Me.btnSearch.TabIndex = 3
         Me.btnSearch.Text = "VIEW"
         Me.btnSearch.UseVisualStyleBackColor = False
@@ -72,10 +72,10 @@ Partial Class FrmItemStockSearch
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.dgvData.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.dgvData.BackgroundColor = System.Drawing.Color.White
+        Me.dgvData.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dgvData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvData.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.TransactionDate, Me.TRANSID, Me.INQTY, Me.Status})
-        Me.dgvData.Location = New System.Drawing.Point(8, 140)
+        Me.dgvData.Location = New System.Drawing.Point(8, 125)
         Me.dgvData.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dgvData.Name = "dgvData"
         Me.dgvData.ReadOnly = True
@@ -105,10 +105,10 @@ Partial Class FrmItemStockSearch
         '
         'Status
         '
-        Me.Status.HeaderText = "Status"
+        Me.Status.HeaderText = "To Re-order"
         Me.Status.Name = "Status"
         Me.Status.ReadOnly = True
-        Me.Status.Width = 67
+        Me.Status.Width = 97
         '
         'Label1
         '
@@ -132,6 +132,7 @@ Partial Class FrmItemStockSearch
         '
         'dtFrom
         '
+        Me.dtFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtFrom.Location = New System.Drawing.Point(100, 48)
         Me.dtFrom.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.dtFrom.Name = "dtFrom"
@@ -155,7 +156,7 @@ Partial Class FrmItemStockSearch
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 3, 2, 3)
-        Me.GroupBox1.Size = New System.Drawing.Size(505, 135)
+        Me.GroupBox1.Size = New System.Drawing.Size(505, 114)
         Me.GroupBox1.TabIndex = 12
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Item Details"
@@ -174,7 +175,7 @@ Partial Class FrmItemStockSearch
         '
         Me.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbStatus.FormattingEnabled = True
-        Me.cmbStatus.Items.AddRange(New Object() {"below Order Point", "Fast Moving"})
+        Me.cmbStatus.Items.AddRange(New Object() {"To re-order", "Not needed"})
         Me.cmbStatus.Location = New System.Drawing.Point(100, 76)
         Me.cmbStatus.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbStatus.Name = "cmbStatus"
@@ -183,12 +184,12 @@ Partial Class FrmItemStockSearch
         '
         'btnClear
         '
-        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnClear.Location = New System.Drawing.Point(318, 47)
+        Me.btnClear.Location = New System.Drawing.Point(318, 54)
         Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(103, 25)
+        Me.btnClear.Size = New System.Drawing.Size(103, 28)
         Me.btnClear.TabIndex = 4
         Me.btnClear.Text = "CLEAR"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -202,7 +203,10 @@ Partial Class FrmItemStockSearch
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmItemStockSearch"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Search ItemStock"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
@@ -219,10 +223,10 @@ Partial Class FrmItemStockSearch
     Friend WithEvents dtFrom As DateTimePicker
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnClear As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cmbStatus As ComboBox
     Friend WithEvents TransactionDate As DataGridViewTextBoxColumn
     Friend WithEvents TRANSID As DataGridViewTextBoxColumn
     Friend WithEvents INQTY As DataGridViewTextBoxColumn
     Friend WithEvents Status As DataGridViewTextBoxColumn
-    Friend WithEvents Label4 As Label
-    Friend WithEvents cmbStatus As ComboBox
 End Class

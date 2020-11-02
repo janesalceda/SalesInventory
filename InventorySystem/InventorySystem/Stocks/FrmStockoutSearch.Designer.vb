@@ -155,7 +155,7 @@ Partial Class FrmStockoutSearch
         '
         'btnClear
         '
-        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnClear.Location = New System.Drawing.Point(352, 32)
@@ -175,9 +175,9 @@ Partial Class FrmStockoutSearch
         Me.Label2.Location = New System.Drawing.Point(8, 405)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(283, 16)
+        Me.Label2.Size = New System.Drawing.Size(225, 16)
         Me.Label2.TabIndex = 133
-        Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
+        Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW"
         '
         'FrmStockoutSearch
         '

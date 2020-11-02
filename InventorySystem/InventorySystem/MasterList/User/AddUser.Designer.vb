@@ -60,7 +60,6 @@ Partial Class AddUser
         '
         Me.cmbUserLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbUserLevel.FormattingEnabled = True
-        Me.cmbUserLevel.Items.AddRange(New Object() {"1", "2", "3"})
         Me.cmbUserLevel.Location = New System.Drawing.Point(114, 90)
         Me.cmbUserLevel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.cmbUserLevel.Name = "cmbUserLevel"

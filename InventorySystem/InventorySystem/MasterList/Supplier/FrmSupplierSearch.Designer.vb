@@ -150,7 +150,7 @@ Partial Class FrmSupplierSearch
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(661, 348)
+        Me.dtItems.Size = New System.Drawing.Size(583, 348)
         Me.dtItems.TabIndex = 123
         '
         'ItemId
@@ -158,21 +158,21 @@ Partial Class FrmSupplierSearch
         Me.ItemId.HeaderText = "SupplierId"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 86
+        Me.ItemId.Width = 88
         '
         'DeliveryPlace
         '
         Me.DeliveryPlace.HeaderText = "Description"
         Me.DeliveryPlace.Name = "DeliveryPlace"
         Me.DeliveryPlace.ReadOnly = True
-        Me.DeliveryPlace.Width = 93
+        Me.DeliveryPlace.Width = 95
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 110
+        Me.RegisteredDate.Width = 112
         '
         'Disused
         '
@@ -181,17 +181,18 @@ Partial Class FrmSupplierSearch
         Me.Disused.ReadOnly = True
         Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 77
+        Me.Disused.Width = 79
         '
         'DeletedDate
         '
         Me.DeletedDate.HeaderText = "DeletedDate"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 99
+        Me.DeletedDate.Width = 101
         '
         'btnClear
         '
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnClear.Location = New System.Drawing.Point(358, 36)
@@ -200,7 +201,7 @@ Partial Class FrmSupplierSearch
         Me.btnClear.Size = New System.Drawing.Size(90, 25)
         Me.btnClear.TabIndex = 134
         Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'FrmSupplierSearch
         '

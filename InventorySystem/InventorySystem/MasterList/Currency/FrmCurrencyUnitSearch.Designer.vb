@@ -37,6 +37,7 @@ Partial Class FrmCurrencyUnitSearch
         Me.txtItemID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -52,41 +53,39 @@ Partial Class FrmCurrencyUnitSearch
         Me.dtItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtItems.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ItemId, Me.ItemName, Me.AmountRoundType, Me.RegisteredDate, Me.Disused, Me.DeletedDate})
         Me.dtItems.Location = New System.Drawing.Point(8, 78)
-        Me.dtItems.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtItems.Margin = New System.Windows.Forms.Padding(2)
         Me.dtItems.Name = "dtItems"
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(660, 347)
+        Me.dtItems.Size = New System.Drawing.Size(696, 347)
         Me.dtItems.TabIndex = 78
         '
         'ItemId
         '
-        Me.ItemId.HeaderText = "CurrencyUnit Id"
+        Me.ItemId.HeaderText = "Currency Unit Id"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 104
         '
         'ItemName
         '
-        Me.ItemName.HeaderText = "CurrencyUnit "
+        Me.ItemName.HeaderText = "Currency Unit "
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 104
         '
         'AmountRoundType
         '
-        Me.AmountRoundType.HeaderText = "AmountRoundType"
+        Me.AmountRoundType.HeaderText = "Amount Round Type"
         Me.AmountRoundType.Name = "AmountRoundType"
         Me.AmountRoundType.ReadOnly = True
-        Me.AmountRoundType.Width = 134
+        Me.AmountRoundType.Width = 107
         '
         'RegisteredDate
         '
         Me.RegisteredDate.HeaderText = "Registered Date"
         Me.RegisteredDate.Name = "RegisteredDate"
         Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 110
+        Me.RegisteredDate.Width = 112
         '
         'Disused
         '
@@ -95,14 +94,14 @@ Partial Class FrmCurrencyUnitSearch
         Me.Disused.ReadOnly = True
         Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 77
+        Me.Disused.Width = 79
         '
         'DeletedDate
         '
-        Me.DeletedDate.HeaderText = "DeletedDate"
+        Me.DeletedDate.HeaderText = "Deleted Date"
         Me.DeletedDate.Name = "DeletedDate"
         Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 99
+        Me.DeletedDate.Width = 96
         '
         'Label2
         '
@@ -122,7 +121,7 @@ Partial Class FrmCurrencyUnitSearch
         Me.chkDisuse.AutoSize = True
         Me.chkDisuse.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.chkDisuse.Location = New System.Drawing.Point(300, 14)
-        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkDisuse.Margin = New System.Windows.Forms.Padding(2)
         Me.chkDisuse.Name = "chkDisuse"
         Me.chkDisuse.Size = New System.Drawing.Size(70, 20)
         Me.chkDisuse.TabIndex = 86
@@ -134,7 +133,7 @@ Partial Class FrmCurrencyUnitSearch
         Me.txtDes.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtDes.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtDes.Location = New System.Drawing.Point(124, 41)
-        Me.txtDes.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtDes.Margin = New System.Windows.Forms.Padding(2)
         Me.txtDes.Name = "txtDes"
         Me.txtDes.Size = New System.Drawing.Size(244, 23)
         Me.txtDes.TabIndex = 83
@@ -144,8 +143,8 @@ Partial Class FrmCurrencyUnitSearch
         Me.btnSearch.BackColor = System.Drawing.SystemColors.GradientActiveCaption
         Me.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSearch.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.btnSearch.Location = New System.Drawing.Point(373, 39)
-        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSearch.Location = New System.Drawing.Point(374, 11)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSearch.Name = "btnSearch"
         Me.btnSearch.Size = New System.Drawing.Size(90, 25)
         Me.btnSearch.TabIndex = 82
@@ -157,8 +156,8 @@ Partial Class FrmCurrencyUnitSearch
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.BackColor = System.Drawing.Color.MediumTurquoise
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(570, 435)
-        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAdd.Location = New System.Drawing.Point(606, 435)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(98, 25)
         Me.btnAdd.TabIndex = 81
@@ -170,7 +169,7 @@ Partial Class FrmCurrencyUnitSearch
         Me.txtItemID.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtItemID.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtItemID.Location = New System.Drawing.Point(124, 12)
-        Me.txtItemID.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtItemID.Margin = New System.Windows.Forms.Padding(2)
         Me.txtItemID.Name = "txtItemID"
         Me.txtItemID.Size = New System.Drawing.Size(169, 23)
         Me.txtItemID.TabIndex = 80
@@ -197,11 +196,25 @@ Partial Class FrmCurrencyUnitSearch
         Me.Label1.TabIndex = 88
         Me.Label1.Text = "Currency Unit:"
         '
+        'btnClear
+        '
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
+        Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnClear.Location = New System.Drawing.Point(374, 41)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(90, 25)
+        Me.btnClear.TabIndex = 89
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = False
+        '
         'FrmCurrencyUnitSearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(676, 466)
+        Me.ClientSize = New System.Drawing.Size(712, 466)
+        Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.dtItems)
         Me.Controls.Add(Me.Label2)
@@ -212,7 +225,10 @@ Partial Class FrmCurrencyUnitSearch
         Me.Controls.Add(Me.txtItemID)
         Me.Controls.Add(Me.Label7)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmCurrencyUnitSearch"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "FrmCurrencyUnitSearch"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -235,4 +251,5 @@ Partial Class FrmCurrencyUnitSearch
     Friend WithEvents RegisteredDate As DataGridViewTextBoxColumn
     Friend WithEvents Disused As DataGridViewCheckBoxColumn
     Friend WithEvents DeletedDate As DataGridViewTextBoxColumn
+    Friend WithEvents btnClear As Button
 End Class

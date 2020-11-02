@@ -20,7 +20,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.06944in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
         <Width>0.78125in</Width>
         <Style>
@@ -81,7 +80,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.68056in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
         <Width>1.38542in</Width>
         <ZIndex>2</ZIndex>
@@ -102,7 +100,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Beginning inventory, </Value>
+                <Value>Beginning inventory,</Value>
                 <Style />
               </TextRun>
               <TextRun>
@@ -260,7 +258,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=iif(Fields!NetSales.Value=0,"",Fields!NetSales.Value)</Value>
+                <Value>=Fields!NetSales.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -292,7 +290,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=iif(Fields!BeginningInventory.Value=0,"",Fields!BeginningInventory.Value)</Value>
+                <Value>=Fields!BeginningInventory.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -324,7 +322,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIF(Fields!NetPurchase.Value=0,"",Fields!NetPurchase.Value)</Value>
+                <Value>=Fields!NetPurchase.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -335,7 +333,7 @@
         </Paragraphs>
         <rd:DefaultName>NetSales</rd:DefaultName>
         <Top>1.32292in</Top>
-        <Left>3.09375in</Left>
+        <Left>3.10292in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
         <ZIndex>10</ZIndex>
@@ -356,7 +354,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIF(Fields!CostOfGoodsAvailSale.Value=0,"",Fields!CostOfGoodsAvailSale.Value)</Value>
+                <Value>=Fields!CostOfGoodsAvailSale.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -388,7 +386,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIF(Fields!Inventory.Value=0,"",Fields!Inventory.Value)</Value>
+                <Value>=Fields!Inventory.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -420,7 +418,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIF(Fields!CostGoodSold.Value=0,"",Fields!CostGoodSold.Value)</Value>
+                <Value>=Fields!CostGoodSold.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -452,7 +450,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIF(Fields!GrossProfit.Value=0,"",Fields!GrossProfit.Value)</Value>
+                <Value>=Fields!GrossProfit.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -495,7 +493,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>2.91667in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
         <Width>1.38542in</Width>
         <ZIndex>15</ZIndex>
@@ -527,7 +524,6 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>2.59722in</Top>
-        <Left>0in</Left>
         <Height>0.25in</Height>
         <Width>1.38542in</Width>
         <ZIndex>16</ZIndex>
@@ -555,8 +551,8 @@
         </Style>
       </Line>
       <Line Name="Line2">
-        <Top>2.26389in</Top>
-        <Left>3.09375in</Left>
+        <Top>2.19792in</Top>
+        <Left>3.11208in</Left>
         <Height>0in</Height>
         <Width>0.99084in</Width>
         <ZIndex>18</ZIndex>
@@ -587,7 +583,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIF(Fields!Inventory.Value = 0, "", Fields!Inventory.Value)</Value>
+                <Value>=Fields!Inventory.Value</Value>
                 <Style>
                   <Format>#,###.00</Format>
                 </Style>
@@ -625,7 +621,7 @@
       <ReportItems>
         <Image Name="Image1">
           <Source>Database</Source>
-          <Value>=Fields!CompanyLogo.Value</Value>
+          <Value>=First(Fields!CompanyLogo.Value, "DataSet1")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Left>0.00001cm</Left>
@@ -733,36 +729,6 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="itemid">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=Fields!itemid.Value</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>itemid</rd:DefaultName>
-          <Top>0.93625in</Top>
-          <Left>0.51389in</Left>
-          <Height>0.25in</Height>
-          <Width>1in</Width>
-          <ZIndex>4</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox12">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -782,37 +748,7 @@
           <Left>3.40972in</Left>
           <Height>0.25in</Height>
           <Width>0.78125in</Width>
-          <ZIndex>5</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox13">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>ItemId:</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.93625in</Top>
-          <Left>0in</Left>
-          <Height>0.25in</Height>
-          <Width>0.5in</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -842,7 +778,7 @@
           <Left>2.34722in</Left>
           <Height>0.25in</Height>
           <Width>0.78125in</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -874,6 +810,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>41c8a866-5662-4d00-b9d4-55fa97103883</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="DataSet7">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>39899f55-1e6c-4248-9c1d-f8dc761cb21b</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>

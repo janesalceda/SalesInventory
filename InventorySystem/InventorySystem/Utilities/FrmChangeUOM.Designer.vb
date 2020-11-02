@@ -295,7 +295,7 @@ Partial Class FrmChangeUOM
         '
         'btnCancel
         '
-        Me.btnCancel.BackColor = System.Drawing.Color.Red
+        Me.btnCancel.BackColor = System.Drawing.Color.LightCoral
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Location = New System.Drawing.Point(330, 309)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)

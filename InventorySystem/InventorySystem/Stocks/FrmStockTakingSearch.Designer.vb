@@ -175,9 +175,9 @@ Partial Class FrmStockTakingSearch
         Me.Label2.Location = New System.Drawing.Point(9, 408)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(283, 16)
+        Me.Label2.Size = New System.Drawing.Size(225, 16)
         Me.Label2.TabIndex = 129
-        Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW/UPDATE"
+        Me.Label2.Text = "*NOTE: DOUBLE CLICK TO VIEW"
         '
         'FrmStockTakingSearch
         '

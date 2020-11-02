@@ -53,7 +53,7 @@ Partial Class PurchaseOrderList
         '
         'btnClear
         '
-        Me.btnClear.BackColor = System.Drawing.Color.White
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnClear.Location = New System.Drawing.Point(228, 94)
@@ -146,14 +146,14 @@ Partial Class PurchaseOrderList
         Me.ItemCode.HeaderText = "PO No"
         Me.ItemCode.Name = "ItemCode"
         Me.ItemCode.ReadOnly = True
-        Me.ItemCode.Width = 66
+        Me.ItemCode.Width = 68
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Seq"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 52
+        Me.ItemName.Width = 54
         '
         'Column2
         '
@@ -167,7 +167,7 @@ Partial Class PurchaseOrderList
         Me.Column1.HeaderText = "Balance Qty"
         Me.Column1.Name = "Column1"
         Me.Column1.ReadOnly = True
-        Me.Column1.Width = 95
+        Me.Column1.Width = 97
         '
         'Column3
         '
@@ -190,6 +190,7 @@ Partial Class PurchaseOrderList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(306, 334)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnOk)

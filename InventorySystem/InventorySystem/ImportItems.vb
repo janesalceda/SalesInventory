@@ -7,10 +7,12 @@ Public Class ImportItems
         Dim filepath As String = TextBox1.Text
         Dim fi As New IO.FileInfo(filepath)
         Dim extn As String = fi.Extension
-        MsgBox(extn)
+
         If extn = ".csv" Then
             Dim textreader As New StreamReader(filepath, Encoding.Default)
             Dim sline As String
+
+            DataGridView1.Rows.Clear()
             Do
                 sline = textreader.ReadLine
                 If sline Is Nothing Then Exit Do
@@ -38,13 +40,6 @@ Public Class ImportItems
         End If
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs)
-        If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
-            TextBox1.Text = OpenFileDialog1.FileName
-        Else
-            TextBox1.Clear()
-        End If
-    End Sub
 
     Private Sub cboSheet_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSheet.SelectedIndexChanged
         Dim dt As DataTable = tables(cboSheet.SelectedItem.ToString())
@@ -59,5 +54,13 @@ Public Class ImportItems
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
+    End Sub
+
+    Private Sub btnUpload_Click(sender As Object, e As EventArgs) Handles btnUpload.Click
+        If OpenFileDialog1.ShowDialog <> Windows.Forms.DialogResult.Cancel Then
+            TextBox1.Text = OpenFileDialog1.FileName
+        Else
+            TextBox1.Clear()
+        End If
     End Sub
 End Class

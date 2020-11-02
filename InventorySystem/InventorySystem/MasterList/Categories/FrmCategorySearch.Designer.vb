@@ -29,14 +29,14 @@ Partial Class FrmCategorySearch
         Me.txtCatID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.dtItems = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnClear = New System.Windows.Forms.Button()
         Me.ItemId = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RegisteredDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Disused = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.DeletedDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.btnClear = New System.Windows.Forms.Button()
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -80,7 +80,7 @@ Partial Class FrmCategorySearch
         Me.btnAdd.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnAdd.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.Location = New System.Drawing.Point(484, 420)
+        Me.btnAdd.Location = New System.Drawing.Point(490, 420)
         Me.btnAdd.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(98, 25)
@@ -126,8 +126,45 @@ Partial Class FrmCategorySearch
         Me.dtItems.ReadOnly = True
         Me.dtItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
         Me.dtItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dtItems.Size = New System.Drawing.Size(571, 340)
+        Me.dtItems.Size = New System.Drawing.Size(577, 340)
         Me.dtItems.TabIndex = 68
+        '
+        'ItemId
+        '
+        Me.ItemId.HeaderText = "Category Id"
+        Me.ItemId.Name = "ItemId"
+        Me.ItemId.ReadOnly = True
+        Me.ItemId.Width = 87
+        '
+        'ItemName
+        '
+        Me.ItemName.HeaderText = "Description"
+        Me.ItemName.Name = "ItemName"
+        Me.ItemName.ReadOnly = True
+        Me.ItemName.Width = 95
+        '
+        'RegisteredDate
+        '
+        Me.RegisteredDate.HeaderText = "Registered Date"
+        Me.RegisteredDate.Name = "RegisteredDate"
+        Me.RegisteredDate.ReadOnly = True
+        Me.RegisteredDate.Width = 112
+        '
+        'Disused
+        '
+        Me.Disused.HeaderText = "Disused"
+        Me.Disused.Name = "Disused"
+        Me.Disused.ReadOnly = True
+        Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Disused.Width = 79
+        '
+        'DeletedDate
+        '
+        Me.DeletedDate.HeaderText = "DeletedDate"
+        Me.DeletedDate.Name = "DeletedDate"
+        Me.DeletedDate.ReadOnly = True
+        Me.DeletedDate.Width = 101
         '
         'Label1
         '
@@ -155,6 +192,7 @@ Partial Class FrmCategorySearch
         '
         'btnClear
         '
+        Me.btnClear.BackColor = System.Drawing.Color.LightCoral
         Me.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnClear.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnClear.Location = New System.Drawing.Point(397, 35)
@@ -163,51 +201,14 @@ Partial Class FrmCategorySearch
         Me.btnClear.Size = New System.Drawing.Size(90, 25)
         Me.btnClear.TabIndex = 79
         Me.btnClear.Text = "Clear"
-        Me.btnClear.UseVisualStyleBackColor = True
-        '
-        'ItemId
-        '
-        Me.ItemId.HeaderText = "Category Id"
-        Me.ItemId.Name = "ItemId"
-        Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 92
-        '
-        'ItemName
-        '
-        Me.ItemName.HeaderText = "Description"
-        Me.ItemName.Name = "ItemName"
-        Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 93
-        '
-        'RegisteredDate
-        '
-        Me.RegisteredDate.HeaderText = "Registered Date"
-        Me.RegisteredDate.Name = "RegisteredDate"
-        Me.RegisteredDate.ReadOnly = True
-        Me.RegisteredDate.Width = 110
-        '
-        'Disused
-        '
-        Me.Disused.HeaderText = "Disused"
-        Me.Disused.Name = "Disused"
-        Me.Disused.ReadOnly = True
-        Me.Disused.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Disused.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Disused.Width = 77
-        '
-        'DeletedDate
-        '
-        Me.DeletedDate.HeaderText = "DeletedDate"
-        Me.DeletedDate.Name = "DeletedDate"
-        Me.DeletedDate.ReadOnly = True
-        Me.DeletedDate.Width = 99
+        Me.btnClear.UseVisualStyleBackColor = False
         '
         'FrmCategorySearch
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(592, 458)
+        Me.ClientSize = New System.Drawing.Size(598, 458)
         Me.Controls.Add(Me.btnClear)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -220,7 +221,10 @@ Partial Class FrmCategorySearch
         Me.Controls.Add(Me.dtItems)
         Me.Font = New System.Drawing.Font("Arial", 9.0!)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "FrmCategorySearch"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Search Category"
         CType(Me.dtItems, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

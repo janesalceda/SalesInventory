@@ -210,7 +210,9 @@
 
     Private Sub txtItemCode_TextChanged(sender As Object, e As EventArgs) Handles txtItemCode.TextChanged
         If dtableInvoice.Rows.Count > 0 Then
-            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And dtableInvoice.SelectedRows(0).Cells(12).Value = True Then
+            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
+                dtableInvoice.SelectedRows(0).Cells(12).Value = True And
+                Not String.IsNullOrWhiteSpace(txtItemCode.Text) Then
                 msgboxDisplay("Cannot modify already received!", 2)
                 Exit Sub
             End If
@@ -257,7 +259,7 @@
             SQL.params.Clear()
 
             SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
-            SQL.ExecQuery("Select * from InvoiceHeaders where InvoiceNo=@InvoiceNo)")
+            SQL.ExecQuery("Select * from InvoiceHeaders where InvoiceNo=@InvoiceNo")
             If SQL.DBDT.Rows.Count > 0 Then
                 msgboxDisplay("Invoice already exists!", 3)
                 Exit Sub
@@ -294,7 +296,12 @@
                         @InvoiceDate,
                         @ActualETDDate,
                     @UpdatedBy);")
-                If SQL.HasException Then Exit Sub
+                If SQL.HasException Then
+                    btnSave.Enabled = True
+                    btnSave.Text = "SAVE INVOICE"
+                    msgboxDisplay("Error in saving", 3)
+                    Exit Sub
+                End If
                 For i As Integer = 0 To dtableInvoice.Rows.Count - 1
                     SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
                     SQL.AddParams("@SupplierId", txtSupplier.Text)
@@ -345,6 +352,9 @@
                     If SQL.HasException Then
                         SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
                         SQL.ExecQuery("DELETE FROM InvoiceHeaders WHERE InvoiceNo=@InvoiceNo;DELETE FROM InvoiceDetails WHERE InvoiceNo=@InvoiceNo")
+                        btnSave.Enabled = True
+                        btnSave.Text = "SAVE INVOICE"
+                        msgboxDisplay("Error in saving", 3)
                         Exit Sub
                     End If
                 Next
@@ -367,6 +377,9 @@
                     If SQL.HasException Then
                         SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
                         SQL.ExecQuery("DELETE FROM InvoiceHeaders WHERE InvoiceNo=@InvoiceNo;DELETE FROM InvoiceDetails WHERE InvoiceNo=@InvoiceNo;DELETE FROM InvoiceDeliveryDetails WHERE InvoiceNo=@InvoiceNo")
+                        btnSave.Enabled = True
+                        btnSave.Text = "SAVE INVOICE"
+                        msgboxDisplay("Error in saving", 3)
                         Exit Sub
                     End If
 
@@ -388,7 +401,12 @@
 	                    UpdatedDate = getdate(),
 	                    UpdatedBy = @updatedby
 	                    WHERE InvoiceNo = @invoiceno")
-                If SQL.HasException Then Exit Sub
+                If SQL.HasException Then
+                    btnSave.Enabled = True
+                    btnSave.Text = "SAVE INVOICE"
+                    msgboxDisplay("Error in saving", 3)
+                    Exit Sub
+                End If
 
                 For i As Integer = 0 To dtableInvoice.Rows.Count - 1
                     SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
@@ -428,6 +446,8 @@
 	                            WHERE InvoiceNo = @invoiceno AND InvoiceDetailSeq = @invoicedetailseq")
                         If SQL.HasException Then
                             MsgBox("Error in Updating Data!", MsgBoxStyle.Critical, "Error")
+                            btnSave.Enabled = True
+                            btnSave.Text = "SAVE INVOICE"
                             Exit Sub
                         End If
                     Else
@@ -465,6 +485,9 @@
                         If SQL.HasException Then
                             SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
                             SQL.ExecQuery("DELETE FROM InvoiceHeaders WHERE InvoiceNo=@InvoiceNo;DELETE FROM InvoiceDetails WHERE InvoiceNo=@InvoiceNo")
+                            btnSave.Enabled = True
+                            btnSave.Text = "SAVE INVOICE"
+                            msgboxDisplay("Error in saving", 3)
                             Exit Sub
                         End If
                     End If
@@ -507,6 +530,9 @@
                         If SQL.HasException Then
                             SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
                             SQL.ExecQuery("DELETE FROM InvoiceHeaders WHERE InvoiceNo=@InvoiceNo;DELETE FROM InvoiceDetails WHERE InvoiceNo=@InvoiceNo;DELETE FROM InvoiceDeliveryDetails WHERE InvoiceNo=@InvoiceNo")
+                            btnSave.Enabled = True
+                            btnSave.Text = "SAVE INVOICE"
+                            msgboxDisplay("Error in saving", 3)
                             Exit Sub
                         End If
                     End If
@@ -516,6 +542,8 @@
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Information, "Information")
+            btnSave.Text = "SAVE INVOICE"
+            btnSave.Enabled = False
             Exit Sub
         End Try
         MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
@@ -761,6 +789,7 @@
             chkOk.Enabled = True
             chkReceived.Enabled = True
             btnAddItem.Text = "UPDATE INVOICE"
+            btnAddItem.Enabled = True
         Else
             MsgBox("Cannot modify Already Received !", MsgBoxStyle.Information, "Information")
         End If
@@ -854,6 +883,10 @@
         End If
         txtSupQty.Text = Val(txtCliQty.Text) * coefficient
         txtTotalPrice.Text = Format(Val(txtSupQty.Text) * Val(txtUnit.Text), "0.00")
+    End Sub
+
+    Private Sub dtableDelivery_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableDelivery.CellContentClick
+
     End Sub
 
 

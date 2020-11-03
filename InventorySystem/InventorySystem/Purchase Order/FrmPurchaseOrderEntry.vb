@@ -189,7 +189,12 @@ Public Class FrmPurchaseOrderEntry
 	                UpdatedDate = getdate(),
 	                UpdatedBy = @updatedby
                 WHERE PoNo=@pono")
-                    If SQL.HasException Then Exit Sub
+                    If SQL.HasException Then
+                        btnSave.Enabled = True
+                        btnSave.Text = "SAVE P.O."
+                        msgboxDisplay("Error in saving", 3)
+                        Exit Sub
+                    End If
 
                     For i As Integer = 0 To dtablePoDetails.Rows.Count - 1
                         If Not String.IsNullOrWhiteSpace(dtablePoDetails.Rows(i).Cells(14).Value.ToString()) Then
@@ -227,6 +232,8 @@ Public Class FrmPurchaseOrderEntry
                             WHERE PoNo=@pono and PoDetailSeq = @podetailseq")
                             If SQL.HasException Then
                                 MsgBox("Error in Editing!", MsgBoxStyle.Critical, "Error")
+                                btnSave.Enabled = True
+                                btnSave.Text = "SAVE P.O."
                                 Exit Sub
                             End If
                         Else
@@ -281,7 +288,12 @@ Public Class FrmPurchaseOrderEntry
                         @cliunitprice,
 	                    @updatedby
 	                    )")
-                            If SQL.HasException Then Exit Sub
+                            If SQL.HasException Then
+                                btnSave.Enabled = True
+                                btnSave.Text = "SAVE P.O."
+                                msgboxDisplay("Error in saving", 3)
+                                Exit Sub
+                            End If
                         End If
                     Next
                 Else
@@ -320,7 +332,12 @@ Public Class FrmPurchaseOrderEntry
 	                @encodedstaff)"
                             )
 
-                    If SQL.HasException Then Exit Sub
+                    If SQL.HasException Then
+                        btnSave.Enabled = True
+                        btnSave.Text = "SAVE P.O."
+                        msgboxDisplay("Error in saving", 3)
+                        Exit Sub
+                    End If
 
                     For i As Integer = 0 To dtablePoDetails.Rows.Count - 1
                         SQL.AddParams("@itemid", dtablePoDetails.Rows(i).Cells(1).Value.ToString())
@@ -376,6 +393,9 @@ Public Class FrmPurchaseOrderEntry
 	                    )")
                         If SQL.HasException Then
                             SQL.ExecQuery("delete from PoDetails where PONo=(select max(pono) from poheaders);delete from POHeaders where PONo=(select max(pono) from poheaders);")
+                            btnSave.Enabled = True
+                            btnSave.Text = "SAVE P.O."
+                            msgboxDisplay("Error in saving", 3)
                             Exit Sub
                         End If
                     Next
@@ -542,6 +562,7 @@ Public Class FrmPurchaseOrderEntry
                 chkCancel.Enabled = True
                 chkCancel.Checked = dtablePoDetails.SelectedRows(0).Cells(12).Value.ToString()
                 btnAddItem.Text = "UPDATE ITEM"
+                btnAddItem.Enabled = True
                 btnClear.Enabled = True
             Else
                 MsgBox("Cannot modify, already received!", MsgBoxStyle.Information, "Information")
@@ -723,12 +744,15 @@ Public Class FrmPurchaseOrderEntry
     'End Sub
 
     Private Sub dtIssued_GotFocus(sender As Object, e As EventArgs) Handles dtIssued.GotFocus
-        ' issuedVal.Value = dtIssued.Value
-        'If dtablePoDetails.Rows.Count > 0 Then
-        '    btnAddItem.Focus()
-        '    msgboxDisplay("Cannot modify IssuedDate there is already a POdetails", 2)
-        '    Exit Sub
-        'End If
+        'issuedVal.Value = dtIssued.Value
+        If dtablePoDetails.Rows.Count > 0 Then
+            'btnAddItem.Focus()
+            dtIssued.Enabled = False
+            'msgboxDisplay("Cannot modify IssuedDate there is already a POdetails", 2)
+            Exit Sub
+        Else
+            dtIssued.Enabled = False
+        End If
     End Sub
 
     Private Sub chkReceived_CheckedChanged(sender As Object, e As EventArgs) Handles chkReceived.CheckedChanged
@@ -740,7 +764,15 @@ Public Class FrmPurchaseOrderEntry
 
     Private Sub dtIssued_ValueChanged(sender As Object, e As EventArgs) Handles dtIssued.ValueChanged
         Me.Text = dtIssued.Value.ToString
-        dtablePoDetails.Rows.Clear()
+        'dtablePoDetails.Rows.Clear()
+    End Sub
+
+    Private Sub dtIssued_GiveFeedback(sender As Object, e As GiveFeedbackEventArgs) Handles dtIssued.GiveFeedback
+
+    End Sub
+
+    Private Sub dtablePoDetails_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtablePoDetails.CellContentClick
+
     End Sub
 
     'Private Sub chkCancel_CheckedChanged(sender As Object, e As EventArgs) Handles chkCancel.CheckedChanged

@@ -260,6 +260,7 @@
     End Sub
 
     Private Sub BTNLogout_Click(sender As Object, e As EventArgs) Handles BTNLogout.Click
+        LoginForm.txtUsername.Focus()
         LoginForm.Show()
         Me.Close()
     End Sub

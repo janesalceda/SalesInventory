@@ -1,0 +1,186 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+InventorySystem
+</name>
+</assembly>
+<members>
+<member name="T:InventorySystem.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.Barcode">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.Print">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.QRCode">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.visibility___Copy">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet1">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet1.PODetailsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet1.PODetailsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet1.PODetailsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet2">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet2.StockMonitoringDataSetDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet2.StockMonitoringDataSetRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet2.StockMonitoringDataSetRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet3">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet3.DailyTransactionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet3.DailyTransactionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet3.DailyTransactionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet4">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet4.ItemStocksDataSetDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet4.ItemStocksDataSetRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet4.ItemStocksDataSetRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet5">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet5.DataTable1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet5.DataTable1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet5.DataTable1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet6">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet6.DataTable1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet6.DataTable1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet6.DataTable1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet7">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet7.DataTable1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet7.DataTable1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:InventorySystem.DataSet7.DataTable1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+</members>
+</doc>

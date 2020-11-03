@@ -113,8 +113,10 @@ SELECT b.CompanyLogo,a.* FROM (
 SELECT isnull(SUM(c.NetSales),'0.00')'NetSales',isnull(SUM(a.BeginningInventory),'0.00')'BeginningInventory'
 ,isnull(SUM(b.NetPurchase),'0.00')'NetPurchase',
 (isnull(SUM(a.BeginningInventory),'0.00')+isnull(SUM(b.NetPurchase),'0.00'))'CostOfGoodsAvailSale',
-((isnull(SUM(a.BeginningInventory),'0.00')+isnull(SUM(b.NetPurchase),'0.00'))-isnull(SUM(c.CostGoodSold),'0.00'))'Inventory',(isnull(SUM(c.NetSales),'0.00')-isnull(SUM(c.CostGoodSold),'0.00') )'GrossProfit',
-convert(VARCHAR(10),@TransactedFrom,111)'From', convert(VARCHAR(10),@TransactedTo,111)'To',SUM(c.CostGoodSold)'CostGoodSold'
+((isnull(SUM(a.BeginningInventory),'0.00')+isnull(SUM(b.NetPurchase),'0.00'))-isnull(SUM(c.CostGoodSold),'0.00'))'Inventory',
+(isnull(SUM(c.NetSales),'0.00')-isnull(SUM(c.CostGoodSold),'0.00') )'GrossProfit',
+convert(VARCHAR(10),@TransactedFrom,111)'From', convert(VARCHAR(10),@TransactedTo,111)'To',
+SUM(c.CostGoodSold)'CostGoodSold'
  FROM Items LEFT JOIN	
   (
 	SELECT StockTakingDetails.ItemID,

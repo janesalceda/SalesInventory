@@ -913,10 +913,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Address</rd:DefaultName>
-          <Top>7.23334cm</Top>
-          <Left>0.06675cm</Left>
+          <Top>7.20451cm</Top>
+          <Left>0.10203cm</Left>
           <Height>0.6cm</Height>
-          <Width>7.83196cm</Width>
+          <Width>7.79668cm</Width>
           <ZIndex>8</ZIndex>
           <Style>
             <Border>
@@ -946,10 +946,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Phone</rd:DefaultName>
-          <Top>7.83334cm</Top>
-          <Left>0.06675cm</Left>
+          <Top>7.87507cm</Top>
+          <Left>0.10203cm</Left>
           <Height>0.6cm</Height>
-          <Width>7.83196cm</Width>
+          <Width>7.79668cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
@@ -979,7 +979,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Fax</rd:DefaultName>
-          <Top>8.43334cm</Top>
+          <Top>8.47507cm</Top>
           <Left>0.06675cm</Left>
           <Height>0.6cm</Height>
           <Width>7.83196cm</Width>
@@ -1334,9 +1334,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Encoder</rd:DefaultName>
-          <Top>6.59806cm</Top>
+          <Top>6.52751cm</Top>
           <Left>8.88683cm</Left>
-          <Height>0.6cm</Height>
+          <Height>0.52944cm</Height>
           <Width>7.66347cm</Width>
           <ZIndex>22</ZIndex>
           <Style>
@@ -1366,7 +1366,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>StreetAdress1</rd:DefaultName>
-          <Top>7.16278cm</Top>
+          <Top>7.09223cm</Top>
           <Left>8.88683cm</Left>
           <Height>0.6cm</Height>
           <Width>7.66347cm</Width>

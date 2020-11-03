@@ -106,8 +106,9 @@ CREATE PROCEDURE [dbo].[TotalCostOut]
 		FROM StockOutHeaders 
 		INNER JOIN StockOutDetails ON 
 		StockOutHeaders.StockOutCode = StockOutDetails.StockOutCode
-		WHERE convert(VARCHAR(10),StockOutDate,111)=@TransactionDate AND ItemID=@ItemId 
+		WHERE StockOutHeaders.StockOutDate>=@TransactionDate AND ItemID=@ItemId 
 		
+
 
 
 GO
@@ -129,7 +130,8 @@ CREATE PROCEDURE [dbo].[TotalIn]
 		Left Join PoDetails On
 		InvoiceDetails.PoNo =PoDetails.PoNo and InvoiceDetails.PoDetailSeq = PoDetails.PoDetailSeq
 		where InvoiceDeliveryDetails.QtyOK is not NULL AND InvoiceDeliveryDetails.QtyOK <>0
-		AND convert(VARCHAR(10),dbo.InvoiceDeliveryDetails.DeliveryDate,111) =@TransactionDate AND dbo.InvoiceDetails.ItemId =@ItemId
+		AND  dbo.InvoiceDeliveryDetails.DeliveryDate>=@TransactionDate AND dbo.InvoiceDetails.ItemId =@ItemId
+
 
 GO
 
@@ -142,7 +144,8 @@ CREATE PROCEDURE [dbo].[TotalOut]
 		FROM StockOutHeaders 
 		INNER JOIN StockOutDetails ON 
 		StockOutHeaders.StockOutCode = StockOutDetails.StockOutCode
-		WHERE StockOutDate=@TransactionDate AND ItemID=@ItemId 
+		WHERE StockOutDate>=@TransactionDate AND ItemID=@ItemId 
+
 
 GO
 

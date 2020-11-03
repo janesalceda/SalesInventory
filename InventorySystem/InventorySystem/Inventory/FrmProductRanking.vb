@@ -146,6 +146,7 @@
     End Sub
 
     Private Sub FrmProductRanking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MdiParent = AppForm
         reLoad()
     End Sub
     Private Sub reLoad()

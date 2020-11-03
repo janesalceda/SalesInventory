@@ -605,35 +605,34 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewTextBoxColumn1.HeaderText = "InvoiceSeq"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
-        Me.DataGridViewTextBoxColumn1.Width = 102
         '
         'DeliveryId
         '
         Me.DeliveryId.HeaderText = "DeliveryId"
         Me.DeliveryId.Name = "DeliveryId"
         Me.DeliveryId.ReadOnly = True
-        Me.DeliveryId.Width = 95
+        Me.DeliveryId.Width = 93
         '
         'DeliveryDate
         '
         Me.DeliveryDate.HeaderText = "DeliveryDate"
         Me.DeliveryDate.Name = "DeliveryDate"
         Me.DeliveryDate.ReadOnly = True
-        Me.DeliveryDate.Width = 114
+        Me.DeliveryDate.Width = 112
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "Item"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 59
+        Me.DataGridViewTextBoxColumn2.Width = 57
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Description"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 104
+        Me.DataGridViewTextBoxColumn3.Width = 102
         '
         'DataGridViewCheckBoxColumn1
         '
@@ -641,49 +640,49 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.ReadOnly = True
         Me.DataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewCheckBoxColumn1.Width = 117
+        Me.DataGridViewCheckBoxColumn1.Width = 115
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "PONo"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 70
+        Me.DataGridViewTextBoxColumn4.Width = 68
         '
         'POSeq
         '
         Me.POSeq.HeaderText = "POSeq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
-        Me.POSeq.Width = 78
+        Me.POSeq.Width = 76
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.HeaderText = "Qty Received"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 118
+        Me.DataGridViewTextBoxColumn5.Width = 116
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Qty Ok"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 77
+        Me.DataGridViewTextBoxColumn6.Width = 75
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.HeaderText = "Qty Balance"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 110
+        Me.DataGridViewTextBoxColumn7.Width = 108
         '
         'RecAdd
         '
         Me.RecAdd.HeaderText = "RecAdd"
         Me.RecAdd.Name = "RecAdd"
         Me.RecAdd.ReadOnly = True
-        Me.RecAdd.Width = 83
+        Me.RecAdd.Width = 81
         '
         'label17
         '

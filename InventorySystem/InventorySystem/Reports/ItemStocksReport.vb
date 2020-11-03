@@ -4,6 +4,8 @@ Public Class ItemStockReport
         Button1.Text = "Please wait ..."
         Button1.Enabled = False
         loadReport()
+        Button1.Text = "PRINT"
+        Button1.Enabled = True
     End Sub
     Private Sub loadReport()
         Dim rptDs As ReportDataSource
@@ -26,10 +28,11 @@ Public Class ItemStockReport
                     MinimumOrderQty,OrderingPointQty, (select Companylogo from companyinfo) a
                     FROM Items i
                                      where i.deletedDate is null " & where)
+                If SQL.DBDT.Rows.Count = 0 Then
+                    msgboxDisplay("No Record Found", 1)
+                    Exit Sub
+                End If
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
-                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                SQL.ExecQuery("SELECT * FROM CompanyInfo")
-                rptDs = New ReportDataSource("DataSet2", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
                 PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
@@ -41,7 +44,7 @@ Public Class ItemStockReport
             Exit Sub
         Finally
             Button1.Text = "PRINT"
-            Button1.Enabled = False
+            Button1.Enabled = True
         End Try
 
     End Sub

@@ -18,6 +18,10 @@ Public Class FrmStockOutReport
                 SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
                 SQL.AddParams("@to", dtTo.Value.ToString("yyyy/MM/dd"))
                 SQL.ExecQuery("SELECT *,@from as 'DateFrom',@to as 'DateTo',(select Companylogo from companyinfo)a FROM dbo.GetStockOut ( @from,@to) ")
+                If SQL.DBDT.Rows.Count = 0 Then
+                    msgboxDisplay("No Record Found", 1)
+                    Exit Sub
+                End If
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
@@ -30,7 +34,7 @@ Public Class FrmStockOutReport
             Exit Sub
         Finally
             btnPrint.Text = "PRINT"
-            btnPrint.Enabled = False
+            btnPrint.Enabled = True
         End Try
 
     End Sub

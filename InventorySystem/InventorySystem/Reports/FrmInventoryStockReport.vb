@@ -5,6 +5,8 @@ Public Class FrmInventoryStockReport
         btnPrint.Enabled = False
         loadgrid()
         loadReport()
+        btnPrint.Text = "PRINT"
+        btnPrint.Enabled = True
     End Sub
     Private Sub loadgrid()
         Try

@@ -15,6 +15,10 @@ Public Class DailyTransaction
                 SQL.AddParams("@from", DateTimePicker1.Value.ToString("yyyy/MM/dd"))
                 SQL.ExecQuery("SELECT *,@from as 'TransactionDate',(select Companylogo from companyinfo)
                      FROM dbo.GetDailyTransaction (@from)")
+                If SQL.DBDT.Rows.Count = 0 Then
+                    msgboxDisplay("No Record Found", 1)
+                    Exit Sub
+                End If
                 rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
@@ -29,6 +33,8 @@ Public Class DailyTransaction
             Button1.Text = "PRINT"
             Button1.Enabled = True
         End Try
+        Button1.Text = "PRINT"
+        Button1.Enabled = True
 
     End Sub
 

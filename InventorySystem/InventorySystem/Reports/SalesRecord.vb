@@ -45,7 +45,7 @@ Public Class SalesRecord
             Exit Sub
         Finally
             btnSearch.Text = "PRINT"
-            btnSearch.Enabled = False
+            btnSearch.Enabled = True
         End Try
     End Sub
 End Class

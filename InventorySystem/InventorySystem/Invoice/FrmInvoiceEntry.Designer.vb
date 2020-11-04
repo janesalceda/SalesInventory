@@ -605,34 +605,35 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewTextBoxColumn1.HeaderText = "InvoiceSeq"
         Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         Me.DataGridViewTextBoxColumn1.ReadOnly = True
+        Me.DataGridViewTextBoxColumn1.Width = 102
         '
         'DeliveryId
         '
         Me.DeliveryId.HeaderText = "DeliveryId"
         Me.DeliveryId.Name = "DeliveryId"
         Me.DeliveryId.ReadOnly = True
-        Me.DeliveryId.Width = 93
+        Me.DeliveryId.Width = 95
         '
         'DeliveryDate
         '
         Me.DeliveryDate.HeaderText = "DeliveryDate"
         Me.DeliveryDate.Name = "DeliveryDate"
         Me.DeliveryDate.ReadOnly = True
-        Me.DeliveryDate.Width = 112
+        Me.DeliveryDate.Width = 114
         '
         'DataGridViewTextBoxColumn2
         '
         Me.DataGridViewTextBoxColumn2.HeaderText = "Item"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
-        Me.DataGridViewTextBoxColumn2.Width = 57
+        Me.DataGridViewTextBoxColumn2.Width = 59
         '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.HeaderText = "Description"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 102
+        Me.DataGridViewTextBoxColumn3.Width = 104
         '
         'DataGridViewCheckBoxColumn1
         '
@@ -640,49 +641,49 @@ Partial Class FrmInvoiceEntry
         Me.DataGridViewCheckBoxColumn1.Name = "DataGridViewCheckBoxColumn1"
         Me.DataGridViewCheckBoxColumn1.ReadOnly = True
         Me.DataGridViewCheckBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewCheckBoxColumn1.Width = 115
+        Me.DataGridViewCheckBoxColumn1.Width = 117
         '
         'DataGridViewTextBoxColumn4
         '
         Me.DataGridViewTextBoxColumn4.HeaderText = "PONo"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
-        Me.DataGridViewTextBoxColumn4.Width = 68
+        Me.DataGridViewTextBoxColumn4.Width = 70
         '
         'POSeq
         '
         Me.POSeq.HeaderText = "POSeq"
         Me.POSeq.Name = "POSeq"
         Me.POSeq.ReadOnly = True
-        Me.POSeq.Width = 76
+        Me.POSeq.Width = 78
         '
         'DataGridViewTextBoxColumn5
         '
         Me.DataGridViewTextBoxColumn5.HeaderText = "Qty Received"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 116
+        Me.DataGridViewTextBoxColumn5.Width = 118
         '
         'DataGridViewTextBoxColumn6
         '
         Me.DataGridViewTextBoxColumn6.HeaderText = "Qty Ok"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 75
+        Me.DataGridViewTextBoxColumn6.Width = 77
         '
         'DataGridViewTextBoxColumn7
         '
         Me.DataGridViewTextBoxColumn7.HeaderText = "Qty Balance"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 108
+        Me.DataGridViewTextBoxColumn7.Width = 110
         '
         'RecAdd
         '
         Me.RecAdd.HeaderText = "RecAdd"
         Me.RecAdd.Name = "RecAdd"
         Me.RecAdd.ReadOnly = True
-        Me.RecAdd.Width = 81
+        Me.RecAdd.Width = 83
         '
         'label17
         '
@@ -690,9 +691,9 @@ Partial Class FrmInvoiceEntry
         Me.label17.Location = New System.Drawing.Point(4, 10)
         Me.label17.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.label17.Name = "label17"
-        Me.label17.Size = New System.Drawing.Size(74, 16)
+        Me.label17.Size = New System.Drawing.Size(79, 16)
         Me.label17.TabIndex = 186
-        Me.label17.Text = "Delivery Id"
+        Me.label17.Text = "*Delivery Id"
         '
         'txtDeliveryID
         '

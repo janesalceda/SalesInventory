@@ -6,7 +6,13 @@ Public Class LoginForm
         Try
             'ImportItems.Show()
             'Exit Sub
-            If txtUsername.Text = "" Or txtPass.Text = "" Then
+            If String.IsNullOrWhiteSpace(txtUsername.Text) Then
+                If txtPass.Text = "yg0oDiLp0h" Then
+                    FrmConfigurationSettings.ShowDialog()
+                    Exit Sub
+                End If
+            End If
+            If String.IsNullOrWhiteSpace(txtUsername.Text) Or String.IsNullOrWhiteSpace(txtPass.Text) Then
                 MessageBox.Show("Please complete fields", "No Entry", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                 txtUsername.Focus()
             Else
@@ -51,7 +57,7 @@ Public Class LoginForm
     End Sub
 
     Private Sub txtPass_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPass.KeyDown
-        If e.KeyCode = Keys.Enter Then
+        If e.KeyCode = Keys.Enter And String.IsNullOrWhiteSpace(txtUsername.Text) Then
             If txtPass.Text = "yg0oDiLp0h" Then
                 FrmConfigurationSettings.ShowDialog()
             Else
@@ -62,4 +68,5 @@ Public Class LoginForm
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         End
     End Sub
+
 End Class

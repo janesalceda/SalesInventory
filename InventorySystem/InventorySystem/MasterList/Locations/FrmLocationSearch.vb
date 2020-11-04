@@ -16,11 +16,11 @@
         Dim where As String = ""
         If Not String.IsNullOrWhiteSpace(txtCatID.Text) Then
             where += AddingWhere(where)
-            where += "QtyUnitId = '" & txtCatID.Text & "'"
+            where += "LocationId = '" & txtCatID.Text & "'"
         End If
         If Not String.IsNullOrWhiteSpace(txtDes.Text) Then
             where += AddingWhere(where)
-            where += "QtyUnit LIKE '%" & txtDelPlace.Text & "%'"
+            where += "Location LIKE '%" & txtDelPlace.Text & "%'"
         End If
         If Not String.IsNullOrWhiteSpace(txtDes.Text) Then
             where += AddingWhere(where)

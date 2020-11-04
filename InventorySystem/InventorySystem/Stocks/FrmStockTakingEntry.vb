@@ -169,20 +169,24 @@
                     SQL.AddParams("@totalamount", txtTotalAmount.Text)
                     SQL.AddParams("@remarks", txtRemarks.Text)
                     SQL.ExecQuery("INSERT INTO dbo.StockTakingHeaders
-	            (STID,CountedDate,EncodedStaff,TotalAmount,Remarks,ApprovedBy,UpdatedBy)
-            VALUES((SELECT CASE WHEN max(STID) IS NULL 
-                    THEN 'ST' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN right(max(STID),len(max(STID))-CHARINDEX('-',max(STID))) + 1<10
-                    THEN 'ST' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(STID),len(max(STID))-CHARINDEX('-',max(STID))) +1 as varchar)
-                    ELSE 'ST' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(STID),len(max(STID))-CHARINDEX('-',max(STID))) +1 as varchar)
-                    END END AS 'pomax' from StockTakingHeaders),@counteddate,@encodedstaff,@totalamount,@remarks,NULL,@encodedstaff)")
+	                    (STID,CountedDate,EncodedStaff,TotalAmount,Remarks,ApprovedBy,UpdatedBy)
+                                VALUES((select 'ST'+replace(convert(date,GETDATE()),'-','') +'-'+ NUM AS 'pomax' FROM
+                                (select CASE WHEN (count(*)+1)<10 THEN '0' + CAST(COUNT(*)+1 AS VARCHAR) 
+                                ELSE CAST(COUNT(*)+1 AS VARCHAR) END 'num' 
+                                from StockTakingHeaders where convert(date,createddate)=convert(date,getdate()))A ),@counteddate,@encodedstaff,@totalamount,@remarks,NULL,@encodedstaff)")
                     If SQL.HasException Then
                         MsgBox("Error in saving", MsgBoxStyle.Critical, "Error")
                         Exit Sub
                     End If
-
+                    Dim itemids As String = ""
+                    If String.IsNullOrWhiteSpace(txtStockTakingID.Text) Then
+                        SQL.ExecQuery("select top 1 STID from StockTakingHeaders order by createddate desc ")
+                        itemids = SQL.DBDT.Rows(0).Item(0)
+                    Else
+                        itemids = txtStockTakingID.Text
+                    End If
                     For i As Integer = 0 To dtableStockTaking.Rows.Count - 1
-                        SQL.AddParams("@stid", txtStockTakingID.Text)
+                        SQL.AddParams("@stid", itemids)
                         SQL.AddParams("@itemid", dtableStockTaking.Rows(i).Cells(1).Value.ToString())
                         SQL.AddParams("@qty", dtableStockTaking.Rows(i).Cells(3).Value.ToString())
                         SQL.AddParams("@ClientUnitprice", dtableStockTaking.Rows(i).Cells(4).Value.ToString())
@@ -191,7 +195,7 @@
                         SQL.AddParams("@updatedby", moduleId)
                         SQL.ExecQuery("INSERT INTO dbo.StockTakingDetails
 	                (STID,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
-                VALUES((select max(stid) from StockTakingHeaders),
+                VALUES(@stid,
                     @itemid,
                     @qty,
                     @ClientUnitprice,

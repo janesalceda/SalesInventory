@@ -178,7 +178,7 @@ Public Class FrmPurchaseOrderEntry
                     SQL.AddParams("@UpdatedBy", moduleId)
                     SQL.ExecQuery("UPDATE dbo.POHeaders
                 SET SupplierID = @supplierid,
-	                CurrencyUnitId =(select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid),
+	                CurrencyUnitId =(select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid and deleteddate is null),
 	                IssuedDate = @issueddate,
 	                TermOfDeliveryId = @termofdeliveryid,
 	                TermOfPaymentId = @termofpaymentid,
@@ -222,9 +222,9 @@ Public Class FrmPurchaseOrderEntry
 	                            ReceivedAllInvoices = @receivedallinvoices,
 	                            Canceled = @canceled,
 	                            Qty = @qty,
-	                            QtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
+	                            QtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit and deleteddate is null),
 	                            EquivalentQty = @equivalentqty,
-	                            EquivalentQtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
+	                            EquivalentQtyUnit = (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit and deleteddate is null),
 	                            SupplierUnitPrice = @supunitprice,
 	                            ClientUnitPrice = @cliunitprice,
 	                            UpdatedDate = getdate(),
@@ -272,7 +272,7 @@ Public Class FrmPurchaseOrderEntry
 	                    )
                     VALUES 
 	                    (
-	                    (select max(pono) from poheaders),
+	                    (select top 1 pono from poheaders),
 	                    @itemid,
 	                    @etddate,
 	                    @etadate,
@@ -281,9 +281,9 @@ Public Class FrmPurchaseOrderEntry
 	                    @canceled,
 	                    @podetailseq,
 	                    @qty,
-	                    (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
+	                    (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit and deleteddate is null),
 	                    @equivalentqty,
-	                    (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
+	                    (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit and deleteddate is null),
 	                    @supunitprice,
                         @cliunitprice,
 	                    @updatedby
@@ -314,14 +314,13 @@ Public Class FrmPurchaseOrderEntry
 	                UpdatedBy
 	                )
                 VALUES 
-	                ((SELECT CASE WHEN max(PONo) IS NULL 
-                    THEN 'PO' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN right(max(PONo),len(max(PONo))-CHARINDEX('-',max(PONo))) + 1<10
-                    THEN 'PO' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(PONo),len(max(PONo))-CHARINDEX('-',max(PONo))) +1 as varchar)
-                    ELSE 'PO' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(PONo),len(max(PONo))-CHARINDEX('-',max(PONo))) +1 as varchar)
-                    END END AS 'pomax' from POHeaders),
+	                ((select 'PO'+replace(convert(date,GETDATE()),'-','') +'-'+ NUM AS 'pomax' FROM
+                        (select CASE WHEN (count(*)+1)<10 THEN '0' + CAST(COUNT(*)+1 AS VARCHAR) 
+                        ELSE CAST(COUNT(*)+1 AS VARCHAR) END 'num' 
+                        from POHeaders where convert(date,createddate)=convert(date,getdate()))A
+					),
 	                @supplierid,
-                    (select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid),
+                    (select CurrencyUnitId from CurrencyUnits where CurrencyUnit=@currencyunitid and deleteddate is null),
 	                @issueddate,
 	                @termofdeliveryid,
 	                @termofpaymentid,
@@ -338,8 +337,15 @@ Public Class FrmPurchaseOrderEntry
                         msgboxDisplay("Error in saving", 3)
                         Exit Sub
                     End If
-
+                    Dim itemids As String = ""
+                    If String.IsNullOrWhiteSpace(txtPONo.Text) Then
+                        SQL.ExecQuery("select top 1 pono from poheaders order by createddate desc")
+                        itemids = SQL.DBDT.Rows(0).Item(0)
+                    Else
+                        itemids = txtPONo.Text
+                    End If
                     For i As Integer = 0 To dtablePoDetails.Rows.Count - 1
+                        SQL.AddParams("@pono", itemids)
                         SQL.AddParams("@itemid", dtablePoDetails.Rows(i).Cells(1).Value.ToString())
                         SQL.AddParams("@etddate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(9).Value.ToString()))
                         SQL.AddParams("@etadate", Convert.ToDateTime(dtablePoDetails.Rows(i).Cells(10).Value.ToString()))
@@ -374,8 +380,7 @@ Public Class FrmPurchaseOrderEntry
 	                    UpdatedBy
 	                    )
                     VALUES 
-	                    (
-	                    (select max(pono) from poheaders),
+	                    (@pono,
 	                    @itemid,
 	                    @etddate,
 	                    @etadate,
@@ -384,9 +389,9 @@ Public Class FrmPurchaseOrderEntry
 	                    @canceled,
 	                    @podetailseq,
 	                    @qty,
-	                    (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit),
+	                    (select QtyUnitId from QtyUnits where QtyUnit=@qtyunit and deleteddate is null),
 	                    @equivalentqty,
-	                    (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit),
+	                    (select QtyUnitId from QtyUnits where QtyUnit=@equivalentqtyunit and deleteddate is null),
 	                    @supunitprice,
 	                    @cliunitprice,
 	                    @updatedby
@@ -600,8 +605,8 @@ Public Class FrmPurchaseOrderEntry
         SQL.AddParams("@ItemId", ItemId)
         SQL.AddParams("@IssuedDate", IssuedDate)
         SQL.ExecQuery("SELECT top 1 i.Description,
-            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit and i.ItemId=@ItemId) 'Client',
-            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',
+            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit and i.ItemId=@ItemId and q.deleteddate is null) 'Client',
+            ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId and q.deleteddate is null) 'Supplier',
             ConvertingCoefficient,
             UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q 
             where convert(VARCHAR(10),s.AppliedDate,111)<=@IssuedDate and i.ItemId=@ItemId order by AppliedDate desc")
@@ -622,7 +627,7 @@ Public Class FrmPurchaseOrderEntry
 
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Button1.Text = "PRINT"
+        Button1.Text = "Please wait ..."
         Button1.Enabled = False
         loadReport()
     End Sub
@@ -639,7 +644,7 @@ Public Class FrmPurchaseOrderEntry
                     Dim dt As New DataTable
                     Dim ds As New DataSet1
                     SQL.AddParams("@PONo", txtPONo.Text)
-                    SQL.ExecQuery("SELECT pod.ItemId ,i.Description,pod.SupplierUnitPrice,pod.EquivalentQty,(pod.EquivalentQty*pod.SupplierUnitPrice) AS 'Total',
+                    SQL.ExecQuery("SELECT pod.ItemId ,i.Description,pod.SupplierUnitPrice,pod.EquivalentQty 'Qty',(pod.EquivalentQty*pod.SupplierUnitPrice) AS 'Total',
                     poh.PONo,convert(varchar(10),poh.IssuedDate,111) 'IssuedDate',pod.SupplierUnitPrice,poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,poh.Remarks,
                     dp.Description AS DeliveryPlaces,td.Description AS TermsOfDelivery,tp.Description AS TermsOfPayment	
                     ,e.EmployeeName 'Encoder', CompanyName,StreetAdress,CityZip,a.Phone 'CompPhone',a.Fax'CompFax',website,CompanyLogo	
@@ -670,7 +675,7 @@ Public Class FrmPurchaseOrderEntry
                 'End With
             Finally
                 Button1.Text = "PRINT"
-                Button1.Enabled = False
+                Button1.Enabled = True
             End Try
 
             'dt = ds.Tables("PODetails")

@@ -46,10 +46,14 @@
         LoadDataGrid()
     End Sub
     Private Sub FindItem()
-        SQL.AddParams("@user", "'%" & txtSearch.Text & "%'")
+        Dim whereis As String = ""
+        If Not String.IsNullOrEmpty(txtSearch.Text) Then
+            SQL.AddParams("@user", "'%" & txtSearch.Text & "%'")
+            whereis = "where EmployeeName Like @user;"
+        End If
         LoadDataGrid("SELECT EmpId, EmployeeName, ul.UserLevel,u.deletedDate FROM Users u 
             INNER JOIN Employees e ON u.UserID=e.EmpId
-            inner join UserLevel ul on ul.UserLevelId=u.UserLevelId where employeeName like @user;")
+            inner join UserLevel ul on ul.UserLevelId=u.UserLevelId " & whereis)
     End Sub
 
     Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click

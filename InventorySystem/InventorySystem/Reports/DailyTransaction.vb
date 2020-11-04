@@ -13,7 +13,7 @@ Public Class DailyTransaction
                 Dim ds As New DataSet1
 
                 SQL.AddParams("@from", DateTimePicker1.Value.ToString("yyyy/MM/dd"))
-                SQL.ExecQuery("SELECT *,@from as 'TransactionDate',(select Companylogo from companyinfo)
+                SQL.ExecQuery("SELECT *,@from as 'TransactionDate',(select Companylogo from companyinfo)'Companylogo'
                      FROM dbo.GetDailyTransaction (@from)")
                 If SQL.DBDT.Rows.Count = 0 Then
                     msgboxDisplay("No Record Found", 1)

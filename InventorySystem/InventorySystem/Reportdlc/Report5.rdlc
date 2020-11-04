@@ -12,7 +12,7 @@
               <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.2949cm</Width>
+              <Width>5.98823cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.00271cm</Width>
@@ -254,7 +254,7 @@
                             <TextRun>
                               <Value>=RowNumber(Nothing)</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -288,7 +288,7 @@
                             <TextRun>
                               <Value>=Fields!ItemId.Value</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -322,7 +322,7 @@
                             <TextRun>
                               <Value>=Fields!Description.Value</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -356,7 +356,7 @@
                             <TextRun>
                               <Value>=Fields!StockOutCode.Value</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -390,7 +390,7 @@
                             <TextRun>
                               <Value>=Fields!ItemSeq.Value</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -424,7 +424,7 @@
                             <TextRun>
                               <Value>=Fields!QtyOut.Value</Value>
                               <Style>
-                                <FontSize>11pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -473,7 +473,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
         <Height>1.2cm</Height>
-        <Width>16.51cm</Width>
+        <Width>18.20333cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -484,10 +484,10 @@
     <Height>0.47244in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>7.16667in</Width>
   <Page>
     <PageHeader>
-      <Height>3.5337cm</Height>
+      <Height>3.80773cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -512,10 +512,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>1.5875cm</Top>
-          <Left>2.30865cm</Left>
-          <Height>0.86458cm</Height>
-          <Width>11.36354cm</Width>
+          <Top>2.02819cm</Top>
+          <Height>0.81793cm</Height>
+          <Width>18.20333cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -544,7 +543,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DateFrom</rd:DefaultName>
-          <Top>2.85432cm</Top>
+          <Top>3.02251cm</Top>
           <Left>4.0034cm</Left>
           <Height>0.6cm</Height>
           <Width>3.0027cm</Width>
@@ -577,7 +576,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>DateTo</rd:DefaultName>
-          <Top>2.85432cm</Top>
+          <Top>3.02251cm</Top>
           <Left>7.73056cm</Left>
           <Height>0.6cm</Height>
           <Width>5.13906cm</Width>
@@ -610,7 +609,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>2.85432cm</Top>
+          <Top>3.02251cm</Top>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>3</ZIndex>
@@ -642,7 +641,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>2.85432cm</Top>
+          <Top>3.02251cm</Top>
           <Left>2.57056cm</Left>
           <Height>0.6cm</Height>
           <Width>1.25645cm</Width>
@@ -675,7 +674,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>2.85432cm</Top>
+          <Top>3.02251cm</Top>
           <Left>7.0061cm</Left>
           <Height>0.6cm</Height>
           <Width>0.72445cm</Width>
@@ -690,14 +689,26 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line1">
+          <Top>1.92236cm</Top>
+          <Height>0cm</Height>
+          <Width>18.20333cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+              <Width>1.5pt</Width>
+            </Border>
+          </Style>
+        </Line>
         <Image Name="Image1">
           <Source>Database</Source>
           <Value>=First(Fields!CompanyLogo.Value, "DataSet1")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
-          <Height>1.39375cm</Height>
-          <Width>4.8073cm</Width>
-          <ZIndex>6</ZIndex>
+          <Height>1.74597cm</Height>
+          <Width>5.91855cm</Width>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -714,10 +725,10 @@
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1.27cm</LeftMargin>
+    <RightMargin>1.27cm</RightMargin>
+    <TopMargin>1.27cm</TopMargin>
+    <BottomMargin>1.27cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

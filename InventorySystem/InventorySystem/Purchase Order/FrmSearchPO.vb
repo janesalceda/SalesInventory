@@ -127,10 +127,10 @@
         txtPONo.Clear()
         txtSupplier.Clear()
         txtSupplierName.Clear()
-        dtIssuedFrom.Checked = False
         dtIssuedFrom.Value = Today
-        dtIssuedTo.Checked = False
+        dtIssuedFrom.Checked = False
         dtIssuedTo.Value = Today
+        dtIssuedTo.Checked = False
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click

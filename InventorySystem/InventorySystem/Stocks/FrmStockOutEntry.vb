@@ -1,4 +1,5 @@
-﻿Public Class FrmStockOutEntry
+﻿Imports Microsoft.Reporting.WinForms
+Public Class FrmStockOutEntry
     Private DTCount As Integer
     Public cliprice As Decimal
     Public confirm As Boolean = False
@@ -168,17 +169,22 @@
                     SQL.AddParams("@issuedbystaff", txtIssuedBy.Text)
                     SQL.AddParams("@remarks", txtRemarks.Text)
                     SQL.ExecQuery("INSERT INTO dbo.StockOutHeaders
-	        (StockOutCode,StockOutDate,TotalAmount,EncodedStaff,IssuedByStaff,ApprovedBy,Remarks,UpdatedBy)
-        VALUES((SELECT CASE WHEN max(StockOutCode) IS NULL 
-                    THEN 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-                    CASE WHEN right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) + 1<10
-                    THEN 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) +1 as varchar)
-                    ELSE 'SC' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(right(max(StockOutCode),len(max(StockOutCode))-CHARINDEX('-',max(StockOutCode))) +1 as varchar)
-                    END END AS 'pomax' from StockOutHeaders),@stockoutdate,@totalamount,@encodedstaff,@issuedbystaff,NULL,@remarks,@encodedstaff)")
+	                    (StockOutCode,StockOutDate,TotalAmount,EncodedStaff,IssuedByStaff,ApprovedBy,Remarks,UpdatedBy)
+                        VALUES((select 'SC'+replace(convert(date,GETDATE()),'-','') +'-'+ NUM AS 'pomax' FROM
+                            (select CASE WHEN (count(*)+1)<10 THEN '0' + CAST(COUNT(*)+1 AS VARCHAR) 
+                            ELSE CAST(COUNT(*)+1 AS VARCHAR) END 'num' 
+                            from StockOutHeaders where convert(date,createddate)=convert(date,getdate()))A
+                        ),@stockoutdate,@totalamount,@encodedstaff,@issuedbystaff,NULL,@remarks,@encodedstaff)")
                     If SQL.HasException Then Exit Sub
-
+                    Dim itemids As String = ""
+                    If String.IsNullOrWhiteSpace(txtStockOutID.Text) Then
+                        SQL.ExecQuery("select top 1 STID from StockOutHeaders order by createddate desc ")
+                        itemids = SQL.DBDT.Rows(0).Item(0)
+                    Else
+                        itemids = txtStockOutID.Text
+                    End If
                     For i As Integer = 0 To dtableStockout.Rows.Count - 1
-                        SQL.AddParams("@stockoutcode", txtStockOutID.Text)
+                        SQL.AddParams("@stockoutcode", itemids)
                         SQL.AddParams("@itemseq", dtableStockout.Rows(i).Cells(0).Value)
                         SQL.AddParams("@itemid", dtableStockout.Rows(i).Cells(1).Value.ToString())
                         SQL.AddParams("@qty", dtableStockout.Rows(i).Cells(3).Value)
@@ -188,7 +194,7 @@
                         SQL.AddParams("@updatedby", moduleId)
                         SQL.ExecQuery("INSERT INTO dbo.StockOutDetails
 	                    (StockOutCode,ItemSeq,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
-                        VALUES((SELECT max(StockOutCode) from StockOutHeaders),
+                        VALUES(@stockoutcode,
                         @itemseq,@itemid,@qty,@ClientUnitprice,@SupplierUnitprice,
                         @remarks,@updatedby)")
                         If SQL.HasException Then
@@ -199,6 +205,9 @@
                     Next
                 End If
                 MsgBox("Successfully Saved", MsgBoxStyle.Information, "Information")
+                If MsgBox("Do you want to print delivery receipt?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
+                    printDeliveryReceipt()
+                End If
                 If rights = 3 Then
                     AddingData()
                 Else
@@ -209,6 +218,56 @@
         Catch ex As Exception
             msgboxDisplay(ex.Message, 3)
             Exit Sub
+        End Try
+    End Sub
+    Private Sub printDeliveryReceipt()
+        btnSave.Text = "Please wait ..."
+        btnSave.Enabled = False
+        SQL.params.Clear()
+
+        Dim rptDs As ReportDataSource
+        PrintPreview.ReportViewer1.RefreshReport()
+        Try
+            With PrintPreview.ReportViewer1.LocalReport
+                .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report7.rdlc"
+                .DataSources.Clear()
+                Dim dt As New DataTable
+                Dim ds As New DataSet7
+                'SQL.params.Clear()
+                dt = ds.Tables("DataTable1")
+                'SQL.ExecQuery("SELECT * FROM CompanyInfo")
+                'If SQL.HasException Then Exit Sub
+                'If SQL.DBDT.Rows.Count = 0 Then Exit Sub
+                'MsgBox(SQL.DBDT.Rows(0).Item(0))
+                For i = 0 To dtableStockout.Rows.Count - 1
+                    dt.Rows.Add(dtableStockout.Rows(i).Cells(1).Value, dtableStockout.Rows(i).Cells(2).Value,
+                                dtableStockout.Rows(i).Cells(3).Value, dtableStockout.Rows(i).Cells(4).Value,
+                                dtableStockout.Rows(i).Cells(5).Value, "", dtSOutDate.Value)
+                Next
+                'If dtableStockout.Rows.Count = 0 Then
+                '    MsgBox("No data found!", MsgBoxStyle.Information, "Information")
+                '    Exit Sub
+                'End If
+
+                'SQL.ExecQuery("EXECUTE dbo.DiplayIncomeStatement 
+                '     @TransactedFrom = @from, @TransactedTo =@to ")
+                'If SQL.DBDT.Rows.Count = 0 Then
+                '    msgboxDisplay("No Record Found!", 1)
+                '    Exit Sub
+                'End If
+                rptDs = New ReportDataSource("DataSet1", dt)
+                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+                PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+                PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
+                PrintPreview.ReportViewer1.ZoomPercent = 100
+                PrintPreview.Show()
+            End With
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
+            Exit Sub
+        Finally
+            btnSave.Text = "SAVE"
+            btnSave.Enabled = True
         End Try
     End Sub
 

@@ -120,22 +120,22 @@
             Exit Sub
         End Try
     End Sub
-    Private Sub getDelivery()
-        'del091020-01
-        SQL.ExecQuery("SELECT isnull(max(DeliveryId),0) 'DeliveryIdmax' from InvoiceDeliveryDetails")
-        If SQL.HasException Then Exit Sub
-        Dim result As String
-        If SQL.DBDT.Rows(0).Item(0) = "0" Then
-            result = "001"
-        Else
-            result = SQL.DBDT.Rows(0).Item(0)
-            result = result.Substring(8, 2)
-            result = Format(Val(result + 1), "000")
-        End If
+    'Private Sub getDelivery()
+    '    'del091020-01
+    '    SQL.ExecQuery("SELECT isnull(max(DeliveryId),0) 'DeliveryIdmax' from InvoiceDeliveryDetails")
+    '    If SQL.HasException Then Exit Sub
+    '    Dim result As String
+    '    If SQL.DBDT.Rows(0).Item(0) = "0" Then
+    '        result = "001"
+    '    Else
+    '        result = SQL.DBDT.Rows(0).Item(0)
+    '        result = result.Substring(8, 2)
+    '        result = Format(Val(result + 1), "000")
+    '    End If
 
-        txtDeliveryID.Text = System.DateTime.Today
-        txtDeliveryID.Text = "DEL" & Replace(txtDeliveryID.Text, "/", "", 3) & "-" & result
-    End Sub
+    '    txtDeliveryID.Text = System.DateTime.Today
+    '    txtDeliveryID.Text = "DEL" & Replace(txtDeliveryID.Text, "/", "", 3) & "-" & result
+    'End Sub
     Private Sub AddInvoice_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         TabControl1.SelectedIndex = 1
@@ -161,7 +161,7 @@
     End Sub
 
     Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
-        If dtableInvoice.Rows.Count > 0 Or dtableDelivery.Rows.Count > 0 Then
+        If (dtableInvoice.Rows.Count > 0 Or dtableDelivery.Rows.Count > 0) And Not String.IsNullOrWhiteSpace(txtSupplier.Text) Then
             msgboxDisplay("Cannot modify already have Invoice Details!", 2)
             Exit Sub
         End If
@@ -184,7 +184,7 @@
         If dtableInvoice.Rows.Count > 0 Then
             If btnAddItem.Text = "UPDATE INVOICE" And
                     dtableInvoice.SelectedRows(0).Cells(11).Value = True Or
-                    dtableInvoice.SelectedRows(0).Cells(12).Value = True Then
+                    dtableInvoice.SelectedRows(0).Cells(12).Value = True And Not String.IsNullOrWhiteSpace(txtItemCode.Text) Then
                 MsgBox("Cannot modify already a received", MsgBoxStyle.Exclamation, "Warning")
                 Exit Sub
             End If
@@ -197,7 +197,8 @@
     Private Sub btnPo_Click(sender As Object, e As EventArgs) Handles btnPo.Click
         If Application.OpenForms().OfType(Of PurchaseOrderList).Any Then PurchaseOrderList.Close()
         If dtableDelivery.Rows.Count > 0 Then
-            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And dtableInvoice.SelectedRows(0).Cells(12).Value = True Then
+            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
+                dtableInvoice.SelectedRows(0).Cells(12).Value = True And Not String.IsNullOrWhiteSpace(txtPo.Text) Then
                 msgboxDisplay("Cannot modify already received!", 2)
                 Exit Sub
             End If
@@ -258,12 +259,7 @@
         Try
             SQL.params.Clear()
 
-            SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
-            SQL.ExecQuery("Select * from InvoiceHeaders where InvoiceNo=@InvoiceNo")
-            If SQL.DBDT.Rows.Count > 0 Then
-                msgboxDisplay("Invoice already exists!", 3)
-                Exit Sub
-            End If
+
             SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
             SQL.AddParams("@SupplierId", txtSupplier.Text)
             SQL.AddParams("@ReceivedDate", dtReceived.Value)
@@ -274,6 +270,12 @@
             SQL.AddParams("@ActualETDDate", dtActualETD.Value)
             SQL.AddParams("@UpdatedBy", moduleId)
             If btnSave.Text = "SAVE INVOICE" Then
+                SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
+                SQL.ExecQuery("Select * from InvoiceHeaders where InvoiceNo=@InvoiceNo")
+                If SQL.DBDT.Rows.Count > 0 Then
+                    msgboxDisplay("Invoice already exists!", 3)
+                    Exit Sub
+                End If
                 btnSave.Text = "Please wait ..."
                 btnSave.Enabled = False
                 SQL.ExecQuery("INSERT INTO InvoiceHeaders
@@ -683,7 +685,9 @@
 
     Private Sub btnInsertDel_Click(sender As Object, e As EventArgs) Handles btnInsertDel.Click
         Try
-            If String.IsNullOrEmpty(txtItemDel.Text) Or String.IsNullOrEmpty(txtPoDel.Text) Then
+            If String.IsNullOrEmpty(txtItemDel.Text) Or
+                String.IsNullOrEmpty(txtPoDel.Text) Or
+                String.IsNullOrEmpty(txtDeliveryID.Text) Then
                 MsgBox("Please complete all * important fields!", MsgBoxStyle.Critical, "Error")
                 Exit Sub
             End If
@@ -824,7 +828,8 @@
 
     Private Sub txtSupQty_TextChanged(sender As Object, e As EventArgs) Handles txtSupQty.TextChanged
         If dtableInvoice.Rows.Count > 0 Then
-            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And dtableInvoice.SelectedRows(0).Cells(12).Value = True Then
+            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
+                dtableInvoice.SelectedRows(0).Cells(12).Value = True And Not String.IsNullOrWhiteSpace(txtSupQty.Text) Then
                 msgboxDisplay("Cannot modify already received!", 2)
                 Exit Sub
             End If
@@ -876,7 +881,9 @@
 
     Private Sub txtCliQty_TextChanged(sender As Object, e As EventArgs) Handles txtCliQty.TextChanged
         If dtableInvoice.Rows.Count > 0 Then
-            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And dtableInvoice.SelectedRows(0).Cells(12).Value = True Then
+            If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
+                dtableInvoice.SelectedRows(0).Cells(12).Value = True And
+                Not String.IsNullOrWhiteSpace(txtCliQty.Text) Then
                 msgboxDisplay("Cannot modify already received!", 2)
                 Exit Sub
             End If

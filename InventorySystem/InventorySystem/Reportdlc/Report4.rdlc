@@ -563,10 +563,10 @@
     <Height>0.58914in</Height>
     <Style />
   </Body>
-  <Width>6.5in</Width>
+  <Width>6.52883in</Width>
   <Page>
     <PageHeader>
-      <Height>3.90729cm</Height>
+      <Height>3.80146cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -591,9 +591,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>1.5875cm</Top>
+          <Top>1.96583cm</Top>
           <Left>2.57323cm</Left>
-          <Height>0.86458cm</Height>
+          <Height>0.80375cm</Height>
           <Width>11.36354cm</Width>
           <Style>
             <Border>
@@ -674,8 +674,8 @@
           <Value>=First(Fields!CompanyLogo.Value, "DataSet1")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
-          <Height>1.39375cm</Height>
-          <Width>4.8073cm</Width>
+          <Height>1.74597cm</Height>
+          <Width>5.91855cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -684,6 +684,18 @@
             <PaddingBottom>5pt</PaddingBottom>
           </Style>
         </Image>
+        <Line Name="Line1">
+          <Top>1.86cm</Top>
+          <Height>0cm</Height>
+          <Width>16.51cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+              <Width>1.5pt</Width>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -693,10 +705,10 @@
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1.27cm</LeftMargin>
+    <RightMargin>1.27cm</RightMargin>
+    <TopMargin>1.27cm</TopMargin>
+    <BottomMargin>1.27cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

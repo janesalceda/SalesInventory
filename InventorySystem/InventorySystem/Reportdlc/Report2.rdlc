@@ -177,9 +177,7 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=RowNumber(Nothing)</Value>
-                              <Style>
-                                <FontSize>12pt</FontSize>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -212,7 +210,7 @@
                             <TextRun>
                               <Value>=Fields!ItemId.Value</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -246,7 +244,7 @@
                             <TextRun>
                               <Value>=Fields!Description.Value</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>9pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -280,7 +278,7 @@
                             <TextRun>
                               <Value>=Fields!Qty.Value</Value>
                               <Style>
-                                <FontSize>12pt</FontSize>
+                                <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                                 <Format>0</Format>
                               </Style>
@@ -344,7 +342,7 @@
   <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>3.29585cm</Height>
+      <Height>3.66627cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -369,9 +367,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>1.6637cm</Top>
+          <Top>1.9812cm</Top>
           <Left>3.91738cm</Left>
-          <Height>1.26146cm</Height>
+          <Height>1.18526cm</Height>
           <Width>7.76521cm</Width>
           <Style>
             <Border>
@@ -398,7 +396,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>2.40481cm</Top>
+          <Top>2.72231cm</Top>
           <Left>11.85898cm</Left>
           <Height>0.6cm</Height>
           <Width>0.70463cm</Width>
@@ -429,7 +427,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox10</rd:DefaultName>
-          <Top>1.6637cm</Top>
+          <Top>1.9812cm</Top>
           <Left>11.85898cm</Left>
           <Height>0.6cm</Height>
           <Width>0.70463cm</Width>
@@ -460,7 +458,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>1.6637cm</Top>
+          <Top>1.9812cm</Top>
           <Left>12.74cm</Left>
           <Height>0.6cm</Height>
           <Width>3.77cm</Width>
@@ -490,7 +488,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
-          <Top>2.40481cm</Top>
+          <Top>2.72231cm</Top>
           <Left>12.74cm</Left>
           <Height>0.6cm</Height>
           <Width>3.77cm</Width>
@@ -505,13 +503,13 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Image Name="Image1">
+        <Image Name="Image2">
           <Source>Database</Source>
           <Value>=First(Fields!CompanyLogo.Value, "DataSet1")</Value>
-          <MIMEType>image/jpeg</MIMEType>
+          <MIMEType>image/bmp</MIMEType>
           <Sizing>Fit</Sizing>
-          <Height>1.39375cm</Height>
-          <Width>4.8073cm</Width>
+          <Height>1.74597cm</Height>
+          <Width>5.91855cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -520,6 +518,18 @@
             <PaddingBottom>5pt</PaddingBottom>
           </Style>
         </Image>
+        <Line Name="Line1">
+          <Top>1.86cm</Top>
+          <Height>0cm</Height>
+          <Width>16.51cm</Width>
+          <ZIndex>6</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+              <Width>1.5pt</Width>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -529,10 +539,10 @@
     </PageHeader>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1.27cm</LeftMargin>
+    <RightMargin>1.27cm</RightMargin>
+    <TopMargin>1.27cm</TopMargin>
+    <BottomMargin>1.27cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

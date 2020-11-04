@@ -17,7 +17,7 @@ Public Class FrmStockOutReport
 
                 SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
                 SQL.AddParams("@to", dtTo.Value.ToString("yyyy/MM/dd"))
-                SQL.ExecQuery("SELECT *,@from as 'DateFrom',@to as 'DateTo',(select Companylogo from companyinfo)a FROM dbo.GetStockOut ( @from,@to) ")
+                SQL.ExecQuery("SELECT *,@from as 'DateFrom',@to as 'DateTo',(select Companylogo from companyinfo)'CompanyLogo' FROM dbo.GetStockOut ( @from,@to) ")
                 If SQL.DBDT.Rows.Count = 0 Then
                     msgboxDisplay("No Record Found", 1)
                     Exit Sub

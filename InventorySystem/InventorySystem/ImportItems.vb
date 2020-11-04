@@ -63,72 +63,125 @@ Public Class ImportItems
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
-            Dim Tablename As String = ""
-            If rights = 4 Then
-                Tablename = "itemsForApproval"
-            Else
-                Tablename = "Items"
-            End If
-            For i As Integer = 0 To DataGridview1.Rows.Count - 1
-                SQL.AddParams("@Tablename", Tablename)
-                SQL.AddParams("@description", DataGridView1.Rows(i).Cells(0).Value)
-                SQL.AddParams("@convertingcoefficient", DataGridView1.Rows(i).Cells(1).Value)
-                SQL.AddParams("@location", DataGridView1.Rows(i).Cells(2).Value)
-                SQL.AddParams("@categoryid", DataGridView1.Rows(i).Cells(3).Value)
-                SQL.AddParams("@maxorderqty", DataGridView1.Rows(i).Cells(4).Value)
-                SQL.AddParams("@minimumorderqty", DataGridView1.Rows(i).Cells(5).Value)
-                SQL.AddParams("@orderingpointqty", DataGridView1.Rows(i).Cells(6).Value)
-                SQL.AddParams("@remarks", DataGridView1.Rows(i).Cells(7).Value)
-                SQL.AddParams("@cliunitprice", DataGridView1.Rows(i).Cells(8).Value)
-                SQL.AddParams("@clientqtyunit", DataGridView1.Rows(i).Cells(9).Value)
-                SQL.AddParams("@cliapplieddate", DataGridView1.Rows(i).Cells(10).Value)
-                SQL.AddParams("@supplierid", DataGridView1.Rows(i).Cells(11).Value)
-                SQL.AddParams("@supplieritemid", DataGridView1.Rows(i).Cells(12).Value)
-                SQL.AddParams("@supunitprice", DataGridView1.Rows(i).Cells(13).Value)
-                SQL.AddParams("@supplierqtyunit", DataGridView1.Rows(i).Cells(14).Value)
-                SQL.AddParams("@supapplieddate", DataGridView1.Rows(i).Cells(15).Value)
-                SQL.AddParams("@updatedby", moduleId)
-                SQL.ExecQuery("
+            If MsgBox("Are you sure you want to save?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
+                Dim Tablename As String = ""
+                If rights = 4 Then
+                    Tablename = "itemsForApproval"
+                Else
+                    Tablename = "Items"
+                End If
+                Dim strSTID As String = ""
+                SQL.ExecQuery("select 'ST'+replace(convert(date,GETDATE()),'-','') +'-'+ NUM AS 'pomax' FROM
+                    (select CASE WHEN (count(*)+1)<10 THEN '0' + CAST(COUNT(*)+1 AS VARCHAR) 
+                    ELSE CAST(COUNT(*)+1 AS VARCHAR) END 'num' 
+                    from StockTakingHeaders where convert(date,createddate)=convert(date,getdate()))As")
+                If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
+                strSTID = SQL.DBDT.Rows(0).Item(0)
+
+
+                For i As Integer = 0 To DataGridView1.Rows.Count - 1
+                    SQL.AddParams("@Tablename", Tablename)
+                    SQL.AddParams("@description", DataGridView1.Rows(i).Cells(0).Value)
+                    SQL.AddParams("@convertingcoefficient", DataGridView1.Rows(i).Cells(1).Value)
+                    SQL.AddParams("@location", DataGridView1.Rows(i).Cells(2).Value)
+                    SQL.AddParams("@categoryid", DataGridView1.Rows(i).Cells(3).Value)
+                    SQL.AddParams("@maxorderqty", DataGridView1.Rows(i).Cells(4).Value)
+                    SQL.AddParams("@minimumorderqty", DataGridView1.Rows(i).Cells(5).Value)
+                    SQL.AddParams("@orderingpointqty", DataGridView1.Rows(i).Cells(6).Value)
+                    SQL.AddParams("@remarks", DataGridView1.Rows(i).Cells(7).Value)
+                    SQL.AddParams("@cliunitprice", DataGridView1.Rows(i).Cells(8).Value)
+                    SQL.AddParams("@clientqtyunit", DataGridView1.Rows(i).Cells(9).Value)
+                    SQL.AddParams("@cliapplieddate", DataGridView1.Rows(i).Cells(10).Value)
+                    SQL.AddParams("@supplierid", DataGridView1.Rows(i).Cells(11).Value)
+                    SQL.AddParams("@supplieritemid", DataGridView1.Rows(i).Cells(12).Value)
+                    SQL.AddParams("@supunitprice", DataGridView1.Rows(i).Cells(13).Value)
+                    SQL.AddParams("@supplierqtyunit", DataGridView1.Rows(i).Cells(14).Value)
+                    SQL.AddParams("@supapplieddate", DataGridView1.Rows(i).Cells(15).Value)
+                    SQL.AddParams("@updatedby", moduleId)
+                    SQL.ExecQuery("
             INSERT INTO " & Tablename & "
 	            (ItemId,Description,ConvertingCoefficient,CategoryID,ClientQtyUnit,SupplierQtyUnit,
 	            Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
             VALUES 
-	            ((SELECT CASE WHEN GItemID IS NULL 
-                    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-	                CASE when (GItemID + 1)<10
-	                THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(GItemID +1 as varchar)
-	                ELSE 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(GItemID +1 as varchar)
-	                END END AS 'pomax' from(
-	    	            select
-		                    case when
-		                    isnull((select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from items),0)>
-		                    isnull((select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from itemsforapproval),0)
-		                    then (select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from items) else 
-		                    (select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) 
-		                    from itemsforapproval) end 'GItemID')a
+	            ((select CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
+                    ELSE CAST(num+1 AS VARCHAR) END 'num' from
+                    (SELECT(select count(*) from items where convert(date,createddate)=convert(date,getdate())) +
+                    (select count(*) from ItemsForApproval where convert(date,createddate)=convert(date,getdate()))
+                    'num')a
                                         ),
                 @description,@convertingcoefficient,
-                (Select CategoryID from categories where categoryname=@categoryid),
-                (Select QtyUnitID from QtyUnits where QtyUnit=@clientqtyunit),
-                (Select QtyUnitID from QtyUnits where QtyUnit=@supplierqtyunit),
-	            (Select LocationID from Locations where Location=@location),
+                (Select CategoryID from categories where categoryname=@categoryid and deleteddate is null),
+                (Select QtyUnitID from QtyUnits where QtyUnit=@clientqtyunit and deleteddate is null),
+                (Select QtyUnitID from QtyUnits where QtyUnit=@supplierqtyunit and deleteddate is null),
+	            (Select LocationID from Locations where Location=@location and deleteddate is null),
                 @maxorderqty,@orderingpointqty,@minimumorderqty,@remarks,@updatedby);
 
-            INSERT INTO dbo.SupplierItemPrices
-	            (ItemId,
-                SupplierId,
-                SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
-            VALUES 
-	            ((SELECT max(Itemid) FROM " & Tablename & "),
-                (Select SupplierId from suppliers where supplierid=@supplierid),@supplieritemid,@supapplieddate,@supunitprice,NULL,@updatedby);
             INSERT INTO dbo.ClientItemPrices
 	            (ItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
             VALUES 
 	            ((SELECT max(Itemid) FROM " & Tablename & "),@cliapplieddate,@cliunitprice,NULL,@updatedby)")
-            Next
-            If SQL.HasException Then
-                msgboxDisplay("Error in saving data please check csv data", 3)
-                Exit Sub
+
+                    If Not String.IsNullOrWhiteSpace(DataGridView1.Rows(i).Cells(11).Value) Then
+                        SQL.AddParams("@Tablename", Tablename)
+                        SQL.AddParams("@description", DataGridView1.Rows(i).Cells(0).Value)
+                        SQL.AddParams("@convertingcoefficient", DataGridView1.Rows(i).Cells(1).Value)
+                        SQL.AddParams("@location", DataGridView1.Rows(i).Cells(2).Value)
+                        SQL.AddParams("@categoryid", DataGridView1.Rows(i).Cells(3).Value)
+                        SQL.AddParams("@maxorderqty", DataGridView1.Rows(i).Cells(4).Value)
+                        SQL.AddParams("@minimumorderqty", DataGridView1.Rows(i).Cells(5).Value)
+                        SQL.AddParams("@orderingpointqty", DataGridView1.Rows(i).Cells(6).Value)
+                        SQL.AddParams("@remarks", DataGridView1.Rows(i).Cells(7).Value)
+                        SQL.AddParams("@cliunitprice", DataGridView1.Rows(i).Cells(8).Value)
+                        SQL.AddParams("@clientqtyunit", DataGridView1.Rows(i).Cells(9).Value)
+                        SQL.AddParams("@cliapplieddate", DataGridView1.Rows(i).Cells(10).Value)
+                        SQL.AddParams("@supplierid", DataGridView1.Rows(i).Cells(11).Value)
+                        SQL.AddParams("@supplieritemid", DataGridView1.Rows(i).Cells(12).Value)
+                        SQL.AddParams("@supunitprice", DataGridView1.Rows(i).Cells(13).Value)
+                        SQL.AddParams("@supplierqtyunit", DataGridView1.Rows(i).Cells(14).Value)
+                        SQL.AddParams("@supapplieddate", DataGridView1.Rows(i).Cells(15).Value)
+                        SQL.AddParams("@updatedby", moduleId)
+                        SQL.ExecQuery("INSERT INTO dbo.SupplierItemPrices
+	                (ItemId,
+                    SupplierId,
+                    SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
+                VALUES 
+	                ((SELECT max(Itemid) FROM " & Tablename & "),
+                    (Select SupplierId from suppliers where supplierid=@supplierid),@supplieritemid,@supapplieddate,@supunitprice,NULL,@updatedby);
+                ")
+
+
+                        '    SQL.AddParams("@stid", strSTID)
+                        '    SQL.AddParams("@qty", DataGridView1.Rows(i).Cells(16).Value)
+                        '    SQL.AddParams("@SupplierUnitprice", DataGridView1.Rows(i).Cells(13).Value)
+                        '    SQL.AddParams("@cliunitprice", DataGridView1.Rows(i).Cells(8).Value)
+                        '    SQL.AddParams("@remarks", DataGridView1.Rows(i).Cells(7).Value)
+                        '    SQL.AddParams("@updatedby", moduleId)
+                        '    SQL.ExecQuery("INSERT INTO dbo.StockTakingDetails
+                        ' (STID,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
+                        'VALUES(@stid,
+                        '    (SELECT max(Itemid) FROM " & Tablename & "),
+                        '    @qty,
+                        '    @ClientUnitprice,
+                        '    @SupplierUnitprice,
+                        '    @remarks,
+                        '    @updatedby)")
+                    End If
+                    If SQL.HasException Then
+                        msgboxDisplay("Error in saving data please check csv data", 3)
+                        Exit Sub
+                    End If
+                Next
+                'SQL.AddParams("@Stid", strSTID)
+                'SQL.AddParams("@encodedstaff", moduleId)
+                'SQL.AddParams("@totalamount", txtTotalAmount.Text)
+                'SQL.ExecQuery("INSERT INTO dbo.StockTakingHeaders
+                ' (STID,CountedDate,EncodedStaff,TotalAmount,Remarks,ApprovedBy,UpdatedBy)
+                'VALUES(@Stid,getdate(),@encodedstaff,@totalamount,NULL,NULL,@encodedstaff)")
+                If SQL.HasException Then
+                    msgboxDisplay("Error in saving data please check csv data", 3)
+                    Exit Sub
+                End If
+                msgboxDisplay("Successfully Saved", 1)
             End If
         Catch ex As Exception
             msgboxDisplay(ex.Message, 3)

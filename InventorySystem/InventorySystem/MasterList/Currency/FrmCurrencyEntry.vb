@@ -39,9 +39,13 @@
             strcomplete += "*AmountRound"
 
         End If
-        msgboxDisplay(strcomplete, 2)
-        ExecuteQueries(btnInsert.Text)
-        Me.Close()
+        If strcomplete = "Please complete the ff: " & vbNewLine Then
+            ExecuteQueries(btnInsert.Text)
+            Me.Close()
+        Else
+            msgboxDisplay(strcomplete, 2)
+            Exit Sub
+        End If
     End Sub
 
     Private Sub FrmCurrencyEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load

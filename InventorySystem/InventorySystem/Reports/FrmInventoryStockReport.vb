@@ -210,11 +210,17 @@ Public Class FrmInventoryStockReport
                 'FROM Items i
                 ' LEFT JOIN (SELECT * FROM GetStockBalance(@from)) AS test
                 ' ON test.ItemId = i.ItemId where i.deletedDate is null")
+                Dim pict As New PictureBox
+                SQL.ExecQuery("SELECT CompanyLogo FROM CompanyInfo")
+                Dim picbyte() As Byte = SQL.DBDT.Rows(0).Item("CompanyLogo")
+                Dim pic As New System.IO.MemoryStream(picbyte)
+                pict.Image = Image.FromStream(pic)
+                pic.Close()
                 For i = 0 To dgvData.Rows.Count - 1
                     dt.Rows.Add(txtitem.Text, Convert.ToDateTime(dgvData.Rows(i).Cells(0).Value).ToShortDateString,
                                 dgvData.Rows(i).Cells(1).Value, dgvData.Rows(i).Cells(2).Value,
                                 dgvData.Rows(i).Cells(3).Value, dgvData.Rows(i).Cells(4).Value,
-                                dgvData.Rows(i).Cells(5).Value, dgvData.Rows(i).Cells(6).Value)
+                                dgvData.Rows(i).Cells(5).Value, dgvData.Rows(i).Cells(6).Value, pict.Image)
                 Next
                 If dgvData.Rows.Count = 0 Then
                     MsgBox("No data found!", MsgBoxStyle.Information, "Information")
@@ -222,9 +228,7 @@ Public Class FrmInventoryStockReport
                 End If
                 rptDs = New ReportDataSource("DataSet1", dt)
                 PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                SQL.ExecQuery("SELECT * FROM CompanyInfo")
-                rptDs = New ReportDataSource("DataSet2", SQL.DBDT)
-                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
+
                 PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
                 PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
                 PrintPreview.ReportViewer1.ZoomPercent = 100

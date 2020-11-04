@@ -25,7 +25,7 @@ Public Class ItemStockReport
                 SQL.ExecQuery("
                     SELECT i.itemid,i.Description,
                     isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)'qty',
-                    MinimumOrderQty,OrderingPointQty, (select Companylogo from companyinfo) a
+                    MinimumOrderQty,OrderingPointQty, (select Companylogo from companyinfo) 'Companylogo'
                     FROM Items i
                                      where i.deletedDate is null " & where)
                 If SQL.DBDT.Rows.Count = 0 Then

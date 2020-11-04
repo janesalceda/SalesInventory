@@ -352,14 +352,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TotalAmount">
+                    <Textbox Name="Total">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalAmount.Value</Value>
+                              <Value>=Fields!Total.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <Format>00.00</Format>
@@ -369,7 +369,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TotalAmount</rd:DefaultName>
+                      <rd:DefaultName>Total</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -466,7 +466,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Qty.Value, "PODataSet")</Value>
+                              <Value>=Sum(Fields!Qty.Value)</Value>
                               <Style>
                                 <Format>0</Format>
                               </Style>
@@ -485,7 +485,7 @@
                           <Width>2pt</Width>
                         </BottomBorder>
                         <LeftBorder>
-                          <Color>White</Color>
+                          <Color>Black</Color>
                         </LeftBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -532,14 +532,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox38">
+                    <Textbox Name="TotalAmount">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Sum(Fields!Total.Value, "PODataSet")</Value>
+                              <Value>=sum(Fields!Total.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -550,7 +550,7 @@
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox38</rd:DefaultName>
+                      <rd:DefaultName>TotalAmount</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -1162,8 +1162,8 @@
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Left>0.06675cm</Left>
-          <Height>1.39375cm</Height>
-          <Width>4.8073cm</Width>
+          <Height>1.74597cm</Height>
+          <Width>5.91855cm</Width>
           <ZIndex>16</ZIndex>
           <Style>
             <Border>
@@ -1538,10 +1538,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1.27cm</LeftMargin>
+    <RightMargin>1.27cm</RightMargin>
+    <TopMargin>1.27cm</TopMargin>
+    <BottomMargin>1.27cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

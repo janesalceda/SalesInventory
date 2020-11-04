@@ -58,6 +58,7 @@ Partial Class FrmStockOutEntry
         Me.Label6 = New System.Windows.Forms.Label()
         Me.txtTotalAmount = New System.Windows.Forms.TextBox()
         Me.BTNLogout = New System.Windows.Forms.Button()
+        Me.btnReport = New System.Windows.Forms.Button()
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -219,6 +220,7 @@ Partial Class FrmStockOutEntry
         Me.SupplierItemPrice.HeaderText = "SupplierItemPrice"
         Me.SupplierItemPrice.Name = "SupplierItemPrice"
         Me.SupplierItemPrice.ReadOnly = True
+        Me.SupplierItemPrice.Visible = False
         Me.SupplierItemPrice.Width = 143
         '
         'txtRemarks
@@ -443,7 +445,7 @@ Partial Class FrmStockOutEntry
         Me.BTNLogout.BackColor = System.Drawing.Color.DarkGray
         Me.BTNLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BTNLogout.Font = New System.Drawing.Font("Arial", 10.0!)
-        Me.BTNLogout.Location = New System.Drawing.Point(821, 11)
+        Me.BTNLogout.Location = New System.Drawing.Point(821, 47)
         Me.BTNLogout.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
         Me.BTNLogout.Name = "BTNLogout"
         Me.BTNLogout.Size = New System.Drawing.Size(90, 25)
@@ -452,12 +454,27 @@ Partial Class FrmStockOutEntry
         Me.BTNLogout.UseVisualStyleBackColor = False
         Me.BTNLogout.Visible = False
         '
+        'btnReport
+        '
+        Me.btnReport.BackColor = System.Drawing.Color.DarkGray
+        Me.btnReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnReport.Font = New System.Drawing.Font("Arial", 10.0!)
+        Me.btnReport.Location = New System.Drawing.Point(821, 16)
+        Me.btnReport.Margin = New System.Windows.Forms.Padding(2, 3, 2, 3)
+        Me.btnReport.Name = "btnReport"
+        Me.btnReport.Size = New System.Drawing.Size(90, 25)
+        Me.btnReport.TabIndex = 130
+        Me.btnReport.Text = "REPRINT"
+        Me.btnReport.UseVisualStyleBackColor = False
+        Me.btnReport.Visible = False
+        '
         'FrmStockOutEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(917, 409)
+        Me.Controls.Add(Me.btnReport)
         Me.Controls.Add(Me.BTNLogout)
         Me.Controls.Add(Me.txtTotalAmount)
         Me.Controls.Add(Me.Label6)
@@ -514,6 +531,7 @@ Partial Class FrmStockOutEntry
     Friend WithEvents Label6 As Label
     Friend WithEvents txtTotalAmount As TextBox
     Friend WithEvents Label27 As Label
+    Friend WithEvents BTNLogout As Button
     Friend WithEvents Seq As DataGridViewTextBoxColumn
     Friend WithEvents ItemId As DataGridViewTextBoxColumn
     Friend WithEvents ItemName As DataGridViewTextBoxColumn
@@ -522,5 +540,5 @@ Partial Class FrmStockOutEntry
     Friend WithEvents TotalPrice As DataGridViewTextBoxColumn
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents SupplierItemPrice As DataGridViewTextBoxColumn
-    Friend WithEvents BTNLogout As Button
+    Friend WithEvents btnReport As Button
 End Class

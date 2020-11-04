@@ -27,7 +27,7 @@
         End If
         If dtCountedFrom.Checked = True And dtCountedTo.Checked = True Then
             where += AddingWhere(where)
-            where += "convert(VARCHAR(10),StockOutDate,111) BETWEEN '" & dtCountedFrom.Value.ToShortDateString & "' AND '" & dtCountedFrom.Value.ToShortDateString & "'"
+            where += "convert(VARCHAR(10),StockOutDate,111) BETWEEN '" & dtCountedFrom.Value.ToString("yyyy/MM/dd HH:mm:ss") & "' AND '" & dtCountedFrom.Value.ToString("yyyy/MM/dd HH:mm:ss") & "'"
         End If
         'If chkApproved.Checked = True Then
         '    where += AddingWhere(where)

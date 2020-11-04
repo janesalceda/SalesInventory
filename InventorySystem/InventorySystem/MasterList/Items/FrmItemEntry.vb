@@ -92,19 +92,12 @@ Public Class FrmItemEntry
 	                        (ItemId,Description,ConvertingCoefficient,CategoryID,ClientQtyUnit,SupplierQtyUnit,
 	                        Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
                         VALUES 
-	                            ((SELECT CASE WHEN GItemID IS NULL 
-                                                THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
-                                                CASE when (GItemID + 1)<10
-                                                THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') + '-0'+  cast(GItemID +1 as varchar)
-                                                ELSE 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','')+ '-' + cast(GItemID +1 as varchar)
-                                                END END AS 'pomax' from(select
-						                            case when
-						                            isnull((select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from items),0)>
-						                            isnull((select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from itemsforapproval),0)
-						                            then (select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) from items) else 
-						                            (select right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) 
-						                            from itemsforapproval) end 'GItemID')a
-                            ),@description,@convertingcoefficient,@category,@clientqtyunit,@supplierqtyunit,
+	                            ((select CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
+                                    ELSE CAST(num+1 AS VARCHAR) END 'num' from
+                                    (SELECT(select count(*) from items where convert(date,createddate)=convert(date,getdate())) +
+                                    (select count(*) from ItemsForApproval where convert(date,createddate)=convert(date,getdate()))
+                                    'num')a
+                                ),@description,@convertingcoefficient,@category,@clientqtyunit,@supplierqtyunit,
 	                        @location,@maxorderqty,@orderingpointqty,@minimumorderqty,@remarks,@updatedby)")
 
                     '(SELECT CASE WHEN max(ITEMID) IS NULL 
@@ -118,7 +111,7 @@ Public Class FrmItemEntry
                 End If
                 Dim itemids As String = ""
                 If String.IsNullOrWhiteSpace(txtItemId.Text) Then
-                    SQL.ExecQuery("Select max(itemid) from " & TableName)
+                    SQL.ExecQuery("select top 1 itemid from items order by createddate desc ")
                     itemids = SQL.DBDT.Rows(0).Item(0)
                 Else
                     itemids = txtItemId.Text

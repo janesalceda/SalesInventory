@@ -1,6 +1,6 @@
 ﻿Public Class FrmSupplierSearch
     Public Sub LoadDataGrid(Optional Query As String = "")
-        SQL.ExecQuery("SELECT SupplierID,SupplierName,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM Suppliers " & Query)
+        SQL.ExecQuery("SELECT SupplierID,SupplierName,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM Suppliers " & Query & " order by createddate")
         If SQL.HasException(True) Then Exit Sub
         dtItems.Rows.Clear()
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1

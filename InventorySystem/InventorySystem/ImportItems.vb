@@ -62,9 +62,10 @@ Public Class ImportItems
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim Tablename As String = ""
+        Dim strItems As String = ""
         Try
             If MsgBox("Are you sure you want to save?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
-                Dim Tablename As String = ""
                 If rights = 4 Then
                     Tablename = "itemsForApproval"
                 Else
@@ -74,9 +75,17 @@ Public Class ImportItems
                 SQL.ExecQuery("select 'ST'+replace(convert(date,GETDATE()),'-','') +'-'+ NUM AS 'pomax' FROM
                     (select CASE WHEN (count(*)+1)<10 THEN '0' + CAST(COUNT(*)+1 AS VARCHAR) 
                     ELSE CAST(COUNT(*)+1 AS VARCHAR) END 'num' 
-                    from StockTakingHeaders where convert(date,createddate)=convert(date,getdate()))As")
+                    from StockTakingHeaders where convert(date,createddate)=convert(date,getdate()))A")
                 If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
                 strSTID = SQL.DBDT.Rows(0).Item(0)
+
+                SQL.ExecQuery("select 'IT'+replace(convert(date,GETDATE()),'-','') +'-' + 
+	                CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
+                    ELSE CAST(num+1 AS VARCHAR) END 'num' from
+                    (SELECT(select count(*) from items where convert(date,createddate)=convert(date,getdate())) +
+                    (select count(*) from ItemsForApproval where convert(date,createddate)=convert(date,getdate()))
+                    'num')a")
+                strItems = SQL.DBDT.Rows(0).Item(0)
 
 
                 For i As Integer = 0 To DataGridView1.Rows.Count - 1
@@ -99,11 +108,13 @@ Public Class ImportItems
                     SQL.AddParams("@supapplieddate", DataGridView1.Rows(i).Cells(15).Value)
                     SQL.AddParams("@updatedby", moduleId)
                     SQL.ExecQuery("
+    
             INSERT INTO " & Tablename & "
 	            (ItemId,Description,ConvertingCoefficient,CategoryID,ClientQtyUnit,SupplierQtyUnit,
 	            Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
             VALUES 
-	            ((select CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
+	            ((select 'IT'+replace(convert(date,GETDATE()),'-','') +'-' + 
+	                CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR)    
                     ELSE CAST(num+1 AS VARCHAR) END 'num' from
                     (SELECT(select count(*) from items where convert(date,createddate)=convert(date,getdate())) +
                     (select count(*) from ItemsForApproval where convert(date,createddate)=convert(date,getdate()))
@@ -119,7 +130,7 @@ Public Class ImportItems
             INSERT INTO dbo.ClientItemPrices
 	            (ItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
             VALUES 
-	            ((SELECT max(Itemid) FROM " & Tablename & "),@cliapplieddate,@cliunitprice,NULL,@updatedby)")
+	            ((select top 1 itemid from " & Tablename & " order by createddate desc ),@cliapplieddate,@cliunitprice,NULL,@updatedby)")
 
                     If Not String.IsNullOrWhiteSpace(DataGridView1.Rows(i).Cells(11).Value) Then
                         SQL.AddParams("@Tablename", Tablename)
@@ -145,7 +156,7 @@ Public Class ImportItems
                     SupplierId,
                     SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
                 VALUES 
-	                ((SELECT max(Itemid) FROM " & Tablename & "),
+	                ((select top 1 itemid from " & Tablename & " order by createddate desc ),
                     (Select SupplierId from suppliers where supplierid=@supplierid),@supplieritemid,@supapplieddate,@supunitprice,NULL,@updatedby);
                 ")
 
@@ -167,7 +178,8 @@ Public Class ImportItems
                         '    @updatedby)")
                     End If
                     If SQL.HasException Then
-                        msgboxDisplay("Error in saving data please check csv data", 3)
+                        SQL.ExecQuery("DELETE FROM " & Tablename & " WHERE CreatedDate>=(
+                            SELECT CreatedDate FROM " & Tablename & " WHERE ITEMID='" & strItems & "')")
                         Exit Sub
                     End If
                 Next
@@ -178,12 +190,13 @@ Public Class ImportItems
                 ' (STID,CountedDate,EncodedStaff,TotalAmount,Remarks,ApprovedBy,UpdatedBy)
                 'VALUES(@Stid,getdate(),@encodedstaff,@totalamount,NULL,NULL,@encodedstaff)")
                 If SQL.HasException Then
-                    msgboxDisplay("Error in saving data please check csv data", 3)
                     Exit Sub
                 End If
                 msgboxDisplay("Successfully Saved", 1)
             End If
         Catch ex As Exception
+            SQL.ExecQuery("DELETE FROM " & Tablename & " WHERE CreatedDate>=(
+            SELECT CreatedDate FROM Items	WHERE ITEMID=" & strItems)
             msgboxDisplay(ex.Message, 3)
             Exit Sub
         End Try

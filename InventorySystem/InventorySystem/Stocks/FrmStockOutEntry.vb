@@ -80,8 +80,8 @@ Public Class FrmStockOutEntry
                 row.Add(txtItemCode.Text)
                 row.Add(txtItemName.Text)
                 row.Add(txtQty.Text)
-                row.Add(cliprice)
-                row.Add(Val(txtQty.Text) * cliprice)
+                row.Add(getClientPrice(txtItemCode.Text, dtSOutDate.Value))
+                row.Add(Val(txtQty.Text) * getClientPrice(txtItemCode.Text, dtSOutDate.Value))
                 row.Add(txtSTRemarks.Text)
                 row.Add(getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, ""))
                 dtableStockout.Rows.Add(row.ToArray())
@@ -93,8 +93,8 @@ Public Class FrmStockOutEntry
                     dtableStockout.SelectedRows(0).Cells(1).Value = txtItemCode.Text
                     dtableStockout.SelectedRows(0).Cells(2).Value = txtItemName.Text
                     dtableStockout.SelectedRows(0).Cells(3).Value = txtQty.Text
-                    dtableStockout.SelectedRows(0).Cells(4).Value = cliprice
-                    dtableStockout.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * cliprice
+                    dtableStockout.SelectedRows(0).Cells(4).Value = getClientPrice(txtItemCode.Text, dtSOutDate.Value)
+                    dtableStockout.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * getClientPrice(txtItemCode.Text, dtSOutDate.Value)
                     dtableStockout.SelectedRows(0).Cells(6).Value = txtSTRemarks.Text
                     dtableStockout.SelectedRows(0).Cells(7).Value = getSupplierPrice(txtItemCode.Text, dtSOutDate.Value, "")
                     btnAddItem.Text = "INSERT"
@@ -178,7 +178,7 @@ Public Class FrmStockOutEntry
                     If SQL.HasException Then Exit Sub
                     Dim itemids As String = ""
                     If String.IsNullOrWhiteSpace(txtStockOutID.Text) Then
-                        SQL.ExecQuery("select top 1 STID from StockOutHeaders order by createddate desc ")
+                        SQL.ExecQuery("select top 1 StockOutCode from StockOutHeaders order by createddate desc ")
                         itemids = SQL.DBDT.Rows(0).Item(0)
                     Else
                         itemids = txtStockOutID.Text

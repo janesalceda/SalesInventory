@@ -278,6 +278,15 @@
                 End If
                 btnSave.Text = "Please wait ..."
                 btnSave.Enabled = False
+                SQL.AddParams("@InvoiceNo", txtInvoiceNo.Text)
+                SQL.AddParams("@SupplierId", txtSupplier.Text)
+                SQL.AddParams("@ReceivedDate", dtReceived.Value)
+                SQL.AddParams("@Remarks", txtRemarks.Text)
+                SQL.AddParams("@EncodedStaff", moduleId)
+                SQL.AddParams("@InvoiceDate", DtInvoiceDate.Value)
+                SQL.AddParams("@TotalAmount", txtTotalAmount.Text)
+                SQL.AddParams("@ActualETDDate", dtActualETD.Value)
+                SQL.AddParams("@UpdatedBy", moduleId)
                 SQL.ExecQuery("INSERT INTO InvoiceHeaders
                         (InvoiceNo,
                         SupplierId,

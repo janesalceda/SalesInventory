@@ -5,7 +5,7 @@
             Remarks,st.UpdatedDate,
             CASE WHEN st.UpdatedBy=e.EmpId THEN e.EmployeeName ELSE '' END AS 'UpdatedBy',
             CASE WHEN st.ApprovedBy=e.EmpId THEN e.EmployeeName ELSE 'NOT YET APPROVED' END as 'ApprovedBy' 
-            from ReturnHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where)
+            from ReturnHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where & " order by createddate")
 
         dtableStockTaking.DataSource = Nothing
         If SQL.HasException Then Exit Sub

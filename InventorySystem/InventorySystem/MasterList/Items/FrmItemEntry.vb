@@ -92,7 +92,8 @@ Public Class FrmItemEntry
 	                        (ItemId,Description,ConvertingCoefficient,CategoryID,ClientQtyUnit,SupplierQtyUnit,
 	                        Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
                         VALUES 
-	                            ((select CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
+	                            ((select 'IT'+replace(convert(date,GETDATE()),'-','') +'-' + 
+	                                CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
                                     ELSE CAST(num+1 AS VARCHAR) END 'num' from
                                     (SELECT(select count(*) from items where convert(date,createddate)=convert(date,getdate())) +
                                     (select count(*) from ItemsForApproval where convert(date,createddate)=convert(date,getdate()))

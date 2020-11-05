@@ -18,10 +18,9 @@ Public Class FrmSearchInvoice
                     Exit Sub
                 End If
             Else
-                SQL.ExecQuery("SELECT distinct i.InvoiceNo,i.SupplierId,SupplierName,InvoiceDate,TotalAmount
+                SQL.ExecQuery("SELECT i.InvoiceNo,i.SupplierId,SupplierName,InvoiceDate,TotalAmount
                     FROM InvoiceHeaders i INNER	JOIN suppliers s
-                    ON i.SupplierId=s.SupplierId INNER join  InvoiceDetails  id  ON
-                    id.InvoiceNo=i.InvoiceNo	" & where)
+                    ON i.SupplierId=s.SupplierId " & where & " order by i.createddate")
 
                 dtPoDetails.Rows.Clear()
 

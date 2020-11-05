@@ -17,10 +17,9 @@
                 Exit Sub
             End If
         Else
-            SQL.ExecQuery("SELECT DISTINCT p.PoNo,p.SupplierID,SupplierName,IssuedDate,
+            SQL.ExecQuery("SELECT p.PoNo,p.SupplierID,SupplierName,IssuedDate,
             CASE WHEN p.DeletedDate IS NULL THEN 0 ELSE 1 END Cancelled FROM poheaders p
-            INNER JOIN Suppliers s ON p.SupplierID=s.SupplierId INNER JOIN PoDetails pd
-            ON pd.PoNo=p.PONo " & where)
+            INNER JOIN Suppliers s ON p.SupplierID=s.SupplierId " & where & " order by p.createddate")
             dtPoDetails.Rows.Clear()
             If SQL.RecordCount = 0 Then
                 MsgBox("No Record Found", MsgBoxStyle.Information, "Information")

@@ -57,8 +57,8 @@ Public Class LoginForm
     End Sub
 
     Private Sub txtPass_KeyDown(sender As Object, e As KeyEventArgs) Handles txtPass.KeyDown
-        If e.KeyCode = Keys.Enter And String.IsNullOrWhiteSpace(txtUsername.Text) Then
-            If txtPass.Text = "yg0oDiLp0h" Then
+        If e.KeyCode = Keys.Enter Then
+            If txtPass.Text = "yg0oDiLp0h" And String.IsNullOrWhiteSpace(txtUsername.Text) Then
                 FrmConfigurationSettings.ShowDialog()
             Else
                 btnLogin.PerformClick()

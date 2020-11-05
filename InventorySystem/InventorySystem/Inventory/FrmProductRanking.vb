@@ -45,26 +45,26 @@
                 '      GROUP BY itemId,description" & where)
                 SQL.ExecQuery("select itemId,description,sum(Quantity)'Quantity',sum(TotalSupplier)'TotalSupplier',
                     sum(TotalClient)'TotalClient' FROM (
-                    select i.ItemId,i.Description,isnull(sum(InvoiceDeliveryDetails.QtyOk),0)'Quantity',
-                    isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.SupplierUnitPrice),0)'TotalSupplier',
-                    isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.ClientUnitPrice),0)'TotalClient' 
-                    from items i left join InvoiceDetails
-                    on InvoiceDetails.ItemId=i.itemid
-                    left join InvoiceHeaders on InvoiceHeaders.InvoiceNo=InvoiceDetails.InvoiceNo
-                    left join InvoiceDeliveryDetails
-                    on InvoiceDeliveryDetails.InvoiceNo=InvoiceDetails.InvoiceNo
-                    and InvoiceDeliveryDetails.InvoiceDetailSeq=InvoiceDetails.InvoiceDetailSeq
-                    where InvoiceHeaders.InvoiceDate between @from and @to
-                    group by i.ItemId,i.Description
-                    union all
-                    select i.ItemId,i.Description,isnull(sum(sod.qty),0)'Quantity',
-                    isnull(sum(sod.Qty*sod.SupplierUnitPrice),0)'TotalSupplier',
-                    isnull(sum(sod.Qty*sod.ClientUnitPrice),0)'TotalClient' from
-                    items i left join StockOutDetails sod on i.ItemId=sod.ItemId
-                    left join StockOutHeaders on sod.StockOutCode=StockOutHeaders.StockOutCode
-                    where StockOutHeaders.StockOutDate between @from and @to
-                    group by i.ItemId,i.Description) a
-                    GROUP BY itemId,description" & where)
+                    	select i.ItemId,i.Description,isnull(sum(InvoiceDeliveryDetails.QtyOk),0)'Quantity',
+	                        isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.SupplierUnitPrice),0)'TotalSupplier',
+	                        isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.ClientUnitPrice),0)'TotalClient' 
+	                        from items i left join InvoiceDetails
+	                        on InvoiceDetails.ItemId=i.itemid
+	                        left join InvoiceHeaders on InvoiceHeaders.InvoiceNo=InvoiceDetails.InvoiceNo
+	                        left join InvoiceDeliveryDetails
+	                        on InvoiceDeliveryDetails.InvoiceNo=InvoiceDetails.InvoiceNo
+	                        and InvoiceDeliveryDetails.InvoiceDetailSeq=InvoiceDetails.InvoiceDetailSeq
+                        where convert(varchar(10),InvoiceHeaders.InvoiceDate,111) between @from and @to
+                        group by i.ItemId,i.Description
+                        union all
+                        select i.ItemId,i.Description,isnull(sum(sod.qty),0)'Quantity',
+                        isnull(sum(sod.Qty*sod.SupplierUnitPrice),0)'TotalSupplier',
+                        isnull(sum(sod.Qty*sod.ClientUnitPrice),0)'TotalClient' from
+                        items i left join StockOutDetails sod on i.ItemId=sod.ItemId
+                        left join StockOutHeaders on sod.StockOutCode=StockOutHeaders.StockOutCode
+                        where convert(varchar(10), StockOutHeaders.StockOutDate,111) between @from and @to
+                        group by i.ItemId,i.Description) a
+                        GROUP BY itemId,description" & where)
                 If SQL.HasException Then
                     msgboxDisplay("Error in Viewing Data", 3)
                     Exit Sub
@@ -89,16 +89,16 @@
 
                 'i.ItemId=id.ItemId
                 'group by i.ItemId,i.Description " & where)
-                SQL.ExecQuery(" select i.ItemId,i.Description,isnull(sum(InvoiceDeliveryDetails.QtyOk),0)'Quantity',
-                    isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.SupplierUnitPrice),0)'TotalSupplier',
-                    isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.ClientUnitPrice),0)'TotalClient' 
-                    from items i left join InvoiceDetails
-                    on InvoiceDetails.ItemId=i.itemid
-                    left join InvoiceHeaders on InvoiceHeaders.InvoiceNo=InvoiceDetails.InvoiceNo
-                    left join InvoiceDeliveryDetails
-                    on InvoiceDeliveryDetails.InvoiceNo=InvoiceDetails.InvoiceNo
-                    and InvoiceDeliveryDetails.InvoiceDetailSeq=InvoiceDetails.InvoiceDetailSeq
-                    where InvoiceHeaders.InvoiceDate between @from and @to
+                SQL.ExecQuery("	select i.ItemId,i.Description,isnull(sum(InvoiceDeliveryDetails.QtyOk),0)'Quantity',
+	                    isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.SupplierUnitPrice),0)'TotalSupplier',
+	                    isnull(sum(InvoiceDeliveryDetails.QtyOk*InvoiceDetails.ClientUnitPrice),0)'TotalClient' 
+	                    from items i left join InvoiceDetails
+	                    on InvoiceDetails.ItemId=i.itemid
+	                    left join InvoiceHeaders on InvoiceHeaders.InvoiceNo=InvoiceDetails.InvoiceNo
+	                    left join InvoiceDeliveryDetails
+	                    on InvoiceDeliveryDetails.InvoiceNo=InvoiceDetails.InvoiceNo
+	                    and InvoiceDeliveryDetails.InvoiceDetailSeq=InvoiceDetails.InvoiceDetailSeq
+                    where convert(varchar(10),InvoiceHeaders.InvoiceDate,111) between @from and @to
                     group by i.ItemId,i.Description" & where)
                 If SQL.HasException Then
                     msgboxDisplay("Error in Viewing Data", 3)
@@ -118,12 +118,12 @@
                 '    isnull(sum(sod.Qty*sod.ClientUnitPrice),0)'TotalClient' from
                 '    items i left join StockOutDetails sod on i.ItemId=sod.ItemId
                 '    group by i.ItemId,i.Description" & where)
-                SQL.ExecQuery(" select i.ItemId,i.Description,isnull(sum(sod.qty),0)'Quantity',
+                SQL.ExecQuery("select i.ItemId,i.Description,isnull(sum(sod.qty),0)'Quantity',
                     isnull(sum(sod.Qty*sod.SupplierUnitPrice),0)'TotalSupplier',
                     isnull(sum(sod.Qty*sod.ClientUnitPrice),0)'TotalClient' from
                     items i left join StockOutDetails sod on i.ItemId=sod.ItemId
                     left join StockOutHeaders on sod.StockOutCode=StockOutHeaders.StockOutCode
-                    where StockOutHeaders.StockOutDate between @from and @to
+                    where convert(varchar(10), StockOutHeaders.StockOutDate,111) between @from and @to
                     group by i.ItemId,i.Description" & where)
 
                 If SQL.HasException Then

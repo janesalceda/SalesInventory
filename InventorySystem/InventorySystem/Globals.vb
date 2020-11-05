@@ -74,8 +74,7 @@
         SQL.ExecQuery("SELECT DISTINCT i.Description,
             ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.ClientQtyUnit and i.ItemId=@ItemId) 'Client',
             ( SELECT  q.QtyUnit FROM Items i, QtyUnits q WHERE q.QtyUnitId=i.SupplierQtyUnit and i.ItemId=@ItemId) 'Supplier',
-            ConvertingCoefficient,
-            UnitPrice FROM Items i INNER JOIN SupplierItemPrices s ON i.ItemId=s.ItemId, QtyUnits q 
+            ConvertingCoefficient FROM Items i
             where i.ItemId=@ItemId")
         If SQL.HasException Then Return Globalrow
         If SQL.RecordCount = 0 Then Return Globalrow
@@ -83,7 +82,6 @@
         Globalrow.Add(SQL.DBDT.Rows(0).Item(1))
         Globalrow.Add(SQL.DBDT.Rows(0).Item(2))
         Globalrow.Add(SQL.DBDT.Rows(0).Item(3))
-        Globalrow.Add(SQL.DBDT.Rows(0).Item(4))
         Return Globalrow
     End Function
     Public Function GetPODetails(PONo As String) As ArrayList

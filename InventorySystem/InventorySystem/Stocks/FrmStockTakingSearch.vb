@@ -5,7 +5,7 @@
             Remarks,st.UpdatedDate,
             CASE WHEN st.UpdatedBy=e.EmpId THEN e.EmployeeName ELSE '' END AS 'UpdatedBy',
             CASE WHEN st.ApprovedBy=e.EmpId THEN e.EmployeeName ELSE 'NOT YET APPROVED' END as 'ApprovedBy' 
-            from StockTakingHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where)
+            from StockTakingHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where & " order by st.createddate")
 
         dtableStockTaking.DataSource = Nothing
         If SQL.HasException Then Exit Sub
@@ -14,6 +14,7 @@
     Private Sub FrmStockTaking_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         'getAllData("")
+        btnClear.PerformClick()
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
@@ -29,7 +30,7 @@
         End If
         If dtCountedFrom.Checked = True And dtCountedTo.Checked = True Then
             where += AddingWhere(where)
-            where += "convert(VARCHAR(10),CountedDate,111) BETWEEN '" & dtCountedFrom.Value.ToShortDateString & "' AND '" & dtCountedFrom.Value.ToShortDateString & "'"
+            where += "convert(VARCHAR(10),CountedDate,111) BETWEEN '" & dtCountedFrom.Value.ToString("yyyy/MM/dd") & "' AND '" & dtCountedFrom.Value.ToString("yyyy/MM/dd") & "'"
         End If
         If chkApproved.Checked = True Then
             where += AddingWhere(where)
@@ -54,6 +55,8 @@
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtSTID.Clear()
+        dtCountedFrom.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
+        dtCountedTo.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         dtCountedFrom.Checked = False
         dtCountedTo.Checked = False
         chkApproved.Checked = False

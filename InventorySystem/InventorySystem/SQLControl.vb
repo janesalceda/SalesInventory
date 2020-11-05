@@ -70,7 +70,11 @@ Public Class SQLControl
     End Sub
     Public Function HasException(Optional Report As Boolean = False) As Boolean
         If String.IsNullOrEmpty(Exception) Then Return False
-        If Report = True Then MsgBox(Exception, MsgBoxStyle.Critical, "Exception:")
+        If Report = True Then
+            MsgBox(Exception, MsgBoxStyle.Critical, "Exception:")
+        Else
+            MsgBox(Exception, MsgBoxStyle.Critical, "Exception:")
+        End If
         Return True
     End Function
 End Class

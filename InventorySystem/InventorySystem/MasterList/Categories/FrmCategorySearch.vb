@@ -1,7 +1,7 @@
 ﻿Public Class FrmCategorySearch
     Public Sub LoadDataGrid(Optional Query As String = "")
         Try
-            SQL.ExecQuery("SELECT CategoryID,CategoryName,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM categories c " & Query)
+            SQL.ExecQuery("SELECT CategoryID,CategoryName,CreatedDate,case when DeletedDate is null then 0 else 1 end,DeletedDate FROM categories c" & Query)
             If SQL.HasException(True) Then Exit Sub
 
             dtItems.Rows.Clear()

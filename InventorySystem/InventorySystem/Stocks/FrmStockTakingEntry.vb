@@ -106,8 +106,8 @@
                 row.Add(txtItemCode.Text)
                 row.Add(txtItemName.Text)
                 row.Add(txtQty.Text)
-                row.Add(cliprice)
-                row.Add(Val(txtQty.Text) * cliprice)
+                row.Add(getClientPrice(txtItemCode.Text, dtCountedDate.Value))
+                row.Add(Val(txtQty.Text) * getClientPrice(txtItemCode.Text, dtCountedDate.Value))
                 row.Add(txtSTRemarks.Text)
                 row.Add(getSupplierPrice(txtItemCode.Text, dtCountedDate.Value, ""))
                 dtableStockTaking.Rows.Add(row.ToArray())
@@ -119,8 +119,8 @@
                     dtableStockTaking.SelectedRows(0).Cells(1).Value = txtItemCode.Text
                     dtableStockTaking.SelectedRows(0).Cells(2).Value = txtItemName.Text
                     dtableStockTaking.SelectedRows(0).Cells(3).Value = txtQty.Text
-                    dtableStockTaking.SelectedRows(0).Cells(4).Value = cliprice
-                    dtableStockTaking.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * cliprice
+                    dtableStockTaking.SelectedRows(0).Cells(4).Value = getClientPrice(txtItemCode.Text, dtCountedDate.Value)
+                    dtableStockTaking.SelectedRows(0).Cells(5).Value = Val(txtQty.Text) * getClientPrice(txtItemCode.Text, dtCountedDate.Value)
                     dtableStockTaking.SelectedRows(0).Cells(6).Value = txtRemarks.Text
                     dtableStockTaking.SelectedRows(0).Cells(7).Value = getSupplierPrice(txtItemCode.Text, dtCountedDate.Value, "")
                     StockTakingdetailsClear()
@@ -173,7 +173,7 @@
                                 VALUES((select 'ST'+replace(convert(date,GETDATE()),'-','') +'-'+ NUM AS 'pomax' FROM
                                 (select CASE WHEN (count(*)+1)<10 THEN '0' + CAST(COUNT(*)+1 AS VARCHAR) 
                                 ELSE CAST(COUNT(*)+1 AS VARCHAR) END 'num' 
-                                from StockTakingHeaders where convert(date,createddate)=convert(date,getdate()))A ),@counteddate,@encodedstaff,@totalamount,@remarks,NULL,@encodedstaff)")
+                                from StockTakingHeaders where convert(date,createddate)=convert(date,getdate()))A),@counteddate,@encodedstaff,@totalamount,@remarks,NULL,@encodedstaff)")
                     If SQL.HasException Then
                         MsgBox("Error in saving", MsgBoxStyle.Critical, "Error")
                         Exit Sub

@@ -302,7 +302,7 @@ Public Class FrmStockOutEntry
             txtItemCode.Text = dtableStockout.SelectedRows(0).Cells(1).Value
             txtItemName.Text = dtableStockout.SelectedRows(0).Cells(2).Value
             txtQty.Text = dtableStockout.SelectedRows(0).Cells(3).Value
-            txtSTRemarks.Text = dtableStockout.SelectedRows(0).Cells(5).Value
+            txtSTRemarks.Text = dtableStockout.SelectedRows(0).Cells(6).Value
             btnAddItem.Text = "UPDATE"
         Catch ex As Exception
             msgboxDisplay(ex.Message, 3)

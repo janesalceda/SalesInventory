@@ -670,8 +670,8 @@
           </Style>
         </Textbox>
         <Image Name="Image1">
-          <Source>Database</Source>
-          <Value>=First(Fields!CompanyLogo.Value, "DataSet1")</Value>
+          <Source>External</Source>
+          <Value>=Fields!CompanyLogo.Value</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>Fit</Sizing>
           <Height>1.74597cm</Height>

@@ -483,6 +483,7 @@
                         </TopBorder>
                         <BottomBorder>
                           <Color>Black</Color>
+                          <Width>1.5pt</Width>
                         </BottomBorder>
                         <LeftBorder>
                           <Color>Black</Color>
@@ -496,6 +497,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -529,6 +531,7 @@
                         </TopBorder>
                         <BottomBorder>
                           <Color>Black</Color>
+                          <Width>1.5pt</Width>
                         </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
@@ -542,6 +545,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -575,6 +579,7 @@
                         </TopBorder>
                         <BottomBorder>
                           <Color>Black</Color>
+                          <Width>1.5pt</Width>
                         </BottomBorder>
                         <LeftBorder>
                           <Color>White</Color>
@@ -588,6 +593,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -730,6 +736,7 @@
         <Style>
           <Border>
             <Style>None</Style>
+            <Width>2pt</Width>
           </Border>
         </Style>
       </Tablix>

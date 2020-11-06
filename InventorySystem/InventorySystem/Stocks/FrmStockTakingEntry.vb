@@ -249,7 +249,7 @@
         txtItemCode.Text = dtableStockTaking.SelectedRows(0).Cells(1).Value
         txtItemName.Text = dtableStockTaking.SelectedRows(0).Cells(2).Value
         txtQty.Text = dtableStockTaking.SelectedRows(0).Cells(3).Value
-        txtSTRemarks.Text = dtableStockTaking.SelectedRows(0).Cells(5).Value
+        txtSTRemarks.Text = dtableStockTaking.SelectedRows(0).Cells(6).Value
         btnAddItem.Text = "UPDATE"
     End Sub
 End Class

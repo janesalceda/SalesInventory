@@ -451,9 +451,7 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.pdb
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\ExcelDataReader.DataSet.xml
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\IronBarCode.xml
-C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.pdb
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.xml
-C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.pdb
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
@@ -568,3 +566,6 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.xml
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.pdb
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\BarcodeStandard.dll
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewBarcode.resources
+C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintingQR.resources

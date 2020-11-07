@@ -8,30 +8,63 @@ Public Class FrmPrintingItemBarcode
     Private num1 As Integer
     Private count As Integer = 0
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Try
-            If String.IsNullOrWhiteSpace(TextBox1.Text) Then Exit Sub
-            QtyPrint = Val(TextBox1.Text)
-            If formname = "Bar" Then
-                Dim writer As New BarcodeWriter
-                writer.Format = BarcodeFormat.CODE_128
-                pic.Image = writer.Write(FrmItemEntry.txtItemId.Text)
-            Else
-                Dim qrCoder As New QRCodeGenerator
-                Dim data = qrCoder.CreateQrCode(FrmItemEntry.txtItemId.Text, QRCodeGenerator.ECCLevel.Q)
-                Dim qrCode As New QRCode(data)
-                pic.Image = qrCode.GetGraphic(6)
-                w = 100
-                h = 100
-            End If
-            num1 = 0
-            PrintPreviewDialog1.Show()
-            Me.Close()
-            'Timer1.Start()
+        Dim img As Image
+        Dim pic As New PictureBox
+        If formname = "Bar" Then
+            Dim barcode As New BarcodeLib.Barcode
+            img = barcode.Encode(BarcodeLib.TYPE.CODE39, Trim(FrmItemEntry.txtItemId.Text), Color.Black, Color.White, 200, 30)
+        Else
+            Dim qrCoder As New QRCodeGenerator
+            Dim data = qrCoder.CreateQrCode(FrmItemEntry.txtItemId.Text, QRCodeGenerator.ECCLevel.Q)
+            Dim qrCode As New QRCode(data)
+            img = qrCode.GetGraphic(6)
+        End If
+        pic.Image = img
+            DataSet81.Clear()
 
-        Catch ex As Exception
-            msgboxDisplay(ex.Message, 3)
-            Exit Sub
-        End Try
+        Dim mstream As New System.IO.MemoryStream()
+        pic.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Png)
+        Dim arrImage() As Byte = mstream.GetBuffer()
+            mstream.Close()
+            For i As Integer = 0 To Val(TextBox1.Text) - 1
+            DataSet81.DataTable1.AddDataTable1Row(i, Trim(FrmItemEntry.txtItemId.Text), arrImage, Trim(FrmItemEntry.txtDes.Text))
+        Next
+        ' PrintPreviewBarcode.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+        'PrintPreviewBarcode.ReportViewer1.ZoomMode = ZoomMode.Percent
+        ' PrintPreviewBarcode.ReportViewer1.ZoomPercent = 100
+        If formname = "Bar" Then
+            PrintPreviewBarcode.barcode = DataSet81.DataTable1
+            PrintPreviewBarcode.ShowDialog()
+        Else
+            PrintingQR.barcode = DataSet81.DataTable1
+            PrintingQR.ShowDialog()
+        End If
+
+
+        'Try
+        '    If String.IsNullOrWhiteSpace(TextBox1.Text) Then Exit Sub
+        '    QtyPrint = Val(TextBox1.Text)
+        '    If formname = "Bar" Then
+        '        Dim writer As New BarcodeWriter
+        '        writer.Format = BarcodeFormat.CODE_128
+        '        pic.Image = writer.Write(FrmItemEntry.txtItemId.Text)
+        '    Else
+        '        Dim qrCoder As New QRCodeGenerator
+        '        Dim data = qrCoder.CreateQrCode(FrmItemEntry.txtItemId.Text, QRCodeGenerator.ECCLevel.Q)
+        '        Dim qrCode As New QRCode(data)
+        '        pic.Image = qrCode.GetGraphic(6)
+        '        w = 100
+        '        h = 100
+        '    End If
+        '    num1 = 0
+        '    PrintPreviewDialog1.Show()
+        '    Me.Close()
+        '    Timer1.Start()
+
+        'Catch ex As Exception
+        '    msgboxDisplay(ex.Message, 3)
+        '    Exit Sub
+        'End Try
     End Sub
     Public Function AppendBorder(ByVal original As Image, ByVal borderWidth As Integer) As Image
 

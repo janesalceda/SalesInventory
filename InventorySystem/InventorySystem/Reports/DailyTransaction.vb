@@ -3,29 +3,27 @@ Public Class DailyTransaction
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Button1.Text = "Please wait ..."
         Button1.Enabled = False
-        Dim rptDs As ReportDataSource
-        PrintPreview.ReportViewer1.RefreshReport()
+        If Application.OpenForms().OfType(Of PrintingPreviewDaily).Any Then PrintingPreviewDaily.Close()
+        PrintingPreviewDaily.ReportViewer1.RefreshReport()
         Try
-            With PrintPreview.ReportViewer1.LocalReport
-                .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report3.rdlc"
-                .DataSources.Clear()
-                Dim dt As New DataTable
-                Dim ds As New DataSet1
-
-                SQL.AddParams("@from", DateTimePicker1.Value.ToString("yyyy/MM/dd"))
-                SQL.ExecQuery("SELECT *,@from as 'TransactionDate',(select Companylogo from companyinfo)'Companylogo'
+            SQL.AddParams("@from", DateTimePicker1.Value.ToString("yyyy/MM/dd"))
+            SQL.ExecQuery("SELECT *,@from as 'TransactionDate',(select Companylogo from companyinfo)'Companylogo'
                      FROM dbo.GetDailyTransaction (@from)")
-                If SQL.DBDT.Rows.Count = 0 Then
-                    msgboxDisplay("No Record Found", 1)
-                    Exit Sub
-                End If
-                rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
-                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-                PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
-                PrintPreview.ReportViewer1.ZoomPercent = 100
-                PrintPreview.Show()
-            End With
+            If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then
+                msgboxDisplay("No Record Found", 1)
+                Exit Sub
+            End If
+            DataSet31.Clear()
+            For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
+                DataSet31.DailyTransaction.AddDailyTransactionRow(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1),
+                    SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4), SQL.DBDT.Rows(i).Item(5),
+                    SQL.DBDT.Rows(i).Item(6), SQL.DBDT.Rows(i).Item(7))
+            Next
+            PrintingPreviewDaily.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            PrintingPreviewDaily.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintingPreviewDaily.ReportViewer1.ZoomPercent = 100
+            PrintingPreviewDaily.barcode = DataSet31.DailyTransaction
+            PrintingPreviewDaily.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub
@@ -35,7 +33,6 @@ Public Class DailyTransaction
         End Try
         Button1.Text = "PRINT"
         Button1.Enabled = True
-
     End Sub
 
     Private Sub DailyTransaction_Load(sender As Object, e As EventArgs) Handles MyBase.Load

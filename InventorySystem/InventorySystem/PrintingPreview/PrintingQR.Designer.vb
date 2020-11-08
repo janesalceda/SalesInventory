@@ -47,7 +47,7 @@ Partial Class PrintingQR
         ReportDataSource1.Name = "DataSet1"
         ReportDataSource1.Value = Me.DataTable1BindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "InventorySystem.Report9.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "InventorySystem.QR.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
@@ -61,7 +61,8 @@ Partial Class PrintingQR
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "PrintingQR"
-        Me.Text = "PrintingQR"
+        Me.Text = "QR Printing Preview"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataSet8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

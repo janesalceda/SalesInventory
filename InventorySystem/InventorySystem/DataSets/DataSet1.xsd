@@ -38,7 +38,7 @@
               <xs:element name="CompPhone" msprop:Generator_ColumnVarNameInTable="columnCompPhone" msprop:Generator_ColumnPropNameInRow="CompPhone" msprop:Generator_ColumnPropNameInTable="CompPhoneColumn" msprop:Generator_UserColumnName="CompPhone" type="xs:string" minOccurs="0" />
               <xs:element name="CompFax" msprop:Generator_ColumnVarNameInTable="columnCompFax" msprop:Generator_ColumnPropNameInRow="CompFax" msprop:Generator_ColumnPropNameInTable="CompFaxColumn" msprop:Generator_UserColumnName="CompFax" type="xs:string" minOccurs="0" />
               <xs:element name="website" msprop:Generator_ColumnVarNameInTable="columnwebsite" msprop:Generator_ColumnPropNameInRow="website" msprop:Generator_ColumnPropNameInTable="websiteColumn" msprop:Generator_UserColumnName="website" type="xs:string" minOccurs="0" />
-              <xs:element name="CompanyLogo" msprop:Generator_ColumnVarNameInTable="columnCompanyLogo" msprop:Generator_ColumnPropNameInRow="CompanyLogo" msprop:Generator_ColumnPropNameInTable="CompanyLogoColumn" msprop:Generator_UserColumnName="CompanyLogo" type="xs:string" minOccurs="0" />
+              <xs:element name="CompanyLogo" msprop:Generator_ColumnVarNameInTable="columnCompanyLogo" msprop:Generator_ColumnPropNameInRow="CompanyLogo" msprop:Generator_ColumnPropNameInTable="CompanyLogoColumn" msprop:Generator_UserColumnName="CompanyLogo" type="xs:base64Binary" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

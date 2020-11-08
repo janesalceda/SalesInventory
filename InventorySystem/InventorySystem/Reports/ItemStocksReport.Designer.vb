@@ -27,6 +27,8 @@ Partial Class ItemStockReport
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DataSet41 = New InventorySystem.DataSet4()
+        CType(Me.DataSet41, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DateTimePicker1
@@ -81,6 +83,11 @@ Partial Class ItemStockReport
         Me.ComboBox1.Size = New System.Drawing.Size(188, 24)
         Me.ComboBox1.TabIndex = 16
         '
+        'DataSet41
+        '
+        Me.DataSet41.DataSetName = "DataSet4"
+        Me.DataSet41.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'ItemStockReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -95,6 +102,7 @@ Partial Class ItemStockReport
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "ItemStockReport"
         Me.Text = "Item Stocks Report"
+        CType(Me.DataSet41, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -105,4 +113,5 @@ Partial Class ItemStockReport
     Friend WithEvents Button1 As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents DataSet41 As DataSet4
 End Class

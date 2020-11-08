@@ -20,7 +20,7 @@
             txtEncodedStaff.Text = SQL.DBDT.Rows(0).Item(3).ToString
 
             For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
-                dtableStockTaking.Rows.Add(SQL.DBDT.Rows(i).Item(4).ToString, SQL.DBDT.Rows(i).Item(5).ToString,
+                dtableStockTaking.Rows.Add(dtableStockTaking.Rows.Count + 1, SQL.DBDT.Rows(i).Item(4).ToString, SQL.DBDT.Rows(i).Item(5).ToString,
                                      SQL.DBDT.Rows(i).Item(6).ToString, SQL.DBDT.Rows(i).Item(7).ToString,
                                      SQL.DBDT.Rows(i).Item(6).ToString, SQL.DBDT.Rows(i).Item(8).ToString)
             Next
@@ -45,7 +45,7 @@
         txtQty.Enabled = False
         txtSTRemarks.Enabled = False
         btnAddItem.Enabled = False
-        dtableStockTaking.Enabled = False
+        'dtableStockTaking.Enabled = False
         Label27.Visible = False
         If rights > 2 Or rights = 0 Then
             chkApprove.Enabled = False
@@ -194,14 +194,14 @@
                         SQL.AddParams("@remarks", dtableStockTaking.Rows(i).Cells(5).Value.ToString())
                         SQL.AddParams("@updatedby", moduleId)
                         SQL.ExecQuery("INSERT INTO dbo.StockTakingDetails
-	                (STID,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
-                VALUES(@stid,
-                    @itemid,
-                    @qty,
-                    @ClientUnitprice,
-                    @SupplierUnitprice,
-                    @remarks,
-                    @updatedby)")
+	                        (STID,ItemID,Qty,ClientUnitprice,SupplierUnitprice,Remarks,UpdatedBy)
+                        VALUES(@stid,
+                            @itemid,
+                            @qty,
+                            @ClientUnitprice,
+                            @SupplierUnitprice,
+                            @remarks,
+                            @updatedby)")
                         If SQL.HasException Then
                             SQL.AddParams("@stid", txtStockTakingID.Text)
                             SQL.ExecQuery("delete from StockTakingDetails where where STID=(SELECT max(STID) from StockTakingHeaders);delete from StockTakingHeaders where STID=(SELECT max(STID) from StockTakingHeaders);")
@@ -246,10 +246,17 @@
     End Sub
 
     Private Sub dtableStockTaking_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockTaking.CellClick
-        txtItemCode.Text = dtableStockTaking.SelectedRows(0).Cells(1).Value
-        txtItemName.Text = dtableStockTaking.SelectedRows(0).Cells(2).Value
-        txtQty.Text = dtableStockTaking.SelectedRows(0).Cells(3).Value
-        txtSTRemarks.Text = dtableStockTaking.SelectedRows(0).Cells(6).Value
-        btnAddItem.Text = "UPDATE"
+
+        Try
+            If btnSave.Text = "SAVE" Then
+                txtItemCode.Text = dtableStockTaking.SelectedRows(0).Cells(1).Value
+                txtItemName.Text = dtableStockTaking.SelectedRows(0).Cells(2).Value
+                txtQty.Text = dtableStockTaking.SelectedRows(0).Cells(3).Value
+                txtSTRemarks.Text = dtableStockTaking.SelectedRows(0).Cells(6).Value
+                btnAddItem.Text = "UPDATE"
+            End If
+        Catch EX As Exception
+            msgboxDisplay(EX.Message, 3)
+        End Try
     End Sub
 End Class

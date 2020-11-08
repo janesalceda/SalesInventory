@@ -50,6 +50,7 @@ Partial Class FrmRejectReturnEntry
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtStockTakingID = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         CType(Me.dtableStockTaking, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -71,7 +72,7 @@ Partial Class FrmRejectReturnEntry
         Me.dtCountedDate.Checked = False
         Me.dtCountedDate.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.dtCountedDate.Location = New System.Drawing.Point(112, 42)
-        Me.dtCountedDate.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtCountedDate.Margin = New System.Windows.Forms.Padding(2)
         Me.dtCountedDate.Name = "dtCountedDate"
         Me.dtCountedDate.Size = New System.Drawing.Size(177, 23)
         Me.dtCountedDate.TabIndex = 920
@@ -82,7 +83,7 @@ Partial Class FrmRejectReturnEntry
         Me.btnSave.BackColor = System.Drawing.Color.LightSeaGreen
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.Location = New System.Drawing.Point(677, 352)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(90, 25)
         Me.btnSave.TabIndex = 921
@@ -125,7 +126,7 @@ Partial Class FrmRejectReturnEntry
         Me.btnItems.BackColor = System.Drawing.Color.Gainsboro
         Me.btnItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnItems.Location = New System.Drawing.Point(235, 52)
-        Me.btnItems.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnItems.Margin = New System.Windows.Forms.Padding(2)
         Me.btnItems.Name = "btnItems"
         Me.btnItems.Size = New System.Drawing.Size(28, 22)
         Me.btnItems.TabIndex = 3
@@ -138,7 +139,7 @@ Partial Class FrmRejectReturnEntry
         Me.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddItem.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.btnAddItem.Location = New System.Drawing.Point(173, 228)
-        Me.btnAddItem.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.btnAddItem.Margin = New System.Windows.Forms.Padding(2)
         Me.btnAddItem.Name = "btnAddItem"
         Me.btnAddItem.Size = New System.Drawing.Size(90, 25)
         Me.btnAddItem.TabIndex = 6
@@ -161,7 +162,7 @@ Partial Class FrmRejectReturnEntry
         Me.txtSTRemarks.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtSTRemarks.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtSTRemarks.Location = New System.Drawing.Point(79, 143)
-        Me.txtSTRemarks.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtSTRemarks.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSTRemarks.MaxLength = 200
         Me.txtSTRemarks.Multiline = True
         Me.txtSTRemarks.Name = "txtSTRemarks"
@@ -173,7 +174,7 @@ Partial Class FrmRejectReturnEntry
         Me.txtQty.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.txtQty.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtQty.Location = New System.Drawing.Point(79, 109)
-        Me.txtQty.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtQty.Margin = New System.Windows.Forms.Padding(2)
         Me.txtQty.Name = "txtQty"
         Me.txtQty.Size = New System.Drawing.Size(97, 23)
         Me.txtQty.TabIndex = 4
@@ -188,7 +189,7 @@ Partial Class FrmRejectReturnEntry
         Me.dtableStockTaking.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dtableStockTaking.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Seq, Me.ItemId, Me.ItemName, Me.PO, Me.Unit})
         Me.dtableStockTaking.Location = New System.Drawing.Point(271, 23)
-        Me.dtableStockTaking.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.dtableStockTaking.Margin = New System.Windows.Forms.Padding(2)
         Me.dtableStockTaking.Name = "dtableStockTaking"
         Me.dtableStockTaking.ReadOnly = True
         Me.dtableStockTaking.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
@@ -212,9 +213,9 @@ Partial Class FrmRejectReturnEntry
         Me.GroupBox1.Controls.Add(Me.Label11)
         Me.GroupBox1.Controls.Add(Me.txtItemCode)
         Me.GroupBox1.Location = New System.Drawing.Point(5, 82)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(2)
         Me.GroupBox1.Size = New System.Drawing.Size(762, 262)
         Me.GroupBox1.TabIndex = 928
         Me.GroupBox1.TabStop = False
@@ -226,7 +227,7 @@ Partial Class FrmRejectReturnEntry
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.Button1.Location = New System.Drawing.Point(6, 228)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(2)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(90, 25)
         Me.Button1.TabIndex = 73
@@ -238,7 +239,7 @@ Partial Class FrmRejectReturnEntry
         Me.txtItemName.Enabled = False
         Me.txtItemName.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtItemName.Location = New System.Drawing.Point(8, 80)
-        Me.txtItemName.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtItemName.Margin = New System.Windows.Forms.Padding(2)
         Me.txtItemName.Name = "txtItemName"
         Me.txtItemName.Size = New System.Drawing.Size(256, 23)
         Me.txtItemName.TabIndex = 65
@@ -270,7 +271,7 @@ Partial Class FrmRejectReturnEntry
         Me.txtItemCode.BackColor = System.Drawing.Color.LightBlue
         Me.txtItemCode.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtItemCode.Location = New System.Drawing.Point(79, 52)
-        Me.txtItemCode.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.txtItemCode.Margin = New System.Windows.Forms.Padding(2)
         Me.txtItemCode.MaxLength = 20
         Me.txtItemCode.Name = "txtItemCode"
         Me.txtItemCode.Size = New System.Drawing.Size(181, 23)
@@ -321,7 +322,7 @@ Partial Class FrmRejectReturnEntry
         Me.chkApprove.Enabled = False
         Me.chkApprove.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.chkApprove.Location = New System.Drawing.Point(624, 44)
-        Me.chkApprove.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.chkApprove.Margin = New System.Windows.Forms.Padding(2)
         Me.chkApprove.Name = "chkApprove"
         Me.chkApprove.Size = New System.Drawing.Size(80, 20)
         Me.chkApprove.TabIndex = 929
@@ -357,11 +358,25 @@ Partial Class FrmRejectReturnEntry
         Me.Label7.TabIndex = 922
         Me.Label7.Text = "Return ID:"
         '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.BackColor = System.Drawing.Color.White
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Location = New System.Drawing.Point(583, 352)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(2)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(90, 25)
+        Me.Button2.TabIndex = 932
+        Me.Button2.Text = "PRINT"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'FrmRejectReturnEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(772, 382)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.dtCountedDate)
         Me.Controls.Add(Me.btnSave)
@@ -413,4 +428,5 @@ Partial Class FrmRejectReturnEntry
     Friend WithEvents txtStockTakingID As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents Button2 As Button
 End Class

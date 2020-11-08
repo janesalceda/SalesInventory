@@ -27,6 +27,8 @@ Partial Class SalesRecord
         Me.Label3 = New System.Windows.Forms.Label()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.btnSearch = New System.Windows.Forms.Button()
+        Me.DataSet61 = New InventorySystem.DataSet6()
+        CType(Me.DataSet61, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label4
@@ -80,6 +82,11 @@ Partial Class SalesRecord
         Me.btnSearch.Text = "PRINT"
         Me.btnSearch.UseVisualStyleBackColor = False
         '
+        'DataSet61
+        '
+        Me.DataSet61.DataSetName = "DataSet6"
+        Me.DataSet61.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'SalesRecord
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -94,6 +101,7 @@ Partial Class SalesRecord
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "SalesRecord"
         Me.Text = "Sales Record"
+        CType(Me.DataSet61, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -104,4 +112,5 @@ Partial Class SalesRecord
     Friend WithEvents Label3 As Label
     Friend WithEvents dtFrom As DateTimePicker
     Friend WithEvents btnSearch As Button
+    Friend WithEvents DataSet61 As DataSet6
 End Class

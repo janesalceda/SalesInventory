@@ -29,13 +29,13 @@ Public Class FrmAccountDetails
         End If
 
     End Sub
-    Private Sub picVisible_Click(sender As Object, e As EventArgs) Handles picVisible.Click
+    Private Sub PicVisible_Click(sender As Object, e As EventArgs) Handles picVisible.Click
         If txtPass.PasswordChar = "•" Then
             txtPass.PasswordChar = ""
-            picVisible.Image = Image.FromFile("C:\temp\SalesandInventory\images\visible.png")
+            picVisible.Image = Image.FromFile(Application.StartupPath + "\\..\\..\\Resources\visible.png")
         Else
             txtPass.PasswordChar = "•"
-            picVisible.Image = Image.FromFile("C:\temp\SalesandInventory\images\invisible.png")
+            picVisible.Image = Image.FromFile(Application.StartupPath + "\\..\\..\\Resources\invisible.png")
         End If
 
     End Sub
@@ -44,26 +44,28 @@ Public Class FrmAccountDetails
         MdiParent = AppForm
         LoadDataGrid()
         If radM.Checked = True Then
-            picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\maleuser.png")
+            picProf.Image = Image.FromFile(Application.StartupPath + "\\..\\..\\Resources\maleuser.png")
         Else
-            picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\femaleuser.png")
+            picProf.Image = Image.FromFile(Application.StartupPath + "\\..\\..\\Resources\femaleuser.png")
+
+            'picProf.Image = Image.FromFile("C:\temp\SalesandInventory\images\femaleuser.png")
         End If
     End Sub
 
     Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
         txtPass.Enabled = True
-        picVisible.Image = Image.FromFile("C:\temp\SalesandInventory\images\invisible.png")
+        picVisible.Image = Image.FromFile(Application.StartupPath + "\\..\\..\\Resources\invisible.png")
         picVisible.Visible = True
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) 
+    Private Sub BtnCancel_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
+    Private Sub BtnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         LoadDataGrid("Update")
         txtPass.Enabled = False
-        picVisible.Image = Image.FromFile("C:\temp\SalesandInventory\images\invisible.png")
+        picVisible.Image = Image.FromFile(Application.StartupPath + "\\..\\..\\Resources\invisible.png")
         picVisible.Visible = True
         txtPass.PasswordChar = "•"
     End Sub

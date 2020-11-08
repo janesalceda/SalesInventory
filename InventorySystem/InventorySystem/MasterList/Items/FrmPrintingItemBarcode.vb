@@ -20,22 +20,26 @@ Public Class FrmPrintingItemBarcode
             img = qrCode.GetGraphic(6)
         End If
         pic.Image = img
-            DataSet81.Clear()
+        DataSet81.Clear()
 
         Dim mstream As New System.IO.MemoryStream()
         pic.Image.Save(mstream, System.Drawing.Imaging.ImageFormat.Png)
         Dim arrImage() As Byte = mstream.GetBuffer()
             mstream.Close()
-            For i As Integer = 0 To Val(TextBox1.Text) - 1
+        For i As Integer = 0 To Val(TextBox1.Text) - 1
             DataSet81.DataTable1.AddDataTable1Row(i, Trim(FrmItemEntry.txtItemId.Text), arrImage, Trim(FrmItemEntry.txtDes.Text))
         Next
-        ' PrintPreviewBarcode.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-        'PrintPreviewBarcode.ReportViewer1.ZoomMode = ZoomMode.Percent
-        ' PrintPreviewBarcode.ReportViewer1.ZoomPercent = 100
+
         If formname = "Bar" Then
+            PrintPreviewBarcode.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            'PrintPreviewBarcode.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintPreviewBarcode.ReportViewer1.ZoomPercent = 100
             PrintPreviewBarcode.barcode = DataSet81.DataTable1
             PrintPreviewBarcode.ShowDialog()
         Else
+            PrintingQR.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            'PrintingQR.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintingQR.ReportViewer1.ZoomPercent = 100
             PrintingQR.barcode = DataSet81.DataTable1
             PrintingQR.ShowDialog()
         End If

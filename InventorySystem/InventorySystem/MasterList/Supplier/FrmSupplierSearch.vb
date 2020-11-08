@@ -7,7 +7,7 @@
             dtItems.Rows.Add(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1), SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4))
         Next
     End Sub
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+    Private Sub BtnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim where As String = ""
         If Not String.IsNullOrWhiteSpace(txtCatID.Text) Then
             where += AddingWhere(where)
@@ -28,11 +28,11 @@
         LoadDataGrid(where)
     End Sub
 
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+    Private Sub BtnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         FrmSupplierEntry.Text = "Supplier  Entry"
         FrmSupplierEntry.Show()
     End Sub
-    Private Sub dtItems_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellClick
+    Private Sub DtItems_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtItems.CellClick
         If e.ColumnIndex = 3 Then
             If dtItems.SelectedRows(0).Cells(3).Value = -2 Then
                 dtItems.SelectedRows(0).Cells(3).Value = 0
@@ -53,6 +53,7 @@
             With FrmSupplierEntry
                 .Text = "Supplier Details"
                 .btnSave.Visible = False
+                .btnSave.Text = "UPDATE"
                 .txtSupplierId.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
                 .Show()
             End With
@@ -63,7 +64,7 @@
         MdiParent = AppForm
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtDelPlace.Clear()
         txtCatID.Clear()
         dtItems.Rows.Clear()

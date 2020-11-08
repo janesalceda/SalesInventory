@@ -16,30 +16,29 @@ Public Class SalesRecord
         btnSearch.Enabled = False
         SQL.params.Clear()
 
-        Dim rptDs As ReportDataSource
-        PrintPreview.ReportViewer1.RefreshReport()
+        PrintPreviewIncomeStatement.ReportViewer1.RefreshReport()
         Try
-            With PrintPreview.ReportViewer1.LocalReport
-                .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report6.rdlc"
-                .DataSources.Clear()
-                Dim dt As New DataTable
-                Dim ds As New DataSet1
-                SQL.params.Clear()
-                SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
-                SQL.AddParams("@to", dtTo.Value.ToString("yyyy/MM/dd"))
-                SQL.ExecQuery("EXECUTE dbo.DiplayIncomeStatement 
+            SQL.params.Clear()
+            SQL.AddParams("@from", dtFrom.Value.ToString("yyyy/MM/dd"))
+            SQL.AddParams("@to", dtTo.Value.ToString("yyyy/MM/dd"))
+            SQL.ExecQuery("EXECUTE dbo.DiplayIncomeStatement 
                      @TransactedFrom = @from, @TransactedTo =@to ")
-                If SQL.DBDT.Rows.Count = 0 Then
-                    msgboxDisplay("No Record Found!", 1)
-                    Exit Sub
-                End If
-                rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
-                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-                PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
-                PrintPreview.ReportViewer1.ZoomPercent = 100
-                PrintPreview.Show()
-            End With
+            If SQL.DBDT.Rows.Count = 0 Then
+                msgboxDisplay("No Record Found!", 1)
+                Exit Sub
+            End If
+
+            For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
+                DataSet61.DataTable1.AddDataTable1Row(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1),
+                    SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4), SQL.DBDT.Rows(i).Item(5),
+                    SQL.DBDT.Rows(i).Item(6), SQL.DBDT.Rows(i).Item(7), SQL.DBDT.Rows(i).Item(8),
+                    SQL.DBDT.Rows(i).Item(9))
+            Next
+            PrintPreviewIncomeStatement.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            PrintPreviewIncomeStatement.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintPreviewIncomeStatement.ReportViewer1.ZoomPercent = 100
+            PrintPreviewIncomeStatement.barcode = DataSet61.DataTable1
+            PrintPreviewIncomeStatement.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub

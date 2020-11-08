@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ProductName>SalesInventory System</ProductName>
     <PublisherName>JSalixSolutions</PublisherName>
-    <ApplicationRevision>24</ApplicationRevision>
+    <ApplicationRevision>28</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -230,10 +230,10 @@
     <Compile Include="DataSets\DataSet8.vb">
       <DependentUpon>DataSet8.xsd</DependentUpon>
     </Compile>
-    <Compile Include="FrmItemsForApproval.Designer.vb">
+    <Compile Include="MasterList\Items\FrmItemsForApproval.Designer.vb">
       <DependentUpon>FrmItemsForApproval.vb</DependentUpon>
     </Compile>
-    <Compile Include="FrmItemsForApproval.vb">
+    <Compile Include="MasterList\Items\FrmItemsForApproval.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Inventory\FrmProductRanking.Designer.vb">
@@ -260,10 +260,27 @@
     <Compile Include="FrmConfirmation.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ImportItems.Designer.vb">
+    <Compile Include="MasterList\Items\ImportItems.Designer.vb">
       <DependentUpon>ImportItems.vb</DependentUpon>
     </Compile>
-    <Compile Include="ImportItems.vb">
+    <Compile Include="MasterList\Items\ImportItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintingDeliveryReceipt.Designer.vb">
+      <DependentUpon>PrintingDeliveryReceipt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintingDeliveryReceipt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintingPreviewDaily.Designer.vb">
+      <DependentUpon>PrintingPreviewDaily.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintingPreviewDaily.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PrintingPreview\PrintingQR.Designer.vb">
@@ -276,6 +293,36 @@
       <DependentUpon>PrintPreviewBarcode.vb</DependentUpon>
     </Compile>
     <Compile Include="PrintingPreview\PrintPreviewBarcode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewIncomeStatement.Designer.vb">
+      <DependentUpon>PrintPreviewIncomeStatement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewIncomeStatement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewInventory.Designer.vb">
+      <DependentUpon>PrintPreviewInventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewInventory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewPO.Designer.vb">
+      <DependentUpon>PrintPreviewPO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewPO.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewStockMonitoring.Designer.vb">
+      <DependentUpon>PrintPreviewStockMonitoring.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewStockMonitoring.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewStockout.Designer.vb">
+      <DependentUpon>PrintPreviewStockout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintingPreview\PrintPreviewStockout.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\SalesRecord.Designer.vb">
@@ -539,11 +586,6 @@
       <DependentUpon>Application.myapp</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -555,10 +597,10 @@
     <Compile Include="SelectionList\PurchaseOrderList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PrintingPreview\PrintPreview.Designer.vb">
-      <DependentUpon>PrintPreview.vb</DependentUpon>
+    <Compile Include="PrintingPreview\PrintPreviewDelivery.Designer.vb">
+      <DependentUpon>PrintPreviewDelivery.vb</DependentUpon>
     </Compile>
-    <Compile Include="PrintingPreview\PrintPreview.vb">
+    <Compile Include="PrintingPreview\PrintPreviewDelivery.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SelectionList\SelectionItem.Designer.vb">
@@ -627,7 +669,7 @@
     <EmbeddedResource Include="DashBoard.resx">
       <DependentUpon>DashBoard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmItemsForApproval.resx">
+    <EmbeddedResource Include="MasterList\Items\FrmItemsForApproval.resx">
       <DependentUpon>FrmItemsForApproval.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Inventory\FrmProductRanking.resx">
@@ -642,8 +684,14 @@
     <EmbeddedResource Include="FrmConfirmation.resx">
       <DependentUpon>FrmConfirmation.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ImportItems.resx">
+    <EmbeddedResource Include="MasterList\Items\ImportItems.resx">
       <DependentUpon>ImportItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingPreview\PrintingDeliveryReceipt.resx">
+      <DependentUpon>PrintingDeliveryReceipt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingPreview\PrintingPreviewDaily.resx">
+      <DependentUpon>PrintingPreviewDaily.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintingPreview\PrintingQR.resx">
       <DependentUpon>PrintingQR.vb</DependentUpon>
@@ -651,9 +699,24 @@
     <EmbeddedResource Include="PrintingPreview\PrintPreviewBarcode.resx">
       <DependentUpon>PrintPreviewBarcode.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportdlc\Report7.rdlc" />
-    <EmbeddedResource Include="Reportdlc\Report8.rdlc" />
-    <EmbeddedResource Include="Reportdlc\Report9.rdlc" />
+    <EmbeddedResource Include="PrintingPreview\PrintPreviewIncomeStatement.resx">
+      <DependentUpon>PrintPreviewIncomeStatement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingPreview\PrintPreviewInventory.resx">
+      <DependentUpon>PrintPreviewInventory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingPreview\PrintPreviewPO.resx">
+      <DependentUpon>PrintPreviewPO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingPreview\PrintPreviewStockMonitoring.resx">
+      <DependentUpon>PrintPreviewStockMonitoring.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintingPreview\PrintPreviewStockout.resx">
+      <DependentUpon>PrintPreviewStockout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportdlc\DeliveryReceipt.rdlc" />
+    <EmbeddedResource Include="Reportdlc\Barcode.rdlc" />
+    <EmbeddedResource Include="Reportdlc\QR.rdlc" />
     <EmbeddedResource Include="Reports\SalesRecord.resx">
       <DependentUpon>SalesRecord.vb</DependentUpon>
     </EmbeddedResource>
@@ -669,10 +732,10 @@
     <EmbeddedResource Include="RejectAndReturn\FrmRejectReturnSearch.resx">
       <DependentUpon>FrmRejectReturnSearch.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportdlc\Report3.rdlc" />
-    <EmbeddedResource Include="Reportdlc\Report4.rdlc" />
-    <EmbeddedResource Include="Reportdlc\Report5.rdlc" />
-    <EmbeddedResource Include="Reportdlc\Report6.rdlc" />
+    <EmbeddedResource Include="Reportdlc\DailyTransaction.rdlc" />
+    <EmbeddedResource Include="Reportdlc\Inventory.rdlc" />
+    <EmbeddedResource Include="Reportdlc\Stockout.rdlc" />
+    <EmbeddedResource Include="Reportdlc\IncomeStatement.rdlc" />
     <EmbeddedResource Include="Reports\DailyTransaction.resx">
       <DependentUpon>DailyTransaction.vb</DependentUpon>
     </EmbeddedResource>
@@ -721,8 +784,8 @@
     <EmbeddedResource Include="Purchase Order\FrmPurchaseOrderEntry.resx">
       <DependentUpon>FrmPurchaseOrderEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportdlc\Report1.rdlc" />
-    <EmbeddedResource Include="Reportdlc\Report2.rdlc" />
+    <EmbeddedResource Include="Reportdlc\PO.rdlc" />
+    <EmbeddedResource Include="Reportdlc\StockMonitoring.rdlc" />
     <EmbeddedResource Include="Reports\FrmStockOutReport.resx">
       <DependentUpon>FrmStockOutReport.vb</DependentUpon>
     </EmbeddedResource>
@@ -791,15 +854,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectionList\PurchaseOrderList.resx">
       <DependentUpon>PurchaseOrderList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PrintingPreview\PrintPreview.resx">
-      <DependentUpon>PrintPreview.vb</DependentUpon>
+    <EmbeddedResource Include="PrintingPreview\PrintPreviewDelivery.resx">
+      <DependentUpon>PrintPreviewDelivery.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MasterList\User\FrmUser.resx">
       <DependentUpon>FrmUser.vb</DependentUpon>
@@ -934,13 +997,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\visibility - Copy.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="My Project\Assets\Barcode.png" />
     <Content Include="My Project\Assets\Print.png" />
     <Content Include="My Project\Assets\QRCode.png" />
     <Content Include="Custom-Icon-Design-Flatastic-4-Inventory-maintenance.ico" />
+    <None Include="Resources\femaleuser.png" />
+    <None Include="Resources\invisible.png" />
+    <None Include="Resources\maleuser.png" />
+    <None Include="Resources\visible.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

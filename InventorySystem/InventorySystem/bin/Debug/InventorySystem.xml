@@ -27,6 +27,21 @@ InventorySystem
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:InventorySystem.My.Resources.Resources.femaleuser">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.invisible">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:InventorySystem.My.Resources.Resources.maleuser">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:InventorySystem.My.Resources.Resources.Print">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -37,7 +52,7 @@ InventorySystem
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:InventorySystem.My.Resources.Resources.visibility___Copy">
+<member name="P:InventorySystem.My.Resources.Resources.visible">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

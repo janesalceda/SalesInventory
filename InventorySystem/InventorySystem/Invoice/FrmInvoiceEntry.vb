@@ -1,8 +1,8 @@
 ﻿Public Class FrmInvoiceEntry
     Public InvoiceSeq As Integer = 0
-    Private DTCount1 As Integer = 0
+    'Private DTCount1 As Integer = 0
     Private ClientPrice As Decimal = 0.00
-    Public Sub getInvoiceNo()
+    Public Sub GetInvoiceNo()
         Try
             'SQL.ExecQuery("SELECT ih.InvoiceNo,ih.SupplierID,CurrencyUnit,ActualETDDate,InvoiceDate,ih.TotalAmount,
             '        ih.CreatedDate,ReceivedDate,ih.Remarks,e.EmployeeName,ih.UpdatedDate,id.InvoiceDetailSeq,
@@ -149,7 +149,7 @@
         End If
     End Sub
 
-    Private Sub btnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
+    Private Sub BtnSupplier_Click(sender As Object, e As EventArgs) Handles btnSupplier.Click
         If Application.OpenForms().OfType(Of SupplierList).Any Then SupplierList.Close()
 
         If dtableInvoice.Rows.Count > 0 Or dtableDelivery.Rows.Count > 0 Then
@@ -160,13 +160,12 @@
         SupplierList.Show()
     End Sub
 
-    Private Sub txtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
+    Private Sub TxtSupplier_TextChanged(sender As Object, e As EventArgs) Handles txtSupplier.TextChanged
         If (dtableInvoice.Rows.Count > 0 Or dtableDelivery.Rows.Count > 0) And Not String.IsNullOrWhiteSpace(txtSupplier.Text) Then
             msgboxDisplay("Cannot modify already have Invoice Details!", 2)
             Exit Sub
         End If
-        Dim row As ArrayList = New ArrayList
-        row = GetSupplierName(txtSupplier.Text)
+        Dim row = GetSupplierName(txtSupplier.Text)
         If row.Count = 0 Then
             txtSupplierName.Text = ""
             Exit Sub
@@ -175,7 +174,7 @@
         txtCurrency.Text = row.Item(1)
     End Sub
 
-    Private Sub btnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
+    Private Sub BtnItems_Click(sender As Object, e As EventArgs) Handles btnItems.Click
         If Application.OpenForms().OfType(Of SelectionItem).Any Then SelectionItem.Close()
         If txtSupplier.Text = "" Then
             MsgBox("Choose Supplier First", MsgBoxStyle.Exclamation, "Warning")
@@ -194,7 +193,7 @@
         SelectionItem.Show()
     End Sub
 
-    Private Sub btnPo_Click(sender As Object, e As EventArgs) Handles btnPo.Click
+    Private Sub BtnPo_Click(sender As Object, e As EventArgs) Handles btnPo.Click
         If Application.OpenForms().OfType(Of PurchaseOrderList).Any Then PurchaseOrderList.Close()
         If dtableDelivery.Rows.Count > 0 Then
             If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
@@ -209,7 +208,7 @@
         PurchaseOrderList.Show()
     End Sub
 
-    Private Sub txtItemCode_TextChanged(sender As Object, e As EventArgs) Handles txtItemCode.TextChanged
+    Private Sub TxtItemCode_TextChanged(sender As Object, e As EventArgs) Handles txtItemCode.TextChanged
         If dtableInvoice.Rows.Count > 0 Then
             If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
                 dtableInvoice.SelectedRows(0).Cells(12).Value = True And
@@ -218,8 +217,7 @@
                 Exit Sub
             End If
         End If
-        Dim row As ArrayList = New ArrayList
-        row = GetItemDetails(txtItemCode.Text)
+        Dim row = GetItemDetails(txtItemCode.Text)
         If row.Count = 0 Then
             txtItemName.Text = ""
             coefficient = 0.0
@@ -230,7 +228,7 @@
         coefficient = row.Item(3)
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             Dim strcomplete As String = "Please complete the ff:" & vbNewLine
             If String.IsNullOrEmpty(txtSupplier.Text) Then
@@ -249,13 +247,13 @@
                 msgboxDisplay(strcomplete, 2)
                 Exit Sub
             End If
-            If MsgBox("Are sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then InvoiceStoreData(btnSave.Text)
+            If MsgBox("Are sure you want to save?", vbYesNo + vbQuestion, "Confirmation") = vbYes Then InvoiceStoreData()
         Catch ex As Exception
             msgboxDisplay(ex.Message, 3)
             Exit Sub
         End Try
     End Sub
-    Private Sub InvoiceStoreData(Query As String)
+    Private Sub InvoiceStoreData()
         Try
             SQL.params.Clear()
 
@@ -561,7 +559,7 @@
         Me.Close()
     End Sub
 
-    Private Sub txtPoSeq_TextChanged(sender As Object, e As EventArgs) Handles txtPoSeq.TextChanged
+    Private Sub TxtPoSeq_TextChanged(sender As Object, e As EventArgs) Handles txtPoSeq.TextChanged
         SQL.AddParams("@PoNo", txtPo.Text)
         SQL.AddParams("@PoDetailSeq", txtPoSeq.Text)
         SQL.ExecQuery("SELECT Qty,
@@ -579,13 +577,13 @@
         txtTotalPrice.Text = Val(txtUnit.Text) * Val(txtSupQty.Text)
     End Sub
 
-    Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
+    Private Sub BtnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
         Try
             If String.IsNullOrEmpty(txtItemCode.Text) Or String.IsNullOrEmpty(txtPo.Text) Or
         String.IsNullOrEmpty(txtCliQty.Text) Or String.IsNullOrEmpty(txtSupQty.Text) Then
-            MsgBox("Please complete * important fields!", MsgBoxStyle.Critical, "Error")
-            Exit Sub
-        End If
+                MsgBox("Please complete * important fields!", MsgBoxStyle.Critical, "Error")
+                Exit Sub
+            End If
             If btnAddItem.Text = "INSERT INVOICE" Then
                 Dim row As ArrayList = New ArrayList
                 btnAddItem.Text = "Please wait ..."
@@ -654,7 +652,7 @@
         btnAddItem.Enabled = True
     End Sub
 
-    Private Sub btnItemInv_Click(sender As Object, e As EventArgs) Handles btnItemInv.Click
+    Private Sub BtnItemInv_Click(sender As Object, e As EventArgs) Handles btnItemInv.Click
         'If txtSupplier.Text = "" Then
         '    MsgBox("Choose Supplier First")
         '    Exit Sub
@@ -663,17 +661,16 @@
         'formname = "AddDelivery"
         'SelectionItem.show()
         If Application.OpenForms().OfType(Of FrmInvoiceSelection).Any Then
-                    FrmInvoiceSelection.Close()
-                    FrmInvoiceSelection.Show()
-                Else
-                    FrmInvoiceSelection.Show()
-                End If
+            FrmInvoiceSelection.Close()
+            FrmInvoiceSelection.Show()
+        Else
+            FrmInvoiceSelection.Show()
+        End If
     End Sub
 
-    Private Sub txtItemDel_TextChanged(sender As Object, e As EventArgs) Handles txtItemDel.TextChanged
+    Private Sub TxtItemDel_TextChanged(sender As Object, e As EventArgs) Handles txtItemDel.TextChanged
 
-        Dim row As ArrayList = New ArrayList
-        row = GetItemDetails(txtItemDel.Text)
+        Dim row = GetItemDetails(txtItemDel.Text)
         If row.Count = 0 Then
             txtIteamNameDel.Text = ""
             coefficient = 0.0
@@ -683,7 +680,7 @@
         coefficient = row.Item(3)
     End Sub
 
-    Private Sub btnPOInv_Click(sender As Object, e As EventArgs)
+    Private Sub BtnPOInv_Click(sender As Object, e As EventArgs)
         If Application.OpenForms().OfType(Of PurchaseOrderList).Any Then PurchaseOrderList.Close()
         formname = "AddDelivery"
         PurchaseOrderList.txtItems.Text = txtItemDel.Text
@@ -692,7 +689,7 @@
     End Sub
 
 
-    Private Sub btnInsertDel_Click(sender As Object, e As EventArgs) Handles btnInsertDel.Click
+    Private Sub BtnInsertDel_Click(sender As Object, e As EventArgs) Handles btnInsertDel.Click
         Try
             If String.IsNullOrEmpty(txtItemDel.Text) Or
                 String.IsNullOrEmpty(txtPoDel.Text) Or
@@ -751,16 +748,16 @@
     End Sub
 
 
-    Private Sub txtRec_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRec.KeyPress
+    Private Sub TxtRec_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtRec.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
 
 
-    Private Sub txtqtyok_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtqtyok.KeyPress
+    Private Sub Txtqtyok_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtqtyok.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
 
-    Private Sub dtableDelivery_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableDelivery.CellClick
+    Private Sub DtableDelivery_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableDelivery.CellClick
         Try
             If dtableDelivery.Rows.Count > 0 Then
                 If Val(txtBal.Text) = 0 Then
@@ -783,7 +780,7 @@
         End Try
     End Sub
 
-    Private Sub dtableInvoice_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellClick
+    Private Sub DtableInvoice_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellClick
         If dtableInvoice.SelectedRows(0).Cells(11).Value = False Or dtableInvoice.SelectedRows(0).Cells(12).Value = False Then
             txtItemCode.Text = dtableInvoice.SelectedRows(0).Cells(1).Value.ToString()
             txtItemName.Text = dtableInvoice.SelectedRows(0).Cells(2).Value.ToString()
@@ -808,7 +805,7 @@
         End If
     End Sub
 
-    Private Sub txtqtyok_TextChanged(sender As Object, e As EventArgs) Handles txtqtyok.TextChanged
+    Private Sub Txtqtyok_TextChanged(sender As Object, e As EventArgs) Handles txtqtyok.TextChanged
         If Val(txtqtyok.Text) > Val(txtExp.Text) Then
             txtqtyok.Text = ""
             MsgBox("Please input <=ExpectedQty!", MsgBoxStyle.Critical, "Error")
@@ -820,22 +817,22 @@
     '    dtableDelivery.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
     'End Sub
 
-    Private Sub txtCliQty_LostFocus(sender As Object, e As EventArgs) Handles txtCliQty.LostFocus
+    Private Sub TxtCliQty_LostFocus(sender As Object, e As EventArgs) Handles txtCliQty.LostFocus
         txtSupQty.Text = Val(txtCliQty.Text) * coefficient
         txtTotalPrice.Text = Format(Val(txtSupQty.Text) * Val(txtUnit.Text), "0.00")
     End Sub
 
-    Private Sub txtSupQty_LostFocus(sender As Object, e As EventArgs) Handles txtSupQty.LostFocus
+    Private Sub TxtSupQty_LostFocus(sender As Object, e As EventArgs) Handles txtSupQty.LostFocus
         txtCliQty.Text = Val(txtSupQty.Text) / coefficient
         txtTotalPrice.Text = Format(Val(txtSupQty.Text) * Val(txtUnit.Text), "0.00")
     End Sub
 
-    Private Sub txtCliQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCliQty.KeyPress
+    Private Sub TxtCliQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtCliQty.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
 
 
-    Private Sub txtSupQty_TextChanged(sender As Object, e As EventArgs) Handles txtSupQty.TextChanged
+    Private Sub TxtSupQty_TextChanged(sender As Object, e As EventArgs) Handles txtSupQty.TextChanged
         If dtableInvoice.Rows.Count > 0 Then
             If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
                 dtableInvoice.SelectedRows(0).Cells(12).Value = True And Not String.IsNullOrWhiteSpace(txtSupQty.Text) Then
@@ -847,15 +844,15 @@
         txtTotalPrice.Text = Format(Val(txtSupQty.Text) * Val(txtUnit.Text), "0.00")
     End Sub
 
-    Private Sub txtSupQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSupQty.KeyPress
+    Private Sub TxtSupQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtSupQty.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
 
-    Private Sub btndelclear_Click(sender As Object, e As EventArgs) Handles btndelclear.Click
+    Private Sub Btndelclear_Click(sender As Object, e As EventArgs) Handles btndelclear.Click
         DeliveryClear()
     End Sub
 
-    Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
+    Private Sub BtnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         InvoicesClear()
     End Sub
 
@@ -863,20 +860,20 @@
         If MsgBox("Are you sure you want to delete this record?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = vbYes Then dtableDelivery.Rows.RemoveAt(dtableDelivery.SelectedRows(0).Index)
     End Sub
 
-    Private Sub dtableInvoice_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtableInvoice.CellFormatting
+    Private Sub DtableInvoice_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtableInvoice.CellFormatting
         dtableInvoice.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
     End Sub
 
 
-    Private Sub dtableDelivery_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtableDelivery.CellFormatting
+    Private Sub DtableDelivery_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles dtableDelivery.CellFormatting
         dtableDelivery.Rows(e.RowIndex).Cells(0).Value = CStr(e.RowIndex + 1)
     End Sub
 
-    Private Sub dtDate_ValueChanged(sender As Object, e As EventArgs) Handles dtDate.ValueChanged
+    Private Sub DtDate_ValueChanged(sender As Object, e As EventArgs) Handles dtDate.ValueChanged
         chkOk.Checked = dtDate.Checked
     End Sub
 
-    Private Sub btnDelDelete_Click(sender As Object, e As EventArgs)
+    Private Sub BtnDelDelete_Click(sender As Object, e As EventArgs)
         If dtableInvoice.SelectedRows(0).Cells(11).Value = False Then
             If MsgBox("Are you sure you want to delete this record?", MsgBoxStyle.Question + MsgBoxStyle.YesNo, "Confirmation") = vbYes Then
                 dtableInvoice.Rows.RemoveAt(dtableInvoice.SelectedRows(0).Index)
@@ -884,11 +881,11 @@
         End If
     End Sub
 
-    Private Sub dtableInvoice_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellContentClick
+    Private Sub DtableInvoice_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableInvoice.CellContentClick
 
     End Sub
 
-    Private Sub txtCliQty_TextChanged(sender As Object, e As EventArgs) Handles txtCliQty.TextChanged
+    Private Sub TxtCliQty_TextChanged(sender As Object, e As EventArgs) Handles txtCliQty.TextChanged
         If dtableInvoice.Rows.Count > 0 Then
             If dtableInvoice.SelectedRows(0).Cells(11).Value = True And
                 dtableInvoice.SelectedRows(0).Cells(12).Value = True And
@@ -901,7 +898,7 @@
         txtTotalPrice.Text = Format(Val(txtSupQty.Text) * Val(txtUnit.Text), "0.00")
     End Sub
 
-    Private Sub dtableDelivery_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableDelivery.CellContentClick
+    Private Sub DtableDelivery_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableDelivery.CellContentClick
 
     End Sub
 

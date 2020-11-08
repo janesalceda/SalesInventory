@@ -8,37 +8,33 @@ Public Class ItemStockReport
         Button1.Enabled = True
     End Sub
     Private Sub loadReport()
-        Dim rptDs As ReportDataSource
         Dim where As String = ""
-        PrintPreview.ReportViewer1.RefreshReport()
+        PrintPreviewStockMonitoring.ReportViewer1.RefreshReport()
         Try
-            With PrintPreview.ReportViewer1.LocalReport
-                .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report2.rdlc"
-                .DataSources.Clear()
-                Dim dt As New DataTable
-                Dim ds As New DataSet1
 
-                SQL.AddParams("@from", DateTimePicker1.Value.ToShortDateString)
-                If Not String.IsNullOrEmpty(ComboBox1.Text) Then
-                    where += " order by " & ComboBox1.Text
-                End If
-                SQL.ExecQuery("
+            SQL.AddParams("@from", DateTimePicker1.Value.ToShortDateString)
+            If Not String.IsNullOrEmpty(ComboBox1.Text) Then
+                where += " order by " & ComboBox1.Text
+            End If
+            SQL.ExecQuery("
                     SELECT i.itemid,i.Description,
                     isnull((SELECT qty FROM GetStockBalance(@from) WHERE itemid=i.ItemId),0)'qty',
                     MinimumOrderQty,OrderingPointQty, (select Companylogo from companyinfo) 'Companylogo'
                     FROM Items i
                                      where i.deletedDate is null " & where)
-                If SQL.DBDT.Rows.Count = 0 Then
-                    msgboxDisplay("No Record Found", 1)
-                    Exit Sub
-                End If
-                rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
-                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-                PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
-                PrintPreview.ReportViewer1.ZoomPercent = 100
-                PrintPreview.Show()
-            End With
+            If SQL.DBDT.Rows.Count = 0 Then
+                msgboxDisplay("No Record Found", 1)
+                Exit Sub
+            End If
+            For i = 0 To SQL.DBDT.Rows.Count - 1
+                DataSet41.ItemStocksDataSet.AddItemStocksDataSetRow(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1),
+                    SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4), SQL.DBDT.Rows(i).Item(5))
+            Next
+            PrintPreviewStockMonitoring.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            PrintPreviewStockMonitoring.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintPreviewStockMonitoring.ReportViewer1.ZoomPercent = 100
+            PrintPreviewStockMonitoring.barcode = DataSet41.ItemStocksDataSet
+            PrintPreviewStockMonitoring.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub

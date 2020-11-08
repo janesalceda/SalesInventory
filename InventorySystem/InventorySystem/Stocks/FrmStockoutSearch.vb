@@ -51,6 +51,7 @@
         FrmStockOutEntry.btnSave.Text = "UPDATE"
         FrmStockOutEntry.Text = "Stock Out Details"
         FrmStockOutEntry.txtStockOutID.Text = dtableStockOut.SelectedRows(0).Cells(0).Value
+        FrmStockOutEntry.btnReport.Visible = True
         FrmStockOutEntry.Show()
     End Sub
 

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmStockOutEntry
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmStockOutEntry
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.dtSOutDate = New System.Windows.Forms.DateTimePicker()
         Me.btnSave = New System.Windows.Forms.Button()
@@ -59,8 +59,10 @@ Partial Class FrmStockOutEntry
         Me.txtTotalAmount = New System.Windows.Forms.TextBox()
         Me.BTNLogout = New System.Windows.Forms.Button()
         Me.btnReport = New System.Windows.Forms.Button()
+        Me.DataSet71 = New InventorySystem.DataSet7()
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DataSet71, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dtSOutDate
@@ -468,6 +470,11 @@ Partial Class FrmStockOutEntry
         Me.btnReport.UseVisualStyleBackColor = False
         Me.btnReport.Visible = False
         '
+        'DataSet71
+        '
+        Me.DataSet71.DataSetName = "DataSet7"
+        Me.DataSet71.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'FrmStockOutEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -499,6 +506,7 @@ Partial Class FrmStockOutEntry
         CType(Me.dtableStockout, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DataSet71, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -541,4 +549,5 @@ Partial Class FrmStockOutEntry
     Friend WithEvents Unit As DataGridViewTextBoxColumn
     Friend WithEvents SupplierItemPrice As DataGridViewTextBoxColumn
     Friend WithEvents btnReport As Button
+    Friend WithEvents DataSet71 As DataSet7
 End Class

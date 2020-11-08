@@ -91,8 +91,10 @@ Partial Class FrmPurchaseOrderEntry
         Me.chkcancelPO = New System.Windows.Forms.CheckBox()
         Me.Label19 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.DataSet11 = New InventorySystem.DataSet1()
         Me.GroupBox1.SuspendLayout()
         CType(Me.dtablePoDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label8
@@ -696,84 +698,84 @@ Partial Class FrmPurchaseOrderEntry
         Me.Seq.HeaderText = "Seq"
         Me.Seq.Name = "Seq"
         Me.Seq.ReadOnly = True
-        Me.Seq.Width = 56
+        Me.Seq.Width = 58
         '
         'ItemId
         '
         Me.ItemId.HeaderText = "Item"
         Me.ItemId.Name = "ItemId"
         Me.ItemId.ReadOnly = True
-        Me.ItemId.Width = 57
+        Me.ItemId.Width = 59
         '
         'ItemName
         '
         Me.ItemName.HeaderText = "Description"
         Me.ItemName.Name = "ItemName"
         Me.ItemName.ReadOnly = True
-        Me.ItemName.Width = 102
+        Me.ItemName.Width = 104
         '
         'ClientQUnit
         '
         Me.ClientQUnit.HeaderText = "ClientQty"
         Me.ClientQUnit.Name = "ClientQUnit"
         Me.ClientQUnit.ReadOnly = True
-        Me.ClientQUnit.Width = 89
+        Me.ClientQUnit.Width = 91
         '
         'ClientQty
         '
         Me.ClientQty.HeaderText = "Unit"
         Me.ClientQty.Name = "ClientQty"
         Me.ClientQty.ReadOnly = True
-        Me.ClientQty.Width = 55
+        Me.ClientQty.Width = 57
         '
         'PO
         '
         Me.PO.HeaderText = "SupplierQty"
         Me.PO.Name = "PO"
         Me.PO.ReadOnly = True
-        Me.PO.Width = 105
+        Me.PO.Width = 107
         '
         'Unit
         '
         Me.Unit.HeaderText = "Unit"
         Me.Unit.Name = "Unit"
         Me.Unit.ReadOnly = True
-        Me.Unit.Width = 55
+        Me.Unit.Width = 57
         '
         'SupplierUnitPrice
         '
         Me.SupplierUnitPrice.HeaderText = "Unit Price"
         Me.SupplierUnitPrice.Name = "SupplierUnitPrice"
         Me.SupplierUnitPrice.ReadOnly = True
-        Me.SupplierUnitPrice.Width = 91
+        Me.SupplierUnitPrice.Width = 93
         '
         'TotalPrice
         '
         Me.TotalPrice.HeaderText = "TotalPrice"
         Me.TotalPrice.Name = "TotalPrice"
         Me.TotalPrice.ReadOnly = True
-        Me.TotalPrice.Width = 93
+        Me.TotalPrice.Width = 95
         '
         'ETD
         '
         Me.ETD.HeaderText = "ETD"
         Me.ETD.Name = "ETD"
         Me.ETD.ReadOnly = True
-        Me.ETD.Width = 59
+        Me.ETD.Width = 61
         '
         'ETA
         '
         Me.ETA.HeaderText = "ETA"
         Me.ETA.Name = "ETA"
         Me.ETA.ReadOnly = True
-        Me.ETA.Width = 57
+        Me.ETA.Width = 59
         '
         'FTRY
         '
         Me.FTRY.HeaderText = "FTRY"
         Me.FTRY.Name = "FTRY"
         Me.FTRY.ReadOnly = True
-        Me.FTRY.Width = 68
+        Me.FTRY.Width = 70
         '
         'Cancel
         '
@@ -782,7 +784,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Cancel.ReadOnly = True
         Me.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Cancel.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Cancel.Width = 75
+        Me.Cancel.Width = 77
         '
         'Rec
         '
@@ -791,7 +793,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.Rec.ReadOnly = True
         Me.Rec.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.Rec.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Rec.Width = 56
+        Me.Rec.Width = 58
         '
         'RecAdd
         '
@@ -806,7 +808,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.InvQty.HeaderText = "Invoice Qty"
         Me.InvQty.Name = "InvQty"
         Me.InvQty.ReadOnly = True
-        Me.InvQty.Width = 101
+        Me.InvQty.Width = 103
         '
         'ClientUnitPrice
         '
@@ -853,6 +855,11 @@ Partial Class FrmPurchaseOrderEntry
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
+        'DataSet11
+        '
+        Me.DataSet11.DataSetName = "DataSet1"
+        Me.DataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'FrmPurchaseOrderEntry
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
@@ -893,6 +900,7 @@ Partial Class FrmPurchaseOrderEntry
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.dtablePoDetails, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet11, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -966,4 +974,5 @@ Partial Class FrmPurchaseOrderEntry
     Friend WithEvents RecAdd As DataGridViewTextBoxColumn
     Friend WithEvents InvQty As DataGridViewTextBoxColumn
     Friend WithEvents ClientUnitPrice As DataGridViewTextBoxColumn
+    Friend WithEvents DataSet11 As DataSet1
 End Class

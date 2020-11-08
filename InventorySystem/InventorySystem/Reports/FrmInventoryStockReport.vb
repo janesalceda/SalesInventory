@@ -193,73 +193,35 @@ Public Class FrmInventoryStockReport
         End Try
     End Sub
     Private Sub loadReport()
-        Dim rptDs As ReportDataSource
-        PrintPreview.ReportViewer1.RefreshReport()
+        PrintPreviewInventory.ReportViewer1.RefreshReport()
         Try
-            With PrintPreview.ReportViewer1.LocalReport
-                '.ReportPath = "C:\temp\SalesandInventory\Report2.rdlc"
-                .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report4.rdlc"
-                .DataSources.Clear()
-                Dim dt As New DataTable
-                Dim ds As New DataSet2
-                dt = ds.Tables("StockMonitoringDataSet")
-                'SQL.AddParams("@from", DateTimePicker1.Value.ToShortDateString)
-                'SQL.ExecQuery("SELECT i.itemid,i.Description,
-                'isnull(test.qty,0) AS 'QTY',i.MinimumOrderQty AS 'MinStocks',
-                'i.OrderingPointQty	AS 'OrderPoint'
-                'FROM Items i
-                ' LEFT JOIN (SELECT * FROM GetStockBalance(@from)) AS test
-                ' ON test.ItemId = i.ItemId where i.deletedDate is null")
-                Dim pict As New PictureBox
-                SQL.ExecQuery("SELECT CompanyLogo FROM CompanyInfo")
-                Dim picbyte() As Byte = SQL.DBDT.Rows(0).Item("CompanyLogo")
-                Dim pic As New System.IO.MemoryStream(picbyte)
-                pict.Image = Image.FromStream(pic)
-                pic.Close()
-                For i = 0 To dgvData.Rows.Count - 1
-                    dt.Rows.Add(txtitem.Text, Convert.ToDateTime(dgvData.Rows(i).Cells(0).Value).ToShortDateString,
-                                dgvData.Rows(i).Cells(1).Value, dgvData.Rows(i).Cells(2).Value,
-                                dgvData.Rows(i).Cells(3).Value, dgvData.Rows(i).Cells(4).Value,
-                                dgvData.Rows(i).Cells(5).Value, dgvData.Rows(i).Cells(6).Value, pict.Image)
-                Next
-                If dgvData.Rows.Count = 0 Then
-                    MsgBox("No data found!", MsgBoxStyle.Information, "Information")
-                    Exit Sub
-                End If
-                rptDs = New ReportDataSource("DataSet1", dt)
-                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-
-                PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-                PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
-                PrintPreview.ReportViewer1.ZoomPercent = 100
-                PrintPreview.Show()
-            End With
+            SQL.ExecQuery("SELECT CompanyLogo FROM CompanyInfo")
+            For i = 0 To dgvData.Rows.Count - 1
+                DataSet21.StockMonitoringDataSet.AddStockMonitoringDataSetRow(txtitem.Text, Convert.ToDateTime(dgvData.Rows(i).Cells(0).Value).ToShortDateString,
+                            dgvData.Rows(i).Cells(1).Value, dgvData.Rows(i).Cells(2).Value,
+                            dgvData.Rows(i).Cells(3).Value, dgvData.Rows(i).Cells(4).Value,
+                            dgvData.Rows(i).Cells(5).Value, dgvData.Rows(i).Cells(6).Value, SQL.DBDT.Rows(0).Item(0))
+            Next
+            If dgvData.Rows.Count = 0 Then
+                MsgBox("No data found!", MsgBoxStyle.Information, "Information")
+                Exit Sub
+            End If
+            PrintPreviewInventory.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            PrintPreviewInventory.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintPreviewInventory.ReportViewer1.ZoomPercent = 100
+            PrintPreviewInventory.barcode = DataSet21.StockMonitoringDataSet
+            PrintPreviewInventory.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
-            'End With
         Finally
             btnPrint.Text = "PRINT"
             btnPrint.Enabled = False
         End Try
-
-        'dt = ds.Tables("PODetails")
-        'For i = 0 To dtablePoDetails.Rows.Count - 1
-        '    dt.Rows.Add(dtablePoDetails.Rows(i).Cells(1).Value, dtablePoDetails.Rows(i).Cells(2).Value, dtablePoDetails.Rows(i).Cells(5).Value, dtablePoDetails.Rows(i).Cells(7).Value, dtablePoDetails.Rows(i).Cells(8).Value)
-        'Next
-        'With SaleReports.ReportViewer1.LocalReport
-        '    .ReportPath = "C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\Report1.rdlc"
-        '    .DataSources.Clear()
-        '    .DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("PODataset", dt))
-        'End With
-        '
-        'SaleReports.ReportViewer1.RefreshReport()
     End Sub
 
     Private Sub FrmInventoryStockReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
         dtFrom.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
         dtTo.Value = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        'dtFrom.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
-        'dtTo.MaxDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss")
     End Sub
 End Class

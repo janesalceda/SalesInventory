@@ -24,12 +24,22 @@ Partial Class PrintPreviewBarcode
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.DataSet8 = New InventorySystem.DataSet8()
         Me.DataTable1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        CType(Me.DataSet8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.DataSet8 = New InventorySystem.DataSet8()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'DataTable1BindingSource
+        '
+        Me.DataTable1BindingSource.DataMember = "DataTable1"
+        Me.DataTable1BindingSource.DataSource = Me.DataSet8
+        '
+        'DataSet8
+        '
+        Me.DataSet8.DataSetName = "DataSet8"
+        Me.DataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -37,22 +47,12 @@ Partial Class PrintPreviewBarcode
         ReportDataSource1.Name = "DataSet1"
         ReportDataSource1.Value = Me.DataTable1BindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "InventorySystem.Report8.rdlc"
+        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "InventorySystem.Barcode.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
         Me.ReportViewer1.Size = New System.Drawing.Size(800, 450)
         Me.ReportViewer1.TabIndex = 0
-        '
-        'DataSet8
-        '
-        Me.DataSet8.DataSetName = "DataSet8"
-        Me.DataSet8.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DataTable1BindingSource
-        '
-        Me.DataTable1BindingSource.DataMember = "DataTable1"
-        Me.DataTable1BindingSource.DataSource = Me.DataSet8
         '
         'PrintPreviewBarcode
         '
@@ -61,9 +61,10 @@ Partial Class PrintPreviewBarcode
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "PrintPreviewBarcode"
-        Me.Text = "PrintPreviewBarcode"
-        CType(Me.DataSet8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Barcode Print Preview"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.DataTable1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

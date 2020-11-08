@@ -445,7 +445,7 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddStockMonitoringDataSetRow(ByVal ItemId As String, ByVal TransactionDate As String, ByVal TransactionID As String, ByVal _IN As String, ByVal OUT As String, ByVal AC As String, ByVal Balance As String, ByVal Remarks As String, ByVal CompanyLogo As String) As StockMonitoringDataSetRow
+        Public Overloads Function AddStockMonitoringDataSetRow(ByVal ItemId As String, ByVal TransactionDate As String, ByVal TransactionID As String, ByVal _IN As String, ByVal OUT As String, ByVal AC As String, ByVal Balance As String, ByVal Remarks As String, ByVal CompanyLogo() As Byte) As StockMonitoringDataSetRow
             Dim rowStockMonitoringDataSetRow As StockMonitoringDataSetRow = CType(Me.NewRow,StockMonitoringDataSetRow)
             Dim columnValuesArray() As Object = New Object() {ItemId, TransactionDate, TransactionID, _IN, OUT, AC, Balance, Remarks, CompanyLogo}
             rowStockMonitoringDataSetRow.ItemArray = columnValuesArray
@@ -503,7 +503,7 @@ Partial Public Class DataSet2
             MyBase.Columns.Add(Me.columnBalance)
             Me.columnRemarks = New Global.System.Data.DataColumn("Remarks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnRemarks)
-            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCompanyLogo)
         End Sub
         
@@ -773,10 +773,10 @@ Partial Public Class DataSet2
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CompanyLogo() As String
+        Public Property CompanyLogo() As Byte()
             Get
                 Try 
-                    Return CType(Me(Me.tableStockMonitoringDataSet.CompanyLogoColumn),String)
+                    Return CType(Me(Me.tableStockMonitoringDataSet.CompanyLogoColumn),Byte())
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyLogo' in table 'StockMonitoringDataSet' is DBNull.", e)
                 End Try

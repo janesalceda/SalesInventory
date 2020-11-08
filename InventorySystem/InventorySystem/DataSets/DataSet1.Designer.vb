@@ -619,7 +619,7 @@ Partial Public Class DataSet1
                     ByVal CompPhone As String,  _
                     ByVal CompFax As String,  _
                     ByVal website As String,  _
-                    ByVal CompanyLogo As String) As PODetailsRow
+                    ByVal CompanyLogo() As Byte) As PODetailsRow
             Dim rowPODetailsRow As PODetailsRow = CType(Me.NewRow,PODetailsRow)
             Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, SupplierUnitPrice, Total, PONo, IssuedDate, TotalAmount, SupplierName, Phone, Fax, Address, Remarks, DeliveryPlaces, TermsofDelivery, TermsofPayment, Encoder, CompanyName, StreetAdress, CityZip, CompPhone, CompFax, website, CompanyLogo}
             rowPODetailsRow.ItemArray = columnValuesArray
@@ -719,7 +719,7 @@ Partial Public Class DataSet1
             MyBase.Columns.Add(Me.columnCompFax)
             Me.columnwebsite = New Global.System.Data.DataColumn("website", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnwebsite)
-            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCompanyLogo)
         End Sub
         
@@ -1212,10 +1212,10 @@ Partial Public Class DataSet1
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CompanyLogo() As String
+        Public Property CompanyLogo() As Byte()
             Get
                 Try 
-                    Return CType(Me(Me.tablePODetails.CompanyLogoColumn),String)
+                    Return CType(Me(Me.tablePODetails.CompanyLogoColumn),Byte())
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyLogo' in table 'PODetails' is DBNull.", e)
                 End Try

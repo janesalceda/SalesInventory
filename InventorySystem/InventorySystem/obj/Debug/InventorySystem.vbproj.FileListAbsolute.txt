@@ -267,13 +267,9 @@ C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\b
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\System.Drawing.Common.dll
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.dll
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.dll
-C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\Barcode.xml
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\IronBarCode.xml
-C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.pdb
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.xml
-C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.pdb
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\zxing.presentation.xml
-C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AddUser.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.AppForm.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmAccountDetails.resources
@@ -389,7 +385,6 @@ C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\o
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmStockOutReport.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.ItemStockReport.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmScanItems.resources
-C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreview.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.ScanItem.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.FrmChangeUOM.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\RdlCompile.cache
@@ -569,3 +564,14 @@ C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\BarcodeStandard.dll
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewBarcode.resources
 C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintingQR.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\bin\Debug\BarcodeStandard.dll
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintingQR.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewBarcode.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintingDeliveryReceipt.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintingPreviewDaily.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewIncomeStatement.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewInventory.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewPO.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewStockMonitoring.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewStockout.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewDelivery.resources

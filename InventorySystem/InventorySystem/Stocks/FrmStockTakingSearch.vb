@@ -3,9 +3,8 @@
         SQL.ExecQuery("SELECT STID,CountedDate,
             CASE WHEN st.EncodedStaff=e.EmpId THEN e.EmployeeName ELSE '' END AS 'EncodedStaff',
             Remarks,st.UpdatedDate,
-            CASE WHEN st.UpdatedBy=e.EmpId THEN e.EmployeeName ELSE '' END AS 'UpdatedBy',
-            CASE WHEN st.ApprovedBy=e.EmpId THEN e.EmployeeName ELSE 'NOT YET APPROVED' END as 'ApprovedBy' 
-            from StockTakingHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where & " order by st.createddate")
+            CASE WHEN st.UpdatedBy=e.EmpId THEN e.EmployeeName ELSE '' END AS 'UpdatedBy'
+           from StockTakingHeaders st INNER JOIN Employees e ON e.EmpId=st.EncodedStaff	" & where & " order by st.createddate")
 
         dtableStockTaking.DataSource = Nothing
         If SQL.HasException Then Exit Sub

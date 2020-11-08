@@ -25,6 +25,8 @@ Partial Class DailyTransaction
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.DataSet31 = New InventorySystem.DataSet3()
+        CType(Me.DataSet31, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Button1
@@ -58,6 +60,11 @@ Partial Class DailyTransaction
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "Transaction Date:"
         '
+        'DataSet31
+        '
+        Me.DataSet31.DataSetName = "DataSet3"
+        Me.DataSet31.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'DailyTransaction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -74,6 +81,7 @@ Partial Class DailyTransaction
         Me.Name = "DailyTransaction"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Daily Transaction Report"
+        CType(Me.DataSet31, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -82,4 +90,5 @@ Partial Class DailyTransaction
     Friend WithEvents Button1 As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label1 As Label
+    Friend WithEvents DataSet31 As DataSet3
 End Class

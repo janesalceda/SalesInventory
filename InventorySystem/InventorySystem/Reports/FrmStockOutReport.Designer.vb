@@ -29,6 +29,8 @@ Partial Class FrmStockOutReport
         Me.dtTo = New System.Windows.Forms.DateTimePicker()
         Me.dtFrom = New System.Windows.Forms.DateTimePicker()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.DataSet51 = New InventorySystem.DataSet5()
+        CType(Me.DataSet51, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -103,6 +105,11 @@ Partial Class FrmStockOutReport
         Me.Label1.TabIndex = 19
         Me.Label1.Text = "Items:"
         '
+        'DataSet51
+        '
+        Me.DataSet51.DataSetName = "DataSet5"
+        Me.DataSet51.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'FrmStockOutReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -120,6 +127,7 @@ Partial Class FrmStockOutReport
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "FrmStockOutReport"
         Me.Text = "Stock Out Report"
+        CType(Me.DataSet51, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -132,4 +140,5 @@ Partial Class FrmStockOutReport
     Friend WithEvents dtTo As DateTimePicker
     Friend WithEvents dtFrom As DateTimePicker
     Friend WithEvents Label1 As Label
+    Friend WithEvents DataSet51 As DataSet5
 End Class

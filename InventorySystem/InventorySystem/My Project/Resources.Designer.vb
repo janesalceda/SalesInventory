@@ -73,6 +73,36 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property femaleuser() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("femaleuser", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property invisible() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("invisible", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property maleuser() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("maleuser", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Print() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Print", resourceCulture)
@@ -93,9 +123,9 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property visibility___Copy() As System.Drawing.Bitmap
+        Friend ReadOnly Property visible() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("visibility - Copy", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("visible", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

@@ -3,7 +3,6 @@
 Public Class PrintingQR
     Public barcode
     Private Sub PrintingQR_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Dim barcode = DataSet8.DataTable1
         Dim reportDataSource = New ReportDataSource()
         reportDataSource.Name = "DataSet1"
         reportDataSource.Value = barcode

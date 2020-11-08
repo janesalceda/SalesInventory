@@ -70,7 +70,7 @@
                     .chkDisuse.Enabled = True
                     .id = dtItems.SelectedRows(0).Cells(0).Value
                     .txtQtyunit.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
-                    .txtDes.Text = dtItems.SelectedRows(0).Cells(1).Value.ToString
+                    .txtDes.Text = dtItems.SelectedRows(0).Cells(2).Value.ToString
                     .Show()
                 End With
             End If
@@ -87,4 +87,5 @@
         dtItems.Rows.Clear()
         chkDisuse.Checked = False
     End Sub
+
 End Class

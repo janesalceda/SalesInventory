@@ -70,6 +70,10 @@
     End Sub
     Private Sub AddSupplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MdiParent = AppForm
+        LoadCurrency()
+        LoadPayment()
+        LoadDelivery()
+
         If btnSave.Text = "UPDATE" Then
             LoadData()
             ViewSupplier()
@@ -78,7 +82,7 @@
         End If
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
         Try
             Dim complete As String = "Please input the ff:" & vbNewLine
             If String.IsNullOrWhiteSpace(txtSupplierId.Text) Then
@@ -147,7 +151,7 @@
         End Try
     End Sub
 
-    Private Sub txtSupplierId_TextChanged(sender As Object, e As EventArgs) Handles txtSupplierId.TextChanged
+    Private Sub TxtSupplierId_TextChanged(sender As Object, e As EventArgs) Handles txtSupplierId.TextChanged
         Try
             If btnSave.Text = "UPDATE" Then
                 SQL.AddParams("@SupplierId", txtSupplierId.Text)
@@ -161,9 +165,9 @@
                 txtFax.Text = SQL.DBDT.Rows(0).Item(5)
                 txtRemarks.Text = SQL.DBDT.Rows(0).Item(6)
                 txtAccountsName.Text = SQL.DBDT.Rows(0).Item(7)
-                cmbTOD.SelectedValue = SQL.DBDT.Rows(0).Item(8)
-                cmbTOP.SelectedValue = SQL.DBDT.Rows(0).Item(9)
-                cmbCurrency.SelectedValue = SQL.DBDT.Rows(0).Item(10)
+                cmbTOD.Text = SQL.DBDT.Rows(0).Item(8)
+                cmbTOP.Text = SQL.DBDT.Rows(0).Item(9)
+                cmbCurrency.Text = SQL.DBDT.Rows(0).Item(10)
                 chkImport.Checked = SQL.DBDT.Rows(0).Item(11)
                 txtEmailAd.Text = SQL.DBDT.Rows(0).Item(12)
             End If
@@ -172,14 +176,15 @@
             Exit Sub
         End Try
     End Sub
-    Private Sub cmbCurrency_GotFocus(sender As Object, e As EventArgs) Handles cmbCurrency.GotFocus
+    Private Sub CmbCurrency_GotFocus(sender As Object, e As EventArgs) Handles cmbCurrency.GotFocus
         LoadCurrency()
     End Sub
 
-    Private Sub cmbTOP_GotFocus(sender As Object, e As EventArgs) Handles cmbTOP.GotFocus
+    Private Sub CmbTOP_GotFocus(sender As Object, e As EventArgs) Handles cmbTOP.GotFocus
         LoadPayment()
     End Sub
-    Private Sub cmbTOD_GotFocus(sender As Object, e As EventArgs) Handles cmbTOD.GotFocus
+    Private Sub CmbTOD_GotFocus(sender As Object, e As EventArgs) Handles cmbTOD.GotFocus
         LoadDelivery()
     End Sub
+
 End Class

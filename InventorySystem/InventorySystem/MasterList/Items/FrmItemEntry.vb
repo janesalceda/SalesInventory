@@ -2,7 +2,7 @@
 
 Public Class FrmItemEntry
 
-    Dim ppd As New PrintPreviewDialog
+    'Dim ppd As New PrintPreviewDialog
     Public Sub AddRow(supplierid As String, unitprice As Decimal, applieddate As Date)
         dtableItemPrices.Rows.Add(supplierid, applieddate, unitprice, "", "", "Edit")
     End Sub
@@ -38,8 +38,8 @@ Public Class FrmItemEntry
         cmbCategory.DisplayMember = "CategoryName"
         cmbCategory.ValueMember = "CategoryID"
     End Sub
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim TableName As String = ""
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+        Dim TableName As String
         Try
             Dim completefields As String = "Please input the ff:" & vbNewLine
             If String.IsNullOrWhiteSpace(txtDes.Text) Then completefields += "*Description" & vbNewLine
@@ -118,50 +118,50 @@ Public Class FrmItemEntry
                     itemids = txtItemId.Text
                 End If
                 For i As Integer = 0 To dtableItemPrices.Rows.Count - 1
-                        If String.IsNullOrEmpty(dtableItemPrices.Rows(i).Cells(3).Value.ToString) Then
+                    If String.IsNullOrEmpty(dtableItemPrices.Rows(i).Cells(3).Value.ToString) Then
                         SQL.AddParams("@ItemId", itemids)
                         SQL.AddParams("@SupplierID", dtableItemPrices.Rows(i).Cells(0).Value.ToString)
-                            SQL.AddParams("@ItemPrice", dtableItemPrices.Rows(i).Cells(2).Value.ToString)
-                            SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableItemPrices.Rows(i).Cells(1).Value.ToString))
-                            SQL.AddParams("@SupplierItemCode", dtableItemPrices.Rows(i).Cells(4).Value.ToString)
-                            SQL.AddParams("@UpdatedBy", moduleId)
-                            SQL.ExecQuery("INSERT INTO SupplierItemPrices 
+                        SQL.AddParams("@ItemPrice", dtableItemPrices.Rows(i).Cells(2).Value.ToString)
+                        SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableItemPrices.Rows(i).Cells(1).Value.ToString))
+                        SQL.AddParams("@SupplierItemCode", dtableItemPrices.Rows(i).Cells(4).Value.ToString)
+                        SQL.AddParams("@UpdatedBy", moduleId)
+                        SQL.ExecQuery("INSERT INTO SupplierItemPrices 
                             (ItemId,SupplierId,SupplierItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
                             VALUES(@ItemId ,
                             @SupplierID,@SupplierItemCode,@AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
-                        End If
-                        If SQL.HasException Then Exit Sub
-                    Next
-                    For i As Integer = 0 To dtableCliPrice.Rows.Count - 1
-                        If String.IsNullOrEmpty(dtableCliPrice.Rows(i).Cells(2).Value.ToString) Then
+                    End If
+                    If SQL.HasException Then Exit Sub
+                Next
+                For i As Integer = 0 To dtableCliPrice.Rows.Count - 1
+                    If String.IsNullOrEmpty(dtableCliPrice.Rows(i).Cells(2).Value.ToString) Then
                         SQL.AddParams("@ItemId", itemids)
                         SQL.AddParams("@ItemPrice", dtableCliPrice.Rows(i).Cells(1).Value.ToString)
-                            SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableCliPrice.Rows(i).Cells(0).Value.ToString))
-                            SQL.AddParams("@UpdatedBy", moduleId)
-                            SQL.ExecQuery("INSERT INTO ClientItemPrices 
+                        SQL.AddParams("@AppliedDate", Convert.ToDateTime(dtableCliPrice.Rows(i).Cells(0).Value.ToString))
+                        SQL.AddParams("@UpdatedBy", moduleId)
+                        SQL.ExecQuery("INSERT INTO ClientItemPrices 
                             (ItemId,AppliedDate,UnitPrice,LeadTime,UpdatedBy)
                             VALUES( @ItemId,
                             @AppliedDate,@ItemPrice,NULL,@UpdatedBy)")
-                        End If
+                    End If
                     If SQL.HasException Then Exit Sub
                 Next
-                    FrmItemSearch.LoadDataGrid()
+                FrmItemSearch.LoadDataGrid()
 
-                    MsgBox("Successfully saved!", MsgBoxStyle.Information, "Information")
-                    Me.Close()
-                End If
+                MsgBox("Successfully saved!", MsgBoxStyle.Information, "Information")
+                Me.Close()
+            End If
         Catch ex As Exception
             msgboxDisplay(ex.Message, 3)
             Exit Sub
         End Try
     End Sub
 
-    Private Sub btnSupplier_Click(sender As Object, e As EventArgs)
+    Private Sub BtnSupplier_Click(sender As Object, e As EventArgs)
         formname = "AddItem"
         SupplierList.Show()
     End Sub
 
-    Private Sub dtItemPrices_CellClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub DtItemPrices_CellClick(sender As Object, e As DataGridViewCellEventArgs)
         If e.ColumnIndex = 5 Then
             FrmSupplierItemPriceEntry.ItemId = txtItemId.Text
             FrmSupplierItemPriceEntry.Text = "View Item Price"
@@ -169,7 +169,7 @@ Public Class FrmItemEntry
         End If
     End Sub
 
-    Private Sub txtItemId_TextChanged(sender As Object, e As EventArgs) Handles txtItemId.TextChanged
+    Private Sub TxtItemId_TextChanged(sender As Object, e As EventArgs) Handles txtItemId.TextChanged
         ViewSupplierPriceData()
     End Sub
     Public Sub ViewSupplierPriceData()
@@ -228,7 +228,7 @@ Public Class FrmItemEntry
         picQR.Visible = True
         PictureBox4.Visible = True
     End Sub
-    Public Sub refreshData()
+    Public Sub RefreshData()
         SQL.AddParams("@ItemId", txtItemId.Text)
         SQL.ExecQuery("SELECT SupplierId,AppliedDate,UnitPrice,ItemPriceId,CreatedDate 
         FROM SupplierItemPrices where ItemID=@ItemId ")
@@ -239,7 +239,7 @@ Public Class FrmItemEntry
                                     SQL.DBDT.Rows(i).Item(0), "Edit")
         Next
     End Sub
-    Private Sub btnAddItemPrice_Click(sender As Object, e As EventArgs) Handles btnAddItemPrice.Click
+    Private Sub BtnAddItemPrice_Click(sender As Object, e As EventArgs) Handles btnAddItemPrice.Click
         If Application.OpenForms().OfType(Of FrmSupplierItemPriceEntry).Any Then FrmSupplierItemPriceEntry.Close()
         FrmSupplierItemPriceEntry.ItemId = txtItemId.Text
         FrmSupplierItemPriceEntry.btnSave.Text = "INSERT PRICE"
@@ -247,7 +247,7 @@ Public Class FrmItemEntry
         FrmSupplierItemPriceEntry.Show()
     End Sub
 
-    Private Sub dtItemPrices_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+    Private Sub DtItemPrices_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
         If e.ColumnIndex = 5 Then
             FrmSupplierItemPriceEntry.btnSave.Text = "UPDATE PRICE"
             FrmSupplierItemPriceEntry.Text = "View Item Price"
@@ -255,19 +255,19 @@ Public Class FrmItemEntry
         End If
     End Sub
 
-    Private Sub picQR_Click(sender As Object, e As EventArgs) Handles picQR.Click
+    Private Sub PicQR_Click(sender As Object, e As EventArgs) Handles picQR.Click
         printQR()
     End Sub
 
-    Private Sub picBar_Click(sender As Object, e As EventArgs) Handles picBar.Click
+    Private Sub PicBar_Click(sender As Object, e As EventArgs) Handles picBar.Click
         printbar()
     End Sub
-    Private Sub printQR()
+    Private Sub PrintQR()
         If Application.OpenForms().OfType(Of FrmPrintingItemBarcode).Any Then FrmPrintingItemBarcode.Close()
         FrmPrintingItemBarcode.formname = "QR"
         FrmPrintingItemBarcode.Show()
     End Sub
-    Private Sub printbar()
+    Private Sub Printbar()
         FrmPrintingItemBarcode.formname = "Bar"
         FrmPrintingItemBarcode.Show()
     End Sub
@@ -275,49 +275,49 @@ Public Class FrmItemEntry
         printQR()
     End Sub
 
-    Private Sub picprint_Click(sender As Object, e As EventArgs) Handles picprint.Click
-        printbar()
+    Private Sub Picprint_Click(sender As Object, e As EventArgs) Handles picprint.Click
+        Printbar()
     End Sub
-    Private Sub txtMax_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMax.KeyPress
+    Private Sub TxtMax_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMax.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
     End Sub
-    Private Sub txtMinQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMinQty.KeyPress
-        If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
-
-    End Sub
-
-    Private Sub txtOrderPoint_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtOrderPoint.KeyPress
+    Private Sub TxtMinQty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtMinQty.KeyPress
         If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
 
     End Sub
 
-    Private Sub btnAddPrice_Click(sender As Object, e As EventArgs) Handles btnAddPrice.Click
+    Private Sub TxtOrderPoint_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtOrderPoint.KeyPress
+        If Not ((e.KeyChar <= "9" And e.KeyChar >= "0") Or e.KeyChar = vbBack Or e.KeyChar = ".") Then e.Handled = True
+
+    End Sub
+
+    Private Sub BtnAddPrice_Click(sender As Object, e As EventArgs) Handles btnAddPrice.Click
         If Application.OpenForms().OfType(Of FrmCliItemPrice).Any Then FrmCliItemPrice.Close()
 
         FrmCliItemPrice.Show()
     End Sub
 
-    Private Sub cmbCategory_GotFocus(sender As Object, e As EventArgs) Handles cmbCategory.GotFocus
+    Private Sub CmbCategory_GotFocus(sender As Object, e As EventArgs) Handles cmbCategory.GotFocus
         LoadCategories()
     End Sub
 
-    Private Sub cmbCliQtyUnit_GotFocus(sender As Object, e As EventArgs) Handles cmbCliQtyUnit.GotFocus
+    Private Sub CmbCliQtyUnit_GotFocus(sender As Object, e As EventArgs) Handles cmbCliQtyUnit.GotFocus
         LoadCliUnit()
     End Sub
 
-    Private Sub cmbSupQtyUnit_GotFocus(sender As Object, e As EventArgs) Handles cmbSupQtyUnit.GotFocus
+    Private Sub CmbSupQtyUnit_GotFocus(sender As Object, e As EventArgs) Handles cmbSupQtyUnit.GotFocus
         LoadSupUnit()
     End Sub
 
-    Private Sub cmbLocation_GotFocus(sender As Object, e As EventArgs) Handles cmbLocation.GotFocus
+    Private Sub CmbLocation_GotFocus(sender As Object, e As EventArgs) Handles cmbLocation.GotFocus
         LoadLocation()
     End Sub
 
-    Private Sub txtItemId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtItemId.KeyPress
+    Private Sub TxtItemId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtItemId.KeyPress
         e.Handled = False
     End Sub
 
-    Private Sub chkApproved_CheckedChanged(sender As Object, e As EventArgs) Handles chkApproved.CheckedChanged
+    Private Sub ChkApproved_CheckedChanged(sender As Object, e As EventArgs) Handles chkApproved.CheckedChanged
         If MsgBox("Are you sure you want to approved this item?", vbQuestion + vbYesNo, "Confirmation") = vbYes Then
             SQL.AddParams("@ItemId", txtItemId.Text)
             SQL.ExecQuery("INSERT INTO ITEMS

@@ -415,7 +415,7 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddItemStocksDataSetRow(ByVal ItemId As String, ByVal Description As String, ByVal Qty As String, ByVal MinimumOrderQty As String, ByVal OrderingPointQty As String, ByVal CompanyLogo As String) As ItemStocksDataSetRow
+        Public Overloads Function AddItemStocksDataSetRow(ByVal ItemId As String, ByVal Description As String, ByVal Qty As String, ByVal MinimumOrderQty As String, ByVal OrderingPointQty As String, ByVal CompanyLogo() As Byte) As ItemStocksDataSetRow
             Dim rowItemStocksDataSetRow As ItemStocksDataSetRow = CType(Me.NewRow,ItemStocksDataSetRow)
             Dim columnValuesArray() As Object = New Object() {ItemId, Description, Qty, MinimumOrderQty, OrderingPointQty, CompanyLogo}
             rowItemStocksDataSetRow.ItemArray = columnValuesArray
@@ -461,7 +461,7 @@ Partial Public Class DataSet4
             MyBase.Columns.Add(Me.columnMinimumOrderQty)
             Me.columnOrderingPointQty = New Global.System.Data.DataColumn("OrderingPointQty", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnOrderingPointQty)
-            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCompanyLogo)
         End Sub
         
@@ -684,10 +684,10 @@ Partial Public Class DataSet4
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CompanyLogo() As String
+        Public Property CompanyLogo() As Byte()
             Get
                 Try 
-                    Return CType(Me(Me.tableItemStocksDataSet.CompanyLogoColumn),String)
+                    Return CType(Me(Me.tableItemStocksDataSet.CompanyLogoColumn),Byte())
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyLogo' in table 'ItemStocksDataSet' is DBNull.", e)
                 End Try

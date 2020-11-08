@@ -11,7 +11,7 @@ Public Class FrmStockOutEntry
         btnAddItem.Enabled = False
         txtIssuedBy.Enabled = False
         Label27.Visible = False
-        dtableStockout.Enabled = False
+        'dtableStockout.Enabled = False
         ' If rights > 2 Or rights = 0 Then
         'chkApprove.Enabled = False
         btnSave.Visible = False
@@ -60,9 +60,9 @@ Public Class FrmStockOutEntry
         txtTotalAmount.Text = SQL.DBDT.Rows(0).Item(11)
 
         For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
-            dtableStockout.Rows.Add(SQL.DBDT.Rows(i).Item(4).ToString, SQL.DBDT.Rows(i).Item(5).ToString,
-                                 SQL.DBDT.Rows(i).Item(6).ToString, SQL.DBDT.Rows(i).Item(7).ToString,
-                                 SQL.DBDT.Rows(i).Item(12).ToString, SQL.DBDT.Rows(i).Item(8).ToString, SQL.DBDT.Rows(i).Item(13).ToString)
+            dtableStockout.Rows.Add(dtableStockout.Rows.Count + 1, SQL.DBDT.Rows(i).Item("ItemID").ToString, SQL.DBDT.Rows(i).Item("Description"),
+                                 SQL.DBDT.Rows(i).Item("Qty").ToString, SQL.DBDT.Rows(i).Item("ClientUnitprice"),
+                                 (SQL.DBDT.Rows(i).Item("Qty") * SQL.DBDT.Rows(i).Item("ClientUnitprice")), SQL.DBDT.Rows(i).Item("Remarks"), SQL.DBDT.Rows(i).Item("SupplierUnitprice"))
         Next
     End Sub
     Private Sub btnAddItem_Click(sender As Object, e As EventArgs) Handles btnAddItem.Click
@@ -224,44 +224,19 @@ Public Class FrmStockOutEntry
         btnSave.Text = "Please wait ..."
         btnSave.Enabled = False
         SQL.params.Clear()
-
-        Dim rptDs As ReportDataSource
-        PrintPreview.ReportViewer1.RefreshReport()
+        PrintingDeliveryReceipt.ReportViewer1.RefreshReport()
         Try
-            With PrintPreview.ReportViewer1.LocalReport
-                .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report7.rdlc"
-                .DataSources.Clear()
-                Dim dt As New DataTable
-                Dim ds As New DataSet7
-                'SQL.params.Clear()
-                dt = ds.Tables("DataTable1")
-                'SQL.ExecQuery("SELECT * FROM CompanyInfo")
-                'If SQL.HasException Then Exit Sub
-                'If SQL.DBDT.Rows.Count = 0 Then Exit Sub
-                'MsgBox(SQL.DBDT.Rows(0).Item(0))
-                For i = 0 To dtableStockout.Rows.Count - 1
-                    dt.Rows.Add(dtableStockout.Rows(i).Cells(1).Value, dtableStockout.Rows(i).Cells(2).Value,
-                                dtableStockout.Rows(i).Cells(3).Value, dtableStockout.Rows(i).Cells(4).Value,
-                                dtableStockout.Rows(i).Cells(5).Value, "", dtSOutDate.Value)
-                Next
-                'If dtableStockout.Rows.Count = 0 Then
-                '    MsgBox("No data found!", MsgBoxStyle.Information, "Information")
-                '    Exit Sub
-                'End If
-
-                'SQL.ExecQuery("EXECUTE dbo.DiplayIncomeStatement 
-                '     @TransactedFrom = @from, @TransactedTo =@to ")
-                'If SQL.DBDT.Rows.Count = 0 Then
-                '    msgboxDisplay("No Record Found!", 1)
-                '    Exit Sub
-                'End If
-                rptDs = New ReportDataSource("DataSet1", dt)
-                PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-                PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
-                PrintPreview.ReportViewer1.ZoomPercent = 100
-                PrintPreview.Show()
-            End With
+            SQL.ExecQuery("SELECT CompanyLogo FROM CompanyInfo")
+            For i = 0 To dtableStockout.Rows.Count - 1
+                DataSet71.DataTable1.AddDataTable1Row(dtableStockout.Rows(i).Cells(1).Value, dtableStockout.Rows(i).Cells(2).Value,
+                            dtableStockout.Rows(i).Cells(3).Value, dtableStockout.Rows(i).Cells(4).Value,
+                            dtableStockout.Rows(i).Cells(5).Value, SQL.DBDT.Rows(0).Item(0), dtSOutDate.Value, "")
+            Next
+            PrintingDeliveryReceipt.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            PrintingDeliveryReceipt.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintingDeliveryReceipt.ReportViewer1.ZoomPercent = 100
+            PrintingDeliveryReceipt.barcode = DataSet71.DataTable1
+            PrintingDeliveryReceipt.ShowDialog()
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub
@@ -299,11 +274,13 @@ Public Class FrmStockOutEntry
     End Sub
     Private Sub dtableStockout_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockout.CellClick
         Try
-            txtItemCode.Text = dtableStockout.SelectedRows(0).Cells(1).Value
-            txtItemName.Text = dtableStockout.SelectedRows(0).Cells(2).Value
-            txtQty.Text = dtableStockout.SelectedRows(0).Cells(3).Value
-            txtSTRemarks.Text = dtableStockout.SelectedRows(0).Cells(6).Value
-            btnAddItem.Text = "UPDATE"
+            If btnSave.Text = "SAVE" Then
+                txtItemCode.Text = dtableStockout.SelectedRows(0).Cells(1).Value
+                txtItemName.Text = dtableStockout.SelectedRows(0).Cells(2).Value
+                txtQty.Text = dtableStockout.SelectedRows(0).Cells(3).Value
+                txtSTRemarks.Text = dtableStockout.SelectedRows(0).Cells(6).Value
+                btnAddItem.Text = "UPDATE"
+            End If
         Catch ex As Exception
             msgboxDisplay(ex.Message, 3)
             Exit Sub
@@ -314,10 +291,6 @@ Public Class FrmStockOutEntry
         e.Handled = True
     End Sub
 
-    Private Sub dtableStockout_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockout.CellContentClick
-
-    End Sub
-
     Private Sub BTNLogout_Click(sender As Object, e As EventArgs) Handles BTNLogout.Click
         LoginForm.txtUsername.Focus()
         LoginForm.Show()
@@ -325,6 +298,15 @@ Public Class FrmStockOutEntry
     End Sub
 
     Private Sub txtStockOutID_TextChanged(sender As Object, e As EventArgs) Handles txtStockOutID.TextChanged
+
+    End Sub
+
+
+    Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
+        printDeliveryReceipt()
+    End Sub
+
+    Private Sub dtableStockout_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dtableStockout.CellContentClick
 
     End Sub
 End Class

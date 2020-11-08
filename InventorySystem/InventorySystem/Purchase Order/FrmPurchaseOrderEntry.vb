@@ -632,20 +632,12 @@ Public Class FrmPurchaseOrderEntry
         loadReport()
     End Sub
     Private Sub loadReport()
+        If Application.OpenForms().OfType(Of PrintPreviewPO).Any Then PrintPreviewPO.Close()
+        PrintPreviewPO.ReportViewer1.RefreshReport()
         Try
-            Dim rptDs As ReportDataSource
-            If Application.OpenForms().OfType(Of PrintPreview).Any Then PrintPreview.Close()
-            PrintPreview.ReportViewer1.RefreshReport()
-            Try
-                With PrintPreview.ReportViewer1.LocalReport
-                    .ReportPath = "C:\temp\SalesandInventory\Reportdlc\Report1.rdlc"
-                    .DataSources.Clear()
-                    '.DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("PODataset", dt))
-                    Dim dt As New DataTable
-                    Dim ds As New DataSet1
-                    SQL.AddParams("@PONo", txtPONo.Text)
-                    SQL.ExecQuery("SELECT pod.ItemId ,i.Description,pod.SupplierUnitPrice,pod.EquivalentQty 'Qty',(pod.EquivalentQty*pod.SupplierUnitPrice) AS 'Total',
-                    poh.PONo,convert(varchar(10),poh.IssuedDate,111) 'IssuedDate',pod.SupplierUnitPrice,poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,poh.Remarks,
+            SQL.AddParams("@PONo", txtPONo.Text)
+            SQL.ExecQuery("SELECT pod.ItemId ,i.Description,pod.EquivalentQty 'Qty',pod.SupplierUnitPrice,(pod.EquivalentQty*pod.SupplierUnitPrice) AS 'Total',
+                    poh.PONo,convert(varchar(10),poh.IssuedDate,111) 'IssuedDate',poh.TotalAmount,s.SupplierName,s.Phone,s.Fax,s.Address,poh.Remarks,
                     dp.Description AS DeliveryPlaces,td.Description AS TermsOfDelivery,tp.Description AS TermsOfPayment	
                     ,e.EmployeeName 'Encoder', CompanyName,StreetAdress,CityZip,a.Phone 'CompPhone',a.Fax'CompFax',website,CompanyLogo	
                     FROM POHeaders poh 
@@ -659,39 +651,28 @@ Public Class FrmPurchaseOrderEntry
                     INNER JOIN Suppliers s ON s.SupplierId=poh.SupplierID,
                     companyinfo a
                     where poh.PONo=@PONo")
-                    If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
-                    rptDs = New ReportDataSource("PODataSet", SQL.DBDT)
-                    'SQL.ExecQuery("Select * from Companyinfo")
-                    'PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                    'rptDs = New ReportDataSource("DataSet1", SQL.DBDT)
-                    PrintPreview.ReportViewer1.LocalReport.DataSources.Add(rptDs)
-                    PrintPreview.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
-                    PrintPreview.ReportViewer1.ZoomMode = ZoomMode.Percent
-                    PrintPreview.ReportViewer1.ZoomPercent = 100
-                    PrintPreview.Show()
-                End With
-            Catch ex As Exception
-                MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
-                'End With
-            Finally
-                Button1.Text = "PRINT"
-                Button1.Enabled = True
-            End Try
-
-            'dt = ds.Tables("PODetails")
-            'For i = 0 To dtablePoDetails.Rows.Count - 1
-            '    dt.Rows.Add(dtablePoDetails.Rows(i).Cells(1).Value, dtablePoDetails.Rows(i).Cells(2).Value, dtablePoDetails.Rows(i).Cells(5).Value, dtablePoDetails.Rows(i).Cells(7).Value, dtablePoDetails.Rows(i).Cells(8).Value)
-            'Next
-            'With SaleReports.ReportViewer1.LocalReport
-            '    .ReportPath = "C:\Users\smd255\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\Report1.rdlc"
-            '    .DataSources.Clear()
-            '    .DataSources.Add(New Microsoft.Reporting.WinForms.ReportDataSource("PODataset", dt))
-            'End With
-            '
-            'SaleReports.ReportViewer1.RefreshReport()
+            If SQL.HasException Or SQL.DBDT.Rows.Count = 0 Then Exit Sub
+            DataSet11.Clear()
+            For i As Integer = 0 To SQL.DBDT.Rows.Count - 1
+                DataSet11.PODetails.AddPODetailsRow(SQL.DBDT.Rows(i).Item(0), SQL.DBDT.Rows(i).Item(1),
+                    SQL.DBDT.Rows(i).Item(2), SQL.DBDT.Rows(i).Item(3), SQL.DBDT.Rows(i).Item(4), SQL.DBDT.Rows(i).Item(5),
+                    SQL.DBDT.Rows(i).Item(6), SQL.DBDT.Rows(i).Item(7), SQL.DBDT.Rows(i).Item(8), SQL.DBDT.Rows(i).Item(9),
+                    SQL.DBDT.Rows(i).Item(10), SQL.DBDT.Rows(i).Item(11), SQL.DBDT.Rows(i).Item(12), SQL.DBDT.Rows(i).Item(13),
+                    SQL.DBDT.Rows(i).Item(14), SQL.DBDT.Rows(i).Item(15), SQL.DBDT.Rows(i).Item(16), SQL.DBDT.Rows(i).Item(17),
+                    SQL.DBDT.Rows(i).Item(18), SQL.DBDT.Rows(i).Item(19), SQL.DBDT.Rows(i).Item(20), SQL.DBDT.Rows(i).Item(21),
+                    SQL.DBDT.Rows(i).Item(22), SQL.DBDT.Rows(0).Item(23))
+            Next
+            PrintPreviewPO.ReportViewer1.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout)
+            PrintPreviewPO.ReportViewer1.ZoomMode = ZoomMode.Percent
+            PrintPreviewPO.ReportViewer1.ZoomPercent = 100
+            PrintPreviewPO.barcode = DataSet11.PODetails
+            PrintPreviewPO.ShowDialog()
         Catch ex As Exception
-            msgboxDisplay(ex.Message, 3)
+            MsgBox(ex.Message, MsgBoxStyle.Critical, "Exception")
             Exit Sub
+        Finally
+            Button1.Text = "PRINT"
+            Button1.Enabled = True
         End Try
     End Sub
 

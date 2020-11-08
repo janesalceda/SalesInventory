@@ -285,8 +285,6 @@ Partial Public Class DataSet6
         
         Private columnCompanyLogo As Global.System.Data.DataColumn
         
-        Private columnitemid As Global.System.Data.DataColumn
-        
         Private columnNetSales As Global.System.Data.DataColumn
         
         Private columnBeginningInventory As Global.System.Data.DataColumn
@@ -345,14 +343,6 @@ Partial Public Class DataSet6
         Public ReadOnly Property CompanyLogoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCompanyLogo
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property itemidColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnitemid
             End Get
         End Property
         
@@ -465,9 +455,9 @@ Partial Public Class DataSet6
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDataTable1Row(ByVal CompanyLogo As String, ByVal itemid As String, ByVal NetSales As Decimal, ByVal BeginningInventory As Decimal, ByVal NetPurchase As Decimal, ByVal CostOfGoodsAvailSale As Decimal, ByVal Inventory As Decimal, ByVal GrossProfit As Decimal, ByVal From As String, ByVal _To As String, ByVal CostGoodSold As Decimal) As DataTable1Row
+        Public Overloads Function AddDataTable1Row(ByVal CompanyLogo() As Byte, ByVal NetSales As Decimal, ByVal BeginningInventory As Decimal, ByVal NetPurchase As Decimal, ByVal CostOfGoodsAvailSale As Decimal, ByVal Inventory As Decimal, ByVal GrossProfit As Decimal, ByVal From As String, ByVal _To As String, ByVal CostGoodSold As Decimal) As DataTable1Row
             Dim rowDataTable1Row As DataTable1Row = CType(Me.NewRow,DataTable1Row)
-            Dim columnValuesArray() As Object = New Object() {CompanyLogo, itemid, NetSales, BeginningInventory, NetPurchase, CostOfGoodsAvailSale, Inventory, GrossProfit, From, _To, CostGoodSold}
+            Dim columnValuesArray() As Object = New Object() {CompanyLogo, NetSales, BeginningInventory, NetPurchase, CostOfGoodsAvailSale, Inventory, GrossProfit, From, _To, CostGoodSold}
             rowDataTable1Row.ItemArray = columnValuesArray
             Me.Rows.Add(rowDataTable1Row)
             Return rowDataTable1Row
@@ -491,7 +481,6 @@ Partial Public Class DataSet6
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnCompanyLogo = MyBase.Columns("CompanyLogo")
-            Me.columnitemid = MyBase.Columns("itemid")
             Me.columnNetSales = MyBase.Columns("NetSales")
             Me.columnBeginningInventory = MyBase.Columns("BeginningInventory")
             Me.columnNetPurchase = MyBase.Columns("NetPurchase")
@@ -506,10 +495,8 @@ Partial Public Class DataSet6
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnCompanyLogo = New Global.System.Data.DataColumn("CompanyLogo", GetType(Byte()), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCompanyLogo)
-            Me.columnitemid = New Global.System.Data.DataColumn("itemid", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnitemid)
             Me.columnNetSales = New Global.System.Data.DataColumn("NetSales", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNetSales)
             Me.columnBeginningInventory = New Global.System.Data.DataColumn("BeginningInventory", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
@@ -677,31 +664,16 @@ Partial Public Class DataSet6
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property CompanyLogo() As String
+        Public Property CompanyLogo() As Byte()
             Get
                 Try 
-                    Return CType(Me(Me.tableDataTable1.CompanyLogoColumn),String)
+                    Return CType(Me(Me.tableDataTable1.CompanyLogoColumn),Byte())
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'CompanyLogo' in table 'DataTable1' is DBNull.", e)
                 End Try
             End Get
             Set
                 Me(Me.tableDataTable1.CompanyLogoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property itemid() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDataTable1.itemidColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'itemid' in table 'DataTable1' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDataTable1.itemidColumn) = value
             End Set
         End Property
         
@@ -850,18 +822,6 @@ Partial Public Class DataSet6
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetCompanyLogoNull()
             Me(Me.tableDataTable1.CompanyLogoColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsitemidNull() As Boolean
-            Return Me.IsNull(Me.tableDataTable1.itemidColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetitemidNull()
-            Me(Me.tableDataTable1.itemidColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

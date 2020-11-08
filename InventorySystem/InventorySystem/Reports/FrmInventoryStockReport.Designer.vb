@@ -37,7 +37,9 @@ Partial Class FrmInventoryStockReport
         Me.ACQTY = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BALANCE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Remarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataSet21 = New InventorySystem.DataSet2()
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label3
@@ -168,6 +170,11 @@ Partial Class FrmInventoryStockReport
         Me.Remarks.Name = "Remarks"
         Me.Remarks.ReadOnly = True
         '
+        'DataSet21
+        '
+        Me.DataSet21.DataSetName = "DataSet2"
+        Me.DataSet21.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'FrmInventoryStockReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -188,6 +195,7 @@ Partial Class FrmInventoryStockReport
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Inventory Stock Report"
         CType(Me.dgvData, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataSet21, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -208,4 +216,5 @@ Partial Class FrmInventoryStockReport
     Friend WithEvents ACQTY As DataGridViewTextBoxColumn
     Friend WithEvents BALANCE As DataGridViewTextBoxColumn
     Friend WithEvents Remarks As DataGridViewTextBoxColumn
+    Friend WithEvents DataSet21 As DataSet2
 End Class

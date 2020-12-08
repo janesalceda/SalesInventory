@@ -9,9 +9,13 @@
             End If
             If btnSave.Text = "INSERT PRICE" Then
                 FrmItemEntry.dtableItemPrices.Rows.Add(txtSupplierID.Text, dtAppliedDate.Value, txtUnitPrice.Text, "", txtSupItemCode.Text, "")
-                If Not String.IsNullOrWhiteSpace(FrmItemEntry.txtItemId.Text) Then
+                If FrmItemEntry.dtableItemPrices.Rows.Count <> 0 Or
+                    Not String.IsNullOrWhiteSpace(FrmItemEntry.dtableItemPrices.Rows(0).Cells(3).Value) Then
                     FrmItemEntry.btnSave.Text = "UPDATE"
                     FrmItemEntry.btnSave.Visible = True
+
+                Else
+                    FrmItemEntry.btnSave.Text = "SAVE"
                 End If
             Else
                 FrmItemEntry.dtableItemPrices.SelectedRows(0).Cells(0).Value = txtSupplierID.Text

@@ -42,6 +42,7 @@ Public Class FrmItemEntry
         Dim TableName As String
         Try
             Dim completefields As String = "Please input the ff:" & vbNewLine
+            If String.IsNullOrWhiteSpace(txtItemId.Text) Then completefields += "*ItemId" & vbNewLine
             If String.IsNullOrWhiteSpace(txtDes.Text) Then completefields += "*Description" & vbNewLine
             If cmbCliQtyUnit.SelectedIndex = -1 Then completefields += "*QtyUnit" & vbNewLine
             If cmbLocation.SelectedIndex = -1 Then completefields += "*Location" & vbNewLine
@@ -72,6 +73,7 @@ Public Class FrmItemEntry
                         MsgBox("Please comple all * important fields!", MsgBoxStyle.Exclamation, "Warning")
                         Exit Sub
                     End If
+                    SQL.AddParams("@itemid", txtItemId.Text)
                     SQL.AddParams("@description", txtDes.Text)
                     SQL.AddParams("@convertingcoefficient", txtConCoe.Text)
                     SQL.AddParams("@clientqtyunit", cmbCliQtyUnit.SelectedValue)
@@ -92,15 +94,15 @@ Public Class FrmItemEntry
 	                        (ItemId,Description,ConvertingCoefficient,CategoryID,ClientQtyUnit,SupplierQtyUnit,
 	                        Location,MaxOrderQty,OrderingPointQty,MinimumOrderQty,Remarks,UpdatedBy)
                         VALUES 
-	                            ((select 'IT'+replace(convert(date,GETDATE()),'-','') +'-' + 
-	                                CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
-                                    ELSE CAST(num+1 AS VARCHAR) END 'num' from
-                                    (SELECT(select count(*) from items where convert(date,createddate)=convert(date,getdate())) +
-                                    (select count(*) from ItemsForApproval where convert(date,createddate)=convert(date,getdate()))
-                                    'num')a
-                                ),@description,@convertingcoefficient,@category,@clientqtyunit,@supplierqtyunit,
+	                            (@itemid,@description,@convertingcoefficient,@category,@clientqtyunit,@supplierqtyunit,
 	                        @location,@maxorderqty,@orderingpointqty,@minimumorderqty,@remarks,@updatedby)")
-
+                    '(select 'IT'+replace(convert(date,GETDATE()),'-','') +'-' + 
+                    '           CASE WHEN num+1<10 THEN '0' + CAST(num+1 AS VARCHAR) 
+                    '              ELSE CAST(num+1 AS VARCHAR) END 'num' from
+                    '              (SELECT(select count(*) from items where convert(date,createddate)=convert(date,getdate())) +
+                    '              (select count(*) from ItemsForApproval where convert(date,createddate)=convert(date,getdate()))
+                    '              'num')a
+                    '          )
                     '(SELECT CASE WHEN max(ITEMID) IS NULL 
                     '    THEN 'IT' + replace(convert(VARCHAR(10),getdate(),111),'/','') +'-01' ELSE
                     '    CASE WHEN right(max(ITEMID),len(max(ITEMID))-CHARINDEX('-',max(ITEMID))) + 1<10
@@ -314,7 +316,7 @@ Public Class FrmItemEntry
     End Sub
 
     Private Sub TxtItemId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtItemId.KeyPress
-        e.Handled = False
+        'e.Handled = False
     End Sub
 
     Private Sub ChkApproved_CheckedChanged(sender As Object, e As EventArgs) Handles chkApproved.CheckedChanged

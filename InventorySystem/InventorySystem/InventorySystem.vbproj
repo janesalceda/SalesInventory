@@ -344,10 +344,10 @@
     <Compile Include="MasterList\Items\FrmPrintingBarcode.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RejectAndReturn\FrmRejectReturnEntry.Designer.vb">
+    <Compile Include="Resources\RejectAndReturn\FrmRejectReturnEntry.Designer.vb">
       <DependentUpon>FrmRejectReturnEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="RejectAndReturn\FrmRejectReturnEntry.vb">
+    <Compile Include="Resources\RejectAndReturn\FrmRejectReturnEntry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\DailyTransaction.Designer.vb">
@@ -531,10 +531,10 @@
     <Compile Include="MasterList\QtyUnits\FrmQtyUnitEntry.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RejectAndReturn\FrmRejectReturnSearch.Designer.vb">
+    <Compile Include="Resources\RejectAndReturn\FrmRejectReturnSearch.Designer.vb">
       <DependentUpon>FrmRejectReturnSearch.vb</DependentUpon>
     </Compile>
-    <Compile Include="RejectAndReturn\FrmRejectReturnSearch.vb">
+    <Compile Include="Resources\RejectAndReturn\FrmRejectReturnSearch.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Invoice\FrmSearchInvoice.Designer.vb">
@@ -726,10 +726,10 @@
     <EmbeddedResource Include="MasterList\Items\FrmPrintingBarcode.resx">
       <DependentUpon>FrmPrintingBarcode.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RejectAndReturn\FrmRejectReturnEntry.resx">
+    <EmbeddedResource Include="Resources\RejectAndReturn\FrmRejectReturnEntry.resx">
       <DependentUpon>FrmRejectReturnEntry.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RejectAndReturn\FrmRejectReturnSearch.resx">
+    <EmbeddedResource Include="Resources\RejectAndReturn\FrmRejectReturnSearch.resx">
       <DependentUpon>FrmRejectReturnSearch.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportdlc\DailyTransaction.rdlc" />

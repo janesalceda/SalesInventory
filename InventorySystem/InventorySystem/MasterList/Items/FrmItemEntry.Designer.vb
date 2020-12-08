@@ -40,6 +40,7 @@ Partial Class FrmItemEntry
         Me.cmbLocation = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.grpItemDetails = New System.Windows.Forms.GroupBox()
+        Me.chkApproved = New System.Windows.Forms.CheckBox()
         Me.chkDisuse = New System.Windows.Forms.CheckBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
@@ -72,7 +73,6 @@ Partial Class FrmItemEntry
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.chkApproved = New System.Windows.Forms.CheckBox()
         Me.grpItemDetails.SuspendLayout()
         CType(Me.picprint, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -91,6 +91,7 @@ Partial Class FrmItemEntry
         Me.txtItemId.Font = New System.Drawing.Font("Arial", 10.0!)
         Me.txtItemId.Location = New System.Drawing.Point(87, 20)
         Me.txtItemId.Margin = New System.Windows.Forms.Padding(2)
+        Me.txtItemId.MaxLength = 20
         Me.txtItemId.Name = "txtItemId"
         Me.txtItemId.Size = New System.Drawing.Size(164, 23)
         Me.txtItemId.TabIndex = 0
@@ -132,7 +133,7 @@ Partial Class FrmItemEntry
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(106, 27)
         Me.btnSave.TabIndex = 11
-        Me.btnSave.Text = "SAVE"
+        Me.btnSave.Text = " "
         Me.btnSave.UseVisualStyleBackColor = False
         Me.btnSave.Visible = False
         '
@@ -308,6 +309,17 @@ Partial Class FrmItemEntry
         Me.grpItemDetails.TabIndex = 55
         Me.grpItemDetails.TabStop = False
         Me.grpItemDetails.Text = "Item Details"
+        '
+        'chkApproved
+        '
+        Me.chkApproved.AutoSize = True
+        Me.chkApproved.Location = New System.Drawing.Point(532, 21)
+        Me.chkApproved.Name = "chkApproved"
+        Me.chkApproved.Size = New System.Drawing.Size(80, 20)
+        Me.chkApproved.TabIndex = 66
+        Me.chkApproved.Text = "Approved"
+        Me.chkApproved.UseVisualStyleBackColor = True
+        Me.chkApproved.Visible = False
         '
         'chkDisuse
         '
@@ -665,17 +677,6 @@ Partial Class FrmItemEntry
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Supplier Item Price"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'chkApproved
-        '
-        Me.chkApproved.AutoSize = True
-        Me.chkApproved.Location = New System.Drawing.Point(532, 21)
-        Me.chkApproved.Name = "chkApproved"
-        Me.chkApproved.Size = New System.Drawing.Size(80, 20)
-        Me.chkApproved.TabIndex = 66
-        Me.chkApproved.Text = "Approved"
-        Me.chkApproved.UseVisualStyleBackColor = True
-        Me.chkApproved.Visible = False
         '
         'FrmItemEntry
         '

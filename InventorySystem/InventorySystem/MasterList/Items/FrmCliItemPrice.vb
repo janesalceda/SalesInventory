@@ -8,10 +8,14 @@
         End If
         If btnSave.Text = "INSERT PRICE" Then
             FrmItemEntry.dtableCliPrice.Rows.Add(dtAppliedDate.Value, txtUnitPrice.Text, "", "")
-            If Not String.IsNullOrWhiteSpace(FrmItemEntry.txtItemId.Text) Then
-                FrmItemEntry.btnSave.Text = "UPDATE"
-                FrmItemEntry.btnSave.Visible = True
-            End If
+                If FrmItemEntry.dtableItemPrices.Rows.Count <> 0 Or
+                    Not String.IsNullOrWhiteSpace(FrmItemEntry.dtableItemPrices.Rows(0).Cells(3).Value) Then
+                    FrmItemEntry.btnSave.Text = "UPDATE"
+                    FrmItemEntry.btnSave.Visible = True
+                Else
+                    FrmItemEntry.btnSave.Text = "SAVE"
+
+                End If
         Else
             FrmItemEntry.dtableCliPrice.SelectedRows(0).Cells(1).Value = dtAppliedDate.Value.ToString("yyyy/MM/dd")
             FrmItemEntry.dtableCliPrice.SelectedRows(0).Cells(2).Value = txtUnitPrice.Text

@@ -575,3 +575,4 @@ C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\o
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewStockMonitoring.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewStockout.resources
 C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.PrintPreviewDelivery.resources
+C:\Users\memon\Documents\GitHub\SalesInventory\InventorySystem\InventorySystem\obj\Debug\InventorySystem.vbprojAssemblyReference.cache
